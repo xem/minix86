@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 431</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page431-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce431.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;11-19</p>
+<p style="position:absolute;top:47px;left:686px;white-space:nowrap" class="ft01">MEMORY CACHE CONTROL</p>
+<p style="position:absolute;top:97px;left:69px;white-space:nowrap" class="ft02">11.7&#160;</p>
+<p style="position:absolute;top:97px;left:148px;white-space:nowrap" class="ft02">IMPLICIT&#160;CACHING&#160;(PENTIUM 4, INTEL XEON,&#160;</p>
+<p style="position:absolute;top:123px;left:147px;white-space:nowrap" class="ft02">AND P6 FAMILY PROCESSORS)</p>
+<p style="position:absolute;top:159px;left:69px;white-space:nowrap" class="ft06">Implicit caching&#160;occurs&#160;when&#160;a memory element is&#160;made&#160;potentially&#160;cacheable,&#160;although&#160;the element may never&#160;<br/>have&#160;been accessed&#160;in the&#160;normal&#160;von Neumann sequence.&#160;Implicit caching&#160;occurs on the&#160;P6&#160;and&#160;more&#160;recent&#160;<br/>processor families due to&#160;aggressive prefetching,&#160;branch prediction,&#160;and&#160;TLB&#160;miss handling.&#160;Implicit&#160;caching is an&#160;<br/>extension of the&#160;behavior of existing&#160;Intel386, Intel486, and&#160;Pentium&#160;processor&#160;systems, since&#160;software&#160;running&#160;<br/>on these&#160;processor&#160;families also has&#160;not been&#160;able&#160;to&#160;deterministically&#160;predict the behavior of&#160;instruction prefetch.<br/>To&#160;avoid problems related&#160;to implicit&#160;caching, the&#160;operating system must&#160;explicitly&#160;invalidate the&#160;cache&#160;when&#160;<br/>changes are&#160;made&#160;to cacheable data that&#160;the cache&#160;coherency mechanism does not automatically handle.&#160;This&#160;<br/>includes&#160;writes&#160;to dual-ported&#160;or physically aliased memory boards that are not detected by&#160;the snooping&#160;mecha-<br/>nisms&#160;of the&#160;processor,&#160;and changes to&#160;page- table entries in memory.<br/>The&#160;code&#160;<a href="o_fe12b1e2a880e0ce-431.html">in Example&#160;11-1 s</a>hows the&#160;effect of&#160;implicit&#160;caching&#160;on page-table&#160;entries.&#160;The linear address&#160;F000H&#160;<br/>points to&#160;physical&#160;location B000H&#160;(the&#160;page-table entry for F000H contains the&#160;value B000H), and&#160;the page-table&#160;<br/>entry for linear&#160;address F000&#160;is PTE_F000.</p>
+<p style="position:absolute;top:396px;left:69px;white-space:nowrap" class="ft01">Example 11-1.&#160;&#160;Effect&#160;of&#160;Implicit&#160;Caching&#160;on&#160;Page-Table Entries</p>
+<p style="position:absolute;top:426px;left:69px;white-space:nowrap" class="ft09">mov EAX, CR3; Invalidate&#160;the&#160;TLB<br/>mov CR3, EAX; by&#160;copying CR3 to&#160;itself<br/>mov PTE_F000, A000H; Change&#160;F000H to point to&#160;A000H<br/>mov EBX, [F000H];</p>
+<p style="position:absolute;top:521px;left:69px;white-space:nowrap" class="ft06">Because of speculative execution in the P6 and more recent processor families, the last MOV instruction performed&#160;<br/>would place&#160;the value at&#160;physical&#160;location B000H&#160;into EBX, rather&#160;than the&#160;value&#160;at the&#160;new physical address&#160;<br/>A000H. This&#160;situation&#160;is remedied by placing a&#160;TLB invalidation between the&#160;load and the&#160;store.</p>
+<p style="position:absolute;top:610px;left:69px;white-space:nowrap" class="ft02">11.8 EXPLICIT&#160;</p>
+<p style="position:absolute;top:610px;left:237px;white-space:nowrap" class="ft02">CACHING</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft010">The Pentium&#160;III&#160;processor introduced&#160;four new instructions,&#160;the&#160;PREFETCH<i>h</i>&#160;instructions, that provide&#160;software with&#160;<br/>explicit&#160;control over the&#160;caching&#160;of data.&#160;These&#160;instructions&#160;provide&#160;“hints” to&#160;the&#160;processor&#160;that the data requested&#160;<br/>by a&#160;PREFETCH<i>h</i>&#160;instruction should be read&#160;into&#160;cache hierarchy now or as&#160;soon as&#160;possible,&#160;in anticipation&#160;of&#160;its&#160;<br/>use.&#160;The instructions provide different&#160;variations of the hint that allow selection of the cache level&#160;into which data&#160;<br/>will be&#160;read.<br/>The PREFETCH<i>h&#160;</i>instructions can help reduce&#160;the&#160;long latency typically associated with&#160;reading data from memory&#160;<br/>and thus help&#160;prevent processor “stalls.”&#160;However,&#160;these instructions should be&#160;used&#160;judiciously.&#160;Overuse can lead&#160;<br/>to resource&#160;conflicts and&#160;hence reduce&#160;the&#160;performance&#160;of&#160;an application.&#160;Also, these&#160;instructions&#160;should only be&#160;<br/>used to&#160;prefetch&#160;data from&#160;memory; they should&#160;not&#160;be&#160;used to&#160;prefetch&#160;instructions. For more&#160;detailed informa-<br/>tion on the&#160;proper&#160;use&#160;of&#160;the prefetch instruction,&#160;refer&#160;<a href="��">to Chapter&#160;7,&#160;“Optimizing Cache Usage,” in the&#160;<i>Intel® 64&#160;<br/>and&#160;IA-32 Architectures Optimization&#160;Reference&#160;Manual</i></a>.</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft02">11.9&#160;</p>
+<p style="position:absolute;top:874px;left:148px;white-space:nowrap" class="ft02">INVALIDATING THE TRANSLATION LOOKASIDE BUFFERS (TLBS)</p>
+<p style="position:absolute;top:910px;left:69px;white-space:nowrap" class="ft06">The processor updates its&#160;address translation&#160;caches&#160;(TLBs) transparently&#160;to software. Several mechanisms&#160;are&#160;<br/>available, however,&#160;that allow software&#160;and hardware to&#160;invalidate&#160;the&#160;TLBs&#160;either explicitly or as&#160;a side&#160;effect of&#160;<br/>another&#160;operation. Most details are give<a href="o_fe12b1e2a880e0ce-145.html">n in Section 4.10.4,&#160;“Invalidation&#160;of TLBs&#160;and Paging-Structure&#160;Caches.”</a>&#160;In&#160;<br/>addition,&#160;the following operations invalidate&#160;all TLB&#160;entries, irrespective&#160;of the&#160;setting&#160;of&#160;the G&#160;flag:</p>
+<p style="position:absolute;top:981px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:982px;left:95px;white-space:nowrap" class="ft03">Asserting or&#160;de-asserting&#160;the FLUSH# pin.</p>
+<p style="position:absolute;top:1003px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1004px;left:95px;white-space:nowrap" class="ft03">(Pentium 4, Intel&#160;Xeon, and&#160;later&#160;processors&#160;only.) Writing&#160;to an MTRR&#160;(with&#160;a WRMSR&#160;instruction).</p>
+<p style="position:absolute;top:1026px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1027px;left:95px;white-space:nowrap" class="ft03">Writing&#160;to control register&#160;CR0&#160;to modify&#160;the&#160;PG&#160;or PE&#160;flag.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 118</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page118-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce118.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-14&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:511px;left:68px;white-space:nowrap" class="ft02">4.4.2&#160;</p>
+<p style="position:absolute;top:511px;left:148px;white-space:nowrap" class="ft02">Linear-Address Translation with PAE Paging</p>
+<p style="position:absolute;top:542px;left:68px;white-space:nowrap" class="ft08">PAE paging may map&#160;linear addresses to&#160;either 4-KByte&#160;pages or&#160;<a href="o_fe12b1e2a880e0ce-119.html">2-MByte pages. Figure&#160;4-5&#160;</a>illustrates&#160;the&#160;trans-<br/>lation process when&#160;it produces&#160;a&#160;4-KByte page<a href="o_fe12b1e2a880e0ce-120.html">; Figure&#160;4-6&#160;</a>covers the case of&#160;a 2-MByte page.&#160;The following items&#160;<br/>describe the&#160;PAE&#160;paging process in&#160;more detail as&#160;well has&#160;how the&#160;page size&#160;is determined:</p>
+<p style="position:absolute;top:597px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:598px;left:93px;white-space:nowrap" class="ft08">Bits&#160;31:30&#160;of the linear address&#160;select a PDPTE&#160;register (see<a href="o_fe12b1e2a880e0ce-117.html">&#160;Section 4.4.1);&#160;</a>this is PDPTE<i>i</i>, where&#160;<i>i</i>&#160;is&#160;the value&#160;<br/>of bits 31:30.</p>
+<p style="position:absolute;top:611px;left:184px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:614px;left:191px;white-space:nowrap" class="ft03">&#160;Because a&#160;PDPTE register&#160;is&#160;identified&#160;using bits&#160;31:30&#160;of&#160;the linear address, it controls&#160;access&#160;</p>
+<p style="position:absolute;top:631px;left:93px;white-space:nowrap" class="ft08">to a&#160;1-GByte region&#160;of the&#160;linear-address&#160;space.&#160;If&#160;the&#160;P&#160;flag (bit&#160;0) of PDPTE<i>i</i>&#160;is 0,&#160;the processor ignores&#160;bits&#160;<br/>63:1,&#160;and there is&#160;no mapping for the 1-GByte&#160;region&#160;controlled&#160;by PDPTE<i>i</i>. A reference using&#160;a&#160;linear address&#160;<br/>in&#160;this&#160;region&#160;causes a&#160;page-fault&#160;exception (see<a href="o_fe12b1e2a880e0ce-135.html">&#160;Section 4.7)</a>.</p>
+<p style="position:absolute;top:685px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:686px;left:93px;white-space:nowrap" class="ft09">If the P flag of PDPTE<i>i</i>&#160;is 1,&#160;4-KByte naturally&#160;aligned page directory is located at the physical address specified&#160;<br/>in&#160;bits&#160;51:12&#160;of&#160;PDPTE<i>i</i>&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-118.html">Table&#160;4-8&#160;</a>in&#160;<a href="o_fe12b1e2a880e0ce-117.html">Section 4.4.1).</a>&#160;A&#160;page&#160;directory comprises 512&#160;64-bit entries&#160;(PDEs).&#160;<br/>A PDE is&#160;selected&#160;using&#160;the physical address&#160;defined as&#160;follows:<br/>—&#160;Bits&#160;51:12&#160;are from PDPTE<i>i</i>.<br/>—&#160;Bits&#160;11:3&#160;are&#160;bits&#160;29:21&#160;of&#160;the&#160;linear&#160;address.<br/>—&#160;Bits&#160;2:0&#160;are&#160;0.</p>
+<p style="position:absolute;top:815px;left:68px;white-space:nowrap" class="ft08">Because&#160;a PDE is&#160;identified&#160;using bits&#160;31:21&#160;of the&#160;linear address,&#160;it&#160;controls access to&#160;a 2-Mbyte&#160;region&#160;of&#160;the&#160;<br/>linear-address space.&#160;Use&#160;of&#160;the PDE depends on its&#160;PS&#160;flag&#160;(bit&#160;7):</p>
+<p style="position:absolute;top:853px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:854px;left:93px;white-space:nowrap" class="ft09">If the PDE’s PS&#160;flag&#160;is 1,&#160;the PDE maps a&#160;2-MByte&#160;page (see<a href="o_fe12b1e2a880e0ce-120.html">&#160;Table&#160;4-9).</a>&#160;The&#160;final physical address is computed&#160;<br/>as follows:<br/>—&#160;Bits&#160;51:21&#160;are from the&#160;PDE.<br/>—&#160;Bits&#160;20:0 are&#160;from&#160;the&#160;original linear&#160;address.</p>
+<p style="position:absolute;top:940px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:941px;left:93px;white-space:nowrap" class="ft09">If the&#160;PDE’s PS flag is&#160;0,&#160;a 4-KByte&#160;naturally&#160;aligned page&#160;table&#160;is located at&#160;the physical address&#160;specified in&#160;<br/>bits&#160;51:12 of&#160;<a href="o_fe12b1e2a880e0ce-121.html">the PDE (see Table&#160;4-10)</a>. A&#160;page table&#160;comprises 512&#160;64-bit entries&#160;(PTEs). A PTE&#160;is&#160;selected&#160;<br/>using&#160;the physical address&#160;defined as follows:<br/>—&#160;Bits&#160;51:12&#160;are from the&#160;PDE.</p>
+<p style="position:absolute;top:100px;left:211px;white-space:nowrap" class="ft07">Table 4-8. &#160;Format of&#160;a&#160;PAE&#160;Page-Directory-Pointer-Table Entry (PDPTE)</p>
+<p style="position:absolute;top:133px;left:78px;white-space:nowrap" class="ft03">Bit&#160;</p>
+<p style="position:absolute;top:148px;left:78px;white-space:nowrap" class="ft03">Position(s)</p>
+<p style="position:absolute;top:133px;left:165px;white-space:nowrap" class="ft03">Contents</p>
+<p style="position:absolute;top:177px;left:78px;white-space:nowrap" class="ft03">0 (P)</p>
+<p style="position:absolute;top:177px;left:165px;white-space:nowrap" class="ft03">Present; must&#160;be&#160;1&#160;to&#160;reference a&#160;page&#160;directory</p>
+<p style="position:absolute;top:205px;left:78px;white-space:nowrap" class="ft03">2:1</p>
+<p style="position:absolute;top:205px;left:165px;white-space:nowrap" class="ft03">Reserved (must be&#160;0)</p>
+<p style="position:absolute;top:234px;left:78px;white-space:nowrap" class="ft03">3 (PWT)</p>
+<p style="position:absolute;top:234px;left:165px;white-space:nowrap" class="ft03">Page-level write-through; indirectly&#160;determines the memory&#160;type&#160;used&#160;to&#160;access the page&#160;directory referenced&#160;by&#160;</p>
+<p style="position:absolute;top:250px;left:165px;white-space:nowrap" class="ft03">this en<a href="o_fe12b1e2a880e0ce-138.html">try (see Section 4.9)</a></p>
+<p style="position:absolute;top:279px;left:78px;white-space:nowrap" class="ft03">4 (PCD)</p>
+<p style="position:absolute;top:279px;left:165px;white-space:nowrap" class="ft03">Page-level cache&#160;disable; indirectly determines the memory type&#160;used&#160;to&#160;access the&#160;page&#160;directory&#160;referenced by&#160;</p>
+<p style="position:absolute;top:295px;left:165px;white-space:nowrap" class="ft03">this en<a href="o_fe12b1e2a880e0ce-138.html">try (see Section 4.9)</a></p>
+<p style="position:absolute;top:324px;left:78px;white-space:nowrap" class="ft03">8:5</p>
+<p style="position:absolute;top:324px;left:165px;white-space:nowrap" class="ft03">Reserved (must be&#160;0)</p>
+<p style="position:absolute;top:352px;left:78px;white-space:nowrap" class="ft03">11:9</p>
+<p style="position:absolute;top:352px;left:165px;white-space:nowrap" class="ft03">Ignored</p>
+<p style="position:absolute;top:381px;left:78px;white-space:nowrap" class="ft03">(M–1):12</p>
+<p style="position:absolute;top:381px;left:165px;white-space:nowrap" class="ft03">Physical&#160;address&#160;of&#160;4-KByte aligned page&#160;directory referenced&#160;by this&#160;entry</p>
+<p style="position:absolute;top:378px;left:595px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:409px;left:78px;white-space:nowrap" class="ft03">63:M</p>
+<p style="position:absolute;top:409px;left:165px;white-space:nowrap" class="ft03">Reserved&#160;(must be&#160;0)</p>
+<p style="position:absolute;top:439px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:458px;left:69px;white-space:nowrap" class="ft03">1. M is an abbreviation for MAXPHYADDR,&#160;which is&#160;at&#160;most&#160;52; see<a href="o_fe12b1e2a880e0ce-109.html">&#160;Section&#160;4.1.4.</a></p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">1.&#160;With PAE&#160;paging, the&#160;processor does not use&#160;CR3 when&#160;translating&#160;a linear address&#160;(as it&#160;does&#160;in&#160;the&#160;other paging&#160;modes).&#160;It&#160;does&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">not access&#160;the&#160;PDPTEs&#160;in&#160;the page-directory-pointer&#160;table&#160;during&#160;linear-address translation.</p>
+</div>
+</body>
+</html>

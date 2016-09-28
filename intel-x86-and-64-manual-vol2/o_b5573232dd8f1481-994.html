@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 994</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page994-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481994.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:533px;white-space:nowrap" class="ft00">PMAXUB/PMAXUW—Maximum&#160;of&#160;Packed Unsigned Integers</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-314&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC2[15:0]; FI;</p>
+<p style="position:absolute;top:118px;left:88px;white-space:nowrap" class="ft03">(* Repeat operation for&#160;2nd through&#160;7th words in&#160;source and&#160;destination operands&#160;*)<br/>IF SRC1[127:112] &gt;SRC2[127:112] THEN</p>
+<p style="position:absolute;top:154px;left:115px;white-space:nowrap" class="ft02">DEST[127:112]&#160;&#160;SRC1[127:112];</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:190px;left:115px;white-space:nowrap" class="ft02">DEST[127:112]&#160;&#160;SRC2[127:112]; FI;</p>
+<p style="position:absolute;top:208px;left:68px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft02">VPMAXUW (VEX.256 encoded version)</p>
+<p style="position:absolute;top:262px;left:88px;white-space:nowrap" class="ft02">IF&#160;SRC1[15:0] &gt;&#160;SRC2[15:0] THEN</p>
+<p style="position:absolute;top:280px;left:115px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC1[15:0];</p>
+<p style="position:absolute;top:298px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:316px;left:115px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC2[15:0]; FI;</p>
+<p style="position:absolute;top:334px;left:88px;white-space:nowrap" class="ft03">(*&#160;Repeat&#160;operation&#160;for 2nd&#160;through 15th words in&#160;source and&#160;destination operands&#160;*)<br/>IF SRC1[255:240] &gt;SRC2[255:240] THEN</p>
+<p style="position:absolute;top:370px;left:115px;white-space:nowrap" class="ft02">DEST[255:240]&#160;&#160;SRC1[255:240];</p>
+<p style="position:absolute;top:388px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:406px;left:115px;white-space:nowrap" class="ft02">DEST[255:240]&#160;&#160;SRC2[255:240]; FI;</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:460px;left:68px;white-space:nowrap" class="ft03">VPMAXUW (EVEX encoded&#160;versions)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:514px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:550px;left:115px;white-space:nowrap" class="ft02">IF SRC1[i+15:i] &gt;&#160;SRC2[i+15:i]&#160;</p>
+<p style="position:absolute;top:568px;left:142px;white-space:nowrap" class="ft03">THEN DEST[i+15:i]&#160;&#160;SRC1[i+15:i];<br/>ELSE DEST[i+15:i]&#160;&#160;SRC2[i+15:i];&#160;</p>
+<p style="position:absolute;top:604px;left:115px;white-space:nowrap" class="ft03">FI;<br/>ELSE&#160;</p>
+<p style="position:absolute;top:640px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:640px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:658px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:676px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:694px;left:196px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0</p>
+<p style="position:absolute;top:712px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:730px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:748px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:800px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:823px;left:68px;white-space:nowrap" class="ft03">VPMAXUB __m512i _mm512_max_epu8( __m512i a, __m512i b);<br/>VPMAXUB __m512i _mm512_mask_max_epu8(__m512i&#160;s, __mmask64&#160;k, __m512i&#160;a, __m512i b);<br/>VPMAXUB __m512i _mm512_maskz_max_epu8(&#160;__mmask64&#160;k, __m512i a, __m512i b);<br/>VPMAXUW __m512i _mm512_max_epu16( __m512i a,&#160;__m512i&#160;b);<br/>VPMAXUW __m512i _mm512_mask_max_epu16(__m512i s,&#160;__mmask32 k, __m512i a,&#160;__m512i&#160;b);<br/>VPMAXUW __m512i _mm512_maskz_max_epu16(&#160;__mmask32&#160;k, __m512i a, __m512i b);<br/>VPMAXUB __m256i _mm256_mask_max_epu8(__m256i&#160;s, __mmask32&#160;k, __m256i&#160;a, __m256i b);<br/>VPMAXUB __m256i _mm256_maskz_max_epu8(&#160;__mmask32&#160;k, __m256i a, __m256i b);<br/>VPMAXUW __m256i _mm256_mask_max_epu16(__m256i s,&#160;__mmask16 k, __m256i a,&#160;__m256i&#160;b);<br/>VPMAXUW __m256i _mm256_maskz_max_epu16(&#160;__mmask16&#160;k, __m256i a, __m256i b);<br/>VPMAXUB __m128i _mm_mask_max_epu8(__m128i&#160;s, __mmask16&#160;k, __m128i a, __m128i b);<br/>VPMAXUB __m128i _mm_maskz_max_epu8( __mmask16&#160;k, __m128i a,&#160;__m128i b);<br/>VPMAXUW __m128i _mm_mask_max_epu16(__m128i s, __mmask8 k, __m128i a, __m128i b);<br/>VPMAXUW __m128i _mm_maskz_max_epu16(&#160;__mmask8 k, __m128i a, __m128i b);</p>
+</div>
+</body>
+</html>

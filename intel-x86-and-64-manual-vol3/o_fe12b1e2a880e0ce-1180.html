@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1180</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1180-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1180.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">29-14&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND&#160;VIRTUAL INTERRUPTS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">4.&#160;The processor writes&#160;zero&#160;to the&#160;EOI&#160;register in&#160;the&#160;local&#160;APIC; this&#160;dismisses&#160;the interrupt with the&#160;posted-</p>
+<p style="position:absolute;top:117px;left:93px;white-space:nowrap" class="ft02">interrupt notification&#160;vector from&#160;the&#160;local APIC.</p>
+<p style="position:absolute;top:141px;left:68px;white-space:nowrap" class="ft02">5.&#160;The&#160;logical&#160;processor&#160;performs a logical-OR of PIR into&#160;VIRR and clears&#160;PIR. No other&#160;agent&#160;can read or write a&#160;</p>
+<p style="position:absolute;top:157px;left:93px;white-space:nowrap" class="ft02">PIR bit&#160;(or&#160;group of bits) between the time&#160;it is read (to&#160;determine what to OR into VIRR) and when&#160;it is cleared.</p>
+<p style="position:absolute;top:181px;left:68px;white-space:nowrap" class="ft02">6.&#160;The logical&#160;processor sets RVI&#160;to be the maximum of the&#160;old value of RVI and the&#160;highest index&#160;of&#160;all bits&#160;that&#160;</p>
+<p style="position:absolute;top:198px;left:93px;white-space:nowrap" class="ft02">were&#160;set in&#160;PIR;&#160;if no bit was&#160;set in&#160;PIR, RVI is&#160;left unmodified.</p>
+<p style="position:absolute;top:222px;left:68px;white-space:nowrap" class="ft05">7.&#160;The&#160;logical processor evaluates pending&#160;virtual&#160;interrupts as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-1169.html">in Section 29.2.1.<br/></a>The logical processor performs&#160;the steps above&#160;in&#160;an uninterruptible&#160;manner.&#160;If step<a href="o_fe12b1e2a880e0ce-1180.html">&#160;#7&#160;</a>leads&#160;to recognition&#160;of a&#160;<br/>virtual&#160;interrupt, the&#160;processor&#160;may deliver that interrupt immediately.<br/><a href="o_fe12b1e2a880e0ce-1180.html">Steps #1 to #7</a>&#160;above occur&#160;when the&#160;interrupt&#160;controller&#160;delivers&#160;an unmasked external interrupt to&#160;the CPU&#160;core.&#160;<br/>The following items&#160;consider&#160;certain cases of&#160;interrupt&#160;delivery:</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:325px;left:93px;white-space:nowrap" class="ft06">Interrupt delivery&#160;can occur between iterations of&#160;a&#160;REP-prefixed instruction (after&#160;at least one&#160;iteration&#160;has&#160;<br/>completed&#160;but before&#160;all&#160;iterations&#160;have completed). If&#160;this occurs,&#160;the following items&#160;characterize&#160;processor&#160;<br/>state&#160;after&#160;posted-interrupt processing completes&#160;and before&#160;guest execution&#160;resumes:<br/>—&#160;RIP references&#160;the&#160;REP-prefixed&#160;instruction;<br/>—&#160;RCX,&#160;RSI,&#160;and&#160;RDI are&#160;updated to&#160;reflect&#160;the iterations completed;&#160;and<br/>—&#160;RFLAGS.RF&#160;&#160;=&#160;&#160;1.</p>
+<p style="position:absolute;top:452px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:453px;left:93px;white-space:nowrap" class="ft05">Interrupt&#160;delivery can&#160;occur&#160;when&#160;the logical processor is&#160;in the&#160;active, HLT,&#160;or MWAIT states.&#160;If the&#160;logical&#160;<br/>processor had&#160;been&#160;in the&#160;active&#160;or MWAIT state before the&#160;arrival of the&#160;interrupt, it is&#160;in the&#160;active&#160;state&#160;<br/>following&#160;<a href="o_fe12b1e2a880e0ce-1180.html">completion of step #7;&#160;</a>if&#160;it&#160;had&#160;been&#160;in the&#160;HLT&#160;state,&#160;it&#160;returns to the&#160;HLT state&#160;after&#160;step&#160;<a href="o_fe12b1e2a880e0ce-1180.html">#7</a>&#160;(if a&#160;<br/>pending virtual interrupt&#160;was recognized, the&#160;logical&#160;processor may&#160;immediately&#160;wake&#160;from the&#160;HLT&#160;state).</p>
+<p style="position:absolute;top:524px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:525px;left:93px;white-space:nowrap" class="ft05">Interrupt delivery&#160;can occur&#160;while&#160;the logical processor is&#160;in enclave mode. If&#160;the logical processor had&#160;been&#160;in&#160;<br/>enclave mode&#160;before&#160;the&#160;arrival&#160;of&#160;the interrupt,&#160;an&#160;Asynchronous&#160;Enclave Exit (AEX) may occur before the&#160;<br/>step<a href="o_fe12b1e2a880e0ce-1179.html">s #1&#160;</a><a href="o_fe12b1e2a880e0ce-1180.html">to #7 (se</a>e<a href="o_fe12b1e2a880e0ce-1803.html">&#160;Chapter&#160;40,&#160;“Enclave&#160;Exiting&#160;Events”).&#160;</a>If&#160;no AEX occurs before step&#160;<a href="o_fe12b1e2a880e0ce-1179.html">#1&#160;</a>and a&#160;VM&#160;exit&#160;<br/>occurs at<a href="o_fe12b1e2a880e0ce-1179.html">&#160;step #2,&#160;</a>an AEX occurs&#160;before&#160;the&#160;VM&#160;exit is&#160;delivered.</p>
+</div>
+</body>
+</html>

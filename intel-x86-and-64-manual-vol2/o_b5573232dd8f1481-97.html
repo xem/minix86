@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 97</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page97-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481097.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 2A&#160;2-37</p>
+<p style="position:absolute;top:47px;left:706px;white-space:nowrap" class="ft01">INSTRUCTION FORMAT</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft02">The&#160;bit fields in P[23:0]&#160;are&#160;divided&#160;into&#160;the following&#160;functional grou<a href="o_b5573232dd8f1481-97.html">ps (Table&#160;2-30&#160;prov</a>ides&#160;a&#160;tabular summary):</p>
+<p style="position:absolute;top:533px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:534px;left:95px;white-space:nowrap" class="ft02">Reserved bits:&#160;P[3:2] must be&#160;0,&#160;otherwise #UD.</p>
+<p style="position:absolute;top:556px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:556px;left:95px;white-space:nowrap" class="ft02">Fixed-value bit: P[10]&#160;must&#160;be&#160;1,&#160;otherwise #UD.</p>
+<p style="position:absolute;top:578px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:579px;left:95px;white-space:nowrap" class="ft05">Compressed legacy&#160;prefix/escape bytes:&#160;P[1:0] is&#160;identical to&#160;the lowest&#160;2 bits of VEX.mmmmm;&#160;P[9:8] is&#160;<br/>identical to&#160;VEX.pp.</p>
+<p style="position:absolute;top:617px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:618px;left:95px;white-space:nowrap" class="ft05">Operand specifier modifier bits for&#160;vector register, general&#160;purpose register,&#160;memory addressing: P[7:5]&#160;allows&#160;<br/>access to the&#160;next&#160;set of 8 registers beyond&#160;the low 8&#160;registers when combined with ModR/M register specifiers.&#160;</p>
+<p style="position:absolute;top:656px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:657px;left:95px;white-space:nowrap" class="ft05">Operand specifier modifier bit for vector register: P[4] (or EVEX.R’)&#160;allows access to the high 16&#160;vector register&#160;<br/>set when&#160;combined with P[7] and&#160;ModR/M.reg specifier;&#160;P[6]&#160;can also provide&#160;access&#160;to a&#160;high 16&#160;vector&#160;<br/>register when SIB or VSIB&#160;addressing are not needed.</p>
+<p style="position:absolute;top:712px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:712px;left:95px;white-space:nowrap" class="ft05">Non-destructive&#160;source&#160;/vector index&#160;operand specifier:&#160;P[19]&#160;and P[14:11] encode&#160;the&#160;second&#160;source vector&#160;<br/>register&#160;operand in&#160;a non-destructive source&#160;syntax, vector index&#160;register operand&#160;can&#160;access&#160;an upper 16&#160;<br/>vector register&#160;using P[19].</p>
+<p style="position:absolute;top:767px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:768px;left:95px;white-space:nowrap" class="ft05">Op-mask register&#160;specifiers:&#160;P[18:16]&#160;encodes&#160;op-mask register set&#160;k0-k7 in instructions&#160;operating on vector&#160;<br/>registers.</p>
+<p style="position:absolute;top:806px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:807px;left:95px;white-space:nowrap" class="ft05">EVEX.W:&#160;P[15] is&#160;similar to VEX.W which serves either&#160;as opcode&#160;extension bit&#160;or operand&#160;size&#160;promotion&#160;to&#160;<br/>64-bit in 64-bit&#160;mode.</p>
+<p style="position:absolute;top:845px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:846px;left:95px;white-space:nowrap" class="ft05">Vector&#160;destination merging/zeroing: P[23]&#160;encodes&#160;the&#160;destination&#160;result behavior&#160;which either zeroes&#160;the&#160;<br/>masked&#160;elements&#160;or leave masked element unchanged.</p>
+<p style="position:absolute;top:884px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:885px;left:95px;white-space:nowrap" class="ft06">Broadcast/Static-rounding/SAE context bit:&#160;P[20]&#160;encodes&#160;multiple functionality,&#160;which differs across&#160;different&#160;<br/>classes of instructions and&#160;can affect&#160;the&#160;meaning&#160;of&#160;the&#160;remaining field (EVEX.L’L). The functionality&#160;for&#160;the&#160;<br/>following instruction classes&#160;are:<br/>—&#160;Broadcasting&#160;a single element across&#160;the destination vector register:&#160;this&#160;applies to&#160;the instruction&#160;class&#160;</p>
+<p style="position:absolute;top:958px;left:120px;white-space:nowrap" class="ft02">with Load+Op semantic&#160;where one&#160;of&#160;the&#160;source operand&#160;is from memory.&#160;</p>
+<p style="position:absolute;top:982px;left:94px;white-space:nowrap" class="ft02">—&#160;Redirect L’L&#160;field&#160;(P[22:21]) as&#160;static rounding&#160;control&#160;for&#160;floating-point instructions with rounding&#160;</p>
+<p style="position:absolute;top:999px;left:120px;white-space:nowrap" class="ft02">semantic. Static&#160;rounding control overrides&#160;MXCSR.RC&#160;field&#160;and implies “Suppress&#160;all exceptions” (SAE).</p>
+<p style="position:absolute;top:1023px;left:94px;white-space:nowrap" class="ft06">—&#160;Enable&#160;SAE&#160;for floating&#160;-point instructions with arithmetic&#160;semantic that is&#160;not rounding.<br/>—&#160;For instruction classes outside of the&#160;afore-mentioned three&#160;classes, setting EVEX.b will cause&#160;#UD.</p>
+<p style="position:absolute;top:113px;left:271px;white-space:nowrap" class="ft04">Table&#160;2-30. &#160;EVEX Prefix&#160;Bit&#160;Field&#160;Functional Grouping</p>
+<p style="position:absolute;top:137px;left:91px;white-space:nowrap" class="ft02">Notation</p>
+<p style="position:absolute;top:137px;left:233px;white-space:nowrap" class="ft02">Bit field Group</p>
+<p style="position:absolute;top:137px;left:402px;white-space:nowrap" class="ft02">Position</p>
+<p style="position:absolute;top:137px;left:620px;white-space:nowrap" class="ft02">Comment</p>
+<p style="position:absolute;top:162px;left:77px;white-space:nowrap" class="ft02">--</p>
+<p style="position:absolute;top:162px;left:169px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:162px;left:395px;white-space:nowrap" class="ft02">P[3 : 2]</p>
+<p style="position:absolute;top:162px;left:470px;white-space:nowrap" class="ft02">Must be&#160;0.</p>
+<p style="position:absolute;top:186px;left:77px;white-space:nowrap" class="ft02">--</p>
+<p style="position:absolute;top:186px;left:169px;white-space:nowrap" class="ft02">Fixed Value</p>
+<p style="position:absolute;top:186px;left:395px;white-space:nowrap" class="ft02">P[10]</p>
+<p style="position:absolute;top:186px;left:470px;white-space:nowrap" class="ft02">Must&#160;be 1.</p>
+<p style="position:absolute;top:209px;left:77px;white-space:nowrap" class="ft02">EVEX.mm</p>
+<p style="position:absolute;top:209px;left:169px;white-space:nowrap" class="ft02">Compressed legacy escape</p>
+<p style="position:absolute;top:209px;left:396px;white-space:nowrap" class="ft02">P[1:&#160;0]</p>
+<p style="position:absolute;top:209px;left:470px;white-space:nowrap" class="ft02">Identical to&#160;low two&#160;bits&#160;of&#160;VEX.mmmmm.</p>
+<p style="position:absolute;top:234px;left:77px;white-space:nowrap" class="ft02">EVEX.pp</p>
+<p style="position:absolute;top:234px;left:169px;white-space:nowrap" class="ft02">Compressed&#160;legacy prefix</p>
+<p style="position:absolute;top:234px;left:396px;white-space:nowrap" class="ft02">P[9 : 8]</p>
+<p style="position:absolute;top:234px;left:470px;white-space:nowrap" class="ft02">Identical to&#160;VEX.pp.</p>
+<p style="position:absolute;top:258px;left:77px;white-space:nowrap" class="ft02">EVEX.RXB</p>
+<p style="position:absolute;top:258px;left:169px;white-space:nowrap" class="ft02">Next-8&#160;register&#160;specifier modifier</p>
+<p style="position:absolute;top:258px;left:395px;white-space:nowrap" class="ft02">P[7&#160;: 5]</p>
+<p style="position:absolute;top:258px;left:470px;white-space:nowrap" class="ft02">Combine&#160;with&#160;ModR/M.reg, ModR/M.rm&#160;(base, index/vidx).</p>
+<p style="position:absolute;top:281px;left:77px;white-space:nowrap" class="ft02">EVEXR’</p>
+<p style="position:absolute;top:281px;left:169px;white-space:nowrap" class="ft02">High-16 register&#160;specifier modifier</p>
+<p style="position:absolute;top:281px;left:396px;white-space:nowrap" class="ft02">P[4]</p>
+<p style="position:absolute;top:281px;left:470px;white-space:nowrap" class="ft02">Combine&#160;with&#160;EVEX.R&#160;and&#160;ModR/M.reg.</p>
+<p style="position:absolute;top:305px;left:77px;white-space:nowrap" class="ft02">EVEXX</p>
+<p style="position:absolute;top:305px;left:169px;white-space:nowrap" class="ft02">High-16 register&#160;specifier modifier</p>
+<p style="position:absolute;top:305px;left:396px;white-space:nowrap" class="ft02">P[6]</p>
+<p style="position:absolute;top:305px;left:470px;white-space:nowrap" class="ft02">Combine&#160;with&#160;EVEX.B&#160;and ModR/M.rm, when&#160;SIB/VSIB&#160;absent.</p>
+<p style="position:absolute;top:330px;left:77px;white-space:nowrap" class="ft02">EVEX.vvvv</p>
+<p style="position:absolute;top:330px;left:169px;white-space:nowrap" class="ft02">NDS register specifier</p>
+<p style="position:absolute;top:330px;left:395px;white-space:nowrap" class="ft02">P[14&#160;: 11]</p>
+<p style="position:absolute;top:330px;left:470px;white-space:nowrap" class="ft02">Same as&#160;VEX.vvvv.</p>
+<p style="position:absolute;top:353px;left:77px;white-space:nowrap" class="ft02">EVEXV’</p>
+<p style="position:absolute;top:353px;left:169px;white-space:nowrap" class="ft02">High-16 NDS/VIDX&#160;register specifier</p>
+<p style="position:absolute;top:353px;left:396px;white-space:nowrap" class="ft02">P[19]</p>
+<p style="position:absolute;top:353px;left:470px;white-space:nowrap" class="ft02">Combine&#160;with&#160;EVEX.vvvv or&#160;when&#160;VSIB present.</p>
+<p style="position:absolute;top:377px;left:77px;white-space:nowrap" class="ft02">EVEX.aaa</p>
+<p style="position:absolute;top:377px;left:169px;white-space:nowrap" class="ft02">Embedded&#160;opmask register&#160;specifier</p>
+<p style="position:absolute;top:377px;left:395px;white-space:nowrap" class="ft02">P[18 : 16]</p>
+<p style="position:absolute;top:402px;left:77px;white-space:nowrap" class="ft02">EVEX.W</p>
+<p style="position:absolute;top:402px;left:169px;white-space:nowrap" class="ft02">Osize&#160;promotion/Opcode&#160;extension</p>
+<p style="position:absolute;top:402px;left:395px;white-space:nowrap" class="ft02">P[15]</p>
+<p style="position:absolute;top:426px;left:77px;white-space:nowrap" class="ft02">EVEX.z</p>
+<p style="position:absolute;top:426px;left:169px;white-space:nowrap" class="ft02">Zeroing/Merging</p>
+<p style="position:absolute;top:426px;left:395px;white-space:nowrap" class="ft02">P[23]</p>
+<p style="position:absolute;top:449px;left:77px;white-space:nowrap" class="ft02">EVEX.b</p>
+<p style="position:absolute;top:449px;left:169px;white-space:nowrap" class="ft02">Broadcast/RC/SAE Context</p>
+<p style="position:absolute;top:449px;left:395px;white-space:nowrap" class="ft02">P[20]</p>
+<p style="position:absolute;top:474px;left:77px;white-space:nowrap" class="ft02">EVEX.L’L</p>
+<p style="position:absolute;top:474px;left:169px;white-space:nowrap" class="ft02">Vector&#160;length/RC</p>
+<p style="position:absolute;top:474px;left:395px;white-space:nowrap" class="ft02">P[22 : 21]</p>
+</div>
+</body>
+</html>

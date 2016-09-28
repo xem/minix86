@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1779</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1779-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1779.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;38-9</p>
+<p style="position:absolute;top:47px;left:534px;white-space:nowrap" class="ft01">ENCLAVE ACCESS&#160;CONTROL AND DATA STRUCTURES</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft02">38.9.1.2 &#160;&#160;VECTOR Field Definition</p>
+<p style="position:absolute;top:403px;left:69px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-1779.html">Table&#160;38-10&#160;contains the</a>&#160;VECTOR&#160;field.&#160;This&#160;field&#160;contains information&#160;about&#160;some&#160;exceptions which occur inside&#160;<br/>the enclave.&#160;These&#160;vector&#160;values&#160;are the&#160;same as&#160;the values that&#160;would&#160;be&#160;used&#160;when vectoring into regular excep-<br/>tion handlers. All values&#160;not&#160;shown&#160;are not reported inside an enclave.&#160;</p>
+<p style="position:absolute;top:779px;left:69px;white-space:nowrap" class="ft04">38.9.2 MISC&#160;</p>
+<p style="position:absolute;top:779px;left:193px;white-space:nowrap" class="ft04">Region</p>
+<p style="position:absolute;top:808px;left:69px;white-space:nowrap" class="ft07">The&#160;layout of&#160;the MISC region is&#160;shown&#160;<a href="o_fe12b1e2a880e0ce-1780.html">in Table 38-11.&#160;</a>The number&#160;of components&#160;that the&#160;processor supports in&#160;<br/>the MISC region corresponds to&#160;the set&#160;bits&#160;of&#160;CPUID.(EAX=12H, ECX=0):EBX[31:0] set to 1.&#160;Each&#160;set bit in&#160;<br/>CPUID.(EAX=12H, ECX=0):EBX[31:0]&#160;has&#160;a defined&#160;size for the&#160;corresponding component, as&#160;<a href="o_fe12b1e2a880e0ce-1780.html">shown in&#160;Table&#160;<br/>38-11</a>. Enclave&#160;writers needs to&#160;do&#160;the following:</p>
+<p style="position:absolute;top:879px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:880px;left:95px;white-space:nowrap" class="ft03">Decide&#160;which MISC region&#160;components&#160;will be&#160;supported&#160;for the&#160;enclave.</p>
+<p style="position:absolute;top:901px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:902px;left:95px;white-space:nowrap" class="ft03">Allocate an&#160;SSA&#160;frame&#160;large enough to&#160;hold the components chosen&#160;above.</p>
+<p style="position:absolute;top:924px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:925px;left:95px;white-space:nowrap" class="ft03">Instruct each enclave&#160;builder software&#160;to&#160;set the&#160;appropriate bits in SECS.MISCSELECT.</p>
+<p style="position:absolute;top:947px;left:69px;white-space:nowrap" class="ft08">The first component, EXINFO, starts next to&#160;the GPRSGX region.&#160;Additional&#160;components in the MISC&#160;region&#160;grow&#160;<br/>in ascending order within&#160;the&#160;MISC&#160;region&#160;towards the XSAVE&#160;region.<br/>The&#160;size&#160;of the&#160;MISC&#160;region is&#160;calculated&#160;as&#160;follows:</p>
+<p style="position:absolute;top:1008px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1009px;left:95px;white-space:nowrap" class="ft03">If&#160;CPUID.(EAX=12H, ECX=0):EBX[31:0] =&#160;0, MISC region is&#160;not&#160;supported.&#160;</p>
+<p style="position:absolute;top:1030px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1031px;left:95px;white-space:nowrap" class="ft07">If CPUID.(EAX=12H, ECX=0):EBX[31:0] !=&#160;0, the size&#160;of&#160;MISC region&#160;is derived from sum of the highest bit&#160;set&#160;<br/>in SECS.MISCSELECT&#160;and the&#160;size of the MISC&#160;component corresponding to&#160;that bit.&#160;Offset&#160;and size&#160;</p>
+<p style="position:absolute;top:100px;left:328px;white-space:nowrap" class="ft06">Table&#160;38-9.&#160;&#160;Layout&#160;of&#160;EXITINFO&#160;Field</p>
+<p style="position:absolute;top:121px;left:97px;white-space:nowrap" class="ft03">Field</p>
+<p style="position:absolute;top:121px;left:165px;white-space:nowrap" class="ft03">Bit Position</p>
+<p style="position:absolute;top:121px;left:506px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:144px;left:72px;white-space:nowrap" class="ft03">VECTOR</p>
+<p style="position:absolute;top:144px;left:161px;white-space:nowrap" class="ft03">7:0</p>
+<p style="position:absolute;top:144px;left:247px;white-space:nowrap" class="ft03">Exception&#160;number&#160;of&#160;exceptions reported&#160;inside&#160;enclave.</p>
+<p style="position:absolute;top:166px;left:72px;white-space:nowrap" class="ft03">EXIT_TYPE</p>
+<p style="position:absolute;top:166px;left:162px;white-space:nowrap" class="ft03">10:8</p>
+<p style="position:absolute;top:166px;left:247px;white-space:nowrap" class="ft03">011b: Hardware&#160;exceptions.</p>
+<p style="position:absolute;top:182px;left:247px;white-space:nowrap" class="ft03">110b: Software&#160;exceptions.</p>
+<p style="position:absolute;top:199px;left:247px;white-space:nowrap" class="ft03">Other&#160;values: Reserved.</p>
+<p style="position:absolute;top:222px;left:72px;white-space:nowrap" class="ft03">RESERVED</p>
+<p style="position:absolute;top:222px;left:161px;white-space:nowrap" class="ft03">30:11</p>
+<p style="position:absolute;top:222px;left:247px;white-space:nowrap" class="ft03">Reserved as&#160;zero.</p>
+<p style="position:absolute;top:244px;left:72px;white-space:nowrap" class="ft03">VALID</p>
+<p style="position:absolute;top:244px;left:161px;white-space:nowrap" class="ft03">31</p>
+<p style="position:absolute;top:244px;left:247px;white-space:nowrap" class="ft03">0: unsupported exceptions.</p>
+<p style="position:absolute;top:261px;left:247px;white-space:nowrap" class="ft03">1: Supported&#160;exceptions.&#160;Includes two&#160;categories:</p>
+<p style="position:absolute;top:283px;left:247px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:283px;left:272px;white-space:nowrap" class="ft03">Unconditionally supported&#160;exceptions:&#160;#DE,&#160;#DB, #BP,&#160;#BR, #UD,&#160;#MF,&#160;#AC, #XM.</p>
+<p style="position:absolute;top:305px;left:247px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:306px;left:272px;white-space:nowrap" class="ft09">Conditionally supported&#160;exception:&#160;<br/>—&#160;#PF,&#160;#GP if&#160;SECS.MISCSELECT.EXINFO&#160;= 1.</p>
+<p style="position:absolute;top:477px;left:346px;white-space:nowrap" class="ft06">Table 38-10.&#160;&#160;Exception&#160;Vectors</p>
+<p style="position:absolute;top:498px;left:111px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:498px;left:205px;white-space:nowrap" class="ft03">Vector #</p>
+<p style="position:absolute;top:498px;left:521px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:521px;left:74px;white-space:nowrap" class="ft03">#DE</p>
+<p style="position:absolute;top:521px;left:192px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:521px;left:278px;white-space:nowrap" class="ft03">Divider exception.</p>
+<p style="position:absolute;top:543px;left:74px;white-space:nowrap" class="ft03">#DB</p>
+<p style="position:absolute;top:543px;left:192px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:543px;left:278px;white-space:nowrap" class="ft03">Debug exception.</p>
+<p style="position:absolute;top:566px;left:74px;white-space:nowrap" class="ft03">#BP</p>
+<p style="position:absolute;top:566px;left:192px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:566px;left:278px;white-space:nowrap" class="ft03">Breakpoint&#160;exception.</p>
+<p style="position:absolute;top:588px;left:74px;white-space:nowrap" class="ft03">#BR</p>
+<p style="position:absolute;top:588px;left:192px;white-space:nowrap" class="ft03">5</p>
+<p style="position:absolute;top:588px;left:278px;white-space:nowrap" class="ft03">Bound range exceeded&#160;exception.</p>
+<p style="position:absolute;top:611px;left:74px;white-space:nowrap" class="ft03">#UD</p>
+<p style="position:absolute;top:611px;left:192px;white-space:nowrap" class="ft03">6</p>
+<p style="position:absolute;top:611px;left:278px;white-space:nowrap" class="ft03">Invalid opcode exception.</p>
+<p style="position:absolute;top:633px;left:74px;white-space:nowrap" class="ft03">#GP</p>
+<p style="position:absolute;top:633px;left:192px;white-space:nowrap" class="ft03">13</p>
+<p style="position:absolute;top:633px;left:278px;white-space:nowrap" class="ft03">General protection&#160;exception.&#160;Only reported&#160;if SECS.MISCSELECT.EXINFO&#160;= 1.</p>
+<p style="position:absolute;top:656px;left:74px;white-space:nowrap" class="ft03">#PF</p>
+<p style="position:absolute;top:656px;left:192px;white-space:nowrap" class="ft03">14</p>
+<p style="position:absolute;top:656px;left:278px;white-space:nowrap" class="ft03">Page fault exception.&#160;Only reported&#160;if&#160;SECS.MISCSELECT.EXINFO = 1.</p>
+<p style="position:absolute;top:678px;left:74px;white-space:nowrap" class="ft03">#MF</p>
+<p style="position:absolute;top:678px;left:192px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:678px;left:278px;white-space:nowrap" class="ft03">x87&#160;FPU floating-point&#160;error.</p>
+<p style="position:absolute;top:701px;left:74px;white-space:nowrap" class="ft03">#AC</p>
+<p style="position:absolute;top:701px;left:192px;white-space:nowrap" class="ft03">17</p>
+<p style="position:absolute;top:701px;left:278px;white-space:nowrap" class="ft03">Alignment&#160;check exceptions.</p>
+<p style="position:absolute;top:723px;left:74px;white-space:nowrap" class="ft03">#XM</p>
+<p style="position:absolute;top:723px;left:192px;white-space:nowrap" class="ft03">19</p>
+<p style="position:absolute;top:723px;left:278px;white-space:nowrap" class="ft03">SIMD floating-point&#160;exceptions.</p>
+</div>
+</body>
+</html>

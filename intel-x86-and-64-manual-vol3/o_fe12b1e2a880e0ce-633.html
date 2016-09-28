@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 633</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page633-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce633.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-59</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">when&#160;CDP&#160;is enabled. In order to&#160;simplify this&#160;behavior&#160;and prevent&#160;unintended&#160;remapping software&#160;should&#160;<br/>consider resetting all threads&#160;to COS[0] before enabling&#160;or&#160;disabling CDP.&#160;</p>
+<p style="position:absolute;top:161px;left:69px;white-space:nowrap" class="ft03">17.17.4.1 &#160;&#160;Mapping Between L3&#160;CDP Masks&#160;and CAT Masks</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft07">When CDP is enabled,&#160;the existing&#160;CAT mask MSR space&#160;is re-mapped&#160;to provide a code mask and a data&#160;mask per&#160;<br/>COS.&#160;The re-mapping is&#160;shown in&#160;</p>
+<p style="position:absolute;top:240px;left:187px;white-space:nowrap" class="ft04">Table&#160;17-20.&#160;&#160;Re-indexing of&#160;COS Numbers and Mapping&#160;to&#160;CAT/CDP&#160;Mask MSRs</p>
+<p style="position:absolute;top:520px;left:69px;white-space:nowrap" class="ft02">One&#160;can&#160;derive the&#160;MSR address&#160;for&#160;the data mask or code mask for a&#160;given COS&#160;number&#160;‘n’&#160;by:</p>
+<p style="position:absolute;top:541px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:542px;left:95px;white-space:nowrap" class="ft02">data_mask_address (n) = base + (n&#160;&lt;&lt;1), where base is&#160;the&#160;address of IA32_L3_QOS_MASK_0.</p>
+<p style="position:absolute;top:564px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:565px;left:95px;white-space:nowrap" class="ft02">code_mask_address&#160;(n)&#160;=&#160;base + (n&#160;&lt;&lt;1) +1.</p>
+<p style="position:absolute;top:589px;left:69px;white-space:nowrap" class="ft07">When&#160;CDP&#160;is enabled,&#160;each&#160;COS is&#160;mapped 1:2 with mask MSRs,&#160;with&#160;one mask enabling programmatic control&#160;<br/>over data fill location&#160;and one&#160;mask&#160;enabling&#160;control over&#160;data placement.&#160;A&#160;variety of overlapped&#160;and isolated&#160;<br/>mask&#160;configurations are&#160;possible (see&#160;the&#160;example&#160;<a href="o_fe12b1e2a880e0ce-627.html">in Figure&#160;17-29).</a>&#160;<br/>Mask&#160;MSR field definitions remain&#160;the same. Capacity&#160;masks&#160;must be formed of contiguous&#160;set&#160;bits, with a&#160;length&#160;<br/>of 1 bit&#160;or longer and&#160;should not exceed the&#160;maximum mask length&#160;specified in&#160;CPUID.&#160;As examples,&#160;valid masks&#160;<br/>on a cache&#160;with max&#160;bitmask length of 16b (from CPUID) include 0xFFFF,&#160;0xFF00,&#160;0x00FF, 0x00F0, 0x0001,&#160;<br/>0x0003 and so on.&#160;Maximum valid mask lengths&#160;are unchanged&#160;whether CDP&#160;is enabled or disabled, and writes of&#160;<br/>invalid mask values&#160;may lead to&#160;undefined&#160;behavior. Writes&#160;to reserved bits will generate&#160;#GP(0).&#160;</p>
+<p style="position:absolute;top:756px;left:69px;white-space:nowrap" class="ft03">17.17.4.2 &#160;&#160;L3&#160;CAT: Disabling CDP&#160;</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft07">Before&#160;enabling or&#160;disabling CDP,&#160;software&#160;should&#160;write&#160;all 1's to&#160;all of&#160;the&#160;CAT/CDP masks to&#160;ensure proper&#160;<br/>behavior (e.g.,&#160;the&#160;IA32_L3_QOS_Mask_n set of MSRs).&#160;<br/>Software should&#160;also account for the&#160;fact that&#160;mask&#160;interpretations&#160;change when CDP is&#160;enabled or&#160;disabled,&#160;<br/>meaning&#160;for&#160;instance that&#160;a CAT mask for a&#160;given&#160;COS may&#160;become&#160;a code&#160;mask for a&#160;different Class of&#160;Service&#160;<br/>when&#160;CDP&#160;is enabled. In order to&#160;simplify this&#160;behavior&#160;and prevent&#160;unintended&#160;remapping software&#160;should&#160;<br/>consider resetting all threads&#160;to COS[0] before enabling&#160;or&#160;disabling CDP.&#160;</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft06">17.17.5&#160;&#160;Cache Allocation Technology Programming Considerations</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft03">17.17.5.1 &#160;&#160;Cache&#160;Allocation&#160;Technology Dynamic&#160;Configuration&#160;</p>
+<p style="position:absolute;top:1004px;left:69px;white-space:nowrap" class="ft07">Both&#160;the CAT masks and&#160;CQM registers are&#160;accessible&#160;and modifiable at&#160;any time&#160;during&#160;execution using&#160;<br/>RDMSR/WRMSR unless&#160;otherwise noted.&#160;When writing to&#160;these&#160;MSRs&#160;a #GP(0) will be generated if&#160;any of&#160;the&#160;<br/>following conditions&#160;occur:</p>
+<p style="position:absolute;top:1059px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1060px;left:95px;white-space:nowrap" class="ft02">A reserved bit&#160;is modified,</p>
+<p style="position:absolute;top:279px;left:81px;white-space:nowrap" class="ft02">Mask MSR</p>
+<p style="position:absolute;top:279px;left:413px;white-space:nowrap" class="ft02">CAT-only&#160;Operation</p>
+<p style="position:absolute;top:279px;left:624px;white-space:nowrap" class="ft02">CDP Operation</p>
+<p style="position:absolute;top:302px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_0</p>
+<p style="position:absolute;top:302px;left:413px;white-space:nowrap" class="ft02">COS0</p>
+<p style="position:absolute;top:302px;left:624px;white-space:nowrap" class="ft02">COS0.Data</p>
+<p style="position:absolute;top:325px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_1</p>
+<p style="position:absolute;top:325px;left:413px;white-space:nowrap" class="ft02">COS1</p>
+<p style="position:absolute;top:325px;left:624px;white-space:nowrap" class="ft02">COS0.Code</p>
+<p style="position:absolute;top:347px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_2</p>
+<p style="position:absolute;top:347px;left:413px;white-space:nowrap" class="ft02">COS2</p>
+<p style="position:absolute;top:347px;left:624px;white-space:nowrap" class="ft02">COS1.Data</p>
+<p style="position:absolute;top:370px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_3</p>
+<p style="position:absolute;top:370px;left:413px;white-space:nowrap" class="ft02">COS3</p>
+<p style="position:absolute;top:370px;left:624px;white-space:nowrap" class="ft02">COS1.Code</p>
+<p style="position:absolute;top:392px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_4</p>
+<p style="position:absolute;top:392px;left:413px;white-space:nowrap" class="ft02">COS4</p>
+<p style="position:absolute;top:392px;left:624px;white-space:nowrap" class="ft02">COS2.Data</p>
+<p style="position:absolute;top:415px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_5</p>
+<p style="position:absolute;top:415px;left:413px;white-space:nowrap" class="ft02">COS5</p>
+<p style="position:absolute;top:415px;left:624px;white-space:nowrap" class="ft02">COS2.Code</p>
+<p style="position:absolute;top:437px;left:81px;white-space:nowrap" class="ft02">....</p>
+<p style="position:absolute;top:437px;left:413px;white-space:nowrap" class="ft02">....</p>
+<p style="position:absolute;top:437px;left:624px;white-space:nowrap" class="ft02">....</p>
+<p style="position:absolute;top:460px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_’2n’</p>
+<p style="position:absolute;top:460px;left:413px;white-space:nowrap" class="ft02">COS’2n’</p>
+<p style="position:absolute;top:460px;left:624px;white-space:nowrap" class="ft02">COS’n’.Data</p>
+<p style="position:absolute;top:482px;left:81px;white-space:nowrap" class="ft02">IA32_L3_QOS_Mask_’2n+1’</p>
+<p style="position:absolute;top:482px;left:413px;white-space:nowrap" class="ft02">COS’2n+1’</p>
+<p style="position:absolute;top:482px;left:624px;white-space:nowrap" class="ft02">COS’n’.Code</p>
+</div>
+</body>
+</html>

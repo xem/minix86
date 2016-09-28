@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 752</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:7px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft013{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+	.ft014{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page752-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce752.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-116&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:99px;left:432px;white-space:nowrap" class="ft02">NOTE</p>
+<p style="position:absolute;top:124px;left:120px;white-space:nowrap" class="ft010">The performance-monitoring&#160;events&#160;listed&#160;in<a href="��">&#160;Chapter 19&#160;are i</a>ntended&#160;to&#160;be&#160;used&#160;as&#160;guides&#160;for&#160;<br/>performance&#160;tuning.&#160;Counter&#160;values&#160;reported&#160;are not guaranteed&#160;to be&#160;accurate&#160;and should&#160;be&#160;<br/>used&#160;as a&#160;relative&#160;guide for tuning. Known&#160;discrepancies are documented where applicable.</p>
+<p style="position:absolute;top:205px;left:68px;white-space:nowrap" class="ft010">The performance-monitoring counters&#160;are&#160;supported&#160;by&#160;four&#160;MSRs:&#160;the performance&#160;event select MSRs&#160;<br/>(PerfEvtSel0 and PerfEvtSel1) and the performance&#160;counter&#160;MSRs (PerfCtr0&#160;and&#160;PerfCtr1).&#160;These registers can be&#160;<br/>read&#160;from and written to using&#160;the RDMSR&#160;and WRMSR&#160;instructions, respectively.&#160;They can be accessed&#160;using these&#160;<br/>instructions only when&#160;operating at&#160;privilege&#160;level 0. The&#160;PerfCtr0&#160;and PerfCtr1&#160;MSRs can be read from&#160;any privilege&#160;<br/>level&#160;using the&#160;RDPMC (read performance-monitoring counters)&#160;instruction.</p>
+<p style="position:absolute;top:306px;left:432px;white-space:nowrap" class="ft02">NOTE</p>
+<p style="position:absolute;top:331px;left:120px;white-space:nowrap" class="ft010">The&#160;PerfEvtSel0,&#160;PerfEvtSel1,&#160;PerfCtr0,&#160;and&#160;PerfCtr1&#160;MSRs and the&#160;events listed&#160;<a href="o_fe12b1e2a880e0ce-961.html">in Table 19-37</a>&#160;are&#160;<br/>model-specific for P6 family&#160;processors. They&#160;are not guaranteed to be available in&#160;other IA-32&#160;<br/>processors.</p>
+<p style="position:absolute;top:415px;left:68px;white-space:nowrap" class="ft04">18.22.1&#160;&#160;PerfEvtSel0 and PerfEvtSel1 MSRs</p>
+<p style="position:absolute;top:445px;left:68px;white-space:nowrap" class="ft011">The PerfEvtSel0&#160;and PerfEvtSel1&#160;MSRs control&#160;the operation of&#160;the&#160;performance-monitoring counters,&#160;with&#160;one&#160;<br/>register used to set up each counter.&#160;They&#160;specify the events to&#160;be counted, how they should&#160;be counted, and the&#160;<br/>privilege levels&#160;at which counting should&#160;take&#160;<a href="o_fe12b1e2a880e0ce-752.html">place.&#160;Figure&#160;18-60</a>&#160;shows the&#160;flags and&#160;fields&#160;in these&#160;MSRs.<br/>The&#160;functions of&#160;the flags&#160;and fields in&#160;the PerfEvtSel0&#160;and PerfEvtSel1&#160;MSRs are&#160;as&#160;follows:</p>
+<p style="position:absolute;top:524px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:525px;left:93px;white-space:nowrap" class="ft010"><b>Event select&#160;field (bits 0 through 7) —&#160;</b>Selects&#160;the event&#160;logic unit&#160;to detect certain microarchitectural&#160;<br/><a href="o_fe12b1e2a880e0ce-961.html">conditions (see Table 19-37</a>, for a&#160;list of events&#160;and their&#160;8-bit codes).</p>
+<p style="position:absolute;top:563px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:564px;left:93px;white-space:nowrap" class="ft010"><b>Unit&#160;mask&#160;(UMASK) field (bits 8 through 15) —&#160;</b>Further qualifies&#160;the&#160;event logic&#160;unit&#160;selected&#160;in the&#160;event&#160;<br/>select field to&#160;detect a&#160;specific&#160;microarchitectural condition. For example, for some&#160;cache&#160;events, the&#160;mask&#160;is&#160;<br/>used&#160;as&#160;a MESI-protocol&#160;qualifier&#160;of&#160;cache states (see<a href="o_fe12b1e2a880e0ce-961.html">&#160;Table 19-37).</a></p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:893px;left:93px;white-space:nowrap" class="ft010"><b>USR (user mode) flag&#160;(bit 16)&#160;—&#160;</b>Specifies that&#160;events&#160;are counted&#160;only when&#160;the processor is&#160;operating at&#160;<br/>privilege&#160;levels 1, 2&#160;or 3.&#160;This flag&#160;can be used in&#160;conjunction&#160;with&#160;the OS flag.</p>
+<p style="position:absolute;top:931px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:932px;left:93px;white-space:nowrap" class="ft010"><b>OS&#160;(operating&#160;system&#160;mode)&#160;flag&#160;(bit&#160;17)&#160;—&#160;</b>Specifies that events are counted&#160;only when the processor&#160;is&#160;<br/>operating at&#160;privilege level&#160;0.&#160;This flag can&#160;be used in&#160;conjunction&#160;with&#160;the USR flag.</p>
+<p style="position:absolute;top:970px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:971px;left:93px;white-space:nowrap" class="ft010"><b>E&#160;(edge detect) flag&#160;(bit 18) —&#160;</b>Enables&#160;(when&#160;set) edge detection of events. The processor&#160;counts the&#160;<br/>number of deasserted to&#160;asserted transitions&#160;of&#160;any condition&#160;that&#160;can be expressed by the&#160;other fields.&#160;The&#160;<br/>mechanism is&#160;limited&#160;in that it&#160;does&#160;not permit&#160;back-to-back assertions&#160;to be distinguished. This&#160;mechanism&#160;<br/>allows&#160;software to&#160;measure&#160;not only the fraction&#160;of time&#160;spent&#160;in a particular state,&#160;but also the average length&#160;<br/>of&#160;time spent in&#160;such&#160;a state (for example,&#160;the time&#160;spent waiting&#160;for an interrupt to be serviced).</p>
+<p style="position:absolute;top:847px;left:285px;white-space:nowrap" class="ft07">Figure&#160;18-60.&#160;&#160;PerfEvtSel0 and&#160;PerfEvtSel1&#160;MSRs</p>
+<p style="position:absolute;top:653px;left:279px;white-space:nowrap" class="ft08">31</p>
+<p style="position:absolute;top:734px;left:224px;white-space:nowrap" class="ft012">INV—Invert counter&#160;mask<br/>EN—Enable counters</p>
+<p style="position:absolute;top:747px;left:339px;white-space:nowrap" class="ft03">*</p>
+<p style="position:absolute;top:762px;left:224px;white-space:nowrap" class="ft012">INT—APIC interrupt enable<br/>PC—Pin control</p>
+<p style="position:absolute;top:654px;left:575px;white-space:nowrap" class="ft08">8&#160;7</p>
+<p style="position:absolute;top:654px;left:675px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:684px;left:605px;white-space:nowrap" class="ft08">Event&#160;Select</p>
+<p style="position:absolute;top:789px;left:224px;white-space:nowrap" class="ft012">E—Edge detect<br/>OS—Operating system mode<br/>USR—User&#160;Mode</p>
+<p style="position:absolute;top:807px;left:518px;white-space:nowrap" class="ft03">*</p>
+<p style="position:absolute;top:808px;left:527px;white-space:nowrap" class="ft00">Only available in PerfEvtSel0.</p>
+<p style="position:absolute;top:676px;left:301px;white-space:nowrap" class="ft08">Counter Mask&#160;</p>
+<p style="position:absolute;top:684px;left:448px;white-space:nowrap" class="ft09">E</p>
+<p style="position:absolute;top:681px;left:398px;white-space:nowrap" class="ft014">E<br/>N</p>
+<p style="position:absolute;top:675px;left:425px;white-space:nowrap" class="ft09">I</p>
+<p style="position:absolute;top:684px;left:423px;white-space:nowrap" class="ft014">N<br/>T</p>
+<p style="position:absolute;top:654px;left:432px;white-space:nowrap" class="ft08">19</p>
+<p style="position:absolute;top:654px;left:470px;white-space:nowrap" class="ft08">16</p>
+<p style="position:absolute;top:654px;left:445px;white-space:nowrap" class="ft08">18</p>
+<p style="position:absolute;top:654px;left:483px;white-space:nowrap" class="ft08">15</p>
+<p style="position:absolute;top:654px;left:458px;white-space:nowrap" class="ft08">17</p>
+<p style="position:absolute;top:654px;left:420px;white-space:nowrap" class="ft08">20</p>
+<p style="position:absolute;top:654px;left:408px;white-space:nowrap" class="ft08">21</p>
+<p style="position:absolute;top:654px;left:395px;white-space:nowrap" class="ft08">22</p>
+<p style="position:absolute;top:654px;left:382px;white-space:nowrap" class="ft08">23</p>
+<p style="position:absolute;top:654px;left:369px;white-space:nowrap" class="ft08">24</p>
+<p style="position:absolute;top:765px;left:614px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:675px;left:387px;white-space:nowrap" class="ft09">I</p>
+<p style="position:absolute;top:684px;left:385px;white-space:nowrap" class="ft014">N<br/>V</p>
+<p style="position:absolute;top:681px;left:436px;white-space:nowrap" class="ft014">P<br/>C</p>
+<p style="position:absolute;top:675px;left:473px;white-space:nowrap" class="ft014">U<br/>S<br/>R</p>
+<p style="position:absolute;top:681px;left:461px;white-space:nowrap" class="ft09">O</p>
+<p style="position:absolute;top:690px;left:461px;white-space:nowrap" class="ft09">S</p>
+<p style="position:absolute;top:683px;left:487px;white-space:nowrap" class="ft08">Unit Mask&#160;(UMASK)</p>
+<p style="position:absolute;top:688px;left:310px;white-space:nowrap" class="ft08">(CMASK)</p>
+</div>
+</body>
+</html>

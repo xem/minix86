@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 552</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:9px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:7px;font-family:Times;color:#000000;}
+	.ft08{font-size:6px;font-family:Times;color:#000000;}
+	.ft09{font-size:12px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page552-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481552.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:662px;white-space:nowrap" class="ft00">FYL2XP1—Compute y * log2(x +1)</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-424&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">FYL2XP1—Compute y&#160;∗&#160;log</p>
+<p style="position:absolute;top:108px;left:287px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:98px;left:294px;white-space:nowrap" class="ft02">(x&#160;+1)</p>
+<p style="position:absolute;top:236px;left:68px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:261px;left:68px;white-space:nowrap" class="ft05">Computes&#160;(ST(1)&#160;∗&#160;log</p>
+<p style="position:absolute;top:267px;left:220px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:261px;left:227px;white-space:nowrap" class="ft05">(ST(0)&#160;+&#160;1.0)), stores&#160;the result in register&#160;ST(1),&#160;and pops the&#160;FPU&#160;register&#160;stack.&#160;The&#160;</p>
+<p style="position:absolute;top:277px;left:68px;white-space:nowrap" class="ft05">source&#160;operand in&#160;ST(0) must be in&#160;the range:</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft05">The source&#160;operand in&#160;ST(1)&#160;can range from&#160;−∞&#160;to&#160;+∞. If the ST(0)&#160;operand&#160;is&#160;outside&#160;of its&#160;acceptable range,&#160;the&#160;</p>
+<p style="position:absolute;top:342px;left:68px;white-space:nowrap" class="ft010">result is&#160;undefined&#160;and&#160;software&#160;should not&#160;rely on&#160;an&#160;exception being generated.&#160;Under some&#160;circumstances&#160;<br/>exceptions may be&#160;generated&#160;when&#160;ST(0) is&#160;out of range,&#160;but this&#160;behavior&#160;is implementation specific and&#160;not&#160;<br/>guaranteed.<br/>The following&#160;table&#160;shows the results obtained&#160;when taking&#160;the log epsilon of various classes of numbers, assuming&#160;<br/>that underflow does not occur.</p>
+<p style="position:absolute;top:753px;left:68px;white-space:nowrap" class="ft010">This instruction provides&#160;optimal&#160;accuracy for&#160;values&#160;of epsilon&#160;[the value in&#160;register&#160;ST(0)] that are&#160;close&#160;to 0. For&#160;<br/>small epsilon (ε) values, more&#160;significant digits can&#160;be&#160;retained&#160;by&#160;using the&#160;FYL2XP1 instruction than&#160;by&#160;using&#160;</p>
+<p style="position:absolute;top:786px;left:68px;white-space:nowrap" class="ft05">(ε+1) as an&#160;argument&#160;to the FYL2X instruction. The (ε+1) expression&#160;is commonly found&#160;in compound interest and&#160;</p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft010">annuity&#160;calculations. The&#160;result can&#160;be simply&#160;converted into a&#160;value&#160;in another logarithm base by including a scale&#160;<br/>factor in the&#160;ST(1)&#160;source&#160;operand. The&#160;following&#160;equation is used to&#160;calculate&#160;the scale factor for&#160;a particular&#160;loga-<br/>rithm&#160;base, where n&#160;is the&#160;logarithm base desired&#160;for the&#160;result of the&#160;FYL2XP1&#160;instruction:</p>
+<p style="position:absolute;top:865px;left:88px;white-space:nowrap" class="ft05">scale factor&#160;←&#160;log</p>
+<p style="position:absolute;top:871px;left:191px;white-space:nowrap" class="ft06">n</p>
+<p style="position:absolute;top:865px;left:197px;white-space:nowrap" class="ft05">&#160;2</p>
+<p style="position:absolute;top:889px;left:68px;white-space:nowrap" class="ft05">This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.</p>
+<p style="position:absolute;top:923px;left:68px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:954px;left:68px;white-space:nowrap" class="ft05">ST(1)&#160;←&#160;ST(1)&#160;</p>
+<p style="position:absolute;top:956px;left:152px;white-space:nowrap" class="ft00">∗</p>
+<p style="position:absolute;top:954px;left:158px;white-space:nowrap" class="ft05">&#160;log</p>
+<p style="position:absolute;top:961px;left:178px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:954px;left:184px;white-space:nowrap" class="ft05">(ST(0)&#160;+&#160;1.0);</p>
+<p style="position:absolute;top:972px;left:68px;white-space:nowrap" class="ft05">PopRegisterStack;</p>
+<p style="position:absolute;top:128px;left:74px;white-space:nowrap" class="ft05">Opcode</p>
+<p style="position:absolute;top:128px;left:209px;white-space:nowrap" class="ft05">Instruction</p>
+<p style="position:absolute;top:128px;left:340px;white-space:nowrap" class="ft05">64-Bit&#160;</p>
+<p style="position:absolute;top:143px;left:340px;white-space:nowrap" class="ft05">Mode</p>
+<p style="position:absolute;top:128px;left:418px;white-space:nowrap" class="ft05">Compat/</p>
+<p style="position:absolute;top:143px;left:418px;white-space:nowrap" class="ft05">Leg&#160;Mode</p>
+<p style="position:absolute;top:128px;left:508px;white-space:nowrap" class="ft05">Description</p>
+<p style="position:absolute;top:166px;left:74px;white-space:nowrap" class="ft05">D9&#160;F9</p>
+<p style="position:absolute;top:166px;left:209px;white-space:nowrap" class="ft05">FYL2XP1</p>
+<p style="position:absolute;top:166px;left:340px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:166px;left:418px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:166px;left:509px;white-space:nowrap" class="ft05">Replace&#160;ST(1) with ST(1)&#160;∗&#160;log</p>
+<p style="position:absolute;top:174px;left:680px;white-space:nowrap" class="ft08">2</p>
+<p style="position:absolute;top:166px;left:685px;white-space:nowrap" class="ft05">(ST(0)&#160;+&#160;1.0) and&#160;pop&#160;the&#160;</p>
+<p style="position:absolute;top:182px;left:508px;white-space:nowrap" class="ft05">register stack.</p>
+<p style="position:absolute;top:439px;left:352px;white-space:nowrap" class="ft04">Table&#160;3-49.&#160; FYL2XP1&#160;Results</p>
+<p style="position:absolute;top:463px;left:470px;white-space:nowrap" class="ft05">ST(0)</p>
+<p style="position:absolute;top:488px;left:260px;white-space:nowrap" class="ft05">−(1&#160;− (</p>
+<p style="position:absolute;top:489px;left:338px;white-space:nowrap" class="ft05">)) to&#160;</p>
+<p style="position:absolute;top:488px;left:366px;white-space:nowrap" class="ft05">−0</p>
+<p style="position:absolute;top:487px;left:443px;white-space:nowrap" class="ft05">-0</p>
+<p style="position:absolute;top:487px;left:513px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:488px;left:594px;white-space:nowrap" class="ft05">+0 to&#160;+(1</p>
+<p style="position:absolute;top:490px;left:647px;white-space:nowrap" class="ft00">&#160;-</p>
+<p style="position:absolute;top:489px;left:654px;white-space:nowrap" class="ft05">&#160;</p>
+<p style="position:absolute;top:489px;left:658px;white-space:nowrap" class="ft05">(</p>
+<p style="position:absolute;top:489px;left:702px;white-space:nowrap" class="ft05">))</p>
+<p style="position:absolute;top:489px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:512px;left:179px;white-space:nowrap" class="ft05">−</p>
+<p style="position:absolute;top:511px;left:187px;white-space:nowrap" class="ft09">&#160;∞</p>
+<p style="position:absolute;top:513px;left:310px;white-space:nowrap" class="ft00">+</p>
+<p style="position:absolute;top:511px;left:320px;white-space:nowrap" class="ft09">∞</p>
+<p style="position:absolute;top:511px;left:446px;white-space:nowrap" class="ft05">*</p>
+<p style="position:absolute;top:511px;left:518px;white-space:nowrap" class="ft05">*</p>
+<p style="position:absolute;top:512px;left:642px;white-space:nowrap" class="ft05">−</p>
+<p style="position:absolute;top:511px;left:649px;white-space:nowrap" class="ft09">&#160;∞</p>
+<p style="position:absolute;top:513px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:535px;left:97px;white-space:nowrap" class="ft05">ST(1)</p>
+<p style="position:absolute;top:536px;left:180px;white-space:nowrap" class="ft05">−&#160;&#160;F</p>
+<p style="position:absolute;top:535px;left:311px;white-space:nowrap" class="ft05">+F</p>
+<p style="position:absolute;top:535px;left:441px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:535px;left:515px;white-space:nowrap" class="ft05">-0</p>
+<p style="position:absolute;top:536px;left:643px;white-space:nowrap" class="ft05">−&#160;F</p>
+<p style="position:absolute;top:537px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:560px;left:180px;white-space:nowrap" class="ft05">−&#160;&#160;0</p>
+<p style="position:absolute;top:559px;left:311px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:559px;left:441px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:559px;left:515px;white-space:nowrap" class="ft05">-0</p>
+<p style="position:absolute;top:560px;left:642px;white-space:nowrap" class="ft05">−&#160;0</p>
+<p style="position:absolute;top:561px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:583px;left:181px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:584px;left:310px;white-space:nowrap" class="ft05">−&#160;0</p>
+<p style="position:absolute;top:584px;left:440px;white-space:nowrap" class="ft05">−&#160;&#160;0</p>
+<p style="position:absolute;top:583px;left:513px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:583px;left:643px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:585px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:607px;left:181px;white-space:nowrap" class="ft05">+F</p>
+<p style="position:absolute;top:608px;left:310px;white-space:nowrap" class="ft05">−&#160;F</p>
+<p style="position:absolute;top:608px;left:440px;white-space:nowrap" class="ft05">−&#160;&#160;0</p>
+<p style="position:absolute;top:607px;left:513px;white-space:nowrap" class="ft05">+0</p>
+<p style="position:absolute;top:607px;left:643px;white-space:nowrap" class="ft05">+F</p>
+<p style="position:absolute;top:609px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:631px;left:179px;white-space:nowrap" class="ft05">+</p>
+<p style="position:absolute;top:631px;left:191px;white-space:nowrap" class="ft09">∞</p>
+<p style="position:absolute;top:632px;left:309px;white-space:nowrap" class="ft05">−</p>
+<p style="position:absolute;top:631px;left:317px;white-space:nowrap" class="ft09">&#160;∞</p>
+<p style="position:absolute;top:631px;left:446px;white-space:nowrap" class="ft05">*</p>
+<p style="position:absolute;top:631px;left:518px;white-space:nowrap" class="ft05">*</p>
+<p style="position:absolute;top:631px;left:642px;white-space:nowrap" class="ft05">+</p>
+<p style="position:absolute;top:631px;left:653px;white-space:nowrap" class="ft09">∞</p>
+<p style="position:absolute;top:633px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:655px;left:176px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:655px;left:306px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:655px;left:436px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:655px;left:509px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:655px;left:639px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:657px;left:776px;white-space:nowrap" class="ft05">NaN</p>
+<p style="position:absolute;top:679px;left:77px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:699px;left:77px;white-space:nowrap" class="ft012">F&#160;Means&#160;finite&#160;floating-point&#160;value.<br/>*&#160;Indicates floating-point&#160;invalid-operation&#160;(#IA) exception.</p>
+<p style="position:absolute;top:305px;left:110px;white-space:nowrap" class="ft09">1</p>
+<p style="position:absolute;top:305px;left:143px;white-space:nowrap" class="ft09">2&#160;2</p>
+<p style="position:absolute;top:301px;left:154px;white-space:nowrap" class="ft09">⁄</p>
+<p style="position:absolute;top:305px;left:121px;white-space:nowrap" class="ft09">–</p>
+<p style="position:absolute;top:301px;left:104px;white-space:nowrap" class="ft09">(</p>
+<p style="position:absolute;top:301px;left:169px;white-space:nowrap" class="ft09">)&#160;)to&#160;1</p>
+<p style="position:absolute;top:305px;left:234px;white-space:nowrap" class="ft09">2&#160;2</p>
+<p style="position:absolute;top:301px;left:246px;white-space:nowrap" class="ft09">⁄</p>
+<p style="position:absolute;top:305px;left:213px;white-space:nowrap" class="ft09">–</p>
+<p style="position:absolute;top:301px;left:195px;white-space:nowrap" class="ft09">(</p>
+<p style="position:absolute;top:301px;left:260px;white-space:nowrap" class="ft09">)</p>
+<p style="position:absolute;top:305px;left:96px;white-space:nowrap" class="ft09">–</p>
+<p style="position:absolute;top:493px;left:312px;white-space:nowrap" class="ft00">2&#160;2</p>
+<p style="position:absolute;top:490px;left:321px;white-space:nowrap" class="ft00">⁄</p>
+<p style="position:absolute;top:493px;left:676px;white-space:nowrap" class="ft00">2&#160;2</p>
+<p style="position:absolute;top:490px;left:685px;white-space:nowrap" class="ft00">⁄</p>
+</div>
+</body>
+</html>

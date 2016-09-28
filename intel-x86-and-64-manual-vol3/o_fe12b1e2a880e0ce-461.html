@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 461</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page461-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce461.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;13-7</p>
+<p style="position:absolute;top:47px;left:273px;white-space:nowrap" class="ft01">SYSTEM&#160;PROGRAMMING FOR INSTRUCTION SET EXTENSIONS&#160;AND PROCESSOR EXTENDED&#160;STATES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">‚Ä¢</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft08">The&#160;operating system&#160;can take&#160;the&#160;responsibility&#160;for saving&#160;the states as&#160;part&#160;of&#160;the task switch&#160;process and&#160;<br/>restoring the&#160;state of the&#160;registers when a&#160;suspended&#160;task is&#160;resumed. This&#160;approach&#160;is appropriate for&#160;<br/>preemptive&#160;multitasking&#160;operating systems, where the&#160;application&#160;cannot&#160;know when&#160;it&#160;is going to be&#160;<br/>preempted&#160;and cannot prepare&#160;in&#160;advance&#160;for task switching.&#160;</p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft02">‚Ä¢</p>
+<p style="position:absolute;top:172px;left:95px;white-space:nowrap" class="ft010">The&#160;operating system&#160;can take&#160;the&#160;responsibility&#160;for saving&#160;the states as&#160;part&#160;of&#160;the task switch&#160;process,&#160;but&#160;<br/>delay&#160;the restoring of the&#160;states&#160;until&#160;an instruction operating on the states&#160;is&#160;actually&#160;executed&#160;by the&#160;new&#160;<br/>task.&#160;Se<a href="o_fe12b1e2a880e0ce-461.html">e Section 13.4.1,&#160;‚ÄúUsing&#160;the&#160;TS Flag to&#160;Control&#160;the&#160;Saving&#160;of&#160;the&#160;x87&#160;FPU&#160;and&#160;SSE&#160;State,‚Äù</a>&#160;for more&#160;<br/>information. This&#160;approach&#160;is called lazy restore.<br/>The&#160;use of lazy restore mechanism in&#160;context&#160;switches is not&#160;recommended when XSAVE feature&#160;set&#160;is&#160;used to&#160;<br/>save/restore states&#160;for the&#160;following reasons.<br/>‚Äî&#160;With XSAVE feature set, Intel processors have&#160;optimizations&#160;in&#160;place to&#160;avoid saving the&#160;state components&#160;</p>
+<p style="position:absolute;top:301px;left:120px;white-space:nowrap" class="ft011">that are in their&#160;initial configurations&#160;or when they&#160;have&#160;not been&#160;modified since&#160;they&#160;were&#160;restored&#160;last.&#160;<br/>These&#160;optimizations&#160;eliminate the&#160;need&#160;for lazy restore.&#160;See&#160;section&#160;13.5.4 in&#160;<a href="˛ˇ"><i>Intel¬Æ 64&#160;and&#160;IA-32&#160;Archi-<br/>tectures&#160;Software Developer‚Äôs Manual, Volume 1</i></a>.&#160;</p>
+<p style="position:absolute;top:358px;left:95px;white-space:nowrap" class="ft03">‚Äî&#160;Intel&#160;processors have power optimizations when&#160;state&#160;components&#160;are&#160;in their initial configurations. Use of&#160;</p>
+<p style="position:absolute;top:375px;left:120px;white-space:nowrap" class="ft03">lazy restore retains&#160;the non-initial&#160;configuration&#160;of&#160;the&#160;last thread and&#160;is not power&#160;efficient.</p>
+<p style="position:absolute;top:399px;left:95px;white-space:nowrap" class="ft03">‚Äî&#160;Not&#160;all&#160;extended states support lazy restore&#160;mechanisms.&#160;As&#160;such, when one&#160;or more such&#160;states&#160;are&#160;</p>
+<p style="position:absolute;top:415px;left:120px;white-space:nowrap" class="ft08">enabled it&#160;becomes&#160;very inefficient&#160;to use&#160;lazy&#160;restore as&#160;it results in two separate&#160;state&#160;restore, one&#160;in&#160;<br/>context switch for the states that does not support lazy&#160;restore and one in&#160;the #NM&#160;handler for states&#160;that&#160;<br/>support&#160;lazy restore.</p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft05">13.4.1&#160;</p>
+<p style="position:absolute;top:499px;left:150px;white-space:nowrap" class="ft05">Using the TS Flag to&#160;Control the Saving of&#160;the x87 FPU and SSE State</p>
+<p style="position:absolute;top:529px;left:69px;white-space:nowrap" class="ft08">The TS flag in control register&#160;CR0 is&#160;provided to allow&#160;the operating system to delay saving/restoring&#160;the x87 FPU&#160;<br/>and SSE&#160;state&#160;until&#160;an instruction that&#160;actually accesses this&#160;state&#160;is encountered&#160;in&#160;a new task.&#160;When&#160;the TS&#160;flag&#160;<br/>is set,&#160;the&#160;processor monitors the&#160;instruction&#160;stream for x87&#160;FPU,&#160;MMX,&#160;SSE instructions.&#160;When the&#160;processor&#160;<br/>detects&#160;one of these instructions,&#160;it raises&#160;a&#160;device-not-available&#160;exception (#NM) prior to&#160;executing the instruc-<br/>tion. The #NM exception handler can then be used to save&#160;the x87&#160;FPU and SSE&#160;state for the&#160;previous task (using&#160;<br/>an FXSAVE, XSAVE,&#160;or XSAVEOPT&#160;instruction) and&#160;load the&#160;x87&#160;FPU and&#160;SSE state&#160;for the&#160;current task (using&#160;an&#160;<br/>FXRSTOR or&#160;XRSOTR&#160;instruction). If&#160;the task never&#160;encounters an x87&#160;FPU,&#160;MMX,&#160;or SSE&#160;instruction, the&#160;device-<br/>not-available exception&#160;will&#160;not be raised&#160;and a&#160;task state&#160;will not&#160;be&#160;saved/restored&#160;unnecessarily.</p>
+<p style="position:absolute;top:679px;left:433px;white-space:nowrap" class="ft06">NOTE</p>
+<p style="position:absolute;top:705px;left:122px;white-space:nowrap" class="ft08">The&#160;CRC32 and POPCNT instructions do&#160;not operate&#160;on the x87 FPU or&#160;SSE state.&#160;They operate&#160;on&#160;<br/>the general-purpose registers&#160;and are not involved&#160;with&#160;the techniques described&#160;above.</p>
+<p style="position:absolute;top:745px;left:69px;white-space:nowrap" class="ft08">The TS&#160;flag can be set either explicitly (by executing a MOV&#160;instruction&#160;to control&#160;register CR0)&#160;or implicitly (using&#160;<br/>the IA-32 architecture‚Äôs&#160;native&#160;task switching mechanism). When&#160;the native&#160;task switching&#160;mechanism is&#160;used, the&#160;<br/>processor&#160;automatically sets the TS flag&#160;on&#160;a task switch. After the device-not-available&#160;handler has saved the&#160;x87&#160;<br/>FPU and SSE state,&#160;it should&#160;execute&#160;the CLTS&#160;instruction to&#160;clear the&#160;TS&#160;flag.</p>
+<p style="position:absolute;top:850px;left:69px;white-space:nowrap" class="ft07">13.5&#160;</p>
+<p style="position:absolute;top:850px;left:148px;white-space:nowrap" class="ft07">THE XSAVE FEATURE SET AND PROCESSOR EXTENDED STATE&#160;</p>
+<p style="position:absolute;top:876px;left:147px;white-space:nowrap" class="ft07">MANAGEMENT&#160;</p>
+<p style="position:absolute;top:910px;left:69px;white-space:nowrap" class="ft011">The&#160;architecture of&#160;XSAVE&#160;feature set is&#160;described&#160;<a href="˛ˇ">in CHAPTER 13</a>&#160;of&#160;<a href="˛ˇ"><i>Intel¬Æ 64&#160;and&#160;IA-32&#160;Architectures Software&#160;<br/>Developer‚Äôs Manual, Volume 1</i>. The XS</a>AVE feature&#160;set&#160;includes&#160;the following:</p>
+<p style="position:absolute;top:949px;left:69px;white-space:nowrap" class="ft02">‚Ä¢</p>
+<p style="position:absolute;top:949px;left:95px;white-space:nowrap" class="ft08">An&#160;extensible&#160;data&#160;layout for existing and&#160;future&#160;processor state extensions. The&#160;layout of&#160;the XSAVE area&#160;<br/>extends from&#160;the 512-byte&#160;FXSAVE/FXRSTOR layout&#160;to&#160;provide compatibility and migration&#160;path from&#160;<br/>managing the legacy FXSAVE/FXRSTOR area.&#160;The&#160;XSAVE area&#160;is described&#160;in&#160;more detail&#160;<a href="˛ˇ">in Section 13.4</a>&#160;of&#160;the&#160;<br/><a href="˛ˇ"><i>Intel¬Æ 64 and&#160;IA-32 Architectures Software&#160;Developer‚Äôs&#160;Manual,&#160;Volume 1</i></a>.</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft02">‚Ä¢</p>
+<p style="position:absolute;top:1021px;left:95px;white-space:nowrap" class="ft011">CPUID&#160;enhancements for feature&#160;enumeration.&#160;<a href="˛ˇ">See Section 13.2 of the&#160;<i>Intel¬Æ 64&#160;and&#160;IA-32 Architectures&#160;<br/>Software Developer‚Äôs Manual, Volume&#160;1</i>.</a></p>
+</div>
+</body>
+</html>

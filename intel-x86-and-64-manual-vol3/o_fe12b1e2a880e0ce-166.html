@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 166</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page166-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce166.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-14&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">selected&#160;procedure through the&#160;gate. The&#160;P&#160;flag indicates whether the&#160;call-gate descriptor&#160;is valid. (The presence&#160;<br/>of the code segment to&#160;which the&#160;gate&#160;points&#160;is indicated by&#160;the P&#160;flag&#160;in&#160;the code segment’s descriptor.)&#160;The&#160;<br/>parameter count field indicates the&#160;number of parameters&#160;to copy from the&#160;calling&#160;procedures&#160;stack to&#160;the new&#160;<br/>stack if a stack switch occurs (see<a href="o_fe12b1e2a880e0ce-169.html">&#160;Section 5.8.5, “Stack&#160;Switching”). The</a>&#160;parameter count specifies the&#160;number&#160;of&#160;<br/>words for 16-bit&#160;call gates and&#160;doublewords&#160;for 32-bit call&#160;gates.<br/>Note that&#160;the&#160;P&#160;flag&#160;in a gate descriptor is normally always&#160;set to 1.&#160;If it is&#160;set to&#160;0, a&#160;not present&#160;(#NP) exception&#160;<br/>is generated when a&#160;program attempts to&#160;access&#160;the descriptor.&#160;The operating&#160;system can&#160;use the P&#160;flag&#160;for&#160;special&#160;<br/>purposes. For&#160;example, it&#160;could be&#160;used to&#160;track the&#160;number&#160;of&#160;times the&#160;gate&#160;is&#160;used. Here, the&#160;P&#160;flag is&#160;initially&#160;<br/>set to 0 causing a trap to the not-present exception handler.&#160;The exception handler then increments a&#160;counter&#160;and&#160;<br/>sets&#160;the P flag&#160;to 1, so&#160;that on returning&#160;from&#160;the&#160;handler,&#160;the&#160;gate&#160;descriptor will be valid.</p>
+<p style="position:absolute;top:301px;left:68px;white-space:nowrap" class="ft03">5.8.3.1&#160;&#160;</p>
+<p style="position:absolute;top:301px;left:152px;white-space:nowrap" class="ft03">IA-32e&#160;Mode&#160;Call Gates</p>
+<p style="position:absolute;top:329px;left:68px;white-space:nowrap" class="ft08">Call-gate descriptors&#160;in&#160;32-bit mode provide&#160;a 32-bit&#160;offset for the&#160;instruction&#160;pointer&#160;(EIP); 64-bit extensions&#160;<br/>double&#160;the&#160;size&#160;of 32-bit&#160;mode call&#160;gates in order to&#160;store&#160;64-bit instruction pointers (RIP).&#160;<a href="o_fe12b1e2a880e0ce-166.html">See Figure&#160;5-9</a>:</p>
+<p style="position:absolute;top:367px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:368px;left:93px;white-space:nowrap" class="ft08">The first eight bytes&#160;(bytes 7:0) of a&#160;64-bit mode&#160;call&#160;gate&#160;are similar&#160;but not&#160;identical&#160;to legacy 32-bit mode&#160;<br/>call gates.&#160;The&#160;parameter-copy-count field&#160;has been&#160;removed.&#160;</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:407px;left:93px;white-space:nowrap" class="ft08">Bytes 11:8&#160;hold the&#160;upper 32 bits&#160;of the&#160;target-segment offset in&#160;canonical&#160;form.&#160;A&#160;general-protection&#160;<br/>exception (#GP)&#160;is generated if software&#160;attempts&#160;to use&#160;a&#160;call gate with a&#160;target&#160;offset that is&#160;not in&#160;canonical&#160;<br/>form.</p>
+<p style="position:absolute;top:462px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:463px;left:93px;white-space:nowrap" class="ft08">16-byte&#160;descriptors&#160;may reside&#160;in the&#160;same&#160;descriptor&#160;table with 16-bit&#160;and 32-bit&#160;descriptors. A type field,&#160;<br/>used for consistency checking, is defined in bits 12:8 of&#160;the 64-bit descriptor’s highest dword (cleared to&#160;zero).&#160;<br/>A general-protection exception (#GP)&#160;results if&#160;an attempt&#160;is made to&#160;access&#160;the&#160;upper half of&#160;a 64-bit mode&#160;<br/>descriptor as&#160;a 32-bit&#160;mode descriptor.</p>
+<p style="position:absolute;top:956px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:957px;left:93px;white-space:nowrap" class="ft08">Target&#160;code&#160;segments&#160;referenced&#160;by&#160;a&#160;64-bit&#160;call&#160;gate&#160;must&#160;be&#160;64-bit&#160;code&#160;segments&#160;(CS.L&#160;=&#160;1,&#160;CS.D&#160;=&#160;0).&#160;If&#160;<br/>not, the reference generates&#160;a general-protection&#160;exception, #GP&#160;(CS selector).&#160;</p>
+<p style="position:absolute;top:995px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:996px;left:93px;white-space:nowrap" class="ft08">Only 64-bit mode&#160;call&#160;gates&#160;can be referenced&#160;in IA-32e&#160;mode&#160;(64-bit mode&#160;and&#160;compatibility&#160;mode). The&#160;<br/>legacy 32-bit mode&#160;call&#160;gate&#160;type&#160;(0CH)&#160;is redefined&#160;in IA-32e&#160;mode&#160;as&#160;a 64-bit call-gate&#160;type;&#160;no&#160;32-bit call-<br/>gate type exists&#160;in IA-32e mode.&#160;</p>
+<p style="position:absolute;top:902px;left:293px;white-space:nowrap" class="ft05">Figure&#160;5-9.&#160;&#160;Call-Gate&#160;Descriptor&#160;in&#160;IA-32e&#160;Mode</p>
+<p style="position:absolute;top:726px;left:252px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:727px;left:548px;white-space:nowrap" class="ft06">8&#160;7</p>
+<p style="position:absolute;top:727px;left:651px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:757px;left:457px;white-space:nowrap" class="ft06">P</p>
+<p style="position:absolute;top:757px;left:296px;white-space:nowrap" class="ft07">Offset&#160;in Segment&#160;31:16</p>
+<p style="position:absolute;top:748px;left:476px;white-space:nowrap" class="ft010">D<br/>P</p>
+<p style="position:absolute;top:768px;left:477px;white-space:nowrap" class="ft06">L</p>
+<p style="position:absolute;top:748px;left:519px;white-space:nowrap" class="ft07">Type</p>
+<p style="position:absolute;top:769px;left:496px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:756px;left:662px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:792px;left:252px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:793px;left:443px;white-space:nowrap" class="ft06">16&#160;15</p>
+<p style="position:absolute;top:793px;left:651px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:822px;left:313px;white-space:nowrap" class="ft07">Segment Selector</p>
+<p style="position:absolute;top:822px;left:501px;white-space:nowrap" class="ft07">Offset&#160;in&#160;Segment&#160;15:00</p>
+<p style="position:absolute;top:822px;left:662px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:751px;left:615px;white-space:nowrap" class="ft07">.</p>
+<p style="position:absolute;top:769px;left:546px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:769px;left:533px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:769px;left:521px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:769px;left:509px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:875px;left:269px;white-space:nowrap" class="ft00">P</p>
+<p style="position:absolute;top:861px;left:269px;white-space:nowrap" class="ft00">DPL</p>
+<p style="position:absolute;top:875px;left:301px;white-space:nowrap" class="ft00">Gate Valid</p>
+<p style="position:absolute;top:861px;left:301px;white-space:nowrap" class="ft00">Descriptor&#160;Privilege Level</p>
+<p style="position:absolute;top:589px;left:251px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:590px;left:650px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:632px;left:495px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:619px;left:661px;white-space:nowrap" class="ft00">12</p>
+<p style="position:absolute;top:655px;left:251px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:656px;left:650px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:686px;left:382px;white-space:nowrap" class="ft07">Offset&#160;in&#160;Segment&#160;63:31</p>
+<p style="position:absolute;top:685px;left:661px;white-space:nowrap" class="ft00">8</p>
+<p style="position:absolute;top:632px;left:546px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:632px;left:533px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:632px;left:520px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:632px;left:508px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:755px;left:592px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:589px;left:477px;white-space:nowrap" class="ft07">13&#160;12&#160;11&#160;10&#160;9&#160;8&#160;7</p>
+<p style="position:absolute;top:727px;left:443px;white-space:nowrap" class="ft06">16&#160;15&#160;14&#160;13&#160;12&#160;11</p>
+<p style="position:absolute;top:619px;left:355px;white-space:nowrap" class="ft07">Reserved</p>
+<p style="position:absolute;top:617px;left:577px;white-space:nowrap" class="ft07">Reserved</p>
+<p style="position:absolute;top:607px;left:509px;white-space:nowrap" class="ft07">Type</p>
+</div>
+</body>
+</html>

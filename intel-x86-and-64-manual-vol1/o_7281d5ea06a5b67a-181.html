@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 181</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page181-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a181.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;7-17</p>
+<p style="position:absolute;top:47px;left:510px;white-space:nowrap" class="ft01">PROGRAMMING WITH GENERAL-PURPOSE INSTRUCTIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">operand is&#160;a relative&#160;address&#160;(that is, an&#160;offset&#160;relative&#160;to the&#160;contents of the&#160;EIP&#160;register), and it generally&#160;points&#160;<br/>to the&#160;first instruction in the&#160;block of&#160;code&#160;that&#160;is to&#160;be&#160;executed&#160;in&#160;the&#160;loop.&#160;When the&#160;count in the&#160;ECX register&#160;<br/>reaches&#160;zero, program control&#160;is transferred to the instruction immediately following the LOOP instruction,&#160;<br/>which terminates the loop. If the count in the ECX&#160;register&#160;is zero when&#160;the LOOP instruction&#160;is&#160;first executed, the&#160;<br/>register&#160;is&#160;pre-decremented to FFFFFFFFH, causing&#160;the&#160;loop&#160;to be executed&#160;2</p>
+<p style="position:absolute;top:164px;left:588px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:166px;left:601px;white-space:nowrap" class="ft02">&#160;times.</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft08">The LOOPE and&#160;LOOPZ instructions perform&#160;the same&#160;operation (they are&#160;mnemonics for the&#160;same instruction).&#160;<br/>These instructions&#160;operate the&#160;same as&#160;the LOOP&#160;instruction, except&#160;that they&#160;also test&#160;the ZF&#160;flag.&#160;<br/>If the count in the&#160;ECX register is not&#160;zero&#160;and the&#160;ZF&#160;flag&#160;is set,&#160;program control&#160;is transferred to the&#160;destination&#160;<br/>operand.&#160;When&#160;the count reaches zero or&#160;the ZF flag&#160;is clear,&#160;the loop is terminated&#160;by&#160;transferring&#160;program control&#160;<br/>to&#160;the instruction immediately&#160;following&#160;the LOOPE/LOOPZ instruction.<br/>The LOOPNE&#160;and&#160;LOOPNZ&#160;instructions (mnemonics for&#160;the same&#160;instruction)&#160;operate the&#160;same&#160;as the&#160;<br/>LOOPE/LOOPZ&#160;instructions, except&#160;that they terminate&#160;the&#160;loop if&#160;the&#160;ZF flag&#160;is set.&#160;<br/><b>Jump if zero instructions —</b>&#160;The&#160;JECXZ (jump if ECX zero) instruction jumps to the location specified in the&#160;desti-<br/>nation&#160;operand&#160;if the ECX register contains the&#160;value&#160;zero.&#160;This instruction can be used in combination with&#160;a loop&#160;<br/>instruction&#160;(LOOP, LOOPE,&#160;LOOPZ, LOOPNE, or LOOPNZ)&#160;to&#160;test the&#160;ECX register&#160;prior to&#160;beginning&#160;a loop. As&#160;<br/>described&#160;in “Loop instructions”&#160;<a href="o_7281d5ea06a5b67a-180.html">on page&#160;7-16,</a>&#160;the&#160;loop instructions&#160;decrement the&#160;contents of the&#160;ECX register&#160;<br/>before testing for&#160;zero. If the value in&#160;the ECX&#160;register&#160;is&#160;zero&#160;initially, it&#160;will be decremented to&#160;FFFFFFFFH&#160;on the&#160;<br/>first loop&#160;instruction,&#160;causing&#160;the loop&#160;to be&#160;executed&#160;2</p>
+<p style="position:absolute;top:408px;left:440px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:411px;left:454px;white-space:nowrap" class="ft02">&#160;times. To&#160;prevent this&#160;problem,&#160;a JECXZ instruction can&#160;</p>
+<p style="position:absolute;top:427px;left:69px;white-space:nowrap" class="ft08">be&#160;inserted at&#160;the beginning&#160;of the code&#160;block for the loop, causing a jump&#160;out&#160;of&#160;the loop if the ECX register count&#160;<br/>is initially&#160;zero.&#160;When used&#160;with repeated string&#160;scan&#160;and compare instructions,&#160;the JECXZ instruction&#160;can&#160;deter-<br/>mine&#160;whether the loop&#160;terminated because the count reached zero or because the scan or compare conditions were&#160;<br/>satisfied.<br/>The&#160;JCXZ (jump&#160;if CX&#160;is zero) instruction operates&#160;the same&#160;as the&#160;JECXZ instruction when&#160;the 16-bit&#160;address-size&#160;<br/>attribute is&#160;used. Here, the&#160;CX register&#160;is tested&#160;for&#160;zero.</p>
+<p style="position:absolute;top:562px;left:69px;white-space:nowrap" class="ft05">7.3.8.3&#160;&#160;</p>
+<p style="position:absolute;top:562px;left:153px;white-space:nowrap" class="ft05">Control Transfer Instructions in 64-Bit Mode</p>
+<p style="position:absolute;top:590px;left:69px;white-space:nowrap" class="ft09">In 64-bit mode,&#160;the operand size&#160;for all&#160;near branches (CALL, RET,&#160;JCC, JCXZ, JMP,&#160;and&#160;LOOP) is&#160;forced&#160;to 64&#160;bits.&#160;<br/>The listed instructions&#160;update&#160;the 64-bit&#160;RIP&#160;without need for a&#160;REX&#160;operand-size prefix.&#160;<br/>Near branches in&#160;the following&#160;operations are&#160;forced&#160;to&#160;64-bits (regardless of operand&#160;size prefixes):</p>
+<p style="position:absolute;top:652px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:653px;left:95px;white-space:nowrap" class="ft02">Truncation of the&#160;size of&#160;the instruction pointer</p>
+<p style="position:absolute;top:675px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:676px;left:95px;white-space:nowrap" class="ft02">Size&#160;of a&#160;stack pop or push, due to&#160;CALL&#160;or RET</p>
+<p style="position:absolute;top:697px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:698px;left:95px;white-space:nowrap" class="ft02">Size&#160;of a&#160;stack-pointer increment or&#160;decrement,&#160;due to&#160;CALL or&#160;RET</p>
+<p style="position:absolute;top:720px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:721px;left:95px;white-space:nowrap" class="ft02">Indirect-branch operand&#160;size</p>
+<p style="position:absolute;top:745px;left:69px;white-space:nowrap" class="ft08">Note that the&#160;displacement field for relative&#160;branches&#160;is still limited&#160;to&#160;32 bits and&#160;the&#160;address&#160;size&#160;for&#160;near&#160;<br/>branches is&#160;not forced.<br/>Address&#160;size determines&#160;the&#160;register size&#160;(CX/ECX/RCX)&#160;used for JCXZ&#160;and LOOP.&#160;It&#160;also&#160;impacts the&#160;address&#160;<br/>calculation for memory indirect&#160;branches. Addresses size is&#160;64&#160;bits by default,&#160;although&#160;it can be&#160;over-ridden&#160;to&#160;32&#160;<br/>bits (using&#160;a prefix).</p>
+<p style="position:absolute;top:862px;left:69px;white-space:nowrap" class="ft05">7.3.8.4&#160;&#160;</p>
+<p style="position:absolute;top:862px;left:153px;white-space:nowrap" class="ft05">Software&#160;Interrupt Instructions</p>
+<p style="position:absolute;top:891px;left:69px;white-space:nowrap" class="ft08">The INT&#160;<i>n</i>&#160;(software&#160;interrupt), INTO&#160;(interrupt on&#160;overflow),&#160;and&#160;BOUND&#160;(detect&#160;value&#160;out of range) instructions&#160;<br/>allow&#160;a program to&#160;explicitly raise&#160;a specified&#160;interrupt or&#160;exception, which&#160;in turn causes&#160;the handler routine&#160;for&#160;<br/>the interrupt or exception&#160;to be called.<br/>The INT&#160;<i>n</i>&#160;instruction can&#160;raise&#160;any of the&#160;processor’s interrupts or&#160;exceptions&#160;by encoding the&#160;vector&#160;of&#160;the inter-<br/>rupt or&#160;exception in the instruction. This instruction can be used&#160;to support software generated interrupts or&#160;to test&#160;<br/>the operation of&#160;interrupt&#160;and&#160;exception handlers.<br/>The&#160;IRET&#160;(return&#160;from interrupt) instruction returns program&#160;control from an&#160;interrupt handler&#160;to the&#160;interrupted&#160;<br/>procedure.&#160;The IRET&#160;instruction&#160;performs a&#160;similar operation to&#160;the RET instruction.&#160;</p>
+</div>
+</body>
+</html>

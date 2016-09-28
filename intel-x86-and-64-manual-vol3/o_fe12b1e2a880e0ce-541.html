@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 541</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page541-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce541.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-35</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Example 15-5. &#160;Corrected&#160;Error&#160;Handler Pseudocode&#160;with UCR&#160;Support</p>
+<p style="position:absolute;top:125px;left:69px;white-space:nowrap" class="ft02">Corrected Error HANDLER:&#160; (* Called from&#160;CMCI handler or OS&#160;CMC Polling Dispatcher*)<br/>IF CPU supports MCA</p>
+<p style="position:absolute;top:155px;left:88px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:170px;left:107px;white-space:nowrap" class="ft00">FOR each bank of machine-check registers&#160;</p>
+<p style="position:absolute;top:185px;left:126px;white-space:nowrap" class="ft00">DO</p>
+<p style="position:absolute;top:200px;left:145px;white-space:nowrap" class="ft00">READ IA32_MCi_STATUS;</p>
+<p style="position:absolute;top:215px;left:145px;white-space:nowrap" class="ft00">IF VAL flag in IA32_MCi_STATUS = 1</p>
+<p style="position:absolute;top:230px;left:164px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:245px;left:182px;white-space:nowrap" class="ft00">IF UC Flag&#160;in&#160;IA32_MCi_STATUS =&#160;0 (* It is a corrected error *)</p>
+<p style="position:absolute;top:260px;left:201px;white-space:nowrap" class="ft00">THEN&#160;</p>
+<p style="position:absolute;top:275px;left:220px;white-space:nowrap" class="ft00">GOTO&#160;LOG CMC ERROR;</p>
+<p style="position:absolute;top:290px;left:201px;white-space:nowrap" class="ft00">ELSE&#160;</p>
+<p style="position:absolute;top:305px;left:220px;white-space:nowrap" class="ft00">IF Bit 24 in IA32_MCG_CAP = 0</p>
+<p style="position:absolute;top:320px;left:239px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:335px;left:258px;white-space:nowrap" class="ft00">GOTO CONTINUE;</p>
+<p style="position:absolute;top:350px;left:220px;white-space:nowrap" class="ft02">FI;<br/>IF S&#160;Flag in IA32_MCi_STATUS = 0 AND AR Flag in IA32_MCi_STATUS&#160;= 0</p>
+<p style="position:absolute;top:380px;left:239px;white-space:nowrap" class="ft00">THEN (* It is&#160;a uncorrected&#160;no action required error&#160;*)</p>
+<p style="position:absolute;top:395px;left:258px;white-space:nowrap" class="ft00">GOTO LOG&#160;CMC&#160;ERROR</p>
+<p style="position:absolute;top:410px;left:220px;white-space:nowrap" class="ft02">FI<br/>IF EN Flag in IA32_MCi_STATUS = 0</p>
+<p style="position:absolute;top:440px;left:239px;white-space:nowrap" class="ft00">THEN (* It is&#160;a spurious MCA error *)</p>
+<p style="position:absolute;top:455px;left:258px;white-space:nowrap" class="ft00">GOTO LOG&#160;CMC&#160;ERROR</p>
+<p style="position:absolute;top:470px;left:220px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:485px;left:182px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:500px;left:145px;white-space:nowrap" class="ft02">FI;<br/>GOTO&#160;CONTINUE;</p>
+<p style="position:absolute;top:530px;left:126px;white-space:nowrap" class="ft00">LOG CMC ERROR:&#160;</p>
+<p style="position:absolute;top:545px;left:145px;white-space:nowrap" class="ft02">SAVE IA32_MCi_STATUS;<br/>If MISCV&#160;Flag in IA32_MCi_STATUS&#160;</p>
+<p style="position:absolute;top:575px;left:164px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:590px;left:182px;white-space:nowrap" class="ft02">SAVE IA32_MCi_MISC;<br/>SET&#160;all&#160;0 to IA32_MCi_MISC;</p>
+<p style="position:absolute;top:620px;left:145px;white-space:nowrap" class="ft02">FI;<br/>IF ADDRV Flag in IA32_MCi_STATUS</p>
+<p style="position:absolute;top:650px;left:164px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:665px;left:182px;white-space:nowrap" class="ft00">SAVE IA32_MCi_ADDR;</p>
+<p style="position:absolute;top:680px;left:182px;white-space:nowrap" class="ft00">SET&#160;all&#160;0 to IA32_MCi_ADDR</p>
+<p style="position:absolute;top:695px;left:145px;white-space:nowrap" class="ft02">FI;<br/>SET&#160;all 0 to IA32_MCi_STATUS;</p>
+<p style="position:absolute;top:725px;left:145px;white-space:nowrap" class="ft00">CONTINUE:</p>
+<p style="position:absolute;top:740px;left:126px;white-space:nowrap" class="ft00">OD;</p>
+<p style="position:absolute;top:755px;left:88px;white-space:nowrap" class="ft00">(&#160;*END&#160;FOR&#160;*)</p>
+<p style="position:absolute;top:770px;left:69px;white-space:nowrap" class="ft00">FI;</p>
+</div>
+</body>
+</html>

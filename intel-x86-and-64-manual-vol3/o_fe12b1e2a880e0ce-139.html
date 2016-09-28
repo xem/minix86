@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 139</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page139-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce139.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;4-35</p>
+<p style="position:absolute;top:47px;left:793px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft09">For an access&#160;to the&#160;physical address&#160;that is the translation of a&#160;linear address,&#160;<i>i&#160;</i>= 4*PAT+2*PCD+PWT,&#160;where&#160;<br/>the PAT,&#160;PCD,&#160;and&#160;PWT values&#160;come from the relevant PTE&#160;(if the translation&#160;uses&#160;a 4-KByte page),&#160;the&#160;relevant&#160;<br/>PDE&#160;(if the translation uses a 2-MByte page&#160;or a 4-MByte page),&#160;or the relevant PDPTE (if&#160;the&#160;translation uses&#160;<br/>a 1-GByte&#160;page).</p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:172px;left:95px;white-space:nowrap" class="ft03">With PAE paging, the&#160;WB&#160;memory type is&#160;used&#160;when&#160;loading&#160;the PDPTEs (see<a href="o_fe12b1e2a880e0ce-117.html">&#160;Section 4.4.1).</a></p>
+<p style="position:absolute;top:170px;left:722px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:223px;left:69px;white-space:nowrap" class="ft06">4.9.3&#160;</p>
+<p style="position:absolute;top:223px;left:149px;white-space:nowrap" class="ft06">Caching Paging-Related Information about Memory Typing</p>
+<p style="position:absolute;top:253px;left:69px;white-space:nowrap" class="ft03">A&#160;processor&#160;may cache information&#160;from the paging-structure entries in&#160;TLBs and paging-structure caches (see&#160;</p>
+<p style="position:absolute;top:270px;left:69px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-139.html">Section 4.10</a>). These structures&#160;may&#160;include&#160;information about&#160;memory typing.&#160;The&#160;processor&#160;may use memory-</p>
+<p style="position:absolute;top:286px;left:69px;white-space:nowrap" class="ft09">typing&#160;information from the&#160;TLBs&#160;and paging-structure&#160;caches instead of from the&#160;paging structures&#160;in&#160;memory.<br/>This&#160;fact implies that, if software&#160;modifies a&#160;paging-structure entry to&#160;change&#160;the memory-typing bits,&#160;the&#160;<br/>processor&#160;might not use&#160;that change&#160;for a&#160;subsequent&#160;translation&#160;using that&#160;entry&#160;or for access to&#160;an affected&#160;<br/>linear address.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-147.html">Section&#160;4.10.4.2 for how softw</a>are&#160;can&#160;ensure that&#160;the processor&#160;uses&#160;the modified memory&#160;<br/>typing.</p>
+<p style="position:absolute;top:415px;left:69px;white-space:nowrap" class="ft07">4.10&#160;</p>
+<p style="position:absolute;top:415px;left:148px;white-space:nowrap" class="ft07">CACHING TRANSLATION INFORMATION</p>
+<p style="position:absolute;top:451px;left:69px;white-space:nowrap" class="ft09">The Intel-64 and&#160;IA-32&#160;architectures&#160;may accelerate the&#160;address-translation&#160;process by&#160;caching data&#160;from&#160;the&#160;<br/>paging&#160;structures on the processor.&#160;Because&#160;the processor does&#160;not&#160;ensure that the data that it caches&#160;are always&#160;<br/>consistent with the structures in memory, it is important for software developers to understand how and when the&#160;<br/>processor&#160;may cache&#160;such data.&#160;They should&#160;also understand what&#160;actions software&#160;can take&#160;to remove cached&#160;<br/>data that&#160;may be inconsistent&#160;and when&#160;it should&#160;do so.&#160;This section provides&#160;software&#160;developers&#160;information&#160;<br/>about&#160;the relevant processor&#160;operation.<br/><a href="o_fe12b1e2a880e0ce-139.html">Section&#160;4.10.1 introd</a>uces&#160;process-context identifiers (PCIDs), which&#160;a logical processor may&#160;use&#160;to&#160;distinguish&#160;<br/>information cached&#160;for different linear-address&#160;spaces.<a href="o_fe12b1e2a880e0ce-140.html">&#160;Section 4.10.2&#160;and&#160;</a><a href="o_fe12b1e2a880e0ce-142.html">Section&#160;4.10.3 d</a>escribe&#160;how&#160;the&#160;<br/>processor may cache information in&#160;translation lookaside buffers (TLBs) and paging-structure caches, respectively.&#160;<br/><a href="o_fe12b1e2a880e0ce-145.html">Section&#160;4.10.4&#160;</a>explains&#160;how software&#160;can remove&#160;inconsistent&#160;cached&#160;information by invalidating portions&#160;of the&#160;<br/>TLBs and&#160;pa<a href="o_fe12b1e2a880e0ce-149.html">ging-structure caches. Section&#160;4.10.5 describ</a>es&#160;special considerations for multiprocessor&#160;systems.</p>
+<p style="position:absolute;top:674px;left:69px;white-space:nowrap" class="ft06">4.10.1&#160;</p>
+<p style="position:absolute;top:674px;left:150px;white-space:nowrap" class="ft06">Process-Context Identifiers (PCIDs)</p>
+<p style="position:absolute;top:705px;left:69px;white-space:nowrap" class="ft09">Process-context identifiers (<b>PCIDs</b>) are&#160;a&#160;facility&#160;by which&#160;a logical processor may&#160;cache&#160;information for multiple&#160;<br/>linear-address spaces. The&#160;processor may&#160;retain cached&#160;information&#160;when software&#160;switches to&#160;a different linear-<br/>address space with a&#160;different PCID&#160;(e.g.,&#160;by&#160;loading&#160;CR3;&#160;see<a href="o_fe12b1e2a880e0ce-145.html">&#160;Section 4.10.4.1&#160;</a>for&#160;details).<br/>A&#160;PCID&#160;is&#160;a&#160;12-bit identifier. Non-zero PCIDs&#160;are enabled&#160;by&#160;setting&#160;the&#160;PCIDE&#160;flag&#160;(bit&#160;17)&#160;of&#160;CR4.&#160;If&#160;CR4.PCIDE&#160;=&#160;<br/>0, the current&#160;PCID is always 000H; otherwise, the current&#160;PCID is the&#160;value of bits&#160;11:0 of CR3. Not all processors&#160;<br/>allow&#160;CR4.PCIDE&#160;to be set to&#160;<a href="o_fe12b1e2a880e0ce-109.html">1; see Section 4.1.4 for ho</a>w&#160;to determine&#160;whether&#160;this is&#160;allowed.<br/>The processor&#160;ensures that&#160;CR4.PCIDE can be 1&#160;only in&#160;IA-32e mode&#160;(thus,&#160;32-bit&#160;paging and PAE paging use only&#160;<br/>PCID&#160;000H).&#160;In addition,&#160;software can&#160;change&#160;CR4.PCIDE&#160;from 0&#160;to 1&#160;only if CR3[11:0]&#160;=&#160;000H.&#160;These&#160;require-<br/>ments&#160;are enforced by the&#160;following&#160;limitations on&#160;the&#160;MOV&#160;CR instruction:</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:874px;left:95px;white-space:nowrap" class="ft09">MOV&#160;to CR4&#160;causes a&#160;general-protection&#160;exception (#GP)&#160;if&#160;it&#160;would change&#160;CR4.PCIDE&#160;from 0 to 1 and&#160;either&#160;<br/>IA32_EFER.LMA&#160;=&#160;0&#160;or&#160;CR3[11:0]&#160;≠&#160;000H.</p>
+<p style="position:absolute;top:913px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:913px;left:95px;white-space:nowrap" class="ft03">MOV to&#160;CR0&#160;causes&#160;a general-protection exception if&#160;it would clear CR0.PG to&#160;0&#160;while&#160;CR4.PCIDE&#160;=&#160;1.</p>
+<p style="position:absolute;top:937px;left:69px;white-space:nowrap" class="ft09">When&#160;a logical processor creates entries in&#160;<a href="o_fe12b1e2a880e0ce-140.html">the TLBs (Section 4.10.2)&#160;</a>and paging-structure&#160;<a href="o_fe12b1e2a880e0ce-142.html">caches (Section&#160;<br/>4.10.3), it&#160;</a>associates&#160;those entries with the&#160;current PCID. When using&#160;entries in&#160;the TLBs and&#160;paging-structure&#160;<br/>caches to&#160;translate&#160;a linear address, a logical processor uses only&#160;those entries associated&#160;with the current PCID&#160;<br/><a href="o_fe12b1e2a880e0ce-141.html">(see Section 4.10.2.4&#160;</a>for&#160;an exception).</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">1.&#160;Some&#160;older&#160;IA-32&#160;processors used&#160;the&#160;UC memory&#160;type&#160;when&#160;loading the&#160;PDPTEs. Some&#160;processors may use the&#160;UC memory&#160;type&#160;if&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">CR0.CD&#160;= 1&#160;or if&#160;the MTRRs&#160;are&#160;disabled. These behaviors are model-specific&#160;and not architectural.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 294</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page294-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce294.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-38&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">2.&#160;Derive&#160;a set of bit masks that can&#160;extract the sub&#160;ID&#160;of&#160;each hierarchical level of&#160;the&#160;topology. The&#160;algorithm to&#160;</p>
+<p style="position:absolute;top:117px;left:93px;white-space:nowrap" class="ft03">derive&#160;extraction bit masks for SMT_ID/CORE_ID/PACKAGE_ID differs&#160;based on&#160;APIC ID&#160;is&#160;32-bit (see&#160;step&#160;3&#160;<br/>below)&#160;or 8-bit (see&#160;step&#160;4 below):</p>
+<p style="position:absolute;top:157px;left:68px;white-space:nowrap" class="ft02">3.&#160;If the&#160;processor supports&#160;CPUID leaf 0BH, each APIC&#160;ID&#160;contains a&#160;32-bit value,&#160;the topology enumeration&#160;</p>
+<p style="position:absolute;top:174px;left:93px;white-space:nowrap" class="ft04">parameters needed&#160;to derive three-level&#160;extraction&#160;bit masks are:<br/>a.&#160;Query&#160;the right-shift value&#160;for&#160;the SMT&#160;level of the topology using&#160;CPUID leaf&#160;0BH with ECX =0H as&#160;input.&#160;</p>
+<p style="position:absolute;top:214px;left:119px;white-space:nowrap" class="ft03">The number&#160;of&#160;bits&#160;to shift-right on&#160;x2APIC ID&#160;(EAX[4:0])&#160;can&#160;distinguish different higher-level&#160;entities&#160;<br/>above&#160;SMT (e.g. processor cores) in the&#160;same&#160;physical&#160;package. This&#160;is also&#160;the width&#160;of&#160;the bit mask to&#160;<br/>extract the&#160;SMT_ID.&#160;</p>
+<p style="position:absolute;top:271px;left:93px;white-space:nowrap" class="ft02">b.&#160;Query&#160;CPUID leaf&#160;0BH&#160;for&#160;the amount of bit shift to&#160;distinguish&#160;next higher-level entities (e.g.&#160;physical&#160;</p>
+<p style="position:absolute;top:288px;left:119px;white-space:nowrap" class="ft03">processor packages)&#160;in the&#160;system. This describes&#160;an explicit three-level-topology situation for commonly&#160;<br/>available processors.<a href="o_fe12b1e2a880e0ce-291.html">&#160;Consult Example 8-17</a>&#160;to adapt to&#160;situations beyond three-level topology of a physical&#160;<br/>processor.&#160;The width&#160;of&#160;the extraction&#160;bit&#160;mask&#160;can be used to&#160;derive&#160;the cumulative&#160;extraction&#160;bitmask&#160;to&#160;<br/>extract the&#160;sub IDs of logical&#160;processors&#160;(including different processor&#160;cores) in&#160;the&#160;same physical package.&#160;<br/>The extraction&#160;bit&#160;mask&#160;to distinguish&#160;merely different processor cores&#160;can be&#160;derived by xor’ing the&#160;SMT&#160;<br/>extraction&#160;bit&#160;mask from&#160;the&#160;cumulative&#160;extraction bit&#160;mask.</p>
+<p style="position:absolute;top:394px;left:93px;white-space:nowrap" class="ft05">c.&#160;Query&#160;the 32-bit&#160;x2APIC&#160;ID&#160;for the logical processor&#160;where the&#160;current thread&#160;is&#160;executing.<br/>d.&#160;Derive the&#160;extraction&#160;bit masks corresponding&#160;to&#160;SMT_ID,&#160;CORE_ID,&#160;and PACKAGE_ID,&#160;starting&#160;from&#160;</p>
+<p style="position:absolute;top:435px;left:119px;white-space:nowrap" class="ft02">SMT_ID.</p>
+<p style="position:absolute;top:459px;left:93px;white-space:nowrap" class="ft02">e.&#160;Apply&#160;each extraction bit&#160;mask&#160;to the&#160;32-bit x2APIC ID to extract sub-field IDs.</p>
+<p style="position:absolute;top:483px;left:68px;white-space:nowrap" class="ft02">4.&#160;If the&#160;processor does&#160;not support CPUID&#160;leaf 0BH,&#160;each&#160;initial APIC ID contains an&#160;8-bit value,&#160;the&#160;topology&#160;</p>
+<p style="position:absolute;top:499px;left:93px;white-space:nowrap" class="ft04">enumeration&#160;parameters needed&#160;to derive&#160;extraction&#160;bit masks are:<br/>a.&#160;Query the&#160;size of address&#160;space for sub&#160;IDs&#160;that&#160;can accommodate&#160;logical processors in&#160;a physical&#160;</p>
+<p style="position:absolute;top:540px;left:119px;white-space:nowrap" class="ft03">processor package.&#160;This&#160;size&#160;parameters&#160;(CPUID.1:EBX[23:16])&#160;can be&#160;used&#160;to&#160;derive&#160;the&#160;width&#160;of an&#160;<br/>extraction bitmask to&#160;enumerate&#160;the sub&#160;IDs of different&#160;logical&#160;processors&#160;in the&#160;same physical package.</p>
+<p style="position:absolute;top:580px;left:93px;white-space:nowrap" class="ft02">b.&#160;Query the size of address space&#160;for sub IDs that can accommodate&#160;processor cores in&#160;a physical processor&#160;</p>
+<p style="position:absolute;top:597px;left:119px;white-space:nowrap" class="ft03">package. This&#160;size parameters&#160;can be used to&#160;derive&#160;the&#160;width of an extraction bitmask to&#160;enumerate&#160;the&#160;<br/>sub IDs of processor cores in the&#160;same&#160;physical package.</p>
+<p style="position:absolute;top:637px;left:93px;white-space:nowrap" class="ft05">c.&#160;Query the&#160;8-bit&#160;initial APIC ID for the&#160;logical&#160;processor where&#160;the&#160;current thread is&#160;executing.<br/>d.&#160;Derive the&#160;extraction&#160;bit masks using&#160;respective&#160;address sizes corresponding&#160;to&#160;SMT_ID,&#160;CORE_ID,&#160;and&#160;</p>
+<p style="position:absolute;top:678px;left:119px;white-space:nowrap" class="ft02">PACKAGE_ID,&#160;starting&#160;from SMT_ID.</p>
+<p style="position:absolute;top:702px;left:93px;white-space:nowrap" class="ft02">e.&#160;Apply&#160;each extraction bit&#160;mask&#160;to the&#160;8-bit&#160;initial APIC ID to&#160;extract sub-field&#160;IDs.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1112</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1112-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1112.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">26-20&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft08">The&#160;last-exception&#160;record MSRs&#160;(LERs)&#160;may be updated&#160;based on&#160;the setting of the&#160;LBR&#160;bit in&#160;the&#160;<br/>IA32_DEBUGCTL MSR. Events&#160;such as&#160;debug exceptions, which&#160;normally&#160;clear&#160;the LBR bit&#160;before&#160;they are&#160;<br/>delivered,&#160;and&#160;therefore do&#160;not normally update the&#160;LERs, may&#160;do&#160;so&#160;as part of VM-entry event&#160;injection.</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft09">If&#160;injection&#160;of an event&#160;encounters a&#160;nested&#160;exception that does not&#160;itself cause&#160;a&#160;VM&#160;exit,&#160;the&#160;value&#160;of the&#160;EXT&#160;<br/>bit (bit&#160;0)&#160;in&#160;any error code&#160;pushed on the&#160;stack is&#160;determined as&#160;follows:<br/>—&#160;If&#160;event&#160;being injected has interruption&#160;type&#160;external interrupt,&#160;NMI, hardware&#160;exception, or&#160;privileged&#160;</p>
+<p style="position:absolute;top:213px;left:119px;white-space:nowrap" class="ft08">software exception and encounters a nested exception (but does not produce&#160;a double fault), the error code&#160;<br/>for&#160;the&#160;first such&#160;exception encountered sets&#160;the EXT bit.</p>
+<p style="position:absolute;top:253px;left:93px;white-space:nowrap" class="ft03">—&#160;If&#160;event being injected&#160;is a&#160;software&#160;interrupt or an software&#160;exception and encounters a&#160;nested&#160;exception&#160;</p>
+<p style="position:absolute;top:270px;left:119px;white-space:nowrap" class="ft08">(but does not&#160;produce a double&#160;fault),&#160;the error code&#160;for the first such exception encountered clears&#160;the&#160;EXT&#160;<br/>bit.</p>
+<p style="position:absolute;top:310px;left:93px;white-space:nowrap" class="ft03">—&#160;If event&#160;delivery&#160;encounters a&#160;nested&#160;exception and delivery of&#160;that&#160;exception encounters&#160;another&#160;</p>
+<p style="position:absolute;top:327px;left:119px;white-space:nowrap" class="ft08">exception&#160;(but does not produce a&#160;double fault),&#160;the error&#160;code&#160;for&#160;that exception&#160;sets&#160;the EXT bit. If&#160;a&#160;<br/>double&#160;fault&#160;is produced, the&#160;error code for&#160;the&#160;double fault is&#160;0000H (the&#160;EXT&#160;bit is&#160;clear).</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft04">26.5.1.2 &#160;&#160;VM&#160;Exits During Event Injection</p>
+<p style="position:absolute;top:416px;left:68px;white-space:nowrap" class="ft09">An event being injected never causes&#160;a&#160;VM&#160;exit&#160;directly regardless&#160;of the&#160;settings of&#160;the&#160;VM-execution controls. For&#160;<br/>example,&#160;setting&#160;the&#160;“NMI exiting”&#160;VM-execution control to&#160;1 does not&#160;cause a&#160;VM&#160;exit&#160;due&#160;to injection of an NMI.<br/>However,&#160;the&#160;event-delivery process may&#160;lead&#160;to a&#160;VM&#160;exit:</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:479px;left:93px;white-space:nowrap" class="ft08">If the vector in the VM-entry interruption-information&#160;field identifies a task gate in the IDT,&#160;the attempted task&#160;<br/>switch may&#160;cause&#160;a VM&#160;exit&#160;just&#160;as it&#160;would had&#160;the injected event occurred during&#160;normal&#160;execution in&#160;VMX&#160;<br/>non-root oper<a href="o_fe12b1e2a880e0ce-1084.html">ation (see Section 25.4.2).</a></p>
+<p style="position:absolute;top:534px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:535px;left:93px;white-space:nowrap" class="ft08">If event&#160;delivery encounters a&#160;nested&#160;exception,&#160;a&#160;VM&#160;exit&#160;may occur depending on&#160;the contents&#160;of&#160;the&#160;<br/><a href="o_fe12b1e2a880e0ce-1079.html">exception bitmap (see Section 25.2).</a></p>
+<p style="position:absolute;top:573px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:574px;left:93px;white-space:nowrap" class="ft08">If event&#160;delivery generates&#160;a double-fault exception&#160;(due to&#160;a nested&#160;exception);&#160;the logical processor&#160;<br/>encounters&#160;another nested&#160;exception&#160;while&#160;attempting to&#160;call the&#160;double-fault&#160;handler;&#160;and that&#160;exception does&#160;<br/>not&#160;cause&#160;a VM&#160;exit due&#160;to the&#160;exception bitmap; then&#160;a&#160;VM&#160;exit&#160;occurs&#160;due&#160;to triple&#160;fault (see<a href="o_fe12b1e2a880e0ce-1079.html">&#160;Section 25.2</a>).</p>
+<p style="position:absolute;top:628px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:629px;left:93px;white-space:nowrap" class="ft08">If&#160;event delivery&#160;injects&#160;a double-fault exception and&#160;encounters a&#160;nested&#160;exception that does not&#160;cause a&#160;<br/>VM&#160;exit due to the exception bitmap,&#160;then a VM&#160;exit occurs&#160;due&#160;<a href="o_fe12b1e2a880e0ce-1079.html">to triple fault (see Section 25.2).</a></p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:668px;left:93px;white-space:nowrap" class="ft08">If&#160;the&#160;“virtualize&#160;APIC accesses” VM-execution&#160;control&#160;is 1 and&#160;event delivery&#160;generates&#160;an access to&#160;the APIC-<br/>access page, that access is&#160;treated as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-1171.html">in Section 29.4&#160;and&#160;</a>may cause&#160;a&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:682px;left:699px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:709px;left:68px;white-space:nowrap" class="ft08">If the&#160;event-delivery process does&#160;cause a VM&#160;exit,&#160;the processor state before the&#160;VM&#160;exit is determined just as it&#160;<br/>would be&#160;had the injected&#160;event occurred&#160;during normal execution in VMX&#160;non-root operation.&#160;If the injected event&#160;<br/>directly&#160;accesses&#160;a task&#160;gate&#160;that cause&#160;a VM&#160;exit or&#160;if&#160;the&#160;first nested exception&#160;encountered&#160;causes a&#160;VM&#160;exit,&#160;<br/>information about&#160;the&#160;injected&#160;event&#160;is saved in&#160;the&#160;IDT-vectoring&#160;information field (see<a href="o_fe12b1e2a880e0ce-1129.html">&#160;Section 27.2.3).</a></p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft04">26.5.1.3 &#160;&#160;Event Injection for VM Entries to&#160;Real-Address&#160;Mode</p>
+<p style="position:absolute;top:831px;left:68px;white-space:nowrap" class="ft08">If VM&#160;entry&#160;is loading CR0.PE with 0,&#160;any&#160;injected&#160;vectored&#160;event is&#160;delivered as&#160;would&#160;normally&#160;be&#160;done in&#160;real-<br/>address mode.</p>
+<p style="position:absolute;top:845px;left:167px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:847px;left:174px;white-space:nowrap" class="ft03">&#160;Specifically, VM&#160;entry&#160;uses the&#160;vector&#160;provided&#160;in the&#160;VM-entry&#160;interruption-information field to&#160;</p>
+<p style="position:absolute;top:864px;left:68px;white-space:nowrap" class="ft08">select&#160;a 4-byte&#160;entry from an&#160;interrupt-vector&#160;table&#160;at the&#160;linear address in IDTR.base.&#160;Further details are&#160;provided&#160;<br/>in&#160;Section&#160;15.1.4 in&#160;Volume 3A of the&#160;<i>IA-32 Intel</i></p>
+<p style="position:absolute;top:878px;left:397px;white-space:nowrap" class="ft07"><i>®</i></p>
+<p style="position:absolute;top:880px;left:408px;white-space:nowrap" class="ft06"><i>&#160;Architecture Software&#160;Developer’s&#160;Manual</i>.</p>
+<p style="position:absolute;top:904px;left:68px;white-space:nowrap" class="ft08">Because bit&#160;11 (deliver error code) in the VM-entry&#160;interruption-information field&#160;must be 0&#160;if CR0.PE will be 0&#160;after&#160;<br/>VM<a href="o_fe12b1e2a880e0ce-1097.html">&#160;entry (see&#160;Section&#160;26.2.1.3)</a>, vectored&#160;events&#160;injected with CR0.PE&#160;= 0&#160;do not push an&#160;error code&#160;on the stack.&#160;<br/>This is&#160;consistent&#160;with event&#160;delivery in real-address&#160;mode.</p>
+<p style="position:absolute;top:984px;left:68px;white-space:nowrap" class="ft03">1.&#160;“Virtualize&#160;APIC&#160;accesses” is a&#160;secondary&#160;processor-based VM-execution control. If&#160;bit&#160;31 of&#160;the&#160;primary processor-based VM-execu-</p>
+<p style="position:absolute;top:1000px;left:89px;white-space:nowrap" class="ft03">tion&#160;controls is 0,&#160;VM&#160;entry functions as&#160;if&#160;the “virtualize&#160;APIC&#160;accesses” VM-execution&#160;control were&#160;0.<a href="o_fe12b1e2a880e0ce-1055.html">&#160;See Section 24.6.2.</a></p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft03">2.&#160;If&#160;the capability MSR IA32_VMX_CR0_FIXED0 reports that&#160;CR0.PE must&#160;be&#160;1 in&#160;VMX operation,&#160;VM&#160;entry must&#160;be loading CR0.PE&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft03">with 1 unless the “unrestricted guest” VM-execution&#160;control and bit&#160;31&#160;of&#160;the&#160;primary processor-based&#160;VM-execution&#160;controls&#160;are&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">both&#160;1.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 584</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page584-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481584.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:605px;white-space:nowrap" class="ft00">INT n/INTO/INT 3—Call&#160;to Interrupt Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-456&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">INT&#160;<i>n</i>/INTO/INT 3—Call to&#160;Interrupt&#160;Procedure</p>
+<p style="position:absolute;top:262px;left:353px;white-space:nowrap" class="ft04">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:394px;left:68px;white-space:nowrap" class="ft09">The INT&#160;<i>n</i>&#160;instruction&#160;generates a&#160;call to&#160;the interrupt&#160;or exception handler&#160;specified with the&#160;destination&#160;operand&#160;<br/>(see&#160;the section titled&#160;“Interrupts and&#160;Exceptions” in<a href="��">&#160;Chapter 6&#160;</a>of&#160;<a href="��">the&#160;<i>Intel®&#160;64&#160;and&#160;IA-32 Architectures Software&#160;<br/>Developer’s Manual, Volume&#160;1</i></a>). The destination operand specifies&#160;a vector from 0&#160;to 255,&#160;encoded as&#160;an 8-bit&#160;<br/>unsigned&#160;intermediate&#160;value.&#160;Each vector provides&#160;an index to a&#160;gate&#160;descriptor&#160;in the IDT.&#160;The&#160;first&#160;32 vectors are&#160;<br/>reserved by Intel for system&#160;use.&#160;Some of&#160;these vectors&#160;are used for internally generated&#160;exceptions.<br/>The INT&#160;<i>n</i>&#160;instruction is the general mnemonic for executing a&#160;software-generated&#160;call to an interrupt handler.&#160;The&#160;<br/>INTO&#160;instruction is&#160;a special mnemonic for calling overflow&#160;exception&#160;(#OF), exception&#160;4. The overflow interrupt&#160;<br/>checks the&#160;OF flag&#160;in the&#160;EFLAGS&#160;register&#160;and calls the&#160;overflow&#160;interrupt&#160;handler if the&#160;OF&#160;flag is&#160;set to&#160;1. (The&#160;<br/>INTO&#160;instruction cannot be&#160;used in 64-bit&#160;mode.)<br/>The INT 3&#160;instruction&#160;generates&#160;a special one&#160;byte opcode&#160;(CC) that is&#160;intended for&#160;calling the&#160;debug exception&#160;<br/>handler.&#160;(This one byte form is&#160;valuable because&#160;it can&#160;be&#160;used&#160;to replace the first byte&#160;of&#160;any instruction with a&#160;<br/>breakpoint, including&#160;other one byte instructions,&#160;without over-writing&#160;other code). To&#160;further support its function&#160;<br/>as a&#160;debug breakpoint,&#160;the interrupt generated with&#160;the CC&#160;opcode also&#160;differs from the&#160;regular&#160;software interrupts&#160;<br/>as follows:&#160;</p>
+<p style="position:absolute;top:646px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:646px;left:93px;white-space:nowrap" class="ft09">Interrupt&#160;redirection does&#160;not happen when in&#160;VME&#160;mode; the&#160;interrupt&#160;is handled&#160;by a&#160;protected-mode&#160;<br/>handler.</p>
+<p style="position:absolute;top:685px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:685px;left:93px;white-space:nowrap" class="ft05">The&#160;virtual-8086&#160;mode&#160;IOPL&#160;checks do&#160;not occur.&#160;The&#160;interrupt is&#160;taken&#160;without faulting&#160;at any&#160;IOPL&#160;level.</p>
+<p style="position:absolute;top:709px;left:68px;white-space:nowrap" class="ft09">Note that the&#160;“normal”&#160;2-byte opcode&#160;for&#160;INT 3 (CD03)&#160;does not&#160;have&#160;these special features.&#160;Intel and&#160;Microsoft&#160;<br/>assemblers will not generate&#160;the&#160;CD03&#160;opcode&#160;from&#160;any&#160;mnemonic, but&#160;this opcode&#160;can&#160;be created by&#160;direct&#160;<br/>numeric code&#160;definition&#160;or&#160;by self-modifying&#160;code.<br/>The&#160;action of the&#160;INT&#160;<i>n</i>&#160;instruction (including the&#160;INTO&#160;and INT 3&#160;instructions) is&#160;similar&#160;to&#160;that&#160;of&#160;a far&#160;call made&#160;<br/>with the CALL instruction. The primary difference is&#160;that with&#160;the INT&#160;<i>n</i>&#160;instruction, the EFLAGS&#160;register&#160;is&#160;pushed&#160;<br/>onto&#160;the stack before the&#160;return address. (The return&#160;address&#160;is a&#160;far&#160;address consisting of&#160;the&#160;current values of&#160;<br/>the&#160;CS and&#160;EIP registers.) Returns from&#160;interrupt&#160;procedures&#160;are&#160;handled with the&#160;IRET instruction,&#160;which pops the&#160;<br/>EFLAGS&#160;information and&#160;return address from the&#160;stack.<br/>The vector specifies an interrupt descriptor in the interrupt&#160;descriptor table&#160;(IDT); that is, it provides index into&#160;the&#160;<br/>IDT.&#160;The selected&#160;interrupt&#160;descriptor&#160;in&#160;turn&#160;contains&#160;a pointer&#160;to an&#160;interrupt&#160;or&#160;exception&#160;handler&#160;procedure.&#160;<br/>In&#160;protected&#160;mode,&#160;the&#160;IDT&#160;contains&#160;an&#160;array&#160;of&#160;8-byte&#160;descriptors, each of&#160;which is an&#160;interrupt gate, trap gate,&#160;<br/>or&#160;task&#160;gate.&#160;In&#160;real-address mode, the&#160;IDT is an&#160;array of 4-byte far pointers (2-byte code segment&#160;selector and&#160;<br/>a 2-byte&#160;instruction pointer), each of which&#160;point directly&#160;to a&#160;procedure in the selected&#160;segment. (Note that in&#160;<br/>real-address mode,&#160;the&#160;IDT&#160;is called the&#160;<b>interrupt vector&#160;table</b>, and&#160;its pointers are called interrupt&#160;vectors.)&#160;<br/>The following decision table&#160;indicates&#160;which action in the&#160;lower&#160;portion of the table is taken given the conditions&#160;in&#160;<br/>the upper&#160;portion of the&#160;table. Each Y&#160;in&#160;the lower&#160;section of the&#160;decision&#160;table represents&#160;a procedure defined&#160;in&#160;<br/>the “Operation” section&#160;for&#160;this instruction (except&#160;#GP).</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft05">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft05">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft05">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft05">En</p>
+<p style="position:absolute;top:123px;left:427px;white-space:nowrap" class="ft05">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:427px;white-space:nowrap" class="ft05">Mode</p>
+<p style="position:absolute;top:123px;left:499px;white-space:nowrap" class="ft05">Compat/</p>
+<p style="position:absolute;top:137px;left:499px;white-space:nowrap" class="ft05">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:569px;white-space:nowrap" class="ft05">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft05">CC</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft05">INT 3</p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft05">NP</p>
+<p style="position:absolute;top:160px;left:427px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:160px;left:499px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:160px;left:569px;white-space:nowrap" class="ft05">Interrupt 3—trap to debugger.</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft05">CD&#160;<i>ib</i></p>
+<p style="position:absolute;top:182px;left:221px;white-space:nowrap" class="ft05">INT&#160;<i>imm8</i></p>
+<p style="position:absolute;top:182px;left:389px;white-space:nowrap" class="ft05">I</p>
+<p style="position:absolute;top:182px;left:427px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:182px;left:499px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:182px;left:569px;white-space:nowrap" class="ft05">Interrupt vector specified by&#160;immediate byte.</p>
+<p style="position:absolute;top:205px;left:73px;white-space:nowrap" class="ft05">CE</p>
+<p style="position:absolute;top:205px;left:221px;white-space:nowrap" class="ft05">INTO</p>
+<p style="position:absolute;top:205px;left:389px;white-space:nowrap" class="ft05">NP</p>
+<p style="position:absolute;top:205px;left:427px;white-space:nowrap" class="ft05">Invalid</p>
+<p style="position:absolute;top:205px;left:499px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:205px;left:569px;white-space:nowrap" class="ft05">Interrupt&#160;4—if&#160;overflow&#160;flag&#160;is&#160;1.</p>
+<p style="position:absolute;top:285px;left:84px;white-space:nowrap" class="ft05">Op/En</p>
+<p style="position:absolute;top:285px;left:191px;white-space:nowrap" class="ft05">Operand&#160;1</p>
+<p style="position:absolute;top:285px;left:365px;white-space:nowrap" class="ft05">Operand&#160;2</p>
+<p style="position:absolute;top:285px;left:540px;white-space:nowrap" class="ft05">Operand&#160;3</p>
+<p style="position:absolute;top:285px;left:717px;white-space:nowrap" class="ft05">Operand&#160;4</p>
+<p style="position:absolute;top:308px;left:93px;white-space:nowrap" class="ft05">NP</p>
+<p style="position:absolute;top:308px;left:212px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:308px;left:386px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:308px;left:562px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:308px;left:738px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:333px;left:100px;white-space:nowrap" class="ft05">I</p>
+<p style="position:absolute;top:333px;left:204px;white-space:nowrap" class="ft05">imm8</p>
+<p style="position:absolute;top:333px;left:386px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:333px;left:562px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:333px;left:738px;white-space:nowrap" class="ft05">NA</p>
+</div>
+</body>
+</html>

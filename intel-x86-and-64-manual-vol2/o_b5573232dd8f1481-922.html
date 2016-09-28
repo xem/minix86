@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 922</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page922-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481922.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:584px;white-space:nowrap" class="ft00">PCLMULQDQ - Carry-Less Multiplication Quadword</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-242&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:126px;left:68px;white-space:nowrap" class="ft04">PCLMULQDQ<br/>IF (Imm8[0]&#160;=&#160;0 )&#160;</p>
+<p style="position:absolute;top:161px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:179px;left:115px;white-space:nowrap" class="ft03">TEMP1&#160;&#160;SRC1&#160;[63:0];</p>
+<p style="position:absolute;top:197px;left:88px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:215px;left:115px;white-space:nowrap" class="ft03">TEMP1&#160;&#160;SRC1&#160;[127:64];</p>
+<p style="position:absolute;top:233px;left:68px;white-space:nowrap" class="ft04">FI<br/>IF (Imm8[4]&#160;=&#160;0 )&#160;</p>
+<p style="position:absolute;top:269px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:287px;left:115px;white-space:nowrap" class="ft03">TEMP2&#160;&#160;SRC2&#160;[63:0];</p>
+<p style="position:absolute;top:305px;left:88px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:323px;left:115px;white-space:nowrap" class="ft03">TEMP2&#160;&#160;SRC2&#160;[127:64];</p>
+<p style="position:absolute;top:341px;left:68px;white-space:nowrap" class="ft04">FI<br/>For&#160;i =&#160;0 to 63 {</p>
+<p style="position:absolute;top:377px;left:88px;white-space:nowrap" class="ft04">TmpB [&#160;i&#160;]&#160;&#160;(TEMP1[ 0 ] and TEMP2[&#160;i&#160;]);<br/>For&#160;j =&#160;1 to&#160;i&#160;{</p>
+<p style="position:absolute;top:413px;left:115px;white-space:nowrap" class="ft03">TmpB [&#160;i&#160;]&#160;&#160;TmpB&#160;[&#160;i&#160;] xor (TEMP1[&#160;j&#160;] and TEMP2[&#160;i - j&#160;])</p>
+<p style="position:absolute;top:431px;left:88px;white-space:nowrap" class="ft04">}<br/>DEST[&#160;i&#160;]&#160;&#160;TmpB[&#160;i&#160;];</p>
+<p style="position:absolute;top:467px;left:68px;white-space:nowrap" class="ft04">}<br/>For&#160;i =&#160;64&#160;to&#160;126&#160;{</p>
+<p style="position:absolute;top:503px;left:88px;white-space:nowrap" class="ft04">TmpB [&#160;i&#160;]&#160;&#160;0;<br/>For&#160;j = i -&#160;63&#160;to&#160;63&#160;{</p>
+<p style="position:absolute;top:539px;left:115px;white-space:nowrap" class="ft03">TmpB [&#160;i&#160;]&#160;&#160;TmpB&#160;[&#160;i&#160;] xor (TEMP1[&#160;j&#160;] and TEMP2[&#160;i -&#160;j&#160;])</p>
+<p style="position:absolute;top:557px;left:88px;white-space:nowrap" class="ft04">}<br/>DEST[&#160;i&#160;]&#160;&#160;TmpB[&#160;i&#160;];</p>
+<p style="position:absolute;top:593px;left:68px;white-space:nowrap" class="ft04">}<br/>DEST[127]&#160;&#160;0;<br/>DEST[VLMAX-1:128] (Unmodified)</p>
+<p style="position:absolute;top:665px;left:68px;white-space:nowrap" class="ft05">VPCLMULQDQ&#160;<br/>IF (Imm8[0] = 0 )&#160;</p>
+<p style="position:absolute;top:702px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:719px;left:115px;white-space:nowrap" class="ft03">TEMP1&#160;&#160;SRC1 [63:0];</p>
+<p style="position:absolute;top:737px;left:88px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:755px;left:115px;white-space:nowrap" class="ft03">TEMP1&#160;&#160;SRC1 [127:64];</p>
+<p style="position:absolute;top:773px;left:68px;white-space:nowrap" class="ft04">FI<br/>IF (Imm8[4] = 0 )&#160;</p>
+<p style="position:absolute;top:809px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:827px;left:115px;white-space:nowrap" class="ft03">TEMP2&#160;&#160;SRC2 [63:0];</p>
+<p style="position:absolute;top:845px;left:88px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:863px;left:115px;white-space:nowrap" class="ft03">TEMP2&#160;&#160;SRC2 [127:64];</p>
+<p style="position:absolute;top:881px;left:68px;white-space:nowrap" class="ft04">FI<br/>For&#160;i = 0&#160;to&#160;63&#160;{</p>
+<p style="position:absolute;top:917px;left:88px;white-space:nowrap" class="ft04">TmpB [&#160;i ]&#160;&#160;(TEMP1[ 0 ] and TEMP2[ i ]);<br/>For&#160;j =&#160;1&#160;to&#160;i {</p>
+<p style="position:absolute;top:953px;left:115px;white-space:nowrap" class="ft03">TmpB [i]&#160;&#160;TmpB [i] xor (TEMP1[ j ] and TEMP2[ i - j ])</p>
+<p style="position:absolute;top:971px;left:88px;white-space:nowrap" class="ft04">}<br/>DEST[i]&#160;&#160;TmpB[i];</p>
+<p style="position:absolute;top:1007px;left:68px;white-space:nowrap" class="ft04">}<br/>For i&#160;= 64 to&#160;126&#160;{</p>
+<p style="position:absolute;top:1043px;left:88px;white-space:nowrap" class="ft04">TmpB [&#160;i ]&#160;&#160;0;<br/>For&#160;j&#160;= i -&#160;63&#160;to&#160;63&#160;{</p>
+</div>
+</body>
+</html>

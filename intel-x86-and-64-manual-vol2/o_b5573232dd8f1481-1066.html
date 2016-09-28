@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1066</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1066-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811066.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:668px;white-space:nowrap" class="ft00">POP—Pop a&#160;Value from&#160;the Stack</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-386&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">The&#160;address size is used only when&#160;writing to&#160;a destination&#160;operand in memory.</p>
+<p style="position:absolute;top:122px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:123px;left:93px;white-space:nowrap" class="ft07">Operand&#160;size.&#160;The D flag in the&#160;current code-segment&#160;descriptor determines the default&#160;operand size;&#160;it may&#160;<br/>be&#160;overridden&#160;by instruction prefixes&#160;(66H&#160;or&#160;REX.W).<br/>The&#160;operand&#160;size (16,&#160;32, or 64&#160;bits) determines the&#160;amount by which the stack pointer is incremented (2,&#160;4<br/>or 8).</p>
+<p style="position:absolute;top:200px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:201px;left:93px;white-space:nowrap" class="ft07">Stack-address size. Outside&#160;of 64-bit mode,&#160;the B flag&#160;in the&#160;current stack-segment&#160;descriptor determines the&#160;<br/>size of the&#160;stack pointer (16 or 32 bits); in&#160;64-bit&#160;mode, the&#160;size of&#160;the stack pointer is&#160;always&#160;64&#160;bits.<br/>The&#160;stack-address size determines the&#160;width&#160;of the&#160;stack pointer when reading from&#160;the stack in memory&#160;and<br/>when&#160;incrementing the stack pointer.&#160;(As&#160;stated&#160;above,&#160;the&#160;amount&#160;by&#160;which the&#160;stack pointer is&#160;incremented<br/>is determined&#160;by&#160;the operand size.)</p>
+<p style="position:absolute;top:297px;left:68px;white-space:nowrap" class="ft07">If&#160;the destination&#160;operand is one&#160;of the&#160;segment registers&#160;DS, ES, FS, GS,&#160;or SS,&#160;the value&#160;loaded into&#160;the&#160;register&#160;<br/>must be a valid segment selector. In protected mode, popping a segment selector into a segment register automat-<br/>ically causes&#160;the descriptor&#160;information associated&#160;with&#160;that segment selector&#160;to&#160;be&#160;loaded into&#160;the hidden&#160;<br/>(shadow)&#160;part&#160;of the&#160;segment register&#160;and causes the selector&#160;and the descriptor&#160;information to be validated (see&#160;<br/>the “Operation” section&#160;below).<br/>A NULL&#160;value (0000-0003) may be&#160;popped into the DS,&#160;ES,&#160;FS,&#160;or&#160;GS register without causing a general protection&#160;<br/>fault. However,&#160;any subsequent&#160;attempt&#160;to reference a&#160;segment whose corresponding segment register&#160;is loaded&#160;<br/>with a NULL&#160;value causes a general protection exception (#GP). In this situation,&#160;no&#160;memory reference occurs and&#160;<br/>the saved&#160;value&#160;of the&#160;segment&#160;register&#160;is&#160;NULL.<br/>The POP instruction cannot pop a&#160;value into&#160;the CS register.&#160;To&#160;load&#160;the&#160;CS&#160;register from the&#160;stack,&#160;use&#160;the&#160;RET&#160;<br/>instruction.<br/>If&#160;the ESP register&#160;is&#160;used&#160;as a&#160;base register&#160;for&#160;addressing a&#160;destination operand&#160;in memory,&#160;the POP instruction&#160;<br/>computes the&#160;effective&#160;address of the&#160;operand after&#160;it increments&#160;the ESP register.&#160;For&#160;the case of a&#160;16-bit stack&#160;<br/>where&#160;ESP wraps&#160;to 0H as&#160;a result&#160;of the&#160;POP&#160;instruction,&#160;the resulting location of&#160;the memory&#160;write is&#160;processor-<br/>family-specific.<br/>The POP ESP instruction increments&#160;the stack&#160;pointer (ESP) before data at&#160;the old&#160;top&#160;of&#160;stack&#160;is&#160;written&#160;into&#160;the&#160;<br/>destination.<br/>A POP SS&#160;instruction inhibits&#160;all interrupts,&#160;including&#160;the NMI interrupt, until&#160;after execution of the&#160;next instruction.&#160;<br/>This&#160;action allows sequential&#160;execution of POP SS&#160;and&#160;MOV ESP,&#160;EBP instructions without&#160;the danger of&#160;having&#160;an&#160;<br/>invalid stack&#160;during an&#160;interrupt</p>
+<p style="position:absolute;top:645px;left:283px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:648px;left:290px;white-space:nowrap" class="ft02">. However,&#160;use of the&#160;LSS instruction is&#160;the preferred&#160;method of loading the&#160;SS&#160;</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft07">and ESP registers.<br/>In&#160;64-bit mode, using&#160;a REX prefix&#160;in&#160;the&#160;form&#160;of REX.R permits access to&#160;additional&#160;registers (R8-R15). When&#160;in&#160;<br/>64-bit mode,&#160;POPs&#160;using&#160;32-bit operands&#160;are not encodable&#160;and&#160;POPs to DS,&#160;ES,&#160;SS&#160;are&#160;not&#160;valid.&#160;See&#160;the&#160;summary&#160;<br/>chart&#160;at the&#160;beginning of&#160;this&#160;section for encoding data and&#160;limits.</p>
+<p style="position:absolute;top:758px;left:68px;white-space:nowrap" class="ft05">Operation</p>
+<p style="position:absolute;top:784px;left:68px;white-space:nowrap" class="ft02">IF&#160;StackAddrSize&#160;</p>
+<p style="position:absolute;top:784px;left:166px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:784px;left:175px;white-space:nowrap" class="ft02">&#160;32</p>
+<p style="position:absolute;top:802px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:820px;left:115px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:820px;left:204px;white-space:nowrap" class="ft06">=&#160;</p>
+<p style="position:absolute;top:820px;left:216px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:838px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:856px;left:169px;white-space:nowrap" class="ft02">DEST&#160;←&#160;SS:ESP; (* Copy&#160;a doubleword&#160;*)</p>
+<p style="position:absolute;top:874px;left:169px;white-space:nowrap" class="ft02">ESP&#160;←&#160;ESP&#160;+&#160;4;</p>
+<p style="position:absolute;top:892px;left:142px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:892px;left:262px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:892px;left:270px;white-space:nowrap" class="ft02">&#160;16*)</p>
+<p style="position:absolute;top:910px;left:169px;white-space:nowrap" class="ft02">DEST&#160;←&#160;SS:ESP; (* Copy&#160;a word&#160;*)</p>
+<p style="position:absolute;top:946px;left:68px;white-space:nowrap" class="ft02">1.&#160;If&#160;a&#160;code&#160;instruction&#160;breakpoint&#160;(for&#160;debug)&#160;is&#160;placed&#160;on&#160;an&#160;instruction located&#160;immediately&#160;after a&#160;POP SS&#160;instruction, the&#160;breakpoint&#160;</p>
+<p style="position:absolute;top:963px;left:89px;white-space:nowrap" class="ft02">may&#160;not&#160;be&#160;triggered.&#160;However,&#160;in&#160;a&#160;sequence of&#160;instructions&#160;that&#160;POP the SS register,&#160;only the first instruction in the sequence is&#160;</p>
+<p style="position:absolute;top:979px;left:89px;white-space:nowrap" class="ft012">guaranteed&#160;to&#160;delay an&#160;interrupt.<br/>In&#160;the following&#160;sequence,&#160;interrupts may be&#160;recognized&#160;before&#160;POP ESP executes:<br/>POP SS</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft02">POP SS</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">POP ESP</p>
+</div>
+</body>
+</html>

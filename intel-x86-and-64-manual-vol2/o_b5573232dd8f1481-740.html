@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 740</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page740-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481740.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:636px;white-space:nowrap" class="ft00">MOVDDUP—Replicate Double FP&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-60&#160;Vol. 2B</p>
+<p style="position:absolute;top:335px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:358px;left:68px;white-space:nowrap" class="ft05">VMOVDDUP (EVEX encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>TMP_SRC[63:0]&#160;&#160;SRC[63:0]&#160;<br/>TMP_SRC[127:64]&#160;&#160;SRC[63:0]<br/>IF VL &gt;= 256</p>
+<p style="position:absolute;top:448px;left:88px;white-space:nowrap" class="ft05">TMP_SRC[191:128]&#160;&#160;SRC[191:128]<br/>TMP_SRC[255:192]&#160;&#160;SRC[191:128]</p>
+<p style="position:absolute;top:484px;left:68px;white-space:nowrap" class="ft05">FI;<br/>IF VL &gt;= 512</p>
+<p style="position:absolute;top:520px;left:88px;white-space:nowrap" class="ft05">TMP_SRC[319:256]&#160;&#160;SRC[319:256]<br/>TMP_SRC[383:320]&#160;&#160;SRC[319:256]<br/>TMP_SRC[477:384]&#160;&#160;SRC[477:384]<br/>TMP_SRC[511:484]&#160;&#160;SRC[477:384]</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft05">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:628px;left:88px;white-space:nowrap" class="ft05">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:664px;left:115px;white-space:nowrap" class="ft05">THEN DEST[i+63:i]&#160;&#160;TMP_SRC[i+63:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:700px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:700px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:718px;left:169px;white-space:nowrap" class="ft05">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:736px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:754px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0&#160;</p>
+<p style="position:absolute;top:754px;left:358px;white-space:nowrap" class="ft02">; zeroing-masking</p>
+<p style="position:absolute;top:772px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:790px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:808px;left:68px;white-space:nowrap" class="ft05">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft05">VMOVDDUP (VEX.256 encoded version)<br/>DEST[63:0]&#160;SRC[63:0]<br/>DEST[127:64]&#160;SRC[63:0]<br/>DEST[191:128]&#160;SRC[191:128]<br/>DEST[255:192]&#160;SRC[191:128]<br/>DEST[MAX_VL-1:256]&#160;0</p>
+<p style="position:absolute;top:988px;left:68px;white-space:nowrap" class="ft05">VMOVDDUP (VEX.128 encoded version)<br/>DEST[63:0]&#160;SRC[63:0]<br/>DEST[127:64]&#160;SRC[63:0]<br/>DEST[MAX_VL-1:128]&#160;0</p>
+<p style="position:absolute;top:281px;left:337px;white-space:nowrap" class="ft03">Figure&#160;4-2.&#160;&#160;VMOVDDUP&#160;Operation</p>
+<p style="position:absolute;top:248px;left:297px;white-space:nowrap" class="ft00">X2</p>
+<p style="position:absolute;top:248px;left:408px;white-space:nowrap" class="ft00">X2</p>
+<p style="position:absolute;top:248px;left:521px;white-space:nowrap" class="ft00">X0</p>
+<p style="position:absolute;top:248px;left:633px;white-space:nowrap" class="ft00">X0</p>
+<p style="position:absolute;top:248px;left:214px;white-space:nowrap" class="ft00">DEST</p>
+<p style="position:absolute;top:147px;left:298px;white-space:nowrap" class="ft00">X3</p>
+<p style="position:absolute;top:147px;left:410px;white-space:nowrap" class="ft00">X2</p>
+<p style="position:absolute;top:149px;left:215px;white-space:nowrap" class="ft00">SRC</p>
+<p style="position:absolute;top:147px;left:521px;white-space:nowrap" class="ft00">X1</p>
+<p style="position:absolute;top:147px;left:633px;white-space:nowrap" class="ft00">X0</p>
+</div>
+</body>
+</html>

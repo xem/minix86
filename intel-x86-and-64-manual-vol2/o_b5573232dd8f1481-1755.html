@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1755</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1755-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811755.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPMASKMOV — Conditional SIMD&#160;Integer Packed Loads and Stores</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-369</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">Instruction&#160;behavior on&#160;alignment check reporting with&#160;mask&#160;bits of&#160;less than all 1s are the same as with mask bits&#160;<br/>of all&#160;1s.<br/>VMASKMOV&#160;should not be used to&#160;access&#160;memory&#160;mapped I/O&#160;as the&#160;ordering&#160;of the&#160;individual loads or&#160;stores it&#160;<br/>does&#160;is implementation specific.&#160;<br/>In cases where mask bits indicate&#160;data should&#160;not&#160;be&#160;loaded or&#160;stored&#160;paging&#160;A&#160;and D bits will be set in&#160;an&#160;imple-<br/>mentation&#160;dependent&#160;way.&#160;However,&#160;A&#160;and&#160;D bits are always set for pages&#160;where&#160;data&#160;is actually loaded/stored.<br/>Note: for load forms, the first source&#160;(the mask) is encoded&#160;in&#160;VEX.vvvv; the second&#160;source is&#160;encoded in rm_field,&#160;<br/>and the&#160;destination&#160;register&#160;is&#160;encoded&#160;in reg_field.<br/>Note: for store&#160;forms, the&#160;first source (the mask) is encoded in&#160;VEX.vvvv; the second&#160;source&#160;register&#160;is encoded&#160;in&#160;<br/>reg_field, and&#160;the&#160;destination memory&#160;location is&#160;encoded in rm_field.</p>
+<p style="position:absolute;top:308px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft06">VPMASKMOVD&#160;-&#160;256-bit load<br/>DEST[31:0]&#160;&#160;IF (SRC1[31]) Load_32(mem) ELSE&#160;0&#160;<br/>DEST[63:32]&#160;&#160;IF&#160;(SRC1[63]) Load_32(mem + 4) ELSE&#160;0&#160;<br/>DEST[95:64]&#160;&#160;IF&#160;(SRC1[95]) Load_32(mem + 8) ELSE&#160;0&#160;<br/>DEST[127:96]&#160;&#160;IF (SRC1[127]) Load_32(mem&#160;+ 12) ELSE&#160;0&#160;<br/>DEST[159:128]&#160;&#160;IF (SRC1[159]) Load_32(mem + 16) ELSE&#160;0&#160;<br/>DEST[191:160]&#160;&#160;IF (SRC1[191]) Load_32(mem + 20) ELSE&#160;0&#160;<br/>DEST[223:192]&#160;&#160;IF (SRC1[223]) Load_32(mem + 24) ELSE&#160;0&#160;<br/>DEST[255:224]&#160;&#160;IF (SRC1[255]) Load_32(mem + 28) ELSE&#160;0&#160;</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft06">VPMASKMOVD&#160;-128-bit load&#160;<br/>DEST[31:0]&#160;&#160;IF (SRC1[31]) Load_32(mem) ELSE&#160;0&#160;<br/>DEST[63:32]&#160;&#160;IF&#160;(SRC1[63]) Load_32(mem + 4) ELSE&#160;0&#160;<br/>DEST[95:64]&#160;&#160;IF&#160;(SRC1[95]) Load_32(mem + 8) ELSE&#160;0&#160;<br/>DEST[127:97]&#160;&#160;IF (SRC1[127]) Load_32(mem&#160;+ 12) ELSE&#160;0&#160;<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:640px;left:69px;white-space:nowrap" class="ft06">VPMASKMOVQ&#160;- 256-bit load<br/>DEST[63:0]&#160;&#160;IF (SRC1[63]) Load_64(mem) ELSE&#160;0&#160;<br/>DEST[127:64]&#160;&#160;IF (SRC1[127]) Load_64(mem&#160;+ 8) ELSE&#160;0&#160;<br/>DEST[195:128]&#160;&#160;IF (SRC1[191]) Load_64(mem + 16) ELSE&#160;0&#160;<br/>DEST[255:196]&#160;&#160;IF (SRC1[255]) Load_64(mem + 24) ELSE&#160;0&#160;</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft06">VPMASKMOVQ&#160;- 128-bit load&#160;<br/>DEST[63:0]&#160;&#160;IF (SRC1[63]) Load_64(mem) ELSE&#160;0&#160;<br/>DEST[127:64]&#160;&#160;IF (SRC1[127]) Load_64(mem&#160;+ 16) ELSE&#160;0<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:847px;left:69px;white-space:nowrap" class="ft06">VPMASKMOVD&#160;-&#160;256-bit store<br/>IF&#160;(SRC1[31]) DEST[31:0]&#160;&#160;SRC2[31:0]&#160;<br/>IF&#160;(SRC1[63]) DEST[63:32]&#160;&#160;SRC2[63:32]&#160;<br/>IF&#160;(SRC1[95]) DEST[95:64]&#160;&#160;SRC2[95:64]&#160;<br/>IF&#160;(SRC1[127])&#160;DEST[127:96]&#160;&#160;SRC2[127:96]&#160;<br/>IF&#160;(SRC1[159])&#160;DEST[159:128]&#160;SRC2[159:128]&#160;<br/>IF&#160;(SRC1[191])&#160;DEST[191:160]&#160;&#160;SRC2[191:160]&#160;<br/>IF&#160;(SRC1[223])&#160;DEST[223:192]&#160;&#160;SRC2[223:192]&#160;<br/>IF&#160;(SRC1[255])&#160;DEST[255:224]&#160;&#160;SRC2[255:224]&#160;</p>
+</div>
+</body>
+</html>

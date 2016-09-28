@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 399</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page399-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce399.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;10-37</p>
+<p style="position:absolute;top:47px;left:484px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE&#160;INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:291px;left:69px;white-space:nowrap" class="ft06">Once&#160;the local APIC&#160;has&#160;been&#160;switched&#160;to&#160;x2APIC&#160;mode&#160;(EN&#160;=&#160;1,&#160;EXTD&#160;=&#160;1), switching back&#160;to&#160;xAPIC mode&#160;would&#160;<br/>require system&#160;software to&#160;disable the&#160;local APIC unit. Specifically, attempting to&#160;write&#160;a value&#160;to the&#160;<br/>IA32_APIC_BASE&#160;MSR&#160;that has (EN= 1, EXTD&#160;=&#160;0)&#160;when&#160;the local&#160;APIC is&#160;enabled&#160;and in&#160;x2APIC mode causes&#160;a&#160;<br/>general-protection exception. Once&#160;bit 10 in&#160;IA32_APIC_BASE MSR&#160;is set, the only&#160;way to&#160;leave x2APIC&#160;mode&#160;<br/>using IA32_APIC_BASE would require&#160;a WRMSR&#160;to set&#160;both&#160;bit&#160;11&#160;and bit 10 to&#160;<a href="o_fe12b1e2a880e0ce-402.html">zero. Section 10.12.5, “x2APIC&#160;<br/>State Transitions”&#160;</a>provides&#160;a detailed state diagram for the&#160;state&#160;transitions allowed&#160;for the&#160;local APIC.</p>
+<p style="position:absolute;top:418px;left:69px;white-space:nowrap" class="ft03">10.12.1.1&#160;&#160;&#160;Instructions to&#160;Access&#160;APIC&#160;Registers</p>
+<p style="position:absolute;top:445px;left:69px;white-space:nowrap" class="ft06">In&#160;x2APIC mode,&#160;system&#160;software uses RDMSR and&#160;WRMSR&#160;to access&#160;the&#160;APIC registers. The MSR&#160;addresses for&#160;<br/>accessing&#160;the x2APIC registers&#160;are architecturally defined&#160;and specified&#160;in<a href="o_fe12b1e2a880e0ce-399.html">&#160;Section 10.12.1.2,&#160;“x2APIC Register&#160;<br/>Address&#160;Space”.&#160;</a>Executing the&#160;RDMSR instruction&#160;with&#160;APIC register address specified&#160;in ECX&#160;returns the content&#160;<br/>of bits 0 through 31 of the&#160;APIC&#160;registers&#160;in&#160;EAX.&#160;Bits&#160;32&#160;through 63&#160;are&#160;returned&#160;in register EDX&#160;- these bits are&#160;<br/>reserved if the APIC&#160;register being&#160;read is&#160;a 32-bit register. Similarly&#160;executing the&#160;WRMSR instruction with the&#160;<br/>APIC&#160;register&#160;address&#160;in&#160;ECX,&#160;writes&#160;bits&#160;0&#160;to&#160;31&#160;of&#160;register&#160;EAX&#160;to&#160;bits&#160;0&#160;to&#160;31&#160;of&#160;the&#160;specified&#160;APIC&#160;register.&#160;If&#160;the&#160;<br/>register&#160;is&#160;a 64-bit&#160;register&#160;then bits 0&#160;to 31&#160;of register&#160;EDX are written to&#160;bits 32 to&#160;63&#160;of the&#160;APIC register. The&#160;<br/>Interrupt&#160;Command&#160;Register is&#160;the only APIC register&#160;that is&#160;implemented as&#160;a 64-bit&#160;MSR. The semantics&#160;of&#160;<br/>handling reserved&#160;bits are&#160;defined&#160;in&#160;<a href="o_fe12b1e2a880e0ce-401.html">Section&#160;10.12.1.3,&#160;“Reserved&#160;Bit Checking”.</a></p>
+<p style="position:absolute;top:621px;left:69px;white-space:nowrap" class="ft03">10.12.1.2&#160;&#160;&#160;x2APIC&#160;Register&#160;Address&#160;Space</p>
+<p style="position:absolute;top:649px;left:69px;white-space:nowrap" class="ft06">The MSR address range 800H&#160;through BFFH is architecturally&#160;reserved&#160;and dedicated for accessing APIC&#160;registers&#160;<br/><a href="o_fe12b1e2a880e0ce-400.html">in x2APIC mode. Table&#160;10-6 lists th</a>e APIC&#160;registers that are available in x2APIC mode.&#160;When appropriate,&#160;the&#160;table&#160;<br/>also gives&#160;the offset&#160;at which&#160;each register&#160;is available&#160;on the&#160;page&#160;referenced&#160;by&#160;IA32_APIC_BASE[35:12] in&#160;<br/>xAPIC mode.&#160;<br/>There&#160;is a one-to-one mapping&#160;between the x2APIC MSRs and the legacy xAPIC register offsets with&#160;the&#160;following&#160;<br/>exceptions:</p>
+<p style="position:absolute;top:760px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:760px;left:95px;white-space:nowrap" class="ft06">The&#160;Destination Format Register (DFR):&#160;The&#160;DFR,&#160;supported&#160;at&#160;offset 0E0H in xAPIC&#160;mode, is not supported in&#160;<br/>x2APIC&#160;mode.&#160;There is&#160;no MSR with address&#160;80EH.</p>
+<p style="position:absolute;top:799px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:799px;left:95px;white-space:nowrap" class="ft06">The&#160;Interrupt Command Register&#160;(ICR):&#160;The two 32-bit registers in xAPIC&#160;mode (at&#160;offsets&#160;300H and&#160;310H) are&#160;<br/>merged&#160;into&#160;a single&#160;64-bit&#160;MSR&#160;in x2APIC mode&#160;(with MSR&#160;address&#160;830H). There is&#160;no MSR with address&#160;<br/>831H.</p>
+<p style="position:absolute;top:854px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:855px;left:95px;white-space:nowrap" class="ft06">The&#160;SELF&#160;IPI register. This register is&#160;available only in&#160;x2APIC mode&#160;at&#160;address 83FH.&#160;In xAPIC mode, there&#160;is&#160;<br/>no&#160;register defined at&#160;offset 3F0H.</p>
+<p style="position:absolute;top:895px;left:69px;white-space:nowrap" class="ft06">Addresses in the&#160;range&#160;800H–BFFH&#160;that&#160;are&#160;not&#160;listed&#160;<a href="o_fe12b1e2a880e0ce-400.html">in&#160;Table&#160;10-6 (including 80EH and&#160;</a>831H)&#160;are reserved.&#160;<br/>Executions&#160;of&#160;RDMSR&#160;and WRMSR&#160;that attempt to&#160;access&#160;such addresses cause&#160;general-protection&#160;exceptions.<br/>The MSR address&#160;space is compressed to&#160;allow for future growth.&#160;Every 32&#160;bit register on a 128-bit boundary in&#160;the&#160;<br/>legacy&#160;MMIO space is&#160;mapped to&#160;a single MSR&#160;in&#160;the local x2APIC MSR&#160;address space.&#160;The&#160;upper&#160;32-bits of all&#160;<br/>x2APIC&#160;MSRs&#160;(except for the&#160;ICR)&#160;are&#160;reserved.&#160;</p>
+<p style="position:absolute;top:116px;left:281px;white-space:nowrap" class="ft05">Table 10-5.&#160;x2APIC Operating Mode Configurations&#160;</p>
+<p style="position:absolute;top:141px;left:75px;white-space:nowrap" class="ft02">xAPIC global enable&#160;</p>
+<p style="position:absolute;top:157px;left:75px;white-space:nowrap" class="ft02">(IA32_APIC_BASE[11])</p>
+<p style="position:absolute;top:141px;left:275px;white-space:nowrap" class="ft02">x2APIC enable&#160;</p>
+<p style="position:absolute;top:157px;left:275px;white-space:nowrap" class="ft02">(IA32_APIC_BASE[10])</p>
+<p style="position:absolute;top:157px;left:474px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:181px;left:165px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:181px;left:365px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:181px;left:474px;white-space:nowrap" class="ft02">local APIC is disabled</p>
+<p style="position:absolute;top:205px;left:165px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:205px;left:365px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:205px;left:474px;white-space:nowrap" class="ft02">Invalid</p>
+<p style="position:absolute;top:229px;left:165px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:229px;left:365px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:229px;left:474px;white-space:nowrap" class="ft02">local APIC is enabled&#160;in&#160;xAPIC mode</p>
+<p style="position:absolute;top:253px;left:165px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:253px;left:365px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:253px;left:474px;white-space:nowrap" class="ft02">local APIC is enabled in x2APIC mode</p>
+</div>
+</body>
+</html>

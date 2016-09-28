@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 96</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page96-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce096.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-8&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTED-MODE&#160;MEMORY&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02"><b>Requested Privilege Level (RPL)</b></p>
+<p style="position:absolute;top:117px;left:169px;white-space:nowrap" class="ft06">(Bits 0&#160;and 1) — Specifies&#160;the&#160;privilege&#160;level of the&#160;selector. The privilege level can range from 0&#160;to&#160;<br/>3,&#160;with 0 being&#160;the most&#160;privileged&#160;level.&#160;See<a href="o_fe12b1e2a880e0ce-158.html">&#160;Section&#160;5.5, “Privilege Levels”,&#160;</a>for a&#160;description of the&#160;<br/>relationship&#160;of the RPL to&#160;the CPL of the&#160;executing program (or&#160;task)&#160;and&#160;the descriptor&#160;privilege&#160;<br/>level (DPL) of the&#160;descriptor the&#160;segment&#160;selector&#160;points to.</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft06">The&#160;first&#160;entry of the GDT is not&#160;used by&#160;the processor.&#160;A segment&#160;selector&#160;that points&#160;to this entry of the GDT&#160;(that&#160;<br/>is, a segment selector&#160;with an index of 0&#160;and the&#160;TI flag set to 0)&#160;is&#160;used&#160;as a “null segment selector.”&#160;The processor&#160;<br/>does not&#160;generate an&#160;exception when&#160;a segment register&#160;(other&#160;than&#160;the CS&#160;or SS&#160;registers) is&#160;loaded&#160;with a&#160;null&#160;<br/>selector.&#160;It&#160;does, however,&#160;generate&#160;an&#160;exception when a segment register holding a null&#160;selector is used&#160;to access&#160;<br/>memory.&#160;A null selector&#160;can be&#160;used&#160;to initialize unused segment registers. Loading the CS&#160;or SS&#160;register with a&#160;null&#160;<br/>segment selector causes a&#160;general-protection exception&#160;(#GP) to&#160;be&#160;generated.<br/>Segment selectors&#160;are visible&#160;to application programs as part of a pointer variable, but&#160;the&#160;values&#160;of selectors are&#160;<br/>usually&#160;assigned or modified&#160;by&#160;link&#160;editors&#160;or linking loaders,&#160;not application programs.</p>
+<p style="position:absolute;top:364px;left:68px;white-space:nowrap" class="ft04">3.4.3 Segment&#160;</p>
+<p style="position:absolute;top:364px;left:225px;white-space:nowrap" class="ft04">Registers</p>
+<p style="position:absolute;top:394px;left:68px;white-space:nowrap" class="ft06">To&#160;reduce address&#160;translation time&#160;and coding complexity, the&#160;processor&#160;provides&#160;registers for holding up&#160;to 6&#160;<br/>segment selectors (see<a href="o_fe12b1e2a880e0ce-96.html">&#160;Figure&#160;3-7). Ea</a>ch&#160;of these segment&#160;registers&#160;support&#160;a specific kind of&#160;memory reference&#160;<br/>(code,&#160;stack,&#160;or data). For virtually any&#160;kind&#160;of program&#160;execution to&#160;take&#160;place, at&#160;least&#160;the code-segment&#160;(CS),&#160;<br/>data-segment (DS),&#160;and&#160;stack-segment&#160;(SS)&#160;registers&#160;must&#160;be&#160;loaded&#160;with valid segment selectors.&#160;The&#160;processor&#160;<br/>also provides&#160;three additional&#160;data-segment registers&#160;(ES,&#160;FS, and&#160;GS), which can&#160;be&#160;used&#160;to make&#160;additional data&#160;<br/>segments available to&#160;the currently executing program (or&#160;task).<br/>For&#160;a program to&#160;access&#160;a segment,&#160;the&#160;segment selector&#160;for&#160;the segment must have&#160;been loaded&#160;in&#160;one of&#160;the&#160;<br/>segment registers. So, although&#160;a system&#160;can&#160;define&#160;thousands of segments, only&#160;6&#160;can be&#160;available&#160;for&#160;immediate&#160;<br/>use.&#160;Other&#160;segments&#160;can be made available by loading their segment selectors into&#160;these&#160;registers&#160;during&#160;program&#160;<br/>execution.</p>
+<p style="position:absolute;top:812px;left:68px;white-space:nowrap" class="ft07">Every&#160;segment&#160;register has a&#160;“visible” part and&#160;a “hidden”&#160;part.&#160;(The hidden&#160;part is&#160;sometimes referred&#160;to as&#160;a&#160;<br/>“descriptor cache” or&#160;a “shadow register.”) When&#160;a segment&#160;selector&#160;is loaded&#160;into&#160;the visible part of a&#160;segment&#160;<br/>register,&#160;the processor also loads&#160;the&#160;hidden part of the&#160;segment register with the base&#160;address, segment&#160;limit, and&#160;<br/>access control information&#160;from&#160;the segment descriptor&#160;pointed to&#160;by&#160;the segment selector.&#160;The information&#160;cached&#160;<br/>in&#160;the segment register&#160;(visible&#160;and hidden) allows the&#160;processor&#160;to translate addresses without&#160;taking extra&#160;bus&#160;<br/>cycles&#160;to read&#160;the&#160;base&#160;address&#160;and limit&#160;from&#160;the&#160;segment descriptor.&#160;In systems in&#160;which multiple&#160;processors&#160;<br/>have access to&#160;the same descriptor&#160;tables,&#160;it is the&#160;responsibility of software to&#160;reload&#160;the segment&#160;registers when&#160;<br/>the descriptor tables are modified. If this is not done, an&#160;old segment descriptor cached&#160;in a segment register might&#160;<br/>be used after&#160;its memory-resident&#160;version&#160;has been&#160;modified.<br/>Two&#160;kinds of load instructions are&#160;provided for loading the&#160;segment&#160;registers:<br/>1.&#160;Direct load instructions such&#160;as the&#160;MOV,&#160;POP,&#160;LDS,&#160;LES,&#160;LSS,&#160;LGS,&#160;and&#160;LFS instructions.&#160;These instructions&#160;</p>
+<p style="position:absolute;top:1008px;left:93px;white-space:nowrap" class="ft03">explicitly reference the segment&#160;registers.</p>
+<p style="position:absolute;top:766px;left:349px;white-space:nowrap" class="ft05">Figure&#160;3-7.&#160; Segment&#160;Registers</p>
+<p style="position:absolute;top:635px;left:634px;white-space:nowrap" class="ft00">CS</p>
+<p style="position:absolute;top:655px;left:634px;white-space:nowrap" class="ft00">SS</p>
+<p style="position:absolute;top:675px;left:634px;white-space:nowrap" class="ft00">DS</p>
+<p style="position:absolute;top:695px;left:633px;white-space:nowrap" class="ft00">ES</p>
+<p style="position:absolute;top:715px;left:633px;white-space:nowrap" class="ft00">FS</p>
+<p style="position:absolute;top:735px;left:633px;white-space:nowrap" class="ft00">GS</p>
+<p style="position:absolute;top:635px;left:278px;white-space:nowrap" class="ft00">Segment Selector</p>
+<p style="position:absolute;top:635px;left:401px;white-space:nowrap" class="ft00">Base Address, Limit, Access Information</p>
+<p style="position:absolute;top:615px;left:296px;white-space:nowrap" class="ft00">Visible Part</p>
+<p style="position:absolute;top:615px;left:472px;white-space:nowrap" class="ft00">Hidden Part</p>
+</div>
+</body>
+</html>

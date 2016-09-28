@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 313</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page313-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a313.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;13-7</p>
+<p style="position:absolute;top:47px;left:544px;white-space:nowrap" class="ft01">MANAGING&#160;STATE&#160;USING&#160;THE XSAVE&#160;FEATURE SET</p>
+<p style="position:absolute;top:733px;left:69px;white-space:nowrap" class="ft07">The&#160;x87 state&#160;component&#160;comprises bytes&#160;23:0 and&#160;bytes&#160;159:32.&#160;The&#160;SSE state component&#160;comprises&#160;<br/>bytes&#160;31:24&#160;and&#160;bytes&#160;415:160.&#160;The&#160;XSAVE feature&#160;set does not&#160;use&#160;bytes&#160;511:416; bytes 463:416&#160;are reserved.<br/><a href="o_7281d5ea06a5b67a-320.html">Section 13.7 throug</a><a href="o_7281d5ea06a5b67a-322.html">h Section 13.9 provi</a>de details of how&#160;instructions in&#160;the XSAVE feature&#160;set&#160;use the&#160;legacy&#160;<br/>region of an&#160;XSAVE&#160;area.</p>
+<p style="position:absolute;top:841px;left:69px;white-space:nowrap" class="ft03">13.4.2 XSAVE&#160;</p>
+<p style="position:absolute;top:841px;left:207px;white-space:nowrap" class="ft03">Header</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft02">The&#160;XSAVE&#160;header&#160;of an XSAVE&#160;area comprises the&#160;64&#160;bytes&#160;starting&#160;at&#160;offset&#160;512&#160;from&#160;the area’s&#160;base&#160;address:</p>
+<p style="position:absolute;top:893px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:894px;left:95px;white-space:nowrap" class="ft07">Bytes&#160;7:0 of the&#160;XSAVE header is&#160;a state-component bitmap&#160;(s<a href="o_7281d5ea06a5b67a-307.html">ee Section 13.1)&#160;</a>called&#160;<b>XSTATE_BV</b>. It&#160;<br/>identifies the&#160;state&#160;components in the&#160;XSAVE area.</p>
+<p style="position:absolute;top:932px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:933px;left:95px;white-space:nowrap" class="ft09">Bytes&#160;15:8 of&#160;the XSAVE header&#160;is a&#160;state-component bitmap called&#160;<b>XCOMP_BV</b>. It&#160;is used as&#160;follows:<br/>—&#160;XCOMP_BV[63] indicates&#160;the format of the extended&#160;region&#160;of the&#160;XSAVE area&#160;(see<a href="o_7281d5ea06a5b67a-314.html">&#160;Section 13.4.3</a>).&#160;If&#160;it&#160;is&#160;</p>
+<p style="position:absolute;top:973px;left:120px;white-space:nowrap" class="ft07">clear,&#160;the&#160;standard format&#160;is&#160;used. If it&#160;is set,&#160;the&#160;compacted format is&#160;used;&#160;XCOMP_BV[62:0] provide&#160;<br/>format specifics as&#160;specified in<a href="o_7281d5ea06a5b67a-314.html">&#160;Section&#160;13.4.3.</a></p>
+<p style="position:absolute;top:1014px;left:94px;white-space:nowrap" class="ft02">—&#160;XCOMP_BV[63] determines&#160;which form&#160;of the&#160;XRSTOR instruction is&#160;used. If&#160;the bit&#160;is set,&#160;the compacted&#160;</p>
+<p style="position:absolute;top:1030px;left:120px;white-space:nowrap" class="ft02">form is&#160;used;&#160;otherwise,&#160;the standard&#160;form is&#160;used.&#160;S<a href="o_7281d5ea06a5b67a-320.html">ee Section&#160;13.8.</a></p>
+<p style="position:absolute;top:151px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:151px;left:545px;white-space:nowrap" class="ft02">ST0/MM0</p>
+<p style="position:absolute;top:146px;left:815px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:175px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:175px;left:545px;white-space:nowrap" class="ft02">ST1/MM1</p>
+<p style="position:absolute;top:170px;left:815px;white-space:nowrap" class="ft02">48</p>
+<p style="position:absolute;top:199px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:199px;left:545px;white-space:nowrap" class="ft02">ST2/MM2</p>
+<p style="position:absolute;top:195px;left:815px;white-space:nowrap" class="ft02">64</p>
+<p style="position:absolute;top:223px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:223px;left:545px;white-space:nowrap" class="ft02">ST3/MM3</p>
+<p style="position:absolute;top:218px;left:815px;white-space:nowrap" class="ft02">80</p>
+<p style="position:absolute;top:247px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:247px;left:545px;white-space:nowrap" class="ft02">ST4/MM4</p>
+<p style="position:absolute;top:242px;left:815px;white-space:nowrap" class="ft02">96</p>
+<p style="position:absolute;top:271px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:271px;left:545px;white-space:nowrap" class="ft02">ST5/MM5</p>
+<p style="position:absolute;top:267px;left:811px;white-space:nowrap" class="ft02">112</p>
+<p style="position:absolute;top:295px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:295px;left:545px;white-space:nowrap" class="ft02">ST6/MM6</p>
+<p style="position:absolute;top:290px;left:811px;white-space:nowrap" class="ft02">128</p>
+<p style="position:absolute;top:319px;left:178px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:319px;left:545px;white-space:nowrap" class="ft02">ST7/MM7</p>
+<p style="position:absolute;top:314px;left:811px;white-space:nowrap" class="ft02">144</p>
+<p style="position:absolute;top:343px;left:417px;white-space:nowrap" class="ft02">XMM0</p>
+<p style="position:absolute;top:339px;left:811px;white-space:nowrap" class="ft02">160</p>
+<p style="position:absolute;top:367px;left:417px;white-space:nowrap" class="ft02">XMM1</p>
+<p style="position:absolute;top:362px;left:811px;white-space:nowrap" class="ft02">176</p>
+<p style="position:absolute;top:391px;left:417px;white-space:nowrap" class="ft02">XMM2</p>
+<p style="position:absolute;top:386px;left:811px;white-space:nowrap" class="ft02">192</p>
+<p style="position:absolute;top:415px;left:417px;white-space:nowrap" class="ft02">XMM3</p>
+<p style="position:absolute;top:411px;left:811px;white-space:nowrap" class="ft02">208</p>
+<p style="position:absolute;top:439px;left:417px;white-space:nowrap" class="ft02">XMM4</p>
+<p style="position:absolute;top:435px;left:811px;white-space:nowrap" class="ft02">224</p>
+<p style="position:absolute;top:463px;left:417px;white-space:nowrap" class="ft02">XMM5</p>
+<p style="position:absolute;top:458px;left:811px;white-space:nowrap" class="ft02">240</p>
+<p style="position:absolute;top:487px;left:417px;white-space:nowrap" class="ft02">XMM6</p>
+<p style="position:absolute;top:483px;left:811px;white-space:nowrap" class="ft02">256</p>
+<p style="position:absolute;top:511px;left:417px;white-space:nowrap" class="ft02">XMM7</p>
+<p style="position:absolute;top:507px;left:811px;white-space:nowrap" class="ft02">272</p>
+<p style="position:absolute;top:535px;left:417px;white-space:nowrap" class="ft02">XMM8</p>
+<p style="position:absolute;top:530px;left:811px;white-space:nowrap" class="ft02">288</p>
+<p style="position:absolute;top:559px;left:417px;white-space:nowrap" class="ft02">XMM9</p>
+<p style="position:absolute;top:555px;left:811px;white-space:nowrap" class="ft02">304</p>
+<p style="position:absolute;top:583px;left:414px;white-space:nowrap" class="ft02">XMM10</p>
+<p style="position:absolute;top:579px;left:811px;white-space:nowrap" class="ft02">320</p>
+<p style="position:absolute;top:607px;left:414px;white-space:nowrap" class="ft02">XMM11</p>
+<p style="position:absolute;top:602px;left:811px;white-space:nowrap" class="ft02">336</p>
+<p style="position:absolute;top:631px;left:414px;white-space:nowrap" class="ft02">XMM12</p>
+<p style="position:absolute;top:627px;left:811px;white-space:nowrap" class="ft02">352</p>
+<p style="position:absolute;top:655px;left:414px;white-space:nowrap" class="ft02">XMM13</p>
+<p style="position:absolute;top:651px;left:811px;white-space:nowrap" class="ft02">368</p>
+<p style="position:absolute;top:679px;left:414px;white-space:nowrap" class="ft02">XMM14</p>
+<p style="position:absolute;top:674px;left:811px;white-space:nowrap" class="ft02">384</p>
+<p style="position:absolute;top:703px;left:414px;white-space:nowrap" class="ft02">XMM15</p>
+<p style="position:absolute;top:699px;left:811px;white-space:nowrap" class="ft02">400</p>
+<p style="position:absolute;top:100px;left:200px;white-space:nowrap" class="ft06">Table&#160;13-1.&#160;&#160;Format&#160;of&#160;the&#160;Legacy Region of&#160;an&#160;XSAVE Area&#160;(Contd.) (Contd.)</p>
+<p style="position:absolute;top:125px;left:94px;white-space:nowrap" class="ft00">15&#160;14</p>
+<p style="position:absolute;top:125px;left:185px;white-space:nowrap" class="ft00">13&#160;&#160;12</p>
+<p style="position:absolute;top:125px;left:277px;white-space:nowrap" class="ft00">11&#160;10</p>
+<p style="position:absolute;top:125px;left:371px;white-space:nowrap" class="ft00">9</p>
+<p style="position:absolute;top:125px;left:402px;white-space:nowrap" class="ft00">8</p>
+<p style="position:absolute;top:125px;left:465px;white-space:nowrap" class="ft00">7</p>
+<p style="position:absolute;top:125px;left:492px;white-space:nowrap" class="ft00">6</p>
+<p style="position:absolute;top:125px;left:547px;white-space:nowrap" class="ft00">5&#160;</p>
+<p style="position:absolute;top:125px;left:593px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:125px;left:650px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:125px;left:675px;white-space:nowrap" class="ft00">2</p>
+<p style="position:absolute;top:125px;left:743px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:125px;left:768px;white-space:nowrap" class="ft00">0</p>
+</div>
+</body>
+</html>

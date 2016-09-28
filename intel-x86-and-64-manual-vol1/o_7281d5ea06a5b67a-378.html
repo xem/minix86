@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 378</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page378-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a378.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-14&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® AVX-512</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07">Explicitly-unaligned SIMD load&#160;and store instructions&#160;accessing&#160;64&#160;bytes or&#160;less of&#160;data from memory (e.g.,&#160;<br/>VMOVUPD,&#160;VMOVUPS,&#160;VMOVDQU,&#160;VMOVQ,&#160;VMOVD,&#160;etc.). These instructions&#160;do not require&#160;the&#160;memory&#160;<br/>address&#160;to be&#160;aligned on&#160;a natural&#160;vector-length byte&#160;boundary.</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft07">Most&#160;arithmetic and data&#160;processing&#160;instructions&#160;encoded using&#160;EVEX&#160;support memory access semantics.&#160;<br/>When these instructions access from&#160;memory, there are&#160;no alignment&#160;restrictions.</p>
+<p style="position:absolute;top:195px;left:68px;white-space:nowrap" class="ft07">Software&#160;may see&#160;performance&#160;penalties when unaligned accesses&#160;cross cacheline&#160;boundaries&#160;or vector-length&#160;<br/>naturally-aligned boundaries, so reasonable&#160;attempts&#160;to&#160;align&#160;commonly used data&#160;sets&#160;should continue to&#160;be&#160;<br/>pursued.<br/>Atomic&#160;memory operation in&#160;Intel 64 and IA-32 architecture&#160;is&#160;guaranteed only for a&#160;subset&#160;of memory&#160;operand&#160;<br/>sizes and alignment&#160;scenarios. The guaranteed atomic operations are described<a href="��">&#160;in Section 7.1.1,&#160;“Task&#160;Structure”&#160;<br/>of the&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;Architectures Software&#160;Developer’s&#160;Manual,&#160;Volume 3A</i></a>.&#160;AVX and FMA instructions do&#160;<br/>not introduce&#160;any new guaranteed atomic memory operations.<br/>AVX-512 instructions&#160;may generate an #AC(0) fault on misaligned 4 or 8-byte memory references in Ring-3&#160;when&#160;<br/>CR0.AM=1.&#160;16,&#160;32&#160;and&#160;64-byte&#160;memory&#160;references&#160;will not generate&#160;an #AC(0)&#160;fault.&#160;See&#160;<a href="o_7281d5ea06a5b67a-378.html">Table&#160;15-7&#160;</a>for&#160;details.<br/>Certain AVX-512 Foundation instructions always require&#160;64-byte&#160;alignment (see the complete&#160;list of VEX and EVEX&#160;<br/>encoded instructions in&#160;<a href="o_7281d5ea06a5b67a-378.html">Table&#160;15-6). The</a>se&#160;instructions&#160;will #GP(0)&#160;if not aligned&#160;to 64-byte boundaries.</p>
+<p style="position:absolute;top:937px;left:68px;white-space:nowrap" class="ft05">15.8&#160;</p>
+<p style="position:absolute;top:937px;left:147px;white-space:nowrap" class="ft05">SIMD FLOATING-POINT&#160;EXCEPTIONS</p>
+<p style="position:absolute;top:972px;left:68px;white-space:nowrap" class="ft07">AVX-512&#160;instructions can&#160;generate SIMD&#160;floating-point&#160;exceptions (#XM) if embedded&#160;“suppress all&#160;exceptions”&#160;<br/>(SAE) in EVEX is not set. When&#160;SAE is not set, these instructions will respond to exception masks of MXCSR in the&#160;<br/>same way as&#160;VEX-encoded AVX&#160;instructions.&#160;When&#160;CR4.OSXMMEXCPT=0, any&#160;unmasked FP exceptions&#160;generate&#160;<br/>an Undefined&#160;Opcode&#160;exception (#UD).</p>
+<p style="position:absolute;top:416px;left:227px;white-space:nowrap" class="ft06">Table 15-6.&#160;&#160;&#160;SIMD Instructions&#160;Requiring Explicitly Aligned Memory</p>
+<p style="position:absolute;top:441px;left:111px;white-space:nowrap" class="ft03">Require 16-byte&#160;alignment</p>
+<p style="position:absolute;top:441px;left:362px;white-space:nowrap" class="ft03">Require&#160;32-byte&#160;alignment</p>
+<p style="position:absolute;top:441px;left:619px;white-space:nowrap" class="ft03">Require&#160;64-byte alignment*</p>
+<p style="position:absolute;top:465px;left:122px;white-space:nowrap" class="ft03">(V)MOVDQA xmm, m128</p>
+<p style="position:absolute;top:465px;left:378px;white-space:nowrap" class="ft03">VMOVDQA ymm, m256</p>
+<p style="position:absolute;top:465px;left:638px;white-space:nowrap" class="ft03">VMOVDQA zmm, m512</p>
+<p style="position:absolute;top:489px;left:122px;white-space:nowrap" class="ft03">(V)MOVDQA m128, xmm</p>
+<p style="position:absolute;top:489px;left:378px;white-space:nowrap" class="ft03">VMOVDQA&#160;m256, ymm</p>
+<p style="position:absolute;top:489px;left:638px;white-space:nowrap" class="ft03">VMOVDQA&#160;m512, zmm</p>
+<p style="position:absolute;top:513px;left:124px;white-space:nowrap" class="ft03">(V)MOVAPS xmm, m128</p>
+<p style="position:absolute;top:513px;left:379px;white-space:nowrap" class="ft03">VMOVAPS ymm, m256</p>
+<p style="position:absolute;top:513px;left:640px;white-space:nowrap" class="ft03">VMOVAPS&#160;zmm, m512</p>
+<p style="position:absolute;top:537px;left:124px;white-space:nowrap" class="ft03">(V)MOVAPS m128, xmm</p>
+<p style="position:absolute;top:537px;left:379px;white-space:nowrap" class="ft03">VMOVAPS m256, ymm</p>
+<p style="position:absolute;top:537px;left:640px;white-space:nowrap" class="ft03">VMOVAPS&#160;m512, zmm</p>
+<p style="position:absolute;top:561px;left:123px;white-space:nowrap" class="ft03">(V)MOVAPD xmm,&#160;m128</p>
+<p style="position:absolute;top:561px;left:379px;white-space:nowrap" class="ft03">VMOVAPD ymm,&#160;m256</p>
+<p style="position:absolute;top:561px;left:639px;white-space:nowrap" class="ft03">VMOVAPD zmm,&#160;m512</p>
+<p style="position:absolute;top:584px;left:123px;white-space:nowrap" class="ft03">(V)MOVAPD m128, xmm</p>
+<p style="position:absolute;top:584px;left:379px;white-space:nowrap" class="ft03">VMOVAPD m256, ymm</p>
+<p style="position:absolute;top:584px;left:639px;white-space:nowrap" class="ft03">VMOVAPD m512, zmm</p>
+<p style="position:absolute;top:609px;left:114px;white-space:nowrap" class="ft03">(V)MOVNTDQA xmm,&#160;m128</p>
+<p style="position:absolute;top:609px;left:375px;white-space:nowrap" class="ft03">VMOVNTPS&#160;m256, ymm</p>
+<p style="position:absolute;top:609px;left:635px;white-space:nowrap" class="ft03">VMOVNTPS&#160;m512, zmm</p>
+<p style="position:absolute;top:633px;left:120px;white-space:nowrap" class="ft03">(V)MOVNTPS&#160;m128, xmm</p>
+<p style="position:absolute;top:633px;left:374px;white-space:nowrap" class="ft03">VMOVNTPD m256, ymm</p>
+<p style="position:absolute;top:633px;left:635px;white-space:nowrap" class="ft03">VMOVNTPD m512, zmm</p>
+<p style="position:absolute;top:656px;left:119px;white-space:nowrap" class="ft03">(V)MOVNTPD&#160;m128, xmm</p>
+<p style="position:absolute;top:656px;left:374px;white-space:nowrap" class="ft03">VMOVNTDQ&#160;m256, ymm</p>
+<p style="position:absolute;top:656px;left:634px;white-space:nowrap" class="ft03">VMOVNTDQ m512, zmm</p>
+<p style="position:absolute;top:681px;left:119px;white-space:nowrap" class="ft03">(V)MOVNTDQ&#160;m128, xmm</p>
+<p style="position:absolute;top:681px;left:370px;white-space:nowrap" class="ft03">VMOVNTDQA&#160;ymm, m256</p>
+<p style="position:absolute;top:681px;left:630px;white-space:nowrap" class="ft03">VMOVNTDQA zmm,&#160;m512</p>
+<p style="position:absolute;top:734px;left:231px;white-space:nowrap" class="ft06">Table 15-7.&#160;&#160;Instructions Not&#160;Requiring Explicit&#160;Memory Alignment</p>
+<p style="position:absolute;top:759px;left:122px;white-space:nowrap" class="ft03">(V)MOVDQU xmm,&#160;m128</p>
+<p style="position:absolute;top:759px;left:381px;white-space:nowrap" class="ft03">VMOVDQU&#160;ymm,&#160;m256</p>
+<p style="position:absolute;top:759px;left:642px;white-space:nowrap" class="ft03">VMOVDQU&#160;zmm,&#160;m512</p>
+<p style="position:absolute;top:782px;left:119px;white-space:nowrap" class="ft03">(V)MOVDQU m128, m128</p>
+<p style="position:absolute;top:782px;left:381px;white-space:nowrap" class="ft03">VMOVDQU m256, ymm</p>
+<p style="position:absolute;top:782px;left:642px;white-space:nowrap" class="ft03">VMOVDQU m512, zmm</p>
+<p style="position:absolute;top:807px;left:123px;white-space:nowrap" class="ft03">(V)MOVUPS&#160;xmm,&#160;m128</p>
+<p style="position:absolute;top:807px;left:382px;white-space:nowrap" class="ft03">VMOVUPS ymm, m256</p>
+<p style="position:absolute;top:807px;left:643px;white-space:nowrap" class="ft03">VMOVUPS&#160;zmm, m512</p>
+<p style="position:absolute;top:831px;left:123px;white-space:nowrap" class="ft03">(V)MOVUPS m128, xmm</p>
+<p style="position:absolute;top:831px;left:382px;white-space:nowrap" class="ft03">VMOVUPS&#160;m256, ymm</p>
+<p style="position:absolute;top:831px;left:643px;white-space:nowrap" class="ft03">VMOVUPS&#160;m512, zmm</p>
+<p style="position:absolute;top:854px;left:123px;white-space:nowrap" class="ft03">(V)MOVUPD xmm, m128</p>
+<p style="position:absolute;top:854px;left:381px;white-space:nowrap" class="ft03">VMOVUPD ymm,&#160;m256</p>
+<p style="position:absolute;top:854px;left:642px;white-space:nowrap" class="ft03">VMOVUPD zmm,&#160;m512</p>
+<p style="position:absolute;top:879px;left:123px;white-space:nowrap" class="ft03">(V)MOVUPD m128, xmm</p>
+<p style="position:absolute;top:879px;left:382px;white-space:nowrap" class="ft03">VMOVUPD m256, ymm</p>
+<p style="position:absolute;top:879px;left:642px;white-space:nowrap" class="ft03">VMOVUPD m512, zmm</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 441</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page441-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce441.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;11-29</p>
+<p style="position:absolute;top:47px;left:686px;white-space:nowrap" class="ft01">MEMORY CACHE CONTROL</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">11.11.5 MTRR&#160;</p>
+<p style="position:absolute;top:98px;left:201px;white-space:nowrap" class="ft02">Initialization</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft05">On&#160;a hardware reset, the&#160;P6&#160;and more recent processors&#160;clear&#160;the valid flags in variable-range&#160;MTRRs&#160;and clear the&#160;<br/>E&#160;flag in&#160;the IA32_MTRR_DEF_TYPE MSR to&#160;disable all MTRRs.&#160;All&#160;other bits in the&#160;MTRRs are&#160;undefined.&#160;<br/>Prior&#160;to initializing&#160;the MTRRs, software&#160;(normally the&#160;system&#160;BIOS) must initialize&#160;all&#160;fixed-range&#160;and&#160;variable-<br/>range&#160;MTRR register&#160;fields to&#160;0.&#160;Software&#160;can then&#160;initialize&#160;the MTRRs&#160;according&#160;to known types of memory,&#160;<br/>including memory&#160;on devices that&#160;it auto-configures.&#160;Initialization is&#160;expected&#160;to occur prior&#160;to booting the&#160;oper-<br/>ating system.<br/>See&#160;<a href="o_fe12b1e2a880e0ce-444.html">Section&#160;11.11.8,&#160;“MTRR Considerations&#160;in MP Systems,” for information&#160;</a>on&#160;initializing MTRRs in&#160;MP&#160;(multiple-<br/>processor) systems.</p>
+<p style="position:absolute;top:310px;left:69px;white-space:nowrap" class="ft02">11.11.6&#160;&#160;Remapping Memory Types</p>
+<p style="position:absolute;top:340px;left:69px;white-space:nowrap" class="ft07">A system&#160;designer may&#160;re-map&#160;memory types to&#160;tune performance or&#160;because&#160;a future processor may not imple-<br/>ment&#160;all memory&#160;types supported&#160;by&#160;the Pentium 4, Intel Xeon, and P6 family&#160;processors. The following rules&#160;<br/>support coherent&#160;memory-type re-mappings:<br/>1.&#160;A memory type should&#160;not be mapped&#160;into another&#160;memory&#160;type&#160;that has&#160;a weaker memory ordering&#160;model.</p>
+<p style="position:absolute;top:414px;left:94px;white-space:nowrap" class="ft05">For&#160;example, the uncacheable type cannot be mapped into any other type, and the write-back, write-through,<br/>and write-protected types cannot&#160;be&#160;mapped into&#160;the weakly&#160;ordered write-combining&#160;type.</p>
+<p style="position:absolute;top:454px;left:69px;white-space:nowrap" class="ft03">2.&#160;A memory&#160;type&#160;that does&#160;not delay writes should&#160;not&#160;be&#160;mapped&#160;into&#160;a memory type&#160;that&#160;does&#160;delay writes,&#160;</p>
+<p style="position:absolute;top:471px;left:94px;white-space:nowrap" class="ft05">because applications&#160;of&#160;such&#160;a memory type&#160;may&#160;rely&#160;on its write-through behavior.&#160;Accordingly,&#160;the&#160;write-<br/>back&#160;type cannot be mapped&#160;into the&#160;write-through&#160;type.</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft03">3.&#160;A memory&#160;type&#160;that views write&#160;data as&#160;not necessarily&#160;stored and&#160;read back&#160;by&#160;a subsequent&#160;read, such as&#160;</p>
+<p style="position:absolute;top:528px;left:94px;white-space:nowrap" class="ft05">the&#160;write-protected&#160;type,&#160;can only be&#160;mapped&#160;to&#160;another type with the&#160;same behaviour (and there&#160;are&#160;no&#160;<br/>others for the&#160;Pentium&#160;4, Intel&#160;Xeon, and&#160;P6&#160;family processors) or to&#160;the uncacheable type.</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft05">In many&#160;specific cases,&#160;a system&#160;designer&#160;can have&#160;additional information&#160;about how a&#160;memory type is&#160;used,&#160;<br/>allowing&#160;additional&#160;mappings. For example, write-through&#160;memory with no&#160;associated&#160;write&#160;side effects&#160;can&#160;be&#160;<br/>mapped&#160;into write-back&#160;memory.</p>
+<p style="position:absolute;top:652px;left:69px;white-space:nowrap" class="ft02">11.11.7&#160;&#160;MTRR Maintenance Programming Interface</p>
+<p style="position:absolute;top:682px;left:69px;white-space:nowrap" class="ft05">The&#160;operating&#160;system maintains the&#160;MTRRs after&#160;booting&#160;and sets up&#160;or changes&#160;the memory types for memory-<br/>mapped&#160;devices. The operating&#160;system should&#160;provide a&#160;driver&#160;and application programming interface (API) to&#160;<br/>access&#160;and set the&#160;MTRRs.&#160;The function calls&#160;MemTypeGet() and&#160;MemTypeSet() define this&#160;interface.</p>
+<p style="position:absolute;top:760px;left:69px;white-space:nowrap" class="ft04">11.11.7.1&#160;&#160;&#160;MemTypeGet() Function</p>
+<p style="position:absolute;top:788px;left:69px;white-space:nowrap" class="ft05">The&#160;MemTypeGet()&#160;function returns&#160;the memory type&#160;of the physical memory range specified&#160;by&#160;the&#160;parameters&#160;<br/>base&#160;and size. The base address&#160;is the starting&#160;physical&#160;address&#160;and the size&#160;is the number of bytes&#160;for the&#160;memory&#160;<br/>range. The function automatically&#160;aligns&#160;the base address&#160;and size&#160;to 4-KByte&#160;boundaries. Pseudocode&#160;for the&#160;<br/>MemTypeGet() function is&#160;given&#160;<a href="o_fe12b1e2a880e0ce-442.html">in Example 11-4</a>.</p>
+</div>
+</body>
+</html>

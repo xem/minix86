@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 148</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page148-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a148.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-4&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">in the&#160;current code segment (near&#160;return) or another&#160;code&#160;segment (far return). Performing such&#160;an&#160;operation,&#160;<br/>however,&#160;should be undertaken very&#160;cautiously, using&#160;only&#160;well defined code entry&#160;points.</p>
+<p style="position:absolute;top:167px;left:68px;white-space:nowrap" class="ft03">6.2.5&#160;</p>
+<p style="position:absolute;top:167px;left:148px;white-space:nowrap" class="ft03">Stack Behavior in 64-Bit Mode</p>
+<p style="position:absolute;top:198px;left:68px;white-space:nowrap" class="ft07">In 64-bit mode,&#160;address calculations that reference SS&#160;segments are treated&#160;as if the segment&#160;base is&#160;zero.&#160;Fields&#160;<br/>(base,&#160;limit, and attribute)&#160;in segment descriptor&#160;registers are&#160;ignored. SS&#160;DPL&#160;is modified&#160;such&#160;that&#160;it is&#160;always&#160;<br/>equal&#160;to CPL. This will be true&#160;even&#160;if it&#160;is the only field in&#160;the SS&#160;descriptor that&#160;is modified.&#160;<br/>Registers&#160;E(SP),&#160;E(IP) and&#160;E(BP) are&#160;promoted&#160;to&#160;64-bits&#160;and are re-named RSP,&#160;RIP,&#160;and RBP&#160;respectively. Some&#160;<br/>forms of segment load instructions are invalid (for example,&#160;LDS,&#160;POP&#160;ES).<br/>PUSH/POP instructions increment/decrement&#160;the stack using&#160;a 64-bit&#160;width.&#160;When the&#160;contents of a&#160;segment&#160;<br/>register is&#160;pushed&#160;onto 64-bit stack,&#160;the&#160;pointer&#160;is automatically aligned to&#160;64&#160;bits&#160;(as with a&#160;stack&#160;that has a&#160;32-<br/>bit width).</p>
+<p style="position:absolute;top:384px;left:68px;white-space:nowrap" class="ft04">6.3&#160;</p>
+<p style="position:absolute;top:384px;left:147px;white-space:nowrap" class="ft04">CALLING PROCEDURES USING CALL&#160;AND RET</p>
+<p style="position:absolute;top:420px;left:68px;white-space:nowrap" class="ft09">The&#160;CALL instruction allows control transfers&#160;to&#160;procedures&#160;within&#160;the&#160;current code&#160;segment (<b>near call</b>) and&#160;in a&#160;<br/>different&#160;code&#160;segment&#160;(<b>far&#160;call</b>). Near&#160;calls usually provide access to&#160;local procedures within the&#160;currently&#160;running&#160;<br/>program&#160;or&#160;task. Far calls are usually used to access operating system procedures or procedures in a different task.&#160;<br/>See&#160;“CALL—Call&#160;Pr<a href="��">ocedure” in Chapter 3, “Instruction Set Reference,&#160;A-L,” of&#160;</a>the&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;Architectures&#160;<br/>Software Developer’s Manual, Volume&#160;2A,</i>&#160;for a&#160;detailed description&#160;of the&#160;CALL instruction.<br/>The&#160;RET instruction also&#160;allows&#160;near and far returns&#160;to&#160;match&#160;the near&#160;and far&#160;versions&#160;of&#160;the CALL instruction.&#160;In&#160;<br/>addition, the&#160;RET instruction allows&#160;a program to increment the stack pointer on&#160;a&#160;return to&#160;release&#160;parameters&#160;<br/>from the stack.&#160;The&#160;number of&#160;bytes released from the&#160;stack is determined&#160;by an&#160;optional argument&#160;(<i>n</i>)&#160;to the RET&#160;<br/>instruction.&#160;See “RET—Return from&#160;Pr<a href="��">ocedure” in Chapter&#160;4, “Instruction Set Reference,&#160;M-U,” of the&#160;</a><i>Intel® 64&#160;and&#160;<br/>IA-32&#160;Architectures&#160;Software Developer’s Manual, Volume&#160;2B,</i>&#160;for&#160;a detailed&#160;description of the&#160;RET instruction.</p>
+<p style="position:absolute;top:626px;left:68px;white-space:nowrap" class="ft03">6.3.1&#160;</p>
+<p style="position:absolute;top:626px;left:148px;white-space:nowrap" class="ft03">Near CALL&#160;and&#160;RET Operation</p>
+<p style="position:absolute;top:657px;left:68px;white-space:nowrap" class="ft011">When executing a&#160;near call,&#160;the&#160;processor does&#160;the&#160;following (see&#160;<a href="o_7281d5ea06a5b67a-149.html">Figure&#160;6-2):<br/></a>1.&#160;Pushes&#160;the&#160;current&#160;value&#160;of the&#160;EIP register&#160;on the&#160;stack.<br/>2.&#160;Loads the&#160;offset&#160;of the&#160;called&#160;procedure in&#160;the EIP&#160;register.<br/>3.&#160;Begins&#160;execution of&#160;the&#160;called procedure.<br/>When executing a&#160;near return,&#160;the&#160;processor&#160;performs these&#160;actions:<br/>1.&#160;Pops the&#160;top-of-stack value&#160;(the return&#160;instruction pointer)&#160;into the&#160;EIP register.<br/>2.&#160;If&#160;the&#160;RET instruction has an&#160;optional&#160;<i>n</i>&#160;argument, increments&#160;the stack pointer by the number of&#160;bytes&#160;</p>
+<p style="position:absolute;top:802px;left:93px;white-space:nowrap" class="ft02">specified with the&#160;<i>n</i>&#160;operand to&#160;release parameters&#160;from&#160;the stack.</p>
+<p style="position:absolute;top:823px;left:68px;white-space:nowrap" class="ft02">3.&#160;Resumes execution&#160;of the&#160;calling procedure.</p>
+<p style="position:absolute;top:874px;left:68px;white-space:nowrap" class="ft03">6.3.2&#160;</p>
+<p style="position:absolute;top:874px;left:148px;white-space:nowrap" class="ft03">Far CALL&#160;and RET Operation</p>
+<p style="position:absolute;top:904px;left:68px;white-space:nowrap" class="ft08">When executing a&#160;far call,&#160;the&#160;processor&#160;performs these&#160;actions (see<a href="o_7281d5ea06a5b67a-149.html">&#160;Figure&#160;6-2):<br/></a>1.&#160;Pushes&#160;the&#160;current&#160;value&#160;of the&#160;CS&#160;register&#160;on the&#160;stack.<br/>2.&#160;Pushes&#160;the&#160;current&#160;value&#160;of the&#160;EIP register&#160;on the&#160;stack.<br/>3.&#160;Loads the&#160;segment&#160;selector of the&#160;segment&#160;that contains the&#160;called procedure in&#160;the CS&#160;register.<br/>4.&#160;Loads the&#160;offset&#160;of the&#160;called&#160;procedure in&#160;the EIP&#160;register.<br/>5.&#160;Begins&#160;execution of&#160;the&#160;called procedure.<br/>When executing a&#160;far return,&#160;the processor does the&#160;following:</p>
+</div>
+</body>
+</html>

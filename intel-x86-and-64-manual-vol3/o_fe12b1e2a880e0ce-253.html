@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 253</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page253-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce253.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;7-15</p>
+<p style="position:absolute;top:47px;left:720px;white-space:nowrap" class="ft01">TASK&#160;MANAGEMENT</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft02">7.5.2&#160;</p>
+<p style="position:absolute;top:505px;left:149px;white-space:nowrap" class="ft02">Task Logical Address Space</p>
+<p style="position:absolute;top:535px;left:69px;white-space:nowrap" class="ft08">To&#160;allow the sharing&#160;of&#160;data among&#160;tasks,&#160;use the&#160;following techniques to&#160;create&#160;shared logical-to-physical&#160;<br/>address-space&#160;mappings for data segments:</p>
+<p style="position:absolute;top:573px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:574px;left:95px;white-space:nowrap" class="ft08"><b>Through&#160;the segment descriptors in the&#160;GDT&#160;</b>—&#160;All tasks&#160;must&#160;have&#160;access to&#160;the segment descriptors&#160;in&#160;<br/>the GDT.&#160;If some&#160;segment&#160;descriptors in&#160;the GDT&#160;point to segments in&#160;the linear-address&#160;space that are&#160;<br/>mapped into an&#160;area of the physical-address&#160;space common&#160;to all&#160;tasks, then&#160;all tasks can&#160;share the data&#160;and&#160;<br/>code&#160;in those&#160;segments.</p>
+<p style="position:absolute;top:645px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:646px;left:95px;white-space:nowrap" class="ft08"><b>Through&#160;a shared LDT&#160;</b>—&#160;Two&#160;or&#160;more tasks can&#160;use the&#160;same LDT&#160;if&#160;the LDT fields in&#160;their TSSs point&#160;to the&#160;<br/>same LDT.&#160;If&#160;some segment descriptors&#160;in a shared LDT point to&#160;segments that&#160;are mapped&#160;to a common area&#160;<br/>of the physical address space, the data and&#160;code in those&#160;segments can be shared among the tasks that share&#160;<br/>the LDT.&#160;This method&#160;of&#160;sharing is&#160;more selective than&#160;sharing through the&#160;GDT,&#160;because&#160;the&#160;sharing can&#160;be&#160;<br/>limited to specific&#160;tasks. Other tasks&#160;in the system may&#160;have different LDTs&#160;that do not give&#160;them access to the&#160;<br/>shared segments.</p>
+<p style="position:absolute;top:750px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:751px;left:95px;white-space:nowrap" class="ft08"><b>Through segment descriptors&#160;in&#160;distinct&#160;LDTs that are mapped&#160;to common&#160;addresses in linear&#160;<br/>address space&#160;</b>—&#160;If&#160;this&#160;common&#160;area&#160;of&#160;the&#160;linear&#160;address&#160;space&#160;is&#160;mapped&#160;to&#160;the&#160;same&#160;area&#160;of&#160;the&#160;physical&#160;<br/>address&#160;space&#160;for&#160;each task, these&#160;segment descriptors&#160;permit&#160;the tasks&#160;to share&#160;segments. Such&#160;segment&#160;<br/>descriptors are&#160;commonly called&#160;aliases. This method of&#160;sharing is even more selective&#160;than those&#160;listed above,&#160;<br/>because, other&#160;segment&#160;descriptors in&#160;the LDTs&#160;may&#160;point&#160;to independent linear&#160;addresses&#160;which are&#160;not&#160;<br/>shared.</p>
+<p style="position:absolute;top:889px;left:69px;white-space:nowrap" class="ft06">7.6&#160;</p>
+<p style="position:absolute;top:889px;left:148px;white-space:nowrap" class="ft06">16-BIT TASK-STATE SEGMENT (TSS)</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft010">The&#160;32-bit IA-32&#160;processors&#160;also recognize a&#160;16-bit TSS&#160;format like&#160;the&#160;one used&#160;in Intel 286 processors (see&#160;<br/><a href="o_fe12b1e2a880e0ce-254.html">Figure&#160;7-10).&#160;</a>This&#160;format is&#160;supported&#160;for compatibility with software&#160;written to run on&#160;earlier&#160;IA-32&#160;processors.&#160;<br/>The following&#160;information&#160;is important to&#160;know about&#160;the 16-bit&#160;TSS.</p>
+<p style="position:absolute;top:987px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:988px;left:95px;white-space:nowrap" class="ft03">Do&#160;not use&#160;a 16-bit&#160;TSS&#160;to implement&#160;a virtual-8086&#160;task.</p>
+<p style="position:absolute;top:1010px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1011px;left:95px;white-space:nowrap" class="ft03">The&#160;valid segment limit for&#160;a&#160;16-bit TSS is&#160;2CH.</p>
+<p style="position:absolute;top:461px;left:276px;white-space:nowrap" class="ft07">Figure&#160;7-9. &#160;Overlapping Linear-to-Physical Mappings</p>
+<p style="position:absolute;top:150px;left:602px;white-space:nowrap" class="ft03">Task&#160;A</p>
+<p style="position:absolute;top:134px;left:266px;white-space:nowrap" class="ft00">TSS</p>
+<p style="position:absolute;top:236px;left:374px;white-space:nowrap" class="ft00">PDE</p>
+<p style="position:absolute;top:134px;left:341px;white-space:nowrap" class="ft00">Page Directories</p>
+<p style="position:absolute;top:252px;left:374px;white-space:nowrap" class="ft00">PDE</p>
+<p style="position:absolute;top:205px;left:495px;white-space:nowrap" class="ft011">PTE<br/>PTE<br/>PTE</p>
+<p style="position:absolute;top:315px;left:495px;white-space:nowrap" class="ft011">PTE<br/>PTE</p>
+<p style="position:absolute;top:134px;left:474px;white-space:nowrap" class="ft00">Page&#160;Tables</p>
+<p style="position:absolute;top:134px;left:592px;white-space:nowrap" class="ft00">Page Frames</p>
+<p style="position:absolute;top:194px;left:602px;white-space:nowrap" class="ft03">Task&#160;A</p>
+<p style="position:absolute;top:238px;left:602px;white-space:nowrap" class="ft03">Task&#160;A</p>
+<p style="position:absolute;top:282px;left:602px;white-space:nowrap" class="ft03">Shared</p>
+<p style="position:absolute;top:327px;left:602px;white-space:nowrap" class="ft03">Shared</p>
+<p style="position:absolute;top:373px;left:602px;white-space:nowrap" class="ft03">Task&#160;B</p>
+<p style="position:absolute;top:418px;left:602px;white-space:nowrap" class="ft03">Task&#160;B</p>
+<p style="position:absolute;top:267px;left:478px;white-space:nowrap" class="ft00">Shared PT</p>
+<p style="position:absolute;top:406px;left:495px;white-space:nowrap" class="ft011">PTE<br/>PTE</p>
+<p style="position:absolute;top:406px;left:374px;white-space:nowrap" class="ft011">PDE<br/>PDE</p>
+<p style="position:absolute;top:236px;left:261px;white-space:nowrap" class="ft00">PDBR</p>
+<p style="position:absolute;top:405px;left:261px;white-space:nowrap" class="ft00">PDBR</p>
+<p style="position:absolute;top:173px;left:246px;white-space:nowrap" class="ft00">Task&#160;A&#160;TSS</p>
+<p style="position:absolute;top:343px;left:246px;white-space:nowrap" class="ft00">Task B TSS</p>
+</div>
+</body>
+</html>

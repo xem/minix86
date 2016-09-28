@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1725</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1725-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1725.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-41</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL®&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">36.4.2.4 &#160;&#160;Packet&#160;Generation&#160;Enable (TIP.PGE)</p>
+<p style="position:absolute;top:142px;left:325px;white-space:nowrap" class="ft03">Table 36-20. TIP.PGE Packet&#160;Definition</p>
+<p style="position:absolute;top:166px;left:75px;white-space:nowrap" class="ft04">Name</p>
+<p style="position:absolute;top:166px;left:178px;white-space:nowrap" class="ft04">Target&#160;IP&#160;-&#160;Packet&#160;Generation&#160;Enable (TIP.PGE)</p>
+<p style="position:absolute;top:190px;left:75px;white-space:nowrap" class="ft04">Packet&#160;Format</p>
+<p style="position:absolute;top:442px;left:75px;white-space:nowrap" class="ft04">Dependencies</p>
+<p style="position:absolute;top:442px;left:178px;white-space:nowrap" class="ft04">PacketEn transitions to&#160;1</p>
+<p style="position:absolute;top:442px;left:436px;white-space:nowrap" class="ft04">Generation&#160;</p>
+<p style="position:absolute;top:459px;left:436px;white-space:nowrap" class="ft04">Scenario</p>
+<p style="position:absolute;top:442px;left:532px;white-space:nowrap" class="ft04">Any&#160;branch instruction, control flow&#160;transfer,&#160;or MOV&#160;</p>
+<p style="position:absolute;top:459px;left:532px;white-space:nowrap" class="ft04">CR3 that&#160;sets PacketEn,&#160;a WRMSR that&#160;enables&#160;</p>
+<p style="position:absolute;top:475px;left:532px;white-space:nowrap" class="ft04">packet&#160;generation&#160;and sets&#160;PacketEn</p>
+<p style="position:absolute;top:499px;left:75px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:499px;left:178px;white-space:nowrap" class="ft04">Indicates that&#160;PacketEn&#160;has transitioned&#160;to&#160;1. It provides the IP at&#160;which the tracing begins.</p>
+<p style="position:absolute;top:516px;left:178px;white-space:nowrap" class="ft04">This can occur due to&#160;any of&#160;the enables that&#160;comprise PacketEn&#160;transitioning&#160;from&#160;0&#160;to&#160;1,&#160;as long as all the others&#160;</p>
+<p style="position:absolute;top:532px;left:178px;white-space:nowrap" class="ft04">are&#160;asserted. Examples:</p>
+<p style="position:absolute;top:549px;left:178px;white-space:nowrap" class="ft04">•&#160;TriggerEn: This is&#160;set on&#160;software&#160;write&#160;to&#160;set IA32_RTIT_CTL.TraceEn&#160;as&#160;long&#160;as the Stopped and&#160;Error bits in&#160;</p>
+<p style="position:absolute;top:564px;left:194px;white-space:nowrap" class="ft04">IA32_RTIT_STATUS are&#160;clear.&#160;The IP payload will be the Next IP of&#160;the WRMSR.</p>
+<p style="position:absolute;top:579px;left:178px;white-space:nowrap" class="ft04">•&#160;FilterEn: This&#160;is set when&#160;software&#160;jumps into&#160;the&#160;tracing&#160;region.&#160;This region&#160;is&#160;defined&#160;by enabling&#160;IP filtering in&#160;</p>
+<p style="position:absolute;top:594px;left:194px;white-space:nowrap" class="ft04">IA32_RTIT_CTL.ADDRn_CFG,&#160;and defining the range in&#160;IA32_RTIT_ADDRn_[AB],&#160;see.&#160;<a href="o_fe12b1e2a880e0ce-1689.html">Section 36.2.4.3</a>.&#160;The&#160;</p>
+<p style="position:absolute;top:609px;left:194px;white-space:nowrap" class="ft04">IP payload will be&#160;the target&#160;of the branch.</p>
+<p style="position:absolute;top:624px;left:178px;white-space:nowrap" class="ft04">•&#160;ContextEn: This&#160;is set on&#160;a CPL&#160;change,&#160;a CR3&#160;write&#160;or&#160;any other&#160;means of&#160;changing&#160;ContextEn. The&#160;IP payload&#160;</p>
+<p style="position:absolute;top:639px;left:194px;white-space:nowrap" class="ft04">will be the Next&#160;IP&#160;of&#160;the instruction that&#160;changes context if&#160;it is&#160;not a branch,&#160;otherwise&#160;it will be&#160;the target&#160;of&#160;</p>
+<p style="position:absolute;top:654px;left:194px;white-space:nowrap" class="ft04">the branch.</p>
+<p style="position:absolute;top:678px;left:75px;white-space:nowrap" class="ft04">Application</p>
+<p style="position:absolute;top:678px;left:178px;white-space:nowrap" class="ft04">TIP.PGE&#160;packets bind&#160;to&#160;the instruction at&#160;the IP given in&#160;the&#160;payload.</p>
+<p style="position:absolute;top:212px;left:250px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:212px;left:312px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:212px;left:374px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:212px;left:436px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:212px;left:499px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:212px;left:561px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:212px;left:623px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:212px;left:685px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:188px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:250px;white-space:nowrap" class="ft04">IPBytes</p>
+<p style="position:absolute;top:233px;left:436px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:233px;left:499px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:561px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:623px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:685px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:254px;left:188px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:254px;left:250px;white-space:nowrap" class="ft04">TargetIP[7:0]</p>
+<p style="position:absolute;top:275px;left:188px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:275px;left:250px;white-space:nowrap" class="ft04">TargetIP[15:8]</p>
+<p style="position:absolute;top:296px;left:188px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:296px;left:250px;white-space:nowrap" class="ft04">TargetIP[23:16]</p>
+<p style="position:absolute;top:317px;left:188px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:317px;left:250px;white-space:nowrap" class="ft04">TargetIP[31:24]</p>
+<p style="position:absolute;top:338px;left:188px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:338px;left:250px;white-space:nowrap" class="ft04">TargetIP[39:32]</p>
+<p style="position:absolute;top:359px;left:188px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:359px;left:250px;white-space:nowrap" class="ft04">TargetIP[47:40]</p>
+<p style="position:absolute;top:380px;left:188px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:380px;left:250px;white-space:nowrap" class="ft04">TargetIP[55:48]</p>
+<p style="position:absolute;top:401px;left:188px;white-space:nowrap" class="ft04">8</p>
+<p style="position:absolute;top:401px;left:250px;white-space:nowrap" class="ft04">TargetIP[63:56]</p>
+</div>
+</body>
+</html>

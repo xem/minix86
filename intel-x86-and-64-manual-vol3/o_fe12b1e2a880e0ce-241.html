@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 241</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page241-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce241.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;7-3</p>
+<p style="position:absolute;top:47px;left:720px;white-space:nowrap" class="ft01">TASK&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">to handle an interrupt or exception,&#160;the IDT entry for the&#160;interrupt or exception must contain a task gate&#160;that holds&#160;<br/>the selector for the&#160;interrupt-&#160;or exception-handler&#160;TSS.&#160;<br/>When a&#160;task is&#160;dispatched for execution,&#160;a&#160;task switch occurs between the&#160;currently running task and the&#160;<br/>dispatched&#160;task. During a task&#160;switch, the&#160;execution environment of the currently executing task (called the&#160;task’s&#160;<br/>state or&#160;<b>context</b>) is saved in its TSS&#160;and&#160;execution&#160;of the task is&#160;suspended. The&#160;context for the&#160;dispatched task is&#160;<br/>then loaded into&#160;the processor and execution&#160;of that task&#160;begins&#160;with the instruction pointed to by the newly loaded&#160;<br/>EIP register.&#160;If&#160;the task&#160;has not&#160;been run&#160;since the system&#160;was&#160;last&#160;initialized, the EIP will point to the&#160;first instruc-<br/>tion of the&#160;task’s&#160;code; otherwise, it&#160;will&#160;point to&#160;the&#160;next instruction after&#160;the last&#160;instruction&#160;that the&#160;task&#160;<br/>executed&#160;when it&#160;was last&#160;active.<br/>If&#160;the currently executing task (the&#160;calling&#160;task) called&#160;the&#160;task being dispatched&#160;(the&#160;called task), the&#160;TSS&#160;<br/>segment selector for the calling task is&#160;stored in the&#160;TSS of the called task to&#160;provide a link back to the&#160;calling task.<br/>For all&#160;IA-32&#160;processors, tasks&#160;are not recursive.&#160;A task cannot call or&#160;jump to&#160;itself.<br/>Interrupts and exceptions&#160;can&#160;be&#160;handled with a task switch&#160;to a handler task. Here, the processor&#160;performs a task&#160;<br/>switch to handle the interrupt or exception&#160;and automatically&#160;switches back to the interrupted task upon&#160;returning&#160;<br/>from&#160;the&#160;interrupt-handler&#160;task or&#160;exception-handler task. This&#160;mechanism&#160;can also&#160;handle interrupts that&#160;occur&#160;<br/>during interrupt&#160;tasks.<br/>As&#160;part&#160;of&#160;a&#160;task switch, the&#160;processor can&#160;also&#160;switch&#160;to&#160;another&#160;LDT,&#160;allowing&#160;each&#160;task&#160;to&#160;have&#160;a&#160;different&#160;logical-<br/>to-physical address mapping for LDT-based segments. The page-directory&#160;base&#160;register&#160;(CR3)&#160;also&#160;is&#160;reloaded&#160;on&#160;a&#160;<br/>task&#160;switch, allowing&#160;each task to&#160;have&#160;its own set of page tables.&#160;These protection facilities help isolate tasks&#160;and&#160;<br/>prevent them&#160;from interfering with one&#160;another.&#160;<br/>If protection mechanisms&#160;are not used,&#160;the processor provides no protection&#160;between tasks. This is true even with&#160;<br/>operating&#160;systems that&#160;use multiple privilege&#160;levels for&#160;protection.&#160;A&#160;task running at privilege&#160;level 3&#160;that uses the&#160;<br/>same LDT and page tables&#160;as other&#160;privilege-level-3 tasks&#160;can access&#160;code&#160;and&#160;corrupt data and&#160;the stack&#160;of&#160;other&#160;<br/>tasks.<br/>Use&#160;of task&#160;management facilities for handling multitasking&#160;applications is&#160;optional.&#160;Multitasking&#160;can be handled in&#160;<br/>software, with each&#160;software defined&#160;task&#160;executed in&#160;the context of a&#160;single&#160;IA-32&#160;architecture&#160;task.</p>
+<p style="position:absolute;top:621px;left:69px;white-space:nowrap" class="ft04">7.2&#160;</p>
+<p style="position:absolute;top:621px;left:148px;white-space:nowrap" class="ft04">TASK MANAGEMENT&#160;DATA STRUCTURES</p>
+<p style="position:absolute;top:657px;left:69px;white-space:nowrap" class="ft02">The processor defines five&#160;data&#160;structures for handling&#160;task-related&#160;activities:</p>
+<p style="position:absolute;top:679px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:679px;left:95px;white-space:nowrap" class="ft02">Task-state segment (TSS).</p>
+<p style="position:absolute;top:701px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:702px;left:95px;white-space:nowrap" class="ft02">Task-gate descriptor.</p>
+<p style="position:absolute;top:724px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:724px;left:95px;white-space:nowrap" class="ft02">TSS descriptor.</p>
+<p style="position:absolute;top:746px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:747px;left:95px;white-space:nowrap" class="ft02">Task register.</p>
+<p style="position:absolute;top:769px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:769px;left:95px;white-space:nowrap" class="ft02">NT&#160;flag in&#160;the EFLAGS&#160;register.</p>
+<p style="position:absolute;top:793px;left:69px;white-space:nowrap" class="ft07">When&#160;operating in&#160;protected mode,&#160;a&#160;TSS and&#160;TSS&#160;descriptor must be created&#160;for&#160;at least one&#160;task, and the&#160;<br/>segment selector for the&#160;TSS must be loaded&#160;into&#160;the&#160;task register&#160;(using the&#160;LTR instruction).</p>
+<p style="position:absolute;top:860px;left:69px;white-space:nowrap" class="ft06">7.2.1&#160;</p>
+<p style="position:absolute;top:860px;left:149px;white-space:nowrap" class="ft06">Task-State Segment (TSS)</p>
+<p style="position:absolute;top:891px;left:69px;white-space:nowrap" class="ft07">The&#160;processor&#160;state information needed&#160;to restore&#160;a&#160;task&#160;is&#160;saved in&#160;a&#160;system segment called the&#160;task-state&#160;<br/>segment (TSS).&#160;<a href="o_fe12b1e2a880e0ce-242.html">Figure&#160;7-2 shows the</a>&#160;format&#160;of&#160;a TSS for tasks&#160;designed for&#160;32-bit&#160;CPUs. The fields of a&#160;TSS&#160;are&#160;<br/>divided&#160;into&#160;two main&#160;categories: dynamic fields&#160;and&#160;static fields.<br/>For&#160;information about&#160;16-bit Intel&#160;286 processor task structures, se<a href="o_fe12b1e2a880e0ce-253.html">e Section 7.6, “16-Bit Task-State&#160;Segment&#160;<br/>(TSS).” F</a>or information&#160;about 64-bit&#160;mode task&#160;structures<a href="o_fe12b1e2a880e0ce-254.html">, see Section 7.7, “Task Management in 64-bit&#160;Mode.”</a></p>
+</div>
+</body>
+</html>

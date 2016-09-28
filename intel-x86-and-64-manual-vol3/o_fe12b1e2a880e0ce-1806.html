@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1806</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1806-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1806.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">40-4&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE EXITING EVENTS</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">40.3.3&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Synthetic State for MISC Features</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft05">State represented by&#160;SECS.MISCSELECT&#160;might&#160;also be&#160;overridden by synthetic state&#160;after&#160;it has&#160;been&#160;saved into&#160;<br/>the SSA.&#160;State represented by MISCSELECT[0] is not overridden but if the exiting event is a page&#160;fault then lower&#160;<br/>12 bits of CR2&#160;are cleared.&#160;</p>
+<p style="position:absolute;top:216px;left:68px;white-space:nowrap" class="ft04">40.4 AEX&#160;</p>
+<p style="position:absolute;top:216px;left:191px;white-space:nowrap" class="ft04">FLOW</p>
+<p style="position:absolute;top:250px;left:68px;white-space:nowrap" class="ft06">On Enclave Exiting&#160;Events (interrupts, exceptions, VM&#160;exits or SMIs), the&#160;processor&#160;state&#160;is securely&#160;saved inside&#160;<br/>the enclave,&#160;a synthetic state is&#160;loaded and&#160;the&#160;enclave is&#160;exited. The EEE then proceeds in the usual exit-defined&#160;<br/>fashion. The&#160;following&#160;sections&#160;describes the&#160;details of an&#160;AEX:<br/>1.&#160;The&#160;exact&#160;processor state saved into the&#160;current&#160;SSA&#160;frame&#160;depends on whether the enclave is a 32-bit or a 64-</p>
+<p style="position:absolute;top:324px;left:93px;white-space:nowrap" class="ft06">bit enclave.&#160;In&#160;32-bit&#160;mode&#160;(IA32_EFER.LMA&#160;= 0&#160;||&#160;CS.L&#160;=&#160;0),&#160;the&#160;low 32 bits of the&#160;legacy registers&#160;(EAX,&#160;EBX,&#160;<br/>ECX, EDX, ESP,&#160;EBP,&#160;ESI,&#160;EDI,&#160;EIP and EFLAGS)&#160;are stored.&#160;The upper&#160;32&#160;bits of the legacy&#160;registers and&#160;the&#160;<br/>64-bit registers&#160;(R8 … R15) are not stored.<br/>In 64-bit&#160;mode&#160;(IA32_EFER.LMA&#160;= 1&#160;&amp;&amp; CS.L&#160;=&#160;1),&#160;all&#160;64&#160;bits of the&#160;general processor&#160;registers (RAX, RBX,</p>
+<p style="position:absolute;top:394px;left:93px;white-space:nowrap" class="ft07">RCX, RDX,&#160;RSP,&#160;RBP,&#160;RSI, RDI, R8&#160;…&#160;R15,&#160;RIP and&#160;RFLAGS) are stored.<br/>The&#160;state of those extended features specified by SECS.ATTRIBUTES.XFRM are stored&#160;into the XSAVE area of</p>
+<p style="position:absolute;top:429px;left:93px;white-space:nowrap" class="ft03">the current SSA&#160;frame. The&#160;layout of the x87 and XMM portions (the&#160;1st 512 bytes) depends&#160;on the current</p>
+<p style="position:absolute;top:442px;left:93px;white-space:nowrap" class="ft08">values of IA32_EFER.LMA&#160;and&#160;CS.L:<br/>If IA32_EFER.LMA =&#160;0&#160;|| CS.L&#160;= 0, the same format (32-bit) that XSAVE/FXSAVE uses with these values.<br/>If IA32_EFER.LMA&#160;=&#160;1 &amp;&amp; CS.L&#160;= 1,&#160;the same&#160;format (64-bit) that XSAVE/FXSAVE&#160;uses&#160;with these&#160;values</p>
+<p style="position:absolute;top:498px;left:93px;white-space:nowrap" class="ft07">when REX.W&#160;= 1.&#160;<br/>The cause of&#160;the&#160;AEX is&#160;saved&#160;in&#160;the EXITINFO&#160;field.&#160;S<a href="o_fe12b1e2a880e0ce-1779.html">ee Table&#160;38-9 for de</a>tails and values&#160;of the various</p>
+<p style="position:absolute;top:532px;left:93px;white-space:nowrap" class="ft05">fields.<br/>The&#160;state&#160;of those&#160;miscellaneous features<a href="o_fe12b1e2a880e0ce-1775.html">&#160;(see&#160;Section&#160;38.7.2)</a>&#160;specified&#160;by&#160;SECS.MISCSELECT&#160;are stored&#160;into&#160;<br/>the&#160;MISC&#160;area of the&#160;current SSA&#160;frame.</p>
+<p style="position:absolute;top:594px;left:68px;white-space:nowrap" class="ft03">2.&#160;Synthetic&#160;state is&#160;created for a&#160;number of processor registers&#160;to present an&#160;opaque&#160;view&#160;of the&#160;enclave&#160;state.&#160;</p>
+<p style="position:absolute;top:610px;left:93px;white-space:nowrap" class="ft05"><a href="o_fe12b1e2a880e0ce-1805.html">Table&#160;40-1 shows the&#160;</a>values&#160;for GPRs,&#160;x87,&#160;SSE,&#160;FS, GS,&#160;Debug and&#160;performance monitoring on&#160;AEX. The&#160;<br/>synthetic state for other&#160;extended features&#160;(those controlled by XCR0[62:2])&#160;is set&#160;to their&#160;respective&#160;INIT&#160;<br/>states&#160;when their corresponding bit of SECS.ATTRIBUTES.XFRM&#160;is set. The INIT&#160;state is that state as defined by&#160;<br/>the&#160;behavior of the&#160;XRSTOR instruction when HEADER.XSTATE_BV[n] is&#160;0. Synthetic state of those&#160;miscella-<br/>neous features&#160;specified by SECS.MISCSELECT depends&#160;on the&#160;miscellaneous feature. There is&#160;no synthetic&#160;<br/>state&#160;required&#160;for&#160;the&#160;miscellaneous&#160;state controlled&#160;by SECS.MISCSELECT[0].&#160;</p>
+<p style="position:absolute;top:717px;left:68px;white-space:nowrap" class="ft03">3.&#160;Any&#160;code&#160;and data breakpoints that were&#160;suppressed&#160;at&#160;the time&#160;of enclave&#160;entry are&#160;unsuppressed&#160;when&#160;</p>
+<p style="position:absolute;top:733px;left:93px;white-space:nowrap" class="ft03">exiting the&#160;enclave.</p>
+<p style="position:absolute;top:757px;left:68px;white-space:nowrap" class="ft03">4.&#160;RFLAGS.TF is set&#160;to&#160;the value&#160;that it&#160;had at the&#160;time of&#160;the most&#160;recent&#160;enclave&#160;entry (except for the&#160;situation&#160;</p>
+<p style="position:absolute;top:774px;left:93px;white-space:nowrap" class="ft03">that&#160;the entry was&#160;opt-in for&#160;<a href="o_fe12b1e2a880e0ce-1933.html">debug; see Section&#160;43.2). In the&#160;</a>SSA, RFLAGS.TF&#160;is set to&#160;0.&#160;</p>
+<p style="position:absolute;top:798px;left:68px;white-space:nowrap" class="ft03">5.&#160;RFLAGS.RF is set to 0 in the synthetic state. In the SSA,&#160;the value saved&#160;is the&#160;same&#160;as&#160;what would have&#160;been&#160;</p>
+<p style="position:absolute;top:814px;left:93px;white-space:nowrap" class="ft09">saved&#160;on stack in&#160;the non-SGX case&#160;(architectural&#160;value&#160;of&#160;RF). Thus, AEXs&#160;due&#160;to&#160;interrupts, traps,&#160;and code&#160;<br/>breakpoints&#160;save&#160;RF&#160;unmodified&#160;into&#160;SSA,&#160;while&#160;AEXs&#160;due&#160;to&#160;other&#160;faults&#160;save&#160;RF&#160;as&#160;1&#160;in&#160;the&#160;SSA.&#160;<br/>If the&#160;event causing&#160;AEX&#160;happened on&#160;intermediate&#160;iteration&#160;of&#160;a REP-prefixed&#160;instruction, then RF=1&#160;is</p>
+<p style="position:absolute;top:868px;left:93px;white-space:nowrap" class="ft03">saved on SSA, irrespective&#160;of&#160;its&#160;priority.</p>
+<p style="position:absolute;top:889px;left:68px;white-space:nowrap" class="ft03">6.&#160;Any&#160;performance monitoring activity&#160;(including PEBS)&#160;or&#160;profiling&#160;activity (LBR,&#160;Tracing using&#160;Intel PT) on&#160;the&#160;</p>
+<p style="position:absolute;top:906px;left:93px;white-space:nowrap" class="ft05">exiting thread that was suppressed&#160;due to the&#160;enclave entry on that thread is&#160;unsuppressed. Any counting that&#160;<br/>had been&#160;demoted from AnyThread&#160;counting to&#160;MyThread counting (on&#160;one logical processor) is&#160;promoted back&#160;<br/>to AnyThread&#160;counting.</p>
+</div>
+</body>
+</html>

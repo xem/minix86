@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 226</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page226-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481226.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:722px;white-space:nowrap" class="ft00">BNDMK—Make Bounds</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-98&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">BNDMK—Make&#160;Bounds</p>
+<p style="position:absolute;top:281px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:365px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft06">Makes bounds&#160;from&#160;the&#160;second&#160;operand&#160;and stores&#160;the lower&#160;and upper bounds in&#160;the&#160;bound&#160;register&#160;bnd.&#160;The&#160;<br/>second&#160;operand&#160;must&#160;be&#160;a memory operand.&#160;The content&#160;of&#160;the&#160;base&#160;register from the memory operand is&#160;stored&#160;<br/>in&#160;the lower bound&#160;bnd.LB.&#160;The 1's complement of the&#160;effective address&#160;of&#160;m32/m64&#160;is stored&#160;in&#160;the&#160;upper bound&#160;<br/>b.UB.&#160;Computation of m32/m64 has&#160;identical&#160;behavior to&#160;LEA.<br/>This&#160;instruction does not cause&#160;any memory access, and&#160;does&#160;not read or write&#160;any flags.&#160;<br/>If&#160;the instruction did not&#160;specify base&#160;register, the&#160;lower&#160;bound will be zero.&#160;The&#160;reg-reg form&#160;of this instruction&#160;<br/>retains legacy behavior&#160;(NOP).&#160;<br/>RIP&#160;relative instruction in&#160;64-bit will #UD.</p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:579px;left:68px;white-space:nowrap" class="ft07">BND.LB&#160;&#160;SRCMEM.base;<br/>IF&#160;64-bit mode&#160;Then</p>
+<p style="position:absolute;top:615px;left:88px;white-space:nowrap" class="ft04">BND.UB&#160;&#160;NOT(LEA.64_bits(SRCMEM));&#160;</p>
+<p style="position:absolute;top:633px;left:68px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:651px;left:88px;white-space:nowrap" class="ft04">BND.UB&#160;&#160;Zero_Extend.64_bits(NOT(LEA.32_bits(SRCMEM)));</p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:726px;left:68px;white-space:nowrap" class="ft04">BNDMKvoid&#160;*&#160;_bnd_set_ptr_bounds(const void&#160;*&#160;q,&#160;size_t&#160;size);&#160;</p>
+<p style="position:absolute;top:759px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:783px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:817px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:840px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:840px;left:206px;white-space:nowrap" class="ft08">If ModRM&#160;is RIP relative.<br/>If the&#160;LOCK prefix&#160;is used.<br/>If&#160;ModRM.r/m encodes&#160;BND4-BND7 when Intel&#160;MPX is&#160;enabled.<br/>If&#160;67H prefix&#160;is not&#160;used and CS.D=0.<br/>If&#160;67H prefix&#160;is used and&#160;CS.D=1.</p>
+<p style="position:absolute;top:958px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:981px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:981px;left:206px;white-space:nowrap" class="ft08">If ModRM&#160;is RIP relative.<br/>If the&#160;LOCK prefix&#160;is used.<br/>If&#160;ModRM.r/m encodes&#160;BND4-BND7 when Intel&#160;MPX is&#160;enabled.<br/>If 16-bit&#160;addressing is&#160;used.</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:259px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:315px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:315px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:315px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:388px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:388px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:454px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:77px;white-space:nowrap" class="ft04">F3&#160;0F&#160;1B /r</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft04">BNDMK&#160;bnd,&#160;m32</p>
+<p style="position:absolute;top:175px;left:259px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:315px;white-space:nowrap" class="ft04">NE/V</p>
+<p style="position:absolute;top:175px;left:388px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:175px;left:454px;white-space:nowrap" class="ft04">Make&#160;lower and&#160;upper bounds from&#160;m32 and&#160;store&#160;them&#160;in&#160;bnd.</p>
+<p style="position:absolute;top:211px;left:77px;white-space:nowrap" class="ft04">F3&#160;0F&#160;1B /r</p>
+<p style="position:absolute;top:227px;left:77px;white-space:nowrap" class="ft04">BNDMK&#160;bnd,&#160;m64</p>
+<p style="position:absolute;top:211px;left:259px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:211px;left:315px;white-space:nowrap" class="ft04">V/NE</p>
+<p style="position:absolute;top:211px;left:388px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:211px;left:454px;white-space:nowrap" class="ft04">Make&#160;lower and&#160;upper bounds from&#160;m64 and&#160;store&#160;them&#160;in&#160;bnd.</p>
+<p style="position:absolute;top:304px;left:95px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:304px;left:233px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:304px;left:455px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:304px;left:689px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:328px;left:104px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:328px;left:220px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:328px;left:444px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:328px;left:710px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

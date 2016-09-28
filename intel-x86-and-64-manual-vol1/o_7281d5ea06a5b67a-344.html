@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 344</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page344-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a344.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">14-16&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH AVX, FMA&#160;AND&#160;AVX2</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">The following pseudocode&#160;illustrates&#160;this recommended application AVX detection process:&#160;</p>
+<p style="position:absolute;top:507px;left:68px;white-space:nowrap" class="ft03">Note:&#160;It is&#160;unwise&#160;for an application to&#160;rely exclusively on&#160;CPUID.1:ECX.AVX[bit 28] or&#160;at all&#160;on&#160;<br/>CPUID.1:ECX.XSAVE[bit 26]: These indicate hardware support but&#160;not operating&#160;system&#160;support. If YMM&#160;state&#160;<br/>management&#160;is not&#160;enabled by an&#160;operating systems,&#160;AVX instructions will #UD regardless of&#160;<br/>CPUID.1:ECX.AVX[bit 28].&#160;“CPUID.1:ECX.XSAVE[bit 26] = 1”&#160;does not&#160;guarantee the&#160;OS&#160;actually uses the&#160;XSAVE&#160;<br/>process for&#160;state management.<br/>These&#160;steps above also&#160;apply&#160;to enhanced&#160;128-bit&#160;SIMD&#160;floating-pointing&#160;instructions in&#160;AVX (using&#160;VEX prefix-<br/>encoding) that&#160;operate on&#160;the YMM states.&#160;</p>
+<p style="position:absolute;top:132px;left:68px;white-space:nowrap" class="ft01">Example 14-1. &#160;Detection&#160;of&#160;AVX&#160;Instruction&#160;</p>
+<p style="position:absolute;top:159px;left:72px;white-space:nowrap" class="ft05">INT supports_AVX()<br/>{&#160;mov&#160;&#160;eax,&#160;</p>
+<p style="position:absolute;top:177px;left:174px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:195px;left:92px;white-space:nowrap" class="ft05">cpuid<br/>and ecx,&#160;</p>
+<p style="position:absolute;top:213px;left:173px;white-space:nowrap" class="ft02">018000000H</p>
+<p style="position:absolute;top:231px;left:92px;white-space:nowrap" class="ft02">cmp&#160;</p>
+<p style="position:absolute;top:231px;left:147px;white-space:nowrap" class="ft02">ecx, 018000000H; check both OSXSAVE and&#160;AVX feature flags</p>
+<p style="position:absolute;top:249px;left:92px;white-space:nowrap" class="ft02">&#160;jne&#160;</p>
+<p style="position:absolute;top:249px;left:146px;white-space:nowrap" class="ft02">not_supported</p>
+<p style="position:absolute;top:267px;left:92px;white-space:nowrap" class="ft05">;&#160;processor supports&#160;AVX instructions&#160;and XGETBV&#160;is&#160;enabled&#160;by OS<br/>mov&#160;</p>
+<p style="position:absolute;top:285px;left:146px;white-space:nowrap" class="ft02">ecx, 0; specify 0 for XCR0 register</p>
+<p style="position:absolute;top:303px;left:92px;white-space:nowrap" class="ft02">XGETBV</p>
+<p style="position:absolute;top:303px;left:200px;white-space:nowrap" class="ft02">; result in&#160;EDX:EAX</p>
+<p style="position:absolute;top:321px;left:92px;white-space:nowrap" class="ft02">and eax,&#160;</p>
+<p style="position:absolute;top:321px;left:174px;white-space:nowrap" class="ft02">06H</p>
+<p style="position:absolute;top:339px;left:92px;white-space:nowrap" class="ft02">cmp&#160;</p>
+<p style="position:absolute;top:339px;left:147px;white-space:nowrap" class="ft02">eax, 06H;&#160;check OS&#160;has&#160;enabled both XMM and&#160;YMM state support</p>
+<p style="position:absolute;top:357px;left:92px;white-space:nowrap" class="ft05">jne not_supported<br/>mov eax,&#160;</p>
+<p style="position:absolute;top:375px;left:174px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:393px;left:92px;white-space:nowrap" class="ft02">jmp&#160;done</p>
+<p style="position:absolute;top:411px;left:72px;white-space:nowrap" class="ft02">NOT_SUPPORTED:</p>
+<p style="position:absolute;top:429px;left:92px;white-space:nowrap" class="ft02">mov eax,&#160;</p>
+<p style="position:absolute;top:429px;left:174px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:447px;left:92px;white-space:nowrap" class="ft02">done:</p>
+<p style="position:absolute;top:465px;left:72px;white-space:nowrap" class="ft02">}</p>
+</div>
+</body>
+</html>

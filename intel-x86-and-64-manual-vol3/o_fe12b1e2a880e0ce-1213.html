@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1213</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#000000;}
+	.ft06{font-size:10px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1213-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1213.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;31-3</p>
+<p style="position:absolute;top:47px;left:475px;white-space:nowrap" class="ft01">VIRTUAL-MACHINE&#160;MONITOR PROGRAMMING CONSIDERATIONS</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft07">Processors&#160;perform various&#160;checks while&#160;executing any VMX instruction. They&#160;follow well-defined error&#160;handling on&#160;<br/>failures. VMX instruction execution&#160;failures detected&#160;before loading&#160;of a&#160;guest&#160;state are handled by the&#160;processor&#160;<br/>as follows:&#160;</p>
+<p style="position:absolute;top:820px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:820px;left:95px;white-space:nowrap" class="ft02">If&#160;the working-VMCS pointer is&#160;not&#160;valid, the&#160;instruction&#160;fails by setting RFLAGS.CF to&#160;1.</p>
+<p style="position:absolute;top:842px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:843px;left:95px;white-space:nowrap" class="ft07">If the&#160;working-VMCS&#160;pointer&#160;is valid, RFLAGS.ZF is&#160;set&#160;to&#160;1 and&#160;the proper&#160;error-code is&#160;saved in the VM-<br/>instruction&#160;error field of the&#160;working-VMCS.</p>
+<p style="position:absolute;top:883px;left:69px;white-space:nowrap" class="ft08">Software&#160;is required&#160;to check RFLAGS.CF and&#160;RFLAGS.ZF&#160;to determine the&#160;success&#160;or failure of&#160;VMX instruction&#160;<br/>executions.<br/>The&#160;following items provide&#160;details regarding&#160;use of&#160;the VM-entry instructions&#160;(VMLAUNCH&#160;and&#160;VMRESUME):</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:946px;left:95px;white-space:nowrap" class="ft08">If&#160;the working-VMCS pointer is&#160;valid,&#160;the state of the&#160;working VMCS may&#160;cause&#160;the&#160;VM-entry instruction to fail.&#160;<br/>RFLAGS.ZF&#160;is set&#160;to 1 and&#160;one of the&#160;following&#160;values&#160;is saved in&#160;the&#160;VM-instruction error&#160;field:<br/>—&#160;4: VMLAUNCH&#160;with non-clear&#160;VMCS.</p>
+<p style="position:absolute;top:1003px;left:120px;white-space:nowrap" class="ft02">If&#160;this error&#160;occurs, software can avoid the&#160;error by executing VMRESUME.</p>
+<p style="position:absolute;top:1027px;left:95px;white-space:nowrap" class="ft02">—&#160;5: VMRESUME with non-launched VMCS.</p>
+<p style="position:absolute;top:1044px;left:120px;white-space:nowrap" class="ft02">If&#160;this error&#160;occurs, software can avoid the&#160;error by executing VMLAUNCH.</p>
+<p style="position:absolute;top:713px;left:212px;white-space:nowrap" class="ft04">Figure&#160;31-1.&#160;&#160;VMX&#160;Transitions&#160;and States of&#160;VMCS&#160;in a Logical Processor</p>
+<p style="position:absolute;top:134px;left:183px;white-space:nowrap" class="ft05">(a)&#160;VMX Operation&#160;and&#160;VMX Transitions</p>
+<p style="position:absolute;top:415px;left:182px;white-space:nowrap" class="ft05">(b) State of&#160;VMCS&#160;and VMX Operation</p>
+<p style="position:absolute;top:204px;left:184px;white-space:nowrap" class="ft06">Processor&#160;</p>
+<p style="position:absolute;top:219px;left:184px;white-space:nowrap" class="ft06">Operation</p>
+<p style="position:absolute;top:275px;left:233px;white-space:nowrap" class="ft06">VMXON</p>
+<p style="position:absolute;top:179px;left:255px;white-space:nowrap" class="ft06">VM&#160;Entry</p>
+<p style="position:absolute;top:179px;left:334px;white-space:nowrap" class="ft06">VM&#160;Entry</p>
+<p style="position:absolute;top:180px;left:431px;white-space:nowrap" class="ft06">VM&#160;Entry</p>
+<p style="position:absolute;top:180px;left:519px;white-space:nowrap" class="ft06">VM&#160;Entry</p>
+<p style="position:absolute;top:263px;left:324px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:263px;left:416px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:277px;left:509px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:263px;left:591px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:180px;left:602px;white-space:nowrap" class="ft06">VMXOFF</p>
+<p style="position:absolute;top:340px;left:272px;white-space:nowrap" class="ft06">Outside&#160;</p>
+<p style="position:absolute;top:354px;left:279px;white-space:nowrap" class="ft06">VMX&#160;</p>
+<p style="position:absolute;top:369px;left:266px;white-space:nowrap" class="ft06">Operation</p>
+<p style="position:absolute;top:337px;left:400px;white-space:nowrap" class="ft06">VMX Root</p>
+<p style="position:absolute;top:351px;left:401px;white-space:nowrap" class="ft06">Operation</p>
+<p style="position:absolute;top:339px;left:558px;white-space:nowrap" class="ft06">VMX&#160;</p>
+<p style="position:absolute;top:353px;left:546px;white-space:nowrap" class="ft06">Non-Root&#160;</p>
+<p style="position:absolute;top:368px;left:545px;white-space:nowrap" class="ft06">Operation</p>
+<p style="position:absolute;top:305px;left:183px;white-space:nowrap" class="ft06">Legend:</p>
+<p style="position:absolute;top:661px;left:183px;white-space:nowrap" class="ft06">Legend:</p>
+<p style="position:absolute;top:671px;left:258px;white-space:nowrap" class="ft06">Inactive&#160;</p>
+<p style="position:absolute;top:685px;left:261px;white-space:nowrap" class="ft06">VMCS</p>
+<p style="position:absolute;top:670px;left:336px;white-space:nowrap" class="ft06">Current VMCS</p>
+<p style="position:absolute;top:685px;left:350px;white-space:nowrap" class="ft06">(working)</p>
+<p style="position:absolute;top:670px;left:438px;white-space:nowrap" class="ft06">Active VMCS&#160;</p>
+<p style="position:absolute;top:684px;left:441px;white-space:nowrap" class="ft06">(not current)</p>
+<p style="position:absolute;top:670px;left:535px;white-space:nowrap" class="ft06">Current&#160;VMCS</p>
+<p style="position:absolute;top:685px;left:543px;white-space:nowrap" class="ft06">(controlling)</p>
+<p style="position:absolute;top:531px;left:193px;white-space:nowrap" class="ft06">VMCS B</p>
+<p style="position:absolute;top:568px;left:193px;white-space:nowrap" class="ft06">VMCS A</p>
+<p style="position:absolute;top:457px;left:241px;white-space:nowrap" class="ft06">VMLAUNCH</p>
+<p style="position:absolute;top:447px;left:330px;white-space:nowrap" class="ft06">VMRESUME</p>
+<p style="position:absolute;top:475px;left:227px;white-space:nowrap" class="ft06">VMPTRLD B</p>
+<p style="position:absolute;top:451px;left:594px;white-space:nowrap" class="ft06">VMCLEAR&#160;B</p>
+<p style="position:absolute;top:486px;left:360px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:486px;left:451px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:601px;left:224px;white-space:nowrap" class="ft06">VMPTRLD A</p>
+<p style="position:absolute;top:601px;left:400px;white-space:nowrap" class="ft06">VMPTRLD&#160;A</p>
+<p style="position:absolute;top:626px;left:636px;white-space:nowrap" class="ft06">VMCLEAR A</p>
+<p style="position:absolute;top:595px;left:514px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:595px;left:604px;white-space:nowrap" class="ft06">VM&#160;Exit</p>
+<p style="position:absolute;top:626px;left:465px;white-space:nowrap" class="ft06">VMLAUNCH</p>
+<p style="position:absolute;top:626px;left:546px;white-space:nowrap" class="ft06">VMRESUME</p>
+</div>
+</body>
+</html>

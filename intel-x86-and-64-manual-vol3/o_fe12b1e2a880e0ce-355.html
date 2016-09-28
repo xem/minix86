@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 355</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page355-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce355.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;9-43</p>
+<p style="position:absolute;top:47px;left:560px;white-space:nowrap" class="ft01">PROCESSOR&#160;MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:288px;left:69px;white-space:nowrap" class="ft05">In&#160;order to&#160;assure&#160;that the BIOS function is present, the caller must verify the carry flag, the return code,&#160;and&#160;the&#160;<br/>64-bit&#160;signature.&#160;The&#160;update count reflects the&#160;number of&#160;2048-byte&#160;blocks available&#160;for storage within one&#160;non-<br/>volatile&#160;RAM.<br/>The loader&#160;version number&#160;refers to&#160;the revision of&#160;the update&#160;loader&#160;program that&#160;is&#160;included&#160;in&#160;the system&#160;BIOS&#160;<br/>image.</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft03">9.11.8.6 &#160;&#160;Function 01H—Write&#160;Microcode Update Data</p>
+<p style="position:absolute;top:434px;left:69px;white-space:nowrap" class="ft05">This function integrates&#160;a new microcode&#160;update into the&#160;BIOS&#160;storage&#160;device.<a href="o_fe12b1e2a880e0ce-355.html">&#160;Table&#160;9-15</a>&#160;lists&#160;the parameters&#160;and&#160;<br/>return codes for the&#160;function.</p>
+<p style="position:absolute;top:148px;left:75px;white-space:nowrap" class="ft02">SI</p>
+<p style="position:absolute;top:148px;left:207px;white-space:nowrap" class="ft02">Update Count</p>
+<p style="position:absolute;top:148px;left:377px;white-space:nowrap" class="ft02">Number of&#160;2048 update&#160;blocks in&#160;NVRAM&#160;the&#160;BIOS&#160;allocated to&#160;storing&#160;</p>
+<p style="position:absolute;top:164px;left:377px;white-space:nowrap" class="ft02">microcode updates&#160;</p>
+<p style="position:absolute;top:189px;left:75px;white-space:nowrap" class="ft07">Return Codes (see&#160;<a href="o_fe12b1e2a880e0ce-361.html">Table&#160;9-19&#160;f</a>or code&#160;definitions<br/>SUCCESS</p>
+<p style="position:absolute;top:213px;left:377px;white-space:nowrap" class="ft02">The&#160;function&#160;completed successfully.</p>
+<p style="position:absolute;top:236px;left:75px;white-space:nowrap" class="ft02">NOT_IMPLEMENTED</p>
+<p style="position:absolute;top:236px;left:377px;white-space:nowrap" class="ft02">The&#160;function&#160;is&#160;not implemented.&#160;</p>
+<p style="position:absolute;top:492px;left:250px;white-space:nowrap" class="ft04">Table&#160;9-15. &#160;Parameters for the Write&#160;Update&#160;Data Function</p>
+<p style="position:absolute;top:516px;left:75px;white-space:nowrap" class="ft07">Input<br/>AX</p>
+<p style="position:absolute;top:540px;left:207px;white-space:nowrap" class="ft02">Function Code</p>
+<p style="position:absolute;top:540px;left:378px;white-space:nowrap" class="ft02">0D042H</p>
+<p style="position:absolute;top:564px;left:75px;white-space:nowrap" class="ft02">BL</p>
+<p style="position:absolute;top:564px;left:207px;white-space:nowrap" class="ft02">Sub-function</p>
+<p style="position:absolute;top:564px;left:378px;white-space:nowrap" class="ft02">01H&#160;- Write update</p>
+<p style="position:absolute;top:588px;left:75px;white-space:nowrap" class="ft02">ES:DI&#160;</p>
+<p style="position:absolute;top:588px;left:207px;white-space:nowrap" class="ft02">Update Address</p>
+<p style="position:absolute;top:588px;left:378px;white-space:nowrap" class="ft02">Real Mode&#160;pointer to&#160;the&#160;Intel Update&#160;structure.&#160;This buffer&#160;is&#160;2048 bytes in&#160;</p>
+<p style="position:absolute;top:605px;left:378px;white-space:nowrap" class="ft02">length if&#160;the processor supports only fixed-size&#160;microcode&#160;update&#160;or...</p>
+<p style="position:absolute;top:638px;left:378px;white-space:nowrap" class="ft02">Real Mode&#160;pointer to&#160;the&#160;Intel Update&#160;structure.&#160;This buffer&#160;is&#160;64&#160;KBytes in&#160;</p>
+<p style="position:absolute;top:654px;left:378px;white-space:nowrap" class="ft02">length if the processor supports a variable-size&#160;microcode update.</p>
+<p style="position:absolute;top:678px;left:75px;white-space:nowrap" class="ft02">CX</p>
+<p style="position:absolute;top:678px;left:207px;white-space:nowrap" class="ft02">Scratch Pad1</p>
+<p style="position:absolute;top:678px;left:378px;white-space:nowrap" class="ft02">Real mode segment address of&#160;64 KBytes of&#160;RAM block</p>
+<p style="position:absolute;top:702px;left:75px;white-space:nowrap" class="ft02">DX</p>
+<p style="position:absolute;top:702px;left:207px;white-space:nowrap" class="ft02">Scratch Pad2</p>
+<p style="position:absolute;top:702px;left:378px;white-space:nowrap" class="ft02">Real mode&#160;segment address of&#160;64 KBytes of&#160;RAM block</p>
+<p style="position:absolute;top:726px;left:75px;white-space:nowrap" class="ft02">SI</p>
+<p style="position:absolute;top:726px;left:207px;white-space:nowrap" class="ft02">Scratch Pad3</p>
+<p style="position:absolute;top:726px;left:378px;white-space:nowrap" class="ft02">Real mode segment address of&#160;64 KBytes of&#160;RAM block</p>
+<p style="position:absolute;top:750px;left:75px;white-space:nowrap" class="ft02">SS:SP</p>
+<p style="position:absolute;top:750px;left:207px;white-space:nowrap" class="ft02">Stack&#160;pointer</p>
+<p style="position:absolute;top:750px;left:378px;white-space:nowrap" class="ft02">32 KBytes of&#160;stack&#160;minimum</p>
+<p style="position:absolute;top:774px;left:75px;white-space:nowrap" class="ft06">Output<br/>CF</p>
+<p style="position:absolute;top:798px;left:207px;white-space:nowrap" class="ft02">Carry Flag</p>
+<p style="position:absolute;top:798px;left:378px;white-space:nowrap" class="ft08">Carry Set - Failure - AH Contains&#160;status<br/>Carry Clear - All return values valid</p>
+<p style="position:absolute;top:843px;left:75px;white-space:nowrap" class="ft02">AH</p>
+<p style="position:absolute;top:843px;left:207px;white-space:nowrap" class="ft02">Return&#160;Code</p>
+<p style="position:absolute;top:843px;left:378px;white-space:nowrap" class="ft02">Status of&#160;the call</p>
+<p style="position:absolute;top:867px;left:75px;white-space:nowrap" class="ft02">AL</p>
+<p style="position:absolute;top:867px;left:207px;white-space:nowrap" class="ft02">OEM Error</p>
+<p style="position:absolute;top:867px;left:378px;white-space:nowrap" class="ft02">Additional OEM&#160;information</p>
+<p style="position:absolute;top:891px;left:75px;white-space:nowrap" class="ft06">Return Codes (see&#160;<a href="o_fe12b1e2a880e0ce-361.html">Table&#160;9-19&#160;f</a>or code&#160;definitions<br/>SUCCESS</p>
+<p style="position:absolute;top:915px;left:378px;white-space:nowrap" class="ft02">The function completed successfully.</p>
+<p style="position:absolute;top:939px;left:75px;white-space:nowrap" class="ft02">NOT_IMPLEMENTED</p>
+<p style="position:absolute;top:939px;left:378px;white-space:nowrap" class="ft02">The function&#160;is&#160;not implemented.&#160;</p>
+<p style="position:absolute;top:963px;left:75px;white-space:nowrap" class="ft02">WRITE_FAILURE</p>
+<p style="position:absolute;top:963px;left:378px;white-space:nowrap" class="ft02">A&#160;failure occurred because of&#160;the inability to&#160;write&#160;the storage&#160;device.</p>
+<p style="position:absolute;top:987px;left:75px;white-space:nowrap" class="ft02">ERASE_FAILURE</p>
+<p style="position:absolute;top:987px;left:378px;white-space:nowrap" class="ft02">A&#160;failure occurred because of&#160;the inability to&#160;erase the storage device.</p>
+<p style="position:absolute;top:1011px;left:75px;white-space:nowrap" class="ft02">READ_FAILURE</p>
+<p style="position:absolute;top:1011px;left:378px;white-space:nowrap" class="ft02">A failure occurred because of&#160;the inability to&#160;read&#160;the&#160;storage&#160;device.</p>
+<p style="position:absolute;top:100px;left:268px;white-space:nowrap" class="ft04">Table&#160;9-14.&#160;&#160;Parameters&#160;for&#160;the&#160;Presence&#160;Test&#160; (Contd.)</p>
+<p style="position:absolute;top:124px;left:75px;white-space:nowrap" class="ft02">Input</p>
+</div>
+</body>
+</html>

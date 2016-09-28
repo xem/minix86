@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 337</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:9px;line-height:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft09{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page337-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce337.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;9-25</p>
+<p style="position:absolute;top:47px;left:560px;white-space:nowrap" class="ft01">PROCESSOR&#160;MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:601px;left:69px;white-space:nowrap" class="ft02">9.10.3&#160;</p>
+<p style="position:absolute;top:601px;left:149px;white-space:nowrap" class="ft02">MAIN.ASM Source&#160;Code</p>
+<p style="position:absolute;top:631px;left:69px;white-space:nowrap" class="ft06">The&#160;file&#160;MAIN.ASM<a href="o_fe12b1e2a880e0ce-337.html">&#160;shown in Example&#160;9-2&#160;</a>defines&#160;the&#160;data&#160;and&#160;stack&#160;segments&#160;for this application and can be&#160;<br/>substituted with&#160;the main&#160;module task written&#160;in&#160;a high-level language that&#160;is invoked by the&#160;IRET instruction&#160;<br/>executed&#160;by STARTUP.ASM.&#160;</p>
+<p style="position:absolute;top:705px;left:69px;white-space:nowrap" class="ft01">Example 9-2. &#160;MAIN.ASM</p>
+<p style="position:absolute;top:735px;left:69px;white-space:nowrap" class="ft03">NAME &#160; &#160;main_module</p>
+<p style="position:absolute;top:751px;left:69px;white-space:nowrap" class="ft03">data &#160; &#160;SEGMENT RW</p>
+<p style="position:absolute;top:768px;left:89px;white-space:nowrap" class="ft03">dw 1000&#160;dup(?)</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft03">DATA &#160; &#160;ENDS</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft03">stack stackseg 800</p>
+<p style="position:absolute;top:820px;left:69px;white-space:nowrap" class="ft03">CODE SEGMENT ER &#160;use32 PUBLIC</p>
+<p style="position:absolute;top:837px;left:69px;white-space:nowrap" class="ft03">main_start:</p>
+<p style="position:absolute;top:853px;left:89px;white-space:nowrap" class="ft03">nop</p>
+<p style="position:absolute;top:870px;left:89px;white-space:nowrap" class="ft03">nop</p>
+<p style="position:absolute;top:886px;left:89px;white-space:nowrap" class="ft03">nop</p>
+<p style="position:absolute;top:904px;left:69px;white-space:nowrap" class="ft03">CODE &#160;ENDS</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft03">END&#160;main_start, ds:data, ss:stack</p>
+<p style="position:absolute;top:968px;left:69px;white-space:nowrap" class="ft02">9.10.4 Supporting&#160;</p>
+<p style="position:absolute;top:968px;left:243px;white-space:nowrap" class="ft02">Files</p>
+<p style="position:absolute;top:998px;left:69px;white-space:nowrap" class="ft06">The&#160;batch file&#160;shown in<a href="o_fe12b1e2a880e0ce-338.html">&#160;Example 9-3 can be used to&#160;</a>assemble&#160;the&#160;source&#160;code&#160;files&#160;STARTUP.ASM&#160;and MAIN.ASM&#160;<br/>and build the&#160;final application.</p>
+<p style="position:absolute;top:557px;left:269px;white-space:nowrap" class="ft04">Figure&#160;9-6. &#160;Task Switching&#160;(Lines&#160;282-296&#160;of&#160;List&#160;File)</p>
+<p style="position:absolute;top:513px;left:550px;white-space:nowrap" class="ft00">GDT RAM</p>
+<p style="position:absolute;top:521px;left:640px;white-space:nowrap" class="ft05">RAM_START</p>
+<p style="position:absolute;top:480px;left:551px;white-space:nowrap" class="ft00">TSS RAM</p>
+<p style="position:absolute;top:496px;left:553px;white-space:nowrap" class="ft00">IDT RAM</p>
+<p style="position:absolute;top:513px;left:379px;white-space:nowrap" class="ft00">GDT&#160;Alias</p>
+<p style="position:absolute;top:496px;left:382px;white-space:nowrap" class="ft00">IDT Alias</p>
+<p style="position:absolute;top:387px;left:398px;white-space:nowrap" class="ft00">DS</p>
+<p style="position:absolute;top:223px;left:397px;white-space:nowrap" class="ft00">EIP</p>
+<p style="position:absolute;top:239px;left:383px;white-space:nowrap" class="ft00">EFLAGS</p>
+<p style="position:absolute;top:355px;left:398px;white-space:nowrap" class="ft00">CS</p>
+<p style="position:absolute;top:371px;left:398px;white-space:nowrap" class="ft00">SS</p>
+<p style="position:absolute;top:529px;left:403px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:338px;left:398px;white-space:nowrap" class="ft00">ES</p>
+<p style="position:absolute;top:292px;left:395px;white-space:nowrap" class="ft00">ESP</p>
+<p style="position:absolute;top:316px;left:404px;white-space:nowrap" class="ft00">•</p>
+<p style="position:absolute;top:195px;left:404px;white-space:nowrap" class="ft07">•<br/>•</p>
+<p style="position:absolute;top:255px;left:404px;white-space:nowrap" class="ft07">•<br/>•</p>
+<p style="position:absolute;top:277px;left:404px;white-space:nowrap" class="ft00">•</p>
+<p style="position:absolute;top:244px;left:213px;white-space:nowrap" class="ft08">SS&#160;=&#160;TSS.SS<br/>ESP = TSS.ESP<br/>PUSH TSS.EFLAG<br/>PUSH TSS.CS<br/>PUSH TSS.EIP<br/>ES&#160;=&#160;TSS.ES<br/>DS = TSS.DS<br/>IRET</p>
+<p style="position:absolute;top:433px;left:394px;white-space:nowrap" class="ft00">GDT</p>
+</div>
+</body>
+</html>

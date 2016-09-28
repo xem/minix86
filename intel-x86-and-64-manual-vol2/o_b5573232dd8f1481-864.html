@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 864</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page864-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481864.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:550px;white-space:nowrap" class="ft00">PABSB/PABSW/PABSD/PABSQ —&#160;Packed Absolute Value</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-184&#160;Vol. 2B</p>
+<p style="position:absolute;top:118px;left:68px;white-space:nowrap" class="ft03">VPABSQ (EVEX encoded versions)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:208px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:226px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC *is memory*)</p>
+<p style="position:absolute;top:244px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:262px;left:196px;white-space:nowrap" class="ft02">Unsigned DEST[i+63:i]&#160;&#160;ABS(SRC[63:0])</p>
+<p style="position:absolute;top:280px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:298px;left:196px;white-space:nowrap" class="ft02">Unsigned DEST[i+63:i]&#160;&#160;ABS(SRC[i+63:i])</p>
+<p style="position:absolute;top:316px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:334px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:352px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:352px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:370px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:388px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:406px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:424px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:442px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:460px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:512px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalents</p>
+<p style="position:absolute;top:535px;left:68px;white-space:nowrap" class="ft03">VPABSB__m512i&#160;_mm512_abs_epi8 ( __m512i a)<br/>VPABSW__m512i&#160;_mm512_abs_epi16 ( __m512i&#160;a)<br/>VPABSB__m512i&#160;_mm512_mask_abs_epi8&#160;( __m512i s,&#160;__mmask64 m,&#160;__m512i&#160;a)<br/>VPABSW__m512i&#160;_mm512_mask_abs_epi16 ( __m512i&#160;s, __mmask32&#160;m, __m512i&#160;a)<br/>VPABSB__m512i&#160;_mm512_maskz_abs_epi8&#160;(__mmask64&#160;m, __m512i a)<br/>VPABSW__m512i _mm512_maskz_abs_epi16&#160;(__mmask32 m,&#160;__m512i a)<br/>VPABSB__m256i&#160;_mm256_mask_abs_epi8&#160;(__m256i s,&#160;__mmask32 m,&#160;__m256i&#160;a)<br/>VPABSW__m256i&#160;_mm256_mask_abs_epi16 (__m256i&#160;s, __mmask16&#160;m, __m256i&#160;a)<br/>VPABSB__m256i&#160;_mm256_maskz_abs_epi8&#160;(__mmask32&#160;m, __m256i a)<br/>VPABSW__m256i _mm256_maskz_abs_epi16&#160;(__mmask16 m,&#160;__m256i a)<br/>VPABSB__m128i _mm_mask_abs_epi8 (__m128i s,&#160;__mmask16 m,&#160;__m128i a)<br/>VPABSW__m128i&#160;_mm_mask_abs_epi16 (__m128i&#160;s, __mmask8 m,&#160;__m128i&#160;a)<br/>VPABSB__m128i _mm_maskz_abs_epi8&#160;(__mmask16&#160;m, __m128i a)<br/>VPABSW__m128i _mm_maskz_abs_epi16 (__mmask8&#160;m, __m128i&#160;a)<br/>VPABSD __m256i _mm256_mask_abs_epi32(__m256i s, __mmask8 k, __m256i a);<br/>VPABSD __m256i _mm256_maskz_abs_epi32(&#160;__mmask8 k, __m256i&#160;a);<br/>VPABSD __m128i _mm_mask_abs_epi32(__m128i&#160;s,&#160;__mmask8 k,&#160;__m128i&#160;a);<br/>VPABSD __m128i _mm_maskz_abs_epi32(&#160;__mmask8 k, __m128i&#160;a);<br/>VPABSD &#160;__m512i _mm512_abs_epi32( __m512i a);<br/>VPABSD &#160;__m512i _mm512_mask_abs_epi32(__m512i s, __mmask16 k, __m512i&#160;a);<br/>VPABSD &#160;__m512i _mm512_maskz_abs_epi32(&#160;__mmask16&#160;k, __m512i a);<br/>VPABSQ __m512i _mm512_abs_epi64( __m512i a);<br/>VPABSQ __m512i _mm512_mask_abs_epi64(__m512i s, __mmask8 k, __m512i a);<br/>VPABSQ __m512i _mm512_maskz_abs_epi64( __mmask8&#160;k, __m512i a);<br/>VPABSQ __m256i _mm256_mask_abs_epi64(__m256i s, __mmask8 k, __m256i a);<br/>VPABSQ __m256i _mm256_maskz_abs_epi64( __mmask8&#160;k, __m256i a);<br/>VPABSQ __m128i _mm_mask_abs_epi64(__m128i s,&#160;__mmask8 k, __m128i&#160;a);<br/>VPABSQ __m128i _mm_maskz_abs_epi64(&#160;__mmask8&#160;k, __m128i a);<br/>PABSB __m128i _mm_abs_epi8&#160;(__m128i&#160;a)<br/>VPABSB __m128i&#160;_mm_abs_epi8&#160;(__m128i a)</p>
+</div>
+</body>
+</html>

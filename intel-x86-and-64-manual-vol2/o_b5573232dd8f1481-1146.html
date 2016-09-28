@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1146</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1146-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811146.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:557px;white-space:nowrap" class="ft00">PSRLW/PSRLD/PSRLQ—Shift&#160;Packed Data Right Logical</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-466&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">VPSRLQ&#160;(EVEX versions, xmm/m128)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>TMP_DEST[255:0]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS_256b(SRC1[255:0],&#160;SRC2)<br/>TMP_DEST[511:256]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS_256b(SRC1[511:256], SRC2)<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:190px;left:88px;white-space:nowrap" class="ft02">TMP_DEST[127:0]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS_128b(SRC1[127:0], SRC2)</p>
+<p style="position:absolute;top:208px;left:68px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:244px;left:88px;white-space:nowrap" class="ft02">TMP_DEST[255:0]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS_256b(SRC1[255:0], SRC2)</p>
+<p style="position:absolute;top:262px;left:68px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:298px;left:88px;white-space:nowrap" class="ft03">TMP_DEST[255:0]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS_256b(SRC1[255:0], SRC2)<br/>TMP_DEST[511:256]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS_256b(SRC1[511:256], SRC2)</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft03">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:370px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:406px;left:115px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;TMP_DEST[i+63:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:442px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:442px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:460px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:478px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking&#160;</p>
+<p style="position:absolute;top:496px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:514px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:532px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft03">VPSRLQ&#160;(EVEX versions, imm8)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:658px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:694px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC1 *is&#160;memory*)</p>
+<p style="position:absolute;top:712px;left:169px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS1(SRC1[63:0],&#160;imm8)<br/>ELSE DEST[i+63:i]&#160;&#160;LOGICAL_RIGHT_SHIFT_QWORDS1(SRC1[i+63:i],&#160;imm8)</p>
+<p style="position:absolute;top:748px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:766px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:784px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:784px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:802px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:820px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking&#160;</p>
+<p style="position:absolute;top:838px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:856px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:874px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:946px;left:68px;white-space:nowrap" class="ft03">VPSRLQ&#160;(ymm,&#160;ymm,&#160;xmm/m128) - VEX.256 encoding<br/>DEST[255:0]&#160;LOGICAL_RIGHT_SHIFT_QWORDS_256b(SRC1, SRC2)<br/>DEST[MAX_VL-1:256]&#160;0;</p>
+<p style="position:absolute;top:1018px;left:68px;white-space:nowrap" class="ft03">VPSRLQ&#160;(ymm,&#160;imm8) -&#160;VEX.256&#160;encoding<br/>DEST[255:0]&#160;LOGICAL_RIGHT_SHIFT_QWORDS_256b(SRC1, imm8)<br/>DEST[MAX_VL-1:256]&#160;0;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1879</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1879-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811879.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VRSQRT28PD—Approximation to&#160;the Reciprocal&#160;Square Root of Packed Double-Precision&#160;Floating-Point Values&#160;with Less&#160;Than 2^-28&#160;</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-493</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VRSQRT28PD—Approximation to&#160;the Reciprocal&#160;Square&#160;Root&#160;of&#160;Packed Double-Precision&#160;</p>
+<p style="position:absolute;top:119px;left:69px;white-space:nowrap" class="ft02">Floating-Point&#160;Values&#160;with Less Than 2^-28 Relative&#160;Error</p>
+<p style="position:absolute;top:296px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:381px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:403px;left:69px;white-space:nowrap" class="ft05">Computes&#160;the reciprocal square root of&#160;the float64&#160;values&#160;in the&#160;source&#160;operand (the&#160;second operand) and store&#160;<br/>the results to the destination&#160;operand (the&#160;first operand).&#160;The approximate&#160;reciprocal&#160;is evaluated with less than&#160;<br/>2^-28 of maximum&#160;relative&#160;error.&#160;<br/>If any&#160;source&#160;element is&#160;NaN,&#160;the&#160;quietized&#160;NaN source&#160;value is returned for that&#160;element. Negative&#160;(non-zero)&#160;<br/>source numbers, as&#160;well as&#160;</p>
+<p style="position:absolute;top:475px;left:256px;white-space:nowrap" class="ft04">-∞, return&#160;the canonical&#160;NaN and&#160;set&#160;the Invalid Flag (#I).</p>
+<p style="position:absolute;top:498px;left:69px;white-space:nowrap" class="ft04">A value&#160;of&#160;-0 must return&#160;</p>
+<p style="position:absolute;top:498px;left:243px;white-space:nowrap" class="ft04">-∞&#160;and set&#160;the DivByZero flags&#160;(#Z).&#160;Negative&#160;numbers should return&#160;NaN and set&#160;the&#160;</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft05">Invalid&#160;flag (#I).&#160;Note&#160;however that&#160;the instruction flush input&#160;denormals to&#160;zero of the&#160;same&#160;sign, so&#160;negative&#160;<br/>denormals return&#160;</p>
+<p style="position:absolute;top:531px;left:190px;white-space:nowrap" class="ft04">-∞&#160;and&#160;set the DivByZero&#160;flag.</p>
+<p style="position:absolute;top:553px;left:69px;white-space:nowrap" class="ft06">The&#160;source&#160;operand&#160;is a&#160;ZMM&#160;register,&#160;a 512-bit memory&#160;location or a&#160;512-bit&#160;vector&#160;broadcasted from a&#160;64-bit&#160;<br/>memory&#160;location. The destination operand&#160;is a&#160;ZMM register,&#160;conditionally updated&#160;using writemask&#160;k1.&#160;<br/>EVEX.vvvv&#160;is reserved&#160;and must be&#160;1111b otherwise instructions will&#160;#UD.<br/><a href="https://software.intel.com/en-us/articles/reference-implementations-for-IA-approximation-instructions-vrcp14-vrsqrt14-vrcp28-vrsqrt28-vexp2">A numerically&#160;exact&#160;implementation&#160;of&#160;VRSQRT28xx&#160;can be found at&#160;</a></p>
+<p style="position:absolute;top:615px;left:535px;white-space:nowrap" class="ft01"><a href="https://software.intel.com/en-us/articles/reference-implementations-for-IA-approximation-instructions-vrcp14-vrsqrt14-vrcp28-vrsqrt28-vexp2">https://softw</a>are.intel.com/en-us/arti-</p>
+<p style="position:absolute;top:631px;left:69px;white-space:nowrap" class="ft01">cles/reference-implementations-for-IA-approximation-instructions-vrcp14-vrsqrt14-vrcp28-vrsqrt28-vexp2</p>
+<p style="position:absolute;top:631px;left:795px;white-space:nowrap" class="ft04">.</p>
+<p style="position:absolute;top:666px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:688px;left:69px;white-space:nowrap" class="ft07">VRSQRT28PD&#160;(EVEX encoded versions)&#160;<br/>(KL,&#160;VL) = (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:742px;left:89px;white-space:nowrap" class="ft07">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:778px;left:143px;white-space:nowrap" class="ft04">IF (EVEX.b = 1) AND (SRC *is memory*)</p>
+<p style="position:absolute;top:796px;left:170px;white-space:nowrap" class="ft07">THEN DEST[i+63:i]&#160;&#160;(1.0/ SQRT(SRC[63:0]));<br/>ELSE DEST[i+63:i]&#160;&#160;(1.0/ SQRT(SRC[i+63:i]));</p>
+<p style="position:absolute;top:832px;left:143px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:850px;left:89px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:868px;left:116px;white-space:nowrap" class="ft04">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:868px;left:332px;white-space:nowrap" class="ft04">;&#160;merging-masking</p>
+<p style="position:absolute;top:886px;left:143px;white-space:nowrap" class="ft07">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:904px;left:338px;white-space:nowrap" class="ft04">zeroing-masking</p>
+<p style="position:absolute;top:922px;left:170px;white-space:nowrap" class="ft04">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:940px;left:116px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:958px;left:89px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft04">ENDFOR;</p>
+<p style="position:absolute;top:143px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:159px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:143px;left:263px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:159px;left:263px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:143px;left:307px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:159px;left:307px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:173px;left:307px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:143px;left:380px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:159px;left:380px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:173px;left:380px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:143px;left:467px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:193px;left:78px;white-space:nowrap" class="ft04">EVEX.512.66.0F38.W1&#160;CC&#160;/r</p>
+<p style="position:absolute;top:193px;left:263px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:193px;left:307px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:193px;left:380px;white-space:nowrap" class="ft04">AVX512ER</p>
+<p style="position:absolute;top:193px;left:467px;white-space:nowrap" class="ft04">Computes approximations&#160;to&#160;the&#160;Reciprocal&#160;square&#160;root&#160;(&lt;2^-</p>
+<p style="position:absolute;top:209px;left:467px;white-space:nowrap" class="ft04">28&#160;relative&#160;error) of&#160;the packed&#160;double-precision&#160;floating-point&#160;</p>
+<p style="position:absolute;top:226px;left:467px;white-space:nowrap" class="ft04">values&#160;from&#160;zmm2/m512/m64bcst and&#160;stores&#160;result in&#160;</p>
+<p style="position:absolute;top:242px;left:467px;white-space:nowrap" class="ft04">zmm1with&#160;writemask k1.</p>
+<p style="position:absolute;top:213px;left:78px;white-space:nowrap" class="ft04">VRSQRT28PD&#160;zmm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:229px;left:78px;white-space:nowrap" class="ft04">zmm2/m512/m64bcst {sae}</p>
+<p style="position:absolute;top:319px;left:91px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:319px;left:201px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:319px;left:371px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:319px;left:543px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:319px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:343px;left:100px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:343px;left:188px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:343px;left:360px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:343px;left:564px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:343px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

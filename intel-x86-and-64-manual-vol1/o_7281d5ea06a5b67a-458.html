@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 458</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page458-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a458.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">E-16&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">(the&#160;precision&#160;is always&#160;single), exception masks (having the same&#160;relative bit&#160;positions&#160;as in&#160;the&#160;MXCSR&#160;but&#160;<br/>starting&#160;from bit 0 in an&#160;unsigned&#160;integer), and&#160;flush-to-zero&#160;and denormals-are-zeros&#160;indicators.&#160;<br/>The output parameters are a floating-point result (of type&#160;float), the&#160;cause of the exception (identified by constants&#160;<br/>not explicitly&#160;defined&#160;below),&#160;and&#160;the exception&#160;status flags. The&#160;corresponding C definition&#160;is:</p>
+<p style="position:absolute;top:195px;left:68px;white-space:nowrap" class="ft02">typedef struct {</p>
+<p style="position:absolute;top:213px;left:74px;white-space:nowrap" class="ft02">unsigned&#160;int operation;&#160;</p>
+<p style="position:absolute;top:213px;left:277px;white-space:nowrap" class="ft02">//SSE&#160;or&#160;SSE2&#160;operation:&#160;ADDPS,&#160;ADDSS,&#160;...</p>
+<p style="position:absolute;top:231px;left:68px;white-space:nowrap" class="ft02">&#160; unsigned&#160;int operand1_uint32; //first operand value</p>
+<p style="position:absolute;top:249px;left:74px;white-space:nowrap" class="ft02">unsigned&#160;int operand2_uint32; //second&#160;operand value (if&#160;any)</p>
+<p style="position:absolute;top:267px;left:68px;white-space:nowrap" class="ft05">&#160; float result_fval;&#160;// result value (if any)<br/>&#160; unsigned&#160;int rounding_mode; //rounding&#160;mode<br/>&#160; unsigned&#160;int exc_masks; //exception masks, in the&#160;order P,U,O,Z,D,I<br/>&#160; unsigned&#160;int exception_cause; //exception cause<br/>&#160; unsigned&#160;int status_flag_inexact; //inexact status flag<br/>&#160; unsigned&#160;int status_flag_underflow;&#160;//underflow&#160;status flag<br/>&#160; unsigned&#160;int status_flag_overflow; //overflow status flag<br/>&#160; unsigned&#160;int status_flag_divide_by_zero;&#160;</p>
+<p style="position:absolute;top:411px;left:331px;white-space:nowrap" class="ft02">//divide&#160;by&#160;zero&#160;status&#160;flag</p>
+<p style="position:absolute;top:429px;left:68px;white-space:nowrap" class="ft02">&#160; unsigned&#160;int status_flag_denormal_operand;&#160;</p>
+<p style="position:absolute;top:445px;left:331px;white-space:nowrap" class="ft02">//denormal operand status flag</p>
+<p style="position:absolute;top:463px;left:68px;white-space:nowrap" class="ft02">&#160; unsigned int status_flag_invalid_operation;&#160;</p>
+<p style="position:absolute;top:480px;left:331px;white-space:nowrap" class="ft02">//invalid&#160;operation&#160;status&#160;flag</p>
+<p style="position:absolute;top:498px;left:68px;white-space:nowrap" class="ft02">&#160; unsigned int ftz; // flush-to-zero flag</p>
+<p style="position:absolute;top:516px;left:74px;white-space:nowrap" class="ft02">unsigned&#160;int daz; //&#160;denormals-are-zeros flag</p>
+<p style="position:absolute;top:534px;left:68px;white-space:nowrap" class="ft02">} EXC_ENV;</p>
+<p style="position:absolute;top:574px;left:68px;white-space:nowrap" class="ft06">The&#160;arithmetic operations exemplified&#160;are emulated&#160;as&#160;follows:<br/>1.&#160;If the&#160;denormals-are-zeros mode&#160;is enabled&#160;(the DAZ bit&#160;in MXCSR&#160;is set to 1),&#160;replace&#160;all the&#160;denormal inputs&#160;</p>
+<p style="position:absolute;top:615px;left:93px;white-space:nowrap" class="ft02">with zeroes&#160;of&#160;the same&#160;sign&#160;(the denormal&#160;flag is&#160;not affected by this&#160;change).</p>
+<p style="position:absolute;top:639px;left:68px;white-space:nowrap" class="ft02">2.&#160;Perform the&#160;operation&#160;using&#160;x87&#160;FPU instructions,&#160;with&#160;exceptions disabled,&#160;the original&#160;user rounding&#160;mode,&#160;</p>
+<p style="position:absolute;top:655px;left:93px;white-space:nowrap" class="ft03">and&#160;single&#160;precision. This reveals&#160;invalid, denormal, or divide-by-zero&#160;exceptions (if there&#160;are any)&#160;and stores&#160;<br/>the result&#160;in memory as&#160;a double precision value (whose exponent&#160;range&#160;is large enough&#160;to look like&#160;<br/>“unbounded”&#160;to the&#160;result of the single precision computation).</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft02">3.&#160;If&#160;no&#160;unmasked&#160;exceptions&#160;were&#160;detected,&#160;determine if&#160;the magnitude of the&#160;result&#160;is less&#160;than the&#160;smallest&#160;</p>
+<p style="position:absolute;top:729px;left:93px;white-space:nowrap" class="ft03">normal&#160;number that&#160;can be represented in&#160;single precision format,&#160;or greater than&#160;the largest&#160;normal&#160;number&#160;<br/>that&#160;can&#160;be&#160;represented in single precision format&#160;(huge).&#160;If an&#160;unmasked overflow&#160;or&#160;underflow&#160;occurs,&#160;<br/>calculate&#160;the scaled result that will be handed&#160;to the user&#160;exception&#160;handler,&#160;as specified&#160;by IEEE Standard&#160;754.</p>
+<p style="position:absolute;top:786px;left:68px;white-space:nowrap" class="ft02">4.&#160;If&#160;no exception&#160;was raised, calculate&#160;the result with&#160;a&#160;“bounded” exponent. If&#160;the result&#160;is tiny, it&#160;requires&#160;</p>
+<p style="position:absolute;top:802px;left:93px;white-space:nowrap" class="ft03">denormalization&#160;(shifting the&#160;significand right while incrementing the exponent&#160;to bring&#160;it into&#160;the admissible&#160;<br/>range&#160;of&#160;[-126,+127] for single precision floating-point&#160;numbers).</p>
+<p style="position:absolute;top:852px;left:93px;white-space:nowrap" class="ft03">The&#160;result&#160;obtained in&#160;step&#160;2 cannot be used&#160;because it&#160;might incur a&#160;double&#160;rounding error&#160;(it was&#160;rounded to&#160;<br/>24&#160;bits&#160;in&#160;step 2, and&#160;might have to&#160;be&#160;rounded again in the&#160;denormalization process).&#160;To&#160;overcome this&#160;is,&#160;<br/>calculate&#160;the&#160;result as&#160;a double precision value, and&#160;store it&#160;to memory in&#160;single&#160;precision format.&#160;</p>
+<p style="position:absolute;top:918px;left:93px;white-space:nowrap" class="ft03">Rounding&#160;first&#160;to&#160;53 bits in&#160;the significand, and then&#160;to 24 never causes a&#160;double&#160;rounding error&#160;(exact&#160;<br/>properties exist&#160;that state when&#160;double-rounding error&#160;occurs,&#160;but for the&#160;elementary arithmetic&#160;operations,&#160;<br/>the rule of&#160;thumb is&#160;that&#160;if&#160;an&#160;infinitely precise result&#160;is&#160;rounded&#160;to&#160;2p+1 bits and then again&#160;to&#160;p bits, the result&#160;<br/>is&#160;the same&#160;as when rounding&#160;directly&#160;to p&#160;bits, which means that&#160;no&#160;double-rounding error&#160;occurs).</p>
+<p style="position:absolute;top:991px;left:68px;white-space:nowrap" class="ft02">5.&#160;If the&#160;result&#160;is inexact&#160;and the&#160;inexact exceptions&#160;are&#160;unmasked, the&#160;calculated result&#160;will&#160;be&#160;delivered&#160;to&#160;the&#160;</p>
+<p style="position:absolute;top:1008px;left:93px;white-space:nowrap" class="ft02">user floating-point&#160;exception handler.</p>
+<p style="position:absolute;top:1032px;left:68px;white-space:nowrap" class="ft02">6.&#160;The&#160;flush-to-zero&#160;case&#160;is dealt with if the&#160;result&#160;is tiny.</p>
+</div>
+</body>
+</html>

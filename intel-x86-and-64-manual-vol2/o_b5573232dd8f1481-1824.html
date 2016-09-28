@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1824</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1824-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811824.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:441px;white-space:nowrap" class="ft00">VRANGEPD—Range Restriction Calculation&#160;For Packed Pairs&#160;of Float64 Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-438&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft04">When both&#160;input values&#160;are zeros&#160;of opposite signs,&#160;the&#160;comparison operation of MIN/MAX in&#160;the range&#160;compare&#160;<br/>operation is slightly different from the conceptually&#160;similar FP&#160;MIN/MAX operation&#160;that are found in the&#160;instructions&#160;<br/>VMAXPD/VMINPD.&#160;The&#160;details of MIN/MAX/MIN_ABS/MAX_ABS operation for VRANGEPD/PS/SD/SS for&#160;magni-<br/>tude-0,&#160;opposite-signed&#160;input cases are&#160;listed<a href="o_b5573232dd8f1481-1824.html">&#160;in Table 5-13.<br/></a>Additionally, non-zero, equal-magnitude&#160;with&#160;opposite-sign input&#160;values perform MIN_ABS or&#160;MAX_ABS compar-<br/>ison operation with result&#160;listed&#160;<a href="o_b5573232dd8f1481-1824.html">in Table&#160;5-14</a>.</p>
+<p style="position:absolute;top:781px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:804px;left:68px;white-space:nowrap" class="ft06">RangeDP(SRC1[63:0], SRC2[63:0],&#160;CmpOpCtl[1:0], SignSelCtl[1:0])<br/>{</p>
+<p style="position:absolute;top:840px;left:88px;white-space:nowrap" class="ft06">//&#160;Check&#160;if&#160;SNAN and&#160;report&#160;IE,&#160;see al<a href="o_b5573232dd8f1481-1824.html">so Table 5-12<br/></a>IF (SRC1 =&#160;SNAN) THEN RETURN&#160;(QNAN(SRC1),&#160;set&#160;IE);<br/>IF (SRC2 =&#160;SNAN) THEN RETURN&#160;(QNAN(SRC2),&#160;set&#160;IE);</p>
+<p style="position:absolute;top:912px;left:88px;white-space:nowrap" class="ft06">Src1.exp&#160;&#160;SRC1[62:52];<br/>Src1.fraction&#160;&#160;SRC1[51:0];<br/>IF ((Src1.exp = 0 ) and (Src1.fraction !=&#160;0)) THEN// Src1 is a denormal number</p>
+<p style="position:absolute;top:966px;left:115px;white-space:nowrap" class="ft06">IF DAZ&#160;THEN Src1.fraction&#160;&#160;0;<br/>ELSE&#160;IF (SRC2 &lt;&gt; QNAN) Set DE; FI;</p>
+<p style="position:absolute;top:1002px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1038px;left:88px;white-space:nowrap" class="ft06">Src2.exp&#160;&#160;SRC2[62:52];<br/>Src2.fraction&#160;&#160;SRC2[51:0];</p>
+<p style="position:absolute;top:227px;left:102px;white-space:nowrap" class="ft03">Table&#160;5-12. Signaling&#160;of&#160;Comparison&#160;Operation&#160;of&#160;One&#160;or&#160;More&#160;NaN Input&#160;Values&#160;and&#160;Effect&#160;of&#160;Imm8[3:2]</p>
+<p style="position:absolute;top:252px;left:80px;white-space:nowrap" class="ft02">Src1</p>
+<p style="position:absolute;top:252px;left:166px;white-space:nowrap" class="ft02">Src2</p>
+<p style="position:absolute;top:252px;left:249px;white-space:nowrap" class="ft02">Result</p>
+<p style="position:absolute;top:252px;left:379px;white-space:nowrap" class="ft02">IE&#160;Signaling&#160;Due to Comparison</p>
+<p style="position:absolute;top:252px;left:596px;white-space:nowrap" class="ft02">Imm8[3:2] Effect to Range Output</p>
+<p style="position:absolute;top:276px;left:80px;white-space:nowrap" class="ft02">sNaN1</p>
+<p style="position:absolute;top:276px;left:166px;white-space:nowrap" class="ft02">sNaN2</p>
+<p style="position:absolute;top:276px;left:249px;white-space:nowrap" class="ft02">Quiet(sNaN1)</p>
+<p style="position:absolute;top:276px;left:379px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:276px;left:596px;white-space:nowrap" class="ft02">Ignored</p>
+<p style="position:absolute;top:299px;left:80px;white-space:nowrap" class="ft02">sNaN1</p>
+<p style="position:absolute;top:299px;left:166px;white-space:nowrap" class="ft02">qNaN2</p>
+<p style="position:absolute;top:299px;left:249px;white-space:nowrap" class="ft02">Quiet(sNaN1)</p>
+<p style="position:absolute;top:299px;left:379px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:299px;left:596px;white-space:nowrap" class="ft02">Ignored</p>
+<p style="position:absolute;top:324px;left:80px;white-space:nowrap" class="ft02">sNaN1</p>
+<p style="position:absolute;top:324px;left:166px;white-space:nowrap" class="ft02">Norm2</p>
+<p style="position:absolute;top:324px;left:249px;white-space:nowrap" class="ft02">Quiet(sNaN1)</p>
+<p style="position:absolute;top:324px;left:379px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:324px;left:596px;white-space:nowrap" class="ft02">Ignored</p>
+<p style="position:absolute;top:348px;left:80px;white-space:nowrap" class="ft02">qNaN1</p>
+<p style="position:absolute;top:348px;left:166px;white-space:nowrap" class="ft02">sNaN2</p>
+<p style="position:absolute;top:348px;left:249px;white-space:nowrap" class="ft02">Quiet(sNaN2)</p>
+<p style="position:absolute;top:348px;left:379px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:348px;left:596px;white-space:nowrap" class="ft02">Ignored</p>
+<p style="position:absolute;top:371px;left:80px;white-space:nowrap" class="ft02">qNaN1</p>
+<p style="position:absolute;top:371px;left:166px;white-space:nowrap" class="ft02">qNaN2</p>
+<p style="position:absolute;top:371px;left:249px;white-space:nowrap" class="ft02">qNaN1</p>
+<p style="position:absolute;top:371px;left:379px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:371px;left:596px;white-space:nowrap" class="ft02">Applicable</p>
+<p style="position:absolute;top:395px;left:80px;white-space:nowrap" class="ft02">qNaN1</p>
+<p style="position:absolute;top:395px;left:166px;white-space:nowrap" class="ft02">Norm2</p>
+<p style="position:absolute;top:395px;left:249px;white-space:nowrap" class="ft02">Norm2</p>
+<p style="position:absolute;top:395px;left:379px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:395px;left:596px;white-space:nowrap" class="ft02">Applicable</p>
+<p style="position:absolute;top:420px;left:80px;white-space:nowrap" class="ft02">Norm1</p>
+<p style="position:absolute;top:420px;left:166px;white-space:nowrap" class="ft02">sNaN2</p>
+<p style="position:absolute;top:420px;left:249px;white-space:nowrap" class="ft02">Quiet(sNaN2)</p>
+<p style="position:absolute;top:420px;left:379px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:420px;left:596px;white-space:nowrap" class="ft02">Ignored</p>
+<p style="position:absolute;top:444px;left:80px;white-space:nowrap" class="ft02">Norm1</p>
+<p style="position:absolute;top:444px;left:166px;white-space:nowrap" class="ft02">qNaN2</p>
+<p style="position:absolute;top:444px;left:249px;white-space:nowrap" class="ft02">Norm1</p>
+<p style="position:absolute;top:444px;left:379px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:444px;left:596px;white-space:nowrap" class="ft02">Applicable</p>
+<p style="position:absolute;top:497px;left:113px;white-space:nowrap" class="ft03">Table&#160;5-13.&#160;Comparison&#160;Result for Opposite-Signed&#160;Zero&#160;Cases for MIN, MIN_ABS and&#160;MAX,&#160;MAX_ABS</p>
+<p style="position:absolute;top:522px;left:208px;white-space:nowrap" class="ft02">MIN&#160;and MIN_ABS</p>
+<p style="position:absolute;top:522px;left:584px;white-space:nowrap" class="ft02">MAX and&#160;MAX_ABS</p>
+<p style="position:absolute;top:546px;left:77px;white-space:nowrap" class="ft02">Src1</p>
+<p style="position:absolute;top:546px;left:187px;white-space:nowrap" class="ft02">Src2</p>
+<p style="position:absolute;top:546px;left:308px;white-space:nowrap" class="ft02">Result</p>
+<p style="position:absolute;top:546px;left:458px;white-space:nowrap" class="ft02">Src1</p>
+<p style="position:absolute;top:546px;left:568px;white-space:nowrap" class="ft02">Src2</p>
+<p style="position:absolute;top:546px;left:689px;white-space:nowrap" class="ft02">Result</p>
+<p style="position:absolute;top:570px;left:77px;white-space:nowrap" class="ft02">+0</p>
+<p style="position:absolute;top:570px;left:187px;white-space:nowrap" class="ft02">-0</p>
+<p style="position:absolute;top:570px;left:308px;white-space:nowrap" class="ft02">-0</p>
+<p style="position:absolute;top:570px;left:458px;white-space:nowrap" class="ft02">+0</p>
+<p style="position:absolute;top:570px;left:568px;white-space:nowrap" class="ft02">-0</p>
+<p style="position:absolute;top:570px;left:689px;white-space:nowrap" class="ft02">+0</p>
+<p style="position:absolute;top:594px;left:77px;white-space:nowrap" class="ft02">-0</p>
+<p style="position:absolute;top:594px;left:187px;white-space:nowrap" class="ft02">+0</p>
+<p style="position:absolute;top:594px;left:308px;white-space:nowrap" class="ft02">-0</p>
+<p style="position:absolute;top:594px;left:458px;white-space:nowrap" class="ft02">-0</p>
+<p style="position:absolute;top:594px;left:568px;white-space:nowrap" class="ft02">+0</p>
+<p style="position:absolute;top:594px;left:689px;white-space:nowrap" class="ft02">+0</p>
+<p style="position:absolute;top:647px;left:81px;white-space:nowrap" class="ft03">Table 5-14. Comparison&#160;Result&#160;of&#160;Equal-Magnitude&#160;Input Cases for MIN_ABS&#160;and&#160;MAX_ABS, (|a|&#160;=&#160;|b|,&#160;a&gt;0,&#160;b&lt;0)</p>
+<p style="position:absolute;top:672px;left:176px;white-space:nowrap" class="ft02">MIN_ABS&#160;(|a| = |b|,&#160;a&gt;0, b&lt;0)</p>
+<p style="position:absolute;top:672px;left:555px;white-space:nowrap" class="ft02">MAX_ABS&#160;(|a| = |b|, a&gt;0,&#160;b&lt;0)</p>
+<p style="position:absolute;top:696px;left:77px;white-space:nowrap" class="ft02">Src1</p>
+<p style="position:absolute;top:696px;left:187px;white-space:nowrap" class="ft02">Src2</p>
+<p style="position:absolute;top:696px;left:308px;white-space:nowrap" class="ft02">Result</p>
+<p style="position:absolute;top:696px;left:458px;white-space:nowrap" class="ft02">Src1</p>
+<p style="position:absolute;top:696px;left:568px;white-space:nowrap" class="ft02">Src2</p>
+<p style="position:absolute;top:696px;left:689px;white-space:nowrap" class="ft02">Result</p>
+<p style="position:absolute;top:720px;left:77px;white-space:nowrap" class="ft02">a</p>
+<p style="position:absolute;top:720px;left:187px;white-space:nowrap" class="ft02">b</p>
+<p style="position:absolute;top:720px;left:308px;white-space:nowrap" class="ft02">b</p>
+<p style="position:absolute;top:720px;left:458px;white-space:nowrap" class="ft02">a</p>
+<p style="position:absolute;top:720px;left:568px;white-space:nowrap" class="ft02">b</p>
+<p style="position:absolute;top:720px;left:689px;white-space:nowrap" class="ft02">a</p>
+<p style="position:absolute;top:744px;left:77px;white-space:nowrap" class="ft02">b</p>
+<p style="position:absolute;top:744px;left:187px;white-space:nowrap" class="ft02">a</p>
+<p style="position:absolute;top:744px;left:308px;white-space:nowrap" class="ft02">b</p>
+<p style="position:absolute;top:744px;left:458px;white-space:nowrap" class="ft02">b</p>
+<p style="position:absolute;top:744px;left:568px;white-space:nowrap" class="ft02">a</p>
+<p style="position:absolute;top:744px;left:689px;white-space:nowrap" class="ft02">a</p>
+</div>
+</body>
+</html>

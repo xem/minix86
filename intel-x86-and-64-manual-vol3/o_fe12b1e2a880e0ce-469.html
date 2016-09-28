@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 469</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page469-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce469.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 3B&#160;14-3</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">POWER AND THERMAL MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft02">// time&#160;window.&#160;</p>
+<p style="position:absolute;top:118px;left:116px;white-space:nowrap" class="ft02">PercentPerformance&#160;= PercentBusy * (ACNT/MCNT);</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft07">// This example&#160;does not cover the&#160;additional logic or algorithms<br/>//&#160;&#160;necessary&#160;to coordinate&#160;multiple logical processors to a target P-state.</p>
+<p style="position:absolute;top:226px;left:89px;white-space:nowrap" class="ft02">TargetPstate&#160;= FindPstate(PercentPerformance);</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">if&#160;(TargetPstate&#160;≠&#160;currentPstate) {</p>
+<p style="position:absolute;top:280px;left:116px;white-space:nowrap" class="ft02">SetPState(TargetPstate);</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft07">}&#160;<br/>// WRMSR of&#160;MCNT and ACNT&#160;should&#160;be&#160;performed&#160;without delay.</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft07">&#160;&#160;&#160;//&#160;Software&#160;needs to&#160;exercise&#160;care to avoid delays between&#160;<br/>&#160;&#160;&#160;// the two&#160;WRMSRs&#160;(for&#160;example,&#160;interrupts).<br/>&#160;</p>
+<p style="position:absolute;top:370px;left:89px;white-space:nowrap" class="ft02">&#160;WRMSR(IA32_MPERF, 0);</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft02">&#160;</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">&#160;WRMSR(IA32_APERF, 0);</p>
+<p style="position:absolute;top:444px;left:69px;white-space:nowrap" class="ft03">14.3&#160;</p>
+<p style="position:absolute;top:444px;left:148px;white-space:nowrap" class="ft03">SYSTEM SOFTWARE&#160;CONSIDERATIONS AND OPPORTUNISTIC PROCESSOR&#160;</p>
+<p style="position:absolute;top:469px;left:147px;white-space:nowrap" class="ft03">PERFORMANCE OPERATION</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft08">An&#160;Intel 64&#160;processor may&#160;support&#160;a form of processor&#160;operation&#160;that takes advantage of design&#160;headroom&#160;to&#160;<br/>opportunistically increase performance. The&#160;Intel&#160;Turbo Boost Technology&#160;can convert thermal&#160;headroom into&#160;<br/>higher performance&#160;across multi-threaded&#160;and single-threaded workloads.&#160;The Intel&#160;Dynamic Acceleration feature&#160;<br/>can convert thermal&#160;headroom into&#160;higher performance&#160;if only one thread is&#160;active.</p>
+<p style="position:absolute;top:605px;left:69px;white-space:nowrap" class="ft04">14.3.1&#160;</p>
+<p style="position:absolute;top:605px;left:149px;white-space:nowrap" class="ft04">Intel Dynamic Acceleration</p>
+<p style="position:absolute;top:636px;left:69px;white-space:nowrap" class="ft08">Intel Core&#160;2 Duo processor T&#160;7700 introduces&#160;Intel&#160;Dynamic Acceleration&#160;(IDA).&#160;IDA takes advantage of thermal&#160;<br/>design headroom&#160;and opportunistically&#160;allows&#160;a single core to operate at a&#160;higher&#160;performance level&#160;when&#160;the&#160;<br/>operating&#160;system requests increased&#160;performance.&#160;</p>
+<p style="position:absolute;top:719px;left:69px;white-space:nowrap" class="ft04">14.3.2&#160;</p>
+<p style="position:absolute;top:719px;left:149px;white-space:nowrap" class="ft04">System Software&#160;Interfaces for Opportunistic Processor Performance Operation</p>
+<p style="position:absolute;top:750px;left:69px;white-space:nowrap" class="ft08">Opportunistic processor operation,&#160;applicable&#160;to Intel Dynamic Acceleration and&#160;Intel&#160;Turbo&#160;Boost Technology, has&#160;<br/>the following&#160;characteristics:</p>
+<p style="position:absolute;top:788px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:789px;left:95px;white-space:nowrap" class="ft08">A&#160;transition from&#160;a normal state of operation&#160;(e.g.&#160;IDA/Turbo mode&#160;disengaged) to a&#160;target state&#160;is not&#160;<br/>guaranteed,&#160;but may occur opportunistically&#160;after&#160;the&#160;corresponding&#160;enable&#160;mechanism is&#160;activated, the&#160;<br/>headroom is&#160;available and certain&#160;criteria&#160;are met.</p>
+<p style="position:absolute;top:844px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:844px;left:95px;white-space:nowrap" class="ft02">The opportunistic&#160;processor&#160;performance operation is&#160;generally&#160;transparent&#160;to most application&#160;software.</p>
+<p style="position:absolute;top:866px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:867px;left:95px;white-space:nowrap" class="ft08">System software (BIOS and Operating system) must be aware&#160;of hardware&#160;support for opportunistic processor&#160;<br/>performance operation&#160;and may&#160;need&#160;to temporarily disengage opportunistic processor performance&#160;operation&#160;<br/>when it&#160;requires&#160;more predictable processor operation.&#160;</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:922px;left:95px;white-space:nowrap" class="ft08">When&#160;opportunistic processor performance operation is&#160;engaged,&#160;the&#160;OS&#160;should&#160;use hardware coordination&#160;<br/>feedback mechanisms to&#160;prevent un-intended&#160;policy&#160;effects&#160;if it&#160;is activated during&#160;inappropriate situations.</p>
+<p style="position:absolute;top:983px;left:69px;white-space:nowrap" class="ft06">14.3.2.1 &#160;&#160;Discover Hardware&#160;Support and Enabling&#160;of&#160;Opportunistic&#160;Processor&#160;Operation</p>
+<p style="position:absolute;top:1012px;left:69px;white-space:nowrap" class="ft08">If an Intel 64&#160;processor has hardware&#160;support for opportunistic processor&#160;performance operation,&#160;the&#160;power-on&#160;<br/>default state&#160;of IA32_MISC_ENABLE[38] indicates the presence&#160;of such hardware support. For Intel 64&#160;processors&#160;<br/>that support opportunistic&#160;processor&#160;performance operation,&#160;the default&#160;value is&#160;1,&#160;indicating&#160;its presence. For&#160;<br/>processors that&#160;do not&#160;support opportunistic processor performance operation,&#160;the default value is&#160;0.&#160;The&#160;power-</p>
+</div>
+</body>
+</html>

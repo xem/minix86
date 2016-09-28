@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1434</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1434-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811434.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:332px;white-space:nowrap" class="ft00">VCVTSS2USI—Convert Scalar Single-Precision&#160;Floating-Point Value&#160;to Unsigned Doubleword Integer</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-48&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VCVTSS2USI—Convert Scalar&#160;Single-Precision Floating-Point&#160;Value to&#160;Unsigned Doubleword&#160;</p>
+<p style="position:absolute;top:119px;left:68px;white-space:nowrap" class="ft02">Integer</p>
+<p style="position:absolute;top:370px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:455px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:477px;left:68px;white-space:nowrap" class="ft06">Converts a single-precision floating-point value&#160;in&#160;the source operand (the second&#160;operand) to an unsigned double-<br/>word integer (or&#160;unsigned&#160;quadword integer if&#160;operand size&#160;is 64&#160;bits) in the&#160;destination&#160;operand (the&#160;first&#160;<br/>operand).&#160;The source operand can&#160;be an XMM&#160;register&#160;or&#160;a memory&#160;location. The&#160;destination operand is&#160;a general-<br/>purpose&#160;register.&#160;When the&#160;source&#160;operand is&#160;an XMM register, the single-precision&#160;floating-point value&#160;is contained&#160;<br/>in&#160;the low doubleword of the&#160;register.<br/>When a&#160;conversion is&#160;inexact, the&#160;value returned is&#160;rounded&#160;according&#160;to the&#160;rounding&#160;control bits in&#160;the MXCSR&#160;<br/>register or&#160;the&#160;embedded rounding&#160;control bits.&#160;If&#160;a converted result&#160;cannot be represented in the destination&#160;<br/>format, the&#160;floating-point invalid exception&#160;is raised, and&#160;if this exception&#160;is masked,&#160;the integer&#160;value&#160;2</p>
+<p style="position:absolute;top:596px;left:770px;white-space:nowrap" class="ft05">w</p>
+<p style="position:absolute;top:599px;left:778px;white-space:nowrap" class="ft04">&#160;– 1&#160;is&#160;</p>
+<p style="position:absolute;top:616px;left:68px;white-space:nowrap" class="ft07">returned,&#160;where w represents&#160;the number&#160;of bits in the&#160;destination&#160;format.<br/>VEX.W1&#160;and&#160;EVEX.W1 versions: promotes&#160;the&#160;instruction&#160;to produce&#160;64-bit&#160;data in&#160;64-bit mode.<br/>Note: EVEX.vvvv is&#160;reserved&#160;and must be&#160;1111b,&#160;otherwise&#160;instructions will #UD.</p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:717px;left:68px;white-space:nowrap" class="ft08">VCVTSS2USI (EVEX encoded version)<br/>IF (SRC *is&#160;register*) AND (EVEX.b = 1)&#160;</p>
+<p style="position:absolute;top:753px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:771px;left:115px;white-space:nowrap" class="ft04">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:789px;left:88px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:807px;left:115px;white-space:nowrap" class="ft04">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft08">FI;<br/>IF 64-bit Mode&#160;and&#160;OperandSize =&#160;64<br/>THEN</p>
+<p style="position:absolute;top:879px;left:88px;white-space:nowrap" class="ft04">DEST[63:0]&#160;&#160;Convert_Single_Precision_Floating_Point_To_UInteger(SRC[31:0]);</p>
+<p style="position:absolute;top:897px;left:68px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:915px;left:88px;white-space:nowrap" class="ft04">DEST[31:0]&#160;&#160;Convert_Single_Precision_Floating_Point_To_UInteger(SRC[31:0]);</p>
+<p style="position:absolute;top:933px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:968px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:990px;left:68px;white-space:nowrap" class="ft08">VCVTSS2USI unsigned&#160;_mm_cvtss_u32( __m128 a);<br/>VCVTSS2USI&#160;unsigned&#160;_mm_cvt_roundss_u32( __m128&#160;a, int r);<br/>VCVTSS2USI unsigned&#160;__int64&#160;_mm_cvtss_u64( __m128&#160;a);<br/>VCVTSS2USI&#160;unsigned&#160;__int64&#160;_mm_cvt_roundss_u64(&#160;__m128&#160;a,&#160;int r);</p>
+<p style="position:absolute;top:143px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:159px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:143px;left:314px;white-space:nowrap" class="ft04">Op&#160;/&#160;</p>
+<p style="position:absolute;top:159px;left:314px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:143px;left:357px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:159px;left:357px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:173px;left:357px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:143px;left:430px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:159px;left:430px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:173px;left:430px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:143px;left:509px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:193px;left:77px;white-space:nowrap" class="ft04">EVEX.LIG.F3.0F.W0&#160;79 /r</p>
+<p style="position:absolute;top:193px;left:314px;white-space:nowrap" class="ft04">T1F</p>
+<p style="position:absolute;top:193px;left:357px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:193px;left:430px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:193px;left:509px;white-space:nowrap" class="ft04">Convert one&#160;single-precision floating-point&#160;value from&#160;</p>
+<p style="position:absolute;top:209px;left:509px;white-space:nowrap" class="ft04">xmm1/m32&#160;to&#160;one unsigned&#160;doubleword&#160;integer&#160;in&#160;r32.</p>
+<p style="position:absolute;top:213px;left:77px;white-space:nowrap" class="ft04">VCVTSS2USI r32,&#160;xmm1/m32{er}</p>
+<p style="position:absolute;top:249px;left:77px;white-space:nowrap" class="ft04">EVEX.LIG.F3.0F.W1&#160;79 /r</p>
+<p style="position:absolute;top:249px;left:314px;white-space:nowrap" class="ft04">T1F</p>
+<p style="position:absolute;top:249px;left:357px;white-space:nowrap" class="ft04">V/N.E.</p>
+<p style="position:absolute;top:246px;left:391px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:293px;left:69px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:313px;left:68px;white-space:nowrap" class="ft04">1.&#160;EVEX.W1&#160;in&#160;non-64 bit is ignored;&#160;the instructions&#160;behaves as if&#160;the W0&#160;version is&#160;used.</p>
+<p style="position:absolute;top:249px;left:430px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:249px;left:509px;white-space:nowrap" class="ft04">Convert one&#160;single-precision floating-point&#160;value from&#160;</p>
+<p style="position:absolute;top:265px;left:509px;white-space:nowrap" class="ft04">xmm1/m32&#160;to&#160;one unsigned&#160;quadword&#160;integer in&#160;r64.</p>
+<p style="position:absolute;top:268px;left:77px;white-space:nowrap" class="ft04">VCVTSS2USI r64,&#160;xmm1/m32{er}</p>
+<p style="position:absolute;top:393px;left:101px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:393px;left:221px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:393px;left:391px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:393px;left:562px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:393px;left:725px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:417px;left:107px;white-space:nowrap" class="ft04">T1F</p>
+<p style="position:absolute;top:417px;left:208px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:417px;left:380px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:417px;left:583px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:417px;left:746px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

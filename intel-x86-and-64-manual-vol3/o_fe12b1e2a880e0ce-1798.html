@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1798</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1798-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1798.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">39-10&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:102px;left:119px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:144px;white-space:nowrap" class="ft03">If no empty VA&#160;page&#160;slots exist,&#160;create&#160;a&#160;new&#160;VA&#160;page&#160;using&#160;the EPA&#160;leaf function.</p>
+<p style="position:absolute;top:124px;left:93px;white-space:nowrap" class="ft03">b.&#160;Remove&#160;linear-address&#160;to physical-address&#160;mapping&#160;from the enclave contexts’s&#160;mapping tables&#160;(page&#160;</p>
+<p style="position:absolute;top:141px;left:119px;white-space:nowrap" class="ft03">table&#160;and EPT&#160;tables).&#160;</p>
+<p style="position:absolute;top:165px;left:93px;white-space:nowrap" class="ft03">c.&#160;Execute&#160;the EBLOCK leaf&#160;function&#160;for&#160;the target page.&#160;This sets&#160;the&#160;target&#160;page state&#160;to BLOCKED.&#160;At&#160;this&#160;</p>
+<p style="position:absolute;top:181px;left:119px;white-space:nowrap" class="ft05">point&#160;no new&#160;mappings of the page will&#160;be&#160;created.&#160;So any access which&#160;does&#160;not have&#160;the mapping&#160;cached&#160;<br/>in&#160;the TLB will generate&#160;a&#160;#PF.</p>
+<p style="position:absolute;top:222px;left:68px;white-space:nowrap" class="ft03">2.&#160;For&#160;each enclave containing&#160;pages selected&#160;in step 1:</p>
+<p style="position:absolute;top:246px;left:93px;white-space:nowrap" class="ft03">—&#160;Execute an ETRACK&#160;leaf function&#160;pointing&#160;to that enclave’s&#160;SECS. This&#160;initiates&#160;the tracking process that&#160;</p>
+<p style="position:absolute;top:262px;left:119px;white-space:nowrap" class="ft03">ensures that all caching of linear-address to physical-address&#160;translations for&#160;the&#160;blocked pages is cleared.</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft03">3.&#160;For all&#160;logical&#160;processors&#160;executing&#160;in&#160;processes (OS) or guests (VMM)&#160;that contain the&#160;enclaves&#160;selected&#160;in&#160;</p>
+<p style="position:absolute;top:303px;left:93px;white-space:nowrap" class="ft06">step&#160;1:<br/>—&#160;Issue an IPI (inter-processor&#160;interrupt) to those&#160;threads.&#160;This&#160;causes those&#160;logical processors to&#160;asynchro-</p>
+<p style="position:absolute;top:343px;left:119px;white-space:nowrap" class="ft05">nously exit&#160;any enclaves they&#160;might be&#160;in, and&#160;as a&#160;result flush cached linear-address&#160;to physical-address&#160;<br/>translations&#160;that&#160;might hold&#160;stale&#160;translations&#160;to&#160;blocked pages. There is&#160;no need for additional measures&#160;<br/>such&#160;as performing&#160;a “TLB shootdown”.</p>
+<p style="position:absolute;top:400px;left:68px;white-space:nowrap" class="ft03">4.&#160;After enclaves&#160;exit, allow logical processors can&#160;resume&#160;normal operation,&#160;including enclave&#160;re-entry as&#160;the&#160;</p>
+<p style="position:absolute;top:417px;left:93px;white-space:nowrap" class="ft03">tracking logic keeps&#160;track of the&#160;activity.&#160;</p>
+<p style="position:absolute;top:441px;left:68px;white-space:nowrap" class="ft03">5.&#160;For&#160;each page&#160;to be evicted:</p>
+<p style="position:absolute;top:465px;left:93px;white-space:nowrap" class="ft03">—&#160;Evict the page using the EWB leaf function&#160;with parameters include the effective-address pointer&#160;to the EPC&#160;</p>
+<p style="position:absolute;top:481px;left:119px;white-space:nowrap" class="ft05">page, the&#160;VA&#160;slot, a&#160;4K byte buffer&#160;to&#160;hold&#160;the encrypted page&#160;contents,&#160;and&#160;a 128 byte&#160;buffer&#160;to hold&#160;page&#160;<br/>metadata.&#160;The last three elements are&#160;tied together&#160;cryptographically and must be used to later&#160;reload the&#160;<br/>page.</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft05">At&#160;this point, system&#160;software has the&#160;only&#160;copy of&#160;each&#160;page data encrypted with its&#160;page metadata in&#160;main&#160;<br/>memory.&#160;</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft04">39.5.4&#160;</p>
+<p style="position:absolute;top:604px;left:148px;white-space:nowrap" class="ft04">Loading an Enclave Page</p>
+<p style="position:absolute;top:633px;left:68px;white-space:nowrap" class="ft06">To&#160;reload a&#160;previously evicted page,&#160;system&#160;software&#160;needs four elements: the&#160;VA&#160;slot used&#160;when&#160;the&#160;page&#160;was&#160;<br/>evicted, a&#160;buffer containing&#160;the encrypted page&#160;contents, a&#160;buffer containing the&#160;page metadata,&#160;and the parent&#160;<br/>SECS&#160;to associate this&#160;page with.&#160;If&#160;the VA&#160;page&#160;or the parent SECS&#160;are not&#160;already in&#160;the EPC,&#160;they must be&#160;<br/>reloaded first.<br/>1.&#160;Execute&#160;ELDB/ELDU (depending on the&#160;desired BLOCKED&#160;state for the&#160;page),&#160;passing as&#160;parameters:&#160;the&#160;EPC&#160;</p>
+<p style="position:absolute;top:723px;left:93px;white-space:nowrap" class="ft03">page linear&#160;address,&#160;the VA&#160;slot, the&#160;encrypted page, and&#160;the page&#160;metadata.&#160;</p>
+<p style="position:absolute;top:747px;left:68px;white-space:nowrap" class="ft03">2.&#160;Create a mapping in&#160;the enclave&#160;context’s&#160;mapping tables&#160;(page tables and EPT tables) to allow the application&#160;</p>
+<p style="position:absolute;top:763px;left:93px;white-space:nowrap" class="ft03">to access that page&#160;(OS:&#160;system&#160;page table; VMM:&#160;EPT).</p>
+<p style="position:absolute;top:786px;left:68px;white-space:nowrap" class="ft03">The ELDB/ELDU instruction marks&#160;the VA&#160;slot&#160;empty&#160;so that the&#160;page cannot be replayed at&#160;a later date.</p>
+<p style="position:absolute;top:836px;left:68px;white-space:nowrap" class="ft04">39.5.5&#160;</p>
+<p style="position:absolute;top:836px;left:148px;white-space:nowrap" class="ft04">Eviction of&#160;an SECS Page</p>
+<p style="position:absolute;top:865px;left:68px;white-space:nowrap" class="ft06">The eviction of an SECS&#160;page is similar to&#160;the&#160;eviction of&#160;an enclave&#160;page.&#160;The only difference is that an SECS page&#160;<br/>cannot&#160;be&#160;evicted until&#160;all other&#160;pages belonging&#160;to the&#160;enclave&#160;have&#160;been evicted.&#160;Since&#160;all&#160;other pages&#160;have&#160;been&#160;<br/>evicted, there will be no&#160;threads&#160;executing&#160;inside&#160;the&#160;enclave&#160;and tracking with&#160;ETRACK&#160;isn’t&#160;necessary. When&#160;<br/>reloading an enclave, the&#160;SECS page&#160;must&#160;be&#160;reloaded&#160;before all&#160;other constituent&#160;pages.<br/>1.&#160;Ensure all&#160;pages are&#160;evicted&#160;from&#160;enclave.&#160;<br/>2.&#160;Select an&#160;empty slot&#160;in a&#160;Version Array&#160;page.&#160;</p>
+<p style="position:absolute;top:987px;left:93px;white-space:nowrap" class="ft03">—&#160;If&#160;no VA&#160;page exists&#160;with&#160;an empty&#160;slot,&#160;create a new&#160;one using&#160;the EPA function leaf.&#160;</p>
+<p style="position:absolute;top:1011px;left:68px;white-space:nowrap" class="ft03">3.&#160;Evict the&#160;page using&#160;the EWB leaf&#160;function with parameters include the&#160;effective-address pointer to&#160;the EPC&#160;</p>
+<p style="position:absolute;top:1027px;left:93px;white-space:nowrap" class="ft05">page,&#160;the VA&#160;slot, a&#160;4K byte&#160;buffer to&#160;hold&#160;the&#160;encrypted&#160;page&#160;contents and&#160;a 128 byte&#160;buffer to&#160;hold&#160;page&#160;<br/>metadata. The&#160;last&#160;three elements are tied together cryptographically and&#160;must be used to&#160;later reload the&#160;<br/>page.</p>
+</div>
+</body>
+</html>

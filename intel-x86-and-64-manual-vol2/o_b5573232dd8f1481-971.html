@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 971</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft013{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page971-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481971.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PHSUBSW ‚Äî Packed Horizontal Subtract&#160;and&#160;Saturate</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-291</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">PHSUBSW&#160;‚Äî Packed Horizontal Subtract and Saturate</p>
+<p style="position:absolute;top:460px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:570px;left:69px;white-space:nowrap" class="ft03">Description&#160;</p>
+<p style="position:absolute;top:597px;left:69px;white-space:nowrap" class="ft09">(V)PHSUBSW&#160;performs horizontal subtraction on each&#160;adjacent pair of 16-bit&#160;signed integers by subtracting&#160;the&#160;<br/>most&#160;significant word&#160;from the&#160;least&#160;significant word of&#160;each pair in the&#160;source and destination&#160;operands.&#160;The&#160;<br/>signed, saturated&#160;16-bit results are packed to the destination operand&#160;(first operand). When the source operand&#160;is&#160;<br/>a 128-bit memory operand,&#160;the operand must be&#160;aligned on a 16-byte boundary or a general-protection exception&#160;<br/>(#GP) will be generated.&#160;<br/>Legacy SSE version: Both operands&#160;can be&#160;MMX&#160;registers.&#160;The second&#160;source&#160;operand&#160;can be an&#160;MMX register&#160;or&#160;<br/>a&#160;64-bit&#160;memory&#160;location.<br/>128-bit Legacy&#160;SSE version: The&#160;first source&#160;and destination&#160;operands are&#160;XMM registers. The second source&#160;<br/>operand is&#160;an XMM&#160;register or a&#160;128-bit&#160;memory location. Bits&#160;(VLMAX-1:128) of&#160;the&#160;corresponding YMM&#160;destina-<br/>tion register remain&#160;unchanged.&#160;<br/>In&#160;64-bit mode, use&#160;the REX prefix&#160;to access additional registers.&#160;<br/>VEX.128&#160;encoded version: The&#160;first source&#160;and destination operands&#160;are XMM registers.&#160;The&#160;second&#160;source&#160;<br/>operand is an XMM register or a 128-bit memory location. Bits (VLMAX-1:128) of&#160;the destination&#160;YMM&#160;register&#160;are&#160;<br/>zeroed.<br/>VEX.256&#160;encoded version: The&#160;first source&#160;and destination operands&#160;are YMM&#160;registers.&#160;The second source&#160;<br/>operand&#160;can be an YMM&#160;register&#160;or a&#160;256-bit memory location.<br/>Note: VEX.L must be 0,&#160;otherwise the&#160;instruction will #UD.</p>
+<p style="position:absolute;top:938px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:964px;left:69px;white-space:nowrap" class="ft04">PHSUBSW (with&#160;64-bit operands)</p>
+<p style="position:absolute;top:982px;left:89px;white-space:nowrap" class="ft011">mm1[15-0]&#160;= SaturateToSignedWord(mm1[15-0]&#160;- mm1[31-16]);&#160;<br/>mm1[31-16] = SaturateToSignedWord(mm1[47-32] - mm1[63-48]);<br/>mm1[47-32] = SaturateToSignedWord(mm2/m64[15-0] - mm2/m64[31-16]);&#160;<br/>mm1[63-48] = SaturateToSignedWord(mm2/m64[47-32] - mm2/m64[63-48]);</p>
+<p style="position:absolute;top:123px;left:76px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:76px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64/32&#160;bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode&#160;</p>
+<p style="position:absolute;top:152px;left:426px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:498px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:76px;white-space:nowrap" class="ft04">0F&#160;38&#160;07 /r</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:175px;left:148px;white-space:nowrap" class="ft04">&#160;</p>
+<p style="position:absolute;top:196px;left:76px;white-space:nowrap" class="ft04">PHSUBSW&#160;<i>mm1, mm2/m64&#160;</i></p>
+<p style="position:absolute;top:175px;left:389px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:426px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:498px;white-space:nowrap" class="ft04">SSSE3</p>
+<p style="position:absolute;top:175px;left:568px;white-space:nowrap" class="ft04">Subtract 16-bit signed&#160;integer&#160;horizontally,&#160;</p>
+<p style="position:absolute;top:191px;left:568px;white-space:nowrap" class="ft04">pack saturated integers to&#160;<i>mm1.</i></p>
+<p style="position:absolute;top:218px;left:76px;white-space:nowrap" class="ft012">66&#160;0F&#160;38 07&#160;/r<br/>PHSUBSW&#160;<i>xmm1, xmm2/m128&#160;</i></p>
+<p style="position:absolute;top:218px;left:389px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:218px;left:426px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:218px;left:498px;white-space:nowrap" class="ft04">SSSE3</p>
+<p style="position:absolute;top:218px;left:568px;white-space:nowrap" class="ft04">Subtract 16-bit signed&#160;integer&#160;horizontally,&#160;</p>
+<p style="position:absolute;top:235px;left:568px;white-space:nowrap" class="ft04">pack saturated integers to&#160;<i>xmm1.</i></p>
+<p style="position:absolute;top:262px;left:76px;white-space:nowrap" class="ft013">VEX.NDS.128.66.0F38.WIG 07&#160;/r<br/>VPHSUBSW&#160;<i>xmm1, xmm2, xmm3/m128</i></p>
+<p style="position:absolute;top:262px;left:389px;white-space:nowrap" class="ft04">RVM&#160;V/V</p>
+<p style="position:absolute;top:262px;left:498px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:262px;left:568px;white-space:nowrap" class="ft04">Subtract 16-bit signed integer horizontally,&#160;</p>
+<p style="position:absolute;top:279px;left:568px;white-space:nowrap" class="ft04">pack saturated integers to&#160;<i>xmm1</i>.</p>
+<p style="position:absolute;top:306px;left:76px;white-space:nowrap" class="ft013">VEX.NDS.256.66.0F38.WIG 07&#160;/r<br/>VPHSUBSW&#160;<i>ymm1, ymm2, ymm3/m256</i></p>
+<p style="position:absolute;top:306px;left:389px;white-space:nowrap" class="ft04">RVM&#160;V/V</p>
+<p style="position:absolute;top:306px;left:498px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:306px;left:568px;white-space:nowrap" class="ft04">Subtract 16-bit signed&#160;integer&#160;horizontally,&#160;</p>
+<p style="position:absolute;top:322px;left:568px;white-space:nowrap" class="ft04">pack saturated integers to&#160;<i>ymm1</i>.</p>
+<p style="position:absolute;top:349px;left:76px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:370px;left:76px;white-space:nowrap" class="ft04">1.&#160;See&#160;note&#160;in<a href="o_b5573232dd8f1481-81.html">&#160;Section&#160;2.4,&#160;‚ÄúAVX and&#160;SSE&#160;Instruction Exception&#160;Specification‚Äù i</a>n&#160;the&#160;<a href="˛ˇ"><i>Intel¬Æ 64&#160;and&#160;IA-32 Architectures&#160;Software&#160;</i></a></p>
+<p style="position:absolute;top:387px;left:76px;white-space:nowrap" class="ft06"><a href="˛ˇ"><i>Developer‚Äôs Manual, Volume 2A</i></a>&#160;an<a href="˛ˇ">d Section&#160;22.25.3, ‚ÄúException&#160;Conditions&#160;of&#160;Legacy&#160;SIMD&#160;Instructions&#160;Operating&#160;on&#160;MMX Registers‚Äù</a>&#160;</p>
+<p style="position:absolute;top:403px;left:76px;white-space:nowrap" class="ft04">in&#160;the&#160;<a href="˛ˇ"><i>Intel¬Æ&#160;64&#160;and&#160;IA-32&#160;Architectures&#160;Software&#160;Developer‚Äôs Manual, Volume 3A</i></a>.</p>
+<p style="position:absolute;top:483px;left:87px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:483px;left:192px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:483px;left:365px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:483px;left:542px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:483px;left:717px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:507px;left:95px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:507px;left:174px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r, w)</p>
+<p style="position:absolute;top:507px;left:355px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:507px;left:563px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:507px;left:738px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:531px;left:91px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:531px;left:174px;white-space:nowrap" class="ft04">ModRM:reg (r, w)</p>
+<p style="position:absolute;top:531px;left:360px;white-space:nowrap" class="ft04">VEX.vvvv (r)</p>
+<p style="position:absolute;top:531px;left:531px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:531px;left:738px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

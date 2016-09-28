@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 149</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page149-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce149.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;4-45</p>
+<p style="position:absolute;top:47px;left:793px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft06">If a&#160;paging-structure&#160;entry is&#160;modified&#160;to change&#160;the&#160;R/W flag&#160;from&#160;0 to&#160;1, write accesses&#160;to linear&#160;addresses&#160;<br/>whose&#160;translation is&#160;controlled&#160;by&#160;this entry may or&#160;may not cause a&#160;page-fault&#160;exception.</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft06">If a&#160;paging-structure entry is&#160;modified&#160;to change the U/S&#160;flag from 0&#160;to 1, user-mode&#160;accesses to linear&#160;<br/>addresses&#160;whose&#160;translation is&#160;controlled&#160;by this entry&#160;may or&#160;may not&#160;cause a&#160;page-fault&#160;exception.</p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:178px;left:95px;white-space:nowrap" class="ft06">If a&#160;paging-structure entry is&#160;modified&#160;to change the&#160;XD&#160;flag from 1&#160;to 0, instruction fetches from&#160;linear&#160;<br/>addresses&#160;whose&#160;translation is&#160;controlled&#160;by this entry&#160;may or&#160;may not&#160;cause a&#160;page-fault&#160;exception.</p>
+<p style="position:absolute;top:219px;left:69px;white-space:nowrap" class="ft06">As noted<a href="o_fe12b1e2a880e0ce-258.html">&#160;in Section 8.1.1,</a>&#160;an x87 instruction&#160;or&#160;an SSE instruction that accesses data larger than a quadword may&#160;<br/>be implemented&#160;using multiple memory&#160;accesses.&#160;If&#160;such an&#160;instruction&#160;stores to&#160;memory and&#160;invalidation&#160;has&#160;<br/>been&#160;delayed,&#160;some of the&#160;accesses may&#160;complete (writing&#160;to memory) while another causes a&#160;page-fault&#160;excep-<br/>tion.</p>
+<p style="position:absolute;top:266px;left:100px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:268px;left:106px;white-space:nowrap" class="ft03">&#160;In this case,&#160;the effects of the&#160;completed accesses&#160;may be&#160;visible&#160;to software&#160;even though the&#160;overall&#160;</p>
+<p style="position:absolute;top:285px;left:69px;white-space:nowrap" class="ft06">instruction caused a&#160;fault.<br/>In&#160;some cases,&#160;the consequences of delayed invalidation&#160;may not affect&#160;software&#160;adversely.&#160;For example,&#160;when&#160;<br/>freeing&#160;a portion&#160;of&#160;the linear-address&#160;space&#160;(by marking&#160;paging-structure entries “not present”), invalidation&#160;<br/>using&#160;INVLPG&#160;may be delayed if&#160;software does not re-allocate&#160;that portion&#160;of&#160;the linear-address space or&#160;the&#160;<br/>memory that had been associated with&#160;it. However,&#160;because&#160;of&#160;speculative execution (or errant software), there&#160;<br/>may be accesses to&#160;the freed portion&#160;of&#160;the&#160;linear-address&#160;space&#160;before&#160;the invalidations occur.&#160;In this case,&#160;the&#160;<br/>following can&#160;happen:</p>
+<p style="position:absolute;top:413px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:414px;left:95px;white-space:nowrap" class="ft06">Reads can occur&#160;to the freed&#160;portion&#160;of the&#160;linear-address space.&#160;Therefore,&#160;invalidation&#160;should not be delayed&#160;<br/>for an&#160;address&#160;range&#160;that has&#160;read&#160;side&#160;effects.</p>
+<p style="position:absolute;top:452px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:453px;left:95px;white-space:nowrap" class="ft06">The&#160;processor&#160;may&#160;retain entries in the&#160;TLBs and&#160;paging-structure caches for an&#160;extended period of time.&#160;<br/>Software&#160;should not&#160;assume&#160;that the&#160;processor will not&#160;use entries associated&#160;with a&#160;linear&#160;address simply&#160;<br/>because time&#160;has passed.</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:508px;left:95px;white-space:nowrap" class="ft06">As noted&#160;<a href="o_fe12b1e2a880e0ce-142.html">in Section 4.10.3.1, the&#160;</a>processor&#160;may create&#160;an&#160;entry in a&#160;paging-structure&#160;cache&#160;even&#160;if there&#160;are&#160;<br/>no translations for any linear address that might&#160;use that entry.&#160;Thus,&#160;if software has marked “not&#160;present”&#160;all&#160;<br/>entries in a page table,&#160;the&#160;processor may&#160;subsequently&#160;create&#160;a PDE-cache entry for&#160;the&#160;PDE that references&#160;<br/>that page&#160;table (assuming that&#160;the&#160;PDE itself&#160;is marked&#160;“present”).</p>
+<p style="position:absolute;top:580px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:580px;left:95px;white-space:nowrap" class="ft06">If software attempts to write to&#160;the freed portion of&#160;the linear-address space, the processor might&#160;not generate&#160;<br/>a page fault. (Such an&#160;attempt&#160;would likely be&#160;the result&#160;of a&#160;software error.)&#160;For that&#160;reason, the page&#160;frames&#160;<br/>previously associated&#160;with the&#160;freed portion&#160;of&#160;the linear-address space&#160;should not be reallocated&#160;for&#160;another&#160;<br/>purpose until the&#160;appropriate&#160;invalidations&#160;have been performed.</p>
+<p style="position:absolute;top:680px;left:69px;white-space:nowrap" class="ft05">4.10.5&#160;</p>
+<p style="position:absolute;top:680px;left:149px;white-space:nowrap" class="ft05">Propagation of&#160;Paging-Structure&#160;Changes to&#160;Multiple Processors</p>
+<p style="position:absolute;top:711px;left:69px;white-space:nowrap" class="ft08">As&#160;noted&#160;in&#160;<a href="o_fe12b1e2a880e0ce-145.html">Section&#160;4.10.4, softw</a>are&#160;that&#160;modifies a&#160;paging-structure entry may need to&#160;invalidate entries&#160;in the&#160;<br/>TLBs&#160;and paging-structure&#160;caches that&#160;were derived from&#160;the modified&#160;entry before it&#160;was modified.&#160;In a&#160;system&#160;<br/>containing&#160;more than one&#160;logical&#160;processor,&#160;software must account&#160;for&#160;the fact that&#160;there&#160;may be entries in&#160;the&#160;<br/>TLBs and&#160;paging-structure caches&#160;of logical&#160;processors&#160;other&#160;than the&#160;one used to modify&#160;the paging-structure&#160;<br/>entry.&#160;The process of propagating&#160;the&#160;changes&#160;to a paging-structure entry&#160;is commonly referred to&#160;as “TLB shoot-<br/>down.”<br/>TLB shootdown can&#160;be done using&#160;memory-based&#160;semaphores&#160;and/or interprocessor&#160;interrupts (IPI).&#160;The&#160;<br/>following&#160;items describe&#160;a simple but inefficient example&#160;of&#160;a TLB shootdown&#160;algorithm&#160;for&#160;processors supporting&#160;<br/>the Intel-64&#160;and&#160;IA-32&#160;architectures:<br/>1.&#160;Begin barrier: Stop&#160;all but one logical&#160;processor; that is,&#160;cause all but one to execute the HLT&#160;instruction or to&#160;</p>
+<p style="position:absolute;top:891px;left:94px;white-space:nowrap" class="ft03">enter&#160;a spin loop.</p>
+<p style="position:absolute;top:915px;left:69px;white-space:nowrap" class="ft08">2.&#160;Allow&#160;the active logical processor to&#160;change the necessary&#160;paging-structure&#160;entries.<br/>3.&#160;Allow&#160;all logical processors to perform&#160;invalidations&#160;appropriate to&#160;the modifications&#160;to the&#160;paging-structure&#160;</p>
+<p style="position:absolute;top:955px;left:94px;white-space:nowrap" class="ft03">entries.</p>
+<p style="position:absolute;top:979px;left:69px;white-space:nowrap" class="ft06">4.&#160;Allow&#160;all logical processors to resume&#160;normal operation.<br/>Alternative, performance-optimized,&#160;TLB shootdown algorithms&#160;may be developed; however,&#160;software developers&#160;<br/>must take&#160;care to&#160;ensure that&#160;the following&#160;conditions&#160;are met:</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft03">1.&#160;If&#160;the accesses are&#160;to&#160;different&#160;pages,&#160;this&#160;may occur even&#160;if&#160;invalidation&#160;has&#160;not&#160;been&#160;delayed.</p>
+</div>
+</body>
+</html>

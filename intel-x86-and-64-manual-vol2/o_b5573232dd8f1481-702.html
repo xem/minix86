@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 702</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page702-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481702.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:711px;white-space:nowrap" class="ft00">MFENCE—Memory Fence</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-22&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">MFENCE—Memory Fence</p>
+<p style="position:absolute;top:217px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:304px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:330px;left:68px;white-space:nowrap" class="ft06">Performs&#160;a serializing&#160;operation on all&#160;load-from-memory&#160;and store-to-memory instructions that&#160;were&#160;issued prior&#160;<br/>the MFENCE instruction.&#160;This serializing operation guarantees that every load and&#160;store&#160;instruction&#160;that&#160;precedes&#160;<br/>the MFENCE instruction in program order becomes&#160;globally&#160;visible before any&#160;load or&#160;store instruction&#160;that follows&#160;<br/>the MFENCE instruction.</p>
+<p style="position:absolute;top:377px;left:230px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:379px;left:237px;white-space:nowrap" class="ft04">&#160;The MFENCE instruction is&#160;ordered with respect&#160;to all&#160;load&#160;and store&#160;instructions,&#160;other&#160;</p>
+<p style="position:absolute;top:396px;left:68px;white-space:nowrap" class="ft06">MFENCE instructions,&#160;any LFENCE and&#160;SFENCE&#160;instructions, and any&#160;serializing instructions (such&#160;as the&#160;CPUID&#160;<br/>instruction). MFENCE does&#160;not serialize the&#160;instruction stream.<br/>Weakly ordered&#160;memory&#160;types&#160;can be used&#160;to achieve&#160;higher processor performance&#160;through such techniques as&#160;<br/>out-of-order issue, speculative reads,&#160;write-combining,&#160;and&#160;write-collapsing.&#160;The&#160;degree&#160;to which a&#160;consumer&#160;of&#160;<br/>data&#160;recognizes&#160;or knows that&#160;the data is&#160;weakly ordered varies&#160;among applications and may&#160;be&#160;unknown&#160;to the&#160;<br/>producer&#160;of this data.&#160;The&#160;MFENCE instruction provides&#160;a&#160;performance-efficient way of ensuring&#160;load&#160;and store&#160;<br/>ordering between routines&#160;that produce weakly-ordered&#160;results&#160;and routines&#160;that consume that&#160;data.<br/>Processors are&#160;free&#160;to fetch and cache data speculatively&#160;from regions of system memory that use the WB, WC, and&#160;<br/>WT memory types. This speculative fetching can occur at any time&#160;and is not tied to instruction execution. Thus, it&#160;<br/>is not&#160;ordered with respect to&#160;executions of&#160;the MFENCE&#160;instruction;&#160;data can&#160;be&#160;brought into&#160;the caches&#160;specula-<br/>tively just before,&#160;during,&#160;or after&#160;the execution&#160;of&#160;an MFENCE instruction.<br/>This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.<br/>Specification of the&#160;instruction's opcode&#160;above indicates a&#160;ModR/M byte&#160;of&#160;F0. For this instruction,&#160;the&#160;processor&#160;<br/>ignores&#160;the r/m field of the ModR/M byte. Thus, MFENCE is&#160;encoded&#160;by any&#160;opcode&#160;of&#160;the form 0F&#160;AE&#160;Fx, where&#160;x&#160;<br/>is in&#160;the range 0-7.</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:726px;left:68px;white-space:nowrap" class="ft04">Wait_On_Following_Loads_And_Stores_Until(preceding_loads_and_stores_globally_visible);</p>
+<p style="position:absolute;top:763px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft04">void _mm_mfence(void)</p>
+<p style="position:absolute;top:824px;left:68px;white-space:nowrap" class="ft03">Exceptions (All Modes of&#160;Operation)</p>
+<p style="position:absolute;top:847px;left:68px;white-space:nowrap" class="ft04">#UD&#160;</p>
+<p style="position:absolute;top:847px;left:206px;white-space:nowrap" class="ft09">If&#160;CPUID.01H:EDX.SSE2[bit 26] = 0.<br/>If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:123px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:497px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:497px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:567px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F&#160;AE&#160;F0</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">MFENCE</p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:567px;white-space:nowrap" class="ft04">Serializes&#160;load&#160;and&#160;store operations.</p>
+<p style="position:absolute;top:240px;left:91px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:240px;left:205px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:240px;left:379px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:240px;left:551px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:240px;left:721px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:263px;left:100px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:263px;left:227px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:400px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:572px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:742px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft04">1.&#160;A&#160;load&#160;instruction&#160;is&#160;considered&#160;to&#160;become&#160;globally visible&#160;when the value to&#160;be loaded into&#160;its destination register is&#160;determined.</p>
+</div>
+</body>
+</html>

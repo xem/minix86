@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 311</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page311-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a311.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;13-5</p>
+<p style="position:absolute;top:47px;left:544px;white-space:nowrap" class="ft01">MANAGING&#160;STATE&#160;USING&#160;THE XSAVE&#160;FEATURE SET</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07">XCR0[4:3] have&#160;value&#160;00b&#160;coming out of&#160;RESET.<a href="o_7281d5ea06a5b67a-308.html">&#160;As noted in&#160;Section&#160;13.2,&#160;</a>a processor allows software&#160;to set&#160;<br/>XCR0[4:3] to 11b if and only if CPUID.(EAX=0DH,ECX=0):EAX[4:3]&#160;=&#160;11b.&#160;In addition,&#160;executing the XSETBV&#160;<br/>instruction causes&#160;a general-protection fault (#GP)&#160;if&#160;ECX&#160;=&#160;0, EAX[4:3] is&#160;neither 00b&#160;nor&#160;11b; that is,&#160;<br/>software&#160;can enable&#160;the&#160;XSAVE feature&#160;set for MPX state&#160;only&#160;if it&#160;does&#160;so for both&#160;state&#160;components.<br/>As noted&#160;<a href="o_7281d5ea06a5b67a-307.html">in Section 13.1</a>,&#160;the&#160;processor will preserve&#160;MPX state unmodified&#160;if&#160;software clears XCR0[4:3].</p>
+<p style="position:absolute;top:194px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:195px;left:95px;white-space:nowrap" class="ft08">XCR0[7:5] are&#160;associated with&#160;AVX-512<a href="o_7281d5ea06a5b67a-317.html">&#160;state (see Section 13.5.5). S</a>oftware can&#160;use&#160;the&#160;XSAVE feature set&#160;to&#160;<br/>manage&#160;AVX-512 state only if XCR0[7:5]&#160;=&#160;111b.&#160;In addition, software&#160;can execute AVX-512&#160;instructions&#160;only&#160;<br/>if CR4.OSXSAVE&#160;=&#160;1 and&#160;XCR0[7:5]&#160;=&#160;111b.&#160;Otherwise,&#160;any&#160;execution of an&#160;AVX-512 instruction causes&#160;an&#160;<br/>invalid-opcode exception&#160;(#UD).<br/>XCR0[7:5]&#160;have value 000b&#160;coming out&#160;of&#160;RESET.&#160;As noted&#160;in&#160;<a href="o_7281d5ea06a5b67a-308.html">Section 13.2</a>, a&#160;processor allows software&#160;to&#160;set&#160;<br/>XCR0[7:5]&#160;to 111b&#160;if and&#160;only&#160;if&#160;CPUID.(EAX=0DH,ECX=0):EAX[7:5]&#160;=&#160;111b.&#160;In&#160;addition,&#160;executing&#160;the&#160;<br/>XSETBV instruction&#160;causes a&#160;general-protection&#160;fault&#160;(#GP) if&#160;ECX&#160;=&#160;0,&#160;EAX[7:5]&#160;is&#160;not 000b,&#160;and any bit&#160;is&#160;<br/>clear&#160;in EAX[2:1]&#160;or EAX[7:5]; that is,&#160;software&#160;can enable&#160;the&#160;XSAVE feature&#160;set&#160;for&#160;AVX-512&#160;state only if&#160;it&#160;<br/>does&#160;so for all three state&#160;components, and only if it also&#160;does so for AVX state and SSE state.&#160;This&#160;implies that&#160;<br/>the&#160;value&#160;of XCR0[7:5]&#160;is always&#160;either 000b&#160;or 111b.<br/>As noted&#160;<a href="o_7281d5ea06a5b67a-307.html">in Section 13.1</a>,&#160;the&#160;processor will preserve&#160;AVX-512 state unmodified&#160;if&#160;software clears XCR0[7:5].&#160;<br/>However,&#160;clearing XCR0[7:5]&#160;while AVX-512&#160;state&#160;is not in&#160;its initial&#160;configuration may&#160;cause SSE&#160;and AVX&#160;<br/>instructions to incur a power and performance penalty.<a href="��">&#160;See Section 13.5.3, “Enable the Use Of XSAVE&#160;Feature&#160;<br/>Set And XSAVE State Components” of&#160;<i>Intel®&#160;64&#160;and IA-32 Architectures Software Developer’s Manual, Volume&#160;<br/>3A</i></a>, for how system&#160;software&#160;can avoid this penalty.</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:460px;left:95px;white-space:nowrap" class="ft06">XCR0[9] is&#160;associated&#160;with&#160;PKRU<a href="o_7281d5ea06a5b67a-318.html">&#160;state (see Section 13.5.7</a>). Software can&#160;use the&#160;XSAVE&#160;feature&#160;set to&#160;<br/>manage&#160;PKRU state&#160;only if&#160;XCR0[9]&#160;=&#160;1.&#160;The value of&#160;XCR0[9]&#160;in no way determines whether software&#160;can&#160;use&#160;<br/>protection&#160;keys or execute&#160;other instructions that access PKRU state&#160;(these&#160;instructions can be executed&#160;even&#160;<br/>if XCR0[9]&#160;=&#160;0).<br/>XCR0[9] is 0 coming&#160;out of&#160;RESET.&#160;As&#160;note<a href="o_7281d5ea06a5b67a-308.html">d in&#160;Section 13.2,&#160;</a>a processor&#160;allows software&#160;to set XCR0[9] if&#160;and&#160;<br/>only if CPUID.(EAX=0DH,ECX=0):EAX[9]&#160;=&#160;1.</p>
+<p style="position:absolute;top:571px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:571px;left:95px;white-space:nowrap" class="ft02">XCR0[63:10] and&#160;XCR0[8] are&#160;reserved.</p>
+<p style="position:absolute;top:569px;left:369px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:571px;left:376px;white-space:nowrap" class="ft02">&#160;Executing&#160;the XSETBV instruction causes&#160;a general-protection&#160;fault&#160;</p>
+<p style="position:absolute;top:588px;left:95px;white-space:nowrap" class="ft06">(#GP)&#160;if&#160;ECX&#160;=&#160;0&#160;and&#160;any&#160;corresponding&#160;bit in&#160;EDX:EAX&#160;is&#160;not&#160;0.&#160;These&#160;bits&#160;in XCR0 are&#160;all&#160;0 coming&#160;out of&#160;<br/>RESET.</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft06">Software operating&#160;with&#160;CPL&#160;&gt;&#160;0 may need to&#160;determine whether the&#160;XSAVE feature&#160;set&#160;and certain XSAVE-<br/>enabled&#160;features have&#160;been&#160;enabled. If&#160;CPL&#160;&gt;&#160;0,&#160;execution of the&#160;MOV&#160;from&#160;CR4 instruction causes&#160;a general-<br/>protection&#160;fault&#160;(#GP). The&#160;following alternative&#160;mechanisms allow software to&#160;discover the enabling&#160;of&#160;the&#160;XSAVE&#160;<br/>feature set regardless&#160;of CPL:</p>
+<p style="position:absolute;top:700px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:700px;left:95px;white-space:nowrap" class="ft06">The&#160;value of CR4.OSXSAVE is&#160;returned&#160;in CPUID.1:ECX.OSXSAVE[bit&#160;27]. If&#160;software&#160;determines that&#160;<br/>CPUID.1:ECX.OSXSAVE&#160;=&#160;1, the processor&#160;supports&#160;the&#160;XSAVE feature&#160;set&#160;and&#160;the&#160;feature set has&#160;been&#160;<br/>enabled in&#160;CR4.</p>
+<p style="position:absolute;top:755px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:756px;left:95px;white-space:nowrap" class="ft06">Executing&#160;the&#160;XGETBV instruction with ECX&#160;=&#160;0 returns the&#160;value&#160;of&#160;XCR0 in&#160;EDX:EAX.&#160;XGETBV&#160;can&#160;be&#160;<br/>executed&#160;if CR4.OSXSAVE&#160;=&#160;1 (if&#160;CPUID.1:ECX.OSXSAVE&#160;=&#160;1), regardless of CPL.</p>
+<p style="position:absolute;top:796px;left:69px;white-space:nowrap" class="ft09">Thus, software&#160;can use&#160;the following algorithm&#160;to&#160;determine the&#160;support&#160;and enabling for the&#160;XSAVE feature&#160;set:<br/>1.&#160;Use CPUID&#160;to discover the&#160;value of CPUID.1:ECX.OSXSAVE.</p>
+<p style="position:absolute;top:844px;left:94px;white-space:nowrap" class="ft02">—&#160;If the&#160;bit&#160;is 0, either the&#160;XSAVE feature&#160;set&#160;is not&#160;supported&#160;by the&#160;processor or has&#160;not&#160;been&#160;enabled&#160;by&#160;</p>
+<p style="position:absolute;top:861px;left:120px;white-space:nowrap" class="ft02">software.&#160;Either&#160;way,&#160;the&#160;XSAVE feature set is&#160;not available,&#160;nor are&#160;XSAVE-enabled features&#160;such as&#160;AVX.</p>
+<p style="position:absolute;top:885px;left:95px;white-space:nowrap" class="ft02">—&#160;If&#160;the bit is&#160;1,&#160;the&#160;processor supports the XSAVE feature set —&#160;including the&#160;XGETBV instruction —&#160;and it&#160;</p>
+<p style="position:absolute;top:901px;left:120px;white-space:nowrap" class="ft06">has&#160;been&#160;enabled&#160;by software.&#160;The XSAVE feature&#160;set can be&#160;used&#160;to manage&#160;x87 state&#160;(because&#160;XCR0[0]&#160;<br/>is&#160;always 1). Software requiring more&#160;detailed information can go on to&#160;the next&#160;step.</p>
+<p style="position:absolute;top:942px;left:69px;white-space:nowrap" class="ft02">2.&#160;Execute&#160;XGETBV&#160;with ECX&#160;=&#160;0 to&#160;discover the&#160;value&#160;of&#160;XCR0.&#160;If&#160;XCR0[1]&#160;=&#160;1,&#160;the&#160;XSAVE&#160;feature&#160;set can&#160;be&#160;</p>
+<p style="position:absolute;top:958px;left:94px;white-space:nowrap" class="ft06">used&#160;to manage&#160;SSE&#160;state.&#160;If XCR0[2]&#160;=&#160;1,&#160;the&#160;XSAVE feature&#160;set can&#160;be&#160;used&#160;to manage&#160;AVX state and&#160;<br/>software&#160;can execute AVX instructions.&#160;If XCR0[4:3] is&#160;11b,&#160;the XSAVE&#160;feature set can&#160;be&#160;used to&#160;manage MPX&#160;</p>
+<p style="position:absolute;top:1017px;left:69px;white-space:nowrap" class="ft010">1.&#160;If XCR0[3]&#160;=&#160;0, executions of&#160;CALL, RET,&#160;JMP,&#160;and&#160;Jcc do not initialize&#160;the&#160;bounds&#160;registers.<br/>1.&#160;Bit&#160;8&#160;corresponds to&#160;a supervisor&#160;state component. Since bits can be set in XCR0 only for user&#160;state components,&#160;that&#160;bit of&#160;XCR0&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">must&#160;be&#160;0.</p>
+</div>
+</body>
+</html>

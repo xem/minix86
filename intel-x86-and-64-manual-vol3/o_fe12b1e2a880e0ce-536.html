@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 536</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page536-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce536.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-30&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">can use external&#160;bus related model-specific&#160;information provided with&#160;the error report to localize the source of the&#160;<br/>error within the&#160;system and&#160;determine&#160;the appropriate recovery&#160;strategy.&#160;</p>
+<p style="position:absolute;top:167px;left:68px;white-space:nowrap" class="ft03">15.10.4 Machine-Check&#160;</p>
+<p style="position:absolute;top:167px;left:273px;white-space:nowrap" class="ft03">Software&#160;</p>
+<p style="position:absolute;top:167px;left:352px;white-space:nowrap" class="ft03">Handler Guidelines for Error Recovery</p>
+<p style="position:absolute;top:218px;left:68px;white-space:nowrap" class="ft04">15.10.4.1&#160;&#160;&#160;Machine-Check Exception Handler for&#160;Error Recovery</p>
+<p style="position:absolute;top:245px;left:68px;white-space:nowrap" class="ft07">When writing&#160;a machine-check exception&#160;(MCE)&#160;handler to&#160;support software&#160;recovery from Uncorrected&#160;Recover-<br/>able&#160;(UCR) errors, consider the&#160;following:&#160;</p>
+<p style="position:absolute;top:283px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:284px;left:93px;white-space:nowrap" class="ft07">When&#160;IA32_MCG_CAP&#160;[24]&#160;is&#160;zero,&#160;there&#160;are&#160;no recoverable&#160;errors&#160;supported&#160;and&#160;all machine-check&#160;are fatal&#160;<br/>exceptions. The&#160;logging of status&#160;and error&#160;information is&#160;therefore&#160;a baseline&#160;implementation requirement.&#160;</p>
+<p style="position:absolute;top:322px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:323px;left:93px;white-space:nowrap" class="ft07">When IA32_MCG_CAP [24] is&#160;1,&#160;certain uncorrected errors called uncorrected recoverable (UCR)&#160;errors may be&#160;<br/>software&#160;recoverable. The handler&#160;can analyze the&#160;reported error information, and&#160;in some cases attempt to&#160;<br/>recover from the&#160;uncorrected&#160;error and&#160;continue&#160;execution.</p>
+<p style="position:absolute;top:378px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:379px;left:93px;white-space:nowrap" class="ft08">For processors on which&#160;CPUID reports DisplayFamily_DisplayModel&#160;as 06H_0EH and&#160;onward, an&#160;MCA signal&#160;is&#160;<br/>broadcast to&#160;all logical processors in&#160;the&#160;system (s<a href="��">ee CPUID instruction in Chapter&#160;3, “Instruction&#160;Set&#160;<br/>Reference,&#160;A-L”&#160;in the&#160;<i>Intel® 64 and IA-32&#160;Architectures&#160;Software Developer’s&#160;Manual, Volume&#160;2A</i></a>). Due to&#160;the&#160;<br/>potentially&#160;shared&#160;machine check MSR resources among the&#160;logical processors on&#160;the&#160;same package/core,&#160;the&#160;<br/>MCE handler&#160;may be required&#160;to synchronize&#160;with&#160;the other processors that received a&#160;machine&#160;check error&#160;and&#160;<br/>serialize&#160;access to the&#160;machine check&#160;registers when&#160;analyzing, logging&#160;and clearing&#160;the&#160;information in&#160;the&#160;<br/>machine check&#160;registers.<br/>—&#160;On processors that indicate ability for local machine-check exception (MCG_LMCE_P),&#160;hardware can&#160;choose&#160;</p>
+<p style="position:absolute;top:518px;left:119px;white-space:nowrap" class="ft07">to&#160;report the&#160;error&#160;to&#160;only&#160;a single logical processor if system&#160;software has&#160;enabled LMCE&#160;by&#160;setting&#160;<br/>IA32_MCG_EXT_CTL[LMCE_EN] = 1&#160;as outlined<a href="o_fe12b1e2a880e0ce-511.html">&#160;in Section 15.3.1.5.</a></p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:557px;left:93px;white-space:nowrap" class="ft07">The&#160;VAL&#160;(valid) flag in each IA32_MCi_STATUS&#160;register&#160;indicates whether the error&#160;information in the register&#160;<br/>is&#160;valid.&#160;If this flag is&#160;clear,&#160;the&#160;registers&#160;in that bank&#160;do not&#160;contain&#160;valid error&#160;information and should not&#160;be&#160;<br/>checked.</p>
+<p style="position:absolute;top:612px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:613px;left:93px;white-space:nowrap" class="ft07">The&#160;MCE handler&#160;is primarily&#160;responsible&#160;for processing uncorrected&#160;errors. The UC flag&#160;in&#160;each&#160;<br/>IA32_MCi_Status register indicates whether the reported&#160;error was corrected&#160;(UC=0) or uncorrected&#160;(UC=1).&#160;<br/>The&#160;MCE handler can optionally log and clear the corrected&#160;errors in the MC&#160;banks if it can implement software&#160;<br/>algorithm to&#160;avoid the&#160;undesired race conditions&#160;with&#160;the CMCI or&#160;CMC polling handler.</p>
+<p style="position:absolute;top:684px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:685px;left:93px;white-space:nowrap" class="ft07">For uncorrectable errors, the&#160;EIPV&#160;flag in&#160;the IA32_MCG_STATUS register indicates&#160;(when&#160;set) that&#160;the&#160;<br/>instruction pointed to&#160;by the&#160;instruction&#160;pointer pushed&#160;onto&#160;the&#160;stack when the&#160;machine-check exception is&#160;<br/>generated is directly associated with&#160;the error.&#160;When this&#160;flag is&#160;cleared, the&#160;instruction pointed to&#160;may not be&#160;<br/>associated&#160;with the&#160;error.&#160;</p>
+<p style="position:absolute;top:756px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:757px;left:93px;white-space:nowrap" class="ft07">The&#160;MCIP flag&#160;in the IA32_MCG_STATUS&#160;register indicates whether a&#160;machine-check&#160;exception was generated.&#160;<br/>When&#160;a machine check&#160;exception is&#160;generated,&#160;it&#160;is&#160;expected&#160;that the&#160;MCIP&#160;flag&#160;in&#160;the&#160;IA32_MCG_STATUS&#160;<br/>register&#160;is set&#160;to 1.&#160;If&#160;it is&#160;not set, this&#160;machine&#160;check was&#160;generated by either&#160;an INT 18&#160;instruction or&#160;some&#160;<br/>piece of hardware signaling an&#160;interrupt with&#160;vector&#160;18.&#160;</p>
+<p style="position:absolute;top:829px;left:68px;white-space:nowrap" class="ft07">When&#160;IA32_MCG_CAP [24] is&#160;1,&#160;the&#160;following rules can apply when&#160;writing a&#160;machine check exception&#160;(MCE)&#160;<br/>handler to&#160;support software&#160;recovery:&#160;</p>
+<p style="position:absolute;top:867px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:868px;left:93px;white-space:nowrap" class="ft07">The&#160;PCC&#160;flag in&#160;each IA32_MCi_STATUS&#160;register&#160;indicates whether&#160;recovery from the&#160;error is&#160;possible for&#160;<br/>uncorrected errors (UC=1). If the PCC flag is set for enabled uncorrected errors (UC=1&#160;and EN=1), recovery is&#160;<br/>not possible. When recovery is&#160;not&#160;possible,&#160;the&#160;MCE&#160;handler typically&#160;records&#160;the error information&#160;and signals&#160;<br/>the operating&#160;system to&#160;reset&#160;the system.&#160;</p>
+<p style="position:absolute;top:939px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:940px;left:93px;white-space:nowrap" class="ft07">The&#160;RIPV&#160;flag in&#160;the IA32_MCG_STATUS&#160;register indicates&#160;whether restarting the program&#160;execution from&#160;the&#160;<br/>instruction pointer saved on&#160;the&#160;stack for the&#160;machine check&#160;exception&#160;is possible.&#160;When&#160;the&#160;RIPV is&#160;set,&#160;<br/>program execution&#160;can be restarted&#160;reliably when recovery&#160;is&#160;possible.&#160;If the&#160;RIPV&#160;flag&#160;is not set,&#160;program&#160;<br/>execution cannot be&#160;restarted&#160;reliably.&#160;In&#160;this case the recovery algorithm&#160;may involve terminating&#160;the current&#160;<br/>program execution and&#160;resuming&#160;an&#160;alternate thread of&#160;execution upon&#160;return from the&#160;machine check&#160;handler&#160;<br/>when recovery is&#160;possible.&#160;When&#160;recovery&#160;is not&#160;possible,&#160;the MCE handler signals&#160;the operating&#160;system to&#160;<br/>reset the&#160;system.&#160;</p>
+</div>
+</body>
+</html>

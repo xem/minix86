@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1728</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1728-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1728.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">36-44&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTELÂ® PROCESSOR TRACE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">FUP&#160;IP&#160;Payload</p>
+<p style="position:absolute;top:124px;left:68px;white-space:nowrap" class="ft06">Flow Update Packet gives the source address of&#160;an instruction when&#160;it is needed. In general, branch instructions do&#160;<br/>not need a FUP,&#160;because the source address is clear from the disassembly.&#160;For asynchronous events, however,&#160;the&#160;<br/>source&#160;address cannot be&#160;inferred from&#160;the&#160;source,&#160;and hence a&#160;FUP will be sent.&#160;<a href="o_fe12b1e2a880e0ce-1728.html">Table&#160;36-23 illustr</a>ates cases&#160;<br/>where&#160;FUPs&#160;are&#160;sent,&#160;and which IP&#160;can be expected&#160;in those&#160;cases.</p>
+<p style="position:absolute;top:683px;left:68px;white-space:nowrap" class="ft06">On&#160;a&#160;canonical fault due to&#160;sequentially&#160;fetching an&#160;instruction&#160;in non-canonical space&#160;(as&#160;opposed to&#160;jumping&#160;to&#160;<br/>non-canonical&#160;space), the IP of the fault (and thus&#160;the payload&#160;of&#160;the&#160;FUP) will be a&#160;non-canonical address. This is&#160;<br/>consistent with what is&#160;pushed&#160;on&#160;the stack&#160;for&#160;such faulting cases.<br/>If&#160;there are post-commit task&#160;switch&#160;faults, the&#160;IP&#160;value of&#160;the&#160;FUP will be&#160;the original&#160;IP&#160;when&#160;the task switch&#160;<br/>started.&#160;This&#160;is the same&#160;value as&#160;would be seen in&#160;the LBR_FROM&#160;field. But&#160;it is&#160;a different value&#160;as is&#160;saved on&#160;the&#160;<br/>stack or VMCS.</p>
+<p style="position:absolute;top:215px;left:322px;white-space:nowrap" class="ft02">Table 36-23. FUP Cases and&#160;IP Payload</p>
+<p style="position:absolute;top:240px;left:157px;white-space:nowrap" class="ft03">Event</p>
+<p style="position:absolute;top:240px;left:372px;white-space:nowrap" class="ft03">Flow Update&#160;IP</p>
+<p style="position:absolute;top:240px;left:668px;white-space:nowrap" class="ft03">Comment</p>
+<p style="position:absolute;top:263px;left:74px;white-space:nowrap" class="ft03">External Interrupt, NMI/SMI, Traps,&#160;</p>
+<p style="position:absolute;top:280px;left:74px;white-space:nowrap" class="ft03">Machine Check (trap-like), INIT/SIPI</p>
+<p style="position:absolute;top:263px;left:288px;white-space:nowrap" class="ft03">Address of&#160;next instruction (Next IP) that&#160;</p>
+<p style="position:absolute;top:280px;left:288px;white-space:nowrap" class="ft03">would&#160;have&#160;been&#160;executed</p>
+<p style="position:absolute;top:263px;left:561px;white-space:nowrap" class="ft03">Functionally,&#160;this&#160;matches&#160;the LBR FROM&#160;field&#160;</p>
+<p style="position:absolute;top:280px;left:561px;white-space:nowrap" class="ft03">value&#160;and&#160;also&#160;the&#160;EIP&#160;value&#160;which&#160;is&#160;saved&#160;onto&#160;</p>
+<p style="position:absolute;top:297px;left:561px;white-space:nowrap" class="ft03">the stack.</p>
+<p style="position:absolute;top:321px;left:74px;white-space:nowrap" class="ft03">Exceptions/Faults, Machine check&#160;</p>
+<p style="position:absolute;top:337px;left:74px;white-space:nowrap" class="ft03">(fault-like)</p>
+<p style="position:absolute;top:321px;left:288px;white-space:nowrap" class="ft08">Address of&#160;the instruction&#160;which&#160;took&#160;the<br/>exception/fault (Current&#160;IP)</p>
+<p style="position:absolute;top:321px;left:561px;white-space:nowrap" class="ft03">This&#160;matches the&#160;similar functionality&#160;of&#160;LBR&#160;</p>
+<p style="position:absolute;top:337px;left:561px;white-space:nowrap" class="ft03">FROM&#160;field&#160;value&#160;and also&#160;the EIP value which&#160;is&#160;</p>
+<p style="position:absolute;top:353px;left:561px;white-space:nowrap" class="ft03">saved onto&#160;the stack.</p>
+<p style="position:absolute;top:378px;left:74px;white-space:nowrap" class="ft03">Software&#160;Interrupt</p>
+<p style="position:absolute;top:378px;left:288px;white-space:nowrap" class="ft03">Address of&#160;the&#160;software&#160;interrupt instruction&#160;</p>
+<p style="position:absolute;top:394px;left:288px;white-space:nowrap" class="ft03">(Current&#160;IP)</p>
+<p style="position:absolute;top:378px;left:561px;white-space:nowrap" class="ft03">This&#160;matches the&#160;similar functionality&#160;of&#160;LBR&#160;</p>
+<p style="position:absolute;top:394px;left:561px;white-space:nowrap" class="ft03">FROM&#160;field value,&#160;but does&#160;not match the EIP&#160;</p>
+<p style="position:absolute;top:411px;left:561px;white-space:nowrap" class="ft03">value&#160;which&#160;is saved&#160;onto&#160;the&#160;stack (Next&#160;</p>
+<p style="position:absolute;top:427px;left:561px;white-space:nowrap" class="ft03">Linear&#160;Instruction Pointer&#160;- NLIP).</p>
+<p style="position:absolute;top:451px;left:74px;white-space:nowrap" class="ft03">EENTER, EEXIT, ERESUME,&#160;Enclave&#160;</p>
+<p style="position:absolute;top:468px;left:74px;white-space:nowrap" class="ft03">Exiting&#160;Event (EEE), AEX</p>
+<p style="position:absolute;top:465px;left:212px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:468px;left:218px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:605px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:626px;left:68px;white-space:nowrap" class="ft03">1.&#160;Information&#160;on&#160;EENTER,&#160;EEXIT,&#160;ERESUME, EEE, Asynchronous&#160;Enclave eXit (AEX) can<a href="þÿ">&#160;be found in&#160;<i>IntelÂ® Soft-</i></a></p>
+<p style="position:absolute;top:643px;left:82px;white-space:nowrap" class="ft05"><a href="þÿ"><i>ware Guard Extensions Programming&#160;Reference</i>.</a></p>
+<p style="position:absolute;top:451px;left:288px;white-space:nowrap" class="ft03">Current&#160;IP&#160;of&#160;the&#160;instruction</p>
+<p style="position:absolute;top:451px;left:561px;white-space:nowrap" class="ft03">This matches the&#160;LBR&#160;FROM&#160;field&#160;value&#160;and&#160;also&#160;</p>
+<p style="position:absolute;top:468px;left:561px;white-space:nowrap" class="ft03">the EIP value which is&#160;saved onto&#160;the stack.</p>
+<p style="position:absolute;top:492px;left:74px;white-space:nowrap" class="ft03">XACQUIRE</p>
+<p style="position:absolute;top:492px;left:288px;white-space:nowrap" class="ft03">Address&#160;of&#160;the&#160;X*&#160;instruction</p>
+<p style="position:absolute;top:516px;left:74px;white-space:nowrap" class="ft03">XRELEASE, XBEGIN, XEND,&#160;</p>
+<p style="position:absolute;top:532px;left:74px;white-space:nowrap" class="ft03">XABORT,&#160;other transactional abort</p>
+<p style="position:absolute;top:516px;left:288px;white-space:nowrap" class="ft03">Current IP</p>
+<p style="position:absolute;top:556px;left:74px;white-space:nowrap" class="ft03">#SMI</p>
+<p style="position:absolute;top:556px;left:288px;white-space:nowrap" class="ft03">IP that&#160;is saved&#160;into SMRAM</p>
+<p style="position:absolute;top:580px;left:74px;white-space:nowrap" class="ft03">WRMSR that&#160;clears&#160;TraceEn</p>
+<p style="position:absolute;top:580px;left:288px;white-space:nowrap" class="ft03">Current&#160;IP</p>
+</div>
+</body>
+</html>

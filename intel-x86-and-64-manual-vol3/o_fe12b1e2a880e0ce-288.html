@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 288</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page288-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce288.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-32&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">In&#160;general,&#160;each&#160;processor core&#160;has dedicated microarchitectural&#160;resources identical to&#160;a single-processor&#160;imple-<br/>mentation of&#160;the&#160;underlying microarchitecture without hardware multi-threading capability.&#160;Each&#160;logical processor&#160;<br/>in a dual-core processor (whether supporting Intel&#160;Hyper-Threading Technology or not) has its own APIC function-<br/>ality,&#160;PAT,&#160;machine check architecture, debug registers and&#160;extensions. Each logical processor handles&#160;serialization&#160;<br/>instructions&#160;or&#160;self-modifying code on&#160;its&#160;own.&#160;Memory&#160;order is&#160;handled the&#160;same way as&#160;in&#160;Intel Hyper-Threading&#160;<br/>Technology.<br/>The&#160;topology of the&#160;cache&#160;hierarchy&#160;(with respect&#160;to whether&#160;a given&#160;cache level&#160;is shared by one&#160;or more&#160;<br/>processor cores or&#160;by&#160;all logical processors in&#160;the&#160;physical&#160;package) depends&#160;on the&#160;processor&#160;implementation.&#160;<br/>Software&#160;must&#160;use the&#160;deterministic cache&#160;parameter leaf of CPUID&#160;instruction&#160;to discover&#160;the cache-sharing&#160;<br/>topology between the&#160;logical&#160;processors&#160;in a&#160;multi-threading&#160;environment.</p>
+<p style="position:absolute;top:307px;left:68px;white-space:nowrap" class="ft03">8.8.1&#160;</p>
+<p style="position:absolute;top:307px;left:148px;white-space:nowrap" class="ft03">Logical Processor Support</p>
+<p style="position:absolute;top:337px;left:68px;white-space:nowrap" class="ft05">The topological composition of processor cores&#160;and logical processors in a multi-core processor can&#160;be discovered&#160;<br/>using CPUID.&#160;Within each&#160;processor&#160;core, one or&#160;more&#160;logical processors may&#160;be&#160;available.&#160;<br/>System software&#160;must&#160;follow&#160;the&#160;requirement MP initialization&#160;se<a href="o_fe12b1e2a880e0ce-274.html">quences (see Section 8.4,&#160;“Multiple-Processor&#160;<br/>(MP) Initialization”) to&#160;</a>recognize&#160;and enable logical processors.&#160;At&#160;runtime,&#160;software&#160;can enumerate those&#160;logical&#160;<br/>processors enabled&#160;by system&#160;software&#160;to identify&#160;the&#160;topological&#160;relationships between these logical processors.&#160;<br/>(See<a href="o_fe12b1e2a880e0ce-298.html">&#160;Section 8.9.5, “Identifying&#160;Topological Relationships&#160;in&#160;a MP System”).&#160;</a></p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft03">8.8.2&#160;</p>
+<p style="position:absolute;top:478px;left:148px;white-space:nowrap" class="ft03">Memory Type Range Registers (MTRR)</p>
+<p style="position:absolute;top:508px;left:68px;white-space:nowrap" class="ft06">MTRR&#160;is&#160;shared&#160;between&#160;two logical processors sharing&#160;a processor core&#160;if the&#160;physical&#160;processor&#160;supports&#160;Intel&#160;<br/>Hyper-Threading Technology.&#160;MTRR is not&#160;shared&#160;between logical&#160;processors located in different cores or different&#160;<br/>physical packages.&#160;<br/>The Intel&#160;64&#160;and&#160;IA-32 architectures require that&#160;all logical&#160;processors&#160;in an MP system&#160;use an&#160;identical MTRR&#160;<br/>memory map.&#160;This gives&#160;software a&#160;consistent&#160;view of&#160;memory, independent of the&#160;processor&#160;on which&#160;it is&#160;<br/>running.&#160;<br/>Se<a href="o_fe12b1e2a880e0ce-432.html">e Section 11.11,&#160;“Memory Type&#160;Range Registers (MTRRs).”</a></p>
+<p style="position:absolute;top:673px;left:68px;white-space:nowrap" class="ft03">8.8.3&#160;</p>
+<p style="position:absolute;top:673px;left:148px;white-space:nowrap" class="ft03">Performance Monitoring Counters</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft05">Performance counters&#160;and their&#160;companion control MSRs&#160;are shared between two logical processors sharing&#160;a&#160;<br/>processor core&#160;if&#160;the&#160;processor&#160;core supports Intel Hyper-Threading Technology&#160;and is&#160;based on&#160;Intel NetBurst&#160;<br/>microarchitecture. They&#160;are not shared between&#160;logical processors in different cores or&#160;different&#160;physical packages.&#160;<br/>As&#160;a result, software&#160;must&#160;manage&#160;the use&#160;of these&#160;resources, based&#160;on&#160;the topology of performance&#160;monitoring&#160;<br/>resources.&#160;Performance&#160;counter&#160;interrupts, events, and&#160;precise event monitoring support can&#160;be&#160;set up and&#160;allo-<br/>cated&#160;on&#160;a per thread (per logical processor)&#160;basis.&#160;<br/><a href="o_fe12b1e2a880e0ce-735.html">See Section 18.16, “Performance&#160;Monitoring and&#160;Intel&#160;Hyper-Threading Technology&#160;in Processors Based on Intel&#160;<br/>NetBurst</a></p>
+<p style="position:absolute;top:824px;left:127px;white-space:nowrap" class="ft04"><a href="o_fe12b1e2a880e0ce-735.html">®</a></p>
+<p style="position:absolute;top:826px;left:138px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-735.html">&#160;Microarchitecture.”</a></p>
+<p style="position:absolute;top:877px;left:68px;white-space:nowrap" class="ft03">8.8.4 IA32_MISC_ENABLE&#160;</p>
+<p style="position:absolute;top:877px;left:313px;white-space:nowrap" class="ft03">MSR</p>
+<p style="position:absolute;top:907px;left:68px;white-space:nowrap" class="ft05">Some bit fields&#160;in&#160;IA32_MISC_ENABLE&#160;MSR (MSR address 1A0H) may be&#160;shared between two&#160;logical&#160;processors&#160;<br/>sharing a&#160;processor&#160;core,&#160;or may be&#160;shared&#160;between different&#160;cores in&#160;a physical processor.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-1281.html">Chapter 35,&#160;<br/>“Model-Specific Registers (MSRs),”</a>.</p>
+<p style="position:absolute;top:991px;left:68px;white-space:nowrap" class="ft03">8.8.5&#160;</p>
+<p style="position:absolute;top:991px;left:148px;white-space:nowrap" class="ft03">Microcode Update Resources</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft05">Microcode&#160;update&#160;facilities&#160;are shared between two logical processors sharing&#160;a processor core&#160;if&#160;the&#160;physical&#160;<br/>package&#160;supports Intel Hyper-Threading&#160;Technology.&#160;They are not shared between logical processors in&#160;different&#160;</p>
+</div>
+</body>
+</html>

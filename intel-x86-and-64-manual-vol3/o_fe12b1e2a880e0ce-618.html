@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 618</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:7px;line-height:13px;font-family:Times;color:#000000;}
+	.ft011{font-size:7px;line-height:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page618-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce618.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-44&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:385px;left:68px;white-space:nowrap" class="ft02">17.16.3&#160;&#160;Enumeration and Detecting Support of&#160;Cache Monitoring Technology and Memory&#160;</p>
+<p style="position:absolute;top:406px;left:148px;white-space:nowrap" class="ft02">Bandwidth Monitoring</p>
+<p style="position:absolute;top:436px;left:68px;white-space:nowrap" class="ft07">Software can&#160;query processor support&#160;of shared&#160;resource&#160;monitoring features&#160;capabilities&#160;by&#160;executing&#160;CPUID&#160;<br/>instruction&#160;with EAX = 07H, ECX&#160;=&#160;0H&#160;as&#160;input.&#160;If&#160;CPUID.(EAX=07H,&#160;ECX=0):EBX.PQM[bit 12] reports 1, the&#160;<br/>processor&#160;provides&#160;the following programming interfaces&#160;for shared&#160;resource&#160;monitoring, including Cache&#160;Moni-<br/>toring Technology:</p>
+<p style="position:absolute;top:508px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:508px;left:93px;white-space:nowrap" class="ft07">CPUID leaf&#160;function&#160;0FH&#160;(Shared Resource&#160;Monitoring&#160;Enumeration leaf) provides information&#160;on available&#160;<br/>resource&#160;types (see<a href="o_fe12b1e2a880e0ce-618.html">&#160;Section 17.16.4)</a>,&#160;and&#160;monitoring&#160;capabilities for&#160;each resource&#160;type&#160;(see<a href="o_fe12b1e2a880e0ce-619.html">&#160;Section 17.16.5</a>).&#160;<br/>Note CMT&#160;and&#160;MBM capabilities are&#160;enumerated as&#160;separate event&#160;vectors&#160;using shared enumeration&#160;infra-<br/>structure under&#160;a given&#160;resource type.</p>
+<p style="position:absolute;top:580px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:580px;left:93px;white-space:nowrap" class="ft07">IA32_PQR_ASSOC.RMID: The per-logical-processor&#160;MSR,&#160;IA32_PQR_ASSOC, that OS/VMM can&#160;use&#160;to&#160;assign&#160;<br/>an RMID&#160;to each&#160;logical&#160;processor,&#160;see<a href="o_fe12b1e2a880e0ce-620.html">&#160;Section 17.16.6</a>.</p>
+<p style="position:absolute;top:619px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:619px;left:93px;white-space:nowrap" class="ft07">IA32_QM_EVTSEL: This MSR specifies an Event ID&#160;(EvtID)&#160;and an RMID which the platform&#160;uses to&#160;look up and&#160;<br/>provide&#160;monitoring&#160;data in the&#160;monitoring&#160;counter,&#160;IA32_QM_CTR,&#160;se<a href="o_fe12b1e2a880e0ce-621.html">e Section 17.16.7.&#160;</a></p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:658px;left:93px;white-space:nowrap" class="ft07">IA32_QM_CTR: This&#160;MSR reports monitored&#160;resource&#160;data when&#160;available&#160;along with bits&#160;to allow software&#160;to&#160;<br/>check for error&#160;conditions and&#160;verify&#160;data validity.&#160;</p>
+<p style="position:absolute;top:699px;left:68px;white-space:nowrap" class="ft09">Software must&#160;follow the following sequence&#160;of enumeration&#160;to discover Cache Monitoring Technology capabilities:<br/>1.&#160;Execute&#160;CPUID&#160;with EAX=0&#160;to discover&#160;the “cpuid_maxLeaf”&#160;supported&#160;in&#160;the&#160;processor;<br/>2.&#160;If cpuid_maxLeaf&#160;&gt;= 7,&#160;then&#160;execute&#160;CPUID&#160;with&#160;EAX=7,&#160;ECX=&#160;0&#160;to verify&#160;CPUID.(EAX=07H,&#160;</p>
+<p style="position:absolute;top:763px;left:93px;white-space:nowrap" class="ft03">ECX=0):EBX.PQM[bit 12] is&#160;set;</p>
+<p style="position:absolute;top:787px;left:68px;white-space:nowrap" class="ft03">3.&#160;If CPUID.(EAX=07H,&#160;ECX=0):EBX.PQM[bit&#160;12]&#160;= 1,&#160;then execute CPUID&#160;with EAX=0FH,&#160;ECX=&#160;0 to&#160;query&#160;</p>
+<p style="position:absolute;top:804px;left:93px;white-space:nowrap" class="ft03">available resource types that&#160;support&#160;monitoring;</p>
+<p style="position:absolute;top:828px;left:68px;white-space:nowrap" class="ft03">4.&#160;If CPUID.(EAX=0FH,&#160;ECX=0):EDX.L3[bit 1]&#160;= 1,&#160;then&#160;execute&#160;CPUID&#160;with EAX=0FH,&#160;ECX= 1&#160;to query&#160;the&#160;</p>
+<p style="position:absolute;top:844px;left:93px;white-space:nowrap" class="ft03">specific capabilities&#160;of L3&#160;Cache Monitoring Technology&#160;(CMT) and&#160;Memory Bandwidth Monitoring.</p>
+<p style="position:absolute;top:868px;left:68px;white-space:nowrap" class="ft03">5.&#160;If&#160;CPUID.(EAX=0FH, ECX=0):EDX reports additional&#160;resource types supporting monitoring,&#160;then execute&#160;</p>
+<p style="position:absolute;top:885px;left:93px;white-space:nowrap" class="ft07">CPUID with EAX=0FH, ECX set to&#160;a&#160;corresponding resource&#160;type&#160;ID&#160;(ResID) as&#160;enumerated&#160;by the bit position&#160;<br/>of CPUID.(EAX=0FH, ECX=0):EDX.</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft02">17.16.4&#160;&#160;Monitoring Resource&#160;Type and Capability Enumeration</p>
+<p style="position:absolute;top:982px;left:68px;white-space:nowrap" class="ft07">CPUID leaf&#160;function&#160;0FH (Shared Resource&#160;Monitoring&#160;Enumeration leaf) provides one&#160;sub-leaf (sub-function 0)&#160;<br/>that reports shared enumeration&#160;infrastructure, and one&#160;or&#160;more sub-functions that&#160;report feature-specific&#160;<br/>enumeration data:</p>
+<p style="position:absolute;top:1037px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1038px;left:93px;white-space:nowrap" class="ft07">Monitoring&#160;leaf sub-function 0&#160;enumerates&#160;available&#160;resources&#160;that&#160;support monitoring, i.e. executing CPUID&#160;<br/>with EAX=0FH&#160;and ECX=0H. In&#160;the initial&#160;implementation,&#160;L3&#160;cache is&#160;the only resource type available. Each&#160;</p>
+<p style="position:absolute;top:341px;left:236px;white-space:nowrap" class="ft05">Figure&#160;17-19. &#160;Platform&#160;Shared&#160;Resource&#160;Monitoring&#160;Usage&#160;Flow</p>
+<p style="position:absolute;top:251px;left:186px;white-space:nowrap" class="ft06">CPUID.(7,0):EBX.12</p>
+<p style="position:absolute;top:148px;left:169px;white-space:nowrap" class="ft00">On OS/VMM&#160;Initialization</p>
+<p style="position:absolute;top:264px;left:186px;white-space:nowrap" class="ft06">CPUID.(0FH,0):EDX[31:1]</p>
+<p style="position:absolute;top:182px;left:183px;white-space:nowrap" class="ft06">PQM Capability</p>
+<p style="position:absolute;top:196px;left:183px;white-space:nowrap" class="ft06">Enumeration</p>
+<p style="position:absolute;top:252px;left:373px;white-space:nowrap" class="ft06">IA32_PQR_ASSOC.RMID</p>
+<p style="position:absolute;top:148px;left:363px;white-space:nowrap" class="ft00">On Context Switch</p>
+<p style="position:absolute;top:182px;left:373px;white-space:nowrap" class="ft06">Set RMID&#160;to monitor</p>
+<p style="position:absolute;top:197px;left:373px;white-space:nowrap" class="ft06">the scheduled&#160;app</p>
+<p style="position:absolute;top:148px;left:541px;white-space:nowrap" class="ft00">Periodical Resource</p>
+<p style="position:absolute;top:257px;left:555px;white-space:nowrap" class="ft06">IA32_QM_EVTSEL</p>
+<p style="position:absolute;top:182px;left:555px;white-space:nowrap" class="ft06">Configure&#160;event type</p>
+<p style="position:absolute;top:196px;left:555px;white-space:nowrap" class="ft06">Read&#160;monitored&#160;data</p>
+<p style="position:absolute;top:277px;left:186px;white-space:nowrap" class="ft011">CPUID.(0FH,1):ECX[31:0]<br/>CPUID.(0FH,1):EDX[31:0]<br/>CPUID.(0FH,1):EBX[31:0]</p>
+<p style="position:absolute;top:219px;left:237px;white-space:nowrap" class="ft06">CPUID[</p>
+<p style="position:absolute;top:219px;left:420px;white-space:nowrap" class="ft06">WRMSR</p>
+<p style="position:absolute;top:220px;left:597px;white-space:nowrap" class="ft06">RDMSR/WRMSR</p>
+<p style="position:absolute;top:161px;left:541px;white-space:nowrap" class="ft00">Selection/Reporting</p>
+<p style="position:absolute;top:273px;left:555px;white-space:nowrap" class="ft06">IA32_QM_CTR</p>
+<p style="position:absolute;top:314px;left:186px;white-space:nowrap" class="ft06">CPUID.(0FH,0):EBX[31:0]</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 465</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page465-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce465.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;13-11</p>
+<p style="position:absolute;top:47px;left:273px;white-space:nowrap" class="ft01">SYSTEM&#160;PROGRAMMING FOR INSTRUCTION SET EXTENSIONS&#160;AND PROCESSOR EXTENDED&#160;STATES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">13.8.1&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">Intel® Advanced Vector Extensions (Intel® AVX)</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft06">Intel AVX instructions comprises of 256-bit&#160;and 128-bit instructions that&#160;operates&#160;on 256-bit YMM registers. The&#160;<br/>XSAVE feature&#160;set allows&#160;software&#160;to save and&#160;restore&#160;the state of these registers.&#160;See&#160;<a href="��">Chapter 13</a>&#160;of the&#160;<a href="��"><i>Intel®&#160;<br/>64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume&#160;1</i>.<br/></a>For&#160;processors&#160;that support&#160;YMM states, the&#160;YMM state&#160;exists in all&#160;operating modes.&#160;However,&#160;the&#160;available&#160;<br/>instruction&#160;interfaces to&#160;access YMM&#160;states may vary&#160;in different&#160;modes.&#160;<br/>Operating&#160;systems must use&#160;the XSAVE&#160;feature set&#160;for YMM state management. The&#160;XSAVE&#160;feature&#160;set&#160;also&#160;<br/>provides flexible and&#160;efficient interface&#160;to manage&#160;XMM/MXCSR states&#160;and&#160;x87&#160;FPU states&#160;in conjunction&#160;with&#160;<br/>newer processor extended&#160;states like YMM&#160;states.&#160;Operating systems may&#160;need to be aware of the following&#160;when&#160;<br/>supporting AVX.</p>
+<p style="position:absolute;top:296px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:297px;left:95px;white-space:nowrap" class="ft06">Saving/Restoring AVX&#160;state in non-compacted format&#160;without SSE state&#160;will also save/restore MXCSR even&#160;<br/>though&#160;MXCSR&#160;is not part of AVX&#160;state. This&#160;does&#160;not happen when compacted format is&#160;used.&#160;</p>
+<p style="position:absolute;top:335px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:336px;left:95px;white-space:nowrap" class="ft03">Few AVX instructions such&#160;as&#160;VZEROUPPER/VZEROALL&#160;may operate on future expansion of&#160;YMM&#160;registers.</p>
+<p style="position:absolute;top:381px;left:69px;white-space:nowrap" class="ft06">An&#160;operating system must enable&#160;its YMM state&#160;management&#160;to support AVX&#160;and any&#160;256-bit extensions&#160;that&#160;<br/>operate&#160;on YMM&#160;registers.&#160;Otherwise,&#160;an&#160;attempt to&#160;execute&#160;an&#160;instruction&#160;in&#160;AVX&#160;extensions&#160;(including&#160;an&#160;<br/>enhanced&#160;128-bit SIMD&#160;instructions using&#160;VEX&#160;encoding)&#160;will&#160;cause&#160;a #UD&#160;exception.&#160;<br/>AVX instructions may generate SIMD floating-point exceptions. An OS must&#160;enable&#160;SIMD floating-point exception&#160;<br/>support by setting CR4.OSXMMEXCPT[bit&#160;10]=1.</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft02">13.8.2&#160;</p>
+<p style="position:absolute;top:505px;left:149px;white-space:nowrap" class="ft02">Intel® Advanced Vector Extensions 512 (Intel® AVX-512)</p>
+<p style="position:absolute;top:534px;left:69px;white-space:nowrap" class="ft06">Intel AVX-512&#160;instructions are&#160;encoded using&#160;EVEX&#160;prefix.&#160;The&#160;EVEX encoding scheme&#160;can support 512-bit,&#160;256-<br/>bit&#160;and 128-bit&#160;instructions&#160;that operate on&#160;opmask, ZMM,&#160;YMM&#160;and&#160;XMM registers.<br/>For processors that&#160;support the Intel&#160;AVX-512&#160;family of&#160;instructions, the&#160;extended processor states&#160;(ZMM&#160;and&#160;<br/>opmask registers) exist in all&#160;operating&#160;modes. However,&#160;the access&#160;to these&#160;states may vary&#160;in&#160;different modes.&#160;<br/>The processor's support for instruction&#160;extensions&#160;that&#160;employ EVEX prefix encoding is&#160;independent&#160;of&#160;the&#160;<br/>processor's support&#160;for using&#160;XSAVE&#160;feature set on those&#160;states.<br/>Instructions requiring EVEX prefix&#160;encoding&#160;are&#160;generally supported&#160;in 64-bit, 32-bit&#160;modes, and&#160;16-bit protected&#160;<br/>mode.&#160;They&#160;are not&#160;supported&#160;in Real&#160;mode,&#160;Virtual-8086 mode&#160;or entering into&#160;SMM mode. Note that&#160;bits&#160;<br/>MAX_VL-1:256&#160;(511:256) of ZMM register state&#160;are&#160;maintained across&#160;transitions into and&#160;out of these modes.&#160;<br/>Because the&#160;XSAVE feature&#160;set&#160;instruction&#160;can operate&#160;in all&#160;operating modes, it&#160;is possible&#160;that the&#160;processor's&#160;<br/>ZMM register&#160;state&#160;can be&#160;modified&#160;by software&#160;in any&#160;operating mode by executing XRSTOR.<br/>Operating&#160;systems must&#160;use the XSAVE/XRSTOR/XSAVEOPT&#160;instructions for ZMM and opmask state management.&#160;<br/>An&#160;OS&#160;must enable&#160;its ZMM&#160;and opmask&#160;state&#160;management to support Intel AVX-512&#160;Foundation instructions.&#160;<br/>Otherwise, an&#160;attempt to&#160;execute&#160;an instruction in&#160;Intel&#160;AVX-512 Foundation instructions (including&#160;a scalar&#160;128-<br/>bit&#160;SIMD instructions using EVEX&#160;encoding)&#160;will&#160;cause&#160;a #UD exception. An&#160;operating system, which&#160;enables the&#160;<br/>AVX-512&#160;state&#160;to support Intel&#160;AVX-512 Foundation instructions,&#160;is&#160;also sufficient to&#160;support the&#160;rest&#160;of&#160;the&#160;Intel&#160;<br/>AVX-512 family of instructions. Note&#160;that&#160;even though&#160;ZMM8-ZMM31 are not accessible in&#160;32 bit mode,&#160;a 32 bit&#160;OS&#160;<br/>is still&#160;required&#160;to&#160;allocate&#160;memory&#160;for&#160;the&#160;entire&#160;ZMM&#160;state.<br/>Intel&#160;AVX-512&#160;Foundation instructions may generate&#160;SIMD&#160;floating-point&#160;exceptions.&#160;An OS must enable SIMD&#160;<br/>floating&#160;point&#160;exception support by&#160;setting&#160;CR4.OSXMMEXCPT[bit&#160;10]=1.</p>
+</div>
+</body>
+</html>

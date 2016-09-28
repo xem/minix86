@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 480</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page480-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481480.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:678px;white-space:nowrap" class="ft00">FLD—Load Floating&#160;Point Value</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-352&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">FLD—Load Floating Point Value</p>
+<p style="position:absolute;top:287px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:312px;left:68px;white-space:nowrap" class="ft08">Pushes&#160;the&#160;source&#160;operand onto the&#160;FPU register&#160;stack.&#160;The source&#160;operand can&#160;be&#160;in single-precision, double-<br/>precision,&#160;or double extended-precision floating-point&#160;format.&#160;If the&#160;source&#160;operand is&#160;in single-precision&#160;or&#160;<br/>double-precision&#160;floating-point format, it&#160;is&#160;automatically converted to&#160;the double&#160;extended-precision floating-<br/>point format before being&#160;pushed&#160;on&#160;the stack.<br/>The FLD instruction can also push the value in a selected&#160;FPU register [ST(i)] onto the&#160;stack. Here, pushing register&#160;<br/>ST(0) duplicates&#160;the stack&#160;top.<br/>This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.</p>
+<p style="position:absolute;top:460px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:490px;left:68px;white-space:nowrap" class="ft04">IF&#160;SRC is&#160;ST(i)</p>
+<p style="position:absolute;top:508px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:526px;left:115px;white-space:nowrap" class="ft04">temp&#160;←&#160;ST(i);</p>
+<p style="position:absolute;top:544px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:574px;left:68px;white-space:nowrap" class="ft04">TOP&#160;←&#160;TOP</p>
+<p style="position:absolute;top:571px;left:136px;white-space:nowrap" class="ft05">&#160;−</p>
+<p style="position:absolute;top:574px;left:149px;white-space:nowrap" class="ft04">&#160;1;</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft04">IF&#160;SRC is memory-operand</p>
+<p style="position:absolute;top:622px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:640px;left:115px;white-space:nowrap" class="ft04">ST(0)&#160;←&#160;ConvertToDoubleExtendedPrecisionFP(SRC);</p>
+<p style="position:absolute;top:658px;left:88px;white-space:nowrap" class="ft04">ELSE (* SRC is ST(i) *)</p>
+<p style="position:absolute;top:676px;left:115px;white-space:nowrap" class="ft04">ST(0)&#160;←&#160;temp;</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft03">FPU&#160;Flags&#160;Affected</p>
+<p style="position:absolute;top:751px;left:68px;white-space:nowrap" class="ft04">C1</p>
+<p style="position:absolute;top:751px;left:206px;white-space:nowrap" class="ft04">Set&#160;to 1&#160;if stack overflow&#160;occurred; otherwise,&#160;set&#160;to&#160;0.</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft04">C0, C2,&#160;C3&#160;</p>
+<p style="position:absolute;top:772px;left:206px;white-space:nowrap" class="ft04">Undefined.</p>
+<p style="position:absolute;top:806px;left:68px;white-space:nowrap" class="ft03">Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:829px;left:68px;white-space:nowrap" class="ft04">#IS</p>
+<p style="position:absolute;top:829px;left:206px;white-space:nowrap" class="ft04">Stack underflow or&#160;overflow&#160;occurred.</p>
+<p style="position:absolute;top:850px;left:68px;white-space:nowrap" class="ft04">#IA</p>
+<p style="position:absolute;top:850px;left:206px;white-space:nowrap" class="ft04">Source&#160;operand is an SNaN. Does not occur if&#160;the&#160;source operand is in double extended-preci-</p>
+<p style="position:absolute;top:867px;left:205px;white-space:nowrap" class="ft04">sion&#160;floating-point&#160;format&#160;(FLD m80fp or&#160;FLD&#160;ST(i)).</p>
+<p style="position:absolute;top:888px;left:68px;white-space:nowrap" class="ft04">#D</p>
+<p style="position:absolute;top:888px;left:206px;white-space:nowrap" class="ft04">Source&#160;operand is&#160;a denormal&#160;value.&#160;Does not occur if&#160;the source&#160;operand is&#160;in double&#160;</p>
+<p style="position:absolute;top:904px;left:205px;white-space:nowrap" class="ft04">extended-precision floating-point&#160;format.</p>
+<p style="position:absolute;top:128px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:128px;left:210px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:128px;left:337px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:143px;left:337px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:128px;left:398px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:143px;left:398px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:128px;left:475px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:166px;left:74px;white-space:nowrap" class="ft04">D9 /0</p>
+<p style="position:absolute;top:166px;left:210px;white-space:nowrap" class="ft04">FLD&#160;<i>m32fp</i></p>
+<p style="position:absolute;top:166px;left:337px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:398px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:475px;white-space:nowrap" class="ft04">Push&#160;<i>m32fp</i>&#160;onto the FPU register&#160;stack.</p>
+<p style="position:absolute;top:188px;left:74px;white-space:nowrap" class="ft04">DD /0</p>
+<p style="position:absolute;top:188px;left:210px;white-space:nowrap" class="ft04">FLD&#160;<i>m64fp</i></p>
+<p style="position:absolute;top:188px;left:337px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:188px;left:398px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:188px;left:475px;white-space:nowrap" class="ft04">Push&#160;<i>m64fp</i>&#160;onto the FPU register&#160;stack.</p>
+<p style="position:absolute;top:211px;left:74px;white-space:nowrap" class="ft04">DB /5</p>
+<p style="position:absolute;top:211px;left:210px;white-space:nowrap" class="ft04">FLD&#160;<i>m80fp</i></p>
+<p style="position:absolute;top:211px;left:337px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:211px;left:398px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:211px;left:475px;white-space:nowrap" class="ft04">Push&#160;<i>m80fp</i>&#160;onto the FPU register&#160;stack.</p>
+<p style="position:absolute;top:234px;left:74px;white-space:nowrap" class="ft04">D9 C0+i</p>
+<p style="position:absolute;top:234px;left:210px;white-space:nowrap" class="ft04">FLD ST(i)</p>
+<p style="position:absolute;top:234px;left:337px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:234px;left:398px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:234px;left:475px;white-space:nowrap" class="ft04">Push ST(i) onto the FPU register stack.</p>
+</div>
+</body>
+</html>

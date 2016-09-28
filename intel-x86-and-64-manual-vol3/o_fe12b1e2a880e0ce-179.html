@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 179</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page179-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce179.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;5-27</p>
+<p style="position:absolute;top:47px;left:763px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">Now assume&#160;that instead of&#160;setting the&#160;RPL of&#160;the&#160;segment&#160;selector to&#160;3,&#160;the application&#160;program&#160;sets the RPL to&#160;<br/>0 (segment&#160;selector D2).&#160;The&#160;operating system&#160;can&#160;now&#160;access data segment D,&#160;because its&#160;CPL&#160;and the&#160;RPL of&#160;<br/>segment selector D2&#160;are both&#160;equal&#160;to the&#160;DPL of&#160;data segment D.&#160;<br/>Because&#160;the&#160;application program is&#160;able&#160;to&#160;change the&#160;RPL of a&#160;segment&#160;selector&#160;to any&#160;value, it&#160;can potentially use&#160;<br/>a procedure&#160;operating at&#160;a numerically lower privilege&#160;level to&#160;access a&#160;protected&#160;data structure. This ability&#160;to&#160;<br/>lower the&#160;RPL&#160;of a segment selector&#160;breaches the&#160;processor’s protection mechanism.<br/>Because a&#160;called procedure&#160;cannot&#160;rely on the&#160;calling&#160;procedure&#160;to set the&#160;RPL correctly, operating-system proce-<br/>dures&#160;(executing&#160;at numerically lower privilege-levels)&#160;that&#160;receive segment selectors from numerically higher&#160;<br/>privilege-level&#160;procedures&#160;need to test the RPL&#160;of the&#160;segment selector to determine if it is at the&#160;appropriate&#160;level.&#160;<br/>The ARPL (adjust requested privilege level)&#160;instruction is provided&#160;for this purpose. This instruction adjusts the&#160;RPL&#160;<br/>of&#160;one segment selector to&#160;match&#160;that of another&#160;segment&#160;selector.<br/>The example&#160;<a href="o_fe12b1e2a880e0ce-178.html">in Figure&#160;5-15</a>&#160;demonstrates how&#160;the ARPL&#160;instruction&#160;is intended&#160;to be&#160;used.&#160;When the&#160;operating-<br/>system&#160;receives segment selector D2&#160;from the&#160;application program,&#160;it uses&#160;the ARPL instruction to&#160;compare the&#160;<br/>RPL&#160;of the&#160;segment&#160;selector with the&#160;privilege level of&#160;the application program&#160;(represented&#160;by the code-segment&#160;<br/>selector pushed onto&#160;the stack).&#160;If the&#160;RPL is&#160;less&#160;than&#160;application program’s&#160;privilege&#160;level,&#160;the ARPL instruction&#160;<br/>changes the RPL of the segment selector to match the&#160;privilege level of&#160;the&#160;application&#160;program&#160;(segment&#160;selector&#160;<br/>D1).&#160;Using&#160;this&#160;instruction&#160;thus&#160;prevents&#160;a&#160;procedure&#160;running&#160;at&#160;a&#160;numerically&#160;higher&#160;privilege&#160;level&#160;from&#160;<br/>accessing&#160;numerically lower privilege-level (more privileged)&#160;segments by lowering&#160;the RPL of a segment selector.<br/>Note that the privilege level of the application program can be determined by reading the RPL field&#160;of the&#160;segment&#160;<br/>selector for&#160;the application-program’s code segment.&#160;This segment selector is&#160;stored&#160;on the&#160;stack as&#160;part of&#160;the call&#160;<br/>to the operating system. The operating system&#160;can copy the&#160;segment&#160;selector&#160;from&#160;the&#160;stack&#160;into&#160;a&#160;register&#160;for&#160;<br/>use as an operand for the ARPL instruction.</p>
+<p style="position:absolute;top:527px;left:69px;white-space:nowrap" class="ft03">5.10.5 Checking&#160;</p>
+<p style="position:absolute;top:527px;left:227px;white-space:nowrap" class="ft03">Alignment</p>
+<p style="position:absolute;top:558px;left:69px;white-space:nowrap" class="ft06">When the CPL&#160;is 3,&#160;alignment of memory references&#160;can be&#160;checked by setting&#160;the AM&#160;flag&#160;in the CR0 register and&#160;<br/>the AC&#160;flag in&#160;the EFLAGS&#160;register.&#160;Unaligned memory&#160;references generate&#160;alignment&#160;exceptions (#AC).&#160;The&#160;<br/>processor&#160;does&#160;not generate&#160;alignment&#160;exceptions when operating at&#160;privilege level&#160;0,&#160;1,&#160;or 2. Se<a href="o_fe12b1e2a880e0ce-231.html">e Table&#160;6-7&#160;for a&#160;<br/></a>description of the&#160;alignment requirements&#160;when alignment&#160;checking is&#160;enabled.</p>
+<p style="position:absolute;top:663px;left:69px;white-space:nowrap" class="ft04">5.11&#160;PAGE-LEVEL&#160;</p>
+<p style="position:absolute;top:663px;left:268px;white-space:nowrap" class="ft04">PROTECTION</p>
+<p style="position:absolute;top:699px;left:69px;white-space:nowrap" class="ft07">Page-level protection&#160;can be used alone&#160;or applied&#160;to segments.&#160;When&#160;page-level&#160;protection&#160;is used with&#160;the&#160;flat&#160;<br/>memory&#160;model,&#160;it allows supervisor code&#160;and&#160;data&#160;(the&#160;operating&#160;system&#160;or&#160;executive)&#160;to&#160;be&#160;protected&#160;from user&#160;<br/>code&#160;and data (application programs).&#160;It&#160;also allows pages&#160;containing&#160;code&#160;to be&#160;write&#160;protected.&#160;When the&#160;<br/>segment-&#160;and page-level protection are combined,&#160;page-level read/write protection allows more&#160;protection&#160;granu-<br/>larity&#160;within segments.<br/>With page-level&#160;protection (as with&#160;segment-level&#160;protection)&#160;each memory reference is&#160;checked to&#160;verify that&#160;<br/>protection checks are&#160;satisfied. All checks&#160;are made before&#160;the memory cycle&#160;is started, and any violation prevents&#160;<br/>the cycle&#160;from starting&#160;and&#160;results in&#160;a page-fault exception&#160;being&#160;generated.&#160;Because&#160;checks&#160;are performed&#160;in&#160;<br/>parallel with address&#160;translation,&#160;there is&#160;no performance&#160;penalty.<br/>The processor performs&#160;two page-level&#160;protection&#160;checks:</p>
+<p style="position:absolute;top:884px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:885px;left:95px;white-space:nowrap" class="ft02">Restriction of addressable&#160;domain&#160;(supervisor and user&#160;modes).</p>
+<p style="position:absolute;top:907px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:907px;left:95px;white-space:nowrap" class="ft02">Page type (read&#160;only or&#160;read/write).</p>
+<p style="position:absolute;top:931px;left:69px;white-space:nowrap" class="ft06">Violations of either of these checks results in a&#160;page-fault&#160;exception being&#160;generated. See<a href="o_fe12b1e2a880e0ce-226.html">&#160;Chapter 6, “Interrupt&#160;<br/>14—Page-Fault Exception&#160;(#PF),” for an&#160;</a>explanation of&#160;the page-fault exception&#160;mechanism. This&#160;chapter&#160;<br/>describes&#160;the&#160;protection violations which&#160;lead&#160;to page-fault exceptions.</p>
+</div>
+</body>
+</html>

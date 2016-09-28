@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1003</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1003-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811003.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PMINSB/PMINSW—Minimum of&#160;Packed&#160;Signed&#160;Integers</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-323</p>
+<p style="position:absolute;top:100px;left:116px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC2[15:0]; FI;</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft03">(*&#160;Repeat&#160;operation for 2nd&#160;through 7th&#160;words in&#160;source&#160;and destination&#160;operands *)<br/>IF&#160;SRC1[127:112] &lt;&#160;SRC2[127:112] THEN</p>
+<p style="position:absolute;top:154px;left:116px;white-space:nowrap" class="ft02">DEST[127:112]&#160;&#160;SRC1[127:112];</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:190px;left:116px;white-space:nowrap" class="ft02">DEST[127:112]&#160;&#160;SRC2[127:112]; FI;</p>
+<p style="position:absolute;top:208px;left:69px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft02">VPMINSW (VEX.256 encoded version)</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">IF&#160;SRC1[15:0] &lt;&#160;SRC2[15:0] THEN</p>
+<p style="position:absolute;top:280px;left:116px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC1[15:0];</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:316px;left:116px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC2[15:0]; FI;</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft03">(*&#160;Repeat&#160;operation for 2nd&#160;through 15th&#160;words in&#160;source and&#160;destination operands&#160;*)<br/>IF&#160;SRC1[255:240] &lt;&#160;SRC2[255:240] THEN</p>
+<p style="position:absolute;top:370px;left:116px;white-space:nowrap" class="ft02">DEST[255:240]&#160;&#160;SRC1[255:240];</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:406px;left:116px;white-space:nowrap" class="ft02">DEST[255:240]&#160;&#160;SRC2[255:240]; FI;</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">DEST[MAX_VL-1:256]&#160;&#160;0<br/>VPMINSW (EVEX&#160;encoded&#160;versions)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:496px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:532px;left:116px;white-space:nowrap" class="ft02">IF SRC1[i+15:i] &lt;&#160;SRC2[i+15:i]&#160;</p>
+<p style="position:absolute;top:550px;left:143px;white-space:nowrap" class="ft03">THEN DEST[i+15:i]&#160;&#160;SRC1[i+15:i];<br/>ELSE DEST[i+15:i]&#160;&#160;SRC2[i+15:i];&#160;</p>
+<p style="position:absolute;top:586px;left:116px;white-space:nowrap" class="ft03">FI;<br/>ELSE&#160;</p>
+<p style="position:absolute;top:622px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:622px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:640px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:658px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:676px;left:197px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0</p>
+<p style="position:absolute;top:694px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:712px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:782px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:805px;left:69px;white-space:nowrap" class="ft03">VPMINSB __m512i _mm512_min_epi8( __m512i a, __m512i b);<br/>VPMINSB __m512i _mm512_mask_min_epi8(__m512i&#160;s, __mmask64&#160;k, __m512i a,&#160;__m512i&#160;b);<br/>VPMINSB __m512i _mm512_maskz_min_epi8(&#160;__mmask64 k, __m512i&#160;a, __m512i b);<br/>VPMINSW&#160;__m512i _mm512_min_epi16( __m512i a, __m512i b);<br/>VPMINSW&#160;__m512i _mm512_mask_min_epi16(__m512i s, __mmask32&#160;k, __m512i a, __m512i b);<br/>VPMINSW&#160;__m512i _mm512_maskz_min_epi16(&#160;__mmask32&#160;k, __m512i a, __m512i b);<br/>VPMINSB __m256i _mm256_mask_min_epi8(__m256i&#160;s, __mmask32&#160;k, __m256i a,&#160;__m256i&#160;b);<br/>VPMINSB __m256i _mm256_maskz_min_epi8(&#160;__mmask32 k, __m256i&#160;a, __m256i b);<br/>VPMINSW&#160;__m256i _mm256_mask_min_epi16(__m256i s, __mmask16&#160;k, __m256i a, __m256i b);<br/>VPMINSW&#160;__m256i _mm256_maskz_min_epi16(&#160;__mmask16&#160;k, __m256i a, __m256i b);<br/>VPMINSB __m128i _mm_mask_min_epi8(__m128i&#160;s, __mmask16&#160;k, __m128i a,&#160;__m128i&#160;b);<br/>VPMINSB&#160;__m128i _mm_maskz_min_epi8(&#160;__mmask16&#160;k, __m128i a, __m128i b);<br/>VPMINSW&#160;__m128i _mm_mask_min_epi16(__m128i&#160;s, __mmask8&#160;k, __m128i a, __m128i b);<br/>VPMINSW&#160;__m128i&#160;_mm_maskz_min_epi16( __mmask8 k, __m128i&#160;a, __m128i b);<br/>(V)PMINSB __m128i _mm_min_epi8 ( __m128i a,&#160;__m128i b);</p>
+</div>
+</body>
+</html>

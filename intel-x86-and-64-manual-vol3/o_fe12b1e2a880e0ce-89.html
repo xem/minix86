@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 89</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page89-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce089.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;3-1</p>
+<p style="position:absolute;top:96px;left:714px;white-space:nowrap" class="ft01">CHAPTER 3</p>
+<p style="position:absolute;top:120px;left:374px;white-space:nowrap" class="ft01">PROTECTED-MODE MEMORY MANAGEMENT</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft05">This chapter describes the&#160;Intel 64 and IA-32&#160;architecture’s&#160;protected-mode memory management&#160;facilities,&#160;<br/>including the&#160;physical&#160;memory requirements, segmentation&#160;mechanism, and paging mechanism.<br/>See&#160;<a href="o_fe12b1e2a880e0ce-153.html">also: Chapter&#160;5, “Protection” (for a&#160;</a>description of&#160;the&#160;processor’s protection mechanism) and&#160;<a href="o_fe12b1e2a880e0ce-977.html">Chapter 20,&#160;<br/>“8086 Emulation” (for&#160;</a>a&#160;description&#160;of memory addressing protection in real-address&#160;and virtual-8086&#160;modes).</p>
+<p style="position:absolute;top:303px;left:68px;white-space:nowrap" class="ft03">3.1 MEMORY&#160;</p>
+<p style="position:absolute;top:303px;left:237px;white-space:nowrap" class="ft03">MANAGEMENT&#160;</p>
+<p style="position:absolute;top:303px;left:378px;white-space:nowrap" class="ft03">OVERVIEW</p>
+<p style="position:absolute;top:339px;left:68px;white-space:nowrap" class="ft07">The&#160;memory&#160;management&#160;facilities of the IA-32&#160;architecture&#160;are&#160;divided into two parts: segmentation and paging.&#160;<br/>Segmentation&#160;provides&#160;a mechanism of isolating&#160;individual&#160;code, data, and stack modules&#160;so that&#160;multiple&#160;<br/>programs (or&#160;tasks)&#160;can run on&#160;the&#160;same&#160;processor&#160;without interfering with one another.&#160;Paging&#160;provides&#160;a mech-<br/>anism for&#160;implementing a&#160;conventional&#160;demand-paged,&#160;virtual-memory system where&#160;sections of&#160;a program’s&#160;<br/>execution&#160;environment are mapped&#160;into physical&#160;memory&#160;as&#160;needed.&#160;Paging&#160;can&#160;also&#160;be&#160;used&#160;to&#160;provide&#160;isolation&#160;<br/>between multiple&#160;tasks.&#160;When operating&#160;in protected&#160;mode, some&#160;form of segmentation must be used.&#160;<b>There is&#160;<br/>no mode bit to disable segmentation.&#160;</b>The&#160;use of paging, however,&#160;is&#160;optional.<br/>These two mechanisms&#160;(segmentation&#160;and paging) can&#160;be&#160;configured&#160;to support simple&#160;single-program (or single-<br/>task)&#160;systems, multitasking systems, or&#160;multiple-processor&#160;systems&#160;that used&#160;shared&#160;memory.<br/>As shown&#160;<a href="o_fe12b1e2a880e0ce-90.html">in Figure&#160;3-1, segme</a>ntation&#160;provides&#160;a mechanism for dividing the&#160;processor’s addressable&#160;memory&#160;<br/>space (called&#160;the&#160;<b>linear address space</b>) into smaller protected&#160;address spaces called&#160;<b>segments</b>. Segments&#160;can&#160;<br/>be&#160;used to&#160;hold&#160;the code,&#160;data,&#160;and stack for a program or&#160;to hold system data structures (such as a TSS or LDT).&#160;<br/>If more than&#160;one program (or&#160;task)&#160;is running on&#160;a&#160;processor,&#160;each program can&#160;be&#160;assigned its&#160;own set of&#160;<br/>segments. The processor then&#160;enforces the&#160;boundaries&#160;between these segments and&#160;insures that&#160;one program&#160;<br/>does not&#160;interfere with the&#160;execution of another&#160;program&#160;by writing into the&#160;other&#160;program’s&#160;segments. The&#160;<br/>segmentation mechanism also allows&#160;typing of segments so&#160;that the operations that may be performed on&#160;a partic-<br/>ular type of segment can&#160;be&#160;restricted.<br/>All the segments in a system&#160;are&#160;contained in the&#160;processor’s&#160;linear address&#160;space. To&#160;locate&#160;a&#160;byte in&#160;a&#160;particular&#160;<br/>segment, a&#160;<b>logical&#160;address</b>&#160;(also called&#160;a far pointer) must be provided. A logical address&#160;consists of a&#160;segment&#160;<br/>selector and&#160;an offset. The segment selector is a&#160;unique&#160;identifier for a segment.&#160;Among other things&#160;it provides an&#160;<br/>offset into&#160;a descriptor&#160;table&#160;(such&#160;as the global descriptor&#160;table, GDT) to a&#160;data&#160;structure called a&#160;segment&#160;<br/>descriptor.&#160;Each segment has a&#160;segment descriptor,&#160;which specifies the&#160;size&#160;of the segment, the&#160;access rights and&#160;<br/>privilege&#160;level for the&#160;segment, the&#160;segment&#160;type, and the&#160;location&#160;of the&#160;first&#160;byte of the segment&#160;in the&#160;linear&#160;<br/>address space&#160;(called the&#160;base&#160;address of&#160;the segment). The&#160;offset part of the logical address&#160;is added to&#160;the base&#160;<br/>address for the segment&#160;to&#160;locate&#160;a byte&#160;within the segment. The&#160;base address plus&#160;the&#160;offset thus forms a&#160;<b>linear&#160;<br/>address</b>&#160;in&#160;the processor’s&#160;linear address&#160;space.</p>
+</div>
+</body>
+</html>

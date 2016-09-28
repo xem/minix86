@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 262</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page262-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce262.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-6&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">illustrating the&#160;behavior of the memory-ordering&#160;model on&#160;IA-32 and Inte<a href="o_fe12b1e2a880e0ce-268.html">l-64 processors.&#160;Section&#160;8.2.4 considers&#160;<br/></a>the special&#160;treatment of stores&#160;for string&#160;operations&#160;<a href="o_fe12b1e2a880e0ce-271.html">and Section 8.2.5</a>&#160;discusses&#160;how memory-ordering&#160;behavior&#160;<br/>may be modified&#160;through the&#160;use of specific instructions.</p>
+<p style="position:absolute;top:184px;left:68px;white-space:nowrap" class="ft03">8.2.1&#160;</p>
+<p style="position:absolute;top:184px;left:148px;white-space:nowrap" class="ft03">Memory Ordering in the Intel</p>
+<p style="position:absolute;top:183px;left:380px;white-space:nowrap" class="ft01">®</p>
+<p style="position:absolute;top:180px;left:394px;white-space:nowrap" class="ft04">&#160;</p>
+<p style="position:absolute;top:184px;left:397px;white-space:nowrap" class="ft03">Pentium</p>
+<p style="position:absolute;top:183px;left:465px;white-space:nowrap" class="ft01">®</p>
+<p style="position:absolute;top:184px;left:478px;white-space:nowrap" class="ft03">&#160;and Intel486</p>
+<p style="position:absolute;top:183px;left:587px;white-space:nowrap" class="ft01">™</p>
+<p style="position:absolute;top:184px;left:600px;white-space:nowrap" class="ft03">&#160;Processors</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft08">The Pentium and&#160;Intel486 processors follow&#160;the&#160;processor-ordered&#160;memory model; however,&#160;they operate&#160;as&#160;<br/>strongly-ordered processors under&#160;most circumstances.&#160;Reads and&#160;writes always appear&#160;in&#160;programmed order at&#160;<br/>the system&#160;bus—except for the&#160;following&#160;situation where processor ordering is&#160;exhibited.&#160;Read misses&#160;are&#160;<br/>permitted to&#160;go&#160;ahead&#160;of buffered writes on the system bus&#160;when&#160;all&#160;the buffered&#160;writes&#160;are&#160;cache&#160;hits&#160;and,&#160;there-<br/>fore,&#160;are not&#160;directed&#160;to&#160;the same&#160;address being&#160;accessed by the&#160;read miss.&#160;<br/>In the&#160;case&#160;of&#160;I/O operations,&#160;both reads and writes always&#160;appear&#160;in programmed&#160;order.<br/>Software intended&#160;to operate&#160;correctly in&#160;processor-ordered processors (such&#160;as the&#160;Pentium&#160;4,&#160;Intel Xeon, and&#160;P6&#160;<br/>family processors) should not depend on the relatively&#160;strong ordering of the Pentium or Intel486 processors.&#160;<br/>Instead, it should ensure that&#160;accesses to shared variables that are intended to control&#160;concurrent execution&#160;<br/>among&#160;processors are explicitly&#160;required to obey program&#160;ordering through the&#160;use of appropriate locking or seri-<br/>alizing operations<a href="o_fe12b1e2a880e0ce-271.html">&#160;(see Section 8.2.5, “Strengthening&#160;or Weakening the Memory-Ordering Model”).</a></p>
+<p style="position:absolute;top:445px;left:68px;white-space:nowrap" class="ft03">8.2.2&#160;</p>
+<p style="position:absolute;top:445px;left:148px;white-space:nowrap" class="ft03">Memory Ordering in P6 and More&#160;Recent&#160;Processor Families</p>
+<p style="position:absolute;top:475px;left:68px;white-space:nowrap" class="ft08">The Intel Core 2 Duo,&#160;Intel Atom, Intel Core Duo,&#160;Pentium&#160;4,&#160;and P6 family&#160;processors also use a processor-ordered&#160;<br/>memory-ordering model that can&#160;be&#160;further&#160;defined as&#160;“write&#160;ordered with store-buffer&#160;forwarding.”&#160;This&#160;model&#160;<br/>can be characterized&#160;as follows.&#160;<br/>In a&#160;single-processor system for&#160;memory regions defined as&#160;write-back cacheable,&#160;the&#160;memory-ordering&#160;model&#160;<br/>respects&#160;the following principles&#160;(<b>Note</b>&#160;the memory-ordering&#160;principles for single-processor&#160;and multiple-<br/>processor systems&#160;are written&#160;from the&#160;perspective of&#160;software executing on&#160;the&#160;processor,&#160;where&#160;the term&#160;<br/>“processor”&#160;refers to&#160;a logical processor.&#160;For example,&#160;a physical&#160;processor supporting multiple&#160;cores&#160;and/or Intel&#160;<br/>Hyper-Threading Technology is&#160;treated as&#160;a&#160;multi-processor&#160;systems.):</p>
+<p style="position:absolute;top:620px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:621px;left:93px;white-space:nowrap" class="ft02">Reads are not reordered with&#160;other reads.</p>
+<p style="position:absolute;top:643px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:643px;left:93px;white-space:nowrap" class="ft02">Writes are not reordered&#160;with&#160;older&#160;reads.</p>
+<p style="position:absolute;top:665px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:666px;left:93px;white-space:nowrap" class="ft010">Writes to&#160;memory&#160;are not reordered with other writes,&#160;with&#160;the following exceptions:<br/>—&#160;streaming&#160;stores&#160;(writes) executed&#160;with&#160;the&#160;non-temporal move&#160;instructions (MOVNTI, MOVNTQ,&#160;</p>
+<p style="position:absolute;top:706px;left:119px;white-space:nowrap" class="ft02">MOVNTDQ,&#160;MOVNTPS,&#160;and&#160;MOVNTPD); and</p>
+<p style="position:absolute;top:730px;left:93px;white-space:nowrap" class="ft02">—&#160;string operations&#160;(see<a href="o_fe12b1e2a880e0ce-269.html">&#160;Section 8.2.4.1)</a>.</p>
+<p style="position:absolute;top:752px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:753px;left:93px;white-space:nowrap" class="ft08">No write to memory&#160;may&#160;be reordered with an&#160;execution of&#160;the CLFLUSH instruction; a write&#160;may be&#160;reordered&#160;<br/>with an execution&#160;of the&#160;CLFLUSHOPT&#160;instruction&#160;that flushes a&#160;cache line&#160;other&#160;than&#160;the one&#160;being written.</p>
+<p style="position:absolute;top:767px;left:819px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:769px;left:826px;white-space:nowrap" class="ft02">&#160;</p>
+<p style="position:absolute;top:786px;left:93px;white-space:nowrap" class="ft08">Executions of the&#160;CLFLUSH&#160;instruction&#160;are not reordered with each&#160;other.&#160;Executions of&#160;CLFLUSHOPT&#160;that&#160;<br/>access&#160;different cache lines may be reordered with each other.&#160;An&#160;execution&#160;of&#160;CLFLUSHOPT may be reordered&#160;<br/>with an execution&#160;of CLFLUSH&#160;that accesses a&#160;different cache line.</p>
+<p style="position:absolute;top:841px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:841px;left:93px;white-space:nowrap" class="ft02">Reads may be&#160;reordered with older writes to different locations&#160;but&#160;not with older&#160;writes to the same location.&#160;</p>
+<p style="position:absolute;top:863px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:864px;left:93px;white-space:nowrap" class="ft02">Reads or&#160;writes cannot be reordered&#160;with&#160;I/O instructions, locked&#160;instructions, or&#160;serializing&#160;instructions.</p>
+<p style="position:absolute;top:886px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:886px;left:93px;white-space:nowrap" class="ft02">Reads cannot pass earlier LFENCE and&#160;MFENCE&#160;instructions.</p>
+<p style="position:absolute;top:908px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:909px;left:93px;white-space:nowrap" class="ft08">Writes&#160;and executions of CLFLUSH&#160;and CLFLUSHOPT&#160;cannot pass earlier LFENCE,&#160;SFENCE, and&#160;MFENCE&#160;<br/>instructions.</p>
+<p style="position:absolute;top:947px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:948px;left:93px;white-space:nowrap" class="ft02">LFENCE instructions cannot pass earlier reads.</p>
+<p style="position:absolute;top:970px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:970px;left:93px;white-space:nowrap" class="ft02">SFENCE instructions cannot pass earlier writes&#160;or&#160;executions of CLFLUSH&#160;and&#160;CLFLUSHOPT.</p>
+<p style="position:absolute;top:992px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:993px;left:93px;white-space:nowrap" class="ft02">MFENCE instructions cannot pass earlier reads,&#160;writes, or&#160;executions of CLFLUSH&#160;and CLFLUSHOPT.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">1.&#160;Earlier versions of&#160;this manual&#160;specified that&#160;writes&#160;to&#160;memory&#160;may be&#160;reordered&#160;with&#160;executions&#160;of&#160;the&#160;CLFLUSH&#160;instruction.&#160;No&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">processors&#160;implementing&#160;the&#160;CLFLUSH instruction allow such reordering.</p>
+</div>
+</body>
+</html>

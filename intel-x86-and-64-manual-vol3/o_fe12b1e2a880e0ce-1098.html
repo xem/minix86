@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1098</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1098-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1098.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">26-6&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07">Reserved&#160;bits in&#160;the VM-entry controls must&#160;be&#160;set properly. Software may&#160;consult the&#160;VMX capability&#160;MSRs&#160;to&#160;<br/>determine the proper settings (see<a href="o_fe12b1e2a880e0ce-1947.html">&#160;Appendix A.5).</a></p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft08">Fields relevant&#160;to&#160;VM-entry&#160;event injection must be&#160;set&#160;properly.&#160;These fields&#160;are&#160;the VM-entry interruption-<br/>information fiel<a href="o_fe12b1e2a880e0ce-1066.html">d (see Table 24-13</a>&#160;<a href="o_fe12b1e2a880e0ce-1066.html">in&#160;Section&#160;24.8.3</a>),&#160;the VM-entry exception error code,&#160;and the&#160;VM-entry&#160;<br/>instruction length. If the&#160;valid bit (bit&#160;31) in the&#160;VM-entry&#160;interruption-information field is 1, the&#160;following must&#160;<br/>hold:<br/>—&#160;The field’s interruption type (bits&#160;10:8) is&#160;not set to&#160;a reserved value.&#160;Value&#160;1&#160;is reserved on&#160;all logical&#160;</p>
+<p style="position:absolute;top:229px;left:119px;white-space:nowrap" class="ft07">processors; value&#160;7&#160;(other event) is&#160;reserved on logical processors that&#160;do not support the 1-setting of&#160;the&#160;<br/>“monitor trap&#160;flag”&#160;VM-execution&#160;control.</p>
+<p style="position:absolute;top:270px;left:93px;white-space:nowrap" class="ft03">—&#160;The field’s vector (bits&#160;7:0)&#160;is consistent&#160;with&#160;the&#160;interruption&#160;type:</p>
+<p style="position:absolute;top:295px;left:119px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:294px;left:144px;white-space:nowrap" class="ft03">If the&#160;interruption type&#160;is&#160;non-maskable&#160;interrupt&#160;(NMI), the&#160;vector&#160;is 2.</p>
+<p style="position:absolute;top:319px;left:119px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:318px;left:144px;white-space:nowrap" class="ft03">If the&#160;interruption type&#160;is&#160;hardware&#160;exception,&#160;the&#160;vector is&#160;at most 31.</p>
+<p style="position:absolute;top:343px;left:119px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:342px;left:144px;white-space:nowrap" class="ft03">If the&#160;interruption type&#160;is&#160;other event,&#160;the vector&#160;is 0&#160;(pending&#160;MTF VM&#160;exit).</p>
+<p style="position:absolute;top:366px;left:93px;white-space:nowrap" class="ft03">—&#160;The&#160;field's deliver-error-code&#160;bit (bit 11) is&#160;1 if&#160;and only if (1) either (a)&#160;the &#34;unrestricted&#160;guest&#34;&#160;VM-</p>
+<p style="position:absolute;top:382px;left:119px;white-space:nowrap" class="ft07">execution control is&#160;0; or (b) bit 0 (corresponding to&#160;CR0.PE) is&#160;set in the CR0 field in the&#160;guest-state area;&#160;<br/>(2) the&#160;interruption type is&#160;hardware&#160;exception; and&#160;(3)&#160;the&#160;vector indicates an&#160;exception&#160;that would&#160;<br/>normally deliver&#160;an error&#160;code&#160;(8&#160;=&#160;#DF;&#160;10&#160;=&#160;TS; 11&#160;= #NP; 12&#160;= #SS;&#160;13&#160;=&#160;#GP;&#160;14&#160;= #PF;&#160;or&#160;17&#160;=&#160;<br/>#AC).</p>
+<p style="position:absolute;top:456px;left:93px;white-space:nowrap" class="ft09">—&#160;Reserved&#160;bits in&#160;the field (30:12)&#160;are 0.<br/>—&#160;If the&#160;deliver-error-code bit (bit&#160;11) is&#160;1,&#160;bits&#160;31:15&#160;of&#160;the VM-entry exception&#160;error-code field are&#160;0.<br/>—&#160;If the&#160;interruption&#160;type is&#160;software interrupt,&#160;software exception,&#160;or privileged software&#160;exception,&#160;the&#160;</p>
+<p style="position:absolute;top:520px;left:119px;white-space:nowrap" class="ft07">VM-entry instruction-length&#160;field&#160;is in&#160;the&#160;range 0–15.&#160;A&#160;VM-entry instruction length of 0&#160;is allowed&#160;only if&#160;<br/>IA32_VMX_MISC[30]&#160;is read as&#160;1;&#160;<a href="o_fe12b1e2a880e0ce-1947.html">see&#160;Appendix A.6</a>.</p>
+<p style="position:absolute;top:559px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:559px;left:93px;white-space:nowrap" class="ft08">The following&#160;checks&#160;are performed for the&#160;VM-entry&#160;MSR-load address&#160;if&#160;the VM-entry&#160;MSR-load count field&#160;is&#160;<br/>non-zero:<br/>—&#160;The&#160;lower&#160;4&#160;bits&#160;of&#160;the&#160;VM-entry&#160;MSR-load&#160;address&#160;must be 0. The&#160;address should not set&#160;any bits&#160;beyond&#160;</p>
+<p style="position:absolute;top:616px;left:119px;white-space:nowrap" class="ft03">the&#160;processor’s&#160;physical-address width.</p>
+<p style="position:absolute;top:614px;left:384px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:640px;left:93px;white-space:nowrap" class="ft03">—&#160;The address of the last byte in the&#160;VM-entry MSR-load area should not set any bits beyond the&#160;processor’s&#160;</p>
+<p style="position:absolute;top:657px;left:119px;white-space:nowrap" class="ft07">physical-address width.&#160;The&#160;address of this&#160;last byte&#160;is VM-entry MSR-load&#160;address&#160;+&#160;(MSR&#160;count&#160;* 16)&#160;–&#160;<br/>1. (The arithmetic&#160;used&#160;for&#160;the computation&#160;uses&#160;more bits than&#160;the&#160;processor’s physical-address&#160;width.)</p>
+<p style="position:absolute;top:696px;left:93px;white-space:nowrap" class="ft07">If IA32_VMX_BASIC[48] is read as 1,&#160;neither address&#160;should&#160;set any bits in the&#160;range 63:32; see<a href="o_fe12b1e2a880e0ce-1943.html">&#160;Appendix<br/>A.1.</a></p>
+<p style="position:absolute;top:734px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:735px;left:93px;white-space:nowrap" class="ft07">If the processor is not in SMM, the “entry to SMM” and&#160;“deactivate&#160;dual-monitor&#160;treatment”&#160;VM-entry&#160;controls&#160;<br/>must be 0.</p>
+<p style="position:absolute;top:773px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:774px;left:93px;white-space:nowrap" class="ft03">The “entry to SMM”&#160;and “deactivate dual-monitor treatment” VM-entry controls&#160;cannot&#160;both be&#160;1.</p>
+<p style="position:absolute;top:824px;left:68px;white-space:nowrap" class="ft06">26.2.2&#160;</p>
+<p style="position:absolute;top:824px;left:148px;white-space:nowrap" class="ft06">Checks on Host&#160;Control Registers and MSRs</p>
+<p style="position:absolute;top:855px;left:68px;white-space:nowrap" class="ft03">The following&#160;checks are performed on fields in&#160;the host-state&#160;area that&#160;correspond&#160;to control registers&#160;and MSRs:</p>
+<p style="position:absolute;top:877px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:877px;left:93px;white-space:nowrap" class="ft03">The CR0 field must not&#160;set any&#160;bit&#160;to a&#160;value&#160;not&#160;supported in VMX oper<a href="o_fe12b1e2a880e0ce-1045.html">ation (see Section 23.8).</a></p>
+<p style="position:absolute;top:875px;left:744px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:899px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:900px;left:93px;white-space:nowrap" class="ft03">The CR4 field must not&#160;set any&#160;bit&#160;to a&#160;value&#160;not&#160;supported in VMX oper<a href="o_fe12b1e2a880e0ce-1045.html">ation (see Section 23.8).</a></p>
+<p style="position:absolute;top:922px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:922px;left:93px;white-space:nowrap" class="ft07">On processors that&#160;support&#160;Intel 64 architecture,&#160;the CR3&#160;field must&#160;be&#160;such&#160;that bits&#160;63:52&#160;and bits in&#160;the&#160;<br/>range 51:32&#160;beyond the&#160;processor’s physical-address&#160;width must be&#160;0.</p>
+<p style="position:absolute;top:936px;left:572px;white-space:nowrap" class="ft05">3,4</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft03">1.&#160;Software&#160;can determine a&#160;processor’s&#160;physical-address&#160;width&#160;by executing&#160;CPUID with&#160;80000008H&#160;in&#160;EAX.&#160;The physical-address&#160;</p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft03">width is&#160;returned&#160;in&#160;bits&#160;7:0 of&#160;EAX.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">2.&#160;The bits corresponding&#160;to&#160;CR0.NW&#160;(bit&#160;29)&#160;and CR0.CD&#160;(bit 30)&#160;are never&#160;checked&#160;because the values&#160;of&#160;these&#160;bits are not changed&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">by&#160;VM&#160;exit; se<a href="o_fe12b1e2a880e0ce-1143.html">e Section 27.5.1</a>.</p>
+</div>
+</body>
+</html>

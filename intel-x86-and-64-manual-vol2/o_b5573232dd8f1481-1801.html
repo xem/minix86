@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1801</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1801-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811801.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPSLLVW/VPSLLVD/VPSLLVQ—Variable Bit Shift Left Logical</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-415</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">VPSLLVD (VEX.128 version)<br/>COUNT_0&#160;SRC2[31 : 0]</p>
+<p style="position:absolute;top:136px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat Each COUNT_i&#160;for the&#160;2nd through&#160;4th dwords&#160;of SRC2*)</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft03">COUNT_3&#160;SRC2[100 :&#160;96];<br/>IF&#160;COUNT_0&#160;&lt; 32&#160;THEN<br/>DEST[31:0]&#160;ZeroExtend(SRC1[31:0] &lt;&lt;&#160;COUNT_0);<br/>ELSE<br/>DEST[31:0]&#160;0;</p>
+<p style="position:absolute;top:244px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat shift operation&#160;for 2nd&#160;through 4th&#160;dwords *)</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft03">IF&#160;COUNT_3&#160;&lt; 32&#160;THEN<br/>DEST[127:96]&#160;ZeroExtend(SRC1[127:96] &lt;&lt; COUNT_3);<br/>ELSE<br/>DEST[127:96]&#160;0;<br/>DEST[MAX_VL-1:128]&#160;0;</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">VPSLLVD (VEX.256 version)<br/>COUNT_0&#160;SRC2[31 : 0];</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat Each COUNT_i&#160;for the&#160;2nd through&#160;7th dwords&#160;of SRC2*)</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">COUNT_7&#160;SRC2[228&#160;: 224];<br/>IF&#160;COUNT_0&#160;&lt; 32&#160;THEN<br/>DEST[31:0]&#160;ZeroExtend(SRC1[31:0] &lt;&lt;&#160;COUNT_0);<br/>ELSE<br/>DEST[31:0]&#160;0;</p>
+<p style="position:absolute;top:514px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat shift operation&#160;for 2nd&#160;through 7th&#160;dwords *)</p>
+<p style="position:absolute;top:532px;left:69px;white-space:nowrap" class="ft03">IF&#160;COUNT_7&#160;&lt; 32&#160;THEN<br/>DEST[255:224]&#160;ZeroExtend(SRC1[255:224] &lt;&lt; COUNT_7);<br/>ELSE<br/>DEST[255:224]&#160;0;<br/>DEST[MAX_VL-1:256]&#160;&#160;0;</p>
+<p style="position:absolute;top:640px;left:69px;white-space:nowrap" class="ft03">VPSLLVD (EVEX encoded&#160;version)&#160;<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:694px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:730px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:748px;left:170px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;ZeroExtend(SRC1[i+31:i] &lt;&lt;&#160;SRC2[31:0])<br/>ELSE DEST[i+31:i]&#160;&#160;ZeroExtend(SRC1[i+31:i]&#160;&lt;&lt; SRC2[i+31:i])</p>
+<p style="position:absolute;top:784px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:802px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:820px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:820px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:838px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:856px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:874px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:892px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:910px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1934</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:8px;line-height:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1934-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1934.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">43-2&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE CODE&#160;DEBUG&#160;AND PROFILING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">tion&#160;control. The details of&#160;this&#160;masking/unmasking&#160;and&#160;the&#160;pending of&#160;single&#160;stepping&#160;events across&#160;<br/>EENTER/ERESUME/EEXIT/AEX are&#160;covered&#160;in&#160;de<a href="o_fe12b1e2a880e0ce-1934.html">tail in Section 43.2.3.<br/></a>If the&#160;EFLAGS.TF&#160;bit&#160;is set at the beginning of EREPORT&#160;or&#160;EGETKEY leafs, and&#160;if the&#160;EFLAGS.TF is&#160;not masked by&#160;<br/>the preceding&#160;enclave entry,&#160;then&#160;a single-step&#160;debug&#160;exception is&#160;pending on&#160;the&#160;instruction&#160;boundary immedi-<br/>ately&#160;after the&#160;ENCLU&#160;instruction. Additionally, if the&#160;instruction is&#160;executed in&#160;VMX non-root operation and the&#160;<br/>“monitor trap flag”&#160;VM-execution&#160;control is&#160;1, and&#160;if the&#160;monitor&#160;trap&#160;flag&#160;is&#160;not masked&#160;by the&#160;preceding&#160;enclave&#160;<br/>entry,&#160;then an MTF VM&#160;exit is&#160;pending on the&#160;instruction&#160;boundary immediately&#160;after the&#160;instruction.<br/>If the&#160;instruction&#160;under consideration results in a&#160;fault,&#160;then&#160;the control&#160;flow goes to&#160;the fault handler,&#160;and no&#160;<br/>single-step&#160;debug exception is&#160;asserted.&#160;In such a&#160;situation, if the&#160;instruction is&#160;executed&#160;in VMX non-root&#160;opera-<br/>tion and the “monitor trap flag”&#160;VM-execution&#160;control is&#160;1,&#160;an MTF VM exit is pending&#160;after the delivery of the fault&#160;<br/>(or any nested exception). No MTF VM exit occurs&#160;if another VM exit occurs before&#160;reaching that boundary on&#160;which&#160;<br/>an MTF VM&#160;exit&#160;would&#160;be&#160;pending.</p>
+<p style="position:absolute;top:344px;left:68px;white-space:nowrap" class="ft03">43.2.3&#160;</p>
+<p style="position:absolute;top:344px;left:148px;white-space:nowrap" class="ft03">Single-Stepping Enclave Entry with Opt-out Entry</p>
+<p style="position:absolute;top:395px;left:68px;white-space:nowrap" class="ft04">43.2.3.1 &#160;&#160;Single&#160;Stepping without&#160;AEX</p>
+<p style="position:absolute;top:422px;left:68px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1934.html">Figure&#160;43-1&#160;</a>shows&#160;the most&#160;common case for single-stepping after&#160;an opt-out&#160;entry.</p>
+<p style="position:absolute;top:791px;left:68px;white-space:nowrap" class="ft07">In this&#160;scenario,&#160;if&#160;the RFLAGS.TF&#160;bit&#160;is set at&#160;the time&#160;of&#160;the enclave entry,&#160;then&#160;a single&#160;step&#160;debug&#160;exception is&#160;<br/>pending on&#160;the instruction boundary after&#160;EEXIT. Additionally, if&#160;the enclave is&#160;executing in VMX&#160;non-root&#160;operation&#160;<br/>and the&#160;“monitor trap&#160;flag” VM-execution control is&#160;1, an&#160;MTF VM exit is&#160;pending on the instruction boundary after&#160;<br/>EEXIT.<br/>The value of the RFLAGS.TF bit&#160;at the end&#160;of EEXIT is the same as the value of RFLAGS.TF at the time of&#160;the enclave&#160;<br/>entry.</p>
+<p style="position:absolute;top:924px;left:68px;white-space:nowrap" class="ft04">43.2.3.2 &#160;&#160;Single&#160;Step Preempted by&#160;AEX Due to&#160;Non-SMI Event</p>
+<p style="position:absolute;top:951px;left:68px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1935.html">Figure&#160;43-2&#160;</a>shows&#160;the interaction of single stepping&#160;with AEX due to&#160;a non-SMI&#160;event&#160;after an opt-out&#160;entry.</p>
+<p style="position:absolute;top:738px;left:259px;white-space:nowrap" class="ft05">Figure&#160;43-1. &#160;Single Stepping&#160;with&#160;Opt-out&#160;Entry - No AEX</p>
+<p style="position:absolute;top:630px;left:604px;white-space:nowrap" class="ft06">SMI</p>
+<p style="position:absolute;top:504px;left:131px;white-space:nowrap" class="ft02">EENTER</p>
+<p style="position:absolute;top:532px;left:247px;white-space:nowrap" class="ft02">Inst1</p>
+<p style="position:absolute;top:655px;left:137px;white-space:nowrap" class="ft06">RFLAGS.TF</p>
+<p style="position:absolute;top:704px;left:135px;white-space:nowrap" class="ft06">VMCS.MTF</p>
+<p style="position:absolute;top:519px;left:131px;white-space:nowrap" class="ft02">ERESUME</p>
+<p style="position:absolute;top:532px;left:347px;white-space:nowrap" class="ft02">Inst2</p>
+<p style="position:absolute;top:532px;left:446px;white-space:nowrap" class="ft02">Inst3</p>
+<p style="position:absolute;top:532px;left:546px;white-space:nowrap" class="ft02">EEXIT</p>
+<p style="position:absolute;top:532px;left:724px;white-space:nowrap" class="ft02">Inst4</p>
+<p style="position:absolute;top:578px;left:718px;white-space:nowrap" class="ft06">TF/MTF</p>
+<p style="position:absolute;top:594px;left:718px;white-space:nowrap" class="ft06">Handler</p>
+<p style="position:absolute;top:687px;left:718px;white-space:nowrap" class="ft06">Higher Priority</p>
+<p style="position:absolute;top:703px;left:718px;white-space:nowrap" class="ft06">Handler</p>
+<p style="position:absolute;top:642px;left:604px;white-space:nowrap" class="ft09">INIT<br/>#MC</p>
+<p style="position:absolute;top:653px;left:303px;white-space:nowrap" class="ft06">Single-Step #DB&#160;Pending</p>
+<p style="position:absolute;top:701px;left:301px;white-space:nowrap" class="ft06">MTF&#160;VM&#160;Exit&#160;Pending</p>
+</div>
+</body>
+</html>

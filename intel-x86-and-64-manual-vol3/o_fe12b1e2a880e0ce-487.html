@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 487</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page487-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce487.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;14-21</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">POWER AND THERMAL MANAGEMENT</p>
+<p style="position:absolute;top:340px;left:69px;white-space:nowrap" class="ft08">On&#160;processors&#160;introduced&#160;after the&#160;Pentium 4&#160;processor&#160;(this includes&#160;most Pentium M&#160;processors), the&#160;method&#160;<br/>used to enable&#160;TM2 is different.&#160;TM2&#160;is&#160;enable by setting&#160;bit 13&#160;of IA32_MISC_ENABLE register to 1.&#160;This&#160;applies&#160;to&#160;<br/>Intel&#160;Core Duo,&#160;Core Solo, and Intel&#160;Core&#160;2&#160;processor&#160;family.<br/>The target operating&#160;frequency and&#160;voltage for the&#160;TM2 transition after&#160;TM2&#160;is triggered is&#160;specified by&#160;the&#160;value&#160;<br/>written&#160;to&#160;MSR_THERM2_CTL, bits&#160;<a href="o_fe12b1e2a880e0ce-487.html">15:0 (Figure&#160;14-22).&#160;</a>Following&#160;a&#160;power-up&#160;or&#160;reset,&#160;BIOS&#160;is&#160;required&#160;to&#160;enable&#160;<br/>at least one of these&#160;two thermal monitoring mechanisms. If both TM1 and TM2 are supported, BIOS may&#160;choose&#160;<br/>to enable TM2&#160;instead&#160;of&#160;TM1.&#160;Operating&#160;systems and&#160;applications must not disable&#160;the&#160;mechanisms&#160;that enable&#160;<br/>TM1or&#160;TM2; and&#160;they must not alter the&#160;value in&#160;bits 15:0&#160;of&#160;the MSR_THERM2_CTL&#160;register.</p>
+<p style="position:absolute;top:687px;left:69px;white-space:nowrap" class="ft03">14.7.2.4 &#160;&#160;Performance State&#160;Transitions and Thermal Monitoring</p>
+<p style="position:absolute;top:716px;left:69px;white-space:nowrap" class="ft08">If the&#160;thermal&#160;control circuitry (TCC) for thermal&#160;monitor (TM1/TM2)&#160;is active,&#160;writes&#160;to&#160;the&#160;IA32_PERF_CTL&#160;will&#160;<br/>effect a&#160;new&#160;target&#160;operating point as&#160;follows:</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:755px;left:95px;white-space:nowrap" class="ft08">If&#160;TM1 is&#160;enabled and&#160;the TCC is&#160;engaged,&#160;the&#160;performance state transition&#160;can commence before the&#160;TCC&#160;is&#160;<br/>disengaged.&#160;</p>
+<p style="position:absolute;top:793px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:794px;left:95px;white-space:nowrap" class="ft08">If&#160;TM2 is&#160;enabled and&#160;the TCC is&#160;engaged,&#160;the&#160;performance state transition&#160;specified by a&#160;write to&#160;the&#160;<br/>IA32_PERF_CTL will commence&#160;after&#160;the&#160;TCC has disengaged.&#160;</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft03">14.7.2.5 &#160;&#160;Thermal Status&#160;Information</p>
+<p style="position:absolute;top:883px;left:69px;white-space:nowrap" class="ft09">The&#160;status of the&#160;temperature sensor&#160;that triggers&#160;the thermal monitor (TM1/TM2) is&#160;indicated through&#160;the&#160;<br/>thermal status&#160;flag and&#160;thermal status&#160;log flag&#160;in&#160;the IA32_THERM_STATUS MSR (see<a href="o_fe12b1e2a880e0ce-488.html">&#160;Figure&#160;14-23).</a>&#160;<br/>The&#160;functions of these flags&#160;are:</p>
+<p style="position:absolute;top:945px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:946px;left:95px;white-space:nowrap" class="ft08"><b>Thermal&#160;Status&#160;flag, bit&#160;0&#160;</b>— When&#160;set,&#160;indicates that the processor core&#160;temperature&#160;is currently at&#160;the trip&#160;<br/>temperature of the thermal monitor&#160;and that the processor power consumption is being reduced via either TM1&#160;<br/>or TM2, depending on which is&#160;enabled.&#160;When clear,&#160;the&#160;flag indicates that&#160;the core&#160;temperature is&#160;below the&#160;<br/>thermal monitor trip temperature. This&#160;flag is&#160;read only.&#160;</p>
+<p style="position:absolute;top:1017px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1018px;left:95px;white-space:nowrap" class="ft08"><b>Thermal&#160;Status Log&#160;flag, bit 1&#160;</b>— When&#160;set, indicates that the thermal sensor&#160;has tripped since&#160;the last&#160;<br/>power-up&#160;or&#160;reset&#160;or since&#160;the last&#160;time that&#160;software&#160;cleared&#160;this&#160;flag. This&#160;flag is&#160;a sticky bit; once&#160;set&#160;it&#160;<br/>remains set&#160;until cleared by&#160;software or&#160;until&#160;a power-up or&#160;reset&#160;of&#160;the processor.&#160;The default state&#160;is clear.</p>
+<p style="position:absolute;top:267px;left:76px;white-space:nowrap" class="ft06">Figure&#160;14-21.&#160;&#160;MSR_THERM2_CTL Register On&#160;Processors&#160;with CPUID Family/Model/Stepping&#160;Signature Encoded&#160;</p>
+<p style="position:absolute;top:285px;left:388px;white-space:nowrap" class="ft06">as 0x69n&#160;or&#160;0x6Dn</p>
+<p style="position:absolute;top:634px;left:242px;white-space:nowrap" class="ft06">Figure&#160;14-22. &#160;MSR_THERM2_CTL&#160;Register for Supporting&#160;TM2</p>
+<p style="position:absolute;top:235px;left:299px;white-space:nowrap" class="ft00">TM_SELECT</p>
+<p style="position:absolute;top:193px;left:527px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:174px;left:234px;white-space:nowrap" class="ft00">31</p>
+<p style="position:absolute;top:173px;left:655px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:195px;left:310px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:174px;left:436px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:533px;left:252px;white-space:nowrap" class="ft07">63</p>
+<p style="position:absolute;top:533px;left:651px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:555px;left:335px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:531px;left:501px;white-space:nowrap" class="ft07">15</p>
+<p style="position:absolute;top:604px;left:429px;white-space:nowrap" class="ft00">TM2 Transition Target&#160;</p>
+</div>
+</body>
+</html>

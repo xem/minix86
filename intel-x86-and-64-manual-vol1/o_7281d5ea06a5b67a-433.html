@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 433</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page433-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a433.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 1&#160;D-11</p>
+<p style="position:absolute;top:47px;left:500px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87&#160;FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">not cause&#160;numeric&#160;exceptions after&#160;it has&#160;been tested and&#160;debugged,&#160;but&#160;in a&#160;different system&#160;or numeric environ-<br/>ment, exceptions&#160;may occur&#160;regularly nonetheless.&#160;An obvious example would be use of&#160;the&#160;program&#160;with&#160;some&#160;<br/>numbers beyond&#160;the range&#160;for which&#160;it&#160;was designed&#160;and&#160;<a href="o_7281d5ea06a5b67a-433.html">tested. Example D-1 and Example D-2 in Section D.3.3.2,&#160;<br/>“Exception Synchronization&#160;Examples,”</a><b>&#160;</b>show&#160;a subtle way in&#160;which unexpected&#160;exceptions&#160;can occur.<br/>As described<a href="o_7281d5ea06a5b67a-430.html">&#160;in Section D.3.1,&#160;“Floating-Point Exceptions&#160;and Their&#160;Defaults,”&#160;de</a>pending&#160;on options determined by&#160;<br/>the software&#160;system designer,&#160;the processor can&#160;perform&#160;one of two possible&#160;courses of action&#160;when&#160;a numeric&#160;<br/>exception occurs.</p>
+<p style="position:absolute;top:229px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:229px;left:95px;white-space:nowrap" class="ft06">The&#160;x87&#160;FPU can&#160;provide a&#160;default&#160;fix-up&#160;for selected&#160;numeric exceptions.&#160;If the&#160;x87&#160;FPU performs&#160;its default&#160;<br/>action for&#160;all exceptions,&#160;then the&#160;need&#160;for exception&#160;synchronization&#160;is not manifest. However,&#160;code&#160;is often&#160;<br/>ported&#160;to contexts&#160;and operating&#160;systems for which&#160;it&#160;was&#160;not originally&#160;designed.<a href="o_7281d5ea06a5b67a-433.html">&#160;Example D-1 and Example&#160;<br/>D-2, bel</a>ow,&#160;illustrate that&#160;it is&#160;safest to&#160;always&#160;consider&#160;exception synchronization when designing&#160;code&#160;that&#160;<br/>uses&#160;the x87&#160;FPU.</p>
+<p style="position:absolute;top:317px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:318px;left:95px;white-space:nowrap" class="ft06">Alternatively,&#160;a software&#160;exception handler can be invoked to handle the&#160;exception. When a numeric exception&#160;<br/>is&#160;unmasked&#160;and the&#160;exception&#160;occurs,&#160;the x87&#160;FPU&#160;stops further execution of the&#160;numeric&#160;instruction&#160;and&#160;<br/>causes&#160;a branch to&#160;a software&#160;exception handler.&#160;When&#160;an x87&#160;FPU&#160;exception handler will be invoked,&#160;synchro-<br/>nization&#160;must always be&#160;considered&#160;to assure&#160;reliable&#160;performance.</p>
+<p style="position:absolute;top:391px;left:69px;white-space:nowrap" class="ft06"><a href="o_7281d5ea06a5b67a-433.html">Example&#160;D-1&#160;and Example&#160;D-2, bel</a>ow,&#160;illustrate the&#160;need&#160;to always consider&#160;exception synchronization&#160;when&#160;<br/>writing numeric code,&#160;even&#160;when&#160;the code is&#160;initially intended&#160;for&#160;execution with exceptions masked.</p>
+<p style="position:absolute;top:452px;left:69px;white-space:nowrap" class="ft05">D.3.3.2&#160;&#160;</p>
+<p style="position:absolute;top:452px;left:153px;white-space:nowrap" class="ft05">Exception Synchronization Examples</p>
+<p style="position:absolute;top:481px;left:69px;white-space:nowrap" class="ft06">In the&#160;following examples,&#160;three instructions are shown to load an integer,&#160;calculate its square root,&#160;then&#160;increment&#160;<br/>the integer.&#160;The synchronous execution of the&#160;x87&#160;FPU will&#160;allow both&#160;of&#160;these&#160;programs to execute correctly, with&#160;<br/>INC&#160;COUNT&#160;being executed&#160;in&#160;parallel in&#160;the&#160;processor,&#160;as&#160;long as&#160;no exceptions&#160;occur&#160;on the&#160;FILD instruction.&#160;<br/>However,&#160;if&#160;the&#160;code&#160;is&#160;later moved to&#160;an environment&#160;where&#160;exceptions are&#160;unmasked,&#160;the&#160;code&#160;<a href="o_7281d5ea06a5b67a-433.html">in Example D-1&#160;<br/></a>will not&#160;work correctly:</p>
+<p style="position:absolute;top:588px;left:69px;white-space:nowrap" class="ft01">Example&#160;D-1.&#160;&#160;Incorrect Error Synchronization</p>
+<p style="position:absolute;top:618px;left:69px;white-space:nowrap" class="ft02">FILD</p>
+<p style="position:absolute;top:618px;left:116px;white-space:nowrap" class="ft02">COUNT</p>
+<p style="position:absolute;top:618px;left:197px;white-space:nowrap" class="ft02">;x87&#160;FPU&#160;instruction</p>
+<p style="position:absolute;top:636px;left:69px;white-space:nowrap" class="ft02">INC</p>
+<p style="position:absolute;top:636px;left:116px;white-space:nowrap" class="ft02">COUNT</p>
+<p style="position:absolute;top:636px;left:197px;white-space:nowrap" class="ft02">;integer&#160;instruction&#160;alters operand</p>
+<p style="position:absolute;top:654px;left:69px;white-space:nowrap" class="ft02">FSQRT</p>
+<p style="position:absolute;top:654px;left:197px;white-space:nowrap" class="ft08">;subsequent x87&#160;FPU instruction -- error&#160;<br/>;from previous x87&#160;FPU instruction detected&#160;here</p>
+<p style="position:absolute;top:713px;left:69px;white-space:nowrap" class="ft01">Example D-2. &#160;Proper&#160;Error Synchronization</p>
+<p style="position:absolute;top:737px;left:69px;white-space:nowrap" class="ft02">FILD</p>
+<p style="position:absolute;top:737px;left:116px;white-space:nowrap" class="ft02">COUNT&#160;</p>
+<p style="position:absolute;top:737px;left:197px;white-space:nowrap" class="ft02">;x87&#160;FPU&#160;instruction</p>
+<p style="position:absolute;top:755px;left:69px;white-space:nowrap" class="ft02">FSQRT</p>
+<p style="position:absolute;top:755px;left:197px;white-space:nowrap" class="ft08">;subsequent x87&#160;FPU instruction -- error&#160;from&#160;<br/>;previous x87 FPU&#160;instruction&#160;detected&#160;here</p>
+<p style="position:absolute;top:791px;left:69px;white-space:nowrap" class="ft02">INC</p>
+<p style="position:absolute;top:791px;left:116px;white-space:nowrap" class="ft02">COUNT</p>
+<p style="position:absolute;top:791px;left:197px;white-space:nowrap" class="ft02">;integer&#160;instruction&#160;alters operand</p>
+<p style="position:absolute;top:832px;left:69px;white-space:nowrap" class="ft06">In&#160;some operating systems supporting the x87 FPU,&#160;the&#160;numeric register stack is extended&#160;to&#160;memory. To&#160;extend&#160;<br/>the x87&#160;FPU&#160;stack&#160;to memory,&#160;the invalid exception&#160;is unmasked.&#160;A&#160;push&#160;to a&#160;full&#160;register&#160;or pop from an&#160;empty&#160;<br/>register&#160;sets SF (Stack&#160;Fault&#160;flag) and causes&#160;an invalid&#160;operation exception.&#160;The recovery routine for the exception&#160;<br/>must recognize this&#160;situation, fix up&#160;the&#160;stack, then&#160;perform&#160;the&#160;original&#160;operation. The&#160;recovery routine will&#160;not&#160;<br/>work correctly in<a href="o_7281d5ea06a5b67a-433.html">&#160;Example D-1. The prob</a>lem is that the&#160;value of COUNT increments before&#160;the exception handler is&#160;<br/>invoked,&#160;so that the recovery&#160;routine will load an incorrect&#160;value of COUNT,&#160;causing the&#160;program&#160;to fail or&#160;behave&#160;<br/>unreliably.</p>
+<p style="position:absolute;top:975px;left:69px;white-space:nowrap" class="ft05">D.3.3.3&#160;&#160;</p>
+<p style="position:absolute;top:975px;left:153px;white-space:nowrap" class="ft05">Proper Exception Synchronization</p>
+<p style="position:absolute;top:1003px;left:69px;white-space:nowrap" class="ft06">As&#160;<a href="o_7281d5ea06a5b67a-426.html">explained in Section D.2.1.2,&#160;“Recommended External Hardware&#160;to Support the&#160;MS-DOS* Compatibility&#160;Sub-<br/>mode,”</a>&#160;if the&#160;x87 FPU&#160;encounters an unmasked&#160;exception condition a&#160;software exception handler&#160;is invoked&#160;<b>before</b>&#160;<br/>execution of the&#160;<b>next&#160;</b>WAIT or&#160;floating-point&#160;instruction.&#160;This is&#160;because an&#160;unmasked floating-point exception&#160;<br/>causes the&#160;processor to freeze&#160;immediately&#160;before&#160;executing&#160;such an instruction (unless&#160;the IGNNE# input&#160;is&#160;</p>
+</div>
+</body>
+</html>

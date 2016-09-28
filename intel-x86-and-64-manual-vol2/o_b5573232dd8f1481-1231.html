@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1231</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1231-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811231.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">REP/REPE/REPZ/REPNE/REPNZ—Repeat String&#160;Operation Prefix</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-551</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">The REPE,&#160;REPNE, REPZ,&#160;and REPNZ prefixes also check the state of the ZF flag after each iteration and terminate&#160;<br/>the repeat&#160;loop if&#160;the&#160;ZF flag is&#160;not&#160;in the&#160;specified state.&#160;When&#160;both termination conditions&#160;are&#160;tested, the cause&#160;<br/>of a&#160;repeat termination&#160;can&#160;be&#160;determined either by testing the&#160;count register with a&#160;JECXZ&#160;instruction&#160;or by&#160;<br/>testing&#160;the ZF&#160;flag (with a&#160;JZ, JNZ, or JNE&#160;instruction).<br/>When the REPE/REPZ and&#160;REPNE/REPNZ prefixes are&#160;used,&#160;the&#160;ZF flag does&#160;not require initialization&#160;because both&#160;<br/>the CMPS and SCAS&#160;instructions&#160;affect the&#160;ZF&#160;flag according to&#160;the results of the&#160;comparisons they make.<br/>A&#160;repeating string&#160;operation can be suspended by an&#160;exception&#160;or interrupt.&#160;When this happens, the&#160;state of&#160;the&#160;<br/>registers is&#160;preserved to allow the&#160;string&#160;operation&#160;to be&#160;resumed upon a&#160;return from the&#160;exception or interrupt&#160;<br/>handler.&#160;The source&#160;and&#160;destination&#160;registers point&#160;to the next string elements to&#160;be&#160;operated&#160;on,&#160;the&#160;EIP register&#160;<br/>points to&#160;the string instruction,&#160;and the&#160;ECX register has&#160;the value&#160;it held following the&#160;last successful&#160;iteration of&#160;<br/>the&#160;instruction. This mechanism allows&#160;long&#160;string&#160;operations to proceed without&#160;affecting the&#160;interrupt response&#160;<br/>time of the system.<br/>When&#160;a fault occurs&#160;during the execution&#160;of&#160;a CMPS or&#160;SCAS instruction that&#160;is prefixed&#160;with&#160;REPE or REPNE, the&#160;<br/>EFLAGS&#160;value&#160;is restored&#160;to the&#160;state prior to the&#160;execution of the&#160;instruction. Since&#160;the SCAS&#160;and CMPS instruc-<br/>tions do&#160;not use&#160;EFLAGS as&#160;an input, the&#160;processor&#160;can resume&#160;the instruction after&#160;the page&#160;fault&#160;handler.<br/>Use&#160;the&#160;REP INS and REP&#160;OUTS&#160;instructions with caution. Not all I/O ports can&#160;handle the&#160;rate&#160;at which these&#160;<br/>instructions execute.&#160;Note&#160;that a&#160;REP STOS instruction&#160;is the&#160;fastest way to&#160;initialize&#160;a&#160;large&#160;block of memory.<br/>In 64-bit mode, the operand size of the count register is associated with the address&#160;size&#160;attribute. Thus the default&#160;<br/>count&#160;register is&#160;RCX;&#160;REX.W&#160;has no&#160;effect on the&#160;address&#160;size and the&#160;count&#160;register. In&#160;64-bit mode, if&#160;67H is&#160;<br/>used to&#160;override address&#160;size attribute,&#160;the count register&#160;is ECX&#160;and any&#160;implicit source/destination operand&#160;will&#160;<br/>use the&#160;corresponding&#160;32-bit&#160;index register.&#160;See the&#160;summary chart&#160;at the&#160;beginning of this&#160;section for encoding&#160;<br/>data and&#160;limits.</p>
+<p style="position:absolute;top:521px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:547px;left:69px;white-space:nowrap" class="ft02">IF&#160;AddressSize&#160;</p>
+<p style="position:absolute;top:547px;left:156px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:547px;left:164px;white-space:nowrap" class="ft02">&#160;16</p>
+<p style="position:absolute;top:565px;left:69px;white-space:nowrap" class="ft08">&#160; &#160; THEN<br/>&#160; &#160; &#160; &#160; Use CX for CountReg;<br/>&#160; &#160; &#160; &#160; Implicit Source/Dest operand&#160;for memory&#160;use&#160;of SI/DI;<br/>&#160; &#160; ELSE IF AddressSize = 64<br/>&#160; &#160; &#160; &#160; THEN Use RCX for CountReg;&#160;<br/>&#160; &#160; &#160; &#160; Implicit Source/Dest&#160;operand&#160;for memory&#160;use&#160;of RSI/RDI;<br/>&#160; &#160; ELSE<br/>&#160; &#160; &#160; &#160; Use ECX for CountReg;<br/>&#160; &#160; &#160; &#160; Implicit Source/Dest&#160;operand for&#160;memory&#160;use of&#160;ESI/EDI;<br/>FI;<br/>WHILE&#160;CountReg&#160;</p>
+<p style="position:absolute;top:745px;left:168px;white-space:nowrap" class="ft04">≠</p>
+<p style="position:absolute;top:745px;left:176px;white-space:nowrap" class="ft02">&#160;0</p>
+<p style="position:absolute;top:763px;left:89px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:781px;left:116px;white-space:nowrap" class="ft08">Service&#160;pending interrupts (if any);<br/>Execute associated&#160;string&#160;instruction;<br/>CountReg&#160;←&#160;(CountReg&#160;– 1);</p>
+<p style="position:absolute;top:835px;left:116px;white-space:nowrap" class="ft02">IF CountReg&#160;</p>
+<p style="position:absolute;top:835px;left:189px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:835px;left:201px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:853px;left:143px;white-space:nowrap" class="ft02">THEN exit WHILE loop; FI;</p>
+<p style="position:absolute;top:871px;left:116px;white-space:nowrap" class="ft02">IF&#160;(Repeat&#160;prefix is&#160;REPZ&#160;or&#160;REPE) and (ZF</p>
+<p style="position:absolute;top:870px;left:357px;white-space:nowrap" class="ft04">&#160;=</p>
+<p style="position:absolute;top:872px;left:369px;white-space:nowrap" class="ft02">&#160;0)</p>
+<p style="position:absolute;top:889px;left:116px;white-space:nowrap" class="ft02">or&#160;(Repeat prefix&#160;is&#160;REPNZ or&#160;REPNE) and&#160;(ZF&#160;</p>
+<p style="position:absolute;top:889px;left:380px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:890px;left:388px;white-space:nowrap" class="ft02">&#160;1)</p>
+<p style="position:absolute;top:907px;left:143px;white-space:nowrap" class="ft02">THEN exit WHILE loop; FI;</p>
+<p style="position:absolute;top:924px;left:89px;white-space:nowrap" class="ft02">OD;</p>
+<p style="position:absolute;top:961px;left:69px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:987px;left:69px;white-space:nowrap" class="ft02">None; however,&#160;the&#160;CMPS&#160;and SCAS instructions do&#160;set the&#160;status flags&#160;in the&#160;EFLAGS register.</p>
+<p style="position:absolute;top:1024px;left:69px;white-space:nowrap" class="ft03">Exceptions (All Operating&#160;Modes)</p>
+<p style="position:absolute;top:1050px;left:69px;white-space:nowrap" class="ft02">Exceptions&#160;may be&#160;generated by&#160;an&#160;instruction&#160;associated with the&#160;prefix.</p>
+</div>
+</body>
+</html>

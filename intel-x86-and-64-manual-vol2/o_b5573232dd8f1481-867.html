@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 867</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:10px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page867-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481867.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PACKSSWB/PACKSSDW—Pack with Signed&#160;Saturation</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-187</p>
+<p style="position:absolute;top:356px;left:354px;white-space:nowrap" class="ft02">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:515px;left:69px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:541px;left:69px;white-space:nowrap" class="ft06">Converts packed&#160;signed word integers&#160;into&#160;packed signed&#160;byte&#160;integers&#160;(PACKSSWB) or converts&#160;packed signed&#160;<br/>doubleword integers into&#160;packed signed&#160;word&#160;integers&#160;(PACKSSDW), using&#160;saturation to&#160;handle overflow&#160;condi-<br/>tions.&#160;See<a href="o_b5573232dd8f1481-867.html">&#160;Figure&#160;4-6 for an&#160;</a>example&#160;of&#160;the packing&#160;operation.</p>
+<p style="position:absolute;top:801px;left:69px;white-space:nowrap" class="ft06">PACKSSWB converts&#160;packed&#160;signed&#160;word&#160;integers in&#160;the&#160;first and second source&#160;operands into&#160;packed&#160;signed&#160;byte&#160;<br/>integers&#160;using signed saturation&#160;to handle&#160;overflow conditions beyond&#160;the range of signed byte&#160;integers. If&#160;the&#160;<br/>signed doubleword value is&#160;beyond the&#160;range of an unsigned&#160;word (i.e.&#160;greater than&#160;7FH&#160;or less&#160;than 80H), the&#160;<br/>saturated signed byte&#160;integer value of&#160;7FH&#160;or 80H,&#160;respectively,&#160;is stored&#160;in&#160;the&#160;destination. PACKSSDW&#160;converts&#160;<br/>packed&#160;signed&#160;doubleword integers in&#160;the&#160;first and second&#160;source&#160;operands&#160;into packed signed&#160;word&#160;integers using&#160;<br/>signed&#160;saturation to&#160;handle overflow conditions&#160;beyond 7FFFH&#160;and&#160;8000H.<br/>EVEX encoded PACKSSWB: The first source operand is a&#160;ZMM/YMM/XMM register. The second source operand is a&#160;<br/>ZMM/YMM/XMM register&#160;or a 512/256/128-bit&#160;memory&#160;location. The destination operand is&#160;a&#160;ZMM/YMM/XMM&#160;<br/>register, updated conditional under the&#160;writemask&#160;k1.<br/>EVEX&#160;encoded PACKSSDW: The&#160;first&#160;source&#160;operand&#160;is&#160;a&#160;ZMM/YMM/XMM register. The second source&#160;operand is a&#160;<br/>ZMM/YMM/XMM register,&#160;a 512/256/128-bit memory&#160;location,&#160;or&#160;a 512/256/128-bit vector&#160;broadcasted&#160;from a 32-<br/>bit&#160;memory location. The&#160;destination&#160;operand is&#160;a&#160;ZMM/YMM/XMM&#160;register, updated&#160;conditional&#160;under the&#160;<br/>writemask&#160;k1.</p>
+<p style="position:absolute;top:105px;left:72px;white-space:nowrap" class="ft03">EVEX.NDS.256.66.0F.W0 6B&#160;/r</p>
+<p style="position:absolute;top:105px;left:375px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:105px;left:412px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:105px;left:484px;white-space:nowrap" class="ft03">AVX512VL</p>
+<p style="position:absolute;top:105px;left:571px;white-space:nowrap" class="ft03">Converts packed&#160;signed&#160;doubleword&#160;integers&#160;</p>
+<p style="position:absolute;top:121px;left:571px;white-space:nowrap" class="ft03">from&#160;<i>ymm2</i>&#160;and&#160;from ymm3/m256/m32bcst&#160;</p>
+<p style="position:absolute;top:137px;left:571px;white-space:nowrap" class="ft03">into&#160;packed signed word&#160;integers in ymm1&#160;</p>
+<p style="position:absolute;top:154px;left:571px;white-space:nowrap" class="ft03">using<i>&#160;</i>signed saturation under writemask k1.</p>
+<p style="position:absolute;top:127px;left:72px;white-space:nowrap" class="ft03">VPACKSSDW ymm1 {k1}{z}, ymm2,&#160;</p>
+<p style="position:absolute;top:144px;left:72px;white-space:nowrap" class="ft03">ymm3/m256/m32bcst</p>
+<p style="position:absolute;top:127px;left:484px;white-space:nowrap" class="ft03">AVX512BW</p>
+<p style="position:absolute;top:177px;left:72px;white-space:nowrap" class="ft03">EVEX.NDS.512.66.0F.W0 6B&#160;/r</p>
+<p style="position:absolute;top:177px;left:375px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:177px;left:412px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:177px;left:484px;white-space:nowrap" class="ft03">AVX512BW</p>
+<p style="position:absolute;top:177px;left:571px;white-space:nowrap" class="ft03">Converts packed&#160;signed&#160;doubleword&#160;integers&#160;</p>
+<p style="position:absolute;top:193px;left:571px;white-space:nowrap" class="ft03">from zmm2&#160;and&#160;from zmm3/m512/m32bcst&#160;</p>
+<p style="position:absolute;top:209px;left:571px;white-space:nowrap" class="ft03">into&#160;packed signed word&#160;integers in zmm1&#160;</p>
+<p style="position:absolute;top:226px;left:571px;white-space:nowrap" class="ft03">using<i>&#160;</i>signed saturation under writemask k1.</p>
+<p style="position:absolute;top:199px;left:72px;white-space:nowrap" class="ft03">VPACKSSDW zmm1 {k1}{z},&#160;zmm2,&#160;</p>
+<p style="position:absolute;top:216px;left:72px;white-space:nowrap" class="ft03">zmm3/m512/m32bcst</p>
+<p style="position:absolute;top:249px;left:72px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:270px;left:72px;white-space:nowrap" class="ft03">1.&#160;See note&#160;in<a href="o_b5573232dd8f1481-81.html">&#160;Section 2.4,&#160;“AVX&#160;and&#160;SSE Instruction&#160;Exception Specification”</a>&#160;in&#160;the&#160;<a href="��"><i>Intel®&#160;64&#160;and&#160;IA-32&#160;Architectures&#160;Software&#160;</i></a></p>
+<p style="position:absolute;top:286px;left:72px;white-space:nowrap" class="ft04"><a href="��"><i>Developer’s Manual, Volume 2A</i>&#160;and Section 22.25.3,&#160;“Exception&#160;Conditions&#160;of&#160;Legacy SIMD&#160;Instructions Operating&#160;on&#160;MMX Registers”&#160;</a></p>
+<p style="position:absolute;top:303px;left:72px;white-space:nowrap" class="ft03">in&#160;the&#160;<a href="��"><i>Intel® 64 and IA-32 Architectures Software&#160;Developer’s Manual, Volume 3A</i></a>.</p>
+<p style="position:absolute;top:379px;left:86px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:379px;left:190px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:379px;left:359px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:379px;left:534px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:379px;left:715px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:403px;left:94px;white-space:nowrap" class="ft03">RM</p>
+<p style="position:absolute;top:403px;left:172px;white-space:nowrap" class="ft03">ModRM:reg&#160;(r, w)</p>
+<p style="position:absolute;top:403px;left:348px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:403px;left:555px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:403px;left:736px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:427px;left:90px;white-space:nowrap" class="ft03">RVM</p>
+<p style="position:absolute;top:427px;left:178px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:427px;left:353px;white-space:nowrap" class="ft03">VEX.vvvv (r)</p>
+<p style="position:absolute;top:427px;left:523px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:427px;left:736px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:451px;left:90px;white-space:nowrap" class="ft03">FVM</p>
+<p style="position:absolute;top:451px;left:178px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:451px;left:350px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:451px;left:523px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:451px;left:736px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:475px;left:95px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:475px;left:178px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:475px;left:350px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:475px;left:523px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:475px;left:736px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:755px;left:202px;white-space:nowrap" class="ft02">Figure&#160;4-6. &#160;Operation&#160;of&#160;the PACKSSDW&#160;Instruction&#160;Using 64-bit&#160;Operands</p>
+<p style="position:absolute;top:647px;left:342px;white-space:nowrap" class="ft00">D</p>
+<p style="position:absolute;top:647px;left:393px;white-space:nowrap" class="ft00">C</p>
+<p style="position:absolute;top:622px;left:338px;white-space:nowrap" class="ft00">64-Bit SRC</p>
+<p style="position:absolute;top:731px;left:419px;white-space:nowrap" class="ft05">64-Bit DEST</p>
+<p style="position:absolute;top:706px;left:403px;white-space:nowrap" class="ft00">D’</p>
+<p style="position:absolute;top:706px;left:430px;white-space:nowrap" class="ft00">C’</p>
+<p style="position:absolute;top:705px;left:457px;white-space:nowrap" class="ft00">B’</p>
+<p style="position:absolute;top:707px;left:484px;white-space:nowrap" class="ft00">A’</p>
+<p style="position:absolute;top:625px;left:503px;white-space:nowrap" class="ft00">64-Bit DEST</p>
+<p style="position:absolute;top:647px;left:500px;white-space:nowrap" class="ft00">B</p>
+<p style="position:absolute;top:649px;left:557px;white-space:nowrap" class="ft00">A</p>
+</div>
+</body>
+</html>

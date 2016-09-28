@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1880</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1880-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1880.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-70&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Concurrency Restrictions</p>
+<p style="position:absolute;top:485px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:532px;left:284px;white-space:nowrap" class="ft02">Temp&#160;Variables&#160;in&#160;EACCEPTCOPY Operational Flow</p>
+<p style="position:absolute;top:634px;left:68px;white-space:nowrap" class="ft03">IF (DS:RBX is&#160;not 64Byte&#160;Aligned)</p>
+<p style="position:absolute;top:652px;left:88px;white-space:nowrap" class="ft03">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:688px;left:68px;white-space:nowrap" class="ft03">IF (&#160;(DS:RCX is not 4KByte Aligned)&#160;or (DS:RDX&#160;is not 4KByte Aligned) )</p>
+<p style="position:absolute;top:706px;left:88px;white-space:nowrap" class="ft03">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:742px;left:68px;white-space:nowrap" class="ft03">IF&#160;((DS:RBX&#160;is&#160;not&#160;within&#160;CR_ELRANGE) or&#160;(DS:RCX&#160;is&#160;not&#160;within&#160;CR_ELRANGE) or&#160;(DS:RDX is not within CR_ELRANGE))</p>
+<p style="position:absolute;top:760px;left:88px;white-space:nowrap" class="ft03">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:796px;left:68px;white-space:nowrap" class="ft03">IF&#160;(DS:RBX does not resolve within&#160;an&#160;EPC)&#160;</p>
+<p style="position:absolute;top:814px;left:88px;white-space:nowrap" class="ft03">THEN #PF(DS:RBX); FI;</p>
+<p style="position:absolute;top:850px;left:68px;white-space:nowrap" class="ft03">IF&#160;(DS:RCX does not resolve within an EPC)&#160;</p>
+<p style="position:absolute;top:868px;left:88px;white-space:nowrap" class="ft03">THEN #PF(DS:RCX); FI;</p>
+<p style="position:absolute;top:904px;left:68px;white-space:nowrap" class="ft03">IF (DS:RDX does&#160;not resolve within&#160;an&#160;EPC)&#160;</p>
+<p style="position:absolute;top:922px;left:88px;white-space:nowrap" class="ft03">THEN #PF(DS:RDX); FI;</p>
+<p style="position:absolute;top:958px;left:68px;white-space:nowrap" class="ft03">IF&#160;( (EPCM(DS:RBX &amp;~FFFH).VALID =&#160;0) or (EPCM(DS:RBX&#160;&amp;~FFFH).R = 0)&#160;or (EPCM(DS:RBX&#160;&amp;~FFFH).PENDING&#160;≠&#160;0) or&#160;</p>
+<p style="position:absolute;top:976px;left:88px;white-space:nowrap" class="ft05">(EPCM(DS:RBX&#160;&amp;~FFFH).MODIFIED&#160;≠&#160;0)&#160;or (EPCM(DS:RBX&#160;&amp;~FFFH).BLOCKED&#160;≠&#160;0) or (EPCM(DS:RBX&#160;&amp;~FFFH).PT&#160;≠&#160;PT_REG) or&#160;<br/>(EPCM(DS:RBX&#160;&amp;~FFFH).ENCLAVESECS&#160;≠&#160;CR_ACTIVE_SECS) or<br/>(EPCM(DS:RBX&#160;&amp;~FFFH).ENCLAVEADDRESS&#160;≠&#160;DS:RBX) )<br/>THEN #PF(DS:RBX); FI;</p>
+<p style="position:absolute;top:138px;left:145px;white-space:nowrap" class="ft02">Table&#160;41-50.&#160;&#160;Concurrency&#160;Restrictions&#160;of&#160;EACCEPTCOPY with Intel® SGX Instructions - 1of 2</p>
+<p style="position:absolute;top:167px;left:84px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:167px;left:180px;white-space:nowrap" class="ft04">EEXIT</p>
+<p style="position:absolute;top:167px;left:256px;white-space:nowrap" class="ft04">EADD</p>
+<p style="position:absolute;top:167px;left:313px;white-space:nowrap" class="ft04">EBLOCK</p>
+<p style="position:absolute;top:161px;left:370px;white-space:nowrap" class="ft04">ECRE</p>
+<p style="position:absolute;top:173px;left:373px;white-space:nowrap" class="ft04">ATE</p>
+<p style="position:absolute;top:161px;left:411px;white-space:nowrap" class="ft04">EDBGRD/</p>
+<p style="position:absolute;top:173px;left:425px;white-space:nowrap" class="ft04">WR</p>
+<p style="position:absolute;top:161px;left:486px;white-space:nowrap" class="ft04">EENTER/</p>
+<p style="position:absolute;top:173px;left:484px;white-space:nowrap" class="ft04">ERESUME</p>
+<p style="position:absolute;top:167px;left:559px;white-space:nowrap" class="ft04">EEXTEND</p>
+<p style="position:absolute;top:167px;left:626px;white-space:nowrap" class="ft04">EGETKEY</p>
+<p style="position:absolute;top:167px;left:688px;white-space:nowrap" class="ft04">EINIT</p>
+<p style="position:absolute;top:167px;left:736px;white-space:nowrap" class="ft04">ELDB/ELDU</p>
+<p style="position:absolute;top:167px;left:814px;white-space:nowrap" class="ft04">EPA</p>
+<p style="position:absolute;top:193px;left:114px;white-space:nowrap" class="ft04">Param&#160;Targ&#160;VA</p>
+<p style="position:absolute;top:193px;left:212px;white-space:nowrap" class="ft04">SECS&#160;Targ&#160;SECS&#160;Targ&#160;SECS&#160;SECS</p>
+<p style="position:absolute;top:193px;left:406px;white-space:nowrap" class="ft04">Targ&#160;SECS&#160;TCS&#160;SSA&#160;SECS&#160;Targ&#160;SECS&#160;Param&#160;SECS&#160;SECS&#160;Targ&#160;VA</p>
+<p style="position:absolute;top:193px;left:782px;white-space:nowrap" class="ft04">SECS&#160;VA</p>
+<p style="position:absolute;top:226px;left:73px;white-space:nowrap" class="ft04">EACCE</p>
+<p style="position:absolute;top:238px;left:73px;white-space:nowrap" class="ft04">PTCOP</p>
+<p style="position:absolute;top:250px;left:85px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:212px;left:114px;white-space:nowrap" class="ft06">Targ<br/>Src</p>
+<p style="position:absolute;top:232px;left:183px;white-space:nowrap" class="ft04">U</p>
+<p style="position:absolute;top:232px;left:406px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:232px;left:495px;white-space:nowrap" class="ft04">U</p>
+<p style="position:absolute;top:232px;left:616px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:251px;left:114px;white-space:nowrap" class="ft04">SECIN</p>
+<p style="position:absolute;top:263px;left:114px;white-space:nowrap" class="ft04">FO</p>
+<p style="position:absolute;top:251px;left:183px;white-space:nowrap" class="ft04">U</p>
+<p style="position:absolute;top:251px;left:406px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:251px;left:495px;white-space:nowrap" class="ft04">U</p>
+<p style="position:absolute;top:251px;left:616px;white-space:nowrap" class="ft04">U</p>
+<p style="position:absolute;top:314px;left:143px;white-space:nowrap" class="ft02">Table&#160;41-51.&#160;&#160;Concurrency Restrictions&#160;of&#160;EACCEPTCOPY with&#160;Intel®&#160;SGX Instructions&#160;- 2 of&#160;2</p>
+<p style="position:absolute;top:343px;left:84px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:343px;left:157px;white-space:nowrap" class="ft04">EREMOVE</p>
+<p style="position:absolute;top:343px;left:222px;white-space:nowrap" class="ft04">EREPORT</p>
+<p style="position:absolute;top:337px;left:285px;white-space:nowrap" class="ft04">ETRA</p>
+<p style="position:absolute;top:349px;left:292px;white-space:nowrap" class="ft04">CK</p>
+<p style="position:absolute;top:343px;left:350px;white-space:nowrap" class="ft04">EWB</p>
+<p style="position:absolute;top:343px;left:422px;white-space:nowrap" class="ft04">EAUG</p>
+<p style="position:absolute;top:343px;left:477px;white-space:nowrap" class="ft04">EMODPE</p>
+<p style="position:absolute;top:343px;left:539px;white-space:nowrap" class="ft04">EMODPR</p>
+<p style="position:absolute;top:343px;left:608px;white-space:nowrap" class="ft04">EMODT</p>
+<p style="position:absolute;top:343px;left:681px;white-space:nowrap" class="ft04">EACCEPT</p>
+<p style="position:absolute;top:343px;left:759px;white-space:nowrap" class="ft04">EACCEPTCOPY</p>
+<p style="position:absolute;top:368px;left:114px;white-space:nowrap" class="ft04">Param&#160;Targ&#160;SECS&#160;Param&#160;SECS&#160;SECS</p>
+<p style="position:absolute;top:368px;left:322px;white-space:nowrap" class="ft04">SRC&#160;VA</p>
+<p style="position:absolute;top:368px;left:376px;white-space:nowrap" class="ft04">SECS&#160;Targ&#160;SECS&#160;Targ&#160;SECI</p>
+<p style="position:absolute;top:380px;left:501px;white-space:nowrap" class="ft04">NFO</p>
+<p style="position:absolute;top:368px;left:532px;white-space:nowrap" class="ft04">Targ&#160;SECS&#160;Targ&#160;SECS&#160;Targ&#160;SECI</p>
+<p style="position:absolute;top:380px;left:691px;white-space:nowrap" class="ft04">NFO</p>
+<p style="position:absolute;top:368px;left:721px;white-space:nowrap" class="ft04">SECS&#160;Targ&#160;SRC&#160;SECI</p>
+<p style="position:absolute;top:380px;left:811px;white-space:nowrap" class="ft04">NFO</p>
+<p style="position:absolute;top:413px;left:73px;white-space:nowrap" class="ft04">EACCE</p>
+<p style="position:absolute;top:425px;left:73px;white-space:nowrap" class="ft04">PTCOP</p>
+<p style="position:absolute;top:437px;left:85px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:400px;left:114px;white-space:nowrap" class="ft04">Targ</p>
+<p style="position:absolute;top:400px;left:532px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:400px;left:596px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:400px;left:662px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:400px;left:752px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:419px;left:114px;white-space:nowrap" class="ft04">Src</p>
+<p style="position:absolute;top:419px;left:214px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:419px;left:471px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:419px;left:501px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:419px;left:662px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:419px;left:691px;white-space:nowrap" class="ft04">U</p>
+<p style="position:absolute;top:419px;left:781px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:419px;left:811px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:439px;left:114px;white-space:nowrap" class="ft04">SECIN</p>
+<p style="position:absolute;top:451px;left:114px;white-space:nowrap" class="ft04">FO</p>
+<p style="position:absolute;top:439px;left:214px;white-space:nowrap" class="ft04">U</p>
+<p style="position:absolute;top:439px;left:471px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:439px;left:501px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:439px;left:662px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:439px;left:691px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:439px;left:781px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:439px;left:811px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:555px;left:73px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:555px;left:238px;white-space:nowrap" class="ft03">Type</p>
+<p style="position:absolute;top:555px;left:366px;white-space:nowrap" class="ft03">Size&#160;(bits)</p>
+<p style="position:absolute;top:555px;left:446px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:579px;left:73px;white-space:nowrap" class="ft03">SCRATCH_SECINFO</p>
+<p style="position:absolute;top:579px;left:238px;white-space:nowrap" class="ft03">SECINFO</p>
+<p style="position:absolute;top:579px;left:366px;white-space:nowrap" class="ft03">512</p>
+<p style="position:absolute;top:579px;left:446px;white-space:nowrap" class="ft03">Scratch storage&#160;for holding the&#160;contents of&#160;DS:RBX.</p>
+</div>
+</body>
+</html>

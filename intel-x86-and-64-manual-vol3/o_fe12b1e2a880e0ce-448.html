@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 448</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page448-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce448.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">11-36&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MEMORY&#160;CACHE CONTROL</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">When&#160;remapping a&#160;page that was&#160;previously mapped&#160;as&#160;a cacheable&#160;memory type to&#160;a WC page, an&#160;operating&#160;<br/>system can avoid this&#160;type&#160;of&#160;aliasing by doing the&#160;following:<br/>1.&#160;Remove&#160;the&#160;previous mapping to&#160;a&#160;cacheable memory type&#160;in&#160;the&#160;page tables; that&#160;is,&#160;make&#160;them&#160;not</p>
+<p style="position:absolute;top:157px;left:93px;white-space:nowrap" class="ft02">present.</p>
+<p style="position:absolute;top:181px;left:68px;white-space:nowrap" class="ft05">2.&#160;Flush&#160;the TLBs of processors that&#160;may have&#160;used&#160;the mapping,&#160;even speculatively.<br/>3.&#160;Create&#160;a new mapping to&#160;the same&#160;physical&#160;address with a&#160;new&#160;memory&#160;type, for instance, WC.<br/>4.&#160;Flush the&#160;caches on all processors that may have used&#160;the mapping previously.&#160;Note on processors that support&#160;</p>
+<p style="position:absolute;top:246px;left:93px;white-space:nowrap" class="ft02">self-snooping,&#160;CPUID&#160;feature flag&#160;bit 27, this&#160;step&#160;is&#160;unnecessary.</p>
+<p style="position:absolute;top:270px;left:68px;white-space:nowrap" class="ft04">Operating systems that use&#160;a page directory as&#160;a page table (to map&#160;large pages)&#160;and&#160;enable page&#160;size extensions&#160;<br/>must&#160;carefully scrutinize the&#160;use of&#160;the&#160;PAT index&#160;bit&#160;for&#160;the&#160;4-KByte page-table entries.&#160;The&#160;PAT&#160;index bit for a&#160;<br/>page-table&#160;entry&#160;(bit 7)&#160;corresponds&#160;to the page size&#160;bit&#160;in&#160;a page-directory entry.&#160;Therefore,&#160;the operating&#160;system&#160;<br/>can only use PAT entries PA0&#160;through PA3 when setting&#160;the caching type for a page table that is also&#160;used as a page&#160;<br/>directory.&#160;If the&#160;operating system attempts&#160;to use&#160;PAT entries PA4 through PA7&#160;when&#160;using this memory&#160;as a&#160;page&#160;<br/>table, it&#160;effectively sets the&#160;PS bit&#160;for the&#160;access&#160;to&#160;this memory&#160;as&#160;a page&#160;directory.<br/>For compatibility with earlier IA-32 processors that do not&#160;support the&#160;PAT,&#160;care&#160;should be taken in&#160;selecting&#160;the&#160;<br/>encodings for&#160;entries in&#160;the PA<a href="o_fe12b1e2a880e0ce-448.html">T (see Section&#160;11.12.5,&#160;“PAT&#160;Compatibility&#160;with&#160;Earlier IA-32&#160;Processors”).</a></p>
+<p style="position:absolute;top:443px;left:68px;white-space:nowrap" class="ft03">11.12.5&#160;&#160;PAT Compatibility with Earlier IA-32 Processors</p>
+<p style="position:absolute;top:474px;left:68px;white-space:nowrap" class="ft04">For IA-32 processors that&#160;support the&#160;PAT,&#160;the&#160;IA32_PAT MSR is&#160;always&#160;active. That is, the&#160;PCD&#160;and PWT bits in&#160;<br/>page-table entries&#160;and in page-directory&#160;entries&#160;(that point&#160;to pages)&#160;are&#160;always&#160;select a&#160;memory&#160;type&#160;for&#160;a page&#160;<br/>indirectly by selecting&#160;an&#160;entry in the&#160;PAT.&#160;They&#160;never&#160;select&#160;the&#160;memory type&#160;for a&#160;page&#160;directly&#160;as they&#160;do in&#160;<br/>earlier IA-32 processors that&#160;do&#160;not&#160;implement the&#160;PA<a href="o_fe12b1e2a880e0ce-426.html">T (see Table&#160;11-6).<br/></a>To&#160;allow compatibility for code&#160;written to run on earlier IA-32 processor that do not support the PAT,&#160;the PAT mech-<br/>anism has been designed&#160;to&#160;allow&#160;backward&#160;compatibility&#160;to earlier processors.&#160;This compatibility is&#160;provided&#160;<br/>through the&#160;ordering&#160;of&#160;the PAT,&#160;PCD,&#160;and PWT bits in the&#160;3-bit&#160;PAT&#160;entry&#160;index. For processors that do not imple-<br/>ment the&#160;PAT,&#160;the PAT index bit&#160;(bit&#160;7 in&#160;the page-table entries&#160;and bit 12&#160;in the&#160;page-directory&#160;entries) is&#160;reserved&#160;<br/>and set to 0. With the&#160;PAT&#160;bit reserved, only the&#160;first&#160;four entries of the PAT can be selected&#160;with the&#160;PCD and PWT&#160;<br/>bits. At&#160;power-up&#160;or&#160;reset&#160;<a href="o_fe12b1e2a880e0ce-447.html">(see&#160;Table 11-12), these first fo</a>ur entries are&#160;encoded to select the&#160;same memory types&#160;<br/>as the&#160;PCD and&#160;PWT bits would normally select&#160;directly&#160;in&#160;an IA-32 processor&#160;that&#160;does not&#160;implement the PAT.&#160;So,&#160;<br/>if encodings of the first four entries in&#160;the PAT are left&#160;unchanged following&#160;a&#160;power-up&#160;or reset,&#160;code&#160;written to&#160;run&#160;<br/>on earlier IA-32&#160;processors that do not implement the PAT&#160;will run correctly on IA-32 processors&#160;that do implement&#160;<br/>the PAT.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1824</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1824-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1824.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-14&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">TMP_ENCLAVEOFFSET&#160;&#160;TMP_LINADDR - DS:TMP_SECS.BASEADDR;<br/>TMPUPDATEFIELD[63:0]&#160;&#160;0000000044444145H; // “EADD”<br/>TMPUPDATEFIELD[127:64]&#160;&#160;TMP_ENCLAVEOFFSET;<br/>TMPUPDATEFIELD[511:128]&#160;&#160;SCRATCH_SECINFO[375:0]; // 48&#160;bytes<br/>DS:TMP_SECS.MRENCLAVE&#160;&#160;SHA256UPDATE(DS:TMP_SECS.MRENCLAVE, TMPUPDATEFIELD)<br/>INC enclave’s&#160;MRENCLAVE update counter;</p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft03">(* Add&#160;enclave offset and security&#160;attributes to MRENCLAVE *)<br/>EPCM(DS:RCX).R&#160;&#160;SCRATCH_SECINFO.FLAGS.R;<br/>EPCM(DS:RCX).W&#160;&#160;SCRATCH_SECINFO.FLAGS.W;<br/>EPCM(DS:RCX).X&#160;&#160;SCRATCH_SECINFO.FLAGS.X;<br/>EPCM(DS:RCX).PT&#160;&#160;SCRATCH_SECINFO.FLAGS.PT;<br/>EPCM(DS:RCX).ENCLAVEADDRESS&#160;&#160;TMP_LINADDR;</p>
+<p style="position:absolute;top:352px;left:68px;white-space:nowrap" class="ft03">(* associate&#160;the&#160;EPCPAGE with the&#160;SECS&#160;by storing the SECS&#160;identifier of&#160;DS:TMP_SECS&#160;*)<br/>Update&#160;EPCM(DS:RCX) SECS&#160;identifier&#160;to&#160;reference DS:TMP_SECS&#160;identifier;</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft03">(* Set EPCM&#160;entry fields *)<br/>EPCM(DS:RCX).BLOCKED&#160;&#160;0;<br/>EPCM(DS:RCX).PENDING&#160;&#160;0;<br/>EPCM(DS:RCX).MODIFIED&#160;&#160;0;<br/>EPCM(DS:RCX).VALID&#160;&#160;1;</p>
+<p style="position:absolute;top:512px;left:68px;white-space:nowrap" class="ft01">Flags Affected</p>
+<p style="position:absolute;top:535px;left:68px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:570px;left:68px;white-space:nowrap" class="ft01">Protected Mode&#160;Exceptions</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:592px;left:206px;white-space:nowrap" class="ft04">If a&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;DS segment limit.<br/>If&#160;a memory operand is&#160;not properly&#160;aligned.<br/>If an&#160;enclave&#160;memory operand&#160;is outside of the&#160;EPC.<br/>If&#160;an enclave memory&#160;operand&#160;is the&#160;wrong&#160;type.<br/>If&#160;a memory operand is&#160;locked.<br/>If&#160;the enclave is&#160;initialized.<br/>If the&#160;enclave's MRENCLAVE is&#160;locked.<br/>If&#160;the TCS page&#160;reserved bits are set.</p>
+<p style="position:absolute;top:760px;left:68px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:760px;left:206px;white-space:nowrap" class="ft05">If a&#160;page&#160;fault occurs&#160;in&#160;accessing memory&#160;operands.<br/>If&#160;the EPC page&#160;is valid.</p>
+<p style="position:absolute;top:816px;left:68px;white-space:nowrap" class="ft01">64-Bit Mode&#160;Exceptions</p>
+<p style="position:absolute;top:838px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:838px;left:206px;white-space:nowrap" class="ft04">If&#160;a memory operand is&#160;non-canonical&#160;form.<br/>If&#160;a memory operand is&#160;not properly&#160;aligned.<br/>If an&#160;enclave&#160;memory operand&#160;is outside of the&#160;EPC.<br/>If&#160;an enclave memory&#160;operand&#160;is the&#160;wrong&#160;type.<br/>If&#160;a memory operand is&#160;locked.<br/>If&#160;the enclave is&#160;initialized.<br/>If the&#160;enclave's MRENCLAVE is&#160;locked.<br/>If&#160;the TCS page&#160;reserved bits are set.</p>
+<p style="position:absolute;top:1006px;left:68px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:1006px;left:206px;white-space:nowrap" class="ft04">If a&#160;page&#160;fault occurs&#160;in&#160;accessing memory&#160;operands.<br/>If&#160;the EPC page&#160;is valid.</p>
+</div>
+</body>
+</html>

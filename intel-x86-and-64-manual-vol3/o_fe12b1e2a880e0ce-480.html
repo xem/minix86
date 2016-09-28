@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 480</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page480-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce480.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">14-14&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">POWER AND THERMAL&#160;MANAGEMENT</p>
+<p style="position:absolute;top:433px;left:68px;white-space:nowrap" class="ft02">14.5.2&#160;</p>
+<p style="position:absolute;top:433px;left:148px;white-space:nowrap" class="ft02">Package level Enabling HDC</p>
+<p style="position:absolute;top:464px;left:68px;white-space:nowrap" class="ft08">The layout of the IA32_PKG_HDC_CTL&#160;MSR&#160;is&#160;<a href="o_fe12b1e2a880e0ce-480.html">shown in Figure&#160;14-12.</a>&#160;IA32_PKG_HDC_CTL&#160;is a writable MSR from&#160;<br/>any logical processor in&#160;a package.&#160;The&#160;bit fields are&#160;described below:&#160;</p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:670px;left:93px;white-space:nowrap" class="ft08"><b>HDC_PKG_Enable&#160;(bit&#160;0, R/W)</b>&#160;—&#160;Software&#160;sets this bit to enable HDC operation by allowing the processor&#160;<br/>to force&#160;to&#160;idle all&#160;“HDC-a<a href="o_fe12b1e2a880e0ce-480.html">llowed” (see Figure&#160;14.5.3) lo</a>gical processors in&#160;the&#160;package.&#160;Clearing this&#160;bit&#160;<br/>disables HDC operation in&#160;the package by&#160;waking&#160;up&#160;all&#160;the processor cores&#160;that were&#160;forced into&#160;idle&#160;by a&#160;<br/>previous ‘0’-to-’1’ transition&#160;in IA32_PKG_HDC_CTL.HDC_PKG_Enable.&#160;This bit is&#160;writable only if&#160;<br/>CPUID.06H:EAX[bit 13] = 1.&#160;Default&#160;= zero&#160;(0).&#160;</p>
+<p style="position:absolute;top:758px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:758px;left:93px;white-space:nowrap" class="ft03">Bits&#160;63:1&#160;are&#160;reserved&#160;and&#160;must be&#160;zero.</p>
+<p style="position:absolute;top:782px;left:68px;white-space:nowrap" class="ft08">After processor support is&#160;determined via CPUID,&#160;system software&#160;can&#160;enable HDC operation&#160;by setting&#160;<br/>IA32_PKG_HDC_CTL.HDC_PKG_Enable&#160;to 1. At&#160;reset, IA32_PKG_HDC_CTL.HDC_PKG_Enable&#160;is cleared&#160;to 0. A&#160;<br/>'0'-to-'1'&#160;transition in&#160;HDC_PKG_Enable&#160;allows&#160;the processor to&#160;force&#160;to idle&#160;all HDC-allowed (indicated&#160;by&#160;the non-<br/>zero state&#160;of IA32_PM_CTL1[bit&#160;0])&#160;logical processors in&#160;the package.&#160;A&#160;‘1’-to-’0’&#160;transition wakes up&#160;those HDC&#160;<br/>force-idled logical processors.&#160;<br/>Software&#160;can enable or&#160;disable HDC using&#160;this package level control&#160;multiple times from&#160;any logical processor in&#160;the&#160;<br/>package.&#160;Note the&#160;latency of writing&#160;a value to&#160;the package-visible&#160;IA32_PKG_HDC_CTL.HDC_PKG_Enable is&#160;<br/>longer&#160;than the&#160;latency of&#160;a WRMSR&#160;operation to&#160;a&#160;Logical Processor MSR&#160;(as&#160;opposed to&#160;package&#160;level&#160;MSR) such&#160;<br/>as: IA32_PM_CTL1&#160;(described&#160;<a href="o_fe12b1e2a880e0ce-480.html">in Section 14.5.3</a>).&#160;Propagation of the&#160;change&#160;in&#160;<br/>IA32_PKG_HDC_CTL.HDC_PKG_Enable and&#160;reaching&#160;all HDC idled logical processor to&#160;be&#160;woken&#160;up may take&#160;on&#160;<br/>the order of core C6 exit&#160;latency.</p>
+<p style="position:absolute;top:1005px;left:68px;white-space:nowrap" class="ft02">14.5.3&#160;</p>
+<p style="position:absolute;top:1005px;left:148px;white-space:nowrap" class="ft02">Logical-Processor Level HDC Control</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft08">The&#160;layout of the&#160;IA32_PM_CTL1&#160;MSR is&#160;<a href="o_fe12b1e2a880e0ce-481.html">shown in&#160;Figure&#160;14-13. Each logic</a>al processor in a&#160;package&#160;has its&#160;own&#160;<br/>IA32_PM_CTL1&#160;MSR.&#160;The&#160;bit&#160;fields are&#160;described&#160;below:&#160;</p>
+<p style="position:absolute;top:124px;left:86px;white-space:nowrap" class="ft03">DB0H</p>
+<p style="position:absolute;top:124px;left:165px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:124px;left:235px;white-space:nowrap" class="ft03">IA32_PKG_HDC_CTL</p>
+<p style="position:absolute;top:124px;left:393px;white-space:nowrap" class="ft03">Package&#160;Enable/Disable HDC.</p>
+<p style="position:absolute;top:148px;left:86px;white-space:nowrap" class="ft03">DB1H</p>
+<p style="position:absolute;top:148px;left:165px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:148px;left:249px;white-space:nowrap" class="ft03">IA32_PM_CTL1</p>
+<p style="position:absolute;top:148px;left:393px;white-space:nowrap" class="ft03">Per-logical-processor select&#160;control to&#160;allow/block HDC forced idling.&#160;</p>
+<p style="position:absolute;top:172px;left:86px;white-space:nowrap" class="ft03">DB2H</p>
+<p style="position:absolute;top:172px;left:165px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:172px;left:231px;white-space:nowrap" class="ft03">IA32_THREAD_STALL</p>
+<p style="position:absolute;top:172px;left:393px;white-space:nowrap" class="ft03">Accumulate stalled cycles&#160;on&#160;this logical processor due to&#160;HDC forced&#160;idling.</p>
+<p style="position:absolute;top:196px;left:86px;white-space:nowrap" class="ft03">653H</p>
+<p style="position:absolute;top:196px;left:164px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:196px;left:211px;white-space:nowrap" class="ft03">MSR_CORE_HDC_RESIDENCY</p>
+<p style="position:absolute;top:196px;left:393px;white-space:nowrap" class="ft03">Core level stalled&#160;cycle counter due&#160;to&#160;HDC&#160;forced&#160;idling&#160;on&#160;one&#160;or more&#160;</p>
+<p style="position:absolute;top:213px;left:393px;white-space:nowrap" class="ft03">logical processor.</p>
+<p style="position:absolute;top:236px;left:86px;white-space:nowrap" class="ft03">655H</p>
+<p style="position:absolute;top:236px;left:164px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:236px;left:208px;white-space:nowrap" class="ft03">MSR_PKG_HDC_SHALLOW_RE</p>
+<p style="position:absolute;top:253px;left:269px;white-space:nowrap" class="ft03">SIDENCY</p>
+<p style="position:absolute;top:236px;left:393px;white-space:nowrap" class="ft03">Accumulate the cycles the package was&#160;in C2</p>
+<p style="position:absolute;top:234px;left:650px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:236px;left:656px;white-space:nowrap" class="ft03">&#160;state and at&#160;least one logical&#160;</p>
+<p style="position:absolute;top:253px;left:393px;white-space:nowrap" class="ft03">processor was in forced&#160;idle</p>
+<p style="position:absolute;top:277px;left:86px;white-space:nowrap" class="ft03">656H</p>
+<p style="position:absolute;top:277px;left:164px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:277px;left:208px;white-space:nowrap" class="ft03">MSR_PKG_HDC_DEEP_RESIDE</p>
+<p style="position:absolute;top:294px;left:281px;white-space:nowrap" class="ft03">NCY</p>
+<p style="position:absolute;top:277px;left:393px;white-space:nowrap" class="ft03">Accumulate&#160;the&#160;cycles the package was in&#160;the&#160;software&#160;specified&#160;Cx</p>
+<p style="position:absolute;top:274px;left:781px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:277px;left:787px;white-space:nowrap" class="ft03">&#160;state&#160;</p>
+<p style="position:absolute;top:294px;left:393px;white-space:nowrap" class="ft03">and at&#160;least one logical processor&#160;was in&#160;forced&#160;idle.&#160;Cx&#160;is&#160;specified in&#160;</p>
+<p style="position:absolute;top:310px;left:393px;white-space:nowrap" class="ft03">MSR_PKG_HDC_CONFIG_CTL.</p>
+<p style="position:absolute;top:334px;left:86px;white-space:nowrap" class="ft03">652H</p>
+<p style="position:absolute;top:334px;left:164px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:334px;left:212px;white-space:nowrap" class="ft03">MSR_PKG_HDC_CONFIG_CTL</p>
+<p style="position:absolute;top:334px;left:393px;white-space:nowrap" class="ft03">HDC&#160;configuration&#160;controls</p>
+<p style="position:absolute;top:361px;left:69px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:380px;left:68px;white-space:nowrap" class="ft03">1.&#160;The package&#160;“C-states” referred to&#160;in this section&#160;are&#160;processor-specific C-states.</p>
+<p style="position:absolute;top:616px;left:318px;white-space:nowrap" class="ft07">Figure&#160;14-12. &#160;IA32_PKG_HDC_CTL&#160;MSR</p>
+<p style="position:absolute;top:100px;left:220px;white-space:nowrap" class="ft07">Table 14-2. &#160;Architectural and&#160;non-Architecture&#160;MSRs Related to&#160;HDC</p>
+<p style="position:absolute;top:529px;left:275px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:529px;left:675px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:550px;left:445px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:529px;left:664px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:583px;left:363px;white-space:nowrap" class="ft00">HDC_PKG_Enable</p>
+<p style="position:absolute;top:586px;left:249px;white-space:nowrap" class="ft00">Reserved</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1936</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1936-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811936.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:702px;white-space:nowrap" class="ft00">XEND —&#160;Transactional&#160;End</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-550&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">XEND — Transactional End</p>
+<p style="position:absolute;top:248px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:335px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:360px;left:68px;white-space:nowrap" class="ft06">The instruction marks the end of an RTM&#160;code region.&#160;If&#160;this corresponds&#160;to the outermost scope (that is, including&#160;<br/>this XEND&#160;instruction, the&#160;number of XBEGIN instructions is&#160;the same&#160;as&#160;number&#160;of XEND&#160;instructions), the&#160;logical&#160;<br/>processor will attempt to&#160;commit the&#160;logical&#160;processor&#160;state&#160;atomically. If the&#160;commit&#160;fails,&#160;the&#160;logical&#160;processor&#160;will&#160;<br/>rollback all&#160;architectural&#160;register and memory&#160;updates&#160;performed during the&#160;RTM execution. The&#160;logical&#160;processor&#160;<br/>will&#160;resume&#160;execution at the fallback address computed&#160;from the outermost XBEGIN instruction. The EAX register&#160;<br/>is updated to reflect RTM&#160;abort&#160;information.<br/>XEND executed&#160;outside a&#160;transactional region will cause&#160;a&#160;#GP (General Protection Fault).&#160;</p>
+<p style="position:absolute;top:502px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:522px;left:68px;white-space:nowrap" class="ft07">XEND<br/>IF&#160;(RTM_ACTIVE = 0) THEN</p>
+<p style="position:absolute;top:557px;left:88px;white-space:nowrap" class="ft04">SIGNAL&#160;#GP</p>
+<p style="position:absolute;top:575px;left:68px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:593px;left:88px;white-space:nowrap" class="ft07">RTM_NEST_COUNT--<br/>IF (RTM_NEST_COUNT = 0) THEN</p>
+<p style="position:absolute;top:629px;left:115px;white-space:nowrap" class="ft07">Try to commit transaction<br/>IF fail to&#160;commit transactional execution</p>
+<p style="position:absolute;top:665px;left:142px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:683px;left:169px;white-space:nowrap" class="ft04">GOTO&#160;RTM_ABORT_PROCESSING;</p>
+<p style="position:absolute;top:701px;left:142px;white-space:nowrap" class="ft04">ELSE (* commit success *)</p>
+<p style="position:absolute;top:719px;left:169px;white-space:nowrap" class="ft04">RTM_ACTIVE&#160;←&#160;0</p>
+<p style="position:absolute;top:737px;left:115px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:755px;left:88px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:773px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:809px;left:68px;white-space:nowrap" class="ft07">(* For&#160;any RTM&#160;abort condition&#160;encountered&#160;during&#160;RTM execution *)<br/>RTM_ABORT_PROCESSING:</p>
+<p style="position:absolute;top:845px;left:88px;white-space:nowrap" class="ft07">Restore architectural register state<br/>Discard memory updates&#160;performed in&#160;transaction<br/>Update EAX&#160;with status<br/>RTM_NEST_COUNT&#160;←&#160;0</p>
+<p style="position:absolute;top:917px;left:88px;white-space:nowrap" class="ft04">RTM_ACTIVE&#160;←&#160;0</p>
+<p style="position:absolute;top:935px;left:88px;white-space:nowrap" class="ft04">IF 64-bit Mode</p>
+<p style="position:absolute;top:953px;left:115px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:971px;left:142px;white-space:nowrap" class="ft04">RIP&#160;←&#160;fallbackRIP</p>
+<p style="position:absolute;top:989px;left:115px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:1007px;left:142px;white-space:nowrap" class="ft04">EIP&#160;←&#160;fallbackEIP</p>
+<p style="position:absolute;top:1025px;left:88px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:1043px;left:68px;white-space:nowrap" class="ft04">END</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/Instruction</p>
+<p style="position:absolute;top:123px;left:265px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:139px;left:266px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:307px;white-space:nowrap" class="ft04">64/32bit&#160;</p>
+<p style="position:absolute;top:139px;left:307px;white-space:nowrap" class="ft04">Mode&#160;</p>
+<p style="position:absolute;top:155px;left:307px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:380px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:380px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:380px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:446px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:77px;white-space:nowrap" class="ft04">0F&#160;01&#160;D5</p>
+<p style="position:absolute;top:175px;left:265px;white-space:nowrap" class="ft04">A</p>
+<p style="position:absolute;top:175px;left:307px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:380px;white-space:nowrap" class="ft04">RTM</p>
+<p style="position:absolute;top:175px;left:446px;white-space:nowrap" class="ft04">Specifies the&#160;end&#160;of&#160;an&#160;RTM code&#160;region.</p>
+<p style="position:absolute;top:195px;left:77px;white-space:nowrap" class="ft04">XEND</p>
+<p style="position:absolute;top:271px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:271px;left:192px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:271px;left:368px;white-space:nowrap" class="ft04">Operand2</p>
+<p style="position:absolute;top:271px;left:543px;white-space:nowrap" class="ft04">Operand3</p>
+<p style="position:absolute;top:271px;left:718px;white-space:nowrap" class="ft04">Operand4</p>
+<p style="position:absolute;top:295px;left:98px;white-space:nowrap" class="ft04">A</p>
+<p style="position:absolute;top:295px;left:213px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:387px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:562px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:738px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

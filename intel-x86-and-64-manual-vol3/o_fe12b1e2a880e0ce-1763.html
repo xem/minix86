@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1763</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1763-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1763.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-79</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL®&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft06">Relinquish&#160;ownership of&#160;the&#160;trace&#160;configuration MSRs by&#160;clearing&#160;the&#160;“enabled&#160;bits”&#160;of&#160;those configuration&#160;<br/>MSRs.</p>
+<p style="position:absolute;top:167px;left:69px;white-space:nowrap" class="ft04">36.8.3 Tracking&#160;</p>
+<p style="position:absolute;top:167px;left:222px;white-space:nowrap" class="ft04">Time&#160;</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft07">This section describes&#160;the relationships of several clock counters&#160;whose&#160;update&#160;frequencies reside in&#160;different&#160;<br/>domains&#160;that feed into the&#160;timing packets. To&#160;track time,&#160;the&#160;decoder also&#160;needs&#160;to know&#160;the regularity&#160;or irregu-<br/>larity&#160;of&#160;the occurrences of various timing&#160;packets that store those&#160;clock&#160;counters.&#160;<br/>Intel&#160;PT provides time&#160;information for three&#160;different&#160;but related&#160;domains:</p>
+<p style="position:absolute;top:274px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:274px;left:95px;white-space:nowrap" class="ft08">Processor timestamp&#160;counter<br/>This counter increments at the max non-turbo&#160;or P1&#160;frequency,&#160;and its value is returned&#160;on&#160;a&#160;RDTSC. Its</p>
+<p style="position:absolute;top:312px;left:95px;white-space:nowrap" class="ft03">frequency is fixed. The&#160;TSC&#160;packet holds the lower&#160;7&#160;bytes of&#160;the&#160;timestamp&#160;counter value. The TSC&#160;packet</p>
+<p style="position:absolute;top:325px;left:95px;white-space:nowrap" class="ft03">occurs&#160;occasionally and&#160;are much&#160;less frequent&#160;than the&#160;frequency of the&#160;time stamp counter.&#160;The&#160;timestamp</p>
+<p style="position:absolute;top:339px;left:95px;white-space:nowrap" class="ft03">counter will continue&#160;to increment when the processor is&#160;in deep C-States, with the exception of processors</p>
+<p style="position:absolute;top:352px;left:95px;white-space:nowrap" class="ft03">reporting&#160;CPUID.80000007H:EDX.InvariantTSC[bit&#160;8]&#160;=0.</p>
+<p style="position:absolute;top:371px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:372px;left:95px;white-space:nowrap" class="ft06">Core crystal&#160;clock&#160;<br/>The&#160;ratio&#160;of&#160;the core&#160;crystal clock&#160;to&#160;timestamp&#160;counter frequency is&#160;known as&#160;P,&#160;and&#160;can calculating&#160;<br/>CPUID.15H:EBX[31:0] /&#160;CPUID.15H:EAX[31:0]. The frequency of the core&#160;crystal clock&#160;is fixed and lower than&#160;<br/>that of&#160;the&#160;timestamp&#160;counter.&#160;The periodic&#160;MTC packet&#160;is generated based&#160;on&#160;software-selected&#160;multiples of&#160;<br/>the&#160;crystal&#160;clock frequency.&#160;The&#160;MTC&#160;packet&#160;is expected&#160;to occur more&#160;frequently than the&#160;TSC&#160;packet.</p>
+<p style="position:absolute;top:467px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:468px;left:95px;white-space:nowrap" class="ft06">Processor core&#160;clock<br/>The&#160;processor&#160;core clock frequency&#160;can vary&#160;due&#160;to P-state and&#160;thermal conditions. The CYC&#160;packet provides&#160;<br/>elapsed&#160;time as&#160;measured&#160;in processor core&#160;clock cycles relative&#160;to the&#160;last CYC packet.&#160;</p>
+<p style="position:absolute;top:531px;left:69px;white-space:nowrap" class="ft06">A decoder&#160;can use&#160;all or&#160;some combination&#160;of these packets to&#160;track time&#160;at different&#160;resolutions throughout the&#160;<br/>trace packets.</p>
+<p style="position:absolute;top:592px;left:69px;white-space:nowrap" class="ft05">36.8.3.1 &#160;&#160;Time Domain Relationships</p>
+<p style="position:absolute;top:619px;left:69px;white-space:nowrap" class="ft03">The three&#160;domains are related by&#160;the following formula:</p>
+<p style="position:absolute;top:648px;left:95px;white-space:nowrap" class="ft03">TimeStampValue&#160;= (CoreCrystalClockValue&#160;* P) +&#160;AdjustedProcessorCycles +&#160;Software_Offset;&#160;</p>
+<p style="position:absolute;top:665px;left:69px;white-space:nowrap" class="ft06">The CoreCrystalClockValue can provide&#160;the coarse-grained component of the TSC&#160;value.&#160;P,&#160;or the&#160;TSC/”core crystal&#160;<br/>clock”&#160;ratio,&#160;can be&#160;derived from CPUID&#160;leaf 15H, as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-1763.html">in Section 36.8.3.<br/></a>The AdjustedProcessorCycles component&#160;provides&#160;the fine-grained distance&#160;from&#160;the rising&#160;edge&#160;of the&#160;last core&#160;<br/>crystal clock.&#160;Specifically,&#160;it is&#160;a cycle count in&#160;the same&#160;frequency as&#160;the timestamp&#160;counter from the&#160;last crystal&#160;<br/>clock rising&#160;edge.&#160;The&#160;value&#160;is&#160;adjusted&#160;based&#160;on the&#160;ratio of the&#160;processor core&#160;clock&#160;frequency to&#160;the&#160;Maximum&#160;<br/>Non-Turbo&#160;(or P1) frequency.&#160;<br/>The Software_Offsets component includes software&#160;offsets&#160;that are factored&#160;into the&#160;timestamp value, such&#160;as&#160;<br/>IA32_TSC_ADJUST.&#160;</p>
+<p style="position:absolute;top:847px;left:69px;white-space:nowrap" class="ft05">36.8.3.2 &#160;&#160;Estimating TSC within&#160;Intel PT</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft06">For many&#160;usages,&#160;it may be useful&#160;to&#160;have&#160;an&#160;estimated timestamp&#160;value for all&#160;points in&#160;the trace.&#160;The&#160;formula&#160;<br/>prov<a href="o_fe12b1e2a880e0ce-1763.html">ided in Section 36.8.3.1&#160;</a>above&#160;provides&#160;the&#160;framework for how such an&#160;estimate can&#160;be&#160;calculated from&#160;the&#160;<br/>various timing&#160;packets present in&#160;the trace.<br/>The TSC&#160;packet provides the&#160;precise timestamp value at&#160;the&#160;time it&#160;is&#160;generated;&#160;however,&#160;TSC packets&#160;are infre-<br/>quent, and&#160;estimates of the current timestamp&#160;value based&#160;purely on TSC packets are&#160;likely&#160;to&#160;be&#160;very inaccurate&#160;<br/>for this&#160;reason.&#160;In order to&#160;get&#160;more&#160;precise timing&#160;information&#160;between&#160;TSC packets, CYC&#160;packets and/or&#160;MTC&#160;<br/>packets&#160;should be enabled.<br/>MTC&#160;packets provide incremental&#160;updates of the&#160;CoreCrystalClockValue.&#160;On processors&#160;that support CPUID&#160;leaf&#160;<br/>15H, the&#160;frequency of&#160;the&#160;timestamp counter and&#160;the&#160;core crystal clock is fixed, thus MTC packets provide a means&#160;<br/>to&#160;update the running timestamp estimate. Between two MTC&#160;packets&#160;A and B,&#160;the&#160;number&#160;of&#160;crystal clock&#160;cycles&#160;<br/>passed is&#160;calculated&#160;from&#160;the 8-bit payloads of respective MTC&#160;packets:</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 380</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page380-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce380.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-18&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft08">Writes to&#160;the IA32_TSC_DEADLINE MSR are not serialized.&#160;Therefore,&#160;system software&#160;should not&#160;use&#160;WRMSR&#160;<br/>to&#160;the IA32_TSC_DEADLINE MSR as&#160;a serializing&#160;instruction.&#160;Read and&#160;write&#160;accesses to&#160;the&#160;<br/>IA32_TSC_DEADLINE and&#160;other MSR registers&#160;will&#160;occur in program&#160;order.&#160;</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft03">Software can disarm the&#160;timer at&#160;any time&#160;by writing&#160;0 to&#160;the IA32_TSC_DEADLINE MSR.&#160;</p>
+<p style="position:absolute;top:178px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:178px;left:93px;white-space:nowrap" class="ft08">If&#160;timer&#160;is armed, software&#160;can change&#160;the&#160;deadline&#160;(forward or backward) by writing&#160;a new value to&#160;the&#160;<br/>IA32_TSC_DEADLINE MSR.</p>
+<p style="position:absolute;top:217px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:217px;left:93px;white-space:nowrap" class="ft08">If software disarms the timer or postpones the&#160;deadline, race conditions may result in the delivery&#160;of a&#160;spurious&#160;<br/>timer interrupt. Software is&#160;expected&#160;to&#160;detect such&#160;spurious interrupts&#160;by&#160;checking the current&#160;value&#160;of&#160;the&#160;<br/>time-stamp&#160;counter to&#160;confirm that&#160;the interrupt was&#160;desired.</p>
+<p style="position:absolute;top:248px;left:510px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:272px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:273px;left:93px;white-space:nowrap" class="ft08">In xAPIC&#160;mode (in&#160;which the&#160;local-APIC registers&#160;are memory-mapped),&#160;software must order the&#160;memory-<br/>mapped&#160;write to the&#160;LVT entry&#160;that enables TSC-deadline mode&#160;and&#160;any subsequent WRMSR&#160;to the&#160;<br/>IA32_TSC_DEADLINE MSR.&#160;Software can assure&#160;proper ordering by executing the&#160;MFENCE instruction after the&#160;<br/>memory-mapped write and before&#160;any WRMSR.&#160;(In&#160;x2APIC&#160;mode, the&#160;WRMSR&#160;instruction&#160;is used&#160;to&#160;write&#160;to&#160;<br/>the LVT entry.&#160;The&#160;processor ensures the ordering of this&#160;write and any subsequent WRMSR to&#160;the deadline; no&#160;<br/>fencing is&#160;required.)</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft05">10.5.5&#160;</p>
+<p style="position:absolute;top:406px;left:148px;white-space:nowrap" class="ft05">Local Interrupt Acceptance</p>
+<p style="position:absolute;top:436px;left:68px;white-space:nowrap" class="ft08">When a&#160;local interrupt is&#160;sent&#160;to the processor core, it is&#160;subject&#160;to the&#160;acceptance criteria specified in&#160;the interrupt&#160;<br/>acceptance&#160;flow chart&#160;in&#160;<a href="o_fe12b1e2a880e0ce-389.html">Figure&#160;10-17</a>.&#160;If&#160;the&#160;interrupt is&#160;accepted, it is&#160;logged&#160;into the IRR register&#160;and handled&#160;by&#160;<br/>the processor according to&#160;its priority&#160;(see<a href="o_fe12b1e2a880e0ce-391.html">&#160;Section 10.8.4,&#160;“Interrupt Acceptance for Fixed Interrupts”). If&#160;</a>the&#160;<br/>interrupt&#160;is not accepted,&#160;it is&#160;sent back&#160;to the&#160;local APIC and&#160;retried.</p>
+<p style="position:absolute;top:541px;left:68px;white-space:nowrap" class="ft06">10.6 ISSUING&#160;</p>
+<p style="position:absolute;top:541px;left:228px;white-space:nowrap" class="ft06">INTERPROCESSOR&#160;</p>
+<p style="position:absolute;top:541px;left:404px;white-space:nowrap" class="ft06">INTERRUPTS</p>
+<p style="position:absolute;top:577px;left:68px;white-space:nowrap" class="ft08">The following&#160;sections describe the local&#160;APIC facilities that are provided for&#160;issuing interprocessor interrupts (IPIs)&#160;<br/>from&#160;software. The&#160;primary local APIC&#160;facility&#160;for&#160;issuing&#160;IPIs&#160;is the interrupt&#160;command&#160;register&#160;(ICR).&#160;The&#160;ICR&#160;can&#160;<br/>be used for the&#160;following&#160;functions:</p>
+<p style="position:absolute;top:632px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:633px;left:93px;white-space:nowrap" class="ft03">To&#160;send an&#160;interrupt to&#160;another&#160;processor.</p>
+<p style="position:absolute;top:655px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:655px;left:93px;white-space:nowrap" class="ft08">To&#160;allow&#160;a processor to&#160;forward an interrupt that it&#160;received but&#160;did&#160;not service&#160;to another processor for&#160;<br/>servicing.</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:694px;left:93px;white-space:nowrap" class="ft03">To&#160;direct the processor&#160;to&#160;interrupt itself&#160;(perform a&#160;self interrupt).</p>
+<p style="position:absolute;top:716px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:717px;left:93px;white-space:nowrap" class="ft03">To&#160;deliver&#160;special&#160;IPIs, such as&#160;the&#160;start-up&#160;IPI (SIPI)&#160;message, to&#160;other processors.&#160;</p>
+<p style="position:absolute;top:741px;left:68px;white-space:nowrap" class="ft08">Interrupts generated with this facility&#160;are&#160;delivered&#160;to the&#160;other processors in&#160;the system&#160;through&#160;the system&#160;bus&#160;<br/>(for&#160;Pentium 4 and Intel Xeon processors) or the APIC bus&#160;(for P6&#160;family and Pentium&#160;processors). The ability for a&#160;<br/>processor to send&#160;a lowest priority IPI is model specific&#160;and should be avoided by BIOS and&#160;operating system soft-<br/>ware.</p>
+<p style="position:absolute;top:841px;left:68px;white-space:nowrap" class="ft05">10.6.1&#160;</p>
+<p style="position:absolute;top:841px;left:148px;white-space:nowrap" class="ft05">Interrupt&#160;Command Register (ICR)</p>
+<p style="position:absolute;top:871px;left:68px;white-space:nowrap" class="ft03">The&#160;interrupt command register&#160;(ICR) is&#160;a 64-bit</p>
+<p style="position:absolute;top:869px;left:396px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:871px;left:403px;white-space:nowrap" class="ft03">&#160;local APIC register (see&#160;<a href="o_fe12b1e2a880e0ce-381.html">Figure&#160;10-12</a>) that&#160;allows&#160;software&#160;</p>
+<p style="position:absolute;top:888px;left:68px;white-space:nowrap" class="ft08">running&#160;on the&#160;processor&#160;to specify&#160;and&#160;send interprocessor&#160;interrupts (IPIs) to&#160;other processors in the&#160;system.<br/>To&#160;send&#160;an IPI,&#160;software must set up&#160;the ICR to&#160;indicate&#160;the type of&#160;IPI message&#160;to be sent&#160;and the&#160;destination&#160;<br/>processor or&#160;processors. (All fields of the&#160;ICR&#160;are&#160;read-write&#160;by&#160;software with the&#160;exception of the&#160;delivery status&#160;<br/>field, which is&#160;read-only.)&#160;The act of writing to&#160;the&#160;low doubleword&#160;of the&#160;ICR&#160;causes&#160;the IPI to&#160;be&#160;sent.</p>
+<p style="position:absolute;top:984px;left:68px;white-space:nowrap" class="ft03">3.&#160;If&#160;the&#160;logical processor&#160;is&#160;in&#160;VMX&#160;non-root&#160;operation,&#160;a&#160;read&#160;of&#160;the time-stamp&#160;counter (using&#160;either RDMSR, RDTSC, or&#160;RDTSCP) may&#160;</p>
+<p style="position:absolute;top:1000px;left:89px;white-space:nowrap" class="ft03">not&#160;return the actual value of&#160;the time-stamp counter;<a href="o_fe12b1e2a880e0ce-1119.html">&#160;see Chapter 27 o</a>f&#160;the&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32 Architectures&#160;Software&#160;Devel-</i></a></p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft07"><a href="��"><i>oper’s&#160;Manual,&#160;Volume&#160;3C</i></a>.&#160;It&#160;is&#160;the&#160;responsibility&#160;of&#160;software&#160;operating&#160;in&#160;VMX&#160;root&#160;operation&#160;to&#160;coordinate&#160;the&#160;virtualization&#160;of&#160;the&#160;</p>
+<p style="position:absolute;top:1033px;left:89px;white-space:nowrap" class="ft03">time-stamp counter and the IA32_TSC_DEADLINE MSR.</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft03">4.&#160;In&#160;XAPIC mode&#160;the&#160;ICR is&#160;addressed as&#160;two&#160;32-bit registers, ICR_LOW (FFE0&#160;0300H) and&#160;ICR_HIGH (FFE0 0310H).</p>
+</div>
+</body>
+</html>

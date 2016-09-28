@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 147</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page147-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a147.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:782px;white-space:nowrap" class="ft00">Vol. 1&#160;6-3</p>
+<p style="position:absolute;top:47px;left:541px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">word boundary).&#160;One exception&#160;to this rule&#160;is&#160;when the&#160;contents of&#160;a segment register (a&#160;16-bit segment selector)&#160;<br/>are pushed&#160;onto&#160;a 32-bit wide&#160;stack.&#160;Here, the&#160;processor&#160;automatically&#160;aligns the stack pointer to the&#160;next 32-bit&#160;<br/>boundary.<br/>The processor does not check&#160;stack&#160;pointer&#160;alignment.&#160;It&#160;is the&#160;responsibility of the&#160;programs,&#160;tasks, and system&#160;<br/>procedures running&#160;on the processor to maintain proper&#160;alignment of stack&#160;pointers. Misaligning a&#160;stack pointer&#160;<br/>can&#160;cause serious&#160;performance degradation&#160;and&#160;in some&#160;instances program failures.</p>
+<p style="position:absolute;top:241px;left:69px;white-space:nowrap" class="ft03">6.2.3&#160;</p>
+<p style="position:absolute;top:241px;left:150px;white-space:nowrap" class="ft03">Address-Size&#160;Attributes for Stack Accesses</p>
+<p style="position:absolute;top:271px;left:69px;white-space:nowrap" class="ft05">Instructions that&#160;use&#160;the stack&#160;implicitly (such as the&#160;PUSH&#160;and POP instructions)&#160;have two address-size&#160;attributes&#160;<br/>each of either 16 or 32&#160;bits.&#160;This is because&#160;they&#160;always&#160;have&#160;the implicit&#160;address&#160;of the top of the stack, and&#160;they&#160;<br/>may also have&#160;an explicit memory address (for example,&#160;PUSH Array1[EBX]). The&#160;attribute of the explicit address&#160;<br/>is determined&#160;by the&#160;D&#160;flag&#160;of the&#160;current code&#160;segment and&#160;the presence&#160;or absence of&#160;the&#160;67H&#160;address-size&#160;<br/>prefix.<br/>The address-size attribute&#160;of the top of the stack&#160;determines whether SP&#160;or ESP is used&#160;for&#160;the&#160;stack access. Stack&#160;<br/>operations with&#160;an&#160;address-size attribute of 16 use&#160;the 16-bit&#160;SP&#160;stack pointer register&#160;and can&#160;use a&#160;maximum&#160;<br/>stack address&#160;of&#160;FFFFH; stack operations&#160;with an&#160;address-size&#160;attribute of 32&#160;bits use&#160;the&#160;32-bit ESP register&#160;and&#160;<br/>can use a maximum address of FFFFFFFFH. The default address-size attribute&#160;for data segments used&#160;as stacks is&#160;<br/>controlled by the&#160;B&#160;flag of the&#160;segment’s&#160;descriptor.&#160;When&#160;this flag&#160;is clear,&#160;the&#160;default address-size&#160;attribute&#160;is 16;&#160;<br/>when the&#160;flag is&#160;set, the&#160;address-size attribute is&#160;32.</p>
+<p style="position:absolute;top:494px;left:69px;white-space:nowrap" class="ft03">6.2.4 Procedure&#160;</p>
+<p style="position:absolute;top:494px;left:236px;white-space:nowrap" class="ft03">Linking&#160;</p>
+<p style="position:absolute;top:494px;left:299px;white-space:nowrap" class="ft03">Information</p>
+<p style="position:absolute;top:525px;left:69px;white-space:nowrap" class="ft05">The processor provides two pointers&#160;for&#160;linking&#160;of&#160;procedures: the stack-frame base pointer and the&#160;return instruc-<br/>tion pointer.&#160;When&#160;used&#160;in&#160;conjunction with a&#160;standard&#160;software&#160;procedure-call technique,&#160;these pointers permit&#160;<br/>reliable&#160;and coherent&#160;linking of procedures.</p>
+<p style="position:absolute;top:602px;left:69px;white-space:nowrap" class="ft04">6.2.4.1&#160;&#160;</p>
+<p style="position:absolute;top:602px;left:153px;white-space:nowrap" class="ft04">Stack-Frame Base Pointer</p>
+<p style="position:absolute;top:631px;left:69px;white-space:nowrap" class="ft05">The stack is&#160;typically&#160;divided into frames. Each&#160;stack&#160;frame can&#160;then&#160;contain local&#160;variables,&#160;parameters&#160;to&#160;be&#160;<br/>passed&#160;to another&#160;procedure, and procedure linking&#160;information. The&#160;stack-frame&#160;base&#160;pointer (contained&#160;in the&#160;<br/>EBP&#160;register) identifies a&#160;fixed&#160;reference&#160;point within the&#160;stack&#160;frame for the&#160;called procedure.&#160;To&#160;use the&#160;stack-<br/>frame base pointer,&#160;the&#160;called&#160;procedure&#160;typically copies the&#160;contents of the&#160;ESP register&#160;into the EBP register&#160;prior&#160;<br/>to pushing&#160;any local&#160;variables&#160;on the&#160;stack. The&#160;stack-frame&#160;base pointer then&#160;permits easy&#160;access&#160;to data struc-<br/>tures passed on&#160;the stack, to the return&#160;instruction pointer,&#160;and to local variables added to the stack by the called&#160;<br/>procedure.<br/>Like&#160;the ESP register, the EBP register automatically points&#160;to an address&#160;in&#160;the&#160;current&#160;stack segment (that is, the&#160;<br/>segment&#160;specified by the&#160;current contents&#160;of the&#160;SS&#160;register).&#160;</p>
+<p style="position:absolute;top:814px;left:69px;white-space:nowrap" class="ft04">6.2.4.2 &#160;</p>
+<p style="position:absolute;top:814px;left:153px;white-space:nowrap" class="ft04">Return Instruction&#160;Pointer</p>
+<p style="position:absolute;top:843px;left:69px;white-space:nowrap" class="ft05">Prior to branching to the first instruction of the called procedure,&#160;the CALL&#160;instruction pushes the address in the EIP&#160;<br/>register&#160;onto the&#160;current stack. This&#160;address is&#160;then called&#160;the return-instruction&#160;pointer and&#160;it points&#160;to the&#160;<br/>instruction where&#160;execution of the&#160;calling&#160;procedure should&#160;resume&#160;following a&#160;return from the&#160;called&#160;procedure.&#160;<br/>Upon returning from a&#160;called procedure,&#160;the&#160;RET instruction pops the&#160;return-instruction&#160;pointer from the&#160;stack&#160;<br/>back into&#160;the&#160;EIP&#160;register. Execution&#160;of&#160;the calling procedure&#160;then resumes.<br/>The processor&#160;does not keep track of&#160;the location of&#160;the&#160;return-instruction pointer.&#160;It is thus&#160;up to the programmer&#160;<br/>to&#160;insure that stack&#160;pointer is&#160;pointing&#160;to the return-instruction&#160;pointer&#160;on the stack, prior to&#160;issuing&#160;a RET instruc-<br/>tion. A common&#160;way&#160;to reset the stack pointer to&#160;the point&#160;to&#160;the&#160;return-instruction pointer is&#160;to move&#160;the&#160;contents&#160;<br/>of the EBP register into the ESP register. If&#160;the EBP&#160;register&#160;is&#160;loaded&#160;with the&#160;stack&#160;pointer immediately following&#160;<br/>a&#160;procedure call, it&#160;should point&#160;to the&#160;return instruction pointer&#160;on the&#160;stack.<br/>The processor does not require&#160;that&#160;the return&#160;instruction pointer point&#160;back to&#160;the&#160;calling procedure.&#160;Prior&#160;to&#160;<br/>executing&#160;the&#160;RET instruction,&#160;the&#160;return instruction pointer&#160;can be&#160;manipulated in&#160;software to point to&#160;any address&#160;</p>
+</div>
+</body>
+</html>

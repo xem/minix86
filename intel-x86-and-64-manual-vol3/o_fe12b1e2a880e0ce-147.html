@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 147</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page147-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce147.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;4-43</p>
+<p style="position:absolute;top:47px;left:793px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">4.10.4.2 &#160;&#160;Recommended&#160;Invalidation</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft03">The&#160;following items provide&#160;some recommendations&#160;regarding when software&#160;should&#160;perform&#160;invalidations:</p>
+<p style="position:absolute;top:149px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:150px;left:95px;white-space:nowrap" class="ft06">If software&#160;modifies a&#160;paging-structure entry that&#160;maps a&#160;page (rather than referencing another&#160;paging&#160;<br/>structure), it&#160;should execute INVLPG&#160;for any&#160;linear address&#160;with&#160;a page number&#160;whose&#160;translation uses that&#160;<br/>paging-structure entry.</p>
+<p style="position:absolute;top:180px;left:251px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:205px;left:95px;white-space:nowrap" class="ft06">(If the paging-structure entry may be&#160;used in the translation of different page numbers&#160;—&#160;<a href="o_fe12b1e2a880e0ce-144.html">see Section 4.10.3.3&#160;<br/></a>— software should&#160;execute&#160;INVLPG for linear&#160;addresses with each of those&#160;page&#160;numbers; alternatively,&#160;it&#160;could&#160;<br/>use MOV to&#160;CR3 or MOV&#160;to&#160;CR4.)</p>
+<p style="position:absolute;top:260px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:261px;left:95px;white-space:nowrap" class="ft07">If software&#160;modifies a&#160;paging-structure entry that&#160;references another&#160;paging structure, it&#160;may&#160;use&#160;one of&#160;the&#160;<br/>following approaches depending upon&#160;the types and&#160;number of translations&#160;controlled&#160;by&#160;the modified entry:<br/>—&#160;Execute INVLPG for linear addresses&#160;with&#160;each&#160;of the&#160;page numbers&#160;with&#160;translations that&#160;would&#160;use the&#160;</p>
+<p style="position:absolute;top:318px;left:120px;white-space:nowrap" class="ft06">entry.&#160;However,&#160;if no page&#160;numbers that would&#160;use the&#160;entry&#160;have&#160;translations (e.g.,&#160;because&#160;the P flags&#160;<br/>are&#160;0 in&#160;all entries in&#160;the paging structure&#160;referenced by the modified&#160;entry),&#160;it remains&#160;necessary to&#160;<br/>execute INVLPG&#160;at least once.</p>
+<p style="position:absolute;top:375px;left:95px;white-space:nowrap" class="ft07">—&#160;Execute&#160;MOV to CR3&#160;if the&#160;modified entry&#160;controls&#160;no global pages.<br/>—&#160;Execute&#160;MOV to CR4&#160;to modify CR4.PGE.</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:421px;left:95px;white-space:nowrap" class="ft07">If CR4.PCIDE&#160;=&#160;1 and&#160;software&#160;modifies&#160;a&#160;paging-structure&#160;entry that does not&#160;map a&#160;page or in&#160;which&#160;the G&#160;<br/>flag (bit&#160;8)&#160;is 0, additional steps are required&#160;if&#160;the&#160;entry&#160;may be used for PCIDs other&#160;than&#160;the current one. Any&#160;<br/>one of the&#160;following&#160;suffices:<br/>—&#160;Execute&#160;MOV&#160;to CR4&#160;to modify CR4.PGE,&#160;either&#160;immediately or&#160;before&#160;again using&#160;any of&#160;the&#160;affected&#160;</p>
+<p style="position:absolute;top:495px;left:120px;white-space:nowrap" class="ft06">PCIDs.&#160;For example,&#160;software&#160;could&#160;use&#160;different (previously unused) PCIDs for&#160;the&#160;processes that used the&#160;<br/>affected&#160;PCIDs.</p>
+<p style="position:absolute;top:535px;left:95px;white-space:nowrap" class="ft03">—&#160;For&#160;each&#160;affected PCID, execute MOV to&#160;CR3 to&#160;make&#160;that PCID current (and to&#160;load the&#160;address of the&#160;</p>
+<p style="position:absolute;top:552px;left:120px;white-space:nowrap" class="ft06">appropriate&#160;PML4&#160;table).&#160;If&#160;the&#160;modified&#160;entry controls&#160;no&#160;global pages and&#160;bit&#160;63&#160;of&#160;the&#160;source&#160;operand&#160;to&#160;<br/>MOV to CR3 was 0,&#160;no further steps are required.&#160;Otherwise,&#160;execute INVLPG&#160;for linear addresses&#160;with each&#160;<br/>of the&#160;page numbers&#160;with&#160;translations&#160;that would use the&#160;entry;&#160;if no&#160;page&#160;numbers that would&#160;use the&#160;<br/>entry have&#160;translations,&#160;execute INVLPG&#160;at least once.</p>
+<p style="position:absolute;top:623px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:624px;left:95px;white-space:nowrap" class="ft06">If&#160;software&#160;using&#160;PAE&#160;paging&#160;modifies&#160;a&#160;PDPTE,&#160;it should&#160;reload&#160;CR3 with&#160;the register’s&#160;current value to&#160;ensure&#160;<br/>that the modified&#160;PDPTE is&#160;loaded into&#160;the corresponding&#160;PDPTE register&#160;(see<a href="o_fe12b1e2a880e0ce-117.html">&#160;Section&#160;4.4.1</a>).</p>
+<p style="position:absolute;top:662px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:663px;left:95px;white-space:nowrap" class="ft06">If&#160;the&#160;nature&#160;of&#160;the&#160;paging&#160;structures&#160;is&#160;such&#160;that&#160;a&#160;single&#160;entry&#160;may&#160;be&#160;used&#160;for&#160;multiple&#160;purposes&#160;(see<a href="o_fe12b1e2a880e0ce-144.html">&#160;Section&#160;<br/>4.10.3.3),</a>&#160;software should perform invalidations&#160;for all&#160;of these purposes. For example,&#160;if a&#160;single&#160;entry&#160;might&#160;<br/>serve as both a PDE and PTE,&#160;it may be&#160;necessary to&#160;execute INVLPG with two (or more) linear addresses, one&#160;<br/>that uses the&#160;entry&#160;as a&#160;PDE&#160;and one that uses&#160;it as&#160;a PTE.&#160;(Alternatively,&#160;software could&#160;use&#160;MOV&#160;to CR3 or&#160;<br/>MOV&#160;to&#160;CR4.)</p>
+<p style="position:absolute;top:751px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:751px;left:95px;white-space:nowrap" class="ft06">As noted&#160;<a href="o_fe12b1e2a880e0ce-140.html">in Section 4.10.2, the TLB</a>s&#160;may&#160;subsequently&#160;contain&#160;multiple&#160;translations for the&#160;address range if&#160;<br/>software&#160;modifies&#160;the&#160;paging structures&#160;so that the&#160;page&#160;size used for a&#160;4-KByte range of linear addresses&#160;<br/>changes. A reference to&#160;a linear address in&#160;the&#160;address range&#160;may use&#160;any of these translations.<br/>Software wishing to&#160;prevent this uncertainty&#160;should not write&#160;to a paging-structure&#160;entry in a&#160;way&#160;that would&#160;<br/>change,&#160;for&#160;any linear&#160;address,&#160;both&#160;the&#160;page&#160;size and either&#160;the&#160;page&#160;frame, access rights,&#160;or other&#160;attributes.&#160;<br/>It&#160;can instead use&#160;the following algorithm: first&#160;clear&#160;the P&#160;flag in&#160;the relevant&#160;paging-structure&#160;entry (e.g.,&#160;<br/>PDE); then invalidate&#160;any translations&#160;for&#160;the affected&#160;linear addresses&#160;(see&#160;above); and&#160;then modify the&#160;<br/>relevant&#160;paging-structure entry to&#160;set the P&#160;flag and establish modified translation(s)&#160;for&#160;the new page&#160;size.</p>
+<p style="position:absolute;top:895px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:895px;left:95px;white-space:nowrap" class="ft06">Software&#160;should clear bit&#160;63 of the&#160;source&#160;operand to a MOV to&#160;CR3 instruction that&#160;establishes a PCID&#160;that had&#160;<br/>been used&#160;earlier for a&#160;different linear-address space (e.g.,&#160;with&#160;a different&#160;value in&#160;bits&#160;51:12 of CR3). This&#160;<br/>ensures invalidation of any&#160;information that&#160;may have&#160;been cached for the&#160;previous linear-address space.<br/>This assumes&#160;that both&#160;linear-address spaces&#160;use the&#160;same&#160;global pages&#160;and that&#160;it is&#160;thus not necessary&#160;to&#160;<br/>invalidate any global TLB entries. If that is not the&#160;case, software should invalidate&#160;those entries&#160;by executing&#160;<br/>MOV&#160;to&#160;CR4&#160;to modify&#160;CR4.PGE.</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft03">1.&#160;One execution&#160;of&#160;INVLPG is sufficient&#160;even&#160;for a&#160;page&#160;with&#160;size&#160;greater than&#160;4&#160;KBytes.</p>
+</div>
+</body>
+</html>

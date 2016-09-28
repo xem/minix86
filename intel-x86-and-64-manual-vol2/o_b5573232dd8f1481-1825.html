@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1825</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1825-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811825.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VRANGEPD—Range Restriction Calculation For Packed Pairs&#160;of Float64 Values</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-439</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft02">IF ((Src2.exp = 0) and (Src2.fraction&#160;!=0 )) THEN// Src2 is&#160;a denormal&#160;number</p>
+<p style="position:absolute;top:118px;left:116px;white-space:nowrap" class="ft03">IF DAZ&#160;THEN Src2.fraction&#160;&#160;0;<br/>ELSE&#160;IF (SRC1 &lt;&gt; QNAN) Set DE; FI;</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:190px;left:89px;white-space:nowrap" class="ft03">IF&#160;&#160;(SRC2 = QNAN) THEN{TMP[63:0]&#160;&#160;SRC1[63:0]}<br/>ELSE IF(SRC1&#160;= QNAN) THEN{TMP[63:0]&#160;&#160;SRC2[63:0]}<br/>ELSE IF&#160;(Both&#160;SRC1, SRC2&#160;are&#160;magnitude-0&#160;and opposite-signed)&#160;TMP[63:0]&#160;&#160;from<a href="o_b5573232dd8f1481-1824.html">&#160;Table&#160;5-13<br/></a>ELSE IF&#160;(Both&#160;SRC1, SRC2&#160;are&#160;magnitude-equal and&#160;opposite-signed&#160;and CmpOpCtl[1:0] &gt; 01)&#160;TMP[63:0]&#160;<a href="o_b5573232dd8f1481-1824.html">&#160;from Table 5-14<br/></a>ELSE&#160;</p>
+<p style="position:absolute;top:280px;left:116px;white-space:nowrap" class="ft03">Case(CmpOpCtl[1:0])<br/>00: TMP[63:0]&#160;&#160;(SRC1[63:0]&#160;≤&#160;SRC2[63:0]) ? SRC1[63:0]&#160;: SRC2[63:0];<br/>01: TMP[63:0]&#160;&#160;(SRC1[63:0]&#160;≤&#160;SRC2[63:0]) ? SRC2[63:0]&#160;: SRC1[63:0];<br/>10: TMP[63:0]&#160;&#160;(ABS(SRC1[63:0])&#160;≤&#160;ABS(SRC2[63:0])) ? SRC1[63:0] : SRC2[63:0];<br/>11: TMP[63:0]&#160;&#160;(ABS(SRC1[63:0])&#160;≤&#160;ABS(SRC2[63:0])) ? SRC2[63:0] : SRC1[63:0];<br/>ESAC;</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft03">Case(SignSelCtl[1:0])<br/>00: dest&#160;&#160;(SRC1[63] &lt;&lt; 63) OR (TMP[62:0]);// Preserve&#160;Src1 sign&#160;bit<br/>01: dest&#160;&#160;TMP[63:0];// Preserve&#160;sign of compare&#160;result<br/>10: dest&#160;&#160;(0 &lt;&lt; 63) OR (TMP[62:0]);// Zero out sign bit<br/>11: dest&#160;&#160;(1 &lt;&lt; 63) OR (TMP[62:0]);// Set the sign&#160;bit<br/>ESAC;<br/>RETURN&#160;dest[63:0];</p>
+<p style="position:absolute;top:550px;left:69px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:589px;left:69px;white-space:nowrap" class="ft04">CmpOpCtl[1:0]= imm8[1:0];<br/>SignSelCtl[1:0]=imm8[3:2];</p>
+<p style="position:absolute;top:647px;left:69px;white-space:nowrap" class="ft03">VRANGEPD (EVEX encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:701px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:737px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b ==&#160;1) AND (SRC2 *is memory*)</p>
+<p style="position:absolute;top:755px;left:170px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;RangeDP&#160;(SRC1[i+63:i], SRC2[63:0], CmpOpCtl[1:0],&#160;SignSelCtl[1:0]);<br/>ELSE DEST[i+63:i]&#160;&#160;RangeDP (SRC1[i+63:i],&#160;SRC2[i+63:i],&#160;DAZ, CmpOpCtl[1:0],&#160;SignSelCtl[1:0]);</p>
+<p style="position:absolute;top:791px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:809px;left:89px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:827px;left:116px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:827px;left:332px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:845px;left:143px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:863px;left:338px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:881px;left:170px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;=&#160;0</p>
+<p style="position:absolute;top:899px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:917px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:935px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:993px;left:69px;white-space:nowrap" class="ft05">The&#160;following example describes&#160;a common&#160;usage of this&#160;instruction&#160;for checking&#160;that&#160;the input&#160;operand&#160;is<br/>bounded between&#160;±1023.</p>
+<p style="position:absolute;top:1048px;left:69px;white-space:nowrap" class="ft02">VRANGEPD zmm_dst,&#160;zmm_src, zmm_1023,&#160;02h;</p>
+</div>
+</body>
+</html>

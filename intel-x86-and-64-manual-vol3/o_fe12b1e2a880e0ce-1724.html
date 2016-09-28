@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1724</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1724-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1724.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">36-40&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® PROCESSOR TRACE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">clear&#160;to the&#160;decoder whether the&#160;near&#160;RET was&#160;compressed,&#160;and hence&#160;a bit in&#160;the in-progress TNT&#160;should&#160;be&#160;<br/>consumed, or&#160;uncompressed, in&#160;which case there&#160;will be&#160;no in-progress&#160;TNT&#160;and thus a&#160;TIP should be&#160;consumed.<br/>Note&#160;that&#160;in the&#160;unlikely case that a&#160;RET executes in&#160;a different&#160;execution mode&#160;than the&#160;associated&#160;CALL,&#160;the&#160;<br/>decoder will need&#160;to model the same&#160;behavior&#160;with its&#160;CALL&#160;stack.&#160;For instance, if a CALL&#160;executes in&#160;64-bit&#160;mode,&#160;<br/>a 64-bit&#160;IP&#160;value&#160;will&#160;be&#160;pushed onto the&#160;software stack.&#160;If the&#160;corresponding&#160;RET&#160;executes in&#160;32-bit mode, then&#160;<br/>only&#160;the lower&#160;32&#160;target&#160;bits&#160;will be&#160;popped&#160;off of the&#160;stack,&#160;which may&#160;mean&#160;that&#160;the RET does not go to&#160;the CALL’s&#160;<br/>Next&#160;IP. This is&#160;architecturally correct behavior,&#160;and this&#160;RET could be compressed, thus&#160;the decoder&#160;should match&#160;<br/>this behavior</p>
+<p style="position:absolute;top:266px;left:68px;white-space:nowrap" class="ft03">36.4.2.3 &#160;&#160;Deferred TIPs</p>
+<p style="position:absolute;top:293px;left:68px;white-space:nowrap" class="ft05">The processor may opt to defer sending out the TNT when TIPs are&#160;generated.&#160;Thus, rather than sending a partial&#160;<br/>TNT followed by a TIP,&#160;both packets will be deferred while&#160;the&#160;TNT accumulates more&#160;Jcc/RET results. Any number&#160;<br/>of&#160;TIP packets may be&#160;accumulated&#160;this way,&#160;such that only&#160;once&#160;the TNT is&#160;filled, or&#160;once another&#160;packet&#160;(e.g.,&#160;<br/>FUP) is&#160;generated,&#160;the TNT&#160;will&#160;be&#160;sent, followed by&#160;all the&#160;deferred&#160;TIP packets, and&#160;finally&#160;terminated&#160;by the&#160;other&#160;<br/>packet(s) that&#160;forced out&#160;the TNT and TIP packets. Generation of many&#160;other packets&#160;(see&#160;list below)&#160;will force&#160;out&#160;<br/>the TNT and any&#160;accumulated TIP packets. This&#160;is an&#160;optional optimization in&#160;hardware&#160;to reduce the&#160;bandwidth&#160;<br/>consumption,&#160;and hence&#160;the performance&#160;impact, incurred&#160;by&#160;tracing.</p>
+<p style="position:absolute;top:433px;left:295px;white-space:nowrap" class="ft04">Table 36-19.&#160;TNT&#160;Examples with&#160;Deferred&#160;TIPs</p>
+<p style="position:absolute;top:458px;left:213px;white-space:nowrap" class="ft02">Code&#160;Flow</p>
+<p style="position:absolute;top:458px;left:433px;white-space:nowrap" class="ft02">Packets,&#160;Non-Deferred&#160;TIPS</p>
+<p style="position:absolute;top:458px;left:654px;white-space:nowrap" class="ft02">Packets,&#160;Deferred&#160;TIPS</p>
+<p style="position:absolute;top:482px;left:74px;white-space:nowrap" class="ft07">0x1000 cmp %rcx, 0<br/>0x1004&#160;jnz&#160;Foo //&#160;not-taken<br/>0x1008&#160;jmp %rdx</p>
+<p style="position:absolute;top:515px;left:428px;white-space:nowrap" class="ft02">TNT(0b0), TIP(0x1308)</p>
+<p style="position:absolute;top:548px;left:74px;white-space:nowrap" class="ft07">0x1308 cmp %rcx, 1<br/>0x130c&#160;jnz Bar //&#160;not-taken<br/>0x1310 cmp %rcx, 2<br/>0x1314&#160;jnz&#160;Baz //&#160;taken<br/>0x1500&#160;cmp&#160;%eax, 7<br/>0x1504 jg Exit //&#160;not-taken<br/>0x1508&#160;jmp&#160;%r15</p>
+<p style="position:absolute;top:647px;left:428px;white-space:nowrap" class="ft02">TNT(0b010), TIP(0x1100)</p>
+<p style="position:absolute;top:698px;left:74px;white-space:nowrap" class="ft07">0x1100&#160;cmp&#160;%rbx, 1<br/>0x1104 jg Start //&#160;not-taken<br/>0x1108&#160;add %rcx,&#160;%eax<br/>0x110c&#160;…&#160;//&#160;an&#160;asynchronous Interrupt arrives<br/>INThandler:<br/>0xcc00 pop %rdx</p>
+<p style="position:absolute;top:747px;left:428px;white-space:nowrap" class="ft02">TNT(0b0), FUP(0x110c),&#160;</p>
+<p style="position:absolute;top:764px;left:428px;white-space:nowrap" class="ft02">TIP(0xcc00)</p>
+<p style="position:absolute;top:782px;left:616px;white-space:nowrap" class="ft02">TNT(0b00100), TIP(0x1308),&#160;</p>
+<p style="position:absolute;top:798px;left:616px;white-space:nowrap" class="ft02">TIP(0x1100), FUP(0x110c),&#160;</p>
+<p style="position:absolute;top:815px;left:616px;white-space:nowrap" class="ft02">TIP(0xcc00)</p>
+</div>
+</body>
+</html>

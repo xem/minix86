@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1363</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1363-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811363.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">UCOMISD—Unordered Compare&#160;Scalar Double-Precision Floating-Point Values and Set EFLAGS</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-683</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">UCOMISD—Unordered Compare Scalar Double-Precision Floating-Point&#160;Values and Set EFLAGS&#160;</p>
+<p style="position:absolute;top:370px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:501px;left:69px;white-space:nowrap" class="ft05">Performs an unordered&#160;compare of&#160;the double-precision&#160;floating-point values&#160;in&#160;the&#160;low quadwords of operand&#160;1&#160;<br/>(first operand) and operand 2 (second operand),&#160;and sets the ZF, PF,&#160;and CF flags&#160;in&#160;the&#160;EFLAGS&#160;register&#160;according&#160;<br/>to the result (unordered, greater than, less&#160;than, or equal).&#160;The OF,&#160;SF&#160;and&#160;AF flags in the EFLAGS&#160;register are&#160;set&#160;<br/>to 0.&#160;The unordered&#160;result is&#160;returned&#160;if&#160;either&#160;source&#160;operand&#160;is a&#160;NaN (QNaN&#160;or SNaN).<br/>Operand&#160;1&#160;is an&#160;XMM register;&#160;operand&#160;2&#160;can be&#160;an&#160;XMM&#160;register&#160;or&#160;a 64&#160;bit memory<br/>location.&#160;<br/>The&#160;UCOMISD instruction differs from&#160;the COMISD&#160;instruction&#160;in that it&#160;signals&#160;a SIMD&#160;floating-point invalid oper-<br/>ation exception (#I)&#160;only when a&#160;source operand&#160;is an&#160;SNaN. The&#160;COMISD instruction signals an invalid numeric&#160;<br/>exception only if a&#160;source operand&#160;is either an SNaN or&#160;a QNaN.<br/>The&#160;EFLAGS&#160;register&#160;is not updated&#160;if an&#160;unmasked SIMD floating-point&#160;exception&#160;is generated.<br/>Note:&#160;VEX.vvvv and&#160;EVEX.vvvv&#160;are reserved and must be 1111b, otherwise&#160;instructions&#160;will&#160;#UD.<br/>Software&#160;should ensure&#160;VCOMISD is&#160;encoded with VEX.L=0.&#160;Encoding&#160;VCOMISD&#160;with VEX.L=1 may&#160;encounter&#160;<br/>unpredictable&#160;behavior&#160;across different processor generations.</p>
+<p style="position:absolute;top:769px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:792px;left:69px;white-space:nowrap" class="ft07">(V)UCOMISD (all versions)<br/>RESULT&#160;UnorderedCompare(DEST[63:0]&#160;&lt;&gt; SRC[63:0]) {<br/>(* Set EFLAGS&#160;*) CASE (RESULT) OF</p>
+<p style="position:absolute;top:846px;left:89px;white-space:nowrap" class="ft07">UNORDERED: ZF,PF,CF&#160;&#160;111;<br/>GREATER_THAN: ZF,PF,CF&#160;&#160;000;<br/>LESS_THAN: ZF,PF,CF&#160;&#160;001;<br/>EQUAL: ZF,PF,CF&#160;&#160;100;</p>
+<p style="position:absolute;top:918px;left:69px;white-space:nowrap" class="ft07">ESAC;<br/>OF, AF, SF&#160;&#160;0; }</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:303px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:137px;left:303px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:346px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:346px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:346px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:419px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:419px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:419px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:493px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:78px;white-space:nowrap" class="ft04">66&#160;0F&#160;2E /r</p>
+<p style="position:absolute;top:172px;left:303px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:172px;left:346px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:419px;white-space:nowrap" class="ft04">SSE2</p>
+<p style="position:absolute;top:172px;left:493px;white-space:nowrap" class="ft04">Compare&#160;low double-precision floating-point&#160;values in&#160;</p>
+<p style="position:absolute;top:189px;left:493px;white-space:nowrap" class="ft04">xmm1&#160;and xmm2/mem64 and&#160;set the&#160;EFLAGS flags&#160;</p>
+<p style="position:absolute;top:205px;left:493px;white-space:nowrap" class="ft04">accordingly.</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">UCOMISD xmm1, xmm2/m64</p>
+<p style="position:absolute;top:227px;left:78px;white-space:nowrap" class="ft04">VEX.128.66.0F.WIG 2E&#160;/r</p>
+<p style="position:absolute;top:227px;left:303px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:227px;left:346px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:227px;left:419px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:227px;left:493px;white-space:nowrap" class="ft04">Compare&#160;low double-precision&#160;floating-point&#160;values in&#160;</p>
+<p style="position:absolute;top:244px;left:493px;white-space:nowrap" class="ft04">xmm1&#160;and xmm2/mem64 and&#160;set the&#160;EFLAGS flags&#160;</p>
+<p style="position:absolute;top:261px;left:493px;white-space:nowrap" class="ft04">accordingly.</p>
+<p style="position:absolute;top:247px;left:78px;white-space:nowrap" class="ft04">VUCOMISD xmm1, xmm2/m64</p>
+<p style="position:absolute;top:283px;left:78px;white-space:nowrap" class="ft04">EVEX.LIG.66.0F.W1 2E&#160;/r</p>
+<p style="position:absolute;top:283px;left:303px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:283px;left:346px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:283px;left:419px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:283px;left:493px;white-space:nowrap" class="ft04">Compare&#160;low&#160;double-precision&#160;floating-point&#160;values&#160;in&#160;</p>
+<p style="position:absolute;top:299px;left:493px;white-space:nowrap" class="ft04">xmm1&#160;and xmm2/m64 and&#160;set the&#160;EFLAGS flags&#160;</p>
+<p style="position:absolute;top:316px;left:493px;white-space:nowrap" class="ft04">accordingly.</p>
+<p style="position:absolute;top:303px;left:78px;white-space:nowrap" class="ft04">VUCOMISD xmm1, xmm2/m64{sae}</p>
+<p style="position:absolute;top:393px;left:106px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:393px;left:227px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:393px;left:392px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:393px;left:556px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:393px;left:721px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:417px;left:114px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:417px;left:217px;white-space:nowrap" class="ft04">ModRM:reg (r)</p>
+<p style="position:absolute;top:417px;left:382px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:417px;left:577px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:417px;left:742px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:441px;left:111px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:441px;left:215px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:441px;left:381px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:441px;left:577px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:441px;left:742px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 168</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page168-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce168.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-16&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:486px;left:68px;white-space:nowrap" class="ft05">The privilege&#160;checking rules are different&#160;depending&#160;on whether&#160;the control transfer was&#160;initiated with a&#160;CALL or&#160;a&#160;<br/>JMP instruction,&#160;as shown&#160;<a href="o_fe12b1e2a880e0ce-168.html">in Table&#160;5-1</a>.</p>
+<p style="position:absolute;top:748px;left:68px;white-space:nowrap" class="ft05">The DPL field&#160;of the call-gate&#160;descriptor specifies the numerically highest&#160;privilege level from which a calling proce-<br/>dure&#160;can access&#160;the call&#160;gate; that is, to&#160;access&#160;a call&#160;gate, the&#160;CPL&#160;of&#160;a calling procedure must be equal to&#160;or less&#160;<br/>than the&#160;DPL of the&#160;call&#160;gate. For example, in&#160;<a href="o_fe12b1e2a880e0ce-178.html">Figure&#160;5-15</a>,&#160;call gate&#160;A&#160;has&#160;a DPL of 3. So calling procedures at&#160;all&#160;<br/>CPLs (0&#160;through 3)&#160;can access this call gate,&#160;which includes&#160;calling&#160;procedures&#160;in code segments A,&#160;B,&#160;and&#160;C. Call&#160;<br/>gate&#160;B has a DPL&#160;of&#160;2,&#160;so only&#160;calling procedures&#160;at a CPL&#160;or 0, 1, or 2&#160;can access&#160;call gate&#160;B,&#160;which includes calling&#160;<br/>procedures&#160;in code segments B and&#160;C.&#160;The dotted&#160;line&#160;shows&#160;that&#160;a calling procedure&#160;in code&#160;segment A&#160;cannot&#160;<br/>access call&#160;gate B.<br/>The RPL&#160;of&#160;the&#160;segment&#160;selector to&#160;a call gate must satisfy the same&#160;test as&#160;the CPL&#160;of&#160;the&#160;calling procedure;&#160;that&#160;<br/>is,&#160;the RPL must be&#160;less&#160;than&#160;or&#160;equal&#160;to&#160;the&#160;DPL&#160;of&#160;the&#160;call gate.&#160;In&#160;the example<a href="o_fe12b1e2a880e0ce-178.html">&#160;in Figure&#160;5-15</a>, a calling&#160;procedure&#160;<br/>in code&#160;segment C can&#160;access call gate&#160;B using&#160;gate&#160;selector B2&#160;or&#160;B1,&#160;but&#160;it could&#160;not&#160;use gate&#160;selector&#160;B3&#160;to&#160;<br/>access call&#160;gate B.<br/>If the&#160;privilege&#160;checks between the&#160;calling&#160;procedure&#160;and&#160;call gate&#160;are successful, the&#160;processor&#160;then checks the&#160;<br/>DPL of&#160;the&#160;code-segment descriptor&#160;against&#160;the&#160;CPL of the&#160;calling&#160;procedure.&#160;Here, the&#160;privilege check&#160;rules vary&#160;<br/>between&#160;CALL&#160;and JMP instructions. Only&#160;CALL instructions can use call&#160;gates to&#160;transfer&#160;program control to&#160;more&#160;<br/>privileged (numerically lower privilege&#160;level) nonconforming code&#160;segments; that is,&#160;to&#160;nonconforming code&#160;<br/>segments&#160;with a&#160;DPL less than the CPL.&#160;A JMP instruction can&#160;use a call&#160;gate&#160;only&#160;to&#160;transfer program control to a&#160;<br/>nonconforming code segment with a&#160;DPL equal to&#160;the CPL.&#160;CALL&#160;and JMP&#160;instruction&#160;can both&#160;transfer program&#160;<br/>control to a more&#160;privileged conforming code segment; that&#160;is, to a conforming code segment with a DPL less than&#160;<br/>or equal to&#160;the CPL.</p>
+<p style="position:absolute;top:440px;left:239px;white-space:nowrap" class="ft03">Figure&#160;5-11. &#160;Privilege&#160;Check for Control&#160;Transfer&#160;with Call Gate</p>
+<p style="position:absolute;top:533px;left:296px;white-space:nowrap" class="ft03">Table&#160;5-1.&#160;&#160;Privilege&#160;Check&#160;Rules&#160;for Call&#160;Gates</p>
+<p style="position:absolute;top:557px;left:77px;white-space:nowrap" class="ft02">Instruction</p>
+<p style="position:absolute;top:557px;left:221px;white-space:nowrap" class="ft02">Privilege Check Rules</p>
+<p style="position:absolute;top:581px;left:77px;white-space:nowrap" class="ft02">CALL</p>
+<p style="position:absolute;top:581px;left:221px;white-space:nowrap" class="ft07">CPL&#160;≤&#160;call gate&#160;DPL; RPL&#160;≤&#160;call gate DPL<br/>Destination conforming&#160;code&#160;segment DPL&#160;≤&#160;CPL<br/>Destination&#160;nonconforming code&#160;segment DPL&#160;≤&#160;CPL</p>
+<p style="position:absolute;top:653px;left:77px;white-space:nowrap" class="ft02">JMP</p>
+<p style="position:absolute;top:653px;left:221px;white-space:nowrap" class="ft07">CPL&#160;≤&#160;call gate&#160;DPL; RPL&#160;≤&#160;call gate DPL<br/>Destination conforming&#160;code&#160;segment DPL&#160;≤&#160;CPL<br/>Destination&#160;nonconforming code&#160;segment DPL = CPL</p>
+<p style="position:absolute;top:156px;left:384px;white-space:nowrap" class="ft04">CPL</p>
+<p style="position:absolute;top:226px;left:383px;white-space:nowrap" class="ft04">RPL</p>
+<p style="position:absolute;top:282px;left:357px;white-space:nowrap" class="ft04">DPL</p>
+<p style="position:absolute;top:380px;left:356px;white-space:nowrap" class="ft04">DPL</p>
+<p style="position:absolute;top:265px;left:556px;white-space:nowrap" class="ft04">Privilege</p>
+<p style="position:absolute;top:276px;left:561px;white-space:nowrap" class="ft04">Check</p>
+<p style="position:absolute;top:258px;left:295px;white-space:nowrap" class="ft00">Call Gate (Descriptor)</p>
+<p style="position:absolute;top:343px;left:308px;white-space:nowrap" class="ft00">Destination Code-</p>
+<p style="position:absolute;top:132px;left:321px;white-space:nowrap" class="ft00">CS Register</p>
+<p style="position:absolute;top:203px;left:304px;white-space:nowrap" class="ft00">Call-Gate Selector</p>
+<p style="position:absolute;top:356px;left:300px;white-space:nowrap" class="ft00">Segment Descriptor</p>
+</div>
+</body>
+</html>

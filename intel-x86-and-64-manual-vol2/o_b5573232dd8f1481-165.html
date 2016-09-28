@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 165</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page165-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481165.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">ADDPS—Add Packed Single-Precision Floating-Point Values</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-37</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:136px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:172px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;SRC1[i+31:i]&#160;+ SRC2[i+31:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:208px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:208px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:226px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:244px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:262px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:280px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">VADDPS (EVEX encoded&#160;versions)&#160;when&#160;src2 operand is&#160;a&#160;memory source<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:442px;left:89px;white-space:nowrap" class="ft03">i&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:478px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:496px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1)&#160;</p>
+<p style="position:absolute;top:514px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:532px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;SRC1[i+31:i] + SRC2[31:0]</p>
+<p style="position:absolute;top:550px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:568px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;SRC1[i+31:i] + SRC2[i+31:i]</p>
+<p style="position:absolute;top:586px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:604px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:622px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:622px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:640px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:658px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:676px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:694px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:712px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

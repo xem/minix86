@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1187</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1187-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811187.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PUNPCKLBW/PUNPCKLWD/PUNPCKLDQ/PUNPCKLQDQ—Unpack Low Data</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-507</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">VPUNPCKLBW&#160;(EVEX.512 encoded instruction)<br/>(KL, VL) = (16, 128), (32, 256), (64,&#160;512)<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_BYTES(SRC1[VL-1:0], SRC2[VL-1:0])</p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:208px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_BYTES_256b(SRC1[VL-1:0], SRC2[VL-1:0])</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_BYTES_512b(SRC1[VL-1:0], SRC2[VL-1:0])</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 8<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:370px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+7:i]&#160;&#160;TMP_DEST[i+7:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:406px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:406px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:424px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+7:i] remains&#160;unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:442px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:460px;left:197px;white-space:nowrap" class="ft02">DEST[i+7:i]&#160;&#160;0</p>
+<p style="position:absolute;top:478px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:496px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0<br/>DEST[511:0]&#160;&#160;INTERLEAVE_BYTES_512b(SRC1,&#160;SRC2)</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft03">PUNPCKLWD<br/>DEST[127:0]&#160;INTERLEAVE_WORDS(DEST,&#160;SRC)<br/>DEST[255:127] (Unmodified)</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft03">VPUNPCKLWD (VEX.128&#160;encoded instruction)<br/>DEST[127:0]&#160;INTERLEAVE_WORDS(SRC1, SRC2)<br/>DEST[511:127]&#160;0</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft03">VPUNPCKLWD (VEX.256&#160;encoded instruction)<br/>DEST[255:0]&#160;INTERLEAVE_WORDS_256b(SRC1,&#160;SRC2)<br/>DEST[MAX_VL-1:256]&#160;0</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft03">VPUNPCKLWD&#160;(EVEX.512&#160;encoded instruction)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:856px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_WORDS(SRC1[VL-1:0],&#160;SRC2[VL-1:0])</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:910px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_WORDS_256b(SRC1[VL-1:0], SRC2[VL-1:0])</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:964px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_WORDS_512b(SRC1[VL-1:0], SRC2[VL-1:0])</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1018px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:1036px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+</div>
+</body>
+</html>

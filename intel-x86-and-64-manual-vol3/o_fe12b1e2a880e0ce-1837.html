@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1837</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1837-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1837.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-27</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">(* make&#160;sure&#160;the&#160;enclave owning&#160;the&#160;PT_REG&#160;or PT_TCS&#160;page&#160;allow debug *)&#160;<br/>IF ( (EPCM(DS:RCX).PT&#160;= PT_REG) or (EPCM(DS:RCX).PT&#160;= PT_TCS) )</p>
+<p style="position:absolute;top:136px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:154px;left:116px;white-space:nowrap" class="ft03">TMP_SECS&#160;&#160;GET_SECS_ADDRESS;<br/>IF (TMP_SECS.ATTRIBUTES.DEBUG = 0)&#160;</p>
+<p style="position:absolute;top:190px;left:143px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:208px;left:116px;white-space:nowrap" class="ft02">IF ( (TMP_MODE64 = 1) )</p>
+<p style="position:absolute;top:226px;left:143px;white-space:nowrap" class="ft03">THEN&#160;RBX[63:0]&#160;&#160;(DS:RCX)[63:0];&#160;<br/>ELSE EBX[31:0]&#160;&#160;(DS:RCX)[31:0];&#160;</p>
+<p style="position:absolute;top:262px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:298px;left:116px;white-space:nowrap" class="ft03">TMP_64BIT_VAL[63:0]&#160;&#160;(DS:RCX)[63:0] &amp; (~07H); // Read&#160;contents&#160;from&#160;VA slot<br/>IF (TMP_MODE64 = 1)&#160;</p>
+<p style="position:absolute;top:334px;left:143px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:352px;left:170px;white-space:nowrap" class="ft02">IF (TMP_64BIT_VAL&#160;≠&#160;0H)&#160;</p>
+<p style="position:absolute;top:370px;left:197px;white-space:nowrap" class="ft03">THEN&#160;RBX[63:0]&#160;&#160;0FFFFFFFFFFFFFFFFH;<br/>ELSE RBX[63:0]&#160;&#160;0H;</p>
+<p style="position:absolute;top:406px;left:170px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:424px;left:143px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:442px;left:170px;white-space:nowrap" class="ft02">IF (TMP_64BIT_VAL&#160;≠&#160;0H)&#160;</p>
+<p style="position:absolute;top:460px;left:197px;white-space:nowrap" class="ft03">THEN EBX[31:0]&#160;&#160;0FFFFFFFFH;<br/>ELSE EBX[31:0]&#160;&#160;0H;</p>
+<p style="position:absolute;top:496px;left:170px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:548px;left:69px;white-space:nowrap" class="ft01">Flags Affected</p>
+<p style="position:absolute;top:571px;left:69px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:606px;left:69px;white-space:nowrap" class="ft01">Protected&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:628px;left:207px;white-space:nowrap" class="ft04">If the&#160;address in&#160;RCS violates&#160;DS limit or&#160;access&#160;rights.<br/>If&#160;DS segment is&#160;unusable.<br/>If&#160;RCX points to&#160;a&#160;memory&#160;location not 4Byte-aligned.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;page&#160;belonging&#160;to a non-debug&#160;enclave.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;page&#160;which is&#160;not PT_TCS,&#160;PT_REG or&#160;PT_VA.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;location&#160;inside&#160;TCS&#160;that is&#160;beyond SGX_TCS_LIMIT.</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:754px;left:207px;white-space:nowrap" class="ft04">If a&#160;page&#160;fault occurs in&#160;accessing&#160;memory&#160;operands.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;non-EPC page.<br/>If&#160;the address&#160;in RCX&#160;points to&#160;an invalid EPC page.</p>
+<p style="position:absolute;top:831px;left:69px;white-space:nowrap" class="ft01">64-Bit Mode&#160;Exceptions</p>
+<p style="position:absolute;top:853px;left:69px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:853px;left:207px;white-space:nowrap" class="ft04">If RCX&#160;is non-canonical form.<br/>If&#160;RCX points to&#160;a&#160;memory&#160;location not 8Byte-aligned.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;page&#160;belonging&#160;to a non-debug&#160;enclave.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;page&#160;which is&#160;not PT_TCS,&#160;PT_REG or&#160;PT_VA.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;location&#160;inside&#160;TCS&#160;that is&#160;beyond SGX_TCS_LIMIT.</p>
+<p style="position:absolute;top:958px;left:69px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:958px;left:207px;white-space:nowrap" class="ft04">If a&#160;page&#160;fault occurs in&#160;accessing&#160;memory&#160;operands.<br/>If the&#160;address in&#160;RCX points&#160;to a&#160;non-EPC page.<br/>If&#160;the address&#160;in RCX&#160;points to&#160;an invalid EPC page.</p>
+</div>
+</body>
+</html>

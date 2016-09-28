@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 268</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page268-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481268.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:697px;white-space:nowrap" class="ft00">CLFLUSH—Flush Cache Line</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-140&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">CLFLUSH—Flush Cache Line</p>
+<p style="position:absolute;top:217px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:300px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:324px;left:68px;white-space:nowrap" class="ft07">Invalidates&#160;from every level of the cache hierarchy in the&#160;cache coherence domain the cache line&#160;that contains&#160;the&#160;<br/>linear&#160;address specified with&#160;the memory&#160;operand. If that&#160;cache&#160;line contains modified data at&#160;any level&#160;of&#160;the&#160;<br/>cache&#160;hierarchy,&#160;that data is&#160;written&#160;back to&#160;memory. The&#160;source&#160;operand is&#160;a byte memory location.<br/>The&#160;availability of CLFLUSH&#160;is indicated&#160;by the&#160;presence&#160;of the&#160;CPUID feature&#160;flag CLFSH&#160;<br/>(CPUID.01H:EDX[bit&#160;19]).&#160;The aligned&#160;cache line&#160;size&#160;affected&#160;is&#160;also indicated with the&#160;CPUID instruction&#160;(bits 8&#160;<br/>through 15&#160;of the&#160;EBX register&#160;when the&#160;initial value in&#160;the EAX register&#160;is 1).<br/>The&#160;memory attribute of&#160;the page&#160;containing&#160;the affected line&#160;has no&#160;effect on the&#160;behavior of this&#160;instruction. It&#160;<br/>should&#160;be noted that&#160;processors&#160;are free&#160;to speculatively&#160;fetch and&#160;cache data from system memory regions&#160;<br/>assigned&#160;a memory-type allowing&#160;for speculative reads&#160;(such as, the&#160;WB, WC, and WT&#160;memory types).&#160;PREFETCH<i>h</i>&#160;<br/>instructions&#160;can be used to provide the&#160;processor with&#160;hints for&#160;this speculative&#160;behavior. Because this speculative&#160;<br/>fetching can occur at any time and is not tied to&#160;instruction execution, the CLFLUSH&#160;instruction is not ordered with&#160;<br/>respect to&#160;PREFETCH<i>h</i>&#160;instructions or&#160;any of the&#160;speculative fetching mechanisms (that is,&#160;data can&#160;be&#160;specula-<br/>tively&#160;loaded into a&#160;cache line&#160;just&#160;before, during,&#160;or after&#160;the execution&#160;of&#160;a CLFLUSH&#160;instruction that references&#160;<br/>the cache&#160;line).<br/>Executions&#160;of the&#160;CLFLUSH instruction are&#160;ordered with respect to&#160;each other&#160;and with respect&#160;to writes,&#160;locked&#160;<br/>read-modify-write&#160;instructions,&#160;fence&#160;instructions,&#160;and&#160;executions&#160;of CLFLUSHOPT to&#160;the&#160;same&#160;cache line.</p>
+<p style="position:absolute;top:591px;left:782px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:594px;left:789px;white-space:nowrap" class="ft04">&#160;They&#160;</p>
+<p style="position:absolute;top:610px;left:68px;white-space:nowrap" class="ft08">are not ordered&#160;with&#160;respect to&#160;executions&#160;of CLFLUSHOPT to&#160;different cache lines.<br/>The CLFLUSH instruction can be&#160;used&#160;at all privilege levels&#160;and is&#160;subject to all&#160;permission checking and faults&#160;asso-<br/>ciated&#160;with&#160;a&#160;byte load (and&#160;in addition,&#160;a CLFLUSH&#160;instruction&#160;is allowed&#160;to flush a&#160;linear address&#160;in an execute-<br/>only&#160;segment). Like&#160;a load, the&#160;CLFLUSH&#160;instruction&#160;sets&#160;the A bit&#160;but not&#160;the D bit in the page tables.<br/>In&#160;some implementations, the&#160;CLFLUSH&#160;instruction&#160;may always cause transactional&#160;abort with Transactional&#160;<br/>Synchronization Extensions&#160;(TSX). The&#160;CLFLUSH instruction is&#160;not expected&#160;to&#160;be&#160;commonly used inside&#160;typical&#160;<br/>transactional regions. However,&#160;programmers must not rely&#160;on CLFLUSH instruction to force a&#160;transactional abort,&#160;<br/>since whether they&#160;cause transactional&#160;abort is&#160;implementation&#160;dependent.<br/>The&#160;CLFLUSH instruction was&#160;introduced&#160;with&#160;the SSE2&#160;extensions; however,&#160;because&#160;it has its&#160;own&#160;CPUID feature&#160;<br/>flag, it&#160;can&#160;be implemented&#160;in IA-32&#160;processors that do not include the&#160;SSE2 extensions. Also,&#160;detecting the&#160;pres-<br/>ence of the SSE2&#160;extensions with the&#160;CPUID&#160;instruction&#160;does&#160;not guarantee that&#160;the&#160;CLFLUSH instruction is&#160;imple-<br/>mented in&#160;the processor.<br/>CLFLUSH&#160;operation is&#160;the same&#160;in non-64-bit modes&#160;and 64-bit&#160;mode.</p>
+<p style="position:absolute;top:869px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:900px;left:68px;white-space:nowrap" class="ft04">Flush_Cache_Line(SRC);</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalents</p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft04">CLFLUSH:&#160;void&#160;_mm_clflush(void&#160;const *p)</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64-bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F&#160;AE /7</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">CLFLUSH&#160;<i>m8</i></p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Flushes&#160;cache line containing&#160;<i>m8</i>.</p>
+<p style="position:absolute;top:240px;left:82px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:240px;left:186px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:240px;left:362px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:240px;left:536px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:240px;left:713px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:263px;left:94px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:263px;left:172px;white-space:nowrap" class="ft04">ModRM:r/m&#160;&#160;(w)</p>
+<p style="position:absolute;top:263px;left:383px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:557px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:734px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft04">1.&#160;Earlier versions of&#160;this manual&#160;specified that&#160;executions&#160;of&#160;the&#160;CLFLUSH instruction&#160;were&#160;ordered&#160;only by&#160;the&#160;MFENCE instruction.&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft04">All processors implementing&#160;the&#160;CLFLUSH instruction&#160;also&#160;order it relative&#160;to&#160;the other operations&#160;enumerated&#160;above.</p>
+</div>
+</body>
+</html>

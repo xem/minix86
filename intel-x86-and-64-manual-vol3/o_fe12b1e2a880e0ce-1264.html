@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1264</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:3px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:10px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft012{font-size:10px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1264-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1264.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">34-14&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft09">It can&#160;leave&#160;the auto HALT&#160;restart&#160;flag set, which&#160;instructs&#160;the&#160;RSM instruction to&#160;return program&#160;control to the&#160;<br/>HLT instruction. This&#160;option in effect&#160;causes&#160;the processor to&#160;re-enter&#160;the HALT&#160;state&#160;after handling&#160;the&#160;SMI.&#160;<br/>(This is&#160;the default operation.)</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft09">It&#160;can clear&#160;the auto&#160;HALT&#160;restart flag, which instructs the&#160;RSM instruction to&#160;return&#160;program&#160;control to&#160;the&#160;<br/>instruction following the&#160;HLT&#160;instruction.&#160;</p>
+<p style="position:absolute;top:361px;left:68px;white-space:nowrap" class="ft09">These&#160;options are&#160;summarized&#160;in<a href="o_fe12b1e2a880e0ce-1264.html">&#160;Table 34-7</a>.&#160;If&#160;the&#160;processor was&#160;not in a&#160;HALT&#160;state when the&#160;SMI was&#160;received&#160;<br/>(the auto HALT&#160;restart flag is&#160;cleared),&#160;setting the&#160;flag&#160;to 1 will cause unpredictable behavior&#160;when&#160;the RSM instruc-<br/>tion is&#160;executed.</p>
+<p style="position:absolute;top:596px;left:68px;white-space:nowrap" class="ft09">If the HLT instruction is restarted,&#160;the&#160;processor&#160;will generate&#160;a memory&#160;access to fetch the&#160;HLT&#160;instruction (if it&#160;is&#160;<br/>not in the internal&#160;cache), and execute a&#160;HLT&#160;bus transaction.&#160;This behavior&#160;results in multiple&#160;HLT bus transactions&#160;<br/>for&#160;the same&#160;HLT instruction.</p>
+<p style="position:absolute;top:680px;left:68px;white-space:nowrap" class="ft04">34.10.1&#160;&#160;Executing the HLT Instruction in SMM</p>
+<p style="position:absolute;top:710px;left:68px;white-space:nowrap" class="ft09">The HLT&#160;instruction&#160;should not&#160;be&#160;executed during SMM, unless&#160;interrupts have&#160;been&#160;enabled by setting&#160;the IF&#160;flag&#160;<br/>in the&#160;EFLAGS&#160;register.&#160;If the&#160;processor&#160;is halted&#160;in&#160;SMM,&#160;the only event that&#160;can remove&#160;the&#160;processor&#160;from this&#160;<br/>state is&#160;a maskable&#160;hardware&#160;interrupt or&#160;a hardware reset.</p>
+<p style="position:absolute;top:799px;left:68px;white-space:nowrap" class="ft05">34.11 SMBASE&#160;</p>
+<p style="position:absolute;top:799px;left:230px;white-space:nowrap" class="ft05">RELOCATION</p>
+<p style="position:absolute;top:835px;left:68px;white-space:nowrap" class="ft09">The default base address for the SMRAM is&#160;30000H.&#160;This&#160;value is&#160;contained&#160;in an&#160;internal processor register&#160;called&#160;<br/>the&#160;SMBASE register. The operating&#160;system&#160;or executive&#160;can relocate&#160;the SMRAM by&#160;setting&#160;the SMBASE&#160;field&#160;in&#160;the&#160;<br/>saved&#160;state&#160;map&#160;(at offset&#160;7EF8H)&#160;to&#160;a new value&#160;<a href="o_fe12b1e2a880e0ce-1265.html">(see&#160;Figure&#160;34-4).&#160;</a>The&#160;RSM instruction reloads the&#160;internal&#160;<br/>SMBASE register&#160;with the&#160;value in&#160;the&#160;SMBASE field each time&#160;it exits&#160;SMM.&#160;All subsequent SMI&#160;requests&#160;will&#160;use&#160;<br/>the new SMBASE&#160;value to find the starting&#160;address for the SMI&#160;handler (at SMBASE +&#160;8000H)&#160;and&#160;the SMRAM state&#160;<br/>save&#160;area (from&#160;SMBASE&#160;+&#160;FE00H&#160;to SMBASE + FFFFH). (The&#160;processor resets&#160;the&#160;value in&#160;its internal&#160;SMBASE&#160;<br/>register to&#160;30000H&#160;on a&#160;RESET,&#160;but does&#160;not change&#160;it&#160;on&#160;an INIT.)&#160;</p>
+<p style="position:absolute;top:211px;left:119px;white-space:nowrap" class="ft06">&#160;</p>
+<p style="position:absolute;top:315px;left:327px;white-space:nowrap" class="ft07">Figure&#160;34-3.&#160;&#160;Auto&#160;HALT&#160;Restart Field</p>
+<p style="position:absolute;top:425px;left:308px;white-space:nowrap" class="ft07">Table 34-7.&#160; Auto&#160;HALT&#160;Restart Flag&#160;Values</p>
+<p style="position:absolute;top:449px;left:75px;white-space:nowrap" class="ft03">Value&#160;of&#160;Flag&#160;After&#160;</p>
+<p style="position:absolute;top:464px;left:75px;white-space:nowrap" class="ft03">Entry to&#160;SMM</p>
+<p style="position:absolute;top:449px;left:212px;white-space:nowrap" class="ft03">Value&#160;of&#160;Flag&#160;When&#160;</p>
+<p style="position:absolute;top:464px;left:212px;white-space:nowrap" class="ft03">Exiting&#160;SMM</p>
+<p style="position:absolute;top:449px;left:375px;white-space:nowrap" class="ft03">Action of&#160;Processor&#160;When Exiting SMM</p>
+<p style="position:absolute;top:488px;left:75px;white-space:nowrap" class="ft010">0<br/>0<br/>1<br/>1</p>
+<p style="position:absolute;top:488px;left:212px;white-space:nowrap" class="ft010">0<br/>1<br/>0<br/>1</p>
+<p style="position:absolute;top:488px;left:375px;white-space:nowrap" class="ft010">Returns to&#160;next instruction in&#160;interrupted program or&#160;task.<br/>Unpredictable.<br/>Returns to&#160;next instruction after HLT instruction.<br/>Returns&#160;to&#160;HALT&#160;state.</p>
+<p style="position:absolute;top:290px;left:392px;white-space:nowrap" class="ft08">Auto HALT&#160;Restart</p>
+<p style="position:absolute;top:222px;left:511px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:222px;left:305px;white-space:nowrap" class="ft08">15</p>
+<p style="position:absolute;top:242px;left:374px;white-space:nowrap" class="ft08">Reserved</p>
+<p style="position:absolute;top:234px;left:529px;white-space:nowrap" class="ft012">Register&#160;Offset<br/>7F02H</p>
+<p style="position:absolute;top:222px;left:498px;white-space:nowrap" class="ft08">1</p>
+</div>
+</body>
+</html>

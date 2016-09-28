@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 911</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page911-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481911.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PAVGB/PAVGW—Average Packed Integers</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-231</p>
+<p style="position:absolute;top:100px;left:354px;white-space:nowrap" class="ft02">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:235px;left:69px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:261px;left:69px;white-space:nowrap" class="ft04">Performs a&#160;SIMD average of the&#160;packed&#160;unsigned integers from the&#160;source operand (second operand)&#160;and the&#160;<br/>destination operand (first operand),&#160;and stores the results&#160;in the&#160;destination&#160;operand. For each corresponding pair&#160;<br/>of data elements in&#160;the first and second operands, the elements are added together, a 1 is added to the temporary&#160;<br/>sum,&#160;and that result is&#160;shifted right&#160;one&#160;bit position.&#160;<br/>The (V)PAVGB instruction operates&#160;on packed&#160;unsigned&#160;bytes&#160;and the&#160;(V)PAVGW instruction operates&#160;on packed&#160;<br/>unsigned words.<br/>In 64-bit mode&#160;and&#160;not encoded with VEX/EVEX,&#160;using&#160;a REX&#160;prefix&#160;in&#160;the form of REX.R&#160;permits this instruction to&#160;<br/>access additional registers&#160;(XMM8-XMM15).<br/>Legacy SSE instructions: The&#160;source&#160;operand can be an&#160;MMX technology register&#160;or a&#160;64-bit&#160;memory&#160;location. The&#160;<br/>destination&#160;operand can be an&#160;MMX technology&#160;register.<br/>128-bit&#160;Legacy SSE&#160;version:&#160;The first&#160;source operand&#160;is an&#160;XMM&#160;register.&#160;The second operand&#160;can be an&#160;XMM&#160;<br/>register&#160;or an&#160;128-bit memory location. The&#160;destination&#160;is not&#160;distinct from the&#160;first source&#160;XMM register&#160;and the&#160;<br/>upper bits (</p>
+<p style="position:absolute;top:487px;left:147px;white-space:nowrap" class="ft03">MAX_VL-1:128) of the&#160;corresponding register&#160;destination are&#160;unmodified.</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft04">EVEX.512&#160;encoded version: The&#160;first source&#160;operand is&#160;a ZMM register.&#160;The second source&#160;operand is&#160;a ZMM&#160;<br/>register&#160;or a&#160;512-bit&#160;memory location. The&#160;destination&#160;operand is&#160;a ZMM register.<br/>VEX.256 and&#160;EVEX.256&#160;encoded versions: The&#160;first source&#160;operand is&#160;a YMM register.&#160;The&#160;second source&#160;operand&#160;<br/>is&#160;a YMM register&#160;or a&#160;256-bit memory&#160;location.&#160;The&#160;destination&#160;operand is&#160;a YMM register.&#160;<br/>VEX.128 and EVEX.128 encoded&#160;versions: The&#160;first source operand is&#160;an XMM register.&#160;The second source operand&#160;<br/>is an&#160;XMM register&#160;or 128-bit&#160;memory location. The&#160;destination&#160;operand is&#160;an XMM&#160;register. The upper bits&#160;<br/>(</p>
+<p style="position:absolute;top:622px;left:75px;white-space:nowrap" class="ft03">MAX_VL-1:128) of the&#160;corresponding&#160;register destination are&#160;zeroed.</p>
+<p style="position:absolute;top:659px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:685px;left:69px;white-space:nowrap" class="ft03">PAVGB (with&#160;64-bit operands)</p>
+<p style="position:absolute;top:703px;left:89px;white-space:nowrap" class="ft03">DEST[7:0]&#160;←&#160;(SRC[7:0]&#160;+&#160;DEST[7:0]&#160;+&#160;1)&#160;&gt;&gt;&#160;1; (* Temp sum before&#160;shifting is 9 bits *)</p>
+<p style="position:absolute;top:721px;left:89px;white-space:nowrap" class="ft07">(*&#160;Repeat operation&#160;performed&#160;for bytes 2&#160;through 6&#160;*)<br/>DEST[63:56]&#160;←&#160;(SRC[63:56]&#160;+&#160;DEST[63:56]&#160;+&#160;1)&#160;&gt;&gt;&#160;1;</p>
+<p style="position:absolute;top:769px;left:69px;white-space:nowrap" class="ft03">PAVGW (with&#160;64-bit operands)</p>
+<p style="position:absolute;top:787px;left:89px;white-space:nowrap" class="ft03">DEST[15:0]&#160;←&#160;(SRC[15:0]&#160;+&#160;DEST[15:0]&#160;+&#160;1)&#160;&gt;&gt;&#160;1; (* Temp sum before&#160;shifting&#160;is 17&#160;bits *)</p>
+<p style="position:absolute;top:805px;left:89px;white-space:nowrap" class="ft07">(*&#160;Repeat operation&#160;performed&#160;for words 2 and&#160;3 *)<br/>DEST[63:48]&#160;←&#160;(SRC[63:48]&#160;+&#160;DEST[63:48]&#160;+&#160;1)&#160;&gt;&gt;&#160;1;</p>
+<p style="position:absolute;top:853px;left:69px;white-space:nowrap" class="ft03">PAVGB (with&#160;128-bit operands)</p>
+<p style="position:absolute;top:871px;left:89px;white-space:nowrap" class="ft03">DEST[7:0]&#160;←&#160;(SRC[7:0]&#160;+&#160;DEST[7:0]&#160;+&#160;1)&#160;&gt;&gt;&#160;1; (* Temp sum before&#160;shifting is 9 bits *)</p>
+<p style="position:absolute;top:889px;left:89px;white-space:nowrap" class="ft07">(*&#160;Repeat operation&#160;performed&#160;for bytes 2&#160;through 14&#160;*)<br/>DEST[127:120]&#160;←&#160;(SRC[127:120]&#160;+&#160;DEST[127:120]&#160;+&#160;1)&#160;&gt;&gt;&#160;1;</p>
+<p style="position:absolute;top:937px;left:69px;white-space:nowrap" class="ft03">PAVGW (with&#160;128-bit operands)</p>
+<p style="position:absolute;top:955px;left:89px;white-space:nowrap" class="ft03">DEST[15:0]&#160;←&#160;(SRC[15:0]&#160;+&#160;DEST[15:0]&#160;+&#160;1)&#160;&gt;&gt;&#160;1; (* Temp sum before&#160;shifting&#160;is 17&#160;bits *)</p>
+<p style="position:absolute;top:973px;left:89px;white-space:nowrap" class="ft07">(*&#160;Repeat operation&#160;performed&#160;for words 2 through 6 *)<br/>DEST[127:112]&#160;←&#160;(SRC[127:112]&#160;+&#160;DEST[127:112]&#160;+&#160;1)&#160;&gt;&gt;&#160;1;</p>
+<p style="position:absolute;top:123px;left:84px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:123px;left:188px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:123px;left:360px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:123px;left:535px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:123px;left:715px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:146px;left:92px;white-space:nowrap" class="ft03">RM</p>
+<p style="position:absolute;top:146px;left:170px;white-space:nowrap" class="ft03">ModRM:reg&#160;(r, w)</p>
+<p style="position:absolute;top:146px;left:349px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:146px;left:556px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:146px;left:736px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:170px;left:88px;white-space:nowrap" class="ft03">RVM</p>
+<p style="position:absolute;top:170px;left:175px;white-space:nowrap" class="ft03">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:170px;left:354px;white-space:nowrap" class="ft03">VEX.vvvv (r)</p>
+<p style="position:absolute;top:170px;left:525px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:170px;left:736px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:195px;left:89px;white-space:nowrap" class="ft03">FVM</p>
+<p style="position:absolute;top:195px;left:175px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:195px;left:351px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:195px;left:524px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:195px;left:736px;white-space:nowrap" class="ft03">NA</p>
+</div>
+</body>
+</html>

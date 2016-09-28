@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1144</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1144-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811144.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:557px;white-space:nowrap" class="ft00">PSRLW/PSRLD/PSRLQ—Shift&#160;Packed Data Right Logical</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-464&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">VPSRLW&#160;(ymm, ymm,&#160;xmm/m128)&#160;- VEX.256 encoding<br/>DEST[255:0]&#160;LOGICAL_RIGHT_SHIFT_WORDS_256b(SRC1, SRC2)<br/>DEST[MAX_VL-1:256]&#160;0;</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft03">VPSRLW&#160;(ymm,&#160;imm8) - VEX.256 encoding<br/>DEST[255:0]&#160;LOGICAL_RIGHT_SHIFT_WORDS_256b(SRC1, imm8)<br/>DEST[MAX_VL-1:256]&#160;0;</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft03">VPSRLW&#160;(xmm,&#160;xmm, xmm/m128)&#160;-&#160;VEX.128&#160;encoding<br/>DEST[127:0]&#160;LOGICAL_RIGHT_SHIFT_WORDS(SRC1, SRC2)<br/>DEST[MAX_VL-1:128]&#160;0</p>
+<p style="position:absolute;top:316px;left:68px;white-space:nowrap" class="ft03">VPSRLW&#160;(xmm,&#160;imm8)&#160;- VEX.128 encoding<br/>DEST[127:0]&#160;LOGICAL_RIGHT_SHIFT_WORDS(SRC1, imm8)<br/>DEST[MAX_VL-1:128]&#160;0</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft03">PSRLW&#160;(xmm, xmm,&#160;xmm/m128)<br/>DEST[127:0]&#160;LOGICAL_RIGHT_SHIFT_WORDS(DEST,&#160;SRC)<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:460px;left:68px;white-space:nowrap" class="ft03">PSRLW (xmm,&#160;imm8)<br/>DEST[127:0]&#160;LOGICAL_RIGHT_SHIFT_WORDS(DEST,&#160;imm8)<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:532px;left:68px;white-space:nowrap" class="ft03">VPSRLD&#160;(EVEX&#160;versions,&#160;xmm/m128)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:586px;left:88px;white-space:nowrap" class="ft02">TMP_DEST[127:0]&#160;&#160;LOGICAL_RIGHT_SHIFT_DWORDS_128b(SRC1[127:0],&#160;SRC2)</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:640px;left:88px;white-space:nowrap" class="ft02">TMP_DEST[255:0]&#160;&#160;LOGICAL_RIGHT_SHIFT_DWORDS_256b(SRC1[255:0],&#160;SRC2)</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft03">TMP_DEST[255:0]&#160;&#160;LOGICAL_RIGHT_SHIFT_DWORDS_256b(SRC1[255:0],&#160;SRC2)<br/>TMP_DEST[511:256]&#160;&#160;LOGICAL_RIGHT_SHIFT_DWORDS_256b(SRC1[511:256], SRC2)</p>
+<p style="position:absolute;top:730px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:766px;left:68px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:784px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:820px;left:115px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;TMP_DEST[i+31:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:856px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:856px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:874px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:892px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking&#160;</p>
+<p style="position:absolute;top:910px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:928px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:946px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

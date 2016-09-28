@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 944</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page944-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481944.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:572px;white-space:nowrap" class="ft00">PCMPGTQ — Compare Packed Data for Greater Than</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-264&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:119px;left:68px;white-space:nowrap" class="ft03">COMPARE_QWORDS_GREATER&#160;(SRC1, SRC2)</p>
+<p style="position:absolute;top:137px;left:88px;white-space:nowrap" class="ft04">IF&#160;SRC1[63:0] &gt;&#160;SRC2[63:0]<br/>THEN DEST[63:0]&#160;FFFFFFFFFFFFFFFFH;<br/>ELSE DEST[63:0]&#160;0; FI;<br/>IF SRC1[127:64]&#160;&gt; SRC2[127:64]<br/>THEN DEST[127:64]&#160;FFFFFFFFFFFFFFFFH;<br/>ELSE DEST[127:64]&#160;0; FI;</p>
+<p style="position:absolute;top:263px;left:68px;white-space:nowrap" class="ft04">VPCMPGTQ (VEX.128 encoded version)<br/>DEST[127:0]&#160;COMPARE_QWORDS_GREATER(SRC1,SRC2)<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:335px;left:68px;white-space:nowrap" class="ft05">VPCMPGTQ (VEX.256 encoded version)<br/>DEST[127:0]&#160;COMPARE_QWORDS_GREATER(SRC1[127:0],SRC2[127:0])<br/>DEST[255:128]&#160;COMPARE_QWORDS_GREATER(SRC1[255:128],SRC2[255:128])<br/>DEST[VLMAX-1:256]&#160;&#160;0</p>
+<p style="position:absolute;top:426px;left:68px;white-space:nowrap" class="ft04">VPCMPGTQ (EVEX encoded&#160;versions)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:480px;left:88px;white-space:nowrap" class="ft04">i&#160;&#160;j * 64<br/>IF k2[j] OR *no writemask*</p>
+<p style="position:absolute;top:516px;left:115px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:534px;left:142px;white-space:nowrap" class="ft04">/*&#160;signed comparison */<br/>IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:570px;left:169px;white-space:nowrap" class="ft04">THEN CMP&#160;&#160;SRC1[i+63:i] &gt; SRC2[63:0];<br/>ELSE CMP&#160;&#160;SRC1[i+63:i] &gt; SRC2[i+63:i];</p>
+<p style="position:absolute;top:606px;left:142px;white-space:nowrap" class="ft04">FI;<br/>IF CMP = TRUE</p>
+<p style="position:absolute;top:642px;left:169px;white-space:nowrap" class="ft04">THEN DEST[j]&#160;&#160;1;<br/>ELSE DEST[j]&#160;&#160;0; FI;</p>
+<p style="position:absolute;top:678px;left:115px;white-space:nowrap" class="ft03">ELSE DEST[j]&#160;</p>
+<p style="position:absolute;top:679px;left:214px;white-space:nowrap" class="ft03"></p>
+<p style="position:absolute;top:678px;left:227px;white-space:nowrap" class="ft03">&#160;0</p>
+<p style="position:absolute;top:678px;left:331px;white-space:nowrap" class="ft03">;&#160;zeroing-masking only</p>
+<p style="position:absolute;top:696px;left:88px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:714px;left:68px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_KL-1:KL]&#160;&#160;0</p>
+<p style="position:absolute;top:768px;left:68px;white-space:nowrap" class="ft02">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:789px;left:68px;white-space:nowrap" class="ft04">VPCMPGTQ __mmask8 _mm512_cmpgt_epi64_mask( __m512i a, __m512i b);<br/>VPCMPGTQ __mmask8 _mm512_mask_cmpgt_epi64_mask(__mmask8 k, __m512i a, __m512i b);<br/>VPCMPGTQ __mmask8 _mm256_cmpgt_epi64_mask( __m256i a, __m256i b);<br/>VPCMPGTQ __mmask8 _mm256_mask_cmpgt_epi64_mask(__mmask8 k, __m256i a, __m256i b);<br/>VPCMPGTQ __mmask8 _mm_cmpgt_epi64_mask( __m128i&#160;a, __m128i b);<br/>VPCMPGTQ __mmask8 _mm_mask_cmpgt_epi64_mask(__mmask8 k, __m128i&#160;a,&#160;__m128i b);<br/>(V)PCMPGTQ:&#160;</p>
+<p style="position:absolute;top:897px;left:169px;white-space:nowrap" class="ft03">__m128i _mm_cmpgt_epi64(__m128i a, __m128i&#160;b)</p>
+<p style="position:absolute;top:915px;left:68px;white-space:nowrap" class="ft03">VPCMPGTQ:</p>
+<p style="position:absolute;top:915px;left:169px;white-space:nowrap" class="ft03">__m256i _mm256_cmpgt_epi64( __m256i a, __m256i b);</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft02">Flags Affected</p>
+<p style="position:absolute;top:978px;left:68px;white-space:nowrap" class="ft03">None.</p>
+<p style="position:absolute;top:1015px;left:68px;white-space:nowrap" class="ft02">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:1041px;left:68px;white-space:nowrap" class="ft03">None.</p>
+</div>
+</body>
+</html>

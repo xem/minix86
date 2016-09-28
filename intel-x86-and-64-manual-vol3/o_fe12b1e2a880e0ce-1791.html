@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1791</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1791-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1791.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;39-3</p>
+<p style="position:absolute;top:47px;left:713px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">The EINIT&#160;leaf function&#160;checks the&#160;EINIT token to&#160;validate&#160;that the&#160;enclave&#160;has been enabled&#160;on this&#160;platform.&#160;If&#160;<br/>the enclave is&#160;not correctly&#160;constructed,&#160;or the&#160;EINIT token is&#160;not&#160;valid for&#160;the platform,&#160;or SIGSTRUCT&#160;isn't prop-<br/>erly signed, then EINIT will fail.&#160;See the&#160;EINIT&#160;leaf function&#160;for&#160;details on the&#160;error reporting.&#160;<br/>The&#160;<b>enclave identity</b>&#160;is&#160;a&#160;cryptographic&#160;hash that&#160;reflects&#160;the&#160;enclave attributes and MISCSELECT value,&#160;content&#160;<br/>of the&#160;enclave,&#160;the order in which it&#160;was built, the&#160;addresses it&#160;occupies&#160;in memory, the&#160;security&#160;attributes, and&#160;<br/>access&#160;right permissions of each&#160;page.&#160;The&#160;<b>enclave&#160;identity</b>&#160;is established by the&#160;EINIT leaf function.<br/>The&#160;<b>sealing identity</b>&#160;is&#160;managed by a sealing authority&#160;represented by&#160;the hash&#160;of the public key used to&#160;sign&#160;the&#160;<br/>SIGSTRUCT structure&#160;processed by EINIT.&#160;The&#160;sealing authority assigns&#160;a product ID (ISVPRODID) and&#160;security&#160;<br/>version&#160;number&#160;(ISVSVN) to&#160;a particular enclave&#160;identity.<br/>EINIT establishes&#160;the sealing identity&#160;using&#160;the following steps:<br/>1.&#160;Verifies&#160;that SIGSTRUCT&#160;is properly signed&#160;using the&#160;public&#160;key enclosed&#160;in&#160;the SIGSTRUCT.<br/>2.&#160;Checks that the&#160;measurement of the&#160;enclave matches&#160;the&#160;measurement of the enclave&#160;specified in SIGSTRUCT.<br/>3.&#160;Checks that the enclave’s attributes and MISCSELECT&#160;values&#160;are compatible with those&#160;specified in SIGSTRUCT.<br/>4.&#160;Finalizes&#160;the measurement&#160;of&#160;the enclave&#160;and&#160;records the&#160;<b>sealing identity</b>&#160;(the sealing authority,&#160;product id&#160;<br/>and security&#160;version&#160;number) and&#160;<b>enclave identity</b>&#160;in&#160;the&#160;SECS.<br/>5.&#160;Sets&#160;the ATTRIBUTES.INIT bit for the&#160;enclave.</p>
+<p style="position:absolute;top:446px;left:69px;white-space:nowrap" class="ft04">39.1.4&#160;</p>
+<p style="position:absolute;top:446px;left:149px;white-space:nowrap" class="ft04">Intel® SGX Launch Control Configuration</p>
+<p style="position:absolute;top:475px;left:69px;white-space:nowrap" class="ft07">Intel® SGX Launch&#160;Control is a&#160;set of controls that govern&#160;the creation of enclaves.&#160;Before&#160;the EINIT&#160;leaf function&#160;<br/>will successfully&#160;initialize an enclave,&#160;a&#160;designated Launch&#160;Enclave must create&#160;an&#160;EINITTOKEN for&#160;that&#160;enclave.&#160;<br/>Launch Enclaves have&#160;SECS.ATTRIBUTES.EINITTOKENKEY =&#160;1, granting&#160;them access to&#160;the EINITTOKENKEY from&#160;<br/>the EGETKEY leaf&#160;function.&#160;EINITTOKENKEY must be used by the&#160;Launch Enclave&#160;when&#160;computing EINIT-<br/>TOKEN.MAC,&#160;the Message Authentication&#160;Code of&#160;the EINITTOKEN.&#160;<br/>The&#160;hash&#160;of&#160;the public&#160;key used&#160;to sign the&#160;SIGSTRUCT&#160;of&#160;the Launch&#160;Enclave must equal the&#160;value in the&#160;<br/>IA32_SGXLEPUBKEYHASH&#160;MSRs. Only Launch&#160;Enclaves&#160;are allowed&#160;to launch without a&#160;valid token.&#160;<br/>The IA32_SGXLEPUBKEYHASH&#160;MSRs are&#160;provided&#160;to&#160;designate the&#160;platform’s&#160;Launch&#160;Enclave.&#160;<br/>IA32_SGXLEPUBKEYHASH&#160;defaults to&#160;digest of&#160;Intel’s launch enclave&#160;signing key&#160;after reset.&#160;<br/>IA32_FEATURE_CONTROL&#160;bit 17&#160;controls the&#160;permissions on the&#160;IA32_SGXLEPUBKEYHASH MSRs&#160;when&#160;<br/>CPUID.(EAX=12H, ECX=00H):EAX[0] = 1.&#160;If&#160;IA32_FEATURE_CONTROL&#160;is locked&#160;with&#160;bit 17&#160;set,&#160;<br/>IA32_SGXLEPUBKEYHASH MSRs are reconfigurable (writeable).&#160;If&#160;either IA32_FEATURE_CONTROL is not locked&#160;or&#160;<br/>bit 17 is clear,&#160;the&#160;MSRs are read only. By leaving these&#160;MSRs writable,&#160;system SW or a VMM&#160;can support a plurality&#160;<br/>of&#160;Launch&#160;Enclaves for hosting&#160;multiple&#160;execution environments. See&#160;Section&#160;42.3.2 for more&#160;details.&#160;</p>
+<p style="position:absolute;top:763px;left:69px;white-space:nowrap" class="ft05">39.2&#160;</p>
+<p style="position:absolute;top:763px;left:148px;white-space:nowrap" class="ft05">ENCLAVE ENTRY AND EXITING</p>
+<p style="position:absolute;top:826px;left:69px;white-space:nowrap" class="ft04">39.2.1&#160;</p>
+<p style="position:absolute;top:826px;left:150px;white-space:nowrap" class="ft04">Controlled Entry and Exit</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft07">The EENTER leaf&#160;function is the method to enter the&#160;enclave under&#160;program&#160;control.&#160;To&#160;execute&#160;EENTER,&#160;software&#160;<br/>must supply an&#160;address&#160;of&#160;a TCS that&#160;is part&#160;of&#160;the&#160;enclave&#160;to be entered. The&#160;TCS&#160;holds the&#160;location inside the&#160;<br/>enclave&#160;to transfer&#160;control to and a&#160;pointer to&#160;the SSA&#160;frame&#160;inside&#160;the enclave that&#160;an&#160;AEX should&#160;store the&#160;<br/>register&#160;state&#160;to.&#160;<br/>When&#160;a logical processor enters an enclave,&#160;the&#160;TCS is&#160;considered busy&#160;until&#160;the logical processors exits&#160;the&#160;<br/>enclave. An attempt to enter an enclave through a busy TCS results in a fault. Intel</p>
+<p style="position:absolute;top:941px;left:620px;white-space:nowrap" class="ft06">®</p>
+<p style="position:absolute;top:943px;left:630px;white-space:nowrap" class="ft02">&#160;SGX allows an enclave builder&#160;</p>
+<p style="position:absolute;top:960px;left:69px;white-space:nowrap" class="ft08">to&#160;define&#160;multiple TCSs,&#160;thereby providing support&#160;for multithreaded enclaves.&#160;<br/>Software&#160;must&#160;also supply to EENTER the&#160;Asynchronous&#160;Exit Pointer (AEP) parameter.&#160;AEP&#160;is an&#160;address external&#160;<br/>to the&#160;enclave&#160;which&#160;an&#160;exception handler will return to&#160;using IRET. Typically the&#160;location would contain the&#160;<br/>ERESUME&#160;instruction.&#160;ERESUME transfers&#160;control back&#160;to&#160;the enclave,&#160;to the&#160;address retrieved from&#160;the&#160;enclave&#160;<br/>thread’s&#160;saved&#160;state.&#160;<br/>EENTER performs&#160;the following operations:</p>
+</div>
+</body>
+</html>

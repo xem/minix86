@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 497</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page497-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce497.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;14-31</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">POWER AND THERMAL MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">Passive&#160;cooling&#160;(frequency throttling)&#160;should be driven&#160;by measuring&#160;(a) the&#160;core and package temperatures, or&#160;<br/>(b) only the&#160;package temperature.&#160;If&#160;measured&#160;package&#160;temperature&#160;led the&#160;power management agent to&#160;choose&#160;<br/>which core&#160;to execute passive&#160;cooling,&#160;then all&#160;cores&#160;need&#160;to&#160;execute&#160;passive&#160;cooling.&#160;Core temperature&#160;is&#160;<br/>measured using&#160;the IA32_THERMAL_STATUS and&#160;IA32_THERMAL_INTERRUPT&#160;MSRs.&#160;The&#160;exact&#160;implementation&#160;<br/>details depend&#160;on the&#160;platform&#160;firmware and&#160;possible solutions&#160;include defining&#160;two different&#160;thermal zones (one&#160;<br/>for core temperature&#160;and passive&#160;cooling and&#160;the&#160;other&#160;for package temperature&#160;and active&#160;cooling).</p>
+<p style="position:absolute;top:238px;left:69px;white-space:nowrap" class="ft03">14.9&#160;</p>
+<p style="position:absolute;top:238px;left:148px;white-space:nowrap" class="ft03">PLATFORM&#160;SPECIFIC POWER MANAGEMENT&#160;SUPPORT</p>
+<p style="position:absolute;top:274px;left:69px;white-space:nowrap" class="ft06">This section&#160;covers&#160;power management interfaces&#160;that are not architectural but addresses&#160;the power management&#160;<br/>needs&#160;of several&#160;platform specific components. Specifically,&#160;RAPL&#160;(Running Average Power Limit)&#160;interfaces&#160;<br/>provide mechanisms to enforce power consumption limit. Power limiting usages have&#160;specific usages&#160;in client and&#160;<br/>server platforms.&#160;<br/>For client&#160;platform power&#160;limit&#160;control and&#160;for&#160;server platforms used in&#160;a data center, the&#160;following&#160;power and&#160;<br/>thermal&#160;related usages are&#160;desirable:</p>
+<p style="position:absolute;top:386px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:387px;left:95px;white-space:nowrap" class="ft06">Platform Thermal&#160;Management: Robust mechanisms&#160;to&#160;manage&#160;component,&#160;platform,&#160;and&#160;group-level&#160;<br/>thermals, either&#160;proactively or reactively&#160;(e.g.,&#160;in&#160;response to&#160;a platform-level thermal&#160;trip&#160;point).</p>
+<p style="position:absolute;top:425px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:426px;left:95px;white-space:nowrap" class="ft06">Platform Power Limiting: More deterministic control over&#160;the system's power&#160;consumption, for example&#160;to&#160;<br/>meet&#160;battery&#160;life&#160;targets on&#160;rack-level&#160;or container-level&#160;power consumption goals within a datacenter.&#160;</p>
+<p style="position:absolute;top:464px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:465px;left:95px;white-space:nowrap" class="ft06">Power/Performance Budgeting: Efficient means to&#160;control&#160;the&#160;power&#160;consumed&#160;(and&#160;therefore the&#160;sustained&#160;<br/>performance delivered)&#160;within and&#160;across platforms.</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft06">The server&#160;and client&#160;usage&#160;models&#160;are addressed by&#160;RAPL interfaces,&#160;which expose multiple&#160;domains of&#160;power&#160;<br/>rationing within&#160;each processor socket.&#160;Generally, these&#160;RAPL domains&#160;may be viewed&#160;to include hierarchically:</p>
+<p style="position:absolute;top:544px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:544px;left:95px;white-space:nowrap" class="ft02">Package&#160;domain is&#160;the&#160;processor die.&#160;</p>
+<p style="position:absolute;top:566px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:567px;left:95px;white-space:nowrap" class="ft06">Memory domain&#160;includes&#160;the directly-attached DRAM; an&#160;additional power&#160;plane&#160;may&#160;constitute a separate&#160;<br/>domain.&#160;</p>
+<p style="position:absolute;top:607px;left:69px;white-space:nowrap" class="ft06">In order to manage&#160;the&#160;power consumed&#160;across multiple&#160;sockets via RAPL, individual limits must&#160;be programmed&#160;<br/>for&#160;each processor complex. Programming specific RAPL domain&#160;across multiple&#160;sockets&#160;is not&#160;supported.</p>
+<p style="position:absolute;top:674px;left:69px;white-space:nowrap" class="ft05">14.9.1 RAPL&#160;</p>
+<p style="position:absolute;top:674px;left:197px;white-space:nowrap" class="ft05">Interfaces</p>
+<p style="position:absolute;top:705px;left:69px;white-space:nowrap" class="ft06">RAPL interfaces&#160;consist of non-architectural MSRs. Each&#160;RAPL&#160;domain supports the&#160;following set&#160;of capabilities,&#160;<br/>some of which are&#160;optional as&#160;stated below.</p>
+<p style="position:absolute;top:743px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:744px;left:95px;white-space:nowrap" class="ft02">Power limit -&#160;MSR interfaces&#160;to specify power&#160;limit,&#160;time&#160;window; lock bit,&#160;clamp bit etc.</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:766px;left:95px;white-space:nowrap" class="ft02">Energy Status -&#160;Power&#160;metering interface&#160;providing energy&#160;consumption&#160;information.</p>
+<p style="position:absolute;top:788px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:789px;left:95px;white-space:nowrap" class="ft06">Perf Status (Optional) -&#160;Interface providing information on the&#160;performance effects&#160;(regression) due&#160;to power&#160;<br/>limits.&#160;It is&#160;defined&#160;as a&#160;duration&#160;metric that&#160;measures the&#160;power limit&#160;effect in the respective&#160;domain.&#160;The&#160;<br/>meaning&#160;of&#160;duration is&#160;domain specific.</p>
+<p style="position:absolute;top:844px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:844px;left:95px;white-space:nowrap" class="ft06">Power Info (Optional)&#160;- Interface&#160;providing&#160;information on the&#160;range of parameters&#160;for&#160;a given domain,&#160;<br/>minimum power,&#160;maximum power&#160;etc.</p>
+<p style="position:absolute;top:883px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:883px;left:95px;white-space:nowrap" class="ft06">Policy (Optional) - 4-bit priority&#160;information that is a hint to hardware for dividing budget&#160;between sub-domains&#160;<br/>in&#160;a parent domain.</p>
+<p style="position:absolute;top:924px;left:69px;white-space:nowrap" class="ft06">Each&#160;of the above&#160;capabilities requires&#160;specific units in&#160;order to describe them. Power is expressed in Watts, Time&#160;<br/>is expressed in Seconds, and&#160;Energy is&#160;expressed in&#160;Joules. Scaling&#160;factors&#160;are supplied to&#160;each unit to&#160;make&#160;the&#160;<br/>information presented meaningful in&#160;a finite number&#160;of&#160;bits. Units for power,&#160;energy,&#160;and time&#160;are&#160;exposed&#160;in the&#160;<br/>read-only MSR_RAPL_POWER_UNIT&#160;MSR.&#160;</p>
+</div>
+</body>
+</html>

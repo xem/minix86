@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1768</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1768-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1768.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">37-4&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTRODUCTION&#160;TO&#160;INTEL® SOFTWARE&#160;GUARD EXTENSIONS</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft02">37.7&#160;</p>
+<p style="position:absolute;top:537px;left:147px;white-space:nowrap" class="ft02">DISCOVERING SUPPORT FOR INTEL® SGX AND ENABLING ENCLAVE&#160;</p>
+<p style="position:absolute;top:562px;left:146px;white-space:nowrap" class="ft02">INSTRUCTIONS</p>
+<p style="position:absolute;top:597px;left:68px;white-space:nowrap" class="ft07">Detection&#160;of support of Intel SGX&#160;and&#160;enumeration&#160;of available and enabled&#160;Intel SGX resources are queried&#160;using&#160;<br/>the CPUID instruction.&#160;The enumeration&#160;interface&#160;comprises the&#160;following:</p>
+<p style="position:absolute;top:635px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:636px;left:93px;white-space:nowrap" class="ft08">Processor support of Intel&#160;SGX is&#160;enumerated by&#160;a&#160;feature&#160;flag&#160;in CPUID&#160;leaf&#160;07H: CPUID.(EAX=07H,&#160;<br/>ECX=0H):EBX.SGX[bit 2].&#160;If&#160;CPUID.(EAX=07H,&#160;ECX=0H):EBX.SGX = 1,&#160;the&#160;processor&#160;has support for Intel&#160;<br/>SGX, and requires&#160;opt-in&#160;enabling&#160;by&#160;BIOS via IA32_FEATURE_CONTROL&#160;MSR.&#160;<br/>If CPUID.(EAX=07H, ECX=0H):EBX.SGX = 1,&#160;CPUID will&#160;report&#160;via the available sub-leaves&#160;of</p>
+<p style="position:absolute;top:706px;left:93px;white-space:nowrap" class="ft03">CPUID.(EAX=12H)&#160;on available and/or configured&#160;Intel SGX&#160;resources.</p>
+<p style="position:absolute;top:725px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:726px;left:93px;white-space:nowrap" class="ft07">The&#160;available&#160;and configured Intel SGX resources enumerated&#160;by the sub-leaves of&#160;CPUID.(EAX=12H) depend&#160;<br/>on&#160;the&#160;state of BIOS configuration.</p>
+<p style="position:absolute;top:793px;left:68px;white-space:nowrap" class="ft05">37.7.1&#160;</p>
+<p style="position:absolute;top:793px;left:148px;white-space:nowrap" class="ft05">Intel® SGX Opt-In Configuration</p>
+<p style="position:absolute;top:822px;left:68px;white-space:nowrap" class="ft07">On processors that support Intel&#160;SGX,&#160;IA32_FEATURE_CONTROL provides the&#160;SGX_ENABLE&#160;field&#160;(bit&#160;18).&#160;Before&#160;<br/>system software&#160;can&#160;configure and enable&#160;Intel SGX resources, BIOS&#160;is&#160;required&#160;to set&#160;<br/>IA32_FEATURE_CONTROL.SGX_ENABLE = 1 to opt-in&#160;the&#160;use of Intel&#160;SGX&#160;by&#160;system&#160;software.<br/>The&#160;semantics of setting SGX_ENABLE follows&#160;the&#160;rules&#160;of IA32_FEATURE_CONTROL.LOCK (bit 0). Software is&#160;<br/>considered to&#160;have opted&#160;into Intel&#160;SGX if&#160;and only if IA32_FEATURE_CONTROL.SGX_ENABLE&#160;and&#160;<br/>IA32_FEATURE_CONTROL.LOCK are&#160;set to&#160;1.&#160;The&#160;setting&#160;of&#160;IA32_FEATURE_CONTROL.SGX_ENABLE (bit 18) is&#160;not&#160;<br/>reflected by CPUID.</p>
+<p style="position:absolute;top:144px;left:76px;white-space:nowrap" class="ft03">ENCLS[EEXTEND]</p>
+<p style="position:absolute;top:144px;left:226px;white-space:nowrap" class="ft03">Extend EPC&#160;page&#160;measurement.</p>
+<p style="position:absolute;top:166px;left:76px;white-space:nowrap" class="ft03">ENCLS[EINIT]</p>
+<p style="position:absolute;top:166px;left:226px;white-space:nowrap" class="ft03">Initialize&#160;an&#160;enclave.</p>
+<p style="position:absolute;top:189px;left:76px;white-space:nowrap" class="ft03">ENCLS[ELDB]</p>
+<p style="position:absolute;top:189px;left:226px;white-space:nowrap" class="ft03">Load an&#160;EPC&#160;page&#160;in&#160;blocked state.</p>
+<p style="position:absolute;top:211px;left:76px;white-space:nowrap" class="ft03">ENCLS[ELDU]</p>
+<p style="position:absolute;top:211px;left:226px;white-space:nowrap" class="ft03">Load an&#160;EPC&#160;page&#160;in&#160;unblocked state.</p>
+<p style="position:absolute;top:234px;left:76px;white-space:nowrap" class="ft03">ENCLS[EPA]</p>
+<p style="position:absolute;top:234px;left:226px;white-space:nowrap" class="ft03">Add an&#160;EPC page&#160;to&#160;create a&#160;version&#160;array.</p>
+<p style="position:absolute;top:256px;left:76px;white-space:nowrap" class="ft03">ENCLS[EREMOVE]</p>
+<p style="position:absolute;top:256px;left:226px;white-space:nowrap" class="ft03">Remove&#160;an&#160;EPC&#160;page&#160;from&#160;an&#160;enclave.</p>
+<p style="position:absolute;top:279px;left:76px;white-space:nowrap" class="ft03">ENCLS[ETRACK]</p>
+<p style="position:absolute;top:279px;left:226px;white-space:nowrap" class="ft03">Activate&#160;EBLOCK&#160;checks.</p>
+<p style="position:absolute;top:301px;left:76px;white-space:nowrap" class="ft03">ENCLS[EWB]</p>
+<p style="position:absolute;top:301px;left:226px;white-space:nowrap" class="ft03">Write back/invalidate&#160;an&#160;EPC page.</p>
+<p style="position:absolute;top:354px;left:130px;white-space:nowrap" class="ft06">Table&#160;37-2. &#160;Supervisor&#160;and User&#160;Mode&#160;Enclave&#160;Instruction Leaf Functions&#160;in&#160;Long-Form of&#160;SGX2</p>
+<p style="position:absolute;top:376px;left:79px;white-space:nowrap" class="ft03">Supervisor Instruction</p>
+<p style="position:absolute;top:376px;left:313px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:376px;left:494px;white-space:nowrap" class="ft03">User Instruction</p>
+<p style="position:absolute;top:376px;left:688px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:399px;left:76px;white-space:nowrap" class="ft03">ENCLS[EAUG]</p>
+<p style="position:absolute;top:399px;left:226px;white-space:nowrap" class="ft03">Allocate&#160;EPC page&#160;to&#160;an&#160;existing&#160;enclave.</p>
+<p style="position:absolute;top:399px;left:478px;white-space:nowrap" class="ft03">ENCLU[EACCEPT]</p>
+<p style="position:absolute;top:399px;left:617px;white-space:nowrap" class="ft03">Accept&#160;EPC page&#160;into&#160;the enclave.</p>
+<p style="position:absolute;top:421px;left:76px;white-space:nowrap" class="ft03">ENCLS[EMODPR]</p>
+<p style="position:absolute;top:421px;left:226px;white-space:nowrap" class="ft03">Restrict page permissions.</p>
+<p style="position:absolute;top:421px;left:478px;white-space:nowrap" class="ft03">ENCLU[EMODPE]</p>
+<p style="position:absolute;top:421px;left:617px;white-space:nowrap" class="ft03">Enhance&#160;page&#160;permissions.</p>
+<p style="position:absolute;top:444px;left:76px;white-space:nowrap" class="ft03">ENCLS[EMODT]</p>
+<p style="position:absolute;top:444px;left:226px;white-space:nowrap" class="ft03">Modify&#160;EPC page&#160;type.</p>
+<p style="position:absolute;top:444px;left:478px;white-space:nowrap" class="ft03">ENCLU[EACCEPTCOPY]&#160;Copy contents to&#160;an&#160;augmented&#160;EPC&#160;</p>
+<p style="position:absolute;top:460px;left:617px;white-space:nowrap" class="ft03">page&#160;and accept&#160;the EPC&#160;page into&#160;</p>
+<p style="position:absolute;top:477px;left:617px;white-space:nowrap" class="ft03">the enclave.</p>
+<p style="position:absolute;top:968px;left:277px;white-space:nowrap" class="ft06">Table&#160;37-3.&#160; Intel®&#160;SGX&#160;Opt-in and Enabling&#160;Behavior</p>
+<p style="position:absolute;top:990px;left:82px;white-space:nowrap" class="ft03">CPUID.(07H,0H):EBX.</p>
+<p style="position:absolute;top:1006px;left:133px;white-space:nowrap" class="ft03">SGX</p>
+<p style="position:absolute;top:998px;left:234px;white-space:nowrap" class="ft03">CPUID.(12H)</p>
+<p style="position:absolute;top:990px;left:335px;white-space:nowrap" class="ft03">FEATURE_CONTROL.</p>
+<p style="position:absolute;top:1006px;left:381px;white-space:nowrap" class="ft03">LOCK</p>
+<p style="position:absolute;top:990px;left:471px;white-space:nowrap" class="ft03">FEATURE_CONTROL.</p>
+<p style="position:absolute;top:1006px;left:492px;white-space:nowrap" class="ft03">SGX_ENABLE</p>
+<p style="position:absolute;top:998px;left:656px;white-space:nowrap" class="ft03">Enclave Instruction</p>
+<p style="position:absolute;top:1029px;left:81px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:1029px;left:219px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:1029px;left:333px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:1029px;left:469px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:1029px;left:605px;white-space:nowrap" class="ft03">#UD</p>
+<p style="position:absolute;top:1051px;left:81px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:1051px;left:219px;white-space:nowrap" class="ft03">Valid*</p>
+<p style="position:absolute;top:1051px;left:333px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:1051px;left:469px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:1051px;left:605px;white-space:nowrap" class="ft03">#UD**</p>
+<p style="position:absolute;top:100px;left:129px;white-space:nowrap" class="ft06">Table 37-1. &#160;Supervisor and&#160;User&#160;Mode Enclave&#160;Instruction Leaf&#160;Functions in Long-Form&#160;of&#160;SGX1</p>
+<p style="position:absolute;top:121px;left:79px;white-space:nowrap" class="ft03">Supervisor Instruction</p>
+<p style="position:absolute;top:121px;left:313px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:121px;left:494px;white-space:nowrap" class="ft03">User Instruction</p>
+<p style="position:absolute;top:121px;left:688px;white-space:nowrap" class="ft03">Description</p>
+</div>
+</body>
+</html>

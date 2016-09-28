@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1645</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1645-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811645.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VGETEXPPD—Convert&#160;Exponents of Packed&#160;DP FP Values to&#160;DP FP Values</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-259</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VGETEXPPD—Convert Exponents of&#160;Packed DP FP Values to&#160;DP FP Values</p>
+<p style="position:absolute;top:419px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:504px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:526px;left:69px;white-space:nowrap" class="ft08">Extracts&#160;the&#160;biased&#160;exponents from the normalized&#160;DP FP&#160;representation of each qword&#160;data&#160;element of&#160;the source&#160;<br/>operand&#160;(the second operand)&#160;as unbiased signed&#160;integer&#160;value, or convert&#160;the denormal&#160;representation of input&#160;<br/>data to&#160;unbiased&#160;negative&#160;integer&#160;values. Each&#160;integer&#160;value of the unbiased exponent&#160;is converted to&#160;double-<br/>precision FP&#160;value&#160;and written to the corresponding qword&#160;elements&#160;of&#160;the destination operand&#160;(the&#160;first operand)&#160;<br/>as&#160;DP FP numbers.&#160;<br/>The destination&#160;operand is&#160;a ZMM/YMM/XMM&#160;register and&#160;updated under the&#160;writemask. The&#160;source operand&#160;can&#160;<br/>be&#160;a ZMM/YMM/XMM&#160;register,&#160;a 512/256/128-bit&#160;memory location,&#160;or a&#160;512/256/128-bit&#160;vector broadcasted from&#160;<br/>a&#160;64-bit&#160;memory&#160;location.<br/>EVEX.vvvv&#160;is reserved&#160;and must be&#160;1111b,&#160;otherwise instructions will #UD.<br/>Each&#160;GETEXP operation&#160;converts&#160;the&#160;exponent value into&#160;a FP number&#160;(permitting&#160;input&#160;value in&#160;denormal repre-<br/>sentation).&#160;Special cases of input&#160;values are<a href="o_b5573232dd8f1481-1645.html">&#160;listed in&#160;Table 5-7.<br/></a>The formula&#160;is:<br/>GETEXP(x) = floor(log</p>
+<p style="position:absolute;top:761px;left:219px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:754px;left:226px;white-space:nowrap" class="ft04">(|x|))&#160;</p>
+<p style="position:absolute;top:777px;left:69px;white-space:nowrap" class="ft04">Notation&#160;<b>floor(x)</b>&#160;stands&#160;for&#160;the&#160;greatest&#160;integer not exceeding real number&#160;x.&#160;</p>
+<p style="position:absolute;top:973px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:996px;left:69px;white-space:nowrap" class="ft09">NormalizeExpTinyDPFP(SRC[63:0])<br/>{</p>
+<p style="position:absolute;top:1032px;left:89px;white-space:nowrap" class="ft09">//&#160;Jbit is the hidden integral bit&#160;of a&#160;FP number. In&#160;case&#160;of&#160;denormal&#160;number&#160;it has the value of&#160;ZERO.<br/>Src.Jbit&#160;&#160;0;</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:261px;white-space:nowrap" class="ft04">Op/</p>
+<p style="position:absolute;top:137px;left:261px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:303px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:303px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:152px;left:303px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:374px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:374px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:374px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:456px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:78px;white-space:nowrap" class="ft04">EVEX.128.66.0F38.W1&#160;42 /r</p>
+<p style="position:absolute;top:172px;left:261px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:172px;left:303px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:374px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:172px;left:457px;white-space:nowrap" class="ft04">Convert the exponent&#160;of&#160;packed&#160;double-precision&#160;floating-point&#160;</p>
+<p style="position:absolute;top:188px;left:456px;white-space:nowrap" class="ft04">values in&#160;the&#160;source operand&#160;to&#160;DP FP&#160;results representing&#160;</p>
+<p style="position:absolute;top:205px;left:456px;white-space:nowrap" class="ft04">unbiased&#160;integer exponents&#160;and&#160;stores&#160;the&#160;results&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:222px;left:456px;white-space:nowrap" class="ft04">destination register.</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">VGETEXPPD xmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:208px;left:78px;white-space:nowrap" class="ft04">xmm2/m128/m64bcst</p>
+<p style="position:absolute;top:191px;left:374px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:244px;left:78px;white-space:nowrap" class="ft04">EVEX.256.66.0F38.W1&#160;42 /r</p>
+<p style="position:absolute;top:244px;left:261px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:244px;left:303px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:244px;left:374px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:244px;left:457px;white-space:nowrap" class="ft04">Convert the exponent&#160;of&#160;packed&#160;double-precision&#160;floating-point&#160;</p>
+<p style="position:absolute;top:260px;left:456px;white-space:nowrap" class="ft04">values in&#160;the&#160;source operand&#160;to&#160;DP FP&#160;results representing&#160;</p>
+<p style="position:absolute;top:277px;left:456px;white-space:nowrap" class="ft04">unbiased&#160;integer exponents&#160;and&#160;stores&#160;the&#160;results&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:294px;left:456px;white-space:nowrap" class="ft04">destination register.</p>
+<p style="position:absolute;top:263px;left:78px;white-space:nowrap" class="ft04">VGETEXPPD&#160;ymm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:280px;left:78px;white-space:nowrap" class="ft04">ymm2/m256/m64bcst</p>
+<p style="position:absolute;top:263px;left:374px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:316px;left:78px;white-space:nowrap" class="ft04">EVEX.512.66.0F38.W1&#160;42 /r</p>
+<p style="position:absolute;top:316px;left:261px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:316px;left:303px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:316px;left:374px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:316px;left:457px;white-space:nowrap" class="ft04">Convert the exponent&#160;of&#160;packed&#160;double-precision&#160;floating-point&#160;</p>
+<p style="position:absolute;top:332px;left:456px;white-space:nowrap" class="ft04">values in&#160;the&#160;source operand&#160;to&#160;DP FP&#160;results representing&#160;</p>
+<p style="position:absolute;top:349px;left:456px;white-space:nowrap" class="ft04">unbiased&#160;integer exponents&#160;and&#160;stores&#160;the&#160;results&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:366px;left:456px;white-space:nowrap" class="ft04">destination&#160;under&#160;writemask&#160;k1.</p>
+<p style="position:absolute;top:335px;left:78px;white-space:nowrap" class="ft04">VGETEXPPD zmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:352px;left:78px;white-space:nowrap" class="ft04">zmm2/m512/m64bcst{sae}</p>
+<p style="position:absolute;top:442px;left:109px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:442px;left:230px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:442px;left:391px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:442px;left:558px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:442px;left:725px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:466px;left:118px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:466px;left:217px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:466px;left:380px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:466px;left:580px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:466px;left:746px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:815px;left:319px;white-space:nowrap" class="ft03">Table&#160;5-7.&#160;VGETEXPPD/SD&#160;Special&#160;Cases</p>
+<p style="position:absolute;top:840px;left:216px;white-space:nowrap" class="ft04">Input Operand</p>
+<p style="position:absolute;top:840px;left:359px;white-space:nowrap" class="ft04">Result</p>
+<p style="position:absolute;top:840px;left:580px;white-space:nowrap" class="ft04">Comments</p>
+<p style="position:absolute;top:863px;left:216px;white-space:nowrap" class="ft04">src1 = NaN</p>
+<p style="position:absolute;top:863px;left:359px;white-space:nowrap" class="ft04">QNaN(src1)</p>
+<p style="position:absolute;top:863px;left:580px;white-space:nowrap" class="ft04">No Exceptions</p>
+<p style="position:absolute;top:888px;left:216px;white-space:nowrap" class="ft04">0 &lt;&#160;|src1|&#160;&lt; INF</p>
+<p style="position:absolute;top:888px;left:359px;white-space:nowrap" class="ft04">floor(log</p>
+<p style="position:absolute;top:894px;left:406px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:888px;left:413px;white-space:nowrap" class="ft04">(|src1|))&#160;</p>
+<p style="position:absolute;top:912px;left:216px;white-space:nowrap" class="ft04">| src1| =&#160;+INF</p>
+<p style="position:absolute;top:912px;left:359px;white-space:nowrap" class="ft04">+INF</p>
+<p style="position:absolute;top:935px;left:216px;white-space:nowrap" class="ft04">| src1| =&#160;0</p>
+<p style="position:absolute;top:935px;left:359px;white-space:nowrap" class="ft04">-INF</p>
+</div>
+</body>
+</html>

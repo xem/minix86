@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 344</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page344-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce344.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-32&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">9.11.3 Processor&#160;</p>
+<p style="position:absolute;top:98px;left:232px;white-space:nowrap" class="ft02">Identification</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft04">Each&#160;microcode&#160;update is designed to&#160;for a specific processor or&#160;set of processors. To&#160;determine the correct micro-<br/>code&#160;update&#160;to load, software&#160;must&#160;ensure that&#160;one&#160;of&#160;the processor signatures&#160;embedded&#160;in&#160;the&#160;microcode&#160;update&#160;<br/>matches&#160;the 32-bit processor signature&#160;returned&#160;by&#160;the&#160;CPUID&#160;instruction&#160;when&#160;executed&#160;by the target processor&#160;<br/>with EAX = 1. &#160;Attempting to&#160;load a&#160;microcode update that does not match a processor&#160;signature&#160;embedded in the&#160;<br/>microcode update with the&#160;processor&#160;signature&#160;returned&#160;by CPUID&#160;will&#160;cause the&#160;BIOS&#160;to reject&#160;the update.<br/><a href="o_fe12b1e2a880e0ce-344.html">Example&#160;9-5 shows how&#160;</a>to check&#160;for&#160;a valid&#160;processor&#160;signature match between the&#160;processor&#160;and microcode&#160;<br/>update.</p>
+<p style="position:absolute;top:276px;left:68px;white-space:nowrap" class="ft01">Example 9-5. &#160;Pseudo Code&#160;to&#160;Validate&#160;the Processor Signature</p>
+<p style="position:absolute;top:306px;left:68px;white-space:nowrap" class="ft03">ProcessorSignature&#160;</p>
+<p style="position:absolute;top:301px;left:221px;white-space:nowrap" class="ft03">←&#160;CPUID(1):EAX</p>
+<p style="position:absolute;top:339px;left:68px;white-space:nowrap" class="ft03">If&#160;(Update.HeaderVersion = 00000001h)</p>
+<p style="position:absolute;top:355px;left:68px;white-space:nowrap" class="ft03">{</p>
+<p style="position:absolute;top:372px;left:122px;white-space:nowrap" class="ft03">// first check the ProcessorSignature field</p>
+<p style="position:absolute;top:388px;left:95px;white-space:nowrap" class="ft03">If&#160;(ProcessorSignature = Update.ProcessorSignature)</p>
+<p style="position:absolute;top:405px;left:122px;white-space:nowrap" class="ft03">Success</p>
+<p style="position:absolute;top:438px;left:122px;white-space:nowrap" class="ft03">// if&#160;extended signature is&#160;present</p>
+<p style="position:absolute;top:454px;left:95px;white-space:nowrap" class="ft03">Else If (Update.TotalSize &gt;&#160;(Update.DataSize&#160;+ 48))</p>
+<p style="position:absolute;top:471px;left:95px;white-space:nowrap" class="ft03">{</p>
+<p style="position:absolute;top:504px;left:122px;white-space:nowrap" class="ft03">//</p>
+<p style="position:absolute;top:520px;left:122px;white-space:nowrap" class="ft03">// Assume the Data Size has&#160;been used to calculate the&#160;</p>
+<p style="position:absolute;top:537px;left:122px;white-space:nowrap" class="ft03">// location&#160;of Update.ProcessorSignature[0].</p>
+<p style="position:absolute;top:553px;left:122px;white-space:nowrap" class="ft03">//</p>
+<p style="position:absolute;top:586px;left:122px;white-space:nowrap" class="ft03">For (N&#160;</p>
+<p style="position:absolute;top:582px;left:178px;white-space:nowrap" class="ft03">←&#160;0;&#160;((N &lt; Update.ExtendedSignatureCount) AND&#160;</p>
+<p style="position:absolute;top:603px;left:122px;white-space:nowrap" class="ft03">&#160;(ProcessorSignature&#160;</p>
+<p style="position:absolute;top:598px;left:310px;white-space:nowrap" class="ft03">≠&#160;Update.ProcessorSignature[N])); N++);</p>
+<p style="position:absolute;top:636px;left:149px;white-space:nowrap" class="ft03">// if&#160;the loops ended when the iteration count is</p>
+<p style="position:absolute;top:652px;left:149px;white-space:nowrap" class="ft03">// less than&#160;the number of processor&#160;signatures in</p>
+<p style="position:absolute;top:669px;left:149px;white-space:nowrap" class="ft03">// the table, we have a match</p>
+<p style="position:absolute;top:685px;left:122px;white-space:nowrap" class="ft03">If (N&#160;&lt; Update.ExtendedSignatureCount)</p>
+<p style="position:absolute;top:702px;left:149px;white-space:nowrap" class="ft03">Success</p>
+<p style="position:absolute;top:718px;left:122px;white-space:nowrap" class="ft03">Else</p>
+<p style="position:absolute;top:735px;left:149px;white-space:nowrap" class="ft03">Fail</p>
+<p style="position:absolute;top:751px;left:95px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:768px;left:95px;white-space:nowrap" class="ft03">Else</p>
+<p style="position:absolute;top:784px;left:122px;white-space:nowrap" class="ft03">Fail</p>
+<p style="position:absolute;top:801px;left:68px;white-space:nowrap" class="ft03">Else</p>
+<p style="position:absolute;top:817px;left:95px;white-space:nowrap" class="ft03">Fail&#160;</p>
+<p style="position:absolute;top:863px;left:68px;white-space:nowrap" class="ft02">9.11.4 Platform&#160;</p>
+<p style="position:absolute;top:863px;left:223px;white-space:nowrap" class="ft02">Identification</p>
+<p style="position:absolute;top:893px;left:68px;white-space:nowrap" class="ft04">In&#160;addition to&#160;verifying the processor signature,&#160;the&#160;intended processor platform type must&#160;be&#160;determined&#160;to&#160;prop-<br/>erly target the&#160;microcode&#160;update.&#160;The intended&#160;processor platform&#160;type is&#160;determined by&#160;reading&#160;the&#160;<br/>IA32_PLATFORM_ID&#160;register,&#160;(MSR&#160;17H). &#160;This&#160;64-bit register&#160;must&#160;be read using&#160;the RDMSR instruction.&#160;<br/>The&#160;three platform&#160;ID&#160;bits, when read as&#160;a binary coded&#160;decimal&#160;(BCD) number,&#160;indicate&#160;the bit position&#160;in the&#160;<br/>microcode update header’s&#160;processor flags field&#160;associated with&#160;the&#160;installed processor.&#160;&#160;The processor flags in the&#160;<br/>48-byte header and&#160;the processor&#160;flags field&#160;associated with the&#160;extended&#160;processor&#160;signature structures&#160;may have&#160;<br/>multiple bits set. Each&#160;set bit&#160;represents&#160;a&#160;different platform ID that&#160;the update&#160;supports.</p>
+<p style="position:absolute;top:1029px;left:88px;white-space:nowrap" class="ft03">Register&#160;Name:</p>
+<p style="position:absolute;top:1029px;left:196px;white-space:nowrap" class="ft03">IA32_PLATFORM_ID</p>
+<p style="position:absolute;top:1047px;left:88px;white-space:nowrap" class="ft03">MSR&#160;Address:</p>
+<p style="position:absolute;top:1047px;left:196px;white-space:nowrap" class="ft03">017H</p>
+</div>
+</body>
+</html>

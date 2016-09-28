@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 389</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page389-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce389.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;10-27</p>
+<p style="position:absolute;top:47px;left:484px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE&#160;INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:94px;white-space:nowrap" class="ft06">interrupts) send a&#160;message&#160;on the&#160;bus indicating that&#160;the interrupt handling&#160;has been&#160;completed. (A write to&#160;<br/>the EOI register&#160;must&#160;not&#160;be included in&#160;the handler routine&#160;for&#160;an NMI, SMI, INIT, ExtINT,&#160;or SIPI.)</p>
+<p style="position:absolute;top:167px;left:69px;white-space:nowrap" class="ft03">10.8.2&#160;</p>
+<p style="position:absolute;top:167px;left:149px;white-space:nowrap" class="ft03">Interrupt&#160;Handling with the&#160;P6 Family and Pentium Processors</p>
+<p style="position:absolute;top:198px;left:69px;white-space:nowrap" class="ft06">With&#160;the P6 family and&#160;Pentium&#160;processors, the&#160;local APIC handles the&#160;local interrupts, interrupt messages,&#160;and&#160;<br/>IPIs&#160;it receives&#160;as&#160;follows (see<a href="o_fe12b1e2a880e0ce-389.html">&#160;Figure&#160;10-17).</a></p>
+<p style="position:absolute;top:836px;left:69px;white-space:nowrap" class="ft02">1.&#160;(IPIs only) It examines&#160;the IPI message&#160;to&#160;determines&#160;if&#160;it&#160;is the&#160;specified destination for the&#160;IPI&#160;as described&#160;</p>
+<p style="position:absolute;top:853px;left:95px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-384.html">in&#160;Section&#160;10.6.2, “Determining IPI Destination.”&#160;</a>If it&#160;is&#160;the&#160;specified destination,&#160;it continues&#160;its acceptance&#160;<br/>procedure; if it is not the destination, it discards the&#160;IPI message. When&#160;the&#160;message specifies lowest-priority&#160;<br/>delivery mode, the local APIC will arbitrate with the other&#160;processors that were&#160;designated&#160;on recipients of&#160;the&#160;<br/>IPI message (see<a href="o_fe12b1e2a880e0ce-386.html">&#160;Section 10.6.2.4, “Lowest&#160;Priority&#160;Delivery Mode”).</a></p>
+<p style="position:absolute;top:926px;left:69px;white-space:nowrap" class="ft02">2.&#160;If the local&#160;APIC determines that it is the designated&#160;destination&#160;for the interrupt and if&#160;the&#160;interrupt&#160;request is&#160;</p>
+<p style="position:absolute;top:943px;left:94px;white-space:nowrap" class="ft06">an NMI,&#160;SMI, INIT, ExtINT,&#160;or INIT-deassert interrupt, or&#160;one of the MP protocol IPI&#160;messages (BIPI, FIPI,&#160;and&#160;<br/>SIPI), the&#160;interrupt is&#160;sent directly to&#160;the processor core&#160;for handling.</p>
+<p style="position:absolute;top:984px;left:69px;white-space:nowrap" class="ft02">3.&#160;If the&#160;local APIC determines&#160;that&#160;it is&#160;the&#160;designated&#160;destination&#160;for&#160;the&#160;interrupt but&#160;the interrupt request is&#160;</p>
+<p style="position:absolute;top:1000px;left:94px;white-space:nowrap" class="ft06">not one of the&#160;interrupts given in step&#160;2, the&#160;local APIC&#160;looks for an open slot in one&#160;of&#160;its two&#160;pending interrupt&#160;<br/>queues&#160;contained in&#160;the IRR and&#160;ISR&#160;re<a href="o_fe12b1e2a880e0ce-392.html">gisters (see Figure&#160;10-20).</a>&#160;If&#160;a slot&#160;is availa<a href="o_fe12b1e2a880e0ce-391.html">ble (see Section 10.8.4,&#160;<br/>“Interrupt Acceptance for Fixed Interrupts”), places the inte</a>rrupt in the slot. If&#160;a&#160;slot&#160;is&#160;not available,&#160;it rejects&#160;<br/>the&#160;interrupt request&#160;and sends it&#160;back to&#160;the sender with a&#160;retry message.</p>
+<p style="position:absolute;top:791px;left:112px;white-space:nowrap" class="ft04">Figure&#160;10-17.&#160; Interrupt&#160;Acceptance&#160;Flow&#160;Chart&#160;for&#160;the&#160;Local APIC (P6 Family&#160;and Pentium Processors)</p>
+<p style="position:absolute;top:273px;left:419px;white-space:nowrap" class="ft05">Wait&#160;to Receive</p>
+<p style="position:absolute;top:283px;left:423px;white-space:nowrap" class="ft05">Bus Message</p>
+<p style="position:absolute;top:321px;left:434px;white-space:nowrap" class="ft05">Belong</p>
+<p style="position:absolute;top:330px;left:444px;white-space:nowrap" class="ft05">to</p>
+<p style="position:absolute;top:339px;left:423px;white-space:nowrap" class="ft05">Destination?</p>
+<p style="position:absolute;top:387px;left:442px;white-space:nowrap" class="ft05">Is it</p>
+<p style="position:absolute;top:396px;left:422px;white-space:nowrap" class="ft05">NMI/SMI/INIT</p>
+<p style="position:absolute;top:405px;left:432px;white-space:nowrap" class="ft05">/ExtINT?</p>
+<p style="position:absolute;top:465px;left:432px;white-space:nowrap" class="ft05">Delivery</p>
+<p style="position:absolute;top:529px;left:510px;white-space:nowrap" class="ft05">Am&#160;I</p>
+<p style="position:absolute;top:538px;left:505px;white-space:nowrap" class="ft05">Focus?</p>
+<p style="position:absolute;top:599px;left:508px;white-space:nowrap" class="ft05">Other&#160;</p>
+<p style="position:absolute;top:608px;left:505px;white-space:nowrap" class="ft05">Focus?</p>
+<p style="position:absolute;top:533px;left:347px;white-space:nowrap" class="ft05">Is&#160;Interrupt&#160;Slot&#160;</p>
+<p style="position:absolute;top:542px;left:356px;white-space:nowrap" class="ft05">Available?</p>
+<p style="position:absolute;top:599px;left:356px;white-space:nowrap" class="ft05">Is Status a&#160;</p>
+<p style="position:absolute;top:608px;left:363px;white-space:nowrap" class="ft05">Retry?</p>
+<p style="position:absolute;top:598px;left:598px;white-space:nowrap" class="ft05">Discard&#160;</p>
+<p style="position:absolute;top:610px;left:595px;white-space:nowrap" class="ft05">Message</p>
+<p style="position:absolute;top:531px;left:599px;white-space:nowrap" class="ft05">Accept&#160;</p>
+<p style="position:absolute;top:543px;left:595px;white-space:nowrap" class="ft05">Message</p>
+<p style="position:absolute;top:529px;left:559px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:596px;left:559px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:654px;left:599px;white-space:nowrap" class="ft05">Accept&#160;</p>
+<p style="position:absolute;top:666px;left:595px;white-space:nowrap" class="ft05">Message</p>
+<p style="position:absolute;top:687px;left:427px;white-space:nowrap" class="ft05">Is&#160;Interrupt&#160;</p>
+<p style="position:absolute;top:696px;left:428px;white-space:nowrap" class="ft05">Slot Avail-</p>
+<p style="position:absolute;top:705px;left:437px;white-space:nowrap" class="ft05">able?</p>
+<p style="position:absolute;top:696px;left:525px;white-space:nowrap" class="ft05">Arbitrate</p>
+<p style="position:absolute;top:688px;left:488px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:742px;left:517px;white-space:nowrap" class="ft05">Am&#160;I Winner?</p>
+<p style="position:absolute;top:740px;left:623px;white-space:nowrap" class="ft05">Accept&#160;</p>
+<p style="position:absolute;top:752px;left:618px;white-space:nowrap" class="ft05">Message</p>
+<p style="position:absolute;top:740px;left:585px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:739px;left:486px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:528px;left:268px;white-space:nowrap" class="ft05">Set Status</p>
+<p style="position:absolute;top:540px;left:273px;white-space:nowrap" class="ft05">to&#160;Retry</p>
+<p style="position:absolute;top:527px;left:326px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:650px;left:382px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:597px;left:311px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:690px;left:268px;white-space:nowrap" class="ft05">Set Status&#160;</p>
+<p style="position:absolute;top:702px;left:273px;white-space:nowrap" class="ft05">to Retry</p>
+<p style="position:absolute;top:687px;left:391px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:328px;left:220px;white-space:nowrap" class="ft05">Discard</p>
+<p style="position:absolute;top:340px;left:217px;white-space:nowrap" class="ft05">Message</p>
+<p style="position:absolute;top:326px;left:391px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:396px;left:599px;white-space:nowrap" class="ft05">Accept</p>
+<p style="position:absolute;top:408px;left:595px;white-space:nowrap" class="ft05">Message</p>
+<p style="position:absolute;top:392px;left:488px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:448px;left:495px;white-space:nowrap" class="ft05">Lowes&#160;</p>
+<p style="position:absolute;top:460px;left:494px;white-space:nowrap" class="ft05">Priority</p>
+<p style="position:absolute;top:458px;left:377px;white-space:nowrap" class="ft05">Fixed</p>
+<p style="position:absolute;top:572px;left:382px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:572px;left:501px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:595px;left:451px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:369px;left:453px;white-space:nowrap" class="ft05">Yes</p>
+<p style="position:absolute;top:435px;left:430px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:480px;left:580px;white-space:nowrap" class="ft05">P6 Family&#160;</p>
+<p style="position:absolute;top:492px;left:563px;white-space:nowrap" class="ft05">Processor&#160;Specific</p>
+<p style="position:absolute;top:596px;left:393px;white-space:nowrap" class="ft05">&#160;</p>
+</div>
+</body>
+</html>

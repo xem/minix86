@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1989</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1989-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811989.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">GETSEC[ENTERACCS] - Execute Authenticated Chipset Code</p>
+<p style="position:absolute;top:47px;left:615px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2D&#160;6-15</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">FOR I=0&#160;to&#160;SIGNATURE_LEN_CONST&#160;- 1&#160;DO</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">ACRAM[SCRATCH.I]←&#160;SIGNATURE[I];</p>
+<p style="position:absolute;top:136px;left:69px;white-space:nowrap" class="ft02">COMPUTEDSIGNATURE←&#160;HASH(ACRAM, ACBASE,&#160;ACSIZE);</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft02">FOR I=0&#160;to&#160;SIGNATURE_LEN_CONST&#160;- 1&#160;DO</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft02">ACRAM[SCRATCH.SIGNATURE_LEN_CONST+I]←&#160;COMPUTEDSIGNATURE[I];</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft02">IF&#160;(SIGNATURE&#160;≠&#160;COMPUTEDSIGNATURE)</p>
+<p style="position:absolute;top:208px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#AuthenticateFail);</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft02">ACMCONTROL←&#160;ACRAM[CodeControl];</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft02">IF&#160;((ACMCONTROL.0 = 0) and (ACMCONTROL.1 = 1) and (snoop&#160;hit to&#160;modified&#160;line&#160;detected&#160;on&#160;ACRAM&#160;load))</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#UnexpectedHITM);</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft02">IF (ACMCONTROL&#160;reserved bits are set)</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft02">IF ((ACRAM[GDTBasePtr] &lt; (ACRAM[HeaderLen] * 4 + Scratch_size)) OR</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft03">((ACRAM[GDTBasePtr] + ACRAM[GDTLimit]) &gt;=&#160;ACSIZE))<br/>THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft02">IF&#160;((ACMCONTROL.0 = 1) and (ACMCONTROL.1 = 1) and (snoop&#160;hit to&#160;modified&#160;line&#160;detected&#160;on&#160;ACRAM&#160;load))</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">THEN ACEntryPoint←&#160;ACBASE+ACRAM[ErrorEntryPoint];</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft02">ACEntryPoint←&#160;ACBASE+ACRAM[EntryPoint];</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft03">IF ((ACEntryPoint &gt;= ACSIZE)&#160;OR&#160;(ACEntryPoint &lt; (ACRAM[HeaderLen] * 4 + Scratch_size)))THEN TXT-SHUTDOWN(#BadACMFormat);<br/>IF&#160;(ACRAM[GDTLimit] &amp; FFFF0000h)</p>
+<p style="position:absolute;top:478px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:496px;left:69px;white-space:nowrap" class="ft02">IF ((ACRAM[SegSel] &gt; (ACRAM[GDTLimit] - 15)) OR (ACRAM[SegSel] &lt; 8))</p>
+<p style="position:absolute;top:514px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:532px;left:69px;white-space:nowrap" class="ft02">IF ((ACRAM[SegSel].TI=1)&#160;OR (ACRAM[SegSel].RPL≠0))</p>
+<p style="position:absolute;top:550px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft02">CR0.[PG.AM.WP]←&#160;0;</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft02">CR4.MCE←&#160;0;</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft02">EFLAGS←&#160;00000002h;</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft02">IA32_EFER←&#160;0h;</p>
+<p style="position:absolute;top:640px;left:69px;white-space:nowrap" class="ft02">[E|R]BX←&#160;[E|R]IP of the instruction after GETSEC[ENTERACCS];</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft02">ECX←&#160;Pre-GETSEC[ENTERACCS] GDT.limit:CS.sel;</p>
+<p style="position:absolute;top:676px;left:69px;white-space:nowrap" class="ft02">[E|R]DX←&#160;Pre-GETSEC[ENTERACCS] GDT.base;</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft02">EBP←&#160;ACBASE;</p>
+<p style="position:absolute;top:712px;left:69px;white-space:nowrap" class="ft02">GDTR.BASE←&#160;ACBASE+ACRAM[GDTBasePtr];</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft02">GDTR.LIMIT←&#160;ACRAM[GDTLimit];</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft02">CS.SEL←&#160;ACRAM[SegSel];</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft02">CS.BASE←&#160;0;</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft02">CS.LIMIT←&#160;FFFFFh;</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft02">CS.G←&#160;1;</p>
+<p style="position:absolute;top:820px;left:69px;white-space:nowrap" class="ft02">CS.D←&#160;1;</p>
+<p style="position:absolute;top:838px;left:69px;white-space:nowrap" class="ft02">CS.AR←&#160;9Bh;</p>
+<p style="position:absolute;top:856px;left:69px;white-space:nowrap" class="ft02">DS.SEL←&#160;ACRAM[SegSel]+8;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft02">DS.BASE←&#160;0;</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft02">DS.LIMIT←&#160;FFFFFh;</p>
+<p style="position:absolute;top:910px;left:69px;white-space:nowrap" class="ft02">DS.G←&#160;1;</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft02">DS.D←&#160;1;</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft02">DS.AR←&#160;93h;</p>
+<p style="position:absolute;top:964px;left:69px;white-space:nowrap" class="ft02">DR7←&#160;00000400h;</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft02">IA32_DEBUGCTL←&#160;0;</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft03">SignalTXTMsg(OpenPrivate);<br/>SignalTXTMsg(OpenLocality3);<br/>EIP←&#160;ACEntryPoint;</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">END;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 67</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page67-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce067.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;2-5</p>
+<p style="position:absolute;top:47px;left:634px;white-space:nowrap" class="ft01">SYSTEM ARCHITECTURE OVERVIEW</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">2.1.3&#160;</p>
+<p style="position:absolute;top:98px;left:150px;white-space:nowrap" class="ft02">Task-State Segments and Task Gates</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft07">The TSS&#160;(see<a href="o_fe12b1e2a880e0ce-64.html">&#160;Figure&#160;2-1)</a>&#160;defines the state&#160;of&#160;the&#160;execution&#160;environment for a task. It includes&#160;the state of general-<br/>purpose registers, segment registers, the&#160;EFLAGS&#160;register,&#160;the EIP&#160;register, and segment selectors with stack&#160;<br/>pointers for&#160;three stack segments (one&#160;stack for each privilege&#160;level). The TSS&#160;also&#160;includes&#160;the&#160;segment selector&#160;<br/>for&#160;the LDT associated&#160;with&#160;the task and the&#160;base&#160;address of the&#160;paging-structure hierarchy.&#160;<br/>All&#160;program&#160;execution in&#160;protected mode&#160;happens within&#160;the&#160;context of a&#160;task (called the&#160;current task).&#160;The&#160;<br/>segment selector for the&#160;TSS for the&#160;current task is&#160;stored&#160;in the&#160;task&#160;register.&#160;The simplest method for switching&#160;<br/>to a&#160;task&#160;is to&#160;make&#160;a call&#160;or jump to the new task.&#160;Here,&#160;the segment selector&#160;for&#160;the TSS of the new task is&#160;given&#160;<br/>in the&#160;CALL or JMP&#160;instruction.&#160;In switching&#160;tasks, the&#160;processor performs the&#160;following&#160;actions:<br/>1.&#160;Stores&#160;the&#160;state of&#160;the current&#160;task in&#160;the&#160;current TSS.<br/>2.&#160;Loads the&#160;task register&#160;with the segment&#160;selector for the&#160;new&#160;task.<br/>3.&#160;Accesses the&#160;new&#160;TSS through a&#160;segment&#160;descriptor in&#160;the&#160;GDT.<br/>4.&#160;Loads&#160;the state of the&#160;new task from the&#160;new&#160;TSS&#160;into&#160;the&#160;general-purpose registers,&#160;the&#160;segment&#160;registers,&#160;</p>
+<p style="position:absolute;top:364px;left:94px;white-space:nowrap" class="ft06">the LDTR, control register&#160;CR3 (base&#160;address of the paging-structure hierarchy), the&#160;EFLAGS&#160;register, and the&#160;<br/>EIP register.</p>
+<p style="position:absolute;top:405px;left:69px;white-space:nowrap" class="ft06">5.&#160;Begins&#160;execution of&#160;the&#160;new task.<br/>A task&#160;can also be&#160;accessed through&#160;a task gate. A task gate&#160;is similar to a call gate, except&#160;that&#160;it provides&#160;access&#160;<br/>(through&#160;a segment selector) to&#160;a TSS rather than a&#160;code&#160;segment.&#160;</p>
+<p style="position:absolute;top:490px;left:69px;white-space:nowrap" class="ft04">2.1.3.1&#160;&#160;</p>
+<p style="position:absolute;top:490px;left:153px;white-space:nowrap" class="ft04">Task-State&#160;Segments&#160;in IA-32e Mode</p>
+<p style="position:absolute;top:518px;left:69px;white-space:nowrap" class="ft07">Hardware&#160;task switches are not supported&#160;in IA-32e mode.&#160;However,&#160;TSSs&#160;continue&#160;to exist.&#160;The base address&#160;of&#160;<br/>a TSS is&#160;specified by&#160;its descriptor.&#160;<br/>A&#160;64-bit TSS holds&#160;the following information&#160;that is&#160;important to 64-bit&#160;operation:&#160;</p>
+<p style="position:absolute;top:580px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:581px;left:95px;white-space:nowrap" class="ft03">Stack pointer addresses&#160;for each&#160;privilege level</p>
+<p style="position:absolute;top:603px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:604px;left:95px;white-space:nowrap" class="ft03">Pointer addresses for the&#160;interrupt&#160;stack&#160;table</p>
+<p style="position:absolute;top:625px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:626px;left:95px;white-space:nowrap" class="ft03">Offset&#160;address of the&#160;IO-permission bitmap (from&#160;the TSS&#160;base)</p>
+<p style="position:absolute;top:650px;left:69px;white-space:nowrap" class="ft06">The task register is expanded&#160;to hold 64-bit base addresses in IA-32e mode. S<a href="o_fe12b1e2a880e0ce-254.html">ee also: Section 7.7,&#160;“Task Manage-<br/>ment in 64-bit&#160;Mode.”</a></p>
+<p style="position:absolute;top:717px;left:69px;white-space:nowrap" class="ft02">2.1.4&#160;</p>
+<p style="position:absolute;top:717px;left:149px;white-space:nowrap" class="ft02">Interrupt&#160;and Exception Handling</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft06">External interrupts,&#160;software interrupts&#160;and exceptions&#160;are handled through the&#160;interrupt&#160;descriptor&#160;table (IDT).&#160;<br/>The&#160;IDT stores a&#160;collection of gate descriptors&#160;that provide access&#160;to interrupt and&#160;exception handlers. Like&#160;the&#160;<br/>GDT,&#160;the&#160;IDT&#160;is not a&#160;segment. The linear&#160;address for the&#160;base of&#160;the&#160;IDT&#160;is contained in the&#160;IDT&#160;register&#160;(IDTR).<br/>Gate&#160;descriptors in the IDT&#160;can be interrupt, trap,&#160;or task gate descriptors. To&#160;access&#160;an interrupt&#160;or exception&#160;<br/>handler,&#160;the&#160;processor first receives an interrupt vector from&#160;internal&#160;hardware, an&#160;external interrupt controller,&#160;or&#160;<br/>from software&#160;by means&#160;of&#160;an INT,&#160;INTO, INT 3, or&#160;BOUND&#160;instruction. The interrupt&#160;vector provides an&#160;index into&#160;<br/>the IDT.&#160;If&#160;the selected&#160;gate descriptor is&#160;an interrupt&#160;gate or a&#160;trap gate,&#160;the associated&#160;handler procedure&#160;is&#160;<br/>accessed in a manner similar to calling a procedure through a&#160;call gate.&#160;If&#160;the&#160;descriptor is a task gate,&#160;the&#160;handler&#160;<br/>is&#160;accessed through&#160;a task switch.</p>
+<p style="position:absolute;top:931px;left:69px;white-space:nowrap" class="ft04">2.1.4.1&#160;&#160;</p>
+<p style="position:absolute;top:931px;left:153px;white-space:nowrap" class="ft04">Interrupt and Exception Handling IA-32e Mode</p>
+<p style="position:absolute;top:960px;left:69px;white-space:nowrap" class="ft07">In IA-32e&#160;mode,&#160;interrupt&#160;gate&#160;descriptors are expanded to&#160;16&#160;bytes to support 64-bit base&#160;addresses.&#160;This is true&#160;<br/>for 64-bit&#160;mode&#160;and compatibility mode.&#160;<br/>The IDTR&#160;register is&#160;expanded to&#160;hold a&#160;64-bit base address. Task gates are not supported.</p>
+</div>
+</body>
+</html>

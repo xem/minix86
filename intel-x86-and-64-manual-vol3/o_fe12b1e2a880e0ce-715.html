@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 715</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page715-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce715.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-79</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">The&#160;layout of MSR_PEBS_FRONTEND&#160;is given&#160;<a href="o_fe12b1e2a880e0ce-715.html">in Table&#160;18-59.</a></p>
+<p style="position:absolute;top:326px;left:69px;white-space:nowrap" class="ft03">18.13.1.5&#160;&#160;&#160;FRONTEND_RETIRED</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft07">The&#160;FRONTEND_RETIRED&#160;event&#160;is designed&#160;to help software&#160;developers identify&#160;exact instructions that&#160;caused&#160;<br/>front-end issues. There&#160;are some instances&#160;in which the event will, by design, the&#160;under-counting scenarios&#160;include&#160;<br/>the following:&#160;</p>
+<p style="position:absolute;top:409px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:410px;left:95px;white-space:nowrap" class="ft07">The event&#160;counts only retired (non-speculative) Frontend&#160;events,&#160;i.e.&#160;events&#160;from just true program execution&#160;<br/>path are counted.</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:449px;left:95px;white-space:nowrap" class="ft07">The&#160;event will count once&#160;per&#160;cacheline&#160;(at most). If a&#160;cacheline contains multiple instructions which&#160;caused&#160;<br/>front-end misses,&#160;the count will be&#160;only 1&#160;for that&#160;line.&#160;</p>
+<p style="position:absolute;top:487px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:488px;left:95px;white-space:nowrap" class="ft07">If&#160;the multibyte&#160;sequence&#160;of an instruction spans across&#160;two&#160;cachelines and causes&#160;a miss&#160;it will be recorded&#160;<br/>once. If there were&#160;additional&#160;misses in&#160;the second&#160;cacheline,&#160;they&#160;will&#160;not be counted separately.&#160;</p>
+<p style="position:absolute;top:526px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:527px;left:95px;white-space:nowrap" class="ft07">If a multi-uop instruction&#160;exceeds the&#160;allocation width of&#160;one cycle,&#160;the bubbles associated&#160;with these uops will&#160;<br/>be&#160;counted&#160;once per that&#160;instruction.&#160;</p>
+<p style="position:absolute;top:565px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:566px;left:95px;white-space:nowrap" class="ft07">If 2&#160;instructions&#160;are fused&#160;(macro-fusion), and either&#160;of&#160;them&#160;or&#160;both&#160;cause front-end misses, it&#160;will&#160;be counted&#160;<br/>once for the&#160;fused instruction.</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:605px;left:95px;white-space:nowrap" class="ft07">If&#160;a&#160;frontend (miss) event&#160;occurs outside instruction&#160;boundary (e.g.&#160;due&#160;to processor handling&#160;of architectural&#160;<br/>event), it&#160;may&#160;be&#160;reported for the&#160;next instruction to&#160;retire.</p>
+<p style="position:absolute;top:672px;left:69px;white-space:nowrap" class="ft05">18.13.2&#160;&#160;Off-core&#160;Response Performance Monitoring&#160;</p>
+<p style="position:absolute;top:703px;left:69px;white-space:nowrap" class="ft07">The&#160;core PMU facility to&#160;collect&#160;off-core&#160;response&#160;events&#160;are&#160;similar&#160;to&#160;those described<a href="o_fe12b1e2a880e0ce-693.html">&#160;in Section 18.9.5.&#160;</a>Each&#160;<br/>event&#160;code&#160;for off-core&#160;response&#160;monitoring&#160;requires programming an&#160;associated&#160;configuration MSR,&#160;<br/>MSR_OFFCORE_RSP_x. Software must program MSR_OFFCORE_RSP_x according to:</p>
+<p style="position:absolute;top:757px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:758px;left:95px;white-space:nowrap" class="ft02">Transaction request type encoding (bits 15:0):&#160;see&#160;<a href="o_fe12b1e2a880e0ce-715.html">Table&#160;18-60.</a></p>
+<p style="position:absolute;top:780px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:781px;left:95px;white-space:nowrap" class="ft02">Supplier information&#160;(bits&#160;30<a href="o_fe12b1e2a880e0ce-716.html">:16): see Table&#160;18-61.</a></p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:803px;left:95px;white-space:nowrap" class="ft02">Snoop&#160;response&#160;information&#160;(bits&#160;37:31): see<a href="o_fe12b1e2a880e0ce-717.html">&#160;Table&#160;18-62.</a></p>
+<p style="position:absolute;top:142px;left:304px;white-space:nowrap" class="ft06">Table 18-59. &#160;MSR_PEBS_FRONTEND Layout</p>
+<p style="position:absolute;top:166px;left:77px;white-space:nowrap" class="ft02">Bit Name</p>
+<p style="position:absolute;top:166px;left:232px;white-space:nowrap" class="ft02">Offset&#160;Description</p>
+<p style="position:absolute;top:190px;left:77px;white-space:nowrap" class="ft02">EVTSEL</p>
+<p style="position:absolute;top:190px;left:232px;white-space:nowrap" class="ft02">7:0</p>
+<p style="position:absolute;top:190px;left:284px;white-space:nowrap" class="ft02">Encodes&#160;the sub-event within&#160;FrontEnd_Retired&#160;that&#160;can&#160;use&#160;PEBS&#160;facility, se<a href="o_fe12b1e2a880e0ce-714.html">e&#160;Table&#160;18-58</a></p>
+<p style="position:absolute;top:214px;left:77px;white-space:nowrap" class="ft02">IDQ_Bubble_Length</p>
+<p style="position:absolute;top:214px;left:232px;white-space:nowrap" class="ft02">19:8</p>
+<p style="position:absolute;top:214px;left:284px;white-space:nowrap" class="ft02">Specifies&#160;the&#160;threshold&#160;of&#160;continuously elapsed cycles&#160;for&#160;the&#160;specified width&#160;of&#160;bubbles when&#160;</p>
+<p style="position:absolute;top:231px;left:284px;white-space:nowrap" class="ft02">counting&#160;IDQ_READ_BUBBLES&#160;event</p>
+<p style="position:absolute;top:254px;left:77px;white-space:nowrap" class="ft02">IDQ_Bubble_Width</p>
+<p style="position:absolute;top:254px;left:232px;white-space:nowrap" class="ft02">22:20</p>
+<p style="position:absolute;top:254px;left:284px;white-space:nowrap" class="ft02">Specifies the threshold of&#160;simultaneous&#160;bubbles when&#160;counting&#160;IDQ_READ_BUBBLES&#160;event</p>
+<p style="position:absolute;top:279px;left:77px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:279px;left:232px;white-space:nowrap" class="ft02">63:23</p>
+<p style="position:absolute;top:279px;left:284px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:844px;left:150px;white-space:nowrap" class="ft06">Table 18-60.&#160;&#160;MSR_OFFCORE_RSP_x&#160;Request_Type&#160;Definition (Skylake microarchitecture)</p>
+<p style="position:absolute;top:869px;left:75px;white-space:nowrap" class="ft02">Bit&#160;Name</p>
+<p style="position:absolute;top:869px;left:192px;white-space:nowrap" class="ft02">Offset&#160;Description</p>
+<p style="position:absolute;top:893px;left:75px;white-space:nowrap" class="ft02">DMND_DATA_RD</p>
+<p style="position:absolute;top:893px;left:192px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:893px;left:243px;white-space:nowrap" class="ft02">(R/W).&#160;Counts the&#160;number of&#160;demand&#160;data&#160;reads of&#160;full and&#160;partial cachelines&#160;as&#160;well as&#160;demand&#160;data&#160;</p>
+<p style="position:absolute;top:909px;left:243px;white-space:nowrap" class="ft02">page&#160;table&#160;entry cacheline&#160;reads. Does not count hw&#160;or&#160;sw&#160;prefetches.</p>
+<p style="position:absolute;top:933px;left:75px;white-space:nowrap" class="ft02">DMND_RFO</p>
+<p style="position:absolute;top:933px;left:192px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:933px;left:243px;white-space:nowrap" class="ft02">(R/W).&#160;Counts the&#160;number&#160;of&#160;demand&#160;reads for&#160;ownership (RFO) requests generated by&#160;a write to&#160;data&#160;</p>
+<p style="position:absolute;top:950px;left:243px;white-space:nowrap" class="ft02">cacheline. Does not count L2&#160;RFO prefetches.</p>
+<p style="position:absolute;top:974px;left:75px;white-space:nowrap" class="ft02">DMND_IFETCH</p>
+<p style="position:absolute;top:974px;left:192px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:974px;left:243px;white-space:nowrap" class="ft02">(R/W).&#160;Counts the&#160;number&#160;of&#160;demand&#160;and DCU&#160;prefetch instruction cacheline reads.&#160;Does&#160;not count L2&#160;</p>
+<p style="position:absolute;top:990px;left:243px;white-space:nowrap" class="ft02">code&#160;read&#160;prefetches.</p>
+<p style="position:absolute;top:1014px;left:75px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:1014px;left:192px;white-space:nowrap" class="ft02">6:3</p>
+<p style="position:absolute;top:1014px;left:243px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:1038px;left:75px;white-space:nowrap" class="ft02">PF_L3_DATA_RD</p>
+<p style="position:absolute;top:1038px;left:192px;white-space:nowrap" class="ft02">7</p>
+<p style="position:absolute;top:1038px;left:243px;white-space:nowrap" class="ft02">(R/W). Counts the number of&#160;MLC prefetches into&#160;L3.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1033</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:8px;line-height:11px;font-family:Times;color:#000000;}
+	.ft011{font-size:8px;line-height:12px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1033-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1033.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;22-29</p>
+<p style="position:absolute;top:47px;left:657px;white-space:nowrap" class="ft01">ARCHITECTURE&#160;COMPATIBILITY</p>
+<p style="position:absolute;top:523px;left:69px;white-space:nowrap" class="ft02">22.29 CACHE&#160;</p>
+<p style="position:absolute;top:523px;left:216px;white-space:nowrap" class="ft02">MANAGEMENT</p>
+<p style="position:absolute;top:560px;left:69px;white-space:nowrap" class="ft07">The&#160;P6&#160;family processors include&#160;two&#160;levels of internal&#160;caches:&#160;L1&#160;(level 1) and&#160;L2&#160;(level 2). The L1 cache&#160;is divided&#160;<br/>into an instruction cache&#160;and&#160;a data cache;&#160;the L2 cache is&#160;a general-purpose cache.&#160;<a href="o_fe12b1e2a880e0ce-413.html">See Section 11.1, “Internal&#160;<br/>Caches,&#160;TLBs, and&#160;Buffers,”&#160;for a&#160;</a>description of these&#160;caches. (Note&#160;that although&#160;the Pentium II&#160;processor&#160;L2&#160;<br/>cache is&#160;physically&#160;located&#160;on a&#160;separate&#160;chip&#160;in&#160;the cassette, it&#160;is considered&#160;an&#160;internal cache.)<br/>The&#160;Pentium&#160;processor&#160;includes separate&#160;level&#160;1 instruction and data&#160;caches. The&#160;data&#160;cache supports a&#160;writeback&#160;<br/>(or alternatively write-through,&#160;on&#160;a line&#160;by line&#160;basis)&#160;policy for memory updates.<br/>The&#160;Intel486&#160;processor includes&#160;a single level&#160;1&#160;cache for both&#160;instructions&#160;and&#160;data.&#160;<br/>The&#160;meaning of the&#160;CD and NW&#160;flags in&#160;control&#160;register&#160;CR0 have&#160;been&#160;redefined for the P6 family&#160;and Pentium&#160;<br/>processors. For these processors,&#160;the recommended&#160;value&#160;(00B)&#160;enables&#160;writeback for the&#160;data&#160;cache&#160;of the&#160;<br/>Pentium&#160;processor&#160;and for the&#160;L1&#160;data&#160;cache&#160;and L2 cache&#160;of the&#160;P6&#160;family&#160;processors.&#160;In the&#160;Intel486&#160;processor,&#160;<br/>setting these flags&#160;to (00B)&#160;enables write-through for the&#160;cache.<br/>External&#160;system hardware&#160;can force&#160;the Pentium processor to&#160;disable&#160;caching&#160;or to use&#160;the&#160;write-through&#160;cache&#160;<br/>policy&#160;should&#160;that&#160;be&#160;required.&#160;In&#160;the&#160;P6&#160;family&#160;processors,&#160;the&#160;MTRRs&#160;can&#160;be&#160;used&#160;to&#160;override&#160;the&#160;CD&#160;and&#160;NW&#160;flags&#160;<br/><a href="o_fe12b1e2a880e0ce-426.html">(see Table 11-6)</a>.<br/>The&#160;P6&#160;family&#160;and Pentium&#160;processors support page-level&#160;cache&#160;management in the same&#160;manner as&#160;the Intel486&#160;<br/>processor by using&#160;the&#160;PCD and&#160;PWT flags&#160;in control register CR3, the&#160;page-directory entries,&#160;and the page-table&#160;<br/>entries.&#160;The Intel486&#160;processor,&#160;however,&#160;is not affected&#160;by&#160;the state&#160;of the&#160;PWT&#160;flag&#160;since the&#160;internal cache of the&#160;<br/>Intel486&#160;processor is&#160;a write-through cache.</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft04">22.29.1&#160;&#160;Self-Modifying Code with Cache Enabled</p>
+<p style="position:absolute;top:959px;left:69px;white-space:nowrap" class="ft07">On&#160;the Intel486 processor,&#160;a&#160;write&#160;to an instruction in the&#160;cache&#160;will&#160;modify&#160;it in both&#160;the&#160;cache and&#160;memory. If the&#160;<br/>instruction was prefetched before the write,&#160;however,&#160;the&#160;old&#160;version of the&#160;instruction could be&#160;the one executed.&#160;<br/>To&#160;prevent this&#160;problem,&#160;it is necessary to flush&#160;the&#160;instruction prefetch unit of the Intel486&#160;processor by coding&#160;a&#160;<br/>jump instruction immediately&#160;after any&#160;write that&#160;modifies&#160;an&#160;instruction. The P6 family and&#160;Pentium&#160;processors,&#160;<br/>however,&#160;check&#160;whether&#160;a write&#160;may modify&#160;an&#160;instruction&#160;that&#160;has&#160;been&#160;prefetched&#160;for execution.&#160;This&#160;check is&#160;<br/>based on the&#160;linear&#160;address of the&#160;instruction. If&#160;the&#160;linear&#160;address of an&#160;instruction&#160;is found to&#160;be&#160;present&#160;in the&#160;</p>
+<p style="position:absolute;top:475px;left:294px;white-space:nowrap" class="ft05">Figure&#160;22-1. &#160;I/O&#160;Map Base&#160;Address Differences</p>
+<p style="position:absolute;top:132px;left:269px;white-space:nowrap" class="ft00">Intel486 Processor</p>
+<p style="position:absolute;top:245px;left:346px;white-space:nowrap" class="ft00">FFFFH</p>
+<p style="position:absolute;top:240px;left:274px;white-space:nowrap" class="ft06">I/O&#160;Map</p>
+<p style="position:absolute;top:251px;left:252px;white-space:nowrap" class="ft06">Base Addres</p>
+<p style="position:absolute;top:201px;left:295px;white-space:nowrap" class="ft00">FFFFH</p>
+<p style="position:absolute;top:337px;left:233px;white-space:nowrap" class="ft06">FFFFH&#160;+ 10H = FH</p>
+<p style="position:absolute;top:348px;left:246px;white-space:nowrap" class="ft06">for I/O&#160;Validation</p>
+<p style="position:absolute;top:371px;left:317px;white-space:nowrap" class="ft00">0H</p>
+<p style="position:absolute;top:245px;left:578px;white-space:nowrap" class="ft00">FFFFH</p>
+<p style="position:absolute;top:201px;left:526px;white-space:nowrap" class="ft00">FFFFH</p>
+<p style="position:absolute;top:396px;left:527px;white-space:nowrap" class="ft06">I/O&#160;access&#160;at&#160;port&#160;10H checks</p>
+<p style="position:absolute;top:371px;left:549px;white-space:nowrap" class="ft00">0H</p>
+<p style="position:absolute;top:150px;left:547px;white-space:nowrap" class="ft010">FFFFH&#160;+ 10H = Outside&#160;Segment<br/>for&#160;I/O&#160;Validation</p>
+<p style="position:absolute;top:408px;left:527px;white-space:nowrap" class="ft011">bitmap at I/O&#160;address&#160;FFFFH + 10H,<br/>which exceeds segment&#160;limit.<br/>Wrap&#160;around does&#160;not&#160;occur,<br/>general-protection exception (#GP)&#160;</p>
+<p style="position:absolute;top:396px;left:295px;white-space:nowrap" class="ft011">I/O&#160;access at port 10H checks<br/>bitmap&#160;at&#160;I/O map base&#160;address<br/>FFFFH&#160;+ 10H =&#160;offset&#160;10H.<br/>Offset&#160;FH from&#160;beginning of<br/>TSS&#160;segment&#160;results because</p>
+<p style="position:absolute;top:132px;left:479px;white-space:nowrap" class="ft00">P6 family and Pentium Processors</p>
+<p style="position:absolute;top:240px;left:507px;white-space:nowrap" class="ft06">I/O Map</p>
+<p style="position:absolute;top:251px;left:484px;white-space:nowrap" class="ft06">Base&#160;Addres</p>
+<p style="position:absolute;top:457px;left:527px;white-space:nowrap" class="ft06">occurs.</p>
+<p style="position:absolute;top:457px;left:294px;white-space:nowrap" class="ft06">&#160;wraparound&#160;occurs.</p>
+</div>
+</body>
+</html>

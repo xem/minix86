@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 753</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page753-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce753.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:754px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-117</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07"><b>PC&#160;(pin control) flag&#160;(bit 19)&#160;—&#160;</b>When set,&#160;the processor toggles&#160;the PM<i>i</i>&#160;pins and&#160;increments the&#160;counter&#160;<br/>when performance-monitoring&#160;events&#160;occur;&#160;when&#160;clear,&#160;the&#160;processor toggles&#160;the&#160;PM<i>i</i>&#160;pins when the counter&#160;<br/>overflows.&#160;The toggling&#160;of&#160;a pin is&#160;defined&#160;as assertion of&#160;the pin for a single&#160;bus&#160;clock&#160;followed by deassertion.</p>
+<p style="position:absolute;top:155px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:95px;white-space:nowrap" class="ft07"><b>INT (APIC interrupt enable) flag (bit 20) —&#160;</b>When set, the processor&#160;generates&#160;an exception through&#160;its&#160;<br/>local APIC&#160;on&#160;counter&#160;overflow.</p>
+<p style="position:absolute;top:194px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:195px;left:95px;white-space:nowrap" class="ft07"><b>EN (Enable Counters) Flag (bit&#160;22) —&#160;</b>This flag&#160;is only present in&#160;the&#160;PerfEvtSel0 MSR.&#160;When&#160;set,&#160;<br/>performance&#160;counting is&#160;enabled in both&#160;performance-monitoring&#160;counters;&#160;when clear,&#160;both counters are&#160;<br/>disabled.</p>
+<p style="position:absolute;top:250px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:250px;left:95px;white-space:nowrap" class="ft07"><b>INV (invert)&#160;flag (bit 23) —&#160;</b>When&#160;set, inverts the counter-mask (CMASK) comparison, so that&#160;both&#160;greater&#160;<br/>than or&#160;equal&#160;to and&#160;less than&#160;comparisons&#160;can be made&#160;(0:&#160;greater than or&#160;equal;&#160;1: less than). Note&#160;if&#160;<br/>counter-mask is&#160;programmed to&#160;zero, INV flag is&#160;ignored.</p>
+<p style="position:absolute;top:305px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:306px;left:95px;white-space:nowrap" class="ft07"><b>Counter mask&#160;(CMASK)&#160;field&#160;(bits&#160;24&#160;through&#160;31) —&#160;</b>When nonzero,&#160;the processor compares this mask to&#160;<br/>the number of events counted during&#160;a single cycle.&#160;If the event count is greater than&#160;or equal to&#160;this mask, the&#160;<br/>counter is&#160;incremented&#160;by one.&#160;Otherwise&#160;the&#160;counter is&#160;not incremented.&#160;This mask can&#160;be&#160;used&#160;to count&#160;<br/>events only if multiple&#160;occurrences&#160;happen&#160;per&#160;clock&#160;(for&#160;example, two&#160;or more instructions retired&#160;per&#160;clock).&#160;<br/>If the&#160;counter-mask field&#160;is&#160;0,&#160;then the&#160;counter is&#160;incremented each cycle by the&#160;number of&#160;events&#160;that&#160;<br/>occurred that&#160;cycle.</p>
+<p style="position:absolute;top:439px;left:69px;white-space:nowrap" class="ft06">18.22.2&#160;&#160;PerfCtr0 and PerfCtr1 MSRs</p>
+<p style="position:absolute;top:469px;left:69px;white-space:nowrap" class="ft07">The&#160;performance-counter MSRs (PerfCtr0 and PerfCtr1) contain the&#160;event&#160;or duration counts for the&#160;selected&#160;<br/>events&#160;being counted.&#160;The&#160;RDPMC instruction&#160;can be used by&#160;programs or&#160;procedures running&#160;at any privilege level&#160;<br/>and in virtual-8086&#160;mode&#160;to read these counters. The PCE&#160;flag&#160;in&#160;control register&#160;CR4 (bit 8) allows the use&#160;of this&#160;<br/>instruction&#160;to be restricted&#160;to only programs&#160;and&#160;procedures running&#160;at&#160;privilege level&#160;0.<br/>The&#160;RDPMC&#160;instruction&#160;is not&#160;serializing or&#160;ordered with other instructions. Thus, it&#160;does&#160;not&#160;necessarily wait until&#160;<br/>all previous&#160;instructions&#160;have&#160;been&#160;executed before&#160;reading the&#160;counter.&#160;Similarly,&#160;subsequent&#160;instructions&#160;may&#160;<br/>begin execution&#160;before&#160;the&#160;RDPMC instruction operation is&#160;performed.<br/>Only&#160;the operating system, executing at&#160;privilege level 0,&#160;can directly manipulate the performance counters,&#160;using&#160;<br/>the RDMSR and&#160;WRMSR instructions. A&#160;secure operating&#160;system would clear the&#160;PCE&#160;flag during&#160;system&#160;initializa-<br/>tion to disable direct user access to the&#160;performance-monitoring counters, but provide a user-accessible&#160;program-<br/>ming&#160;interface&#160;that emulates&#160;the RDPMC&#160;instruction.<br/>The&#160;WRMSR instruction cannot arbitrarily write to&#160;the&#160;performance-monitoring&#160;counter MSRs (PerfCtr0 and&#160;<br/>PerfCtr1).&#160;Instead, the&#160;lower-order 32 bits&#160;of each&#160;MSR may be written with any&#160;value,&#160;and the&#160;high-order&#160;8 bits&#160;<br/>are sign-extended&#160;according&#160;to the value&#160;of&#160;bit&#160;31. This operation allows writing&#160;both positive&#160;and&#160;negative&#160;values&#160;<br/>to the&#160;performance counters.</p>
+<p style="position:absolute;top:773px;left:69px;white-space:nowrap" class="ft06">18.22.3&#160;&#160;Starting and Stopping the Performance-Monitoring Counters</p>
+<p style="position:absolute;top:804px;left:69px;white-space:nowrap" class="ft07">The performance-monitoring counters&#160;are started&#160;by&#160;writing valid setup&#160;information in&#160;the PerfEvtSel0&#160;and/or&#160;<br/>PerfEvtSel1 MSRs&#160;and setting the&#160;enable&#160;counters&#160;flag&#160;in&#160;the PerfEvtSel0&#160;MSR. If&#160;the setup is&#160;valid,&#160;the counters&#160;<br/>begin&#160;counting following the&#160;execution&#160;of&#160;a WRMSR instruction&#160;that sets the&#160;enable counter&#160;flag. The counters&#160;can&#160;<br/>be stopped by clearing the&#160;enable&#160;counters flag&#160;or by clearing all&#160;the bits in&#160;the PerfEvtSel0&#160;and PerfEvtSel1&#160;MSRs.&#160;<br/>Counter&#160;1 alone&#160;can be&#160;stopped&#160;by clearing&#160;the&#160;PerfEvtSel1 MSR.</p>
+</div>
+</body>
+</html>

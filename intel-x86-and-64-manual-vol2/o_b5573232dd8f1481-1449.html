@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1449</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1449-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811449.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VCVTTSS2USI—Convert with Truncation Scalar Single-Precision Floating-Point&#160;Value&#160;to Unsigned&#160;Integer</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:771px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-63</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VCVTTSS2USI—Convert with Truncation Scalar&#160;Single-Precision Floating-Point&#160;Value to&#160;</p>
+<p style="position:absolute;top:119px;left:69px;white-space:nowrap" class="ft02">Unsigned Integer</p>
+<p style="position:absolute;top:400px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:485px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft06">Converts with truncation a&#160;single-precision floating-point&#160;value&#160;in the&#160;source operand&#160;(the second operand)&#160;to an&#160;<br/>unsigned doubleword integer (or&#160;unsigned&#160;quadword integer&#160;if&#160;operand size&#160;is 64 bits) in&#160;the destination&#160;operand&#160;<br/>(the first operand). The source&#160;operand can be an XMM&#160;register or a memory location. The destination operand is&#160;<br/>a general-purpose register.&#160;When&#160;the&#160;source&#160;operand&#160;is&#160;an&#160;XMM&#160;register, the&#160;single-precision floating-point&#160;value&#160;<br/>is contained in the&#160;low&#160;doubleword&#160;of the&#160;register.<br/>When&#160;a&#160;conversion&#160;is&#160;inexact, the value&#160;returned&#160;is&#160;rounded&#160;according&#160;to the&#160;rounding control bits in&#160;the MXCSR&#160;<br/>register. If a converted result cannot be&#160;represented in the&#160;destination format, the floating-point&#160;invalid exception&#160;<br/>is raised, and&#160;if this&#160;exception&#160;is masked, the&#160;integer&#160;value&#160;2</p>
+<p style="position:absolute;top:626px;left:478px;white-space:nowrap" class="ft05">w</p>
+<p style="position:absolute;top:629px;left:487px;white-space:nowrap" class="ft04">&#160;– 1&#160;is returned,&#160;where w represents&#160;the number&#160;of&#160;</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft07">bits in&#160;the destination&#160;format.<br/>EVEX.W1&#160;version: promotes&#160;the&#160;instruction&#160;to&#160;produce&#160;64-bit data in&#160;64-bit&#160;mode.<br/>Note: EVEX.vvvv is&#160;reserved&#160;and must be&#160;1111b, otherwise instructions will&#160;#UD.</p>
+<p style="position:absolute;top:725px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:747px;left:69px;white-space:nowrap" class="ft08">VCVTTSS2USI (EVEX&#160;encoded&#160;version)<br/>IF 64-bit Mode&#160;and&#160;OperandSize = 64<br/>THEN</p>
+<p style="position:absolute;top:801px;left:89px;white-space:nowrap" class="ft04">DEST[63:0]&#160;&#160;Convert_Single_Precision_Floating_Point_To_UInteger_Truncate(SRC[31:0]);</p>
+<p style="position:absolute;top:819px;left:69px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:837px;left:89px;white-space:nowrap" class="ft04">DEST[31:0]&#160;&#160;Convert_Single_Precision_Floating_Point_To_UInteger_Truncate(SRC[31:0]);</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:890px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:912px;left:69px;white-space:nowrap" class="ft08">VCVTTSS2USI unsigned&#160;int _mm_cvttss_u32(&#160;__m128&#160;a);<br/>VCVTTSS2USI unsigned&#160;int _mm_cvtt_roundss_u32(&#160;__m128&#160;a, int sae);<br/>VCVTTSS2USI unsigned&#160;__int64&#160;_mm_cvttss_u64( __m128&#160;a);<br/>VCVTTSS2USI unsigned&#160;__int64 _mm_cvtt_roundss_u64( __m128 a, int sae);</p>
+<p style="position:absolute;top:1001px;left:69px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:1023px;left:69px;white-space:nowrap" class="ft04">Invalid, Precision</p>
+<p style="position:absolute;top:143px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:159px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:143px;left:322px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:159px;left:322px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:143px;left:365px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:159px;left:365px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:173px;left:365px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:143px;left:438px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:159px;left:438px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:173px;left:438px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:143px;left:522px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:193px;left:78px;white-space:nowrap" class="ft04">EVEX.LIG.F3.0F.W0&#160;78&#160;/r</p>
+<p style="position:absolute;top:193px;left:322px;white-space:nowrap" class="ft04">T1F</p>
+<p style="position:absolute;top:193px;left:365px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:193px;left:438px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:193px;left:522px;white-space:nowrap" class="ft04">Convert one single-precision&#160;floating-point&#160;value from&#160;</p>
+<p style="position:absolute;top:209px;left:522px;white-space:nowrap" class="ft04">xmm1/m32&#160;to&#160;one unsigned doubleword&#160;integer&#160;in&#160;</p>
+<p style="position:absolute;top:226px;left:522px;white-space:nowrap" class="ft04">r32 using truncation.</p>
+<p style="position:absolute;top:213px;left:78px;white-space:nowrap" class="ft04">VCVTTSS2USI r32, xmm1/m32{sae}</p>
+<p style="position:absolute;top:249px;left:78px;white-space:nowrap" class="ft04">EVEX.LIG.F3.0F.W1&#160;78&#160;/r</p>
+<p style="position:absolute;top:249px;left:322px;white-space:nowrap" class="ft04">T1F</p>
+<p style="position:absolute;top:249px;left:365px;white-space:nowrap" class="ft04">V/N.E.</p>
+<p style="position:absolute;top:246px;left:399px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:307px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:326px;left:69px;white-space:nowrap" class="ft04">1.&#160;For this specific instruction,&#160;EVEX.W&#160;in non-64&#160;bit is ignored; the instructions&#160;behaves as if&#160;the&#160;W0&#160;version is</p>
+<p style="position:absolute;top:342px;left:83px;white-space:nowrap" class="ft04">used.</p>
+<p style="position:absolute;top:249px;left:438px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:249px;left:522px;white-space:nowrap" class="ft04">Convert one single-precision&#160;floating-point&#160;value from&#160;</p>
+<p style="position:absolute;top:265px;left:522px;white-space:nowrap" class="ft04">xmm1/m32&#160;to&#160;one&#160;unsigned&#160;quadword&#160;integer in&#160;r64&#160;</p>
+<p style="position:absolute;top:281px;left:522px;white-space:nowrap" class="ft04">using truncation.</p>
+<p style="position:absolute;top:268px;left:78px;white-space:nowrap" class="ft04">VCVTTSS2USI r64, xmm1/m32{sae}</p>
+<p style="position:absolute;top:423px;left:104px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:423px;left:222px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:423px;left:385px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:423px;left:553px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:423px;left:721px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:447px;left:110px;white-space:nowrap" class="ft04">T1F</p>
+<p style="position:absolute;top:447px;left:209px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:447px;left:374px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:447px;left:574px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:447px;left:743px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

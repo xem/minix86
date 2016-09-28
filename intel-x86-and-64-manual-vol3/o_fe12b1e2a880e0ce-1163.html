@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1163</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1163-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1163.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;28-15</p>
+<p style="position:absolute;top:47px;left:581px;white-space:nowrap" class="ft01">VMX SUPPORT&#160;FOR ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">The&#160;following items detail the&#160;use of&#160;the&#160;various mappings:</p>
+<p style="position:absolute;top:122px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:123px;left:95px;white-space:nowrap" class="ft010">If EPT is&#160;not in use&#160;(e.g.,&#160;when&#160;outside&#160;VMX&#160;non-root&#160;operation),&#160;a&#160;logical&#160;processor may use cached mappings&#160;<br/>as follows:<br/>—&#160;For&#160;accesses using&#160;linear addresses,&#160;it may&#160;use&#160;linear mappings associated with the&#160;current VPID&#160;and&#160;the&#160;</p>
+<p style="position:absolute;top:180px;left:120px;white-space:nowrap" class="ft09">current&#160;PCID.&#160;It may&#160;also use&#160;global TLB entries&#160;(linear mappings) associated&#160;with&#160;the&#160;current&#160;VPID and&#160;<br/>any PCID.</p>
+<p style="position:absolute;top:220px;left:95px;white-space:nowrap" class="ft02">—&#160;No&#160;guest-physical&#160;or combined mappings are used&#160;while EPT&#160;is not&#160;in&#160;use.</p>
+<p style="position:absolute;top:242px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:243px;left:95px;white-space:nowrap" class="ft010">If EPT is&#160;in use, a&#160;logical processor may use&#160;cached&#160;mappings&#160;as follows:<br/>—&#160;For accesses using&#160;linear addresses, it may use&#160;combined&#160;mappings associated&#160;with the current VPID, the&#160;</p>
+<p style="position:absolute;top:283px;left:120px;white-space:nowrap" class="ft09">current&#160;PCID, and&#160;the current&#160;EP4TA.&#160;It may also&#160;use global TLB entries (combined mappings) associated&#160;<br/>with the&#160;current VPID, the&#160;current&#160;EP4TA, and&#160;any PCID.</p>
+<p style="position:absolute;top:324px;left:95px;white-space:nowrap" class="ft02">—&#160;For accesses&#160;using guest-physical&#160;addresses,&#160;it may use guest-physical mappings associated&#160;with the&#160;</p>
+<p style="position:absolute;top:340px;left:120px;white-space:nowrap" class="ft02">current&#160;EP4TA.</p>
+<p style="position:absolute;top:364px;left:95px;white-space:nowrap" class="ft02">—&#160;No&#160;linear&#160;mappings&#160;are used&#160;while EPT is&#160;in use.</p>
+<p style="position:absolute;top:415px;left:69px;white-space:nowrap" class="ft04">28.3.3&#160;</p>
+<p style="position:absolute;top:415px;left:149px;white-space:nowrap" class="ft04">Invalidating Cached Translation Information</p>
+<p style="position:absolute;top:445px;left:69px;white-space:nowrap" class="ft09">Software modifications of&#160;paging&#160;structures (including EPT&#160;paging structures)&#160;may result&#160;in inconsistencies&#160;<br/>between&#160;those structures&#160;and the&#160;mappings cached by a&#160;logical&#160;processor.&#160;Certain operations invalidate informa-<br/>tion&#160;cached&#160;by&#160;a logical processor and&#160;can be used&#160;to&#160;eliminate such&#160;inconsistencies.</p>
+<p style="position:absolute;top:523px;left:69px;white-space:nowrap" class="ft05">28.3.3.1 &#160;&#160;Operations that Invalidate Cached&#160;Mappings</p>
+<p style="position:absolute;top:551px;left:69px;white-space:nowrap" class="ft02">The following&#160;operations invalidate cached mappings&#160;as indicated:</p>
+<p style="position:absolute;top:573px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:574px;left:95px;white-space:nowrap" class="ft09">Operations that&#160;architecturally invalidate entries in&#160;the TLBs or&#160;paging-structure&#160;caches&#160;independent of VMX&#160;<br/>operation (e.g.,&#160;the&#160;INVLPG&#160;and&#160;INVPCID instructions) invalidate linear mappings&#160;and combined mappings.</p>
+<p style="position:absolute;top:588px;left:817px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:590px;left:824px;white-space:nowrap" class="ft02">&#160;</p>
+<p style="position:absolute;top:607px;left:95px;white-space:nowrap" class="ft09">They&#160;are required&#160;to do&#160;so only for the&#160;current VPID (but, for combined&#160;mappings,&#160;all&#160;EP4TAs).&#160;Linear&#160;<br/>mappings for the&#160;current VPID are&#160;invalidated&#160;even&#160;if&#160;EPT is&#160;in use.</p>
+<p style="position:absolute;top:620px;left:547px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:623px;left:554px;white-space:nowrap" class="ft02">&#160;Combined mappings for the&#160;current&#160;</p>
+<p style="position:absolute;top:640px;left:95px;white-space:nowrap" class="ft02">VPID&#160;are invalidated&#160;even if EPT is&#160;not&#160;in use.</p>
+<p style="position:absolute;top:637px;left:402px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:661px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:662px;left:95px;white-space:nowrap" class="ft09">An&#160;EPT violation invalidates any&#160;guest-physical mappings&#160;(associated&#160;with&#160;the current&#160;EP4TA) that&#160;would&#160;be&#160;<br/>used&#160;to translate the&#160;guest-physical&#160;address that caused&#160;the&#160;EPT violation.&#160;If that guest-physical address was&#160;<br/>the&#160;translation of a&#160;linear address, the EPT&#160;violation&#160;also invalidates&#160;any combined mappings for that&#160;linear&#160;<br/>address&#160;associated&#160;with&#160;the current&#160;PCID, the&#160;current VPID and&#160;the current EP4TA.</p>
+<p style="position:absolute;top:733px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:734px;left:95px;white-space:nowrap" class="ft09">If&#160;the “enable VPID”&#160;VM-execution control&#160;is 0,&#160;VM&#160;entries&#160;and VM&#160;exits invalidate&#160;linear mappings and&#160;<br/>combined mappings associated&#160;with VPID 0000H (for&#160;all PCIDs).&#160;Combined mappings for VPID 0000H are&#160;<br/>invalidated for all&#160;EP4TAs.</p>
+<p style="position:absolute;top:789px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:790px;left:95px;white-space:nowrap" class="ft010">Execution of the&#160;INVVPID instruction invalidates&#160;linear&#160;mappings and&#160;combined&#160;mappings. Invalidation is&#160;<br/>based on instruction operands, called&#160;the INVVPID&#160;type&#160;and&#160;the&#160;INVVPID&#160;descriptor.&#160;Four&#160;INVVPID&#160;types are&#160;<br/>currently defined:<br/>—&#160;<b>Individual-address.</b>&#160;If the&#160;INVVPID type is&#160;0,&#160;the&#160;logical processor invalidates linear mappings and&#160;</p>
+<p style="position:absolute;top:863px;left:120px;white-space:nowrap" class="ft09">combined&#160;mappings associated with the&#160;VPID&#160;specified&#160;in&#160;the INVVPID&#160;descriptor and&#160;that would be&#160;used&#160;<br/>to&#160;translate&#160;the linear address&#160;specified in of&#160;the&#160;INVVPID descriptor.&#160;Linear mappings&#160;and&#160;combined&#160;<br/>mappings for&#160;that VPID&#160;and linear address&#160;are invalidated for all PCIDs&#160;and, for&#160;combined mappings,&#160;all&#160;</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft02">1.&#160;Se<a href="o_fe12b1e2a880e0ce-145.html">e Section 4.10.4,&#160;“Invalidation&#160;of&#160;TLBs&#160;and&#160;Paging-Structure&#160;Caches,”</a>&#160;in&#160;the<a href="��">&#160;<i>Intel® 64&#160;and&#160;IA-32 Architectures&#160;Software&#160;Devel-</i></a></p>
+<p style="position:absolute;top:963px;left:91px;white-space:nowrap" class="ft08"><a href="��"><i>oper’s Manual, Volume&#160;3A</i></a>&#160;for&#160;an&#160;enumeration&#160;of&#160;operations&#160;that&#160;architecturally&#160;invalidate entries in&#160;the&#160;TLBs and&#160;paging-structure&#160;</p>
+<p style="position:absolute;top:979px;left:91px;white-space:nowrap" class="ft02">caches independent of&#160;VMX operation.</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft02">2.&#160;While no&#160;linear&#160;mappings are created&#160;while EPT is&#160;in&#160;use,&#160;a logical processor may retain, while&#160;EPT&#160;is in&#160;use,&#160;linear&#160;mappings (for the&#160;</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft02">same&#160;VPID as&#160;the&#160;current one)&#160;there&#160;were&#160;created&#160;earlier,&#160;when&#160;EPT&#160;was not in&#160;use.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft02">3.&#160;While no&#160;combined&#160;mappings&#160;are&#160;created&#160;while&#160;EPT is not in&#160;use,&#160;a&#160;logical processor&#160;may retain,&#160;while&#160;EPT is in&#160;not use,&#160;combined&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">mappings&#160;(for&#160;the&#160;same&#160;VPID as the current&#160;one) there were&#160;created earlier,&#160;when&#160;EPT was in&#160;use.</p>
+</div>
+</body>
+</html>

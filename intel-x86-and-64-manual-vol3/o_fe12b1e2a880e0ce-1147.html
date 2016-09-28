@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1147</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1147-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1147.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;27-29</p>
+<p style="position:absolute;top:47px;left:782px;white-space:nowrap" class="ft01">VM&#160;EXITS</p>
+<p style="position:absolute;top:97px;left:69px;white-space:nowrap" class="ft02">27.6 LOADING&#160;</p>
+<p style="position:absolute;top:97px;left:238px;white-space:nowrap" class="ft02">MSRS</p>
+<p style="position:absolute;top:133px;left:69px;white-space:nowrap" class="ft08">VM&#160;exits may load&#160;MSRs from the&#160;VM-exit&#160;MSR-load area&#160;(see<a href="o_fe12b1e2a880e0ce-1064.html">&#160;Section 24.7.2). Spe</a>cifically each entry in&#160;that&#160;area&#160;<br/>(up to&#160;the number&#160;specified in&#160;the VM-exit MSR-load&#160;count)&#160;is processed&#160;in order by loading the&#160;MSR indexed&#160;by&#160;<br/>bits&#160;31:0 with the&#160;contents of bits&#160;127:64&#160;as&#160;they would be written by WRMSR.<br/>Processing of an entry&#160;fails in any&#160;of&#160;the&#160;following cases:</p>
+<p style="position:absolute;top:212px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:213px;left:95px;white-space:nowrap" class="ft07">The&#160;value of bits&#160;31:0&#160;is either C0000100H&#160;(the&#160;IA32_FS_BASE MSR)&#160;or C0000101H (the&#160;IA32_GS_BASE&#160;<br/>MSR).</p>
+<p style="position:absolute;top:251px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:252px;left:95px;white-space:nowrap" class="ft07">The&#160;value of&#160;bits&#160;31:8&#160;is&#160;000008H,&#160;meaning&#160;that the&#160;indexed&#160;MSR is one&#160;that allows access to&#160;an APIC register&#160;<br/>when&#160;the local&#160;APIC&#160;is in x2APIC mode.&#160;</p>
+<p style="position:absolute;top:290px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:291px;left:95px;white-space:nowrap" class="ft07">The&#160;value of bits&#160;31:0 indicates an MSR that can be written only in system-management mode (SMM) and the&#160;<br/>VM&#160;exit will not end in&#160;SMM.&#160;(IA32_SMM_MONITOR_CTL&#160;is&#160;an MSR that&#160;can be&#160;written only in SMM.)</p>
+<p style="position:absolute;top:329px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:330px;left:95px;white-space:nowrap" class="ft07">The value of bits 31:0&#160;indicates&#160;an&#160;MSR that&#160;cannot&#160;be&#160;loaded on VM&#160;exits for model-specific reasons.&#160;A&#160;<br/>processor may&#160;prevent loading&#160;of certain MSRs even&#160;if&#160;they can normally be written by WRMSR.&#160;Such model-<br/>specific behavior is<a href="o_fe12b1e2a880e0ce-1281.html">&#160;documented in Chapter&#160;35.</a></p>
+<p style="position:absolute;top:385px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:385px;left:95px;white-space:nowrap" class="ft03">Bits&#160;63:32&#160;are&#160;not all&#160;0.</p>
+<p style="position:absolute;top:407px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:408px;left:95px;white-space:nowrap" class="ft07">An&#160;attempt to write bits&#160;127:64 to the MSR indexed by&#160;bits&#160;31:0&#160;of the entry would&#160;cause a general-protection&#160;<br/>exception if executed&#160;via&#160;WRMSR with CPL&#160;=&#160;0.</p>
+<p style="position:absolute;top:422px;left:415px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft07">If processing fails&#160;for&#160;any entry,&#160;a VMX&#160;abort&#160;occurs.&#160;See<a href="o_fe12b1e2a880e0ce-1147.html">&#160;Section 27.7.<br/></a>If any&#160;MSR&#160;is being&#160;loaded in such a&#160;way that would architecturally&#160;require&#160;a TLB flush,&#160;the TLBs are&#160;updated so&#160;<br/>that,&#160;after VM&#160;exit,&#160;the logical processor does not use&#160;any translations&#160;that were&#160;cached&#160;before&#160;the transition.</p>
+<p style="position:absolute;top:544px;left:69px;white-space:nowrap" class="ft02">27.7 VMX&#160;ABORTS</p>
+<p style="position:absolute;top:580px;left:69px;white-space:nowrap" class="ft08">A problem&#160;encountered&#160;during a VM&#160;exit leads&#160;to a&#160;<b>VMX&#160;abort</b>. A VMX&#160;abort takes a logical processor into a shut-<br/>down&#160;state as&#160;described&#160;below.<br/>A VMX&#160;abort does not&#160;modify&#160;the VMCS&#160;data&#160;in the&#160;VMCS region&#160;of any active&#160;VMCS.&#160;The&#160;contents of these data&#160;<br/>are thus suspect after&#160;the VMX&#160;abort.<br/>On a&#160;VMX&#160;abort,&#160;a logical processor saves a&#160;nonzero 32-bit&#160;VMX-abort&#160;indicator field at&#160;byte offset&#160;4 in&#160;the VMCS&#160;<br/>region of&#160;the&#160;VMCS&#160;whose misconfiguration caused the&#160;fa<a href="o_fe12b1e2a880e0ce-1048.html">ilure (see Section 24.2).</a>&#160;The following values&#160;are used:<br/>1.&#160;There was&#160;a failure&#160;in&#160;saving&#160;guest MSRs&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1142.html">Section&#160;27.4)</a>.<br/>2.&#160;Host checking&#160;of&#160;the page-directory-pointer-table&#160;entries (PDPTEs) failed&#160;(see<a href="o_fe12b1e2a880e0ce-1146.html">&#160;Section 27.5.4).<br/></a>3.&#160;The&#160;current VMCS&#160;has&#160;been&#160;corrupted (through writes&#160;to&#160;the corresponding VMCS&#160;region) in&#160;such&#160;a way that&#160;</p>
+<p style="position:absolute;top:766px;left:95px;white-space:nowrap" class="ft03">the logical processor cannot complete the&#160;VM&#160;exit&#160;properly.</p>
+<p style="position:absolute;top:790px;left:69px;white-space:nowrap" class="ft08">4.&#160;There&#160;was&#160;a failure&#160;on&#160;loading&#160;host MSRs (see<a href="o_fe12b1e2a880e0ce-1147.html">&#160;Section&#160;27.6).<br/></a>5.&#160;There&#160;was&#160;a machine-check event&#160;during VM&#160;exit (see<a href="o_fe12b1e2a880e0ce-1148.html">&#160;Section 27.8).<br/></a>6.&#160;The&#160;logical processor was&#160;in IA-32e mode before the&#160;VM&#160;exit and&#160;the “host address-space&#160;size”&#160;VM-entry&#160;</p>
+<p style="position:absolute;top:855px;left:95px;white-space:nowrap" class="ft03">control&#160;wa<a href="o_fe12b1e2a880e0ce-1143.html">s 0 (see Section 27.5).</a></p>
+<p style="position:absolute;top:879px;left:69px;white-space:nowrap" class="ft07">Some of these causes&#160;correspond&#160;to failures&#160;during&#160;the&#160;loading of state from&#160;the host-state area. Because the&#160;<br/>loading of such&#160;state may be done&#160;in&#160;any&#160;order&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1143.html">Section 27.5) a&#160;</a>VM&#160;exit&#160;that&#160;might lead to&#160;a VMX&#160;abort for&#160;<br/>multiple reasons&#160;(for&#160;example,&#160;the&#160;current VMCS may&#160;be&#160;corrupt and&#160;the host PDPTEs might not&#160;be&#160;properly&#160;<br/>configured). In such&#160;cases, the&#160;VMX-abort indicator could&#160;correspond&#160;to any&#160;one of those&#160;reasons.<br/>A logical processor never reads the&#160;VMX-abort&#160;indicator in&#160;a&#160;VMCS&#160;region&#160;and writes&#160;it only with&#160;one of the non-<br/>zero values&#160;mentioned&#160;above.&#160;The&#160;VMX-abort&#160;indicator allows software&#160;on one&#160;logical processor to&#160;diagnose&#160;the&#160;</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft03">1.&#160;Note the following about&#160;processors that&#160;support Intel 64&#160;architecture.&#160;If&#160;CR0.PG&#160;=&#160;1,&#160;WRMSR to&#160;the IA32_EFER MSR causes&#160;a&#160;gen-</p>
+<p style="position:absolute;top:1038px;left:91px;white-space:nowrap" class="ft03">eral-protection&#160;exception&#160;if&#160;it would modify&#160;the&#160;LME bit.&#160;Since&#160;CR0.PG is&#160;always&#160;1 in&#160;VMX operation, the&#160;IA32_EFER MSR should not&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">be included in the VM-exit MSR-load area&#160;for the purpose of&#160;modifying&#160;the LME bit.</p>
+</div>
+</body>
+</html>

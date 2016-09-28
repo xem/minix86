@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1295</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1295-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811295.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">SHRD—Double Precision Shift Right</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-615</p>
+<p style="position:absolute;top:100px;left:116px;white-space:nowrap" class="ft02">IF COUNT&#160;&gt;&#160;SIZE</p>
+<p style="position:absolute;top:118px;left:143px;white-space:nowrap" class="ft02">THEN (* Bad parameters *)</p>
+<p style="position:absolute;top:136px;left:170px;white-space:nowrap" class="ft05">DEST&#160;is&#160;undefined;<br/>CF,&#160;OF, SF,&#160;ZF, AF, PF&#160;are&#160;undefined;</p>
+<p style="position:absolute;top:172px;left:143px;white-space:nowrap" class="ft02">ELSE (* Perform the&#160;shift *)</p>
+<p style="position:absolute;top:190px;left:170px;white-space:nowrap" class="ft02">CF&#160;←&#160;BIT[DEST, COUNT&#160;– 1]; (* Last&#160;bit shifted out on exit&#160;*)</p>
+<p style="position:absolute;top:208px;left:170px;white-space:nowrap" class="ft02">FOR i&#160;←&#160;0 TO&#160;SIZE – 1 – COUNT</p>
+<p style="position:absolute;top:226px;left:197px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:244px;left:224px;white-space:nowrap" class="ft02">BIT[DEST,&#160;i]&#160;←&#160;BIT[DEST<i>,</i>&#160;i&#160;+&#160;COUNT];</p>
+<p style="position:absolute;top:262px;left:197px;white-space:nowrap" class="ft02">OD;</p>
+<p style="position:absolute;top:280px;left:170px;white-space:nowrap" class="ft02">FOR i&#160;←&#160;SIZE – COUNT TO&#160;SIZE – 1</p>
+<p style="position:absolute;top:298px;left:197px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:316px;left:224px;white-space:nowrap" class="ft02">BIT[DEST<i>,</i>i]&#160;←&#160;BIT[SRC,&#160;i&#160;+&#160;COUNT –&#160;SIZE];</p>
+<p style="position:absolute;top:334px;left:197px;white-space:nowrap" class="ft02">OD;</p>
+<p style="position:absolute;top:352px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:407px;left:69px;white-space:nowrap" class="ft04">Flags Affected</p>
+<p style="position:absolute;top:433px;left:69px;white-space:nowrap" class="ft06">If the&#160;count&#160;is 1 or greater,&#160;the CF&#160;flag is&#160;filled&#160;with&#160;the last&#160;bit&#160;shifted out of&#160;the destination operand and the&#160;SF,&#160;<br/>ZF, and&#160;PF&#160;flags are set&#160;according&#160;to the&#160;value of the&#160;result.&#160;For&#160;a 1-bit shift, the&#160;OF flag&#160;is set if a&#160;sign&#160;change&#160;<br/>occurred; otherwise,&#160;it is&#160;cleared. For shifts greater than 1 bit, the OF flag is&#160;undefined. If a shift occurs, the&#160;AF flag&#160;<br/>is undefined.&#160;If the&#160;count operand is 0,&#160;the flags are&#160;not affected. If the count is greater than&#160;the operand&#160;size, the&#160;<br/>flags are undefined.</p>
+<p style="position:absolute;top:536px;left:69px;white-space:nowrap" class="ft04">Protected Mode Exceptions</p>
+<p style="position:absolute;top:559px;left:69px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:559px;left:207px;white-space:nowrap" class="ft08">If the&#160;destination&#160;is located in&#160;a non-writable&#160;segment.<br/>If a&#160;memory operand&#160;effective address&#160;is outside&#160;the CS,&#160;DS, ES,&#160;FS,&#160;or GS segment limit.<br/>If the&#160;DS, ES,&#160;FS,&#160;or GS register&#160;contains&#160;a NULL segment selector.</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:622px;left:207px;white-space:nowrap" class="ft02">If a&#160;memory operand&#160;effective address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:643px;left:69px;white-space:nowrap" class="ft02">#PF(fault-code)</p>
+<p style="position:absolute;top:643px;left:207px;white-space:nowrap" class="ft02">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:664px;left:69px;white-space:nowrap" class="ft02">#AC(0)</p>
+<p style="position:absolute;top:664px;left:207px;white-space:nowrap" class="ft02">If alignment&#160;checking is&#160;enabled and an&#160;unaligned memory reference&#160;is&#160;made&#160;while&#160;the&#160;</p>
+<p style="position:absolute;top:681px;left:207px;white-space:nowrap" class="ft02">current privilege&#160;level is&#160;3.</p>
+<p style="position:absolute;top:702px;left:69px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:702px;left:207px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:739px;left:69px;white-space:nowrap" class="ft04">Real-Address Mode&#160;Exceptions</p>
+<p style="position:absolute;top:762px;left:69px;white-space:nowrap" class="ft02">#GP</p>
+<p style="position:absolute;top:762px;left:207px;white-space:nowrap" class="ft02">If a&#160;memory operand&#160;effective&#160;address&#160;is outside&#160;the&#160;CS, DS,&#160;ES, FS, or&#160;GS&#160;segment&#160;limit.</p>
+<p style="position:absolute;top:783px;left:69px;white-space:nowrap" class="ft02">#SS</p>
+<p style="position:absolute;top:783px;left:207px;white-space:nowrap" class="ft02">If a&#160;memory operand&#160;effective address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:804px;left:69px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:804px;left:207px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:840px;left:69px;white-space:nowrap" class="ft04">Virtual-8086 Mode&#160;Exceptions</p>
+<p style="position:absolute;top:864px;left:69px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:864px;left:207px;white-space:nowrap" class="ft02">If a&#160;memory operand&#160;effective address&#160;is&#160;outside&#160;the CS,&#160;DS, ES,&#160;FS,&#160;or GS segment limit.</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:885px;left:207px;white-space:nowrap" class="ft02">If a&#160;memory operand&#160;effective address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:906px;left:69px;white-space:nowrap" class="ft02">#PF(fault-code)</p>
+<p style="position:absolute;top:906px;left:207px;white-space:nowrap" class="ft02">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:927px;left:69px;white-space:nowrap" class="ft02">#AC(0)</p>
+<p style="position:absolute;top:927px;left:207px;white-space:nowrap" class="ft02">If alignment&#160;checking is&#160;enabled and an unaligned memory&#160;reference is&#160;made.</p>
+<p style="position:absolute;top:948px;left:69px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:948px;left:207px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:985px;left:69px;white-space:nowrap" class="ft04">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:1008px;left:69px;white-space:nowrap" class="ft02">Same exceptions&#160;as in&#160;protected mode.</p>
+</div>
+</body>
+</html>

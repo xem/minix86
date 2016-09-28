@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 465</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page465-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a465.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:776px;white-space:nowrap" class="ft00">Vol. 1&#160;E-23</p>
+<p style="position:absolute;top:47px;left:421px;white-space:nowrap" class="ft01">GUIDELINES FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION&#160;HANDLERS</p>
+<p style="position:absolute;top:106px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;exception_cause&#160;= INEXACT;</p>
+<p style="position:absolute;top:120px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;if (result_tiny) {</p>
+<p style="position:absolute;top:135px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; exc_env-&gt;status_flag_underflow = 1;</p>
+<p style="position:absolute;top:165px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // if ftz = 1 and result is tiny, result = 0.0</p>
+<p style="position:absolute;top:180px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // (no need to check for underflow traps disabled: result tiny and</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // underflow traps enabled would have caused taking an underflow</p>
+<p style="position:absolute;top:210px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // trap above)</p>
+<p style="position:absolute;top:225px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; if (exc_env-&gt;ftz) {</p>
+<p style="position:absolute;top:241px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; if (res &gt; 0.0)</p>
+<p style="position:absolute;top:255px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; res = ZEROF;</p>
+<p style="position:absolute;top:270px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; else if (res &lt; 0.0)</p>
+<p style="position:absolute;top:286px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; res = NZEROF;</p>
+<p style="position:absolute;top:300px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // else leave res unchanged</p>
+<p style="position:absolute;top:315px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; }</p>
+<p style="position:absolute;top:331px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;}</p>
+<p style="position:absolute;top:345px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;if (result_huge) exc_env-&gt;status_flag_overflow =&#160;1;</p>
+<p style="position:absolute;top:360px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;result_fval = res;&#160;</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;return (RAISE_EXCEPTION);</p>
+<p style="position:absolute;top:390px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }&#160;</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;if it got here, then there is no trap to be taken; the following must</p>
+<p style="position:absolute;top:435px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;hold: ((the MXCSR U exceptions are disabled &#160;or</p>
+<p style="position:absolute;top:450px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;the MXCSR underflow exceptions are enabled and the underflow flag is</p>
+<p style="position:absolute;top:480px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;clear and (the inexact&#160;flag is set or the inexact flag is clear and</p>
+<p style="position:absolute;top:495px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;the 24-bit result with&#160;unbounded exponent is not&#160;tiny)))</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;and (the MXCSR overflow&#160;traps are disabled or the overflow flag is</p>
+<p style="position:absolute;top:525px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;clear) and (the MXCSR inexact traps are disabled&#160;or the inexact flag</p>
+<p style="position:absolute;top:540px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;is clear)</p>
+<p style="position:absolute;top:556px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //</p>
+<p style="position:absolute;top:570px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;in this case, the result has to be delivered (the status flags are&#160;</p>
+<p style="position:absolute;top:585px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;sticky, so they are all&#160;set correctly already)</p>
+<p style="position:absolute;top:615px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;read status word to see&#160;if result is inexact</p>
+<p style="position:absolute;top:630px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; __asm {</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;fstsw WORD PTR sw;</p>
+<p style="position:absolute;top:660px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }</p>
+<p style="position:absolute;top:675px;left:69px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:690px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(sw &amp; UNDERFLOW_MASK) exc_env-&gt;status_flag_underflow = 1;</p>
+<p style="position:absolute;top:706px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(sw &amp; OVERFLOW_MASK) exc_env-&gt;status_flag_overflow = 1;</p>
+<p style="position:absolute;top:720px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(sw &amp; PRECISION_MASK) exc_env-&gt;status_flag_inexact = 1;</p>
+<p style="position:absolute;top:751px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;if ftz = 1, and result&#160;is tiny (underflow traps&#160;must be disabled),</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;result = 0.0</p>
+<p style="position:absolute;top:780px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(exc_env-&gt;ftz &amp;&amp; result_tiny) {</p>
+<p style="position:absolute;top:796px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;if (res &gt; 0.0)</p>
+<p style="position:absolute;top:810px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; res = ZEROF;</p>
+<p style="position:absolute;top:825px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;else if (res &lt; 0.0)</p>
+<p style="position:absolute;top:841px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; res = NZEROF;</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;// else leave res unchanged</p>
+<p style="position:absolute;top:886px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;status_flag_inexact = 1;</p>
+<p style="position:absolute;top:900px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;status_flag_underflow = 1;</p>
+<p style="position:absolute;top:915px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }</p>
+<p style="position:absolute;top:945px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; exc_env-&gt;result_fval = res;&#160;</p>
+<p style="position:absolute;top:960px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(sw &amp; ZERODIVIDE_MASK)&#160;exc_env-&gt;status_flag_divide_by_zero = 1;</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(sw &amp; DENORMAL_MASK) exc_env-&gt;status_flag_denormal= 1;</p>
+<p style="position:absolute;top:990px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(sw &amp; INVALID_MASK) exc_env-&gt;status_flag_invalid_operation = 1;</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; return (DO_NOT_RAISE_EXCEPTION);</p>
+<p style="position:absolute;top:1035px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; break;</p>
+<p style="position:absolute;top:1066px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;CMPPS:</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 101</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page101-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce101.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;3-13</p>
+<p style="position:absolute;top:47px;left:589px;white-space:nowrap" class="ft01">PROTECTED-MODE MEMORY&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">the stack. If&#160;the&#160;size&#160;of a&#160;stack segment&#160;is intended&#160;to&#160;remain&#160;static,&#160;the&#160;stack segment may be&#160;either an&#160;expand-<br/>up or&#160;expand-down type.<br/>The&#160;accessed bit indicates whether the&#160;segment&#160;has been accessed&#160;since&#160;the&#160;last&#160;time the&#160;operating-system or&#160;<br/>executive cleared&#160;the bit.&#160;The processor sets this&#160;bit whenever it&#160;loads&#160;a segment selector for the&#160;segment&#160;into&#160;a&#160;<br/>segment register,&#160;assuming that&#160;the type of memory that contains&#160;the segment descriptor&#160;supports&#160;processor&#160;<br/>writes. The&#160;bit&#160;remains set until explicitly&#160;cleared.&#160;This&#160;bit can&#160;be&#160;used&#160;both for virtual memory&#160;management&#160;and&#160;<br/>for debugging.&#160;<br/>For code segments, the&#160;three&#160;low-order bits of&#160;the type field are interpreted as&#160;accessed&#160;(A), read enable&#160;(R),&#160;and&#160;<br/>conforming (C). Code segments&#160;can be execute-only or&#160;execute/read, depending&#160;on the setting&#160;of the read-enable&#160;<br/>bit.&#160;An execute/read&#160;segment might be used&#160;when constants&#160;or&#160;other&#160;static&#160;data&#160;have&#160;been&#160;placed&#160;with&#160;instruction&#160;<br/>code in&#160;a ROM. Here, data can&#160;be&#160;read&#160;from&#160;the code segment&#160;either by&#160;using&#160;an instruction with a&#160;CS&#160;override&#160;<br/>prefix or&#160;by&#160;loading&#160;a segment selector for the&#160;code&#160;segment&#160;in a&#160;data-segment register&#160;(the DS, ES, FS, or GS&#160;<br/>registers).&#160;In protected&#160;mode,&#160;code&#160;segments&#160;are&#160;not&#160;writable.<br/>Code&#160;segments&#160;can be either conforming&#160;or nonconforming. A transfer&#160;of&#160;execution into&#160;a more-privileged&#160;<br/>conforming segment allows&#160;execution&#160;to continue at&#160;the&#160;current&#160;privilege level. A transfer&#160;into&#160;a nonconforming&#160;<br/>segment at&#160;a different&#160;privilege level&#160;results in&#160;a general-protection exception&#160;(#GP), unless&#160;a call gate or&#160;task&#160;<br/>gate is used (see<a href="o_fe12b1e2a880e0ce-162.html">&#160;Section&#160;5.8.1,&#160;“Direct Calls or Jumps&#160;to&#160;Code Segments”,</a>&#160;for more&#160;information&#160;on&#160;conforming&#160;and&#160;<br/>nonconforming code segments). System utilities that&#160;do not&#160;access&#160;protected facilities and handlers&#160;for&#160;some&#160;types&#160;<br/>of exceptions (such&#160;as, divide error or&#160;overflow) may be loaded in&#160;conforming code segments. Utilities that need&#160;to&#160;<br/>be&#160;protected from less privileged&#160;programs and&#160;procedures&#160;should be&#160;placed&#160;in nonconforming&#160;code&#160;segments.&#160;</p>
+<p style="position:absolute;top:471px;left:433px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:496px;left:122px;white-space:nowrap" class="ft06">Execution cannot be transferred by&#160;a call&#160;or a&#160;jump to&#160;a less-privileged (numerically higher&#160;<br/>privilege&#160;level) code&#160;segment,&#160;regardless of whether&#160;the target segment is&#160;a conforming or&#160;<br/>nonconforming&#160;code&#160;segment. Attempting such an&#160;execution&#160;transfer will result&#160;in&#160;a&#160;general-<br/>protection exception.</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft06">All data segments&#160;are nonconforming,&#160;meaning that they&#160;cannot be accessed by less&#160;privileged programs or proce-<br/>dures (code executing at numerically higher&#160;privilege&#160;levels).&#160;Unlike&#160;code segments,&#160;however,&#160;data&#160;segments can&#160;<br/>be accessed&#160;by more privileged programs or&#160;procedures&#160;(code&#160;executing&#160;at numerically lower privilege&#160;levels)&#160;<br/>without&#160;using a&#160;special access gate.<br/>If the&#160;segment&#160;descriptors in the&#160;GDT&#160;or an LDT are placed&#160;in ROM,&#160;the processor can&#160;enter an&#160;indefinite&#160;loop if&#160;<br/>software or&#160;the processor attempts to update&#160;(write&#160;to)&#160;the&#160;ROM-based segment descriptors. To&#160;prevent this&#160;<br/>problem, set the&#160;accessed bits for all&#160;segment&#160;descriptors&#160;placed in&#160;a ROM. Also,&#160;remove&#160;operating-system&#160;or&#160;<br/>executive code that&#160;attempts&#160;to&#160;modify segment descriptors located&#160;in&#160;ROM.</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft04">3.5&#160;</p>
+<p style="position:absolute;top:765px;left:148px;white-space:nowrap" class="ft04">SYSTEM DESCRIPTOR TYPES</p>
+<p style="position:absolute;top:801px;left:69px;white-space:nowrap" class="ft06">When&#160;the S (descriptor&#160;type)&#160;flag in&#160;a segment descriptor&#160;is&#160;clear,&#160;the&#160;descriptor type is&#160;a system&#160;descriptor.&#160;The&#160;<br/>processor recognizes the&#160;following&#160;types of system&#160;descriptors:</p>
+<p style="position:absolute;top:839px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:840px;left:95px;white-space:nowrap" class="ft02">Local&#160;descriptor-table (LDT) segment descriptor.</p>
+<p style="position:absolute;top:862px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:862px;left:95px;white-space:nowrap" class="ft02">Task-state segment (TSS) descriptor.</p>
+<p style="position:absolute;top:884px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:885px;left:95px;white-space:nowrap" class="ft02">Call-gate descriptor.</p>
+<p style="position:absolute;top:907px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:907px;left:95px;white-space:nowrap" class="ft02">Interrupt-gate descriptor.</p>
+<p style="position:absolute;top:929px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:930px;left:95px;white-space:nowrap" class="ft02">Trap-gate descriptor.</p>
+<p style="position:absolute;top:952px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:952px;left:95px;white-space:nowrap" class="ft02">Task-gate descriptor.</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft06">These descriptor&#160;types&#160;fall into&#160;two categories:&#160;system-segment descriptors&#160;and gate&#160;descriptors. System-<br/>segment&#160;descriptors point&#160;to system segments (LDT&#160;and TSS segments).&#160;Gate&#160;descriptors are&#160;in themselves&#160;<br/>“gates,”&#160;which&#160;hold pointers to&#160;procedure&#160;entry points&#160;in&#160;code segments (call, interrupt,&#160;and trap gates)&#160;or&#160;which&#160;<br/>hold segment selectors for TSS’s&#160;(task gates).&#160;</p>
+</div>
+</body>
+</html>

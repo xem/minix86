@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 724</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page724-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce724.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-88&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:515px;left:93px;white-space:nowrap" class="ft08"><b>FORCE_OVF&#160;flag, bit 25 —&#160;</b>When&#160;set,&#160;forces&#160;a counter overflow&#160;on&#160;every counter&#160;increment; when&#160;clear,&#160;<br/>overflow only occurs&#160;when the counter actually&#160;overflows.</p>
+<p style="position:absolute;top:553px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:554px;left:93px;white-space:nowrap" class="ft08"><b>OVF_PMI&#160;flag, bit 26 —&#160;</b>When&#160;set,&#160;causes a&#160;performance monitor interrupt (PMI) to&#160;be&#160;generated&#160;when&#160;the&#160;<br/>counter overflows occurs;&#160;when&#160;clear,&#160;disables PMI generation. Note that&#160;the PMI is&#160;generated&#160;on the&#160;next&#160;<br/>event&#160;count&#160;after the counter has&#160;overflowed.</p>
+<p style="position:absolute;top:608px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:609px;left:93px;white-space:nowrap" class="ft08"><b>Cascade flag, bit&#160;30 —&#160;</b>When set,&#160;enables&#160;counting&#160;on one&#160;counter of a&#160;counter pair&#160;when&#160;its alternate&#160;<br/>counter in&#160;the other&#160;the counter&#160;pair in&#160;the same&#160;counter group ov<a href="o_fe12b1e2a880e0ce-722.html">erflows (see Section 18.15.2,&#160;“Performance&#160;<br/>Counters,”&#160;</a>for further details); when clear,&#160;disables&#160;cascading of counters.</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:665px;left:93px;white-space:nowrap" class="ft08"><b>OVF flag, bit 31&#160;—&#160;</b>Indicates that the&#160;counter has overflowed when set. This flag is a sticky flag that must be&#160;<br/>explicitly&#160;cleared by software.</p>
+<p style="position:absolute;top:705px;left:68px;white-space:nowrap" class="ft09">The CCCRs&#160;are initialized to&#160;all 0s&#160;on reset.&#160;<br/>The events&#160;that an&#160;enabled performance&#160;counter&#160;actually counts are selected and filtered by&#160;the following&#160;flags and&#160;<br/>fields in&#160;the ESCR and CCCR registers and&#160;in the&#160;qualification order given:<br/>1.&#160;The&#160;event select and&#160;event mask fields&#160;in the&#160;ESCR select a&#160;class&#160;of&#160;events&#160;to be counted and&#160;one&#160;or more&#160;</p>
+<p style="position:absolute;top:786px;left:93px;white-space:nowrap" class="ft04">event types within the&#160;class,&#160;respectively.</p>
+<p style="position:absolute;top:810px;left:68px;white-space:nowrap" class="ft010">2.&#160;The&#160;OS and&#160;USR&#160;flags in&#160;the ESCR selected the&#160;privilege levels&#160;at which&#160;events will be counted.<br/>3.&#160;The&#160;ESCR select field of the&#160;CCCR selects the&#160;ESCR.&#160;Since each counter has&#160;several ESCRs&#160;associated&#160;with&#160;it,&#160;</p>
+<p style="position:absolute;top:851px;left:93px;white-space:nowrap" class="ft04">one ESCR must&#160;be&#160;chosen&#160;to select&#160;the classes of events that&#160;may&#160;be&#160;counted.</p>
+<p style="position:absolute;top:875px;left:68px;white-space:nowrap" class="ft04">4.&#160;The&#160;compare&#160;and complement flags and the&#160;threshold&#160;field of&#160;the CCCR select&#160;an&#160;optional threshold to&#160;be used&#160;</p>
+<p style="position:absolute;top:891px;left:93px;white-space:nowrap" class="ft04">in&#160;qualifying an event&#160;count.</p>
+<p style="position:absolute;top:915px;left:68px;white-space:nowrap" class="ft08">5.&#160;The&#160;edge&#160;flag&#160;in&#160;the&#160;CCCR allows events&#160;to be&#160;counted&#160;only&#160;on rising-edge&#160;transitions.<br/>The qualification&#160;order in&#160;the above list&#160;implies&#160;that the&#160;filtered&#160;output of one&#160;“stage” forms the&#160;input for the&#160;next.&#160;<br/>For instance, events&#160;filtered&#160;using the&#160;privilege level&#160;flags&#160;can&#160;be further qualified by the compare&#160;and&#160;complement&#160;<br/>flags and the&#160;threshold field,&#160;and an&#160;event&#160;that matched&#160;the&#160;threshold criteria,&#160;can&#160;be&#160;further qualified by edge&#160;<br/>detection.<br/>The uses of the flags and fields&#160;in&#160;the CCCRs are discussed in grea<a href="o_fe12b1e2a880e0ce-725.html">ter detail in Section 18.15.5,&#160;“Programming the&#160;<br/>Performance Counters for Non-Retirement&#160;Events.”</a></p>
+<p style="position:absolute;top:469px;left:248px;white-space:nowrap" class="ft05">Figure&#160;18-45.&#160;&#160;Counter Configuration Control Register&#160;(CCCR)</p>
+<p style="position:absolute;top:378px;left:254px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:379px;left:645px;white-space:nowrap" class="ft06">32</p>
+<p style="position:absolute;top:409px;left:429px;white-space:nowrap" class="ft07">Reserved</p>
+<p style="position:absolute;top:189px;left:551px;white-space:nowrap" class="ft07">Reserved</p>
+<p style="position:absolute;top:249px;left:494px;white-space:nowrap" class="ft00">Reserved: Must be set to 11B</p>
+<p style="position:absolute;top:264px;left:602px;white-space:nowrap" class="ft00">Compare</p>
+<p style="position:absolute;top:234px;left:614px;white-space:nowrap" class="ft00">Enable</p>
+<p style="position:absolute;top:162px;left:255px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:162px;left:342px;white-space:nowrap" class="ft06">24&#160;23</p>
+<p style="position:absolute;top:162px;left:392px;white-space:nowrap" class="ft06">20&#160;19</p>
+<p style="position:absolute;top:162px;left:441px;white-space:nowrap" class="ft06">16&#160;15</p>
+<p style="position:absolute;top:162px;left:493px;white-space:nowrap" class="ft06">12&#160;11</p>
+<p style="position:absolute;top:162px;left:646px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:162px;left:429px;white-space:nowrap" class="ft06">17</p>
+<p style="position:absolute;top:162px;left:417px;white-space:nowrap" class="ft06">18</p>
+<p style="position:absolute;top:162px;left:329px;white-space:nowrap" class="ft06">25</p>
+<p style="position:absolute;top:162px;left:317px;white-space:nowrap" class="ft06">26</p>
+<p style="position:absolute;top:162px;left:305px;white-space:nowrap" class="ft06">27</p>
+<p style="position:absolute;top:162px;left:280px;white-space:nowrap" class="ft06">29</p>
+<p style="position:absolute;top:162px;left:268px;white-space:nowrap" class="ft06">30</p>
+<p style="position:absolute;top:293px;left:624px;white-space:nowrap" class="ft00">Edge</p>
+<p style="position:absolute;top:309px;left:578px;white-space:nowrap" class="ft00">FORCE_OVF</p>
+<p style="position:absolute;top:327px;left:599px;white-space:nowrap" class="ft00">OVF_PMI</p>
+<p style="position:absolute;top:187px;left:358px;white-space:nowrap" class="ft07">Threshold</p>
+<p style="position:absolute;top:342px;left:605px;white-space:nowrap" class="ft00">Cascade</p>
+<p style="position:absolute;top:357px;left:627px;white-space:nowrap" class="ft00">OVF</p>
+<p style="position:absolute;top:278px;left:584px;white-space:nowrap" class="ft00">Complement</p>
+<p style="position:absolute;top:191px;left:562px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:162px;left:481px;white-space:nowrap" class="ft06">13</p>
+<p style="position:absolute;top:183px;left:462px;white-space:nowrap" class="ft07">ESCR</p>
+<p style="position:absolute;top:195px;left:460px;white-space:nowrap" class="ft07">Select</p>
+<p style="position:absolute;top:133px;left:283px;white-space:nowrap" class="ft00">Reserved</p>
+</div>
+</body>
+</html>

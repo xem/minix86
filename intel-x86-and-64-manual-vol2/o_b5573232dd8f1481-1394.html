@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1394</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1394-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811394.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:408px;white-space:nowrap" class="ft00">VBLENDMPD/VBLENDMPS—Blend Float64/Float32 Vectors Using an&#160;OpMask Control</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-8&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VBLENDMPD/VBLENDMPS—Blend Float64/Float32 Vectors Using an OpMask Control</p>
+<p style="position:absolute;top:605px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:690px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft06">Performs an&#160;element-by-element&#160;blending between float64/float32 elements in the&#160;first source&#160;operand (the&#160;<br/>second&#160;operand) with&#160;the elements in&#160;the&#160;second&#160;source&#160;operand (the&#160;third operand)&#160;using an&#160;opmask&#160;register&#160;as&#160;<br/>select&#160;control. The blended&#160;result&#160;is written to&#160;the destination register.<br/>The&#160;destination and first source&#160;operands are&#160;ZMM/YMM/XMM registers. The&#160;second&#160;source operand&#160;can be a&#160;<br/>ZMM/YMM/XMM register, a 512/256/128-bit memory location&#160;or a 512/256/128-bit vector broadcasted from a 64-<br/>bit&#160;memory&#160;location.<br/>The opmask register&#160;is not&#160;used as&#160;a writemask for this&#160;instruction. Instead,&#160;the mask is&#160;used&#160;as an&#160;element&#160;<br/>selector: every element of the destination is conditionally selected between&#160;first source or second source&#160;using the&#160;<br/>value&#160;of the&#160;related mask bit (0&#160;for&#160;first source&#160;operand,&#160;1 for second&#160;source&#160;operand).<br/>If EVEX.z is&#160;set,&#160;the&#160;elements&#160;with corresponding&#160;mask&#160;bit&#160;value of 0 in the destination&#160;operand are&#160;zeroed.</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:936px;left:68px;white-space:nowrap" class="ft07">VBLENDMPD (EVEX encoded&#160;versions)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:990px;left:88px;white-space:nowrap" class="ft07">i&#160;&#160;j * 64<br/>IF k1[j] OR *no controlmask*</p>
+<p style="position:absolute;top:1026px;left:115px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:1044px;left:142px;white-space:nowrap" class="ft04">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:1062px;left:169px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:284px;white-space:nowrap" class="ft04">Op&#160;/&#160;</p>
+<p style="position:absolute;top:137px;left:284px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:329px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:329px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:329px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:402px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:402px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:402px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:483px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.128.66.0F38.W1&#160;65&#160;/r</p>
+<p style="position:absolute;top:172px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:172px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:172px;left:483px;white-space:nowrap" class="ft04">Blend double-precision&#160;vector xmm2 and&#160;double-precision&#160;</p>
+<p style="position:absolute;top:189px;left:483px;white-space:nowrap" class="ft04">vector&#160;xmm3/m128/m64bcst and&#160;store the result&#160;in&#160;xmm1,&#160;</p>
+<p style="position:absolute;top:205px;left:483px;white-space:nowrap" class="ft04">under control mask.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft04">VBLENDMPD&#160;xmm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:208px;left:77px;white-space:nowrap" class="ft04">xmm2, xmm3/m128/m64bcst</p>
+<p style="position:absolute;top:191px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:244px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.256.66.0F38.W1&#160;65&#160;/r</p>
+<p style="position:absolute;top:244px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:244px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:244px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:244px;left:483px;white-space:nowrap" class="ft04">Blend double-precision&#160;vector ymm2 and&#160;double-precision&#160;</p>
+<p style="position:absolute;top:261px;left:483px;white-space:nowrap" class="ft04">vector ymm3/m256/m64bcst and&#160;store&#160;the&#160;result in&#160;ymm1,&#160;</p>
+<p style="position:absolute;top:277px;left:483px;white-space:nowrap" class="ft04">under control mask.</p>
+<p style="position:absolute;top:263px;left:77px;white-space:nowrap" class="ft04">VBLENDMPD ymm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:280px;left:77px;white-space:nowrap" class="ft04">ymm2, ymm3/m256/m64bcst</p>
+<p style="position:absolute;top:263px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:316px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.512.66.0F38.W1&#160;65&#160;/r</p>
+<p style="position:absolute;top:316px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:316px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:316px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:316px;left:483px;white-space:nowrap" class="ft04">Blend double-precision&#160;vector zmm2&#160;and double-precision&#160;</p>
+<p style="position:absolute;top:333px;left:483px;white-space:nowrap" class="ft04">vector zmm3/m512/m64bcst and store the result in&#160;zmm1,&#160;</p>
+<p style="position:absolute;top:349px;left:483px;white-space:nowrap" class="ft04">under control mask.</p>
+<p style="position:absolute;top:335px;left:77px;white-space:nowrap" class="ft04">VBLENDMPD zmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:352px;left:77px;white-space:nowrap" class="ft08">zmm2,&#160;zmm3/m512/m64bcst<br/>EVEX.NDS.128.66.0F38.W0&#160;65&#160;/r</p>
+<p style="position:absolute;top:371px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:371px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:371px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:371px;left:483px;white-space:nowrap" class="ft04">Blend single-precision&#160;vector xmm2 and&#160;single-precision&#160;</p>
+<p style="position:absolute;top:388px;left:483px;white-space:nowrap" class="ft04">vector&#160;xmm3/m128/m32bcst and&#160;store the result&#160;in&#160;xmm1,&#160;</p>
+<p style="position:absolute;top:405px;left:483px;white-space:nowrap" class="ft04">under control mask.</p>
+<p style="position:absolute;top:391px;left:77px;white-space:nowrap" class="ft04">VBLENDMPS xmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:408px;left:77px;white-space:nowrap" class="ft04">xmm2, xmm3/m128/m32bcst</p>
+<p style="position:absolute;top:391px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:444px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.256.66.0F38.W0&#160;65&#160;/r</p>
+<p style="position:absolute;top:444px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:444px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:444px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:444px;left:483px;white-space:nowrap" class="ft04">Blend single-precision&#160;vector ymm2&#160;and&#160;single-precision&#160;</p>
+<p style="position:absolute;top:460px;left:483px;white-space:nowrap" class="ft04">vector ymm3/m256/m32bcst and&#160;store&#160;the&#160;result in&#160;ymm1,&#160;</p>
+<p style="position:absolute;top:477px;left:483px;white-space:nowrap" class="ft04">under control mask.</p>
+<p style="position:absolute;top:463px;left:77px;white-space:nowrap" class="ft04">VBLENDMPS ymm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:480px;left:77px;white-space:nowrap" class="ft04">ymm2, ymm3/m256/m32bcst</p>
+<p style="position:absolute;top:463px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:516px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.512.66.0F38.W0&#160;65&#160;/r</p>
+<p style="position:absolute;top:516px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:516px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:516px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:516px;left:483px;white-space:nowrap" class="ft04">Blend single-precision&#160;vector zmm2&#160;and single-precision&#160;</p>
+<p style="position:absolute;top:532px;left:483px;white-space:nowrap" class="ft04">vector zmm3/m512/m32bcst using k1 as&#160;select control and&#160;</p>
+<p style="position:absolute;top:549px;left:483px;white-space:nowrap" class="ft04">store&#160;the result in&#160;zmm1.</p>
+<p style="position:absolute;top:535px;left:77px;white-space:nowrap" class="ft04">VBLENDMPS&#160;zmm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:552px;left:77px;white-space:nowrap" class="ft04">zmm2,&#160;zmm3/m512/m32bcst</p>
+<p style="position:absolute;top:628px;left:104px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:628px;left:222px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:628px;left:385px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:628px;left:555px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:628px;left:723px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:652px;left:113px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:652px;left:210px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:652px;left:384px;white-space:nowrap" class="ft04">EVEX.vvvv</p>
+<p style="position:absolute;top:652px;left:544px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:652px;left:744px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

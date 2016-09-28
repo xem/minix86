@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1943</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1943-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1943.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3D&#160;A-1</p>
+<p style="position:absolute;top:96px;left:703px;white-space:nowrap" class="ft01">APPENDIX A</p>
+<p style="position:absolute;top:120px;left:421px;white-space:nowrap" class="ft01">VMX CAPABILITY REPORTING FACILITY</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft07">The ability of a&#160;processor&#160;to support&#160;VMX&#160;operation and&#160;related instructions is&#160;indicated by&#160;<br/>CPUID.1:ECX.VMX[bit&#160;5]&#160;=&#160;1. A value&#160;1 in&#160;this&#160;bit indicates&#160;support for VMX features.<br/>Support for&#160;specific&#160;features&#160;detailed&#160;<a href="o_fe12b1e2a880e0ce-1093.html">in Chapter 26 and ot</a>her VMX chapters is determined&#160;by reading values from&#160;<br/>a&#160;set&#160;of&#160;capability&#160;MSRs.&#160;These&#160;MSRs are&#160;indexed starting&#160;at MSR&#160;address&#160;480H. VMX capability MSRs&#160;are read-<br/>only; an&#160;attempt to write them&#160;(with WRMSR) produces a&#160;general-protection exception (#GP(0)). They&#160;do not exist&#160;<br/>on&#160;processors&#160;that do not support VMX&#160;operation; an&#160;attempt&#160;to read them&#160;(with RDMSR) on&#160;such&#160;processors&#160;<br/>produces&#160;a general-protection&#160;exception&#160;(#GP(0)).</p>
+<p style="position:absolute;top:352px;left:68px;white-space:nowrap" class="ft03">A.1&#160;</p>
+<p style="position:absolute;top:352px;left:147px;white-space:nowrap" class="ft03">BASIC VMX INFORMATION</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft02">The&#160;IA32_VMX_BASIC&#160;MSR&#160;(index 480H) consists of&#160;the&#160;following&#160;fields:</p>
+<p style="position:absolute;top:410px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:411px;left:93px;white-space:nowrap" class="ft07">Bits&#160;30:0&#160;contain the&#160;31-bit&#160;VMCS revision identifier used&#160;by&#160;the&#160;processor.&#160;Processors that&#160;use&#160;the&#160;same&#160;VMCS&#160;<br/>revision&#160;identifier&#160;use the&#160;same&#160;size&#160;for VMCS regions (see&#160;subsequent&#160;item on bits&#160;44:32).</p>
+<p style="position:absolute;top:425px;left:711px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:449px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:450px;left:93px;white-space:nowrap" class="ft02">Bit&#160;31&#160;is always 0.</p>
+<p style="position:absolute;top:472px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:472px;left:93px;white-space:nowrap" class="ft07">Bits&#160;44:32 report the&#160;number of bytes that&#160;software&#160;should&#160;allocate for the&#160;VMXON region&#160;and&#160;any VMCS&#160;<br/>region.&#160;It&#160;is a&#160;value&#160;greater than 0&#160;and&#160;at most 4096&#160;(bit&#160;44&#160;is set if and&#160;only&#160;if bits&#160;43:32&#160;are clear).</p>
+<p style="position:absolute;top:511px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:511px;left:93px;white-space:nowrap" class="ft07">Bit&#160;48&#160;indicates&#160;the width&#160;of&#160;the physical addresses that may be used&#160;for the&#160;VMXON&#160;region, each&#160;VMCS,&#160;and&#160;<br/>data structures&#160;referenced by&#160;pointers in&#160;a VMCS (I/O&#160;bitmaps, virtual-APIC page, MSR areas for VMX transi-<br/>tions).&#160;If&#160;the&#160;bit&#160;is 0, these addresses are&#160;limited&#160;to the&#160;processor’s physical-address&#160;width.</p>
+<p style="position:absolute;top:542px;left:710px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:544px;left:716px;white-space:nowrap" class="ft02">&#160;If the bit&#160;is 1,&#160;</p>
+<p style="position:absolute;top:561px;left:93px;white-space:nowrap" class="ft02">these&#160;addresses are&#160;limited to 32&#160;bits.&#160;This bit is&#160;always 0 for processors that&#160;support&#160;Intel 64 architecture.</p>
+<p style="position:absolute;top:583px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:583px;left:93px;white-space:nowrap" class="ft07">If bit&#160;49&#160;is read as&#160;1,&#160;the logical processor supports&#160;the dual-monitor treatment of system-management&#160;<br/>interrupts and system-management mode.&#160;See<a href="o_fe12b1e2a880e0ce-1269.html">&#160;Section 34.15 for details&#160;</a>of&#160;this treatment.</p>
+<p style="position:absolute;top:622px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:622px;left:93px;white-space:nowrap" class="ft07">Bits 53:50&#160;report&#160;the&#160;memory type that&#160;should be used for the&#160;VMCS,&#160;for data&#160;structures referenced&#160;by&#160;<br/>pointers in&#160;the&#160;VMCS (I/O&#160;bitmaps, virtual-APIC&#160;page, MSR&#160;areas for&#160;VMX transitions), and for the&#160;MSEG&#160;<br/>header. If software&#160;needs&#160;to access&#160;these&#160;data&#160;structures&#160;(e.g.,&#160;to modify&#160;the contents of&#160;the MSR bitmaps),&#160;it&#160;<br/>can&#160;configure the paging structures&#160;to map them into&#160;the&#160;linear-address space.&#160;If it does so, it should establish&#160;<br/>mappings&#160;that use&#160;the memory type reported&#160;bits 53:50 in this&#160;MSR.</p>
+<p style="position:absolute;top:686px;left:559px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:711px;left:93px;white-space:nowrap" class="ft07">As&#160;of&#160;this writing, all&#160;processors&#160;that support VMX operation indicate the&#160;write-back&#160;type. The&#160;values used&#160;are&#160;<br/>give<a href="o_fe12b1e2a880e0ce-1943.html">n in&#160;Table&#160;A-1.</a></p>
+<p style="position:absolute;top:963px;left:68px;white-space:nowrap" class="ft02">1.&#160;Earlier versions of&#160;this manual&#160;specified that&#160;the&#160;VMCS&#160;revision&#160;identifier&#160;was a&#160;32-bit field&#160;in&#160;bits&#160;31:0&#160;of&#160;this&#160;MSR.&#160;For&#160;all proces-</p>
+<p style="position:absolute;top:979px;left:89px;white-space:nowrap" class="ft02">sors produced prior to&#160;this&#160;change, bit&#160;31&#160;of&#160;this&#160;MSR was read&#160;as 0.</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft09">2.&#160;On processors that&#160;support Intel 64 architecture, the pointer&#160;must&#160;not set bits beyond the processor's physical address&#160;width.<br/>3.&#160;Alternatively,&#160;software&#160;may&#160;map any of&#160;these&#160;regions or&#160;structures&#160;with the&#160;UC&#160;memory type. (This&#160;may&#160;be&#160;necessary for the&#160;MSEG&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft02">header.)&#160;Doing so&#160;is&#160;discouraged&#160;unless necessary&#160;as it will cause the performance&#160;of&#160;software&#160;accesses to&#160;those structures to&#160;suf-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">fer.</p>
+<p style="position:absolute;top:757px;left:183px;white-space:nowrap" class="ft06">Table A-1.&#160;&#160;Memory&#160;Types Recommended for VMCS&#160;and Related Data Structures</p>
+<p style="position:absolute;top:780px;left:75px;white-space:nowrap" class="ft02">Value(s)</p>
+<p style="position:absolute;top:780px;left:228px;white-space:nowrap" class="ft02">Field</p>
+<p style="position:absolute;top:804px;left:75px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:804px;left:228px;white-space:nowrap" class="ft02">Uncacheable&#160;(UC)</p>
+<p style="position:absolute;top:828px;left:75px;white-space:nowrap" class="ft02">1–5</p>
+<p style="position:absolute;top:828px;left:228px;white-space:nowrap" class="ft02">Not&#160;used</p>
+<p style="position:absolute;top:852px;left:75px;white-space:nowrap" class="ft02">6</p>
+<p style="position:absolute;top:852px;left:228px;white-space:nowrap" class="ft02">Write&#160;Back (WB)</p>
+<p style="position:absolute;top:876px;left:75px;white-space:nowrap" class="ft02">7–15</p>
+<p style="position:absolute;top:876px;left:228px;white-space:nowrap" class="ft02">Not used</p>
+</div>
+</body>
+</html>

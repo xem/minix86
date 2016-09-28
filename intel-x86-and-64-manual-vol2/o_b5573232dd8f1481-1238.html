@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1238</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1238-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811238.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:689px;white-space:nowrap" class="ft00">RET—Return from Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-558&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:277px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:118px;left:196px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:136px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:154px;left:115px;white-space:nowrap" class="ft02">IF return&#160;code segment selector&#160;is&#160;NULL</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">THEN GP(0); FI;</p>
+<p style="position:absolute;top:190px;left:115px;white-space:nowrap" class="ft02">IF return code segment selector addresses&#160;descriptor beyond&#160;descriptor table&#160;limit&#160;</p>
+<p style="position:absolute;top:208px;left:142px;white-space:nowrap" class="ft02">THEN&#160;GP(selector); FI;</p>
+<p style="position:absolute;top:226px;left:115px;white-space:nowrap" class="ft02">IF return code&#160;segment selector addresses&#160;descriptor in&#160;non-canonical space</p>
+<p style="position:absolute;top:244px;left:142px;white-space:nowrap" class="ft02">THEN&#160;GP(selector); FI;</p>
+<p style="position:absolute;top:262px;left:115px;white-space:nowrap" class="ft05">Obtain&#160;descriptor&#160;to which return&#160;code&#160;segment selector&#160;points from&#160;descriptor table;<br/>IF return&#160;code segment descriptor&#160;is&#160;not a&#160;code&#160;segment&#160;</p>
+<p style="position:absolute;top:298px;left:142px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:316px;left:115px;white-space:nowrap" class="ft02">IF&#160;return&#160;code&#160;segment descriptor&#160;has L-bit = 1&#160;and&#160;D-bit = 1&#160;</p>
+<p style="position:absolute;top:334px;left:142px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:352px;left:115px;white-space:nowrap" class="ft02">IF return&#160;code segment selector RPL&#160;&lt;&#160;CPL&#160;</p>
+<p style="position:absolute;top:370px;left:142px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:388px;left:115px;white-space:nowrap" class="ft05">IF return&#160;code segment descriptor&#160;is conforming<br/>and return&#160;code segment DPL&#160;&gt;&#160;return code segment selector RPL</p>
+<p style="position:absolute;top:424px;left:142px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:442px;left:115px;white-space:nowrap" class="ft05">IF return&#160;code segment descriptor&#160;is non-conforming<br/>and return&#160;code segment DPL&#160;</p>
+<p style="position:absolute;top:458px;left:288px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:460px;left:301px;white-space:nowrap" class="ft02">return&#160;code segment selector RPL</p>
+<p style="position:absolute;top:478px;left:142px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:496px;left:115px;white-space:nowrap" class="ft02">IF return&#160;code segment descriptor&#160;is not present&#160;</p>
+<p style="position:absolute;top:514px;left:142px;white-space:nowrap" class="ft02">THEN #NP(selector); FI:</p>
+<p style="position:absolute;top:532px;left:115px;white-space:nowrap" class="ft02">IF return&#160;code segment selector RPL&#160;&gt;&#160;CPL&#160;</p>
+<p style="position:absolute;top:550px;left:142px;white-space:nowrap" class="ft05">THEN&#160;GOTO&#160;IA-32E-MODE-RETURN-TO-OUTER-PRIVILEGE-LEVEL;<br/>ELSE GOTO IA-32E-MODE-RETURN-SAME-PRIVILEGE-LEVEL;</p>
+<p style="position:absolute;top:586px;left:115px;white-space:nowrap" class="ft02">FI;&#160;</p>
+<p style="position:absolute;top:604px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft05">IA-32E-MODE-RETURN-SAME-PRIVILEGE-LEVEL:<br/>IF&#160;the return&#160;instruction pointer&#160;is not within the return&#160;code segment limit&#160;</p>
+<p style="position:absolute;top:676px;left:88px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft02">IF&#160;the return&#160;instruction pointer&#160;is not within&#160;canonical address space</p>
+<p style="position:absolute;top:712px;left:88px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:730px;left:68px;white-space:nowrap" class="ft02">IF&#160;OperandSize</p>
+<p style="position:absolute;top:729px;left:153px;white-space:nowrap" class="ft04">&#160;=&#160;</p>
+<p style="position:absolute;top:730px;left:169px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:748px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:766px;left:115px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:784px;left:115px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (*&#160;32-bit pop,&#160;high-order&#160;16&#160;bits&#160;discarded *)</p>
+<p style="position:absolute;top:802px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:820px;left:115px;white-space:nowrap" class="ft02">IF&#160;OperandSize =&#160;16</p>
+<p style="position:absolute;top:838px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:856px;left:169px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:874px;left:169px;white-space:nowrap" class="ft02">EIP&#160;←&#160;EIP AND 0000FFFFH;</p>
+<p style="position:absolute;top:892px;left:169px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (* 16-bit&#160;pop *)</p>
+<p style="position:absolute;top:910px;left:142px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:910px;left:262px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:910px;left:274px;white-space:nowrap" class="ft02">64&#160;*)</p>
+<p style="position:absolute;top:928px;left:169px;white-space:nowrap" class="ft02">RIP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:946px;left:169px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (*&#160;64-bit pop,&#160;high-order&#160;48&#160;bits&#160;discarded *)</p>
+<p style="position:absolute;top:964px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:982px;left:68px;white-space:nowrap" class="ft05">FI;&#160;<br/>IF&#160;instruction has&#160;immediate operand</p>
+<p style="position:absolute;top:1018px;left:88px;white-space:nowrap" class="ft02">THEN (* Release&#160;parameters from&#160;stack *)</p>
+<p style="position:absolute;top:1036px;left:115px;white-space:nowrap" class="ft02">IF StackAddressSize</p>
+<p style="position:absolute;top:1035px;left:229px;white-space:nowrap" class="ft04">&#160;=</p>
+<p style="position:absolute;top:1037px;left:241px;white-space:nowrap" class="ft02">&#160;32</p>
+<p style="position:absolute;top:1054px;left:142px;white-space:nowrap" class="ft02">THEN&#160;</p>
+</div>
+</body>
+</html>

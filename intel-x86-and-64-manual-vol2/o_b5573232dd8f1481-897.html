@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 897</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page897-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481897.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PADDUSB/PADDUSW—Add Packed Unsigned&#160;Integers with Unsigned Saturation</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-217</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">VPADDUSB (VEX.128 encoded version)</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft03">DEST[7:0]&#160;&#160;SaturateToUnsignedByte&#160;(SRC1[7:0] + SRC2[7:0]);<br/>(*&#160;Repeat subtract operation for 2nd through&#160;14th&#160;bytes *)<br/>DEST[127:120]&#160;&#160;SaturateToUnsignedByte (SRC1[111:120] + SRC2[127:120]);<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:208px;left:69px;white-space:nowrap" class="ft02">VPADDUSB (VEX.256 encoded version)</p>
+<p style="position:absolute;top:226px;left:89px;white-space:nowrap" class="ft03">DEST[7:0]&#160;&#160;SaturateToUnsignedByte&#160;(SRC1[7:0] + SRC2[7:0]);<br/>(*&#160;Repeat add operation&#160;for 2nd&#160;through 31st bytes *)<br/>DEST[255:248]&#160;SaturateToUnsignedByte (SRC1[255:248] + SRC2[255:248]);</p>
+<p style="position:absolute;top:292px;left:69px;white-space:nowrap" class="ft02">PADDUSW&#160;(with&#160;64-bit&#160;operands)</p>
+<p style="position:absolute;top:310px;left:89px;white-space:nowrap" class="ft02">DEST[15:0]&#160;←&#160;SaturateToUnsignedWord(DEST[15:0]&#160;+&#160;SRC[15:0] );</p>
+<p style="position:absolute;top:328px;left:89px;white-space:nowrap" class="ft03">(*&#160;Repeat add operation&#160;for 2nd&#160;and 3rd words *)<br/>DEST[63:48]&#160;←&#160;SaturateToUnsignedWord(DEST[63:48]&#160;+&#160;SRC[63:48] );</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft02">PADDUSW&#160;(with 128-bit operands)</p>
+<p style="position:absolute;top:394px;left:89px;white-space:nowrap" class="ft02">DEST[15:0]&#160;←&#160;SaturateToUnsignedWord (DEST[15:0]&#160;+&#160;SRC[15:0]);</p>
+<p style="position:absolute;top:412px;left:89px;white-space:nowrap" class="ft03">(*&#160;Repeat&#160;add operation&#160;for 2nd&#160;through 7th&#160;words *)<br/>DEST[127:112]&#160;←&#160;SaturateToUnSignedWord (DEST[127:112]&#160;+&#160;SRC[127:112]);</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft02">VPADDUSW (VEX.128 encoded version)</p>
+<p style="position:absolute;top:484px;left:89px;white-space:nowrap" class="ft03">DEST[15:0]&#160;&#160;SaturateToUnsignedWord (SRC1[15:0] + SRC2[15:0]);<br/>(*&#160;Repeat subtract operation for 2nd through&#160;7th words *)<br/>DEST[127:112]&#160;&#160;SaturateToUnsignedWord (SRC1[127:112] + SRC2[127:112]);<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:574px;left:69px;white-space:nowrap" class="ft02">VPADDUSW (VEX.256 encoded version)</p>
+<p style="position:absolute;top:592px;left:89px;white-space:nowrap" class="ft03">DEST[15:0]&#160;&#160;SaturateToUnsignedWord (SRC1[15:0] + SRC2[15:0]);<br/>(*&#160;Repeat add operation&#160;for 2nd&#160;through 15th words *)<br/>DEST[255:240]&#160;&#160;SaturateToUnsignedWord (SRC1[255:240] + SRC2[255:240])</p>
+<p style="position:absolute;top:664px;left:69px;white-space:nowrap" class="ft03">VPADDUSB&#160;(EVEX encoded versions)<br/>(KL, VL) = (16, 128), (32, 256), (64,&#160;512)</p>
+<p style="position:absolute;top:718px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:736px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 8<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:772px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+7:i]&#160;&#160;SaturateToUnsignedByte (SRC1[i+7:i]&#160;+ SRC2[i+7:i])<br/>ELSE&#160;</p>
+<p style="position:absolute;top:808px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:808px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:826px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+7:i] remains&#160;unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:844px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:862px;left:197px;white-space:nowrap" class="ft02">DEST[i+7:i] = 0</p>
+<p style="position:absolute;top:880px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:898px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:916px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:970px;left:69px;white-space:nowrap" class="ft03">VPADDUSW&#160;(EVEX&#160;encoded&#160;versions)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)</p>
+<p style="position:absolute;top:1024px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:1042px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+</div>
+</body>
+</html>

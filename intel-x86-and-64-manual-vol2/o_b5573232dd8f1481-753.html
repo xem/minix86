@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 753</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page753-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481753.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">MOVDQU,VMOVDQU8/16/32/64—Move Unaligned Packed Integer Values</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-73</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">VMOVDQU64 (EVEX encoded&#160;versions, load-form)&#160;<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:190px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;SRC[i+63:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:226px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:226px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:244px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE &#160;DEST[i+63:i]&#160;&#160;0&#160;</p>
+<p style="position:absolute;top:262px;left:359px;white-space:nowrap" class="ft02">; zeroing-masking</p>
+<p style="position:absolute;top:280px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">VMOVDQU (VEX.256 encoded version,&#160;load -&#160;and register&#160;copy)<br/>DEST[255:0]&#160;&#160;SRC[255:0]<br/>DEST[MAX_VL-1:256]&#160;&#160;0</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft03">VMOVDQU (VEX.256 encoded version,&#160;store-form)<br/>DEST[255:0]&#160;&#160;SRC[255:0]</p>
+<p style="position:absolute;top:496px;left:69px;white-space:nowrap" class="ft03">VMOVDQU&#160;(VEX.128&#160;encoded version)<br/>DEST[127:0]&#160;&#160;SRC[127:0]<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft03">VMOVDQU (128-bit&#160;load- and&#160;register-copy-&#160;form Legacy SSE&#160;version)<br/>DEST[127:0]&#160;&#160;SRC[127:0]<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:640px;left:69px;white-space:nowrap" class="ft03">(V)MOVDQU (128-bit store-form&#160;version)<br/>DEST[127:0]&#160;&#160;SRC[127:0]</p>
+<p style="position:absolute;top:692px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:715px;left:69px;white-space:nowrap" class="ft03">VMOVDQU16 __m512i&#160;_mm512_mask_loadu_epi16(__m512i s, __mmask32 k, void&#160;* sa);&#160;<br/>VMOVDQU16 __m512i&#160;_mm512_maskz_loadu_epi16( __mmask32&#160;k, void&#160;* sa);&#160;<br/>VMOVDQU16 void _mm512_mask_storeu_epi16(void&#160;* d, __mmask32&#160;k, __m512i a);&#160;<br/>VMOVDQU16 __m256i&#160;_mm256_mask_loadu_epi16(__m256i s, __mmask16 k, void&#160;* sa);&#160;<br/>VMOVDQU16 __m256i&#160;_mm256_maskz_loadu_epi16( __mmask16&#160;k, void&#160;* sa);&#160;<br/>VMOVDQU16 void _mm256_mask_storeu_epi16(void&#160;* d, __mmask16&#160;k, __m256i a);&#160;<br/>VMOVDQU16 void&#160;_mm256_maskz_storeu_epi16(void * d,&#160;__mmask16&#160;k);&#160;<br/>VMOVDQU16 __m128i&#160;_mm_mask_loadu_epi16(__m128i s, __mmask8 k, void * sa);&#160;<br/>VMOVDQU16 __m128i&#160;_mm_maskz_loadu_epi16(&#160;__mmask8 k, void&#160;* sa);&#160;<br/>VMOVDQU16 void _mm_mask_storeu_epi16(void&#160;* d, __mmask8&#160;k, __m128i a);&#160;<br/>VMOVDQU32 __m512i&#160;_mm512_loadu_epi32( void&#160;* sa);&#160;<br/>VMOVDQU32 __m512i&#160;_mm512_mask_loadu_epi32(__m512i s, __mmask16 k, void&#160;* sa);&#160;<br/>VMOVDQU32 __m512i&#160;_mm512_maskz_loadu_epi32( __mmask16&#160;k, void&#160;* sa);&#160;<br/>VMOVDQU32 void&#160;_mm512_storeu_epi32(void&#160;* d, __m512i a);&#160;<br/>VMOVDQU32 void _mm512_mask_storeu_epi32(void&#160;* d, __mmask16&#160;k, __m512i a);&#160;<br/>VMOVDQU32 __m256i&#160;_mm256_mask_loadu_epi32(__m256i s, __mmask8 k, void&#160;* sa);&#160;<br/>VMOVDQU32 __m256i&#160;_mm256_maskz_loadu_epi32( __mmask8&#160;k, void&#160;* sa);&#160;<br/>VMOVDQU32 void&#160;_mm256_storeu_epi32(void&#160;* d, __m256i a);&#160;<br/>VMOVDQU32 void&#160;_mm256_mask_storeu_epi32(void&#160;* d, __mmask8&#160;k, __m256i a);&#160;<br/>VMOVDQU32 __m128i&#160;_mm_mask_loadu_epi32(__m128i s, __mmask8 k, void * sa);&#160;</p>
+</div>
+</body>
+</html>

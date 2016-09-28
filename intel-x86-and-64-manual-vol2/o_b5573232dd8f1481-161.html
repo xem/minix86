@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 161</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page161-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481161.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">ADDPD—Add Packed&#160;Double-Precision&#160;Floating-Point Values</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-33</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">ADDPD—Add Packed Double-Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:505px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:637px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:660px;left:69px;white-space:nowrap" class="ft05">Add two,&#160;four or&#160;eight&#160;packed&#160;double-precision floating-point values from&#160;the&#160;first source&#160;operand to&#160;the second&#160;<br/>source operand, and&#160;stores&#160;the&#160;packed&#160;double-precision floating-point&#160;results in&#160;the destination&#160;operand.<br/>EVEX&#160;encoded versions: The&#160;first source&#160;operand is&#160;a ZMM/YMM/XMM&#160;register. The&#160;second&#160;source operand&#160;can be&#160;<br/>a ZMM/YMM/XMM&#160;register,&#160;a&#160;512/256/128-bit memory location&#160;or&#160;a 512/256/128-bit vector broadcasted&#160;from a&#160;<br/>64-bit memory location.&#160;The&#160;destination operand&#160;is&#160;a ZMM/YMM/XMM&#160;register conditionally&#160;updated with&#160;<br/>writemask&#160;k1.<br/>VEX.256 encoded&#160;version:&#160;The first&#160;source&#160;operand&#160;is a&#160;YMM&#160;register. The second&#160;source&#160;operand can be&#160;a YMM&#160;<br/>register&#160;or&#160;a 256-bit memory location.&#160;The&#160;destination operand&#160;is&#160;a YMM&#160;register.&#160;The&#160;upper&#160;bits&#160;(MAX_VL-1:256)&#160;<br/>of the&#160;corresponding ZMM&#160;register destination are&#160;zeroed.<br/>VEX.128 encoded&#160;version:&#160;the&#160;first source&#160;operand is&#160;a XMM register.&#160;The&#160;second source&#160;operand is&#160;an XMM&#160;<br/>register&#160;or 128-bit memory location.&#160;The&#160;destination operand&#160;is an&#160;XMM register.&#160;The&#160;upper bits&#160;(MAX_VL-1:128)&#160;<br/>of the&#160;corresponding ZMM&#160;register destination are&#160;zeroed.<br/>128-bit Legacy&#160;SSE version:&#160;The second source&#160;can be&#160;an&#160;XMM&#160;register or an&#160;128-bit memory location.&#160;The&#160;desti-<br/>nation&#160;is not&#160;distinct from the&#160;first source&#160;XMM register&#160;and&#160;the upper&#160;Bits&#160;(MAX_VL-1:128) of the&#160;corresponding&#160;<br/>ZMM&#160;register destination are&#160;unmodified.</p>
+<p style="position:absolute;top:949px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:972px;left:69px;white-space:nowrap" class="ft07">VADDPD (EVEX encoded&#160;versions)&#160;when&#160;src2 operand is&#160;a&#160;vector register<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>IF&#160;(VL =&#160;512)&#160;AND (EVEX.b&#160;= 1)&#160;</p>
+<p style="position:absolute;top:1025px;left:89px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:1043px;left:116px;white-space:nowrap" class="ft04">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:1061px;left:89px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:284px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:137px;left:284px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:331px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:331px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:152px;left:331px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:404px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:404px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:404px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:488px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:78px;white-space:nowrap" class="ft04">66&#160;0F&#160;58 /r</p>
+<p style="position:absolute;top:188px;left:78px;white-space:nowrap" class="ft04">ADDPD xmm1, xmm2/m128</p>
+<p style="position:absolute;top:172px;left:284px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:172px;left:331px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:404px;white-space:nowrap" class="ft04">SSE2</p>
+<p style="position:absolute;top:172px;left:488px;white-space:nowrap" class="ft04">Add&#160;packed&#160;double-precision&#160;floating-point&#160;values from&#160;</p>
+<p style="position:absolute;top:188px;left:488px;white-space:nowrap" class="ft04">xmm2/mem&#160;to&#160;xmm1&#160;and store result in&#160;xmm1.</p>
+<p style="position:absolute;top:208px;left:78px;white-space:nowrap" class="ft04">VEX.NDS.128.66.0F.WIG 58&#160;/r</p>
+<p style="position:absolute;top:224px;left:78px;white-space:nowrap" class="ft04">VADDPD xmm1,xmm2,&#160;</p>
+<p style="position:absolute;top:241px;left:78px;white-space:nowrap" class="ft04">xmm3/m128</p>
+<p style="position:absolute;top:208px;left:284px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:208px;left:331px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:208px;left:404px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:208px;left:488px;white-space:nowrap" class="ft04">Add&#160;packed&#160;double-precision&#160;floating-point&#160;values&#160;from&#160;</p>
+<p style="position:absolute;top:224px;left:488px;white-space:nowrap" class="ft04">xmm3/mem&#160;to&#160;xmm2&#160;and store result in&#160;xmm1.</p>
+<p style="position:absolute;top:260px;left:78px;white-space:nowrap" class="ft04">VEX.NDS.256.66.0F.WIG 58&#160;/r</p>
+<p style="position:absolute;top:277px;left:78px;white-space:nowrap" class="ft04">VADDPD ymm1, ymm2,&#160;</p>
+<p style="position:absolute;top:294px;left:78px;white-space:nowrap" class="ft04">ymm3/m256</p>
+<p style="position:absolute;top:260px;left:284px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:260px;left:331px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:260px;left:404px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:260px;left:488px;white-space:nowrap" class="ft04">Add&#160;packed&#160;double-precision&#160;floating-point&#160;values&#160;from&#160;</p>
+<p style="position:absolute;top:277px;left:488px;white-space:nowrap" class="ft04">ymm3/mem to&#160;ymm2 and&#160;store result in ymm1.</p>
+<p style="position:absolute;top:313px;left:78px;white-space:nowrap" class="ft04">EVEX.NDS.128.66.0F.W1 58&#160;/r</p>
+<p style="position:absolute;top:330px;left:78px;white-space:nowrap" class="ft04">VADDPD xmm1 {k1}{z},&#160;xmm2,&#160;</p>
+<p style="position:absolute;top:346px;left:78px;white-space:nowrap" class="ft04">xmm3/m128/m64bcst&#160;</p>
+<p style="position:absolute;top:313px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:313px;left:331px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:313px;left:404px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:330px;left:404px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:313px;left:488px;white-space:nowrap" class="ft04">Add&#160;packed&#160;double-precision&#160;floating-point&#160;values&#160;from&#160;</p>
+<p style="position:absolute;top:330px;left:488px;white-space:nowrap" class="ft04">xmm3/m128/m64bcst to xmm2&#160;and&#160;store&#160;result in&#160;xmm1&#160;</p>
+<p style="position:absolute;top:346px;left:488px;white-space:nowrap" class="ft04">with writemask k1.</p>
+<p style="position:absolute;top:366px;left:78px;white-space:nowrap" class="ft04">EVEX.NDS.256.66.0F.W1 58&#160;/r</p>
+<p style="position:absolute;top:382px;left:78px;white-space:nowrap" class="ft04">VADDPD ymm1 {k1}{z}, ymm2,&#160;</p>
+<p style="position:absolute;top:399px;left:78px;white-space:nowrap" class="ft04">ymm3/m256/m64bcst</p>
+<p style="position:absolute;top:366px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:366px;left:331px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:366px;left:404px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:382px;left:404px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:366px;left:488px;white-space:nowrap" class="ft04">Add&#160;packed&#160;double-precision&#160;floating-point&#160;values&#160;from&#160;</p>
+<p style="position:absolute;top:382px;left:488px;white-space:nowrap" class="ft04">ymm3/m256/m64bcst to&#160;ymm2&#160;and store&#160;result in&#160;ymm1&#160;</p>
+<p style="position:absolute;top:399px;left:488px;white-space:nowrap" class="ft04">with writemask k1.</p>
+<p style="position:absolute;top:418px;left:78px;white-space:nowrap" class="ft04">EVEX.NDS.512.66.0F.W1 58&#160;/r</p>
+<p style="position:absolute;top:435px;left:78px;white-space:nowrap" class="ft04">VADDPD zmm1 {k1}{z},&#160;zmm2,&#160;</p>
+<p style="position:absolute;top:451px;left:78px;white-space:nowrap" class="ft04">zmm3/m512/m64bcst{er}&#160;</p>
+<p style="position:absolute;top:418px;left:284px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:418px;left:331px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:418px;left:404px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:418px;left:488px;white-space:nowrap" class="ft04">Add&#160;packed&#160;double-precision&#160;floating-point&#160;values&#160;from&#160;</p>
+<p style="position:absolute;top:435px;left:488px;white-space:nowrap" class="ft04">zmm3/m512/m64bcst to&#160;zmm2&#160;and store result in&#160;zmm1&#160;</p>
+<p style="position:absolute;top:451px;left:488px;white-space:nowrap" class="ft04">with writemask k1.</p>
+<p style="position:absolute;top:528px;left:114px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:528px;left:243px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:528px;left:408px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:528px;left:571px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:528px;left:728px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:552px;left:122px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:552px;left:225px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r, w)</p>
+<p style="position:absolute;top:552px;left:397px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:552px;left:592px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:552px;left:749px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:576px;left:118px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:576px;left:231px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:576px;left:410px;white-space:nowrap" class="ft04">VEX.vvvv</p>
+<p style="position:absolute;top:576px;left:560px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:576px;left:749px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:600px;left:108px;white-space:nowrap" class="ft04">FV-RVM</p>
+<p style="position:absolute;top:600px;left:231px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:600px;left:407px;white-space:nowrap" class="ft04">EVEX.vvvv</p>
+<p style="position:absolute;top:600px;left:560px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:600px;left:749px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

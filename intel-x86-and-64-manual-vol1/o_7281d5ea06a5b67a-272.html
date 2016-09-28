@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 272</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page272-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a272.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">11-18&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® STREAMING&#160;SIMD&#160;EXTENSIONS&#160;2 (INTEL® SSE2)</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">2.&#160;Checks CR4.OSXMMEXCPT[bit&#160;10].&#160;If&#160;this&#160;flag&#160;is set,&#160;the&#160;processor goes&#160;to step&#160;3; if&#160;the&#160;flag&#160;is clear,&#160;it&#160;</p>
+<p style="position:absolute;top:117px;left:93px;white-space:nowrap" class="ft06">generates&#160;an invalid-opcode&#160;exception (#UD)&#160;and makes&#160;an implicit call&#160;to the&#160;invalid-opcode exception&#160;<br/>handler.</p>
+<p style="position:absolute;top:157px;left:68px;white-space:nowrap" class="ft02">3.&#160;Generates a&#160;SIMD&#160;floating-point exception&#160;(#XM) and&#160;makes an implicit call&#160;to the&#160;SIMD&#160;floating-point&#160;</p>
+<p style="position:absolute;top:174px;left:93px;white-space:nowrap" class="ft02">exception handler.</p>
+<p style="position:absolute;top:198px;left:68px;white-space:nowrap" class="ft02">4.&#160;If the&#160;exception handler is&#160;able&#160;to fix the&#160;source&#160;operands&#160;that generated the&#160;pre-computation exceptions&#160;or&#160;</p>
+<p style="position:absolute;top:214px;left:93px;white-space:nowrap" class="ft06">mask the&#160;condition in such&#160;a way as&#160;to allow the&#160;processor&#160;to continue&#160;executing the&#160;instruction, the&#160;processor&#160;<br/>resumes&#160;instruction&#160;execution as&#160;described in step&#160;5.</p>
+<p style="position:absolute;top:255px;left:68px;white-space:nowrap" class="ft02">5.&#160;Upon returning from the exception handler (or&#160;if&#160;no pre-computation exceptions were&#160;detected),&#160;the&#160;processor&#160;</p>
+<p style="position:absolute;top:271px;left:93px;white-space:nowrap" class="ft06">checks&#160;for&#160;post-computation exceptions.&#160;If the&#160;processor detects&#160;any post-computation&#160;exceptions: it&#160;ORs&#160;<br/>those&#160;exceptions, sets the&#160;appropriate exception&#160;flags,&#160;leaves&#160;the source&#160;and destination operands unaltered,&#160;<br/>and repeats&#160;steps&#160;2,&#160;3, and&#160;4.</p>
+<p style="position:absolute;top:328px;left:68px;white-space:nowrap" class="ft02">6.&#160;Upon&#160;returning from&#160;the&#160;exceptions handler&#160;in step 4 (or&#160;if no post-computation&#160;exceptions were&#160;detected), the&#160;</p>
+<p style="position:absolute;top:345px;left:93px;white-space:nowrap" class="ft02">processor completes the&#160;execution of&#160;the&#160;instruction.</p>
+<p style="position:absolute;top:369px;left:68px;white-space:nowrap" class="ft06">The&#160;implication of this&#160;procedure&#160;is&#160;that&#160;for unmasked&#160;exceptions, the&#160;processor&#160;can generate&#160;a SIMD floating-<br/>point exception (#XM) twice: once if it detects pre-computation&#160;exception conditions and a second time if it detects&#160;<br/>post-computation&#160;exception conditions. For example,&#160;if&#160;SIMD&#160;floating-point&#160;exceptions&#160;are&#160;unmasked&#160;for&#160;the&#160;<br/>computation shown&#160;in<a href="o_7281d5ea06a5b67a-271.html">&#160;Figure&#160;11-9,&#160;</a>the processor would generate one&#160;SIMD floating-point&#160;exception for denormal&#160;<br/>operand conditions&#160;and a&#160;second&#160;SIMD floating-point exception for overflow&#160;and underflow (no inexact&#160;result&#160;<br/>exception would be generated because&#160;the multiplications&#160;of&#160;X0 and&#160;Y0&#160;and of X1&#160;and Y1&#160;are exact).</p>
+<p style="position:absolute;top:496px;left:68px;white-space:nowrap" class="ft03">11.5.3.3 &#160;&#160;Handling Combinations of&#160;Masked and Unmasked Exceptions</p>
+<p style="position:absolute;top:524px;left:68px;white-space:nowrap" class="ft06">In situations where&#160;both masked and unmasked&#160;exceptions&#160;are detected, the&#160;processor will set&#160;exception flags for&#160;<br/>the masked&#160;and&#160;the unmasked exceptions.&#160;However,&#160;it&#160;will&#160;not return&#160;masked&#160;results until after&#160;the processor has&#160;<br/>detected&#160;and&#160;handled unmasked&#160;post-computation exceptions&#160;and returned&#160;from the&#160;exception&#160;handler (as in step&#160;<br/>6&#160;above)&#160;to finish executing&#160;the&#160;instruction.</p>
+<p style="position:absolute;top:624px;left:68px;white-space:nowrap" class="ft04">11.5.4&#160;</p>
+<p style="position:absolute;top:624px;left:148px;white-space:nowrap" class="ft04">Handling SIMD Floating-Point&#160;Exceptions in Software</p>
+<p style="position:absolute;top:655px;left:68px;white-space:nowrap" class="ft06"><a href="o_7281d5ea06a5b67a-107.html">Section&#160;4.9.3, “Typical Actions of&#160;a&#160;Floating-Point&#160;Exception Handler,” shows actions that&#160;</a>may be&#160;carried&#160;out&#160;by a&#160;<br/>SIMD floating-point exception handler.&#160;The SSE/SSE2/SSE3 state is saved with the FXSA<a href="o_7281d5ea06a5b67a-274.html">VE instruction (see Section&#160;<br/>11.6.5,&#160;“Saving and&#160;Restoring the&#160;SSE/SSE2&#160;State”).</a>&#160;</p>
+<p style="position:absolute;top:738px;left:68px;white-space:nowrap" class="ft04">11.5.5&#160;</p>
+<p style="position:absolute;top:738px;left:148px;white-space:nowrap" class="ft04">Interaction of&#160;SIMD and x87 FPU Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:769px;left:68px;white-space:nowrap" class="ft06">SIMD&#160;floating-point exceptions&#160;are generated independently from&#160;x87&#160;FPU floating-point&#160;exceptions.&#160;SIMD&#160;<br/>floating-point exceptions&#160;do not&#160;cause assertion of the&#160;FERR#&#160;pin (independent of the&#160;value&#160;of CR0.NE[bit 5]).&#160;<br/>They ignore&#160;the&#160;assertion and&#160;deassertion of the&#160;IGNNE#&#160;pin.<br/>If&#160;applications&#160;use SSE/SSE2/SSE3 instructions along&#160;with&#160;x87&#160;FPU instructions&#160;(in&#160;the same&#160;task or&#160;program),&#160;<br/>consider the&#160;following:</p>
+<p style="position:absolute;top:864px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:865px;left:93px;white-space:nowrap" class="ft06">SIMD floating-point&#160;exceptions are reported&#160;independently from&#160;the&#160;x87 FPU&#160;floating-point exceptions. SIMD&#160;<br/>and&#160;x87 FPU floating-point&#160;exceptions can be unmasked&#160;independently.&#160;Separate x87&#160;FPU&#160;and&#160;SIMD&#160;floating-<br/>point&#160;exception handlers&#160;must be&#160;provided&#160;if&#160;the&#160;same&#160;exception is&#160;unmasked&#160;for x87&#160;FPU&#160;and for&#160;<br/>SSE/SSE2/SSE3&#160;operations.</p>
+<p style="position:absolute;top:936px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:937px;left:93px;white-space:nowrap" class="ft06">The&#160;rounding&#160;mode&#160;specified in&#160;the&#160;MXCSR&#160;register&#160;does&#160;not&#160;affect x87&#160;FPU&#160;instructions.&#160;Likewise,&#160;the&#160;rounding&#160;<br/>mode&#160;specified in&#160;the x87&#160;FPU&#160;control&#160;word does&#160;not affect&#160;the&#160;SSE/SSE2/SSE3&#160;instructions.&#160;To&#160;use&#160;the same&#160;<br/>rounding&#160;mode,&#160;the&#160;rounding control bits in the MXCSR&#160;register&#160;and&#160;in the&#160;x87 FPU&#160;control word&#160;must be set&#160;<br/>explicitly to&#160;the same&#160;value.</p>
+<p style="position:absolute;top:1008px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1009px;left:93px;white-space:nowrap" class="ft06">The&#160;flush-to-zero&#160;mode&#160;set in&#160;the MXCSR&#160;register for SSE/SSE2/SSE3 instructions has&#160;no&#160;counterpart&#160;in&#160;the&#160;<br/>x87&#160;FPU.&#160;For compatibility with the&#160;x87 FPU,&#160;set&#160;the flush-to-zero bit to 0.</p>
+</div>
+</body>
+</html>

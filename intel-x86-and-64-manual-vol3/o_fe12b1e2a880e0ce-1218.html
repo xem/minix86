@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1218</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1218-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1218.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">31-8&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VIRTUAL-MACHINE MONITOR PROGRAMMING CONSIDERATIONS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft09">Depending on&#160;the exit&#160;reason,&#160;fetch other relevant fields from&#160;the&#160;VMCS.<a href="��">&#160;Appendix&#160;C&#160;</a>lists&#160;the various exit&#160;<br/>reasons.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft09">Handle&#160;the VM-exit&#160;condition appropriately in&#160;the VMM.&#160;This may&#160;involve&#160;the VMM&#160;emulating one&#160;or more&#160;guest&#160;<br/>instructions, programming the&#160;underlying host&#160;hardware&#160;resources, and then re-entering&#160;the VM to&#160;continue&#160;<br/>execution.&#160;</p>
+<p style="position:absolute;top:223px;left:68px;white-space:nowrap" class="ft04">31.7.1&#160;</p>
+<p style="position:absolute;top:223px;left:148px;white-space:nowrap" class="ft04">Handling VM&#160;Exits Due to&#160;Exceptions</p>
+<p style="position:absolute;top:253px;left:68px;white-space:nowrap" class="ft09"><a href="o_fe12b1e2a880e0ce-1079.html">As noted in Section&#160;25.2,&#160;</a>an exception&#160;causes a&#160;VM&#160;exit&#160;if&#160;the&#160;bit&#160;corresponding to the&#160;exception’s&#160;vector&#160;is set in&#160;<br/>the&#160;exception&#160;bitmap. (For page&#160;faults, the&#160;error code also&#160;determines whether a&#160;VM&#160;exit&#160;occurs.)&#160;This section&#160;<br/>provide some&#160;guidelines of how a&#160;VMM might handle such&#160;exceptions.<br/>Exceptions result when&#160;a logical processor encounters an unusual condition that&#160;software may&#160;not have&#160;expected.&#160;<br/>When guest software encounters an exception,&#160;it&#160;may&#160;be&#160;the case that the&#160;condition&#160;was caused&#160;by the guest soft-<br/>ware. For example, a guest application may attempt to access&#160;a page that is restricted&#160;to supervisor access. Alter-<br/>natively, the condition causing the exception may have&#160;been&#160;established by the VMM. For example,&#160;a guest OS&#160;may&#160;<br/>attempt&#160;to access a&#160;page that the&#160;VMM has&#160;chosen to&#160;make&#160;not present.<br/>When the&#160;condition causing&#160;an exception&#160;was established&#160;by guest software, the&#160;VMM may&#160;choose&#160;to&#160;<b>reflect</b>&#160;the&#160;<br/>exception&#160;to guest software. When&#160;the condition&#160;was&#160;established by&#160;the VMM&#160;itself, the&#160;VMM may choose&#160;to&#160;<br/><b>resume</b>&#160;guest software&#160;after removing the&#160;condition.</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft06">31.7.1.1 &#160;&#160;Reflecting Exceptions to Guest Software</p>
+<p style="position:absolute;top:506px;left:68px;white-space:nowrap" class="ft010">If the&#160;VMM determines that&#160;a VM&#160;exit&#160;was caused by an&#160;exception due&#160;to a&#160;condition established&#160;by guest&#160;software,&#160;<br/>it may reflect&#160;that exception&#160;to guest&#160;software. The&#160;VMM&#160;would cause the&#160;exception to be delivered&#160;to guest soft-<br/>ware, where it&#160;can be handled as&#160;it&#160;would&#160;be&#160;if&#160;the guest were&#160;running on a&#160;physical&#160;machine. This section&#160;<br/>describes&#160;how that&#160;may be&#160;done.<br/>In general,&#160;the&#160;VMM can&#160;deliver the&#160;exception to&#160;guest&#160;software&#160;using VM-entry event injection as&#160;described&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-1110.html">Section&#160;26.5.&#160;</a>The VMM can copy (using&#160;VMREAD and VMWRITE) the contents&#160;of&#160;the&#160;VM-exit interruption-informa-<br/>tion field (which&#160;is valid, since&#160;the&#160;VM&#160;exit&#160;was caused by&#160;an&#160;exception) to the&#160;VM-entry&#160;interruption-information&#160;<br/>field&#160;(which, if valid, will cause&#160;the&#160;exception to be&#160;delivered&#160;as part of the&#160;next VM&#160;entry). The&#160;VMM&#160;would&#160;also&#160;<br/>copy&#160;the contents of the VM-exit interruption error-code field&#160;to the&#160;VM-entry&#160;exception&#160;error-code&#160;field;&#160;this need&#160;<br/>not be&#160;done if bit&#160;11 (error code&#160;valid) is clear in the&#160;VM-exit&#160;interruption-information field. After this, the VMM&#160;can&#160;<br/>execute VMRESUME.<br/>The&#160;following&#160;items provide&#160;details that&#160;may qualify&#160;the general&#160;approach:</p>
+<p style="position:absolute;top:724px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:725px;left:93px;white-space:nowrap" class="ft09">Care should&#160;be&#160;taken to ensure that reserved bits&#160;30:12&#160;in the&#160;VM-entry interruption-information field&#160;are&#160;0.&#160;In&#160;<br/>particular, some&#160;VM&#160;exits&#160;may set bit&#160;12 in&#160;the&#160;VM-exit interruption-information&#160;field&#160;to indicate NMI&#160;<br/>unblocking due to&#160;IRET.&#160;If&#160;this bit is&#160;copied as&#160;1 into&#160;the&#160;VM-entry interruption-information&#160;field, the&#160;next&#160;<br/>VM&#160;entry will&#160;fail&#160;because that bit should&#160;be&#160;0.</p>
+<p style="position:absolute;top:796px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:797px;left:93px;white-space:nowrap" class="ft010">Bit&#160;31&#160;(valid) of the&#160;IDT-vectoring&#160;information field&#160;indicates,&#160;if&#160;set, that the exception causing the&#160;VM&#160;exit&#160;<br/>occurred while&#160;another event&#160;was being delivered&#160;to guest software. If this&#160;is the&#160;case, it&#160;may&#160;not&#160;be&#160;<br/>appropriate simply to reflect that exception to guest software. To&#160;provide&#160;proper virtualization of the exception&#160;<br/>architecture, a&#160;VMM should&#160;handle&#160;nested&#160;events as&#160;a physical processor would.&#160;Processor&#160;handling is&#160;<br/>described in&#160;<a href="o_fe12b1e2a880e0ce-187.html">Chapter 6, “Interrupt&#160;</a><a href="o_fe12b1e2a880e0ce-214.html">8—Double&#160;Fault Exception (#DF)” i</a>n&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32 Architectures&#160;<br/>Software Developer’s Manual, Volume&#160;3A</i>.<br/></a>—&#160;The VMM&#160;should reflect the&#160;exception causing&#160;the&#160;VM&#160;exit to&#160;guest software&#160;in any&#160;of&#160;the following cases:</p>
+<p style="position:absolute;top:929px;left:119px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:928px;left:144px;white-space:nowrap" class="ft03">The value&#160;of bits&#160;10:8&#160;(interruption type) of&#160;the IDT-vectoring information field is&#160;anything other than 3&#160;</p>
+<p style="position:absolute;top:944px;left:143px;white-space:nowrap" class="ft03">(hardware exception).</p>
+<p style="position:absolute;top:970px;left:119px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:968px;left:144px;white-space:nowrap" class="ft03">The value&#160;of bits&#160;7:0 (vector)&#160;of the&#160;IDT-vectoring&#160;information field indicates&#160;a benign&#160;exception (1,&#160;2,&#160;</p>
+<p style="position:absolute;top:985px;left:143px;white-space:nowrap" class="ft03">3,&#160;4,&#160;5,&#160;6,&#160;7,&#160;9,&#160;16,&#160;17,&#160;18,&#160;or 19).</p>
+<p style="position:absolute;top:1010px;left:119px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:1009px;left:144px;white-space:nowrap" class="ft03">The value of bits&#160;7:0 (vector) of the&#160;VM-exit&#160;interruption-information field indicates a benign exception.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 341</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page341-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481341.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CPUID—CPU&#160;Identification</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-213</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Which means:</p>
+<p style="position:absolute;top:122px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:123px;left:95px;white-space:nowrap" class="ft02">The&#160;least-significant&#160;byte (byte&#160;0) of&#160;register&#160;EAX&#160;is set&#160;to 01H. This value should&#160;be&#160;ignored.</p>
+<p style="position:absolute;top:145px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:145px;left:95px;white-space:nowrap" class="ft06">The&#160;most-significant bit&#160;of&#160;all four&#160;registers (EAX,&#160;EBX, ECX, and&#160;EDX) is set to 0, indicating that&#160;each register&#160;<br/>contains&#160;valid 1-byte descriptors.</p>
+<p style="position:absolute;top:184px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:184px;left:95px;white-space:nowrap" class="ft07">Bytes&#160;1,&#160;2,&#160;and&#160;3 of register&#160;EAX indicate&#160;that&#160;the processor has:<br/>—&#160;50H&#160;-&#160;a 64-entry instruction TLB, for mapping 4-KByte&#160;and 2-MByte&#160;or 4-MByte pages.<br/>—&#160;5BH -&#160;a 64-entry data TLB,&#160;for mapping&#160;4-KByte and&#160;4-MByte&#160;pages.<br/>—&#160;66H - an&#160;8-KByte&#160;1st&#160;level data cache, 4-way set&#160;associative,&#160;with&#160;a 64-Byte&#160;cache line&#160;size.</p>
+<p style="position:absolute;top:278px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:279px;left:95px;white-space:nowrap" class="ft02">The&#160;descriptors in&#160;registers EBX&#160;and ECX&#160;are valid, but contain NULL descriptors.</p>
+<p style="position:absolute;top:301px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:301px;left:95px;white-space:nowrap" class="ft07">Bytes 0,&#160;1,&#160;2, and&#160;3 of&#160;register&#160;EDX indicate that&#160;the processor has:<br/>—&#160;00H - NULL descriptor.<br/>—&#160;70H - Trace&#160;cache:&#160;12&#160;K-μop, 8-way set&#160;associative.<br/>—&#160;7AH -&#160;a 256-KByte&#160;2nd&#160;level cache,&#160;8-way set associative,&#160;with&#160;a sectored, 64-byte&#160;cache&#160;line size.<br/>—&#160;00H - NULL descriptor.</p>
+<p style="position:absolute;top:431px;left:69px;white-space:nowrap" class="ft04">INPUT EAX =&#160;04H:&#160;Returns&#160;Deterministic Cache&#160;Parameters&#160;for Each&#160;Level</p>
+<p style="position:absolute;top:456px;left:69px;white-space:nowrap" class="ft07">When CPUID&#160;executes&#160;with&#160;EAX set&#160;to 04H&#160;and ECX&#160;contains an&#160;index value,&#160;the&#160;processor&#160;returns encoded data&#160;<br/>that describe&#160;a set of deterministic cache parameters&#160;(for&#160;the&#160;cache&#160;level associated&#160;with the&#160;input in&#160;ECX).&#160;Valid&#160;<br/>index values&#160;start from 0.<br/>Software&#160;can enumerate&#160;the&#160;deterministic&#160;cache parameters&#160;for each&#160;level of the&#160;cache hierarchy starting with&#160;an&#160;<br/>index value of&#160;0,&#160;until the parameters&#160;report&#160;the value&#160;associated&#160;with&#160;the&#160;cache&#160;type&#160;field is&#160;0.&#160;The architecturally&#160;<br/>defined&#160;fields&#160;reported&#160;by&#160;deterministic cache&#160;parameters are documented in&#160;<a href="o_b5573232dd8f1481-318.html">Table 3-8.<br/></a>This&#160;Cache Size in Bytes<br/>=&#160;(Ways&#160;+&#160;1) *&#160;(Partitions + 1)&#160;*&#160;(Line_Size + 1)&#160;*&#160;(Sets + 1)<br/>=&#160;(EBX[31:22] + 1)&#160;*&#160;(EBX[21:12] + 1)&#160;*&#160;(EBX[11:0]&#160;+ 1)&#160;*&#160;(ECX + 1)</p>
+<p style="position:absolute;top:666px;left:69px;white-space:nowrap" class="ft09">The CPUID&#160;leaf&#160;04H&#160;also reports data that can&#160;be&#160;used&#160;to&#160;derive&#160;the topology&#160;of processor cores&#160;in a&#160;physical&#160;<br/>package. This information&#160;is constant for all valid&#160;index values. Software can query&#160;the raw&#160;data&#160;reported by&#160;<br/>executing CPUID with&#160;EAX=04H and ECX=0 and use it&#160;as part&#160;of the topology enumeration&#160;algorithm described in&#160;<br/><a href="��">Chapter 8, “Multiple-Processor Management,”&#160;in the&#160;<i>Intel® 64&#160;and IA-32 Architectures Software&#160;Developer’s&#160;<br/>Manual, Volume&#160;3A</i></a>.</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft04">INPUT&#160;EAX =&#160;05H: Returns&#160;MONITOR and MWAIT&#160;Features</p>
+<p style="position:absolute;top:790px;left:69px;white-space:nowrap" class="ft06">When CPUID&#160;executes&#160;with&#160;EAX set&#160;to 05H,&#160;the&#160;processor returns&#160;information about&#160;features available to&#160;<br/>MONITOR/MWAIT instructions. The MONITOR instruction is used for address-range monitoring&#160;in conjunction with&#160;<br/>MWAIT&#160;instruction.&#160;The MWAIT instruction optionally&#160;provides&#160;additional&#160;extensions for advanced power&#160;manage-<br/>ment.&#160;Se<a href="o_b5573232dd8f1481-318.html">e Table 3-8.</a>&#160;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft04">INPUT&#160;EAX =&#160;06H: Returns Thermal and&#160;Power&#160;Management&#160;Features</p>
+<p style="position:absolute;top:898px;left:69px;white-space:nowrap" class="ft06">When CPUID&#160;executes&#160;with&#160;EAX set&#160;to 06H, the&#160;processor&#160;returns information&#160;about thermal&#160;and power&#160;manage-<br/>ment features.&#160;See&#160;<a href="o_b5573232dd8f1481-318.html">Table&#160;3-8.</a>&#160;</p>
+<p style="position:absolute;top:949px;left:69px;white-space:nowrap" class="ft04">INPUT&#160;EAX =&#160;07H: Returns Structured&#160;Extended&#160;Feature&#160;Enumeration&#160;Information</p>
+<p style="position:absolute;top:973px;left:69px;white-space:nowrap" class="ft06">When&#160;CPUID executes&#160;with EAX&#160;set to&#160;07H and&#160;ECX = 0,&#160;the processor returns&#160;information about&#160;the maximum&#160;<br/>input value&#160;for&#160;sub-leaves&#160;that contain&#160;extended&#160;feature&#160;flags.&#160;Se<a href="o_b5573232dd8f1481-318.html">e Table&#160;3-8</a>.&#160;</p>
+<p style="position:absolute;top:1024px;left:69px;white-space:nowrap" class="ft04">When CPUID&#160;executes&#160;with EAX set to&#160;07H and the input&#160;value&#160;of&#160;ECX&#160;is invalid (see leaf 07H&#160;entry&#160;<a href="o_b5573232dd8f1481-318.html">in&#160;Table 3-8),&#160;</a></p>
+<p style="position:absolute;top:1040px;left:69px;white-space:nowrap" class="ft04">the processor returns 0 in EAX/EBX/ECX/EDX.&#160;In&#160;subleaf&#160;0, EAX returns the maximum&#160;input value of&#160;the highest&#160;</p>
+</div>
+</body>
+</html>

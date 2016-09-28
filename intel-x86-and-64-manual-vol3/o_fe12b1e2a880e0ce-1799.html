@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1799</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1799-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1799.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;39-11</p>
+<p style="position:absolute;top:47px;left:713px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">39.5.6&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">Eviction of&#160;a Version Array Page</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft05">VA&#160;pages do not belong to any enclave and tracking with&#160;ETRACK isn’t necessary. When evicting the VA&#160;page, a slot&#160;<br/>in&#160;a different&#160;VA&#160;page must be specified&#160;in order&#160;to provide&#160;versioning of the&#160;evicted&#160;VA&#160;page.&#160;<br/>1.&#160;Select&#160;a slot&#160;in a Version Array&#160;page&#160;other&#160;than&#160;the page&#160;being evicted.&#160;</p>
+<p style="position:absolute;top:192px;left:95px;white-space:nowrap" class="ft03">—&#160;If no&#160;VA&#160;page&#160;exists with&#160;an&#160;empty slot, create a&#160;new one&#160;using&#160;the&#160;EPA&#160;leaf function.&#160;</p>
+<p style="position:absolute;top:216px;left:69px;white-space:nowrap" class="ft03">2.&#160;Evict the&#160;page using&#160;the EWB leaf&#160;function with parameters include the&#160;effective-address pointer to&#160;the EPC&#160;</p>
+<p style="position:absolute;top:232px;left:95px;white-space:nowrap" class="ft04">page,&#160;the&#160;VA&#160;slot,&#160;a 4K&#160;byte&#160;buffer to&#160;hold the&#160;encrypted&#160;page contents, and&#160;a 128 byte&#160;buffer to&#160;hold page&#160;<br/>metadata. The&#160;last&#160;three elements are tied together cryptographically and&#160;must be&#160;used&#160;to&#160;later reload the&#160;<br/>page.</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft02">39.5.7&#160;</p>
+<p style="position:absolute;top:316px;left:149px;white-space:nowrap" class="ft02">Allocating a Regular Page</p>
+<p style="position:absolute;top:345px;left:69px;white-space:nowrap" class="ft07">On&#160;processors&#160;that support SGX2,&#160;allocating a&#160;new&#160;page&#160;to an&#160;already initialized enclave is&#160;accomplished&#160;by&#160;<br/>invoking&#160;the EAUG&#160;leaf function.&#160;Typically, the&#160;enclave&#160;requests that the OS&#160;allocate&#160;a new page&#160;at a&#160;particular&#160;<br/>location within&#160;the enclave’s&#160;address space.&#160;Once allocated, the&#160;page&#160;remains in&#160;a pending&#160;state until&#160;the&#160;enclave&#160;<br/>executes&#160;the corresponding EACCEPT leaf&#160;function to accept&#160;the&#160;new&#160;page&#160;into the&#160;enclave.&#160;Page allocation opera-<br/>tions&#160;may be batched&#160;to improve efficiency.&#160;<br/>The typical process for allocating&#160;a regular page&#160;is as&#160;follows:&#160;<br/>1.&#160;Enclave requests additional memory from OS&#160;when&#160;the current&#160;allocation becomes insufficient.&#160;<br/>2.&#160;The OS&#160;invokes the&#160;EAUG&#160;leaf function&#160;to add a&#160;new&#160;memory&#160;page to the enclave.&#160;</p>
+<p style="position:absolute;top:505px;left:95px;white-space:nowrap" class="ft07">a.&#160;EAUG may&#160;only&#160;be&#160;called on a&#160;free&#160;EPC page.&#160;<br/>b.&#160;Successful completion&#160;of the&#160;EAUG instruction places the&#160;target&#160;page in&#160;the VALID and PENDING state.&#160;<br/>c.&#160;All dynamically created&#160;pages have&#160;the&#160;type PT_REG&#160;and&#160;content of all&#160;zeros.&#160;</p>
+<p style="position:absolute;top:577px;left:69px;white-space:nowrap" class="ft05">3.&#160;The&#160;OS&#160;maps the&#160;page&#160;in&#160;the enclave context's&#160;mapping&#160;tables.<br/>4.&#160;The enclave&#160;issues&#160;an EACCEPT instruction,&#160;which&#160;verifies&#160;the page’s&#160;attributes&#160;and&#160;clears&#160;the&#160;PENDING&#160;state.&#160;</p>
+<p style="position:absolute;top:618px;left:95px;white-space:nowrap" class="ft03">At&#160;that&#160;point the&#160;page becomes&#160;accessible&#160;for normal enclave use.&#160;</p>
+<p style="position:absolute;top:668px;left:69px;white-space:nowrap" class="ft02">39.5.8&#160;</p>
+<p style="position:absolute;top:668px;left:149px;white-space:nowrap" class="ft02">Allocating a TCS Page&#160;</p>
+<p style="position:absolute;top:697px;left:69px;white-space:nowrap" class="ft05">On&#160;processors that support SGX2, allocating&#160;a new&#160;TCS page&#160;to an already initialized enclave is a&#160;two-step process.&#160;<br/>First the&#160;OS&#160;allocates&#160;a regular page&#160;with a&#160;call to&#160;EAUG. This&#160;page&#160;must then&#160;be&#160;accepted&#160;and initialized&#160;by the&#160;<br/>enclave&#160;to which&#160;it belongs. Once&#160;the&#160;page has&#160;been&#160;initialized with appropriate&#160;values for a&#160;TCS page, the&#160;enclave&#160;<br/>requests&#160;the OS&#160;to change the&#160;page’s&#160;type to&#160;PT_TCS. This change must also&#160;be&#160;accepted. As with allocating&#160;a&#160;<br/>regular page, TCS&#160;allocation operations may be batched.&#160;<br/>A typical process for allocating a&#160;TCS page&#160;is as&#160;follows:&#160;<br/>1.&#160;Enclave&#160;requests&#160;an additional page&#160;from the&#160;OS.&#160;<br/>2.&#160;The OS&#160;invokes EAUG&#160;to add a&#160;new regular memory&#160;page&#160;to the&#160;enclave.&#160;</p>
+<p style="position:absolute;top:858px;left:94px;white-space:nowrap" class="ft07">a.&#160;EAUG may&#160;only&#160;be&#160;called on a&#160;free&#160;EPC page.&#160;<br/>b.&#160;Successful completion&#160;of the&#160;EAUG instruction places the&#160;target&#160;page in&#160;the VALID and PENDING state.&#160;</p>
+<p style="position:absolute;top:906px;left:69px;white-space:nowrap" class="ft05">3.&#160;The&#160;OS&#160;maps the&#160;page&#160;in&#160;the enclave context's&#160;mapping&#160;tables.<br/>4.&#160;The&#160;enclave&#160;issues&#160;an EACCEPT instruction,&#160;at which&#160;point the&#160;page becomes accessible&#160;for normal enclave&#160;</p>
+<p style="position:absolute;top:946px;left:94px;white-space:nowrap" class="ft03">use.&#160;</p>
+<p style="position:absolute;top:970px;left:69px;white-space:nowrap" class="ft05">5.&#160;The&#160;enclave&#160;initializes&#160;the&#160;contents&#160;of&#160;the new page.&#160;<br/>6.&#160;The enclave requests that&#160;the OS convert the&#160;page from type PT_REG to&#160;PT_TCS.&#160;<br/>7.&#160;OS&#160;issues&#160;an EMODT instruction on&#160;the page.&#160;</p>
+<p style="position:absolute;top:1042px;left:94px;white-space:nowrap" class="ft03">a.&#160;The parameters&#160;to EMODT&#160;indicate&#160;that the&#160;regular page&#160;should&#160;be converted into&#160;a TCS.&#160;</p>
+</div>
+</body>
+</html>

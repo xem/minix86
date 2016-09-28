@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1640</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1640-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811640.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:344px;white-space:nowrap" class="ft00">VPGATHERDQ/VPGATHERQQ — Gather&#160;Packed Qword Values Using Signed&#160;Dword/Qword Indices</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-254&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">(non-masked elements of&#160;the mask&#160;register&#160;have&#160;the content of&#160;respective element &#160;cleared)</p>
+<p style="position:absolute;top:136px;left:68px;white-space:nowrap" class="ft03">VPGATHERQQ (VEX.128 version)<br/>FOR j&#160;0 to 1</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64;<br/>IF MASK[63+i] THEN</p>
+<p style="position:absolute;top:208px;left:115px;white-space:nowrap" class="ft02">MASK[i +63:i]&#160;&#160;FFFFFFFF_FFFFFFFFH; // extend&#160;from most significant bit</p>
+<p style="position:absolute;top:226px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:244px;left:115px;white-space:nowrap" class="ft02">MASK[i +63:i]&#160;&#160;0;</p>
+<p style="position:absolute;top:262px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>FOR j&#160;0 to 1&#160;</p>
+<p style="position:absolute;top:316px;left:88px;white-space:nowrap" class="ft03">i&#160;j * 64;<br/>DATA_ADDR&#160;&#160;BASE_ADDR&#160;+ (SignExtend(VINDEX1[i+63:i])*SCALE + DISP;<br/>IF MASK[63+i] THEN</p>
+<p style="position:absolute;top:370px;left:115px;white-space:nowrap" class="ft02">DEST[i&#160;+63:i]&#160;&#160;FETCH_64BITS(DATA_ADDR); //&#160;a fault exits the instruction</p>
+<p style="position:absolute;top:388px;left:88px;white-space:nowrap" class="ft03">FI;<br/>MASK[i +63:i]&#160;&#160;0;</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>MASK[VLMAX-1:128]&#160;&#160;0;<br/>DEST[VLMAX-1:128]&#160;&#160;0;<br/>(non-masked elements of&#160;the mask&#160;register&#160;have&#160;the content of&#160;respective element &#160;cleared)</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft03">VPGATHERQQ (VEX.256 version)<br/>FOR j&#160;0 to 3</p>
+<p style="position:absolute;top:550px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64;<br/>IF MASK[63+i] THEN</p>
+<p style="position:absolute;top:586px;left:115px;white-space:nowrap" class="ft02">MASK[i +63:i]&#160;&#160;FFFFFFFF_FFFFFFFFH; // extend&#160;from most significant bit</p>
+<p style="position:absolute;top:604px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:622px;left:115px;white-space:nowrap" class="ft02">MASK[i +63:i]&#160;&#160;0;</p>
+<p style="position:absolute;top:640px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>FOR j&#160;0 to 3</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64;<br/>DATA_ADDR&#160;&#160;BASE_ADDR&#160;+ (SignExtend(VINDEX1[i+63:i])*SCALE + DISP;<br/>IF MASK[63+i] THEN</p>
+<p style="position:absolute;top:748px;left:115px;white-space:nowrap" class="ft02">DEST[i&#160;+63:i]&#160;&#160;FETCH_64BITS(DATA_ADDR); //&#160;a fault exits the instruction</p>
+<p style="position:absolute;top:766px;left:88px;white-space:nowrap" class="ft03">FI;<br/>MASK[i +63:i]&#160;&#160;0;</p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>(non-masked elements of&#160;the mask&#160;register&#160;have&#160;the content of&#160;respective element &#160;cleared)</p>
+<p style="position:absolute;top:856px;left:68px;white-space:nowrap" class="ft03">VPGATHERDQ&#160;(VEX.256&#160;version)<br/>FOR j&#160;0 to 3</p>
+<p style="position:absolute;top:892px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64;<br/>IF MASK[63+i] THEN</p>
+<p style="position:absolute;top:928px;left:115px;white-space:nowrap" class="ft02">MASK[i +63:i]&#160;&#160;FFFFFFFF_FFFFFFFFH; // extend&#160;from most significant bit</p>
+<p style="position:absolute;top:946px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:964px;left:115px;white-space:nowrap" class="ft02">MASK[i +63:i]&#160;&#160;0;</p>
+<p style="position:absolute;top:982px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>FOR j&#160;0 to 3</p>
+<p style="position:absolute;top:1036px;left:88px;white-space:nowrap" class="ft03">k&#160;&#160;j * 32;<br/>i&#160;&#160;j * 64;</p>
+</div>
+</body>
+</html>

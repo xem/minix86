@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1220</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1220-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811220.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:590px;white-space:nowrap" class="ft00">RDPMC—Read Performance-Monitoring Counters</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-540&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:118px;left:169px;white-space:nowrap" class="ft02">EAX&#160;←&#160;PMC(ECX[30:0])[31:0]; (* 40-bit read&#160;*)</p>
+<p style="position:absolute;top:136px;left:169px;white-space:nowrap" class="ft02">EDX&#160;←&#160;PMC(ECX[30:0])[39:32];</p>
+<p style="position:absolute;top:154px;left:115px;white-space:nowrap" class="ft02">ELSE (* ECX[31]&#160;</p>
+<p style="position:absolute;top:154px;left:210px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:154px;left:218px;white-space:nowrap" class="ft02">&#160;1*)</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:190px;left:169px;white-space:nowrap" class="ft02">EAX&#160;←&#160;PMC(ECX[30:0])[31:0]; (* 32-bit read&#160;*)</p>
+<p style="position:absolute;top:208px;left:169px;white-space:nowrap" class="ft02">EDX&#160;←&#160;0;</p>
+<p style="position:absolute;top:226px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:244px;left:88px;white-space:nowrap" class="ft02">ELSE IF&#160;(*64-bit Intel processor&#160;based&#160;on&#160;Intel NetBurst&#160;microarchitecture&#160;with&#160;L3&#160;*)</p>
+<p style="position:absolute;top:262px;left:115px;white-space:nowrap" class="ft02">THEN IF (ECX[30:0]&#160;</p>
+<p style="position:absolute;top:262px;left:229px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:262px;left:237px;white-space:nowrap" class="ft02">&#160;18:25 )</p>
+<p style="position:absolute;top:280px;left:142px;white-space:nowrap" class="ft02">EAX&#160;←&#160;PMC(ECX[30:0])[31:0]; (* 32-bit read&#160;*)</p>
+<p style="position:absolute;top:298px;left:142px;white-space:nowrap" class="ft02">EDX&#160;←&#160;0;</p>
+<p style="position:absolute;top:316px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:334px;left:88px;white-space:nowrap" class="ft02">ELSE (* Invalid PMC&#160;index&#160;in&#160;ECX[30:0], see<a href="o_b5573232dd8f1481-1325.html">&#160;Table 4-19</a></p>
+<p style="position:absolute;top:338px;left:398px;white-space:nowrap" class="ft03"><a href="o_b5573232dd8f1481-1325.html">.&#160;</a></p>
+<p style="position:absolute;top:334px;left:405px;white-space:nowrap" class="ft02">*)</p>
+<p style="position:absolute;top:352px;left:115px;white-space:nowrap" class="ft02">GP(0);&#160;</p>
+<p style="position:absolute;top:370px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft02">ELSE (* CR4.PCE = 0 and (CPL =&#160;1,&#160;2,&#160;or&#160;3)&#160;and CR0.PE = 1 *)</p>
+<p style="position:absolute;top:406px;left:88px;white-space:nowrap" class="ft02">#GP(0);&#160;</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft02">FI;&#160;</p>
+<p style="position:absolute;top:461px;left:68px;white-space:nowrap" class="ft04">Flags Affected</p>
+<p style="position:absolute;top:487px;left:68px;white-space:nowrap" class="ft02">None.</p>
+<p style="position:absolute;top:524px;left:68px;white-space:nowrap" class="ft04">Protected Mode Exceptions</p>
+<p style="position:absolute;top:547px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:547px;left:206px;white-space:nowrap" class="ft05">If&#160;the current&#160;privilege level&#160;is not 0 and&#160;the PCE flag&#160;in the&#160;CR4 register&#160;is clear.<br/>If an&#160;invalid performance&#160;counter index is&#160;specified (see<a href="o_b5573232dd8f1481-1217.html">&#160;Table&#160;4-16).</a></p>
+<p style="position:absolute;top:589px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:589px;left:206px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:626px;left:68px;white-space:nowrap" class="ft04">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:649px;left:68px;white-space:nowrap" class="ft02">#GP</p>
+<p style="position:absolute;top:649px;left:206px;white-space:nowrap" class="ft02">If an&#160;invalid performance&#160;counter index is&#160;specified (see<a href="o_b5573232dd8f1481-1217.html">&#160;Table&#160;4-16).</a></p>
+<p style="position:absolute;top:670px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:670px;left:206px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:707px;left:68px;white-space:nowrap" class="ft04">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:730px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:730px;left:206px;white-space:nowrap" class="ft05">If&#160;the PCE flag&#160;in the&#160;CR4 register&#160;is clear.<br/>If an&#160;invalid performance&#160;counter index is&#160;specified (see<a href="o_b5573232dd8f1481-1217.html">&#160;Table&#160;4-16).</a></p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:772px;left:206px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:809px;left:68px;white-space:nowrap" class="ft04">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:832px;left:68px;white-space:nowrap" class="ft02">Same exceptions&#160;as in&#160;protected mode.</p>
+<p style="position:absolute;top:869px;left:68px;white-space:nowrap" class="ft04">64-Bit Mode Exceptions</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:892px;left:206px;white-space:nowrap" class="ft05">If&#160;the current&#160;privilege level&#160;is not 0 and&#160;the PCE flag&#160;in the&#160;CR4 register&#160;is clear.<br/>If an&#160;invalid performance&#160;counter index is&#160;specified (see<a href="o_b5573232dd8f1481-1217.html">&#160;Table&#160;4-16).</a></p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:934px;left:206px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+</div>
+</body>
+</html>

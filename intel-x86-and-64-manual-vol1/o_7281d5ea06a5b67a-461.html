@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 461</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page461-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a461.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:776px;white-space:nowrap" class="ft00">Vol. 1&#160;E-19</p>
+<p style="position:absolute;top:47px;left:421px;white-space:nowrap" class="ft01">GUIDELINES FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION&#160;HANDLERS</p>
+<p style="position:absolute;top:106px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }</p>
+<p style="position:absolute;top:135px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;compute result and round to the destination precision, with</p>
+<p style="position:absolute;top:151px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;&#34;unbounded&#34; exponent (first IEEE rounding)</p>
+<p style="position:absolute;top:165px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; switch (exc_env-&gt;operation) {</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case ADDPS:</p>
+<p style="position:absolute;top:210px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case ADDSS:</p>
+<p style="position:absolute;top:225px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // perform the addition</p>
+<p style="position:absolute;top:241px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; __asm {</p>
+<p style="position:absolute;top:255px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fnclex;&#160;</p>
+<p style="position:absolute;top:270px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // load input operands</p>
+<p style="position:absolute;top:286px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd1; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:300px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd2; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:315px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; faddp st(1), st(0);&#160;// may set inexact or invalid status flags</p>
+<p style="position:absolute;top:331px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // store result</p>
+<p style="position:absolute;top:345px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fstp &#160;QWORD PTR dbl_res24; // exact</p>
+<p style="position:absolute;top:360px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; }</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; break;</p>
+<p style="position:absolute;top:405px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case SUBPS:</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case SUBSS:</p>
+<p style="position:absolute;top:435px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // perform the subtraction</p>
+<p style="position:absolute;top:450px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; __asm {</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fnclex;&#160;</p>
+<p style="position:absolute;top:480px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // load input operands</p>
+<p style="position:absolute;top:495px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd1; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd2; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:525px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fsubp st(1), st(0);&#160;// may set the inexact or&#160;invalid status flags</p>
+<p style="position:absolute;top:540px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;</p>
+<p style="position:absolute;top:556px;left:148px;white-space:nowrap" class="ft00">// store result</p>
+<p style="position:absolute;top:570px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fstp &#160;QWORD PTR dbl_res24; // exact</p>
+<p style="position:absolute;top:585px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; }</p>
+<p style="position:absolute;top:601px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; break;</p>
+<p style="position:absolute;top:630px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case MULPS:</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case MULSS:</p>
+<p style="position:absolute;top:660px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // perform the multiplication</p>
+<p style="position:absolute;top:675px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; __asm {</p>
+<p style="position:absolute;top:691px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fnclex;&#160;</p>
+<p style="position:absolute;top:706px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // load input operands</p>
+<p style="position:absolute;top:720px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd1; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:735px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd2; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:751px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fmulp st(1), st(0);&#160;// may set inexact or invalid status flags</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;</p>
+<p style="position:absolute;top:780px;left:148px;white-space:nowrap" class="ft00">// store result</p>
+<p style="position:absolute;top:796px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fstp &#160;QWORD PTR dbl_res24; // exact</p>
+<p style="position:absolute;top:810px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; }</p>
+<p style="position:absolute;top:825px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; break;</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case DIVPS:</p>
+<p style="position:absolute;top:870px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case DIVSS:</p>
+<p style="position:absolute;top:886px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // perform the division</p>
+<p style="position:absolute;top:900px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; __asm {</p>
+<p style="position:absolute;top:915px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fnclex;&#160;</p>
+<p style="position:absolute;top:931px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // load input operands</p>
+<p style="position:absolute;top:945px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd1; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:960px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd2; // may set denormal or&#160;invalid status flags</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fdivp st(1), st(0);&#160;// may set the inexact, divide by zero, or&#160;</p>
+<p style="position:absolute;top:990px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;// invalid status flags</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // store result</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fstp &#160;QWORD PTR dbl_res24; // exact</p>
+<p style="position:absolute;top:1035px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; }</p>
+<p style="position:absolute;top:1050px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; break;</p>
+</div>
+</body>
+</html>

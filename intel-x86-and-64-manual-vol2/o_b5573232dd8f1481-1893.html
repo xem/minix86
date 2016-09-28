@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1893</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1893-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811893.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VSCALEFPS—Scale Packed Float32 Values With&#160;Float32 Values</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-507</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:123px;left:69px;white-space:nowrap" class="ft03">SCALE(SRC1, SRC2)<br/>{</p>
+<p style="position:absolute;top:141px;left:143px;white-space:nowrap" class="ft02">;&#160;Check for&#160;denormal operands</p>
+<p style="position:absolute;top:159px;left:69px;white-space:nowrap" class="ft03">TMP_SRC2&#160;&#160;SRC2<br/>TMP_SRC1&#160;&#160;SRC1<br/>IF (SRC2 is denormal&#160;AND&#160;MXCSR.DAZ) THEN&#160;TMP_SRC2=0<br/>IF (SRC1 is denormal&#160;AND&#160;MXCSR.DAZ) THEN&#160;TMP_SRC1=0</p>
+<p style="position:absolute;top:231px;left:89px;white-space:nowrap" class="ft03">/*&#160;SRC2 is&#160;a&#160;32 bits floating-point value */<br/>DEST[31:0]&#160;&#160;TMP_SRC1[31:0] * POW(2, Floor(TMP_SRC2[31:0]))</p>
+<p style="position:absolute;top:267px;left:69px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:303px;left:69px;white-space:nowrap" class="ft03">VSCALEFPS (EVEX encoded&#160;versions)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>IF&#160;(VL =&#160;512)&#160;AND (EVEX.b&#160;= 1)&#160;AND (SRC2&#160;*is&#160;register*)</p>
+<p style="position:absolute;top:357px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:375px;left:116px;white-space:nowrap" class="ft02">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:393px;left:89px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:411px;left:116px;white-space:nowrap" class="ft02">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:429px;left:69px;white-space:nowrap" class="ft03">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:465px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:501px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:519px;left:170px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;SCALE(SRC1[i+31:i], SRC2[31:0]);<br/>ELSE DEST[i+31:i]&#160;&#160;SCALE(SRC1[i+31:i],&#160;SRC2[i+31:i]);</p>
+<p style="position:absolute;top:555px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:573px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:591px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:591px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:609px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:627px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:645px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:663px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:681px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:700px;left:69px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0;</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:777px;left:69px;white-space:nowrap" class="ft03">VSCALEFPS __m512&#160;_mm512_scalef_round_ps(__m512 a,&#160;__m512 b,&#160;int);<br/>VSCALEFPS __m512&#160;_mm512_mask_scalef_round_ps(__m512&#160;s, __mmask16&#160;k, __m512&#160;a, __m512&#160;b, int);<br/>VSCALEFPS __m512&#160;_mm512_maskz_scalef_round_ps(__mmask16&#160;k, __m512&#160;a, __m512&#160;b, int);<br/>VSCALEFPS __m256&#160;_mm256_scalef_round_ps(__m256 a,&#160;__m256 b,&#160;int);<br/>VSCALEFPS __m256&#160;_mm256_mask_scalef_round_ps(__m256&#160;s, __mmask8 k, __m256 a,&#160;__m256 b,&#160;int);<br/>VSCALEFPS __m256&#160;_mm256_maskz_scalef_round_ps(__mmask8 k, __m256 a,&#160;__m256 b,&#160;int);<br/>VSCALEFPS __m128&#160;_mm_scalef_round_ps(__m128 a, __m128 b,&#160;int);<br/>VSCALEFPS&#160;__m128&#160;_mm_mask_scalef_round_ps(__m128 s,&#160;__mmask8 k, __m128 a,&#160;__m128 b,&#160;int);<br/>VSCALEFPS __m128&#160;_mm_maskz_scalef_round_ps(__mmask8 k, __m128 a,&#160;__m128 b,&#160;int);</p>
+<p style="position:absolute;top:955px;left:69px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:978px;left:69px;white-space:nowrap" class="ft04">Overflow, Underflow, Invalid, Precision,&#160;Denormal (for Src1).<br/>Denormal is not reported for&#160;Src2.</p>
+<p style="position:absolute;top:1032px;left:69px;white-space:nowrap" class="ft01">Other Exceptions</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">See&#160;Exceptions Type&#160;E2.</p>
+</div>
+</body>
+</html>

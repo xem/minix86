@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 575</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page575-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce575.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 17</p>
+<p style="position:absolute;top:120px;left:181px;white-space:nowrap" class="ft01">DEBUG, BRANCH PROFILE, TSC, AND RESOURCE&#160;MONITORING</p>
+<p style="position:absolute;top:144px;left:724px;white-space:nowrap" class="ft01">FEATURES</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft06">Intel&#160;64&#160;and&#160;IA-32&#160;architectures provide debug&#160;facilities&#160;for use&#160;in debugging code and&#160;monitoring&#160;performance.&#160;<br/>These&#160;facilities&#160;are valuable for debugging application&#160;software, system&#160;software,&#160;and multitasking operating&#160;<br/>systems.&#160;Debug support is&#160;accessed using&#160;debug registers&#160;(DR0 through DR7)&#160;and model-specific&#160;registers&#160;<br/>(MSRs):&#160;</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:286px;left:93px;white-space:nowrap" class="ft06">Debug&#160;registers hold&#160;the addresses of memory and&#160;I/O&#160;locations&#160;called breakpoints.&#160;Breakpoints&#160;are&#160;user-<br/>selected&#160;locations&#160;in a&#160;program, a&#160;data-storage area&#160;in&#160;memory,&#160;or specific I/O&#160;ports.&#160;They are&#160;set&#160;where&#160;a&#160;<br/>programmer or&#160;system designer wishes to&#160;halt execution of a program&#160;and examine&#160;the state of&#160;the processor&#160;<br/>by invoking&#160;debugger software.&#160;A debug exception (#DB)&#160;is generated when a memory or&#160;I/O access is made&#160;<br/>to a&#160;breakpoint address.&#160;</p>
+<p style="position:absolute;top:374px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:375px;left:93px;white-space:nowrap" class="ft06">MSRs&#160;monitor&#160;branches, interrupts,&#160;and exceptions;&#160;they&#160;record addresses&#160;of&#160;the last branch, interrupt or&#160;<br/>exception taken&#160;and the&#160;last&#160;branch taken before an interrupt or exception.</p>
+<p style="position:absolute;top:413px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:414px;left:93px;white-space:nowrap" class="ft02">Time stamp counter is&#160;de<a href="o_fe12b1e2a880e0ce-614.html">scribed in Section 17.15, “Time-Stamp&#160;Counter”.</a></p>
+<p style="position:absolute;top:436px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:436px;left:93px;white-space:nowrap" class="ft06">Features&#160;which&#160;allow&#160;monitoring&#160;of shared&#160;platform resources&#160;such as&#160;the L3 cache&#160;are&#160;described&#160;<a href="o_fe12b1e2a880e0ce-616.html">in Section&#160;<br/>17.16, “Intel® Resource&#160;Director Technology&#160;(Intel® RDT)&#160;Monitoring Features”.</a></p>
+<p style="position:absolute;top:475px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:475px;left:93px;white-space:nowrap" class="ft06">Features which enable control over&#160;shared platform&#160;resources are described&#160;in&#160;<a href="o_fe12b1e2a880e0ce-623.html">Section 17.17, “Intel®&#160;Resource&#160;<br/>Director Technology&#160;(Intel®&#160;RDT) Allocation&#160;Features”.</a></p>
+<p style="position:absolute;top:547px;left:68px;white-space:nowrap" class="ft04">17.1&#160;</p>
+<p style="position:absolute;top:547px;left:147px;white-space:nowrap" class="ft04">OVERVIEW OF&#160;DEBUG SUPPORT FACILITIES</p>
+<p style="position:absolute;top:583px;left:68px;white-space:nowrap" class="ft02">The&#160;following processor&#160;facilities&#160;support&#160;debugging and&#160;performance monitoring:</p>
+<p style="position:absolute;top:605px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:606px;left:93px;white-space:nowrap" class="ft06"><b>Debug&#160;exception (#DB) —&#160;</b>Transfers program control to&#160;a debug&#160;procedure&#160;or task&#160;when&#160;a debug&#160;event&#160;<br/>occurs.</p>
+<p style="position:absolute;top:644px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:645px;left:93px;white-space:nowrap" class="ft05"><b>Breakpoint exception (#BP) —&#160;</b>See breakpoint instruction (INT&#160;3)&#160;below.</p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:667px;left:93px;white-space:nowrap" class="ft05"><b>Breakpoint-address registers (DR0 through DR3) —&#160;</b>Specifies&#160;the addresses of up&#160;to 4&#160;breakpoints.</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:690px;left:93px;white-space:nowrap" class="ft06"><b>Debug&#160;status&#160;register&#160;(DR6) —&#160;</b>Reports the&#160;conditions that&#160;were in&#160;effect when a&#160;debug or breakpoint&#160;<br/>exception was&#160;generated.</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:729px;left:93px;white-space:nowrap" class="ft06"><b>Debug&#160;control register (DR7) —&#160;</b>Specifies&#160;the&#160;forms of memory or I/O&#160;access&#160;that cause&#160;breakpoints&#160;to be&#160;<br/>generated.</p>
+<p style="position:absolute;top:767px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:768px;left:93px;white-space:nowrap" class="ft06"><b>T (trap) flag,&#160;TSS&#160;—&#160;</b>Generates&#160;a debug&#160;exception&#160;(#DB) when an attempt is&#160;made&#160;to switch to&#160;a&#160;task&#160;with&#160;<br/>the&#160;T flag set&#160;in its&#160;TSS.</p>
+<p style="position:absolute;top:806px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:807px;left:93px;white-space:nowrap" class="ft05"><b>RF (resume) flag,&#160;EFLAGS&#160;register&#160;—</b>&#160;Suppresses multiple&#160;exceptions&#160;to the&#160;same&#160;instruction.</p>
+<p style="position:absolute;top:829px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:829px;left:93px;white-space:nowrap" class="ft06"><b>TF (trap)&#160;flag, EFLAGS register —&#160;</b>Generates a&#160;debug exception&#160;(#DB)&#160;after every execution&#160;of an&#160;<br/>instruction.</p>
+<p style="position:absolute;top:868px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:868px;left:93px;white-space:nowrap" class="ft06"><b>Breakpoint instruction&#160;(INT 3) —&#160;</b>Generates a breakpoint exception (#BP) that transfers program control to&#160;<br/>the&#160;debugger procedure&#160;or task.&#160;This instruction is&#160;an alternative way to&#160;set code breakpoints.&#160;It is&#160;especially&#160;<br/>useful&#160;when&#160;more&#160;than&#160;four breakpoints&#160;are desired,&#160;or&#160;when&#160;breakpoints are being placed&#160;in the source&#160;code.</p>
+<p style="position:absolute;top:923px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:924px;left:93px;white-space:nowrap" class="ft06"><b>Last branch recording facilities&#160;</b>— Store&#160;branch&#160;records&#160;in the&#160;last branch record (LBR)&#160;stack MSRs&#160;for&#160;the&#160;<br/>most&#160;recent&#160;taken branches, interrupts, and/or&#160;exceptions in&#160;MSRs. A branch record consist&#160;of&#160;a branch-from&#160;<br/>and a&#160;branch-to instruction address. Send&#160;branch&#160;records out on&#160;the system&#160;bus&#160;as&#160;branch trace messages&#160;<br/>(BTMs).</p>
+<p style="position:absolute;top:997px;left:68px;white-space:nowrap" class="ft06">These facilities allow a&#160;debugger&#160;to be called as&#160;a&#160;separate&#160;task or&#160;as a&#160;procedure&#160;in the&#160;context of the&#160;current&#160;<br/>program or&#160;task. The following conditions&#160;can&#160;be&#160;used&#160;to invoke&#160;the debugger:</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1036px;left:93px;white-space:nowrap" class="ft02">Task switch to&#160;a&#160;specific&#160;task.</p>
+<p style="position:absolute;top:1058px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1059px;left:93px;white-space:nowrap" class="ft02">Execution of the&#160;breakpoint&#160;instruction.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 755</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft013{font-size:8px;line-height:9px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page755-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce755.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:754px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-119</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft09">Each&#160;counter has an&#160;associated external&#160;pin (PM0/BP0&#160;and PM1/BP1), which can be used to&#160;indicate&#160;the state of&#160;<br/>the counter&#160;to external&#160;hardware.</p>
+<p style="position:absolute;top:151px;left:428px;white-space:nowrap" class="ft03">NOTES</p>
+<p style="position:absolute;top:177px;left:122px;white-space:nowrap" class="ft09">The CESR,&#160;CTR0,&#160;and&#160;CTR1&#160;MSRs&#160;and the&#160;events&#160;listed in<a href="o_fe12b1e2a880e0ce-970.html">&#160;Table&#160;19-38 are</a>&#160;model-specific&#160;for the&#160;<br/>Pentium processor.</p>
+<p style="position:absolute;top:235px;left:122px;white-space:nowrap" class="ft09">The performance-monitoring&#160;events listed&#160;in<a href="o_fe12b1e2a880e0ce-757.html">&#160;Chapter 19</a>&#160;are intended&#160;to&#160;be&#160;used&#160;as&#160;guides&#160;for&#160;<br/>performance tuning. Counter&#160;values reported&#160;are&#160;not guaranteed&#160;to be accurate and&#160;should be&#160;<br/>used&#160;as a&#160;relative guide for tuning. Known&#160;discrepancies are&#160;documented&#160;where applicable.</p>
+<p style="position:absolute;top:319px;left:69px;white-space:nowrap" class="ft04">18.23.1&#160;&#160;Control and Event Select Register (CESR)</p>
+<p style="position:absolute;top:349px;left:69px;white-space:nowrap" class="ft09">The 32-bit control&#160;and&#160;event select MSR&#160;(CESR) controls&#160;the operation of performance-monitoring&#160;counters CTR0&#160;<br/>and CTR1&#160;and&#160;the associated&#160;pins (see<a href="o_fe12b1e2a880e0ce-755.html">&#160;Figure&#160;18-61).&#160;</a>To&#160;control each counter,&#160;the CESR&#160;register&#160;contains a&#160;6-bit&#160;<br/>event&#160;select field&#160;(ES0&#160;and ES1),&#160;a pin&#160;control flag&#160;(PC0&#160;and&#160;PC1),&#160;and&#160;a 3-bit counter control&#160;field (CC0 and&#160;CC1).&#160;<br/>The&#160;functions of these fields&#160;are&#160;as&#160;follows:</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:421px;left:95px;white-space:nowrap" class="ft09"><b>ES0&#160;and ES1 (event&#160;select)&#160;fields (bits&#160;0-5,&#160;bits&#160;16-21) —&#160;</b>Selects (by entering&#160;an&#160;event&#160;code&#160;in the&#160;field)&#160;<br/>up to&#160;two&#160;events&#160;to be monitored.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-970.html">Table&#160;19-38 for a&#160;</a>list of&#160;available event codes.</p>
+<p style="position:absolute;top:740px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:741px;left:95px;white-space:nowrap" class="ft09"><b>CC0 and CC1 (counter&#160;control) fields&#160;(bits 6-8,&#160;bits 22-24)&#160;—&#160;</b>Controls&#160;the operation of&#160;the counter.&#160;<br/>Control codes are as&#160;follows:</p>
+<p style="position:absolute;top:782px;left:146px;white-space:nowrap" class="ft010">000 — Count&#160;nothing (counter&#160;disabled)<br/>001&#160;— Count&#160;the&#160;selected&#160;event while&#160;CPL is&#160;0,&#160;1,&#160;or&#160;2<br/>010&#160;— Count&#160;the&#160;selected&#160;event while&#160;CPL is&#160;3<br/>011&#160;— Count&#160;the&#160;selected&#160;event regardless of CPL<br/>100 — Count&#160;nothing (counter&#160;disabled)<br/>101&#160;— Count&#160;clocks (duration)&#160;while&#160;CPL&#160;is 0,&#160;1,&#160;or 2<br/>110&#160;— Count&#160;clocks (duration)&#160;while&#160;CPL&#160;is 3<br/>111&#160;—&#160;Count clocks&#160;(duration)&#160;regardless of CPL</p>
+<p style="position:absolute;top:972px;left:95px;white-space:nowrap" class="ft09">The&#160;highest order bit selects between counting&#160;events&#160;and counting&#160;clocks&#160;(duration);&#160;the middle bit enables&#160;<br/>counting when the&#160;CPL&#160;is 3;&#160;and&#160;the&#160;low-order bit enables&#160;counting&#160;when&#160;the CPL is&#160;0,&#160;1, or&#160;2.</p>
+<p style="position:absolute;top:1010px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1011px;left:95px;white-space:nowrap" class="ft09"><b>PC0 and&#160;PC1 (pin control)&#160;flags (bits 9, 25) —&#160;</b>Selects the function&#160;of the external performance-monitoring&#160;<br/>counter pin (PM0/BP0&#160;and PM1/BP1).&#160;Setting one&#160;of&#160;these flags&#160;to 1&#160;causes&#160;the processor to&#160;assert its&#160;<br/>associated&#160;pin when&#160;the counter&#160;has overflowed;&#160;setting&#160;the flag&#160;to 0&#160;causes&#160;the pin to&#160;be&#160;asserted&#160;when&#160;the&#160;<br/>counter has&#160;been&#160;incremented.&#160;These&#160;flags permit the&#160;pins to&#160;be&#160;individually programmed&#160;to indicate&#160;the&#160;</p>
+<p style="position:absolute;top:695px;left:283px;white-space:nowrap" class="ft07">Figure&#160;18-61. &#160;CESR&#160;MSR (Pentium&#160;Processor&#160;Only)</p>
+<p style="position:absolute;top:497px;left:278px;white-space:nowrap" class="ft08">31</p>
+<p style="position:absolute;top:577px;left:223px;white-space:nowrap" class="ft012">PC1—Pin control 1<br/>CC1—Counter&#160;control 1</p>
+<p style="position:absolute;top:605px;left:224px;white-space:nowrap" class="ft00">ES1—Event select 1</p>
+<p style="position:absolute;top:619px;left:223px;white-space:nowrap" class="ft00">PC0—Pin control 0</p>
+<p style="position:absolute;top:497px;left:577px;white-space:nowrap" class="ft08">8</p>
+<p style="position:absolute;top:497px;left:674px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:633px;left:223px;white-space:nowrap" class="ft012">CC0—Counter&#160;control 0<br/>ES0—Event select 0</p>
+<p style="position:absolute;top:497px;left:469px;white-space:nowrap" class="ft08">16&#160;15</p>
+<p style="position:absolute;top:497px;left:420px;white-space:nowrap" class="ft08">21</p>
+<p style="position:absolute;top:497px;left:406px;white-space:nowrap" class="ft08">22</p>
+<p style="position:absolute;top:497px;left:374px;white-space:nowrap" class="ft08">24</p>
+<p style="position:absolute;top:669px;left:269px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:497px;left:566px;white-space:nowrap" class="ft08">9</p>
+<p style="position:absolute;top:497px;left:626px;white-space:nowrap" class="ft08">5</p>
+<p style="position:absolute;top:497px;left:615px;white-space:nowrap" class="ft08">6</p>
+<p style="position:absolute;top:525px;left:644px;white-space:nowrap" class="ft08">ESO</p>
+<p style="position:absolute;top:525px;left:588px;white-space:nowrap" class="ft08">CC0</p>
+<p style="position:absolute;top:517px;left:566px;white-space:nowrap" class="ft013">P<br/>C</p>
+<p style="position:absolute;top:537px;left:566px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:525px;left:439px;white-space:nowrap" class="ft08">ES1</p>
+<p style="position:absolute;top:525px;left:384px;white-space:nowrap" class="ft08">CC1</p>
+<p style="position:absolute;top:518px;left:361px;white-space:nowrap" class="ft013">P<br/>C</p>
+<p style="position:absolute;top:537px;left:362px;white-space:nowrap" class="ft08">1</p>
+<p style="position:absolute;top:497px;left:359px;white-space:nowrap" class="ft08">25</p>
+<p style="position:absolute;top:497px;left:346px;white-space:nowrap" class="ft08">26</p>
+<p style="position:absolute;top:497px;left:552px;white-space:nowrap" class="ft08">10</p>
+</div>
+</body>
+</html>

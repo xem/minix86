@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 79</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page79-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481079.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 2A&#160;2-19</p>
+<p style="position:absolute;top:47px;left:706px;white-space:nowrap" class="ft01">INSTRUCTION FORMAT</p>
+<p style="position:absolute;top:100px;left:338px;white-space:nowrap" class="ft02">Table 2-12.&#160;&#160;VEX.pp&#160;interpretation</p>
+<p style="position:absolute;top:260px;left:69px;white-space:nowrap" class="ft03">2.3.7&#160;</p>
+<p style="position:absolute;top:260px;left:149px;white-space:nowrap" class="ft03">The Opcode Byte</p>
+<p style="position:absolute;top:288px;left:69px;white-space:nowrap" class="ft07">One (and&#160;only&#160;one) opcode&#160;byte follows the&#160;2 or&#160;3 byte VEX. Legal&#160;opcodes are&#160;specified&#160;in Appendix B,&#160;in color.&#160;<br/>Any instruction that&#160;uses&#160;illegal opcode&#160;will&#160;#UD.</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft03">2.3.8&#160;</p>
+<p style="position:absolute;top:355px;left:149px;white-space:nowrap" class="ft03">The MODRM, SIB, and Displacement Bytes</p>
+<p style="position:absolute;top:382px;left:69px;white-space:nowrap" class="ft04">The encodings are&#160;unchanged&#160;but the&#160;interpretation&#160;of reg_field&#160;or&#160;rm_field differs&#160;(see&#160;above).</p>
+<p style="position:absolute;top:433px;left:69px;white-space:nowrap" class="ft03">2.3.9&#160;</p>
+<p style="position:absolute;top:433px;left:149px;white-space:nowrap" class="ft03">The Third Source&#160;Operand (Immediate Byte)</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft07">VEX-encoded instructions can support instruction with&#160;a four operand syntax. VBLENDVPD,&#160;VBLENDVPS,&#160;and&#160;<br/>PBLENDVB&#160;use imm8[7:4] to&#160;encode&#160;one of the&#160;source registers.&#160;</p>
+<p style="position:absolute;top:527px;left:69px;white-space:nowrap" class="ft03">2.3.10&#160;</p>
+<p style="position:absolute;top:527px;left:149px;white-space:nowrap" class="ft03">AVX Instructions and the Upper 128-bits of&#160;YMM registers</p>
+<p style="position:absolute;top:555px;left:69px;white-space:nowrap" class="ft07">If&#160;an instruction&#160;with a destination XMM register&#160;is&#160;encoded with&#160;a&#160;VEX prefix, the processor zeroes the&#160;upper bits&#160;<br/>(above bit 128)&#160;of&#160;the equivalent YMM&#160;register.&#160;Legacy&#160;SSE instructions without VEX preserve&#160;the upper bits.</p>
+<p style="position:absolute;top:616px;left:69px;white-space:nowrap" class="ft05">2.3.10.1 &#160;&#160;Vector&#160;Length Transition&#160;and Programming Considerations&#160;</p>
+<p style="position:absolute;top:641px;left:69px;white-space:nowrap" class="ft04">An instruction encoded&#160;with a&#160;VEX.128 prefix&#160;that&#160;loads a&#160;YMM&#160;register operand operates as&#160;follows:</p>
+<p style="position:absolute;top:663px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:664px;left:95px;white-space:nowrap" class="ft04">Data is&#160;loaded&#160;into bits 127:0&#160;of&#160;the register</p>
+<p style="position:absolute;top:685px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:686px;left:95px;white-space:nowrap" class="ft04">Bits&#160;above bit 127 in&#160;the register&#160;are cleared.</p>
+<p style="position:absolute;top:707px;left:69px;white-space:nowrap" class="ft07">Thus, such an instruction&#160;clears bits 255:128 of a destination YMM register&#160;on&#160;processors with&#160;a maximum vector-<br/>register&#160;width of 256&#160;bits.&#160;In the&#160;event&#160;that&#160;future&#160;processors extend&#160;the vector&#160;registers to&#160;greater widths,&#160;an&#160;<br/>instruction&#160;encoded with a&#160;VEX.128&#160;or VEX.256&#160;prefix will also&#160;clear&#160;any bits beyond&#160;bit 255. (This&#160;is in&#160;contrast&#160;<br/>with legacy SSE instructions,&#160;which have&#160;no VEX&#160;prefix; these&#160;modify&#160;only&#160;bits&#160;127:0&#160;of any destination register&#160;<br/>operand.)<br/>Programmers&#160;should bear in mind&#160;that instructions encoded&#160;with VEX.128&#160;and&#160;VEX.256&#160;prefixes&#160;will clear&#160;any&#160;<br/>future extensions to&#160;the vector registers.&#160;A calling function&#160;that&#160;uses such&#160;extensions should save&#160;their state before&#160;<br/>calling legacy&#160;functions. This&#160;is not&#160;possible for involuntary&#160;calls (e.g.,&#160;into an interrupt-service routine). It&#160;is&#160;<br/>recommended that software handling involuntary calls&#160;accommodate this by&#160;not executing&#160;instructions&#160;encoded&#160;<br/>with VEX.128&#160;and VEX.256&#160;prefixes. In&#160;the event&#160;that&#160;it&#160;is not possible&#160;or desirable&#160;to restrict these&#160;instructions,&#160;<br/>then software must take&#160;special&#160;care&#160;to avoid&#160;actions&#160;that&#160;would, on&#160;future&#160;processors, zero&#160;the upper bits of&#160;<br/>vector registers.&#160;<br/>Processors&#160;that support further vector-register extensions&#160;(defining bits beyond&#160;bit&#160;255)&#160;will also&#160;extend the&#160;<br/>XSAVE and XRSTOR&#160;instructions to&#160;save&#160;and&#160;restore these&#160;extensions.&#160;To ensure&#160;forward compatibility, software&#160;<br/>that&#160;handles involuntary&#160;calls and that uses instructions&#160;encoded&#160;with&#160;VEX.128 and&#160;VEX.256&#160;prefixes should&#160;first&#160;<br/>save and&#160;then restore&#160;the&#160;vector registers&#160;(with any extensions) using&#160;the XSAVE&#160;and XRSTOR instructions with&#160;<br/>save/restore masks that set&#160;bits that correspond&#160;to all&#160;vector-register extensions. Ideally, software should&#160;rely on&#160;<br/>a mechanism that&#160;is cognizant of which bits to set.&#160;(E.g.,&#160;an&#160;OS mechanism&#160;that&#160;sets&#160;the save/restore mask bits&#160;<br/>for&#160;all vector-register extensions that are enabled in XCR0.)&#160;Saving&#160;and restoring state with instructions other than&#160;<br/>XSAVE and XRSTOR will, on future processors&#160;with wider vector registers, corrupt the extended&#160;state of the vector&#160;<br/>registers - even if doing so functions&#160;correctly on processors supporting&#160;256-bit vector registers. (The same is true&#160;</p>
+<p style="position:absolute;top:119px;left:174px;white-space:nowrap" class="ft04">pp</p>
+<p style="position:absolute;top:119px;left:402px;white-space:nowrap" class="ft04">Implies&#160;this prefix after other&#160;prefixes&#160;but before&#160;VEX</p>
+<p style="position:absolute;top:141px;left:170px;white-space:nowrap" class="ft04">00B</p>
+<p style="position:absolute;top:141px;left:550px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:162px;left:170px;white-space:nowrap" class="ft04">01B</p>
+<p style="position:absolute;top:162px;left:557px;white-space:nowrap" class="ft04">66</p>
+<p style="position:absolute;top:182px;left:170px;white-space:nowrap" class="ft04">10B</p>
+<p style="position:absolute;top:182px;left:557px;white-space:nowrap" class="ft04">F3</p>
+<p style="position:absolute;top:204px;left:170px;white-space:nowrap" class="ft04">11B</p>
+<p style="position:absolute;top:204px;left:557px;white-space:nowrap" class="ft04">F2</p>
+</div>
+</body>
+</html>

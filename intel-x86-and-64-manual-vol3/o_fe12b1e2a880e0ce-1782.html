@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1782</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1782-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1782.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">38-12&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE ACCESS&#160;CONTROL&#160;AND DATA STRUCTURES</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">38.11.2&#160;&#160;PAGE_TYPE Field Definition</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft03">The SECINFO&#160;flags and&#160;EPC&#160;flags contain&#160;bits indicating the&#160;type&#160;of page.&#160;</p>
+<p style="position:absolute;top:385px;left:68px;white-space:nowrap" class="ft04">38.12&#160;&#160;PAGING CRYPTO&#160;METADATA (PCMD)</p>
+<p style="position:absolute;top:420px;left:68px;white-space:nowrap" class="ft07">The PCMD structure&#160;is used to&#160;keep track&#160;of&#160;crypto meta-data associated with a&#160;paged-out page. Combined&#160;with&#160;<br/>PAGEINFO,&#160;it provides&#160;enough&#160;information for the&#160;processor to&#160;verify,&#160;decrypt,&#160;and reload a&#160;paged-out EPC page.&#160;<br/>The&#160;size of the&#160;PCMD&#160;structure (128&#160;bytes) is&#160;architectural.&#160;<br/>EWB&#160;calculates&#160;the Message Authentication&#160;Code (MAC) value&#160;and&#160;writes out&#160;the PCMD.&#160;ELDB/U&#160;reads&#160;the fields&#160;<br/>and checks&#160;the MAC.<br/>The format of&#160;PCMD is&#160;as follows:</p>
+<p style="position:absolute;top:760px;left:68px;white-space:nowrap" class="ft04">38.13&#160;&#160;ENCLAVE SIGNATURE STRUCTURE (SIGSTRUCT)</p>
+<p style="position:absolute;top:795px;left:68px;white-space:nowrap" class="ft07">SIGSTRUCT is&#160;a structure&#160;created&#160;and&#160;signed&#160;by the&#160;enclave&#160;developer that contains&#160;information about&#160;the&#160;<br/>enclave.&#160;SIGSTRUCT&#160;is processed&#160;by the&#160;EINIT leaf&#160;function to&#160;verify that&#160;the enclave was&#160;properly&#160;built.<br/>SIGSTRUCT includes&#160;ENCLAVEHASH as SHA256&#160;digest,&#160;as defined in FIPS&#160;PUB&#160;180-4.&#160;The digests are&#160;byte strings&#160;<br/>of&#160;length&#160;32.&#160;Each of the&#160;8&#160;HASH dwords&#160;is stored&#160;in&#160;little-endian order.<br/>SIGSTRUCT includes&#160;four 3072-bit integers (MODULUS,&#160;SIGNATURE,&#160;Q1,&#160;Q2).&#160;Each such integer&#160;is represented&#160;as&#160;<br/>a byte&#160;strings of&#160;length 384, with the&#160;most&#160;significant byte&#160;at the&#160;position “offset + 383”, and the&#160;least significant&#160;<br/>byte at&#160;position “offset”.<br/>The (3072-bit integer) SIGNATURE should&#160;be&#160;an&#160;RSA&#160;signature, where: a) the RSA modulus&#160;(MODULUS) is a 3072-<br/>bit integer; b) the public exponent is&#160;set to 3; c) the&#160;signing procedure uses&#160;the&#160;EMSA-PKCS1-v1.5 format&#160;with DER&#160;<br/>encoding of&#160;the “DigestInfo”&#160;value as&#160;specified in&#160;of&#160;PKCS#1 v2.1/RFC&#160;3447.<br/>The 3072-bit integers Q1&#160;and&#160;Q2 are&#160;defined by:<br/>q1 = floor(Signature^2&#160;/&#160;Modulus);<br/>q2 = floor((Signature^3 -&#160;q1&#160;* Signature&#160;* Modulus)&#160;/ Modulus);<br/>SIGSTRUCT must be&#160;page&#160;aligned</p>
+<p style="position:absolute;top:169px;left:330px;white-space:nowrap" class="ft05">Table 38-17.&#160;&#160;Supported PAGE_TYPE</p>
+<p style="position:absolute;top:190px;left:112px;white-space:nowrap" class="ft03">TYPE</p>
+<p style="position:absolute;top:190px;left:213px;white-space:nowrap" class="ft03">Value</p>
+<p style="position:absolute;top:190px;left:520px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:213px;left:73px;white-space:nowrap" class="ft03">PT_SECS</p>
+<p style="position:absolute;top:213px;left:192px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:213px;left:277px;white-space:nowrap" class="ft03">Page&#160;is&#160;an&#160;SECS.</p>
+<p style="position:absolute;top:235px;left:73px;white-space:nowrap" class="ft03">PT_TCS</p>
+<p style="position:absolute;top:235px;left:192px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:235px;left:277px;white-space:nowrap" class="ft03">Page&#160;is&#160;a TCS.</p>
+<p style="position:absolute;top:258px;left:73px;white-space:nowrap" class="ft03">PT_REG</p>
+<p style="position:absolute;top:258px;left:192px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:258px;left:277px;white-space:nowrap" class="ft03">Page is&#160;a&#160;regular&#160;page.</p>
+<p style="position:absolute;top:280px;left:73px;white-space:nowrap" class="ft03">PT_VA</p>
+<p style="position:absolute;top:280px;left:192px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:280px;left:277px;white-space:nowrap" class="ft03">Page&#160;is&#160;a Version Array.</p>
+<p style="position:absolute;top:303px;left:73px;white-space:nowrap" class="ft03">PT_TRIM</p>
+<p style="position:absolute;top:303px;left:192px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:303px;left:277px;white-space:nowrap" class="ft03">Page&#160;is&#160;in&#160;trimmed state.</p>
+<p style="position:absolute;top:325px;left:192px;white-space:nowrap" class="ft03">All other</p>
+<p style="position:absolute;top:325px;left:277px;white-space:nowrap" class="ft03">Reserved.</p>
+<p style="position:absolute;top:556px;left:302px;white-space:nowrap" class="ft05">Table 38-18. &#160;Layout&#160;of&#160;PCMD&#160;Data&#160;Structure</p>
+<p style="position:absolute;top:577px;left:110px;white-space:nowrap" class="ft03">Field</p>
+<p style="position:absolute;top:577px;left:188px;white-space:nowrap" class="ft03">OFFSET (Bytes)&#160;Size (Bytes)</p>
+<p style="position:absolute;top:577px;left:573px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:600px;left:74px;white-space:nowrap" class="ft03">SECINFO</p>
+<p style="position:absolute;top:600px;left:184px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:600px;left:296px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:600px;left:384px;white-space:nowrap" class="ft03">Flags describing&#160;the&#160;state of&#160;the enclave&#160;page; R/W&#160;by software.</p>
+<p style="position:absolute;top:622px;left:74px;white-space:nowrap" class="ft03">ENCLAVEID</p>
+<p style="position:absolute;top:622px;left:184px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:622px;left:296px;white-space:nowrap" class="ft03">8</p>
+<p style="position:absolute;top:622px;left:384px;white-space:nowrap" class="ft03">Enclave Identifier&#160;used&#160;to&#160;establish a&#160;cryptographic binding&#160;between&#160;paged-out&#160;</p>
+<p style="position:absolute;top:639px;left:384px;white-space:nowrap" class="ft03">page&#160;and the enclave.</p>
+<p style="position:absolute;top:661px;left:74px;white-space:nowrap" class="ft03">RESERVED</p>
+<p style="position:absolute;top:661px;left:184px;white-space:nowrap" class="ft03">72</p>
+<p style="position:absolute;top:661px;left:296px;white-space:nowrap" class="ft03">40</p>
+<p style="position:absolute;top:661px;left:384px;white-space:nowrap" class="ft03">Must&#160;be&#160;zero.</p>
+<p style="position:absolute;top:684px;left:74px;white-space:nowrap" class="ft03">MAC</p>
+<p style="position:absolute;top:684px;left:184px;white-space:nowrap" class="ft03">112</p>
+<p style="position:absolute;top:684px;left:296px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:684px;left:384px;white-space:nowrap" class="ft03">Message Authentication Code</p>
+<p style="position:absolute;top:684px;left:583px;white-space:nowrap" class="ft03">&#160;for the&#160;page, page&#160;meta-data&#160;and&#160;reserved&#160;</p>
+<p style="position:absolute;top:700px;left:384px;white-space:nowrap" class="ft03">field.</p>
+</div>
+</body>
+</html>

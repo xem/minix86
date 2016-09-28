@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1961</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1961-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1961.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 3D&#160;C-1</p>
+<p style="position:absolute;top:96px;left:705px;white-space:nowrap" class="ft01">APPENDIX C</p>
+<p style="position:absolute;top:120px;left:552px;white-space:nowrap" class="ft01">VMX BASIC EXIT REASONS</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft04">Every VM&#160;exit writes a&#160;32-bit exit&#160;reason to&#160;the VMCS&#160;(see<a href="o_fe12b1e2a880e0ce-1067.html">&#160;Section 24.9.1). Certain VM-entry failures&#160;</a>also do this&#160;<br/>(see<a href="o_fe12b1e2a880e0ce-1117.html">&#160;Section 26.7</a>). The low 16 bits of the exit-reason field&#160;form the basic exit reason which provides&#160;basic informa-<br/>tion&#160;about the&#160;cause of the VM&#160;exit&#160;or VM-entry failure.<br/><a href="o_fe12b1e2a880e0ce-1961.html">Table&#160;C-1</a>&#160;lists&#160;values for&#160;basic&#160;exit reasons and explains&#160;their meaning. Entries&#160;apply&#160;to VM&#160;exits, unless otherwise&#160;<br/>noted.</p>
+<p style="position:absolute;top:298px;left:349px;white-space:nowrap" class="ft03">Table C-1.&#160;&#160;Basic Exit Reasons&#160;</p>
+<p style="position:absolute;top:319px;left:74px;white-space:nowrap" class="ft02">Basic Exit&#160;</p>
+<p style="position:absolute;top:334px;left:74px;white-space:nowrap" class="ft02">Reason</p>
+<p style="position:absolute;top:334px;left:171px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:357px;left:74px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:357px;left:171px;white-space:nowrap" class="ft06">Exception or non-maskable&#160;interrupt&#160;(NMI).&#160;Either:<br/>1:&#160;Guest software&#160;caused&#160;an&#160;exception&#160;and&#160;the bit&#160;in the&#160;exception bitmap associated with&#160;exception’s vector&#160;was 1.</p>
+<p style="position:absolute;top:394px;left:171px;white-space:nowrap" class="ft02">2:&#160;An&#160;NMI was&#160;delivered to&#160;the&#160;logical&#160;processor and the&#160;“NMI exiting” VM-execution&#160;control was&#160;1.&#160;This case includes&#160;</p>
+<p style="position:absolute;top:411px;left:189px;white-space:nowrap" class="ft02">executions&#160;of&#160;BOUND that&#160;cause&#160;#BR,&#160;executions&#160;of&#160;INT3&#160;(they cause&#160;#BP),&#160;executions&#160;of&#160;INTO&#160;that&#160;cause&#160;#OF,&#160;</p>
+<p style="position:absolute;top:427px;left:189px;white-space:nowrap" class="ft02">and executions of&#160;UD2&#160;(they cause #UD).</p>
+<p style="position:absolute;top:450px;left:74px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:450px;left:171px;white-space:nowrap" class="ft02">External&#160;interrupt.&#160;An&#160;external&#160;interrupt arrived&#160;and the&#160;“external-interrupt&#160;exiting”&#160;VM-execution&#160;control was 1.</p>
+<p style="position:absolute;top:472px;left:74px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:472px;left:171px;white-space:nowrap" class="ft02">Triple&#160;fault.&#160;The logical processor encountered&#160;an&#160;exception&#160;while attempting&#160;to&#160;call the&#160;double-fault handler&#160;and&#160;</p>
+<p style="position:absolute;top:489px;left:171px;white-space:nowrap" class="ft02">that&#160;exception did&#160;not&#160;itself cause a&#160;VM&#160;exit&#160;due to the exception bitmap.</p>
+<p style="position:absolute;top:511px;left:74px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:511px;left:171px;white-space:nowrap" class="ft02">INIT signal.&#160;An INIT signal arrived</p>
+<p style="position:absolute;top:534px;left:74px;white-space:nowrap" class="ft02">4</p>
+<p style="position:absolute;top:534px;left:171px;white-space:nowrap" class="ft02">Start-up IPI&#160;(SIPI).&#160;A&#160;SIPI arrived while the logical processor was in the “wait-for-SIPI” state.</p>
+<p style="position:absolute;top:556px;left:74px;white-space:nowrap" class="ft02">5</p>
+<p style="position:absolute;top:556px;left:171px;white-space:nowrap" class="ft02">I/O system-management interrupt&#160;(SMI).&#160;An&#160;SMI&#160;arrived&#160;immediately&#160;after&#160;retirement&#160;of&#160;an&#160;I/O&#160;instruction&#160;and&#160;</p>
+<p style="position:absolute;top:573px;left:171px;white-space:nowrap" class="ft02">caused&#160;an&#160;SMM&#160;VM&#160;exit (see<a href="o_fe12b1e2a880e0ce-1269.html">&#160;Section 34.15.2).</a></p>
+<p style="position:absolute;top:595px;left:74px;white-space:nowrap" class="ft02">6</p>
+<p style="position:absolute;top:595px;left:171px;white-space:nowrap" class="ft02">Other SMI.&#160;An&#160;SMI arrived and&#160;caused&#160;an&#160;SMM&#160;VM&#160;exit&#160;(see<a href="o_fe12b1e2a880e0ce-1269.html">&#160;Section 34.15.2) b</a>ut not immediately after&#160;retirement&#160;of&#160;</p>
+<p style="position:absolute;top:612px;left:171px;white-space:nowrap" class="ft02">an&#160;I/O instruction.</p>
+<p style="position:absolute;top:634px;left:74px;white-space:nowrap" class="ft02">7</p>
+<p style="position:absolute;top:634px;left:171px;white-space:nowrap" class="ft02">Interrupt window.&#160;At&#160;the&#160;beginning&#160;of&#160;an&#160;instruction, RFLAGS.IF was 1; events were&#160;not blocked by STI or by MOV&#160;</p>
+<p style="position:absolute;top:651px;left:171px;white-space:nowrap" class="ft02">SS; and the “interrupt-window&#160;exiting” VM-execution&#160;control was 1.</p>
+<p style="position:absolute;top:673px;left:74px;white-space:nowrap" class="ft02">8</p>
+<p style="position:absolute;top:673px;left:171px;white-space:nowrap" class="ft02">NMI window.&#160;At&#160;the&#160;beginning&#160;of&#160;an&#160;instruction,&#160;there&#160;was no&#160;virtual-NMI&#160;blocking; events&#160;were&#160;not blocked by&#160;MOV&#160;</p>
+<p style="position:absolute;top:690px;left:171px;white-space:nowrap" class="ft02">SS; and&#160;the&#160;“NMI-window exiting”&#160;VM-execution&#160;control was 1.</p>
+<p style="position:absolute;top:712px;left:74px;white-space:nowrap" class="ft02">9</p>
+<p style="position:absolute;top:712px;left:171px;white-space:nowrap" class="ft02">Task&#160;switch.&#160;Guest software&#160;attempted a task switch.</p>
+<p style="position:absolute;top:735px;left:74px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:735px;left:171px;white-space:nowrap" class="ft02">CPUID.&#160;Guest software&#160;attempted to&#160;execute CPUID.</p>
+<p style="position:absolute;top:757px;left:74px;white-space:nowrap" class="ft02">11</p>
+<p style="position:absolute;top:757px;left:171px;white-space:nowrap" class="ft02">GETSEC.&#160;Guest software&#160;attempted to&#160;execute GETSEC.</p>
+<p style="position:absolute;top:780px;left:74px;white-space:nowrap" class="ft02">12</p>
+<p style="position:absolute;top:780px;left:171px;white-space:nowrap" class="ft02">HLT.&#160;Guest software&#160;attempted to&#160;execute HLT and the “HLT&#160;exiting” VM-execution control was 1.</p>
+<p style="position:absolute;top:802px;left:74px;white-space:nowrap" class="ft02">13</p>
+<p style="position:absolute;top:802px;left:171px;white-space:nowrap" class="ft02">INVD.&#160;Guest software&#160;attempted to&#160;execute INVD.</p>
+<p style="position:absolute;top:825px;left:74px;white-space:nowrap" class="ft02">14</p>
+<p style="position:absolute;top:825px;left:171px;white-space:nowrap" class="ft02">INVLPG.&#160;Guest software&#160;attempted to&#160;execute INVLPG and&#160;the “INVLPG exiting” VM-execution control was 1.</p>
+<p style="position:absolute;top:847px;left:74px;white-space:nowrap" class="ft02">15</p>
+<p style="position:absolute;top:847px;left:171px;white-space:nowrap" class="ft02">RDPMC.&#160;Guest&#160;software&#160;attempted to&#160;execute RDPMC and&#160;the “RDPMC exiting”&#160;VM-execution&#160;control&#160;was&#160;1.</p>
+<p style="position:absolute;top:870px;left:74px;white-space:nowrap" class="ft02">16</p>
+<p style="position:absolute;top:870px;left:171px;white-space:nowrap" class="ft02">RDTSC.&#160;Guest&#160;software&#160;attempted to&#160;execute RDTSC and the “RDTSC exiting” VM-execution control was 1.</p>
+<p style="position:absolute;top:892px;left:74px;white-space:nowrap" class="ft02">17</p>
+<p style="position:absolute;top:892px;left:171px;white-space:nowrap" class="ft02">RSM.&#160;Guest software&#160;attempted to&#160;execute&#160;RSM in SMM.</p>
+<p style="position:absolute;top:915px;left:74px;white-space:nowrap" class="ft02">18</p>
+<p style="position:absolute;top:915px;left:171px;white-space:nowrap" class="ft02">VMCALL.&#160;VMCALL&#160;was executed&#160;either&#160;by guest software&#160;(causing&#160;an&#160;ordinary&#160;VM&#160;exit) or&#160;by the&#160;executive monitor&#160;</p>
+<p style="position:absolute;top:931px;left:171px;white-space:nowrap" class="ft02">(causing&#160;an&#160;SMM VM&#160;exit; see<a href="o_fe12b1e2a880e0ce-1269.html">&#160;Section&#160;34.15.2</a>).</p>
+<p style="position:absolute;top:954px;left:74px;white-space:nowrap" class="ft02">19</p>
+<p style="position:absolute;top:954px;left:171px;white-space:nowrap" class="ft02">VMCLEAR.&#160;Guest&#160;software&#160;attempted to&#160;execute VMCLEAR.</p>
+<p style="position:absolute;top:976px;left:74px;white-space:nowrap" class="ft02">20</p>
+<p style="position:absolute;top:976px;left:171px;white-space:nowrap" class="ft02">VMLAUNCH.&#160;Guest software&#160;attempted to&#160;execute VMLAUNCH.</p>
+<p style="position:absolute;top:999px;left:74px;white-space:nowrap" class="ft02">21</p>
+<p style="position:absolute;top:999px;left:171px;white-space:nowrap" class="ft02">VMPTRLD.&#160;Guest&#160;software&#160;attempted to&#160;execute VMPTRLD.</p>
+<p style="position:absolute;top:1021px;left:74px;white-space:nowrap" class="ft02">22</p>
+<p style="position:absolute;top:1021px;left:171px;white-space:nowrap" class="ft02">VMPTRST.&#160;Guest software&#160;attempted to&#160;execute VMPTRST.</p>
+<p style="position:absolute;top:1044px;left:74px;white-space:nowrap" class="ft02">23</p>
+<p style="position:absolute;top:1044px;left:171px;white-space:nowrap" class="ft02">VMREAD.&#160;Guest software&#160;attempted to&#160;execute VMREAD.</p>
+</div>
+</body>
+</html>

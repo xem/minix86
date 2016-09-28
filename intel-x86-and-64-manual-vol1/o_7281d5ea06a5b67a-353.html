@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 353</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page353-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a353.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;14-25</p>
+<p style="position:absolute;top:47px;left:591px;white-space:nowrap" class="ft01">PROGRAMMING WITH&#160;AVX,&#160;FMA AND AVX2</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft05">If&#160;unmasked floating-point&#160;exceptions are&#160;signaled (invalid operation,&#160;denormal operand, overflow,&#160;underflow, or&#160;<br/>inexact result)&#160;the result&#160;register is&#160;left unchanged&#160;and&#160;a floating-point&#160;exception handler&#160;is invoked.</p>
+<p style="position:absolute;top:572px;left:69px;white-space:nowrap" class="ft03">14.5.3&#160;</p>
+<p style="position:absolute;top:572px;left:149px;white-space:nowrap" class="ft03">Detection of&#160;FMA&#160;</p>
+<p style="position:absolute;top:601px;left:69px;white-space:nowrap" class="ft06">Hardware support for FMA&#160;is indicated by CPUID.1:ECX.FMA[bit&#160;12]=1.&#160;<br/>Application Software&#160;must identify&#160;that hardware&#160;supports&#160;AVX,&#160;after that&#160;it must also&#160;detect support for FMA by&#160;<br/>CPUID.1:ECX.FMA[bit&#160;12]. The recommended pseudocode sequence&#160;for&#160;detection of FMA&#160;is:&#160;<br/>----------------------------------------------------------------------------------------<br/>INT supports_fma()<br/>{</p>
+<p style="position:absolute;top:708px;left:110px;white-space:nowrap" class="ft02">;&#160;result in eax</p>
+<p style="position:absolute;top:730px;left:107px;white-space:nowrap" class="ft06">mov eax,&#160;1<br/>cpuid<br/>and&#160;ecx,&#160;018001000H</p>
+<p style="position:absolute;top:798px;left:109px;white-space:nowrap" class="ft02">cmp ecx, 018001000H;&#160;check&#160;OSXSAVE, AVX, FMA&#160;feature flags</p>
+<p style="position:absolute;top:820px;left:107px;white-space:nowrap" class="ft06">&#160;jne&#160;not_supported<br/>; processor supports&#160;AVX,FMA instructions&#160;and XGETBV&#160;is enabled&#160;by&#160;OS<br/>mov&#160;ecx,&#160;0; specify 0 for&#160;XCR0 register<br/>XGETBV; result&#160;in EDX:EAX<br/>and&#160;eax,&#160;06H<br/>cmp&#160;eax,&#160;06H;&#160;check&#160;OS&#160;has&#160;enabled&#160;both XMM&#160;and YMM state support<br/>jne not_supported<br/>mov eax,&#160;1<br/>jmp done<br/>NOT_SUPPORTED:<br/>mov eax,&#160;0</p>
+<p style="position:absolute;top:142px;left:79px;white-space:nowrap" class="ft02">0,F</p>
+<p style="position:absolute;top:142px;left:164px;white-space:nowrap" class="ft02">0,F</p>
+<p style="position:absolute;top:142px;left:236px;white-space:nowrap" class="ft02">INF</p>
+<p style="position:absolute;top:142px;left:281px;white-space:nowrap" class="ft02">&#160;+INF</p>
+<p style="position:absolute;top:142px;left:347px;white-space:nowrap" class="ft02">-INF</p>
+<p style="position:absolute;top:142px;left:414px;white-space:nowrap" class="ft02">&#160;+INF</p>
+<p style="position:absolute;top:142px;left:484px;white-space:nowrap" class="ft02">-INF</p>
+<p style="position:absolute;top:142px;left:553px;white-space:nowrap" class="ft02">if&#160;z &gt; 0</p>
+<p style="position:absolute;top:163px;left:281px;white-space:nowrap" class="ft02">-INF</p>
+<p style="position:absolute;top:163px;left:347px;white-space:nowrap" class="ft02">+INF</p>
+<p style="position:absolute;top:163px;left:414px;white-space:nowrap" class="ft02">-INF</p>
+<p style="position:absolute;top:163px;left:484px;white-space:nowrap" class="ft02">+INF</p>
+<p style="position:absolute;top:163px;left:553px;white-space:nowrap" class="ft02">if&#160;z &lt; 0</p>
+<p style="position:absolute;top:184px;left:79px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:184px;left:164px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:184px;left:236px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:184px;left:281px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:184px;left:347px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:184px;left:414px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:184px;left:484px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:184px;left:553px;white-space:nowrap" class="ft02">The&#160;sign&#160;of&#160;the result depends on&#160;the sign&#160;of&#160;</p>
+<p style="position:absolute;top:200px;left:553px;white-space:nowrap" class="ft02">the&#160;operands&#160;and on&#160;the&#160;rounding&#160;mode.&#160;The&#160;</p>
+<p style="position:absolute;top:217px;left:553px;white-space:nowrap" class="ft02">product x*y&#160;is +0&#160;or -0, depending on&#160;the&#160;signs&#160;</p>
+<p style="position:absolute;top:234px;left:553px;white-space:nowrap" class="ft02">of&#160;x&#160;and y.&#160;The summation/subtraction of&#160;the&#160;</p>
+<p style="position:absolute;top:250px;left:553px;white-space:nowrap" class="ft02">zero&#160;representing&#160;(x*y) and&#160;the zero&#160;represent-</p>
+<p style="position:absolute;top:267px;left:553px;white-space:nowrap" class="ft02">ing z&#160;can&#160;lead&#160;to&#160;one of&#160;the four&#160;cases&#160;shown in&#160;</p>
+<p style="position:absolute;top:283px;left:553px;white-space:nowrap" class="ft02"><a href="o_7281d5ea06a5b67a-352.html">Table&#160;14-16</a>.</p>
+<p style="position:absolute;top:205px;left:79px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:205px;left:164px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:205px;left:236px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:205px;left:281px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:205px;left:347px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:205px;left:414px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:205px;left:484px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:226px;left:79px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:226px;left:164px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:226px;left:236px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:226px;left:281px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:226px;left:347px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:226px;left:414px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:226px;left:484px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:304px;left:79px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:304px;left:164px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:304px;left:236px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:304px;left:281px;white-space:nowrap" class="ft02">z</p>
+<p style="position:absolute;top:304px;left:347px;white-space:nowrap" class="ft02">-z</p>
+<p style="position:absolute;top:304px;left:414px;white-space:nowrap" class="ft02">z</p>
+<p style="position:absolute;top:304px;left:484px;white-space:nowrap" class="ft02">-z</p>
+<p style="position:absolute;top:325px;left:79px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:325px;left:164px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:325px;left:236px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:325px;left:281px;white-space:nowrap" class="ft02">z</p>
+<p style="position:absolute;top:325px;left:347px;white-space:nowrap" class="ft02">-z</p>
+<p style="position:absolute;top:325px;left:414px;white-space:nowrap" class="ft02">z</p>
+<p style="position:absolute;top:325px;left:484px;white-space:nowrap" class="ft02">-z</p>
+<p style="position:absolute;top:346px;left:79px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:346px;left:164px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:346px;left:236px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:346px;left:281px;white-space:nowrap" class="ft02">z</p>
+<p style="position:absolute;top:346px;left:347px;white-space:nowrap" class="ft02">-z</p>
+<p style="position:absolute;top:346px;left:414px;white-space:nowrap" class="ft02">z</p>
+<p style="position:absolute;top:346px;left:484px;white-space:nowrap" class="ft02">-z</p>
+<p style="position:absolute;top:367px;left:79px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:367px;left:164px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:367px;left:236px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:367px;left:281px;white-space:nowrap" class="ft02">x*y</p>
+<p style="position:absolute;top:367px;left:348px;white-space:nowrap" class="ft02">x*y</p>
+<p style="position:absolute;top:367px;left:414px;white-space:nowrap" class="ft02">-x*y</p>
+<p style="position:absolute;top:367px;left:484px;white-space:nowrap" class="ft02">-x*y</p>
+<p style="position:absolute;top:367px;left:553px;white-space:nowrap" class="ft02">Rounded&#160;to&#160;the destination precision,&#160;with&#160;</p>
+<p style="position:absolute;top:384px;left:553px;white-space:nowrap" class="ft02">bounded exponent</p>
+<p style="position:absolute;top:405px;left:79px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:405px;left:164px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:405px;left:236px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:405px;left:281px;white-space:nowrap" class="ft02">(x*y)+z</p>
+<p style="position:absolute;top:405px;left:347px;white-space:nowrap" class="ft02">(x*y)-z</p>
+<p style="position:absolute;top:405px;left:414px;white-space:nowrap" class="ft02">-(x*y)+z</p>
+<p style="position:absolute;top:405px;left:484px;white-space:nowrap" class="ft02">-(x*y)-z</p>
+<p style="position:absolute;top:405px;left:553px;white-space:nowrap" class="ft02">Rounded&#160;to&#160;the destination precision,&#160;with&#160;</p>
+<p style="position:absolute;top:421px;left:553px;white-space:nowrap" class="ft02">bounded exponent; however,&#160;if&#160;the&#160;exact values&#160;</p>
+<p style="position:absolute;top:438px;left:553px;white-space:nowrap" class="ft02">of&#160;x*y and z&#160;are equal in&#160;magnitude&#160;with&#160;signs&#160;</p>
+<p style="position:absolute;top:454px;left:553px;white-space:nowrap" class="ft02">resulting in&#160;the&#160;FMA operation producing&#160;0,&#160;the&#160;</p>
+<p style="position:absolute;top:471px;left:553px;white-space:nowrap" class="ft02">rounding&#160;behavior&#160;described in<a href="o_7281d5ea06a5b67a-352.html">&#160;Table&#160;14-16.</a></p>
+<p style="position:absolute;top:105px;left:109px;white-space:nowrap" class="ft02">x&#160;</p>
+<p style="position:absolute;top:124px;left:81px;white-space:nowrap" class="ft04">(multiplicand)</p>
+<p style="position:absolute;top:105px;left:188px;white-space:nowrap" class="ft02">y&#160;</p>
+<p style="position:absolute;top:124px;left:166px;white-space:nowrap" class="ft04">(multiplier)</p>
+<p style="position:absolute;top:113px;left:246px;white-space:nowrap" class="ft02">z</p>
+<p style="position:absolute;top:105px;left:284px;white-space:nowrap" class="ft02">r=(x*y)</p>
+<p style="position:absolute;top:121px;left:298px;white-space:nowrap" class="ft02">+z</p>
+<p style="position:absolute;top:105px;left:350px;white-space:nowrap" class="ft02">r=(x*y)&#160;</p>
+<p style="position:absolute;top:121px;left:366px;white-space:nowrap" class="ft02">-z</p>
+<p style="position:absolute;top:105px;left:432px;white-space:nowrap" class="ft02">r =&#160;</p>
+<p style="position:absolute;top:121px;left:416px;white-space:nowrap" class="ft02">-(x*y)+z</p>
+<p style="position:absolute;top:105px;left:503px;white-space:nowrap" class="ft02">r=</p>
+<p style="position:absolute;top:121px;left:487px;white-space:nowrap" class="ft02">-(x*y)-z</p>
+<p style="position:absolute;top:113px;left:661px;white-space:nowrap" class="ft02">Comment</p>
+</div>
+</body>
+</html>

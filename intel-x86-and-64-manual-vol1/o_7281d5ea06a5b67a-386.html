@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 386</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page386-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a386.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">16-6&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® TRANSACTIONAL SYNCHRONIZATION EXTENSIONS</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">16.3.7&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">RTM-Enabled Debugger Support</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft010">Any&#160;debug&#160;exception (#DB) or breakpoint exception (#BP) inside an RTM&#160;region causes&#160;a transactional abort and,&#160;<br/>by&#160;default,&#160;redirects control flow to&#160;the fallback instruction&#160;address with architectural state&#160;recovered&#160;and bit 4&#160;in&#160;<br/>EAX set. However,&#160;to allow software&#160;debuggers&#160;to intercept&#160;execution&#160;on&#160;debug&#160;or breakpoint exceptions,&#160;the&#160;RTM&#160;<br/>architecture provides additional capability&#160;called&#160;<b>advanced&#160;debugging of RTM transactional regions</b>.&#160;<br/>Advanced&#160;debugging of RTM transactional&#160;regions&#160;is enabled if bit 11&#160;of&#160;DR7 and bit&#160;15&#160;of the IA32_DEBUGCTL&#160;MSR&#160;<br/>are&#160;both 1. In&#160;this case, any&#160;RTM&#160;transactional abort due&#160;to a&#160;#DB or #BP causes execution&#160;to roll&#160;back to&#160;just&#160;<br/>before the XBEGIN instruction (EAX is&#160;restored&#160;to the&#160;value&#160;it&#160;had&#160;before&#160;XBEGIN)&#160;and&#160;then&#160;delivers&#160;a #DB.&#160;(A&#160;#DB&#160;<br/>is delivered&#160;even if the transactional&#160;abort was caused by&#160;a #BP.) DR6[16] is cleared to&#160;indicate that the exception&#160;<br/>resulted&#160;from a debug or breakpoint exception inside an&#160;RTM region. S<a href="��">ee also Section&#160;17.3.3, “Debug Exceptions,&#160;<br/>Breakpoint Exceptions, and Restricted&#160;Transactional Memory&#160;(RTM),” of&#160;</a><i>Intel® 64 and&#160;IA-32 Architectures Soft-<br/>ware&#160;Developer’s Manual, Volume&#160;3B</i>.</p>
+<p style="position:absolute;top:349px;left:68px;white-space:nowrap" class="ft02">16.3.8 Programming&#160;</p>
+<p style="position:absolute;top:349px;left:260px;white-space:nowrap" class="ft02">Considerations</p>
+<p style="position:absolute;top:378px;left:68px;white-space:nowrap" class="ft08">Typical programmer-identified&#160;regions are&#160;expected&#160;to execute&#160;transactionally&#160;and to&#160;commit&#160;successfully.&#160;<br/>However,&#160;Intel TSX&#160;does&#160;not provide any&#160;such&#160;guarantee.&#160;A&#160;transactional execution&#160;may abort for many&#160;reasons.&#160;<br/>To&#160;take&#160;full advantage of&#160;the&#160;transactional capabilities,&#160;programmers should&#160;follow certain&#160;guidelines to&#160;increase&#160;<br/>the&#160;probability of their transactional&#160;execution committing successfully.<br/>This section discusses various events that&#160;may&#160;cause&#160;transactional&#160;aborts. The&#160;architecture&#160;ensures that&#160;updates&#160;<br/>performed within a&#160;transactional region&#160;that subsequently&#160;aborts&#160;execution will never become visible.&#160;Only&#160;a&#160;<br/>committed transactional execution updates architectural&#160;state.&#160;Transactional aborts never cause functional failures&#160;<br/>and only affect&#160;performance.</p>
+<p style="position:absolute;top:544px;left:68px;white-space:nowrap" class="ft06">16.3.8.1 &#160;&#160;Instruction Based&#160;Considerations</p>
+<p style="position:absolute;top:571px;left:68px;white-space:nowrap" class="ft08">Programmers can&#160;use any&#160;instruction&#160;safely&#160;inside a&#160;transactional region.&#160;Further,&#160;programmers can&#160;use the&#160;Intel&#160;<br/>TSX&#160;instructions&#160;and prefixes&#160;at any&#160;privilege&#160;level.&#160;However,&#160;some instructions will always abort the transactional&#160;<br/>execution and cause&#160;execution to&#160;seamlessly and safely transition&#160;to a&#160;non-transactional&#160;path.&#160;<br/>Intel TSX allows for most common instructions to&#160;be used&#160;inside&#160;transactional regions without&#160;causing aborts. The&#160;<br/>following operations inside a&#160;transactional region&#160;do&#160;not typically&#160;cause an&#160;abort.</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:665px;left:93px;white-space:nowrap" class="ft08">Operations on the instruction pointer register, general&#160;purpose registers&#160;(GPRs) and the status flags (CF,&#160;OF, SF,&#160;<br/>PF,&#160;AF, and ZF).</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:704px;left:93px;white-space:nowrap" class="ft03">Operations on XMM and&#160;YMM&#160;registers and&#160;the MXCSR register</p>
+<p style="position:absolute;top:727px;left:68px;white-space:nowrap" class="ft09">However,&#160;programmers&#160;must be careful when&#160;intermixing&#160;SSE and&#160;AVX operations&#160;inside a&#160;transactional&#160;region.&#160;<br/>Intermixing SSE&#160;instructions&#160;accessing&#160;XMM registers&#160;and AVX instructions accessing YMM registers&#160;may cause&#160;<br/>transactional regions to&#160;abort.&#160;<br/>CLD&#160;and STD instructions when used&#160;inside transactional&#160;regions may cause aborts&#160;if&#160;they change&#160;the value of&#160;the&#160;<br/>DF flag. However,&#160;if DF is 1,&#160;the&#160;STD&#160;instruction will&#160;not cause an abort.&#160;Similarly,&#160;if&#160;DF&#160;is 0, the&#160;CLD instruction will&#160;<br/>not cause&#160;an abort.<br/>Instructions not&#160;enumerated here as&#160;causing&#160;abort when&#160;used&#160;inside&#160;a transactional region will typically not cause&#160;<br/>the execution&#160;to abort&#160;(examples include but&#160;are not limited&#160;to MFENCE,&#160;LFENCE,&#160;SFENCE, RDTSC,&#160;RDTSCP, etc.).<br/>The following instructions will abort&#160;transactional&#160;execution on any&#160;implementation:</p>
+<p style="position:absolute;top:898px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:899px;left:93px;white-space:nowrap" class="ft03">XABORT</p>
+<p style="position:absolute;top:921px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:922px;left:93px;white-space:nowrap" class="ft03">CPUID</p>
+<p style="position:absolute;top:943px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:944px;left:93px;white-space:nowrap" class="ft03">PAUSE</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft08">In addition,&#160;in some implementations,&#160;the following instructions may&#160;always&#160;cause&#160;transactional aborts.&#160;These&#160;<br/>instructions&#160;are not expected&#160;to&#160;be&#160;commonly&#160;used&#160;inside typical transactional&#160;regions. However,&#160;programmers&#160;<br/>must&#160;not rely on these&#160;instructions&#160;to force a&#160;transactional abort,&#160;since&#160;whether&#160;they cause transactional&#160;aborts is&#160;<br/>implementation dependent.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:1039px;left:93px;white-space:nowrap" class="ft08">Operations on X87 and&#160;MMX architecture state. This&#160;includes&#160;all&#160;MMX and&#160;X87 instructions, including&#160;the&#160;<br/>FXRSTOR and&#160;FXSAVE&#160;instructions.</p>
+</div>
+</body>
+</html>

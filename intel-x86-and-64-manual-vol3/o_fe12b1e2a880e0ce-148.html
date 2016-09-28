@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 148</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page148-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce148.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-44&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">4.10.4.3 &#160;&#160;Optional&#160;Invalidation</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft06">The following items describe cases in which&#160;software&#160;may choose not&#160;to invalidate and&#160;the potential&#160;consequences&#160;<br/>of that&#160;choice:</p>
+<p style="position:absolute;top:166px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:166px;left:93px;white-space:nowrap" class="ft06">If a&#160;paging-structure&#160;entry is&#160;modified&#160;to change the&#160;P flag&#160;from 0 to&#160;1,&#160;no&#160;invalidation&#160;is necessary. This is&#160;<br/>because no TLB entry&#160;or paging-structure&#160;cache entry is&#160;created with information from a paging-structure entry&#160;<br/>in which&#160;the P flag&#160;is 0.</p>
+<p style="position:absolute;top:197px;left:249px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:221px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:222px;left:93px;white-space:nowrap" class="ft06">If a&#160;paging-structure&#160;entry is&#160;modified&#160;to change the&#160;accessed&#160;flag from 0&#160;to 1, no&#160;invalidation&#160;is&#160;necessary&#160;<br/>(assuming that&#160;an invalidation was&#160;performed&#160;the last time the&#160;accessed flag was&#160;changed from 1&#160;to 0).&#160;This&#160;is&#160;<br/>because no TLB entry&#160;or paging-structure&#160;cache entry is&#160;created with information from a paging-structure entry&#160;<br/>in which&#160;the accessed&#160;flag is&#160;0.</p>
+<p style="position:absolute;top:293px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:294px;left:93px;white-space:nowrap" class="ft06">If a&#160;paging-structure&#160;entry is&#160;modified&#160;to change the&#160;R/W flag&#160;from&#160;0 to&#160;1, failure to&#160;perform an&#160;invalidation&#160;<br/>may result in a&#160;“spurious”&#160;page-fault&#160;exception (e.g.,&#160;in&#160;response&#160;to an&#160;attempted write access) but&#160;no other&#160;<br/>adverse&#160;behavior. Such an exception&#160;will&#160;occur at&#160;most&#160;once for each affected&#160;linear&#160;address (see<a href="o_fe12b1e2a880e0ce-145.html">&#160;Section&#160;<br/>4.10.4.1).</a></p>
+<p style="position:absolute;top:365px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:366px;left:93px;white-space:nowrap" class="ft06">If CR4.SMEP&#160;= 0 and a paging-structure&#160;entry is modified to&#160;change&#160;the U/S&#160;flag&#160;from&#160;0&#160;to 1,&#160;failure&#160;to perform&#160;<br/>an invalidation may result&#160;in&#160;a “spurious” page-fault exception&#160;(e.g.,&#160;in response to&#160;an attempted&#160;user-mode&#160;<br/>access) but&#160;no&#160;other adverse&#160;behavior.&#160;Such an&#160;exception will occur at&#160;most once&#160;for&#160;each affected linear&#160;<br/>ad<a href="o_fe12b1e2a880e0ce-145.html">dress (see Section 4.10.4.1)</a>.</p>
+<p style="position:absolute;top:437px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:438px;left:93px;white-space:nowrap" class="ft06">If&#160;a paging-structure&#160;entry&#160;is modified to&#160;change the&#160;XD&#160;flag&#160;from&#160;1&#160;to&#160;0,&#160;failure&#160;to&#160;perform&#160;an&#160;invalidation&#160;may&#160;<br/>result in&#160;a “spurious” page-fault exception&#160;(e.g.,&#160;in response to&#160;an&#160;attempted instruction&#160;fetch)&#160;but no&#160;other&#160;<br/>adverse&#160;behavior. Such an exception&#160;will&#160;occur at&#160;most&#160;once for each affected&#160;linear&#160;address (see<a href="o_fe12b1e2a880e0ce-145.html">&#160;Section&#160;<br/>4.10.4.1).</a></p>
+<p style="position:absolute;top:509px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:510px;left:93px;white-space:nowrap" class="ft06">If a&#160;paging-structure&#160;entry is&#160;modified&#160;to change the&#160;accessed&#160;flag from 1&#160;to 0, failure&#160;to perform&#160;an&#160;invali-<br/>dation&#160;may&#160;result in the&#160;processor not setting&#160;that&#160;bit in&#160;response&#160;to a&#160;subsequent access&#160;to a&#160;linear address&#160;<br/>whose translation&#160;uses the entry.&#160;Software&#160;cannot&#160;interpret&#160;the&#160;bit being&#160;clear as&#160;an indication&#160;that such an&#160;<br/>access has not&#160;occurred.</p>
+<p style="position:absolute;top:581px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:582px;left:93px;white-space:nowrap" class="ft06">If&#160;software modifies a&#160;paging-structure&#160;entry that identifies the final physical address&#160;for&#160;a linear&#160;address&#160;<br/>(either a&#160;PTE or&#160;a paging-structure entry&#160;in&#160;which&#160;the PS flag is&#160;1) to&#160;change the dirty&#160;flag from 1&#160;to 0,&#160;failure&#160;<br/>to&#160;perform an&#160;invalidation may result&#160;in the&#160;processor not&#160;setting that bit in&#160;response to&#160;a subsequent&#160;write&#160;to&#160;<br/>a linear address whose translation uses the entry.&#160;Software cannot&#160;interpret the bit being&#160;clear&#160;as&#160;an indication&#160;<br/>that such a&#160;write&#160;has not&#160;occurred.</p>
+<p style="position:absolute;top:670px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:670px;left:93px;white-space:nowrap" class="ft06">The&#160;read&#160;of a&#160;paging-structure entry in translating an&#160;address being used&#160;to fetch&#160;an instruction may appear&#160;to&#160;<br/>execute&#160;before&#160;an earlier write to&#160;that paging-structure&#160;entry&#160;if&#160;there&#160;is no&#160;serializing instruction between the&#160;<br/>write&#160;and&#160;the instruction fetch. Note&#160;that the&#160;invalidating instructions identified&#160;<a href="o_fe12b1e2a880e0ce-145.html">in Section 4.10.4.1&#160;</a>are all&#160;<br/>serializing instructions.</p>
+<p style="position:absolute;top:742px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:742px;left:93px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-144.html">Section 4.10.3.3&#160;describ</a>es situations&#160;in which a single paging-structure entry&#160;may contain information cached&#160;<br/>in&#160;multiple entries in&#160;the&#160;paging-structure caches.&#160;Because all&#160;entries&#160;in these&#160;caches&#160;are invalidated&#160;by any&#160;<br/>execution of INVLPG,&#160;it is&#160;not necessary&#160;to follow&#160;the&#160;modification of such a&#160;paging-structure entry by&#160;<br/>executing INVLPG&#160;multiple&#160;times solely&#160;for&#160;the purpose of&#160;invalidating&#160;these multiple&#160;cached entries.&#160;(It may&#160;be&#160;<br/>necessary to&#160;do&#160;so&#160;to invalidate&#160;multiple TLB entries.)</p>
+<p style="position:absolute;top:853px;left:68px;white-space:nowrap" class="ft02">4.10.4.4 &#160;&#160;Delayed Invalidation</p>
+<p style="position:absolute;top:881px;left:68px;white-space:nowrap" class="ft06">Required&#160;invalidations&#160;may be delayed under&#160;some circumstances. Software developers&#160;should&#160;understand&#160;that,&#160;<br/>between&#160;the modification of a&#160;paging-structure&#160;entry and&#160;execution of the&#160;invalidation instruction recommended&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-147.html">Section&#160;4.10.4.2</a>, the&#160;processor may use translations&#160;based&#160;on either the&#160;old value or the&#160;new&#160;value&#160;of&#160;the&#160;paging-<br/>structure entry.&#160;The&#160;following&#160;items describe&#160;some&#160;of&#160;the potential consequences of&#160;delayed invalidation:</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:953px;left:93px;white-space:nowrap" class="ft06">If a&#160;paging-structure&#160;entry is&#160;modified&#160;to change the&#160;P flag from&#160;1&#160;to&#160;0, an access to&#160;a linear&#160;address whose&#160;<br/>translation is&#160;controlled&#160;by&#160;this entry may or&#160;may not cause a&#160;page-fault&#160;exception.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">1.&#160;If it is&#160;also the case that&#160;no invalidation was performed the&#160;last&#160;time the P flag was changed&#160;from&#160;1 to&#160;0,&#160;the&#160;processor may&#160;use a&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">TLB entry or paging-structure&#160;cache&#160;entry that&#160;was created&#160;when&#160;the P flag&#160;had&#160;earlier been&#160;1.</p>
+</div>
+</body>
+</html>

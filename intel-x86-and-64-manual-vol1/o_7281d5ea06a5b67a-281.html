@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 281</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page281-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a281.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;12-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 12</p>
+<p style="position:absolute;top:120px;left:383px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® SSE3, SSSE3,</p>
+<p style="position:absolute;top:144px;left:503px;white-space:nowrap" class="ft01">INTEL® SSE4 AND INTEL® AESNI</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft06">This&#160;chapter describes&#160;SSE3, SSSE3, SSE4 and provides information&#160;to&#160;assist in writing application&#160;programs that&#160;<br/>use these extensions.&#160;<br/>AESNI&#160;and&#160;PCLMLQDQ are instruction extensions&#160;targeted&#160;to accelerate&#160;high-speed&#160;block encryption and crypto-<br/>graphic&#160;<a href="o_7281d5ea06a5b67a-299.html">processing. Section 12.13 c</a>overs these instructions and their&#160;relationship to&#160;the Advanced&#160;Encryption&#160;<br/>Standard (AES).</p>
+<p style="position:absolute;top:343px;left:68px;white-space:nowrap" class="ft03">12.1&#160;</p>
+<p style="position:absolute;top:343px;left:147px;white-space:nowrap" class="ft03">PROGRAMMING ENVIRONMENT AND DATA TYPES</p>
+<p style="position:absolute;top:379px;left:68px;white-space:nowrap" class="ft06">The programming environment for using SSE3, SSSE3, and SSE4&#160;is unchanged&#160;from those show<a href="o_7281d5ea06a5b67a-63.html">n in Figure&#160;3-1</a>&#160;and&#160;<br/><a href="o_7281d5ea06a5b67a-66.html">Figure&#160;3-2</a>.&#160;SSE3,&#160;SSSE3,&#160;and&#160;SSE4</p>
+<p style="position:absolute;top:396px;left:308px;white-space:nowrap" class="ft02">&#160;do not introduce new data types.&#160;XMM registers are&#160;used&#160;to&#160;operate on&#160;packed&#160;</p>
+<p style="position:absolute;top:412px;left:68px;white-space:nowrap" class="ft08">integer data,&#160;single-precision floating-point&#160;data, or&#160;double-precision floating-point&#160;data.&#160;<br/>One&#160;SSE3 instruction uses&#160;the&#160;x87 FPU&#160;for x87-style&#160;programming.&#160;There&#160;are two SSE3&#160;instructions&#160;that use&#160;the&#160;<br/>general&#160;registers for thread synchronization.&#160;The&#160;MXCSR&#160;register governs SIMD floating-point&#160;operations. Note,&#160;<br/>however,&#160;that the x87FPU&#160;control word does not affect&#160;the SSE3&#160;instruction that is&#160;executed&#160;by the&#160;x87&#160;FPU&#160;<br/>(FISTTP),&#160;other than by unmasking an&#160;invalid operand or&#160;inexact result&#160;exception.<br/>SSE4&#160;instructions&#160;do&#160;not&#160;use MMX&#160;registers.&#160;The majority&#160;of SSE4.2</p>
+<p style="position:absolute;top:507px;left:523px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:510px;left:530px;white-space:nowrap" class="ft02">&#160;instructions and&#160;SSE4.1 instructions operate&#160;</p>
+<p style="position:absolute;top:526px;left:68px;white-space:nowrap" class="ft02">on XMM registers.</p>
+<p style="position:absolute;top:577px;left:68px;white-space:nowrap" class="ft05">12.1.1&#160;</p>
+<p style="position:absolute;top:577px;left:148px;white-space:nowrap" class="ft05">SSE3, SSSE3, SSE4 in 64-Bit Mode and Compatibility Mode</p>
+<p style="position:absolute;top:607px;left:68px;white-space:nowrap" class="ft06">In compatibility mode,&#160;SSE3, SSSE3,&#160;and&#160;SSE4&#160;function&#160;like&#160;they do&#160;in&#160;protected mode. In 64-bit mode,&#160;eight addi-<br/>tional XMM&#160;registers are&#160;accessible.&#160;Registers XMM8-XMM15&#160;are&#160;accessed by using&#160;REX&#160;prefixes.&#160;<br/>Memory operands&#160;are specified&#160;using the&#160;ModR/M,&#160;SIB encoding&#160;described<a href="o_7281d5ea06a5b67a-82.html">&#160;in&#160;Section&#160;3.7.5.<br/></a>Some&#160;SSE3, SSSE3, and SSE4&#160;instructions&#160;may be&#160;used&#160;to&#160;operate on&#160;general-purpose&#160;registers.&#160;Use&#160;the&#160;REX.W&#160;<br/>prefix&#160;to access 64-bit general-purpose&#160;registers.&#160;Note that&#160;if&#160;a REX prefix&#160;is used when it&#160;has&#160;no meaning, the&#160;<br/>prefix is&#160;ignored.</p>
+<p style="position:absolute;top:755px;left:68px;white-space:nowrap" class="ft05">12.1.2&#160;</p>
+<p style="position:absolute;top:755px;left:148px;white-space:nowrap" class="ft05">Compatibility of&#160;SSE3/SSSE3 with MMX&#160;Technology, the x87 FPU Environment, and&#160;</p>
+<p style="position:absolute;top:776px;left:148px;white-space:nowrap" class="ft05">SSE/SSE2 Extensions</p>
+<p style="position:absolute;top:807px;left:68px;white-space:nowrap" class="ft06">SSE3,&#160;SSSE3,&#160;and&#160;SSE4&#160;do&#160;not&#160;introduce&#160;any&#160;new&#160;state&#160;to the&#160;Intel 64&#160;and&#160;IA-32&#160;execution&#160;environments.&#160;<br/>For&#160;SIMD&#160;and&#160;x87&#160;programming,&#160;the&#160;FXSAVE&#160;and&#160;FXRSTOR&#160;instructions&#160;save&#160;and&#160;restore&#160;the architectural states&#160;<br/>of XMM,&#160;MXCSR,&#160;x87&#160;FPU,&#160;and&#160;MMX registers.&#160;The&#160;MONITOR and MWAIT instructions use&#160;general purpose&#160;registers&#160;<br/>on&#160;input,&#160;they do&#160;not modify the&#160;content of those&#160;registers.</p>
+<p style="position:absolute;top:914px;left:68px;white-space:nowrap" class="ft05">12.1.3&#160;</p>
+<p style="position:absolute;top:914px;left:148px;white-space:nowrap" class="ft05">Horizontal and Asymmetric Processing</p>
+<p style="position:absolute;top:945px;left:68px;white-space:nowrap" class="ft06">Many&#160;SSE/SSE2/SSE3/SSSE3 instructions&#160;accelerate SIMD data&#160;processing using&#160;a model&#160;referred to&#160;as vertical&#160;<br/>computation. Using this&#160;model, data&#160;flow&#160;is vertical&#160;between&#160;the data elements of the&#160;inputs and the&#160;output.&#160;<br/><a href="o_7281d5ea06a5b67a-282.html">Figure&#160;12-1 illustr</a>ates&#160;the asymmetric processing of&#160;the&#160;SSE3&#160;instruction ADDSUBPD.&#160;<a href="o_7281d5ea06a5b67a-282.html">Figure&#160;12-2 illustr</a>ates the&#160;<br/>horizontal&#160;data movement&#160;of the&#160;SSE3 instruction&#160;HADDPD.&#160;</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">1.&#160;Although&#160;the presence of&#160;CRC32 support is&#160;enumerated&#160;by&#160;CPUID.01:ECX[SSE4.2] = 1,&#160;CRC32&#160;operates&#160;on&#160;general purpose regis-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">ters.</p>
+</div>
+</body>
+</html>

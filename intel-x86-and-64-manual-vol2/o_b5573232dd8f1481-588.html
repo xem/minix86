@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 588</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page588-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481588.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:605px;white-space:nowrap" class="ft00">INT n/INTO/INT 3—Call&#160;to Interrupt Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-460&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft04">THEN #NP(error_code(new&#160;code-segment&#160;selector,0,EXT)); FI;<br/>(*&#160;idt operand to error_code is&#160;0 because selector is used *)</p>
+<p style="position:absolute;top:136px;left:88px;white-space:nowrap" class="ft02">IF new code&#160;segment is&#160;non-conforming&#160;with&#160;DPL&#160;&lt; CPL</p>
+<p style="position:absolute;top:154px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">IF VM</p>
+<p style="position:absolute;top:169px;left:174px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:172px;left:178px;white-space:nowrap" class="ft02">= 0</p>
+<p style="position:absolute;top:190px;left:169px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:208px;left:196px;white-space:nowrap" class="ft04">GOTO INTER-PRIVILEGE-LEVEL-INTERRUPT;&#160;<br/>(* PE =&#160;1,&#160;VM&#160;= 0, interrupt or&#160;trap&#160;gate, nonconforming&#160;code&#160;segment,<br/>DPL &lt; CPL *)</p>
+<p style="position:absolute;top:262px;left:169px;white-space:nowrap" class="ft02">ELSE (* VM =</p>
+<p style="position:absolute;top:259px;left:243px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:262px;left:247px;white-space:nowrap" class="ft02">1 *)</p>
+<p style="position:absolute;top:280px;left:196px;white-space:nowrap" class="ft02">IF&#160;new&#160;code-segment DPL&#160;</p>
+<p style="position:absolute;top:278px;left:348px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:280px;left:361px;white-space:nowrap" class="ft02">0&#160;</p>
+<p style="position:absolute;top:298px;left:223px;white-space:nowrap" class="ft04">THEN&#160;#GP(error_code(new&#160;code-segment&#160;selector,0,EXT));<br/>(* idt operand to&#160;error_code&#160;is 0&#160;because selector&#160;is&#160;used&#160;*)</p>
+<p style="position:absolute;top:334px;left:196px;white-space:nowrap" class="ft04">GOTO INTERRUPT-FROM-VIRTUAL-8086-MODE; FI;<br/>(* PE</p>
+<p style="position:absolute;top:349px;left:224px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:352px;left:228px;white-space:nowrap" class="ft02">= 1, interrupt or&#160;trap&#160;gate, DPL &lt; CPL, VM</p>
+<p style="position:absolute;top:349px;left:464px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:352px;left:468px;white-space:nowrap" class="ft02">= 1 *)</p>
+<p style="position:absolute;top:370px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:388px;left:115px;white-space:nowrap" class="ft02">ELSE (* PE</p>
+<p style="position:absolute;top:385px;left:174px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:388px;left:178px;white-space:nowrap" class="ft02">= 1, interrupt or&#160;trap gate,&#160;DPL&#160;≥&#160;CPL *)</p>
+<p style="position:absolute;top:406px;left:142px;white-space:nowrap" class="ft02">IF VM = 1&#160;</p>
+<p style="position:absolute;top:424px;left:169px;white-space:nowrap" class="ft04">THEN&#160;#GP(error_code(new&#160;code-segment&#160;selector,0,EXT));<br/>(* idt operand to&#160;error_code&#160;is&#160;0 because selector&#160;is&#160;used&#160;*)</p>
+<p style="position:absolute;top:460px;left:142px;white-space:nowrap" class="ft02">IF new code&#160;segment is conforming or&#160;new&#160;code-segment DPL</p>
+<p style="position:absolute;top:457px;left:497px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:460px;left:501px;white-space:nowrap" class="ft02">= CPL</p>
+<p style="position:absolute;top:478px;left:169px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:496px;left:196px;white-space:nowrap" class="ft02">GOTO INTRA-PRIVILEGE-LEVEL-INTERRUPT;&#160;</p>
+<p style="position:absolute;top:514px;left:169px;white-space:nowrap" class="ft02">ELSE (* PE</p>
+<p style="position:absolute;top:511px;left:228px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:514px;left:232px;white-space:nowrap" class="ft02">= 1, interrupt or trap gate,&#160;nonconforming code segment, DPL &gt; CPL *)</p>
+<p style="position:absolute;top:532px;left:196px;white-space:nowrap" class="ft04">#GP(error_code(new&#160;code-segment&#160;selector,0,EXT));<br/>(* idt operand to&#160;error_code&#160;is 0&#160;because selector&#160;is&#160;used&#160;*)</p>
+<p style="position:absolute;top:568px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:586px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft04">END;<br/>INTER-PRIVILEGE-LEVEL-INTERRUPT:</p>
+<p style="position:absolute;top:640px;left:88px;white-space:nowrap" class="ft04">(*&#160;PE =&#160;1,&#160;interrupt or&#160;trap gate, non-conforming&#160;code&#160;segment,&#160;DPL &lt;&#160;CPL *)<br/>IF (IA32_EFER.LMA = 0) (* Not&#160;IA-32e mode *)</p>
+<p style="position:absolute;top:676px;left:115px;white-space:nowrap" class="ft04">THEN<br/>(*&#160;Identify stack-segment selector&#160;for&#160;new privilege level in&#160;current TSS *)</p>
+<p style="position:absolute;top:712px;left:142px;white-space:nowrap" class="ft02">IF current&#160;TSS&#160;is 32-bit</p>
+<p style="position:absolute;top:730px;left:169px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:748px;left:196px;white-space:nowrap" class="ft02">TSSstackAddress&#160;←&#160;(new&#160;code-segment DPL « 3)&#160;+ 4;</p>
+<p style="position:absolute;top:766px;left:196px;white-space:nowrap" class="ft02">IF&#160;(TSSstackAddress + 5) &gt; current TSS limit</p>
+<p style="position:absolute;top:784px;left:223px;white-space:nowrap" class="ft04">THEN #TS(error_code(current&#160;TSS&#160;selector,0,EXT)); FI;<br/>(* idt operand to&#160;error_code&#160;is 0&#160;because selector&#160;is&#160;used&#160;*)</p>
+<p style="position:absolute;top:820px;left:196px;white-space:nowrap" class="ft02">NewSS&#160;←&#160;2 bytes loaded&#160;from (TSS base +&#160;TSSstackAddress + 4);</p>
+<p style="position:absolute;top:838px;left:196px;white-space:nowrap" class="ft02">NewESP&#160;←&#160;4 bytes loaded from (TSS&#160;base + TSSstackAddress);</p>
+<p style="position:absolute;top:856px;left:169px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:856px;left:223px;white-space:nowrap" class="ft02">(* current TSS is 16-bit&#160;*)</p>
+<p style="position:absolute;top:874px;left:196px;white-space:nowrap" class="ft02">TSSstackAddress&#160;←&#160;(new&#160;code-segment DPL « 2)&#160;+ 2</p>
+<p style="position:absolute;top:892px;left:196px;white-space:nowrap" class="ft02">IF&#160;(TSSstackAddress + 3) &gt; current TSS limit</p>
+<p style="position:absolute;top:910px;left:223px;white-space:nowrap" class="ft04">THEN #TS(error_code(current&#160;TSS&#160;selector,0,EXT)); FI;<br/>(* idt operand to&#160;error_code&#160;is 0&#160;because selector&#160;is&#160;used&#160;*)</p>
+<p style="position:absolute;top:946px;left:196px;white-space:nowrap" class="ft02">NewSS&#160;←&#160;2 bytes loaded&#160;from (TSS base +&#160;TSSstackAddress + 2);</p>
+<p style="position:absolute;top:964px;left:196px;white-space:nowrap" class="ft02">NewESP&#160;←&#160;2 bytes loaded from (TSS&#160;base + TSSstackAddress);</p>
+<p style="position:absolute;top:982px;left:142px;white-space:nowrap" class="ft04">FI;<br/>IF NewSS&#160;is NULL</p>
+<p style="position:absolute;top:1018px;left:169px;white-space:nowrap" class="ft02">THEN #TS(EXT); FI;&#160;</p>
+<p style="position:absolute;top:1036px;left:142px;white-space:nowrap" class="ft04">IF NewSS index&#160;is not within&#160;its descriptor-table&#160;limits<br/>or NewSS&#160;RPL&#160;</p>
+<p style="position:absolute;top:1052px;left:227px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:1054px;left:240px;white-space:nowrap" class="ft02">new code-segment&#160;DPL&#160;</p>
+</div>
+</body>
+</html>

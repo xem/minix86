@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 439</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:10px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page439-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a439.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 1&#160;D-17</p>
+<p style="position:absolute;top:47px;left:500px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87&#160;FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">D.3.6.3&#160;&#160;</p>
+<p style="position:absolute;top:99px;left:153px;white-space:nowrap" class="ft02">Interaction of&#160;x87 FPU State Saves and&#160;Floating-Point&#160;Exception Association</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft07">Recall these&#160;key points from earlier in this document: When&#160;considering&#160;floating-point exceptions across all imple-<br/>mentations&#160;of&#160;the IA-32 architecture, and across&#160;all floating-point&#160;instructions, a&#160;floating-point&#160;exception&#160;can be&#160;<br/>initiated from any time during&#160;the excepting floating-point instruction,&#160;up&#160;to&#160;just before the next floating-point&#160;<br/>instruction. The “next”&#160;floating-point instruction may be&#160;the FNSAVE used to save&#160;the x87 FPU state for a task&#160;<br/>switch. In the case of&#160;“no-wait:”&#160;instructions&#160;such&#160;as&#160;FNSAVE, the&#160;interrupt from&#160;a previously excepting instruc-<br/>tion (NE = 0 case) may arrive&#160;just before the no-wait&#160;instruction,&#160;during, or&#160;shortly thereafter with a system&#160;<br/>dependent delay.&#160;<br/>Note that this implies that an floating-point exception might be&#160;registered during&#160;the state swap&#160;process&#160;itself,&#160;and&#160;<br/>the kernel and&#160;floating-point&#160;exception&#160;interrupt handler&#160;must&#160;be prepared&#160;for this case.<br/>A simple&#160;way to handle&#160;the case of exceptions arriving during x87&#160;FPU state swaps is to allow the kernel to&#160;be&#160;one&#160;<br/>of the&#160;x87&#160;FPU owning threads.&#160;A&#160;reserved thread identifier is&#160;used&#160;to indicate kernel ownership&#160;of&#160;the x87&#160;FPU.&#160;<br/>During an&#160;floating-point state&#160;swap, the&#160;“x87 FPU&#160;owner”&#160;variable should be set to&#160;indicate&#160;the kernel as&#160;the&#160;<br/>current owner.&#160;At&#160;the completion of the&#160;state&#160;swap,&#160;the variable&#160;should be set&#160;to indicate the&#160;new&#160;owning&#160;thread.&#160;<br/>The numeric exception handler needs to&#160;check the x87&#160;FPU&#160;owner&#160;and&#160;<b>discard</b>&#160;any&#160;numeric exceptions&#160;that occur&#160;<br/>while&#160;the&#160;kernel&#160;is the&#160;x87 FPU&#160;owner.&#160;A&#160;more general&#160;flow&#160;for a&#160;DNA exception&#160;handler that&#160;handles this&#160;case&#160;is&#160;<br/><a href="o_7281d5ea06a5b67a-439.html">shown in&#160;Figure&#160;D-5</a>.<br/>Numeric exceptions&#160;received&#160;while&#160;the kernel owns the&#160;x87 FPU for a&#160;state swap must be discarded in&#160;the&#160;kernel&#160;<br/>without being&#160;dispatched to&#160;a handler.&#160;A flow&#160;for&#160;a numeric exception&#160;dispatch&#160;routine&#160;<a href="o_7281d5ea06a5b67a-440.html">is shown in Figure&#160;D-6.<br/></a>It&#160;may&#160;at first glance seem that there is&#160;a possibility&#160;of&#160;floating-point exceptions&#160;being&#160;lost because&#160;of&#160;exceptions&#160;<br/>that are&#160;discarded&#160;during state swaps.&#160;This is&#160;not the&#160;case,&#160;as the&#160;exception will be&#160;re-issued when&#160;the floating-<br/>point state is reloaded. Walking through state swaps both&#160;with and without pending numeric exceptions will clarify&#160;<br/>the operation of&#160;these two handlers.</p>
+<p style="position:absolute;top:976px;left:247px;white-space:nowrap" class="ft05">Figure&#160;D-5. &#160;General Program&#160;Flow&#160;for&#160;DNA&#160;Exception&#160;Handler</p>
+<p style="position:absolute;top:568px;left:280px;white-space:nowrap" class="ft06">DNA Handler&#160;Entry</p>
+<p style="position:absolute;top:654px;left:291px;white-space:nowrap" class="ft06">Current&#160;Thread</p>
+<p style="position:absolute;top:669px;left:309px;white-space:nowrap" class="ft06">same as</p>
+<p style="position:absolute;top:684px;left:297px;white-space:nowrap" class="ft06">FPU Owner?</p>
+<p style="position:absolute;top:736px;left:274px;white-space:nowrap" class="ft06">FPU Owner&#160;:=&#160;Kernel</p>
+<p style="position:absolute;top:772px;left:264px;white-space:nowrap" class="ft06">FNSAVE to&#160;Old&#160;Thread’s</p>
+<p style="position:absolute;top:787px;left:294px;white-space:nowrap" class="ft06">FP Save&#160;Area</p>
+<p style="position:absolute;top:801px;left:247px;white-space:nowrap" class="ft06">(may cause&#160;numeric exception)</p>
+<p style="position:absolute;top:603px;left:255px;white-space:nowrap" class="ft06">&lt;other&#160;handler set&#160;up&#160;code&gt;</p>
+<p style="position:absolute;top:883px;left:274px;white-space:nowrap" class="ft06">&lt;other&#160;handler&#160;code&gt;</p>
+<p style="position:absolute;top:920px;left:250px;white-space:nowrap" class="ft06">FPU Owner&#160;:=&#160;Current&#160;Thread</p>
+<p style="position:absolute;top:834px;left:245px;white-space:nowrap" class="ft06">FRSTOR&#160;from&#160;Current&#160;Thread’s</p>
+<p style="position:absolute;top:849px;left:294px;white-space:nowrap" class="ft06">FP Save&#160;Area</p>
+<p style="position:absolute;top:837px;left:505px;white-space:nowrap" class="ft06">CLTS (clears&#160;CR0.TS)</p>
+<p style="position:absolute;top:878px;left:518px;white-space:nowrap" class="ft06">Exit&#160;DNA&#160;Handler</p>
+<p style="position:absolute;top:716px;left:343px;white-space:nowrap" class="ft06">No</p>
+<p style="position:absolute;top:679px;left:427px;white-space:nowrap" class="ft06">Yes</p>
+<p style="position:absolute;top:796px;left:500px;white-space:nowrap" class="ft06">&lt;handler&#160;final&#160;clean-up&gt;</p>
+</div>
+</body>
+</html>

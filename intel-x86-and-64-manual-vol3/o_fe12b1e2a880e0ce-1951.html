@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1951</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1951-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1951.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3D&#160;B-1</p>
+<p style="position:absolute;top:96px;left:703px;white-space:nowrap" class="ft01">APPENDIX B</p>
+<p style="position:absolute;top:120px;left:561px;white-space:nowrap" class="ft01">FIELD ENCODING IN VMCS</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft08">Every component&#160;of&#160;the VMCS is&#160;encoded by&#160;a 32-bit&#160;field that&#160;can be used&#160;by VMREAD&#160;and&#160;VMWRITE.<a href="o_fe12b1e2a880e0ce-1071.html">&#160;Section&#160;<br/>24.11.2&#160;</a>describes the structure of&#160;the encoding space (the&#160;meanings&#160;of&#160;the bits in each 32-bit encoding).&#160;<br/>This appendix&#160;enumerates&#160;all fields in&#160;the VMCS and&#160;their encodings.&#160;Fields&#160;are&#160;grouped&#160;by width (16-bit,&#160;32-bit,&#160;<br/>etc.)&#160;and type (guest-state, host-state, etc.)</p>
+<p style="position:absolute;top:303px;left:68px;white-space:nowrap" class="ft03">B.1 16-BIT&#160;</p>
+<p style="position:absolute;top:303px;left:216px;white-space:nowrap" class="ft03">FIELDS</p>
+<p style="position:absolute;top:339px;left:68px;white-space:nowrap" class="ft08">A&#160;value of 0&#160;in bits&#160;14:13&#160;of&#160;an&#160;encoding indicates a&#160;16-bit&#160;field. Only guest-state areas and&#160;the host-state area&#160;<br/>contain 16-bit fields. As&#160;noted<a href="o_fe12b1e2a880e0ce-1071.html">&#160;in Section&#160;24.11.2,</a>&#160;each 16-bit field allows&#160;only full access, meaning that&#160;bit&#160;0&#160;of its&#160;<br/>encoding is&#160;0. Each such encoding is&#160;thus an even&#160;number.</p>
+<p style="position:absolute;top:422px;left:68px;white-space:nowrap" class="ft04">B.1.1 &#160;</p>
+<p style="position:absolute;top:422px;left:148px;white-space:nowrap" class="ft04">16-Bit Control Fields</p>
+<p style="position:absolute;top:453px;left:68px;white-space:nowrap" class="ft08">A&#160;value of 0 in&#160;bits&#160;11:10&#160;of an encoding&#160;indicates a&#160;control field. These&#160;fields&#160;are&#160;distinguished by&#160;their index value&#160;<br/>in bits&#160;9:1.<a href="o_fe12b1e2a880e0ce-1951.html">&#160;Table&#160;B-1 e</a>numerates the&#160;16-bit control fields.</p>
+<p style="position:absolute;top:739px;left:68px;white-space:nowrap" class="ft04">B.1.2 &#160;</p>
+<p style="position:absolute;top:739px;left:148px;white-space:nowrap" class="ft04">16-Bit Guest-State Fields</p>
+<p style="position:absolute;top:770px;left:68px;white-space:nowrap" class="ft08">A&#160;value of&#160;2&#160;in bits&#160;11:10 of an encoding&#160;indicates a field&#160;in&#160;the guest-state area.&#160;These fields are distinguished by&#160;<br/>their index&#160;value in bits&#160;9:1.&#160;<a href="o_fe12b1e2a880e0ce-1951.html">Table&#160;B-2 enume</a>rates 16-bit&#160;guest-state&#160;fields.</p>
+<p style="position:absolute;top:503px;left:207px;white-space:nowrap" class="ft05">Table B-1. &#160;Encoding for 16-Bit&#160;Control Fields (0000_00xx_xxxx_xxx0B)</p>
+<p style="position:absolute;top:526px;left:74px;white-space:nowrap" class="ft02">Field Name</p>
+<p style="position:absolute;top:526px;left:552px;white-space:nowrap" class="ft02">Index</p>
+<p style="position:absolute;top:526px;left:706px;white-space:nowrap" class="ft02">Encoding</p>
+<p style="position:absolute;top:550px;left:74px;white-space:nowrap" class="ft02">Virtual-processor identifier (VPID)</p>
+<p style="position:absolute;top:547px;left:266px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:625px;left:69px;white-space:nowrap" class="ft07">NOTES:</p>
+<p style="position:absolute;top:644px;left:68px;white-space:nowrap" class="ft02">1. This field exists only&#160;on processors that&#160;support&#160;the 1-setting of&#160;the “enable&#160;VPID” VM-execution&#160;control.</p>
+<p style="position:absolute;top:550px;left:553px;white-space:nowrap" class="ft02">000000000B</p>
+<p style="position:absolute;top:550px;left:706px;white-space:nowrap" class="ft02">00000000H</p>
+<p style="position:absolute;top:574px;left:74px;white-space:nowrap" class="ft02">Posted-interrupt&#160;notification vector</p>
+<p style="position:absolute;top:571px;left:276px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:663px;left:68px;white-space:nowrap" class="ft02">2. This field exists only&#160;on processors&#160;that&#160;support the 1-setting&#160;of&#160;the “process posted interrupts” VM-execution control.</p>
+<p style="position:absolute;top:574px;left:553px;white-space:nowrap" class="ft02">000000001B</p>
+<p style="position:absolute;top:574px;left:706px;white-space:nowrap" class="ft02">00000002H</p>
+<p style="position:absolute;top:598px;left:74px;white-space:nowrap" class="ft02">EPTP index</p>
+<p style="position:absolute;top:595px;left:138px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:683px;left:68px;white-space:nowrap" class="ft02">3. This field exists only&#160;on processors that&#160;support the 1-setting of&#160;the “EPT-violation&#160;#VE” VM-execution&#160;control.</p>
+<p style="position:absolute;top:598px;left:553px;white-space:nowrap" class="ft02">000000010B</p>
+<p style="position:absolute;top:598px;left:706px;white-space:nowrap" class="ft02">00000004H</p>
+<p style="position:absolute;top:820px;left:188px;white-space:nowrap" class="ft05">Table B-2. &#160;Encodings&#160;for 16-Bit&#160;Guest-State Fields&#160;(0000_10xx_xxxx_xxx0B)</p>
+<p style="position:absolute;top:843px;left:74px;white-space:nowrap" class="ft02">Field Name</p>
+<p style="position:absolute;top:843px;left:562px;white-space:nowrap" class="ft02">Index</p>
+<p style="position:absolute;top:843px;left:706px;white-space:nowrap" class="ft02">Encoding</p>
+<p style="position:absolute;top:867px;left:74px;white-space:nowrap" class="ft02">Guest ES&#160;selector</p>
+<p style="position:absolute;top:867px;left:563px;white-space:nowrap" class="ft02">000000000B</p>
+<p style="position:absolute;top:867px;left:706px;white-space:nowrap" class="ft02">00000800H</p>
+<p style="position:absolute;top:891px;left:74px;white-space:nowrap" class="ft02">Guest CS&#160;selector</p>
+<p style="position:absolute;top:891px;left:563px;white-space:nowrap" class="ft02">000000001B</p>
+<p style="position:absolute;top:891px;left:706px;white-space:nowrap" class="ft02">00000802H</p>
+<p style="position:absolute;top:915px;left:74px;white-space:nowrap" class="ft02">Guest SS&#160;selector</p>
+<p style="position:absolute;top:915px;left:563px;white-space:nowrap" class="ft02">000000010B</p>
+<p style="position:absolute;top:915px;left:706px;white-space:nowrap" class="ft02">00000804H</p>
+<p style="position:absolute;top:939px;left:74px;white-space:nowrap" class="ft02">Guest DS selector</p>
+<p style="position:absolute;top:939px;left:563px;white-space:nowrap" class="ft02">000000011B</p>
+<p style="position:absolute;top:939px;left:706px;white-space:nowrap" class="ft02">00000806H</p>
+<p style="position:absolute;top:963px;left:74px;white-space:nowrap" class="ft02">Guest FS&#160;selector</p>
+<p style="position:absolute;top:963px;left:563px;white-space:nowrap" class="ft02">000000100B</p>
+<p style="position:absolute;top:963px;left:706px;white-space:nowrap" class="ft02">00000808H</p>
+<p style="position:absolute;top:987px;left:74px;white-space:nowrap" class="ft02">Guest GS&#160;selector</p>
+<p style="position:absolute;top:987px;left:563px;white-space:nowrap" class="ft02">000000101B</p>
+<p style="position:absolute;top:987px;left:706px;white-space:nowrap" class="ft02">0000080AH</p>
+<p style="position:absolute;top:1011px;left:74px;white-space:nowrap" class="ft02">Guest LDTR selector</p>
+<p style="position:absolute;top:1011px;left:563px;white-space:nowrap" class="ft02">000000110B</p>
+<p style="position:absolute;top:1011px;left:706px;white-space:nowrap" class="ft02">0000080CH</p>
+<p style="position:absolute;top:1035px;left:74px;white-space:nowrap" class="ft02">Guest TR selector</p>
+<p style="position:absolute;top:1035px;left:563px;white-space:nowrap" class="ft02">000000111B</p>
+<p style="position:absolute;top:1035px;left:706px;white-space:nowrap" class="ft02">0000080EH</p>
+</div>
+</body>
+</html>

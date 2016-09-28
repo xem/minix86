@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 323</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page323-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce323.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;9-11</p>
+<p style="position:absolute;top:47px;left:560px;white-space:nowrap" class="ft01">PROCESSOR&#160;MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">After&#160;the processor has switched&#160;to protected&#160;mode,&#160;the LTR&#160;instruction can be used to load a segment selector for&#160;<br/>a TSS descriptor&#160;into the&#160;task&#160;register. This instruction&#160;marks the&#160;TSS&#160;descriptor as&#160;busy,&#160;but does&#160;not perform&#160;a&#160;<br/>task switch. The processor can, however,&#160;use&#160;the&#160;TSS to&#160;locate pointers to&#160;privilege-level&#160;0, 1,&#160;and 2&#160;stacks.&#160;The&#160;<br/>segment selector for the&#160;TSS must be loaded&#160;before&#160;software&#160;performs&#160;its&#160;first&#160;task switch in protected&#160;mode,&#160;<br/>because&#160;a task switch copies the&#160;current task&#160;state into&#160;the TSS.<br/>After&#160;the LTR instruction has been&#160;executed,&#160;further&#160;operations on the task register&#160;are performed by&#160;task&#160;<br/>switching. As with other segments and LDTs, TSSs and TSS descriptors can be either pre-allocated or&#160;allocated as&#160;<br/>needed.</p>
+<p style="position:absolute;top:274px;left:69px;white-space:nowrap" class="ft03">9.8.5&#160;</p>
+<p style="position:absolute;top:274px;left:149px;white-space:nowrap" class="ft03">Initializing IA-32e Mode</p>
+<p style="position:absolute;top:304px;left:69px;white-space:nowrap" class="ft07">On Intel 64&#160;processors, the IA32_EFER MSR is&#160;cleared on&#160;system reset.&#160;The&#160;operating system&#160;must be in&#160;protected&#160;<br/>mode with paging&#160;enabled before&#160;attempting to&#160;initialize&#160;IA-32e&#160;mode. IA-32e&#160;mode&#160;operation also&#160;requires phys-<br/>ical-address&#160;extensions with four levels&#160;of&#160;enhanced&#160;paging&#160;structures (see<a href="o_fe12b1e2a880e0ce-123.html">&#160;Section 4.5,&#160;“IA-32e Paging”).<br/></a>Operating systems&#160;should follow&#160;this&#160;sequence to&#160;initialize IA-32e&#160;mode:<br/>1.&#160;Starting&#160;from protected&#160;mode,&#160;disable&#160;paging&#160;by setting CR0.PG&#160;= 0.&#160;Use the&#160;MOV&#160;CR0 instruction to disable&#160;</p>
+<p style="position:absolute;top:402px;left:95px;white-space:nowrap" class="ft02">paging (the&#160;instruction must be&#160;located in&#160;an&#160;identity-mapped&#160;page).</p>
+<p style="position:absolute;top:426px;left:69px;white-space:nowrap" class="ft02">2.&#160;Enable&#160;physical-address extensions&#160;(PAE) by setting CR4.PAE = 1.&#160;Failure to&#160;enable&#160;PAE will result&#160;in a&#160;#GP&#160;</p>
+<p style="position:absolute;top:442px;left:95px;white-space:nowrap" class="ft02">fault when an attempt is&#160;made&#160;to initialize&#160;IA-32e&#160;mode.</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft07">3.&#160;Load&#160;CR3&#160;with&#160;the&#160;physical base&#160;address&#160;of&#160;the Level 4&#160;page&#160;map&#160;table&#160;(PML4).<br/>4.&#160;Enable IA-32e&#160;mode by setting IA32_EFER.LME&#160;=&#160;1.<br/>5.&#160;Enable&#160;paging&#160;by setting&#160;CR0.PG&#160;=&#160;1.&#160;This causes&#160;the processor to&#160;set the&#160;IA32_EFER.LMA bit&#160;to 1.&#160;The MOV&#160;</p>
+<p style="position:absolute;top:531px;left:95px;white-space:nowrap" class="ft06">CR0 instruction that&#160;enables&#160;paging and the&#160;following&#160;instructions must be located in&#160;an&#160;identity-mapped&#160;page&#160;<br/>(until&#160;such time&#160;that&#160;a branch to&#160;non-identity&#160;mapped&#160;pages can&#160;be effected).</p>
+<p style="position:absolute;top:571px;left:69px;white-space:nowrap" class="ft08">64-bit mode paging&#160;tables&#160;must be located in the&#160;first&#160;4 GBytes of physical-address space prior to activating IA-32e&#160;<br/>mode.&#160;This is&#160;necessary because&#160;the MOV CR3&#160;instruction&#160;used to&#160;initialize&#160;the&#160;page-directory base must&#160;be&#160;<br/>executed&#160;in legacy mode&#160;prior to activating&#160;IA-32e mode&#160;(setting CR0.PG&#160;= 1 to enable&#160;paging).&#160;Because MOV&#160;CR3&#160;<br/>is&#160;executed in&#160;protected mode, only the&#160;lower 32 bits of&#160;the register&#160;are written,&#160;limiting the table location&#160;to&#160;the&#160;<br/>low 4&#160;GBytes of memory.&#160;Software&#160;can relocate the&#160;page&#160;tables&#160;anywhere&#160;in physical memory after&#160;IA-32e&#160;mode&#160;<br/>is activated.<br/>The processor performs 64-bit mode&#160;consistency checks whenever software attempts to&#160;modify any of the enable&#160;<br/>bits directly involved&#160;in activating IA-32e mode&#160;(IA32_EFER.LME,&#160;CR0.PG, and&#160;CR4.PAE). It will generate&#160;a general&#160;<br/>protection&#160;fault&#160;(#GP) if consistency&#160;checks&#160;fail.&#160;64-bit mode&#160;consistency checks ensure&#160;that the&#160;processor does&#160;<br/>not&#160;enter an&#160;undefined&#160;mode or&#160;state with unpredictable behavior.<br/>64-bit&#160;mode consistency&#160;checks fail in&#160;the following circumstances:</p>
+<p style="position:absolute;top:773px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:774px;left:95px;white-space:nowrap" class="ft02">An&#160;attempt is&#160;made&#160;to enable or&#160;disable IA-32e mode while paging&#160;is enabled.</p>
+<p style="position:absolute;top:796px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:796px;left:95px;white-space:nowrap" class="ft06">IA-32e mode is enabled and an&#160;attempt&#160;is made&#160;to enable paging&#160;prior&#160;to enabling physical-address&#160;extensions&#160;<br/>(PAE).</p>
+<p style="position:absolute;top:835px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:835px;left:95px;white-space:nowrap" class="ft02">IA-32e&#160;mode&#160;is&#160;active&#160;and an&#160;attempt&#160;is made&#160;to disable&#160;physical-address extensions&#160;(PAE).</p>
+<p style="position:absolute;top:857px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:858px;left:95px;white-space:nowrap" class="ft02">If&#160;the current&#160;CS has&#160;the L-bit&#160;set&#160;on&#160;an attempt to&#160;activate IA-32e mode.</p>
+<p style="position:absolute;top:880px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:880px;left:95px;white-space:nowrap" class="ft02">If the&#160;TR&#160;contains&#160;a 16-bit&#160;TSS.</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft05">9.8.5.1&#160;&#160;</p>
+<p style="position:absolute;top:922px;left:153px;white-space:nowrap" class="ft05">IA-32e&#160;Mode&#160;System Data&#160;Structures</p>
+<p style="position:absolute;top:951px;left:69px;white-space:nowrap" class="ft06">After&#160;activating&#160;IA-32e mode,&#160;the system-descriptor-table registers&#160;(GDTR,&#160;LDTR,&#160;IDTR, TR)&#160;continue to&#160;reference&#160;<br/>legacy&#160;protected-mode descriptor tables. Tables referenced&#160;by the&#160;descriptors all&#160;reside&#160;in the&#160;lower 4&#160;GBytes&#160;of&#160;<br/>linear-address space.&#160;After activating&#160;IA-32e&#160;mode,&#160;64-bit operating-systems&#160;should&#160;use&#160;the LGDT,&#160;LLDT,&#160;LIDT,&#160;<br/>and LTR instructions to&#160;load&#160;the&#160;system-descriptor-table&#160;registers with&#160;references to&#160;64-bit descriptor&#160;tables.</p>
+</div>
+</body>
+</html>

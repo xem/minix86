@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 229</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page229-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce229.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;6-43</p>
+<p style="position:absolute;top:47px;left:609px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND&#160;EXCEPTION HANDLING</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">Interrupt&#160;16—x87 FPU Floating-Point&#160;Error (#MF)</p>
+<p style="position:absolute;top:146px;left:69px;white-space:nowrap" class="ft03">Exception&#160;Class</p>
+<p style="position:absolute;top:144px;left:207px;white-space:nowrap" class="ft04">Fault.</p>
+<p style="position:absolute;top:185px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:211px;left:69px;white-space:nowrap" class="ft08">Indicates&#160;that the&#160;x87&#160;FPU has detected a&#160;floating-point error.&#160;The&#160;NE flag&#160;in the&#160;register&#160;CR0 must&#160;be&#160;set for&#160;an&#160;<br/>interrupt 16&#160;(floating-point error&#160;exception)&#160;to be generated.&#160;(See<a href="o_fe12b1e2a880e0ce-75.html">&#160;Section 2.5,&#160;“Control&#160;Registers,”</a>&#160;for&#160;a&#160;detailed&#160;<br/>description of the&#160;NE&#160;flag.)</p>
+<p style="position:absolute;top:279px;left:433px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:304px;left:122px;white-space:nowrap" class="ft05">SIMD floating-point&#160;exceptions (#XM) are&#160;signaled through&#160;interrupt 19.&#160;</p>
+<p style="position:absolute;top:345px;left:69px;white-space:nowrap" class="ft05">While executing x87&#160;FPU instructions, the&#160;x87 FPU detects&#160;and reports six types&#160;of&#160;floating-point error conditions:</p>
+<p style="position:absolute;top:367px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:367px;left:95px;white-space:nowrap" class="ft09">Invalid operation (#I)<br/>—&#160;Stack overflow or&#160;underflow&#160;(#IS)<br/>—&#160;Invalid arithmetic&#160;operation (#IA)</p>
+<p style="position:absolute;top:437px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:438px;left:95px;white-space:nowrap" class="ft05">Divide-by-zero (#Z)</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:460px;left:95px;white-space:nowrap" class="ft05">Denormalized&#160;operand&#160;(#D)</p>
+<p style="position:absolute;top:482px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:483px;left:95px;white-space:nowrap" class="ft05">Numeric overflow (#O)</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:505px;left:95px;white-space:nowrap" class="ft05">Numeric underflow&#160;(#U)</p>
+<p style="position:absolute;top:527px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:528px;left:95px;white-space:nowrap" class="ft05">Inexact&#160;result (precision) (#P)</p>
+<p style="position:absolute;top:552px;left:69px;white-space:nowrap" class="ft09">Each&#160;of&#160;these&#160;error&#160;conditions represents an x87 FPU exception&#160;type, and for&#160;each&#160;of&#160;exception&#160;type, the x87&#160;FPU&#160;<br/>provides&#160;a flag in the&#160;x87 FPU&#160;status&#160;register and a&#160;mask&#160;bit in the x87&#160;FPU control register.&#160;If the x87&#160;FPU detects&#160;<br/>a floating-point&#160;error and the&#160;mask&#160;bit for the exception&#160;type is&#160;set, the&#160;x87 FPU handles&#160;the exception&#160;automati-<br/>cally by generating&#160;a predefined&#160;(default) response&#160;and&#160;continuing&#160;program execution. The&#160;default&#160;responses&#160;have&#160;<br/>been&#160;designed to&#160;provide&#160;a reasonable result&#160;for most floating-point&#160;applications.<br/>If&#160;the mask for the&#160;exception is&#160;clear&#160;and the&#160;NE&#160;flag&#160;in&#160;register CR0&#160;is set, the&#160;x87&#160;FPU does the&#160;following:<br/>1.&#160;Sets the&#160;necessary&#160;flag in the&#160;FPU&#160;status register.<br/>2.&#160;Waits until the&#160;next “waiting” x87 FPU&#160;instruction&#160;or&#160;WAIT/FWAIT instruction is&#160;encountered&#160;in the&#160;program’s&#160;</p>
+<p style="position:absolute;top:706px;left:95px;white-space:nowrap" class="ft05">instruction stream.</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft011">3.&#160;Generates&#160;an internal error signal&#160;that cause&#160;the processor to&#160;generate a&#160;floating-point&#160;exception&#160;(#MF).<br/>Prior to&#160;executing&#160;a waiting x87&#160;FPU instruction or&#160;the&#160;WAIT/FWAIT&#160;instruction, the&#160;x87 FPU&#160;checks for pending&#160;<br/>x87&#160;FPU&#160;floating-point exceptions&#160;(as described in&#160;step&#160;2 above). Pending&#160;x87&#160;FPU&#160;floating-point&#160;exceptions are&#160;<br/>ignored for&#160;“non-waiting” x87 FPU&#160;instructions,&#160;which&#160;include the FNINIT,&#160;FNCLEX, FNSTSW,&#160;FNSTSW AX, FNSTCW,&#160;<br/>FNSTENV,&#160;and FNSAVE instructions.&#160;Pending x87&#160;FPU&#160;exceptions are&#160;also ignored when executing the&#160;state&#160;<br/>management instructions FXSAVE&#160;and FXRSTOR.<br/>All&#160;of&#160;the x87 FPU floating-point&#160;error conditions can&#160;be recovered from. The x87 FPU floating-point-error exception&#160;<br/>handler can&#160;determine&#160;the error&#160;condition that&#160;caused&#160;the&#160;exception&#160;from the&#160;settings&#160;of&#160;the flags&#160;in the&#160;x87 FPU&#160;<br/>status word.&#160;See “Software Exception Handling” in&#160;<a href="��">Chapter 8&#160;</a>of the&#160;<a href="��"><i>Intel® 64 and&#160;IA-32 Architectures Software&#160;<br/>Developer’s Manual, Volume 1</i>, fo</a>r more&#160;information on&#160;handling x87&#160;FPU&#160;floating-point&#160;exceptions.</p>
+<p style="position:absolute;top:931px;left:69px;white-space:nowrap" class="ft03">Exception&#160;Error&#160;Code</p>
+<p style="position:absolute;top:957px;left:69px;white-space:nowrap" class="ft05">None. The x87&#160;FPU provides&#160;its own error&#160;information.</p>
+<p style="position:absolute;top:994px;left:69px;white-space:nowrap" class="ft03">Saved Instruction&#160;Pointer</p>
+<p style="position:absolute;top:1020px;left:69px;white-space:nowrap" class="ft08">The saved contents of CS and EIP&#160;registers&#160;point to the floating-point or WAIT/FWAIT instruction that was about to&#160;<br/>be&#160;executed&#160;when the&#160;floating-point-error exception was generated. This is not the&#160;faulting&#160;instruction in which the&#160;<br/>error&#160;condition&#160;was detected.&#160;The&#160;address of the faulting instruction&#160;is contained in&#160;the x87 FPU&#160;instruction&#160;pointer&#160;</p>
+</div>
+</body>
+</html>

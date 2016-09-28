@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 470</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page470-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce470.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">14-4&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">POWER AND THERMAL&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">on default&#160;value&#160;of IA32_MISC_ENABLE[38] allows BIOS&#160;to&#160;detect the&#160;presence of hardware support of opportu-<br/>nistic processor performance&#160;operation.&#160;<br/>IA32_MISC_ENABLE[38] is&#160;shared&#160;across all logical processors&#160;in&#160;a&#160;physical&#160;package.&#160;It&#160;is written by BIOS during&#160;<br/>platform initiation to&#160;enable/disable&#160;opportunistic&#160;processor operation&#160;in&#160;conjunction of&#160;OS&#160;power management&#160;<br/>capabilities, see<a href="o_fe12b1e2a880e0ce-470.html">&#160;Section&#160;14.3.2.2</a>.&#160;BIOS can set&#160;IA32_MISC_ENABLE[38]&#160;with 1&#160;to disable opportunistic processor&#160;<br/>performance operation;&#160;it must clear&#160;the&#160;default value&#160;of IA32_MISC_ENABLE[38] to&#160;0 to&#160;enable&#160;opportunistic&#160;<br/>processor&#160;performance operation. OS&#160;and applications&#160;must&#160;use&#160;CPUID leaf&#160;06H if&#160;it needs to&#160;detect processors&#160;<br/>that has&#160;opportunistic processor operation enabled.<br/>When&#160;CPUID is&#160;executed with EAX =&#160;06H&#160;on input, Bit 1 of EAX in&#160;Leaf&#160;06H (i.e. CPUID.06H:EAX[1])&#160;indicates&#160;<br/>opportunistic processor performance&#160;operation,&#160;such&#160;as&#160;IDA,&#160;has been&#160;enabled by BIOS.&#160;<br/>Opportunistic processor performance&#160;operation&#160;can be disabled&#160;by&#160;setting&#160;bit 38&#160;of&#160;IA32_MISC_ENABLE. This&#160;<br/>mechanism&#160;is intended&#160;for&#160;BIOS only. If IA32_MISC_ENABLE[38]&#160;is set,&#160;CPUID.06H:EAX[1] will return&#160;0.&#160;</p>
+<p style="position:absolute;top:349px;left:68px;white-space:nowrap" class="ft03">14.3.2.2 &#160;&#160;OS Control of&#160;Opportunistic Processor Performance&#160;Operation</p>
+<p style="position:absolute;top:377px;left:68px;white-space:nowrap" class="ft07">There may be&#160;phases of software execution in&#160;which&#160;system software cannot tolerate&#160;the&#160;non-deterministic&#160;aspects&#160;<br/>of opportunistic processor performance&#160;operation. For example, when&#160;calibrating a&#160;real-time&#160;workload&#160;to make&#160;a&#160;<br/>CPU reservation&#160;request to&#160;the OS,&#160;it may be undesirable&#160;to allow the&#160;possibility of the&#160;processor&#160;delivering&#160;<br/>increased performance&#160;that cannot be&#160;sustained after&#160;the&#160;calibration phase.&#160;<br/>System software can temporarily disengage opportunistic&#160;processor performance operation by setting bit 32 of the&#160;<br/>IA32_PERF_CTL MSR&#160;(0199H),&#160;using&#160;a read-modify-write&#160;sequence on&#160;the MSR.&#160;The&#160;opportunistic&#160;processor&#160;<br/>performance operation can&#160;be&#160;re-engaged&#160;by clearing&#160;bit 32&#160;in IA32_PERF_CTL&#160;MSR,&#160;using&#160;a&#160;read-modify-write&#160;<br/>sequence. The DISENAGE bit in&#160;IA32_PERF_CTL is not&#160;reflected in bit 32 of&#160;the IA32_PERF_STATUS&#160;MSR (0198H),&#160;<br/>and it is not shared&#160;between&#160;logical processors in a physical package.&#160;In&#160;order for OS&#160;to engage&#160;IDA/Turbo mode,&#160;<br/>the BIOS must&#160;</p>
+<p style="position:absolute;top:555px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:556px;left:93px;white-space:nowrap" class="ft02">enable opportunistic processor performance&#160;operation,&#160;as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-469.html">in Section 14.3.2.1</a>,</p>
+<p style="position:absolute;top:577px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:578px;left:93px;white-space:nowrap" class="ft02">expose&#160;the&#160;operating points&#160;associated with IDA/Turbo mode&#160;to the&#160;OS.</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft03">14.3.2.3 &#160;&#160;Required&#160;Changes&#160;to OS Power Management&#160;P-state&#160;Policy</p>
+<p style="position:absolute;top:854px;left:68px;white-space:nowrap" class="ft07">Intel Dynamic Acceleration&#160;(IDA) and Intel&#160;Turbo Boost Technology&#160;can provide&#160;opportunistic&#160;performance greater&#160;<br/>than the&#160;performance level corresponding&#160;to the&#160;Processor&#160;Base&#160;frequency of&#160;the&#160;processor (see&#160;CPUID’s&#160;processor&#160;<br/>frequency information). System software can use&#160;a pair&#160;of&#160;MSRs to observe&#160;performance feedback. Software&#160;must&#160;<br/>query for the&#160;presence of&#160;IA32_APERF&#160;and&#160;IA32_MPERF&#160;(see<a href="o_fe12b1e2a880e0ce-467.html">&#160;Section 14.2)</a>.&#160;The ratio between IA32_APERF&#160;and&#160;<br/>IA32_MPERF&#160;is&#160;architecturally defined&#160;and a&#160;value&#160;greater than unity&#160;indicates&#160;performance&#160;increase&#160;occurred&#160;<br/>during&#160;the observation&#160;period due&#160;to IDA. Without&#160;incorporating such performance&#160;feedback, the target P-state&#160;<br/>evaluation algorithm can&#160;result in&#160;a non-optimal P-state target.&#160;<br/>There are other&#160;scenarios under&#160;which&#160;OS power&#160;management&#160;may&#160;want to disable IDA,&#160;some&#160;of&#160;these&#160;are listed&#160;<br/>below:</p>
+<p style="position:absolute;top:1015px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1016px;left:93px;white-space:nowrap" class="ft07">When&#160;engaging&#160;ACPI&#160;defined&#160;passive&#160;thermal management,&#160;it&#160;may be&#160;more&#160;effective&#160;to disable&#160;IDA&#160;for&#160;the&#160;<br/>duration&#160;of&#160;passive thermal management.</p>
+<p style="position:absolute;top:772px;left:323px;white-space:nowrap" class="ft05">Figure&#160;14-2. &#160;IA32_PERF_CTL Register</p>
+<p style="position:absolute;top:648px;left:251px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:648px;left:650px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:670px;left:290px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:646px;left:538px;white-space:nowrap" class="ft06">16</p>
+<p style="position:absolute;top:721px;left:252px;white-space:nowrap" class="ft00">Enhanced&#160;Intel Speedstep Technology&#160;Transition&#160;Target&#160;</p>
+<p style="position:absolute;top:646px;left:552px;white-space:nowrap" class="ft06">15</p>
+<p style="position:absolute;top:647px;left:426px;white-space:nowrap" class="ft06">32</p>
+<p style="position:absolute;top:646px;left:413px;white-space:nowrap" class="ft06">33</p>
+<p style="position:absolute;top:647px;left:440px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:707px;left:253px;white-space:nowrap" class="ft00">IDA/Turbo&#160;DISENGAGE</p>
+</div>
+</body>
+</html>

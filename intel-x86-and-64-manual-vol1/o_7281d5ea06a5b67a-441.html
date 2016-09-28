@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 441</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page441-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a441.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 1&#160;D-19</p>
+<p style="position:absolute;top:47px;left:500px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87&#160;FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">virtual&#160;machine&#160;subsystem.&#160;The&#160;MS-DOS&#160;program is&#160;set&#160;up in&#160;a virtual machine that&#160;provides&#160;a virtualized&#160;inter-<br/>rupt table.&#160;The&#160;MS-DOS application hooks interrupt 16&#160;in&#160;the virtual&#160;machine in the normal way.&#160;A numeric excep-<br/>tion will trap to&#160;the kernel&#160;via the&#160;real&#160;INT 16 residing in&#160;the kernel at&#160;ring&#160;0.&#160;<br/>The INT 16 handler in the kernel then&#160;locates&#160;the correct MS-DOS virtual machine, and reflects the&#160;interrupt&#160;to the&#160;<br/>virtual&#160;machine&#160;monitor.&#160;The virtual&#160;machine&#160;monitor then emulates an interrupt by jumping through the address&#160;<br/>in&#160;the virtualized&#160;interrupt table,&#160;eventually&#160;reaching the&#160;application’s numeric exception&#160;handler.</p>
+<p style="position:absolute;top:235px;left:69px;white-space:nowrap" class="ft03">D.3.6.5 &#160;</p>
+<p style="position:absolute;top:235px;left:153px;white-space:nowrap" class="ft03">Special Considerations&#160;for&#160;Operating&#160;Systems that Support Streaming SIMD Extensions</p>
+<p style="position:absolute;top:263px;left:69px;white-space:nowrap" class="ft010">Operating systems that&#160;support Streaming&#160;SIMD Extensions instructions introduced with&#160;the Pentium&#160;III&#160;processor&#160;<br/>should&#160;use the&#160;FXSAVE and&#160;FXRSTOR instructions&#160;to&#160;save&#160;and restore the&#160;new&#160;SIMD&#160;floating-point instruction&#160;<br/>register state as&#160;well&#160;as the floating-point&#160;state.&#160;Such&#160;operating systems must consider the&#160;following&#160;issues:<br/>1.&#160;<b>Enlarged state save&#160;area</b>&#160;—&#160;FNSAVE/FRSTOR&#160;instructions&#160;operate on&#160;a 94-byte or 108-byte&#160;memory region,&#160;</p>
+<p style="position:absolute;top:337px;left:95px;white-space:nowrap" class="ft08">depending&#160;on whether they&#160;are&#160;executed&#160;in 16-bit or&#160;32-bit mode.&#160;The FXSAVE/FXRSTOR instructions operate&#160;<br/>on a&#160;512-byte memory&#160;region.</p>
+<p style="position:absolute;top:377px;left:69px;white-space:nowrap" class="ft02">2.&#160;<b>Alignment requirements</b>&#160;— FXSAVE/FXRSTOR instructions&#160;require&#160;the memory region&#160;on which&#160;they&#160;</p>
+<p style="position:absolute;top:394px;left:95px;white-space:nowrap" class="ft08">operate&#160;to be&#160;16-byte aligned&#160;(refer to&#160;the individual&#160;instruction instructions descriptions&#160;<a href="��">in Chapter&#160;3 of the&#160;<br/></a><i>Intel®&#160;64&#160;and&#160;IA-32&#160;Architectures&#160;Software&#160;Developer’s Manual,&#160;Volume&#160;2A,</i>&#160;for information&#160;about exceptions&#160;<br/>generated if the memory&#160;region&#160;is not aligned).</p>
+<p style="position:absolute;top:451px;left:69px;white-space:nowrap" class="ft02">3.&#160;<b>Maintaining compatibility with legacy applications/libraries</b>&#160;— The operating&#160;system&#160;changes&#160;to&#160;</p>
+<p style="position:absolute;top:467px;left:95px;white-space:nowrap" class="ft08">support&#160;Streaming&#160;SIMD Extensions must be invisible&#160;to&#160;legacy&#160;applications or&#160;libraries&#160;that deal only with&#160;<br/>floating-point&#160;instructions. The&#160;layout of the memory region&#160;operated on&#160;by the&#160;FXSAVE/FXRSTOR&#160;instructions&#160;<br/>is&#160;different from the&#160;layout for the&#160;FNSAVE/FRSTOR&#160;instructions.&#160;Specifically, the&#160;format&#160;of the&#160;x87 FPU&#160;tag&#160;<br/>word and the&#160;length of the various&#160;fields&#160;in the&#160;memory&#160;region is&#160;different. Care must be&#160;taken to&#160;return the&#160;<br/>x87&#160;FPU state to&#160;a legacy&#160;application (e.g.,&#160;when&#160;reporting&#160;FP&#160;exceptions) in the format&#160;it expects.</p>
+<p style="position:absolute;top:557px;left:69px;white-space:nowrap" class="ft02">4.&#160;<b>Instruction&#160;semantic&#160;differences</b>&#160;— There are some semantic differences between&#160;the way the&#160;FXSAVE&#160;and&#160;</p>
+<p style="position:absolute;top:574px;left:95px;white-space:nowrap" class="ft08">FSAVE/FNSAVE instructions operate.&#160;The FSAVE/FNSAVE&#160;instructions&#160;clear the&#160;x87&#160;FPU after&#160;they&#160;save&#160;the&#160;<br/>state&#160;while&#160;the&#160;FXSAVE instruction saves the&#160;x87 FPU/Streaming SIMD&#160;Extensions&#160;state&#160;but does not clear it.&#160;<br/>Operating systems that&#160;use FXSAVE&#160;to save&#160;the&#160;x87 FPU&#160;state before&#160;making it&#160;available&#160;for&#160;another thread&#160;<br/>(e.g.,&#160;during thread switch&#160;time) should&#160;take&#160;precautions not to&#160;pass&#160;a “dirty” x87 FPU&#160;to another application.</p>
+<p style="position:absolute;top:679px;left:69px;white-space:nowrap" class="ft06">D.4&#160;</p>
+<p style="position:absolute;top:679px;left:148px;white-space:nowrap" class="ft06">DIFFERENCES FOR HANDLERS USING NATIVE&#160;MODE</p>
+<p style="position:absolute;top:715px;left:69px;white-space:nowrap" class="ft08">The 8087&#160;has an INT pin&#160;which&#160;it asserts&#160;when&#160;an unmasked&#160;exception occurs. But there&#160;is no&#160;interrupt input&#160;pin&#160;<br/>in the 8086 or 8088 dedicated to its attachment,&#160;nor an interrupt vector in the 8086 or 8088 specific for an x87 FPU&#160;<br/>error assertion. Beginning&#160;with the&#160;Intel 286&#160;and Intel&#160;287&#160;hardware,&#160;a connection was&#160;dedicated&#160;to support the&#160;<br/>x87 FPU exception and&#160;interrupt&#160;vector&#160;16&#160;was assigned&#160;to it.</p>
+<p style="position:absolute;top:815px;left:69px;white-space:nowrap" class="ft07">D.4.1 &#160;</p>
+<p style="position:absolute;top:815px;left:149px;white-space:nowrap" class="ft07">Origin with the Intel 286 and Intel 287, and Intel386 and&#160;Intel 387 Processors</p>
+<p style="position:absolute;top:845px;left:69px;white-space:nowrap" class="ft08">The Intel&#160;286 and&#160;Intel 287, and&#160;Intel386 and&#160;Intel&#160;387&#160;processor/coprocessor&#160;pairs&#160;are each provided&#160;with&#160;<br/>ERROR# pins that are recommended to&#160;be connected between the processor and x87 FPU.&#160;If this is&#160;done, when an&#160;<br/>unmasked&#160;x87&#160;FPU&#160;exception occurs,&#160;the&#160;x87&#160;FPU&#160;records&#160;the exception, and&#160;asserts&#160;its ERROR# pin.&#160;The&#160;<br/>processor recognizes this&#160;active&#160;condition of the&#160;ERROR#&#160;status&#160;line immediately before&#160;execution&#160;of&#160;the&#160;next&#160;<br/>WAIT or&#160;x87 FPU&#160;instruction&#160;(except for the no-wait type) in&#160;its&#160;instruction&#160;stream, and branches&#160;to the&#160;handler of&#160;<br/>interrupt&#160;16. Thus an&#160;x87 FPU exception will be&#160;handled before any&#160;other x87&#160;FPU instruction (after&#160;the one&#160;<br/>causing the&#160;error) is&#160;executed&#160;(except for no-wait&#160;instructions,&#160;which will be executed&#160;without triggering the&#160;x87&#160;<br/>FPU exception&#160;interrupt, but&#160;it will remain&#160;pending).<br/>Using&#160;the dedicated INT 16 for x87&#160;FPU&#160;exception&#160;handling&#160;is&#160;referred to&#160;as the&#160;native&#160;mode. It&#160;is the&#160;simplest&#160;<br/>approach,&#160;and&#160;the one&#160;recommended&#160;most highly by&#160;Intel.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 660</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page660-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481660.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:616px;white-space:nowrap" class="ft00">LLDT—Load Local&#160;Descriptor Table&#160;Register</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-532&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">LLDT—Load Local Descriptor Table Register</p>
+<p style="position:absolute;top:217px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:300px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft08">Loads the&#160;source&#160;operand&#160;into&#160;the segment selector field&#160;of the&#160;local&#160;descriptor&#160;table&#160;register (LDTR). The&#160;source&#160;<br/>operand&#160;(a general-purpose register&#160;or a&#160;memory location) contains a&#160;segment&#160;selector that points&#160;to a&#160;local&#160;<br/>descriptor table (LDT). After&#160;the segment selector is&#160;loaded&#160;in&#160;the LDTR, the&#160;processor&#160;uses&#160;the&#160;segment&#160;selector&#160;<br/>to locate the&#160;segment&#160;descriptor for the LDT in&#160;the global descriptor&#160;table&#160;(GDT).&#160;It then loads the&#160;segment&#160;limit&#160;<br/>and base&#160;address for the&#160;LDT&#160;from&#160;the segment descriptor&#160;into&#160;the LDTR. The&#160;segment&#160;registers DS,&#160;ES, SS,&#160;FS,&#160;<br/>GS,&#160;and CS are&#160;not&#160;affected by this instruction, nor&#160;is the LDTR field in the task state segment&#160;(TSS) for the&#160;current&#160;<br/>task.<br/>If bits&#160;2-15&#160;of the&#160;source operand&#160;are&#160;0,&#160;LDTR&#160;is&#160;marked&#160;invalid&#160;and the&#160;LLDT&#160;instruction completes silently.&#160;<br/>However,&#160;all subsequent references to descriptors in the&#160;LDT (except by the LAR, VERR, VERW&#160;or&#160;LSL&#160;instructions)&#160;<br/>cause&#160;a general protection exception&#160;(#GP).<br/>The&#160;operand-size&#160;attribute&#160;has&#160;no&#160;effect on this&#160;instruction.&#160;<br/>The&#160;LLDT&#160;instruction is&#160;provided for use&#160;in operating-system software;&#160;it should&#160;not be&#160;used in application&#160;<br/>programs. This instruction can only be executed&#160;in protected&#160;mode&#160;or&#160;64-bit mode.<br/>In&#160;64-bit mode, the&#160;operand size&#160;is fixed at&#160;16&#160;bits.</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:634px;left:68px;white-space:nowrap" class="ft04">IF&#160;SRC(Offset)&#160;&gt;&#160;descriptor table limit&#160;</p>
+<p style="position:absolute;top:652px;left:88px;white-space:nowrap" class="ft04">THEN #GP(segment selector); FI;</p>
+<p style="position:absolute;top:688px;left:68px;white-space:nowrap" class="ft04">IF&#160;segment selector is valid</p>
+<p style="position:absolute;top:718px;left:88px;white-space:nowrap" class="ft04">Read&#160;segment descriptor;</p>
+<p style="position:absolute;top:748px;left:88px;white-space:nowrap" class="ft04">IF SegmentDescriptor(Type)&#160;</p>
+<p style="position:absolute;top:746px;left:251px;white-space:nowrap" class="ft05">≠&#160;</p>
+<p style="position:absolute;top:748px;left:265px;white-space:nowrap" class="ft04">LDT&#160;</p>
+<p style="position:absolute;top:766px;left:115px;white-space:nowrap" class="ft04">THEN #GP(segment selector); FI;</p>
+<p style="position:absolute;top:784px;left:88px;white-space:nowrap" class="ft04">IF segment descriptor is not present&#160;</p>
+<p style="position:absolute;top:802px;left:115px;white-space:nowrap" class="ft04">THEN #NP(segment selector); FI;</p>
+<p style="position:absolute;top:832px;left:88px;white-space:nowrap" class="ft04">LDTR(SegmentSelector)&#160;←&#160;SRC;</p>
+<p style="position:absolute;top:850px;left:88px;white-space:nowrap" class="ft04">LDTR(SegmentDescriptor)&#160;←&#160;GDTSegmentDescriptor;</p>
+<p style="position:absolute;top:868px;left:68px;white-space:nowrap" class="ft04">ELSE&#160;LDTR&#160;←&#160;INVALID</p>
+<p style="position:absolute;top:886px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:920px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:945px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:123px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:387px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:387px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:424px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:424px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:496px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:496px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:566px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F 00 /2</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">LLDT&#160;<i>r/m</i>16</p>
+<p style="position:absolute;top:160px;left:387px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:160px;left:424px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:496px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:566px;white-space:nowrap" class="ft04">Load segment selector&#160;<i>r/m</i>16&#160;into&#160;LDTR.</p>
+<p style="position:absolute;top:240px;left:87px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:240px;left:193px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:240px;left:365px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:240px;left:544px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:240px;left:720px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:263px;left:99px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:263px;left:183px;white-space:nowrap" class="ft04">ModRM:r/m&#160;&#160;(r)</p>
+<p style="position:absolute;top:263px;left:386px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:565px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:741px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

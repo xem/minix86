@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 408</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:9px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page408-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce408.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-46&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft02">Logical x2APIC ID = [(x2APIC ID[19:4] « 16) | (1&#160;«&#160;x2APIC ID[3:0])]</p>
+<p style="position:absolute;top:145px;left:68px;white-space:nowrap" class="ft09">The&#160;use of the lowest 4 bits&#160;in the&#160;x2APIC ID implies that at&#160;least&#160;16&#160;APIC&#160;IDs&#160;are reserved for&#160;logical processors&#160;<br/>within&#160;a socket&#160;in multi-socket&#160;configurations.&#160;If more&#160;than 16 APIC&#160;IDS are reserved for logical processors in a&#160;<br/>socket/package then&#160;multiple cluster&#160;IDs&#160;can exist&#160;within&#160;the package.&#160;<br/>The&#160;LDR initialization occurs whenever the&#160;x2APIC mode&#160;is enabled&#160;(s<a href="o_fe12b1e2a880e0ce-402.html">ee Section 10.12.5).</a></p>
+<p style="position:absolute;top:251px;left:68px;white-space:nowrap" class="ft03">10.12.11&#160;SELF IPI Register</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft08">SELF&#160;IPIs are used&#160;extensively by some&#160;system software. The&#160;x2APIC architecture introduces a new register inter-<br/>face. This new register&#160;is dedicated to&#160;the purpose of sending self-IPIs with the&#160;intent of enabling a&#160;highly opti-<br/>mized path for sending self-IPIs.&#160;<br/><a href="o_fe12b1e2a880e0ce-408.html">Figure&#160;10-30&#160;provides</a>&#160;the layout of the&#160;SELF&#160;IPI register.&#160;System software only specifies the vector associated&#160;with&#160;<br/>the interrupt to be sent. The semantics of sending a self-IPI&#160;via the SELF IPI register are identical to&#160;sending a self&#160;<br/>targeted&#160;edge&#160;triggered&#160;fixed&#160;interrupt&#160;with&#160;the&#160;specified vector. Specifically the&#160;semantics are&#160;identical to the&#160;<br/>following settings for an&#160;inter-processor interrupt&#160;sent&#160;via the&#160;ICR&#160;- Destination Shorthand (ICR[19:18] = 01&#160;<br/>(Self)),&#160;Trigger Mode&#160;(ICR[15]&#160;= 0&#160;(Edge)),&#160;Delivery Mode&#160;(ICR[10:8]&#160;=&#160;000&#160;(Fixed)),&#160;Vector (ICR[7:0]&#160;=&#160;Vector).</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft08">The SELF IPI register&#160;is a&#160;write-only register. A&#160;RDMSR&#160;instruction&#160;with&#160;address of the&#160;SELF IPI&#160;register causes a&#160;<br/>general-protection exception.&#160;<br/>The&#160;handling and prioritization of a&#160;self-IPI&#160;sent&#160;via&#160;the SELF&#160;IPI register&#160;is architecturally identical to that&#160;for&#160;an&#160;<br/>IPI&#160;sent via the ICR from a legacy xAPIC unit.&#160;Specifically&#160;the state of&#160;the interrupt&#160;would be tracked&#160;via&#160;the Inter-<br/>rupt&#160;Request&#160;Register&#160;(IRR) and&#160;In&#160;Service&#160;Register&#160;(ISR)&#160;and Trigger Mode Register (TMR) as&#160;if it&#160;were received&#160;<br/>from&#160;the system bus.&#160;Also sending the&#160;IPI via the Self Interrupt Register ensures that interrupt is delivered to the&#160;<br/>processor&#160;core. Specifically&#160;completion of&#160;the WRMSR&#160;instruction&#160;to the SELF IPI register implies that&#160;the interrupt&#160;<br/>has been logged&#160;into the&#160;IRR.&#160;As&#160;expected&#160;for&#160;edge&#160;triggered&#160;interrupts, depending on the processor&#160;priority&#160;and&#160;<br/>readiness&#160;to accept interrupts,&#160;it is&#160;possible that interrupts&#160;sent via the&#160;SELF IPI register or&#160;via the&#160;ICR&#160;with&#160;iden-<br/>tical&#160;vectors can&#160;be combined.</p>
+<p style="position:absolute;top:814px;left:68px;white-space:nowrap" class="ft04">10.13&#160;&#160;APIC BUS MESSAGE FORMATS</p>
+<p style="position:absolute;top:850px;left:68px;white-space:nowrap" class="ft08">This section describes&#160;the message&#160;formats used&#160;when transmitting messages&#160;on&#160;the serial APIC bus. The informa-<br/>tion described here&#160;pertains&#160;only&#160;to the&#160;Pentium&#160;and P6 family processors.</p>
+<p style="position:absolute;top:917px;left:68px;white-space:nowrap" class="ft03">10.13.1&#160;&#160;Bus Message Formats</p>
+<p style="position:absolute;top:948px;left:68px;white-space:nowrap" class="ft08">The&#160;local and&#160;I/O APICs transmit&#160;three types of&#160;messages&#160;on the&#160;serial APIC bus:&#160;EOI message,&#160;short message,&#160;<br/>and non-focused lowest priority&#160;message. The purpose of each type of message&#160;and its format are&#160;described below.</p>
+<p style="position:absolute;top:550px;left:348px;white-space:nowrap" class="ft05">Figure&#160;10-30. &#160;SELF&#160;IPI&#160;register</p>
+<p style="position:absolute;top:456px;left:252px;white-space:nowrap" class="ft06"><b>MSR Address:&#160;083FH</b></p>
+<p style="position:absolute;top:482px;left:251px;white-space:nowrap" class="ft07">31</p>
+<p style="position:absolute;top:482px;left:568px;white-space:nowrap" class="ft07">8&#160;7</p>
+<p style="position:absolute;top:482px;left:653px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:505px;left:354px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:504px;left:590px;white-space:nowrap" class="ft00">Vector</p>
+</div>
+</body>
+</html>

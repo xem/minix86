@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1508</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1508-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811508.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:230px;white-space:nowrap" class="ft00">VFMADD132PD/VFMADD213PD/VFMADD231PD—Fused Multiply-Add of&#160;Packed Double-Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-122&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:118px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1)&#160;</p>
+<p style="position:absolute;top:136px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:154px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">RoundFPControl_MXCSR(SRC2[i+63:i]*SRC3[63:0] + DEST[i+63:i])</p>
+<p style="position:absolute;top:190px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:208px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;</p>
+<p style="position:absolute;top:226px;left:142px;white-space:nowrap" class="ft03">RoundFPControl_MXCSR(SRC2[i+63:i]*SRC3[i+63:i] + DEST[i+63:i])<br/>FI;</p>
+<p style="position:absolute;top:262px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:280px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:280px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:298px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:316px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:334px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:352px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:370px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:440px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:463px;left:68px;white-space:nowrap" class="ft03">VFMADDxxxPD __m512d&#160;_mm512_fmadd_pd(__m512d a,&#160;__m512d&#160;b, __m512d&#160;c);<br/>VFMADDxxxPD __m512d&#160;_mm512_fmadd_round_pd(__m512d&#160;a, __m512d b,&#160;__m512d c, int r);<br/>VFMADDxxxPD __m512d&#160;_mm512_mask_fmadd_pd(__m512d a, __mmask8 k, __m512d&#160;b, __m512d c);<br/>VFMADDxxxPD __m512d&#160;_mm512_maskz_fmadd_pd(__mmask8&#160;k, __m512d a, __m512d&#160;b, __m512d&#160;c);<br/>VFMADDxxxPD __m512d&#160;_mm512_mask3_fmadd_pd(__m512d&#160;a, __m512d b, __m512d c, __mmask8&#160;k);<br/>VFMADDxxxPD __m512d&#160;_mm512_mask_fmadd_round_pd(__m512d&#160;a, __mmask8&#160;k, __m512d b,&#160;__m512d&#160;c, int r);<br/>VFMADDxxxPD __m512d&#160;_mm512_maskz_fmadd_round_pd(__mmask8 k, __m512d&#160;a, __m512d b, __m512d c, int r);<br/>VFMADDxxxPD __m512d&#160;_mm512_mask3_fmadd_round_pd(__m512d a, __m512d&#160;b, __m512d&#160;c,&#160;__mmask8 k, int&#160;r);<br/>VFMADDxxxPD __m256d&#160;_mm256_mask_fmadd_pd(__m256d a, __mmask8 k, __m256d&#160;b, __m256d c);<br/>VFMADDxxxPD __m256d&#160;_mm256_maskz_fmadd_pd(__mmask8&#160;k, __m256d a, __m256d&#160;b, __m256d&#160;c);<br/>VFMADDxxxPD __m256d&#160;_mm256_mask3_fmadd_pd(__m256d&#160;a, __m256d b, __m256d c, __mmask8&#160;k);<br/>VFMADDxxxPD __m128d&#160;_mm_mask_fmadd_pd(__m128d a,&#160;__mmask8 k, __m128d&#160;b, __m128d c);<br/>VFMADDxxxPD __m128d&#160;_mm_maskz_fmadd_pd(__mmask8 k, __m128d a,&#160;__m128d b,&#160;__m128d&#160;c);<br/>VFMADDxxxPD __m128d&#160;_mm_mask3_fmadd_pd(__m128d&#160;a, __m128d&#160;b, __m128d c, __mmask8&#160;k);<br/>VFMADDxxxPD __m128d&#160;_mm_fmadd_pd&#160;(__m128d a,&#160;__m128d&#160;b, __m128d&#160;c);<br/>VFMADDxxxPD __m256d&#160;_mm256_fmadd_pd (__m256d a,&#160;__m256d&#160;b, __m256d&#160;c);</p>
+<p style="position:absolute;top:768px;left:68px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft02">Overflow, Underflow,&#160;Invalid, Precision,&#160;Denormal</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft01">Other Exceptions</p>
+<p style="position:absolute;top:847px;left:68px;white-space:nowrap" class="ft04">VEX-encoded&#160;instructions, see Exceptions Type&#160;2.<br/>EVEX-encoded instructions,&#160;see Exceptions&#160;Type E2.</p>
+</div>
+</body>
+</html>

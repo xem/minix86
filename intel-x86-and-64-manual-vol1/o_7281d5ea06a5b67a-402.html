@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 402</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page402-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a402.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-2&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INPUT/OUTPUT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">single&#160;bus cycle. Likewise, 32-bit ports should&#160;be&#160;aligned to&#160;addresses that&#160;are&#160;multiples of four (0, 4,&#160;8,&#160;...). The&#160;<br/>processor supports data transfers&#160;to unaligned ports, but&#160;there&#160;is a&#160;performance penalty&#160;because&#160;one or&#160;more&#160;<br/>extra bus&#160;cycle&#160;must be used.<br/>The&#160;exact order&#160;of&#160;bus cycles used to access unaligned ports&#160;is undefined and is&#160;not guaranteed&#160;to&#160;remain the same&#160;<br/>in future IA-32 processors.&#160;If hardware&#160;or software&#160;requires&#160;that&#160;I/O ports&#160;be&#160;written to&#160;in&#160;a particular&#160;order,&#160;that&#160;<br/>order must be&#160;specified explicitly. For example,&#160;to load a&#160;word-length I/O port at address 2H and then another word&#160;<br/>port at&#160;4H, two word-length&#160;writes must be used,&#160;rather&#160;than&#160;a single doubleword write at&#160;2H.<br/>Note&#160;that&#160;the processor does not&#160;mask&#160;parity&#160;errors for bus&#160;cycles&#160;to the&#160;I/O address&#160;space.&#160;Accessing I/O&#160;ports&#160;<br/>through the&#160;I/O address space&#160;is thus a&#160;possible source&#160;of&#160;parity&#160;errors.</p>
+<p style="position:absolute;top:298px;left:68px;white-space:nowrap" class="ft03">18.3.1 Memory-Mapped&#160;</p>
+<p style="position:absolute;top:298px;left:287px;white-space:nowrap" class="ft03">I/O</p>
+<p style="position:absolute;top:328px;left:68px;white-space:nowrap" class="ft06">I/O&#160;devices&#160;that respond like memory components&#160;can&#160;be&#160;accessed through the&#160;processor’s physical-memory&#160;<br/>address space (s<a href="o_7281d5ea06a5b67a-402.html">ee&#160;Figure&#160;18-1)</a>.&#160;When using&#160;memory-mapped&#160;I/O,&#160;any of the&#160;processor’s instructions&#160;that&#160;refer-<br/>ence memory can&#160;be used to&#160;access&#160;an&#160;I/O&#160;port located&#160;at a&#160;physical-memory address. For&#160;example, the&#160;MOV&#160;<br/>instruction&#160;can&#160;transfer data between any&#160;register&#160;and&#160;a&#160;memory-mapped I/O&#160;port. The&#160;AND,&#160;OR, and&#160;TEST&#160;<br/>instructions&#160;may be used to&#160;manipulate bits in&#160;the&#160;control and&#160;status registers&#160;of&#160;a memory-mapped peripheral&#160;<br/>device.<br/>When using&#160;memory-mapped&#160;I/O,&#160;caching&#160;of the&#160;address&#160;space&#160;mapped for I/O&#160;operations&#160;must be prevented.&#160;<br/>With&#160;the Pentium 4,&#160;Intel Xeon,&#160;and P6 family&#160;processors,&#160;caching of I/O&#160;accesses&#160;can be prevented by&#160;using&#160;<br/>memory type&#160;range registers (MTRRs) to map the address space used for&#160;the&#160;memory-mapped I/O&#160;as&#160;uncacheable&#160;<br/>(UC).&#160;See&#160;<a href="��">Chapter 11, “Memory&#160;Cache&#160;Control” in&#160;</a>the&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;<br/>Manual, Volume&#160;3A,</i>&#160;for a&#160;complete&#160;discussion of the&#160;MTRRs.<br/>The Pentium and&#160;Intel486&#160;processors do&#160;not support&#160;MTRRs.&#160;Instead,&#160;they provide the KEN# pin,&#160;which when&#160;held&#160;<br/>inactive&#160;(high)&#160;prevents caching&#160;of all&#160;addresses sent out on&#160;the system&#160;bus.&#160;To&#160;use&#160;this pin, external&#160;address&#160;<br/>decoding logic is&#160;required to&#160;block caching&#160;in specific&#160;address spaces.</p>
+<p style="position:absolute;top:959px;left:68px;white-space:nowrap" class="ft08">All the IA-32 processors that have&#160;on-chip caches&#160;also&#160;provide the PCD (page-level cache disable) flag&#160;in page table&#160;<br/>and page&#160;directory&#160;entries. This&#160;flag allows caching&#160;to&#160;be&#160;disabled&#160;on a&#160;page-by-page&#160;basis.&#160;See&#160;“Page-Directory&#160;<br/>and Page-Table&#160;Entries”&#160;<a href="��">in Chapter&#160;4 of in&#160;</a>the&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual,&#160;<br/>Volume 3A.</i></p>
+<p style="position:absolute;top:913px;left:339px;white-space:nowrap" class="ft05">Figure&#160;18-1.&#160;&#160;Memory-Mapped&#160;I/O</p>
+<p style="position:absolute;top:630px;left:510px;white-space:nowrap" class="ft02">FFFF&#160;</p>
+<p style="position:absolute;top:704px;left:358px;white-space:nowrap" class="ft02">I/O Port</p>
+<p style="position:absolute;top:661px;left:358px;white-space:nowrap" class="ft02">EPROM</p>
+<p style="position:absolute;top:820px;left:358px;white-space:nowrap" class="ft02">RAM</p>
+<p style="position:absolute;top:614px;left:358px;white-space:nowrap" class="ft02">Physical Memory</p>
+<p style="position:absolute;top:889px;left:510px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:722px;left:358px;white-space:nowrap" class="ft09">I/O Port<br/>I/O Port</p>
+</div>
+</body>
+</html>

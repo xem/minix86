@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 463</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page463-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a463.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:776px;white-space:nowrap" class="ft00">Vol. 1&#160;E-21</p>
+<p style="position:absolute;top:47px;left:421px;white-space:nowrap" class="ft01">GUIDELINES FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION&#160;HANDLERS</p>
+<p style="position:absolute;top:106px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;result_tiny = 1;</p>
+<p style="position:absolute;top:120px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }</p>
+<p style="position:absolute;top:151px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;check if the result is&#160;huge</p>
+<p style="position:absolute;top:165px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(NEGINFF &lt; dbl_res24 &amp;&amp;&#160;dbl_res24 &lt; -MAX_SINGLE_NORMAL ||&#160;</p>
+<p style="position:absolute;top:180px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; MAX_SINGLE_NORMAL &lt; dbl_res24 &amp;&amp; dbl_res24 &lt; POSINFF) {&#160;</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;result_huge = 1;</p>
+<p style="position:absolute;top:210px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }</p>
+<p style="position:absolute;top:241px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;at this point, there are no enabled I,D, or Z exceptions&#160;</p>
+<p style="position:absolute;top:255px;left:95px;white-space:nowrap" class="ft00">&#160;&#160;// to take; the&#160;instr.</p>
+<p style="position:absolute;top:270px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;might lead to an enabled underflow, enabled underflow and inexact,&#160;</p>
+<p style="position:absolute;top:286px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;enabled overflow, enabled overflow and inexact,&#160;enabled inexact, or</p>
+<p style="position:absolute;top:300px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;none of these; if there&#160;are no U or O enabled exceptions, re-execute</p>
+<p style="position:absolute;top:315px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;the instruction using IA-32 double precision format, and the&#160;</p>
+<p style="position:absolute;top:331px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;user's rounding mode; exceptions must have&#160;</p>
+<p style="position:absolute;top:345px;left:109px;white-space:nowrap" class="ft00">// been disabled&#160;before calling</p>
+<p style="position:absolute;top:360px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;this function; an inexact exception may be reported on the 53-bit</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;fsubp, fmulp, or on both the 53-bit and 24-bit conversions, while an&#160;</p>
+<p style="position:absolute;top:390px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;overflow or underflow (with traps disabled) may&#160;be reported on the&#160;</p>
+<p style="position:absolute;top:405px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;conversion from dbl_res&#160;to res</p>
+<p style="position:absolute;top:435px;left:112px;white-space:nowrap" class="ft00">//&#160;check whether there is&#160;an underflow, overflow,</p>
+<p style="position:absolute;top:450px;left:95px;white-space:nowrap" class="ft00">&#160;&#160;// or inexact trap to be taken</p>
+<p style="position:absolute;top:466px;left:112px;white-space:nowrap" class="ft00">//&#160;if the underflow traps&#160;are enabled and the result is&#160;</p>
+<p style="position:absolute;top:480px;left:109px;white-space:nowrap" class="ft00">// tiny, take underflow trap</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(!(exc_env-&gt;exc_masks &amp;&#160;UNDERFLOW_MASK) &amp;&amp; result_tiny) {</p>
+<p style="position:absolute;top:525px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;dbl_res24 = TWO_TO_192 *&#160;dbl_res24; // exact</p>
+<p style="position:absolute;top:540px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;status_flag_underflow = 1;</p>
+<p style="position:absolute;top:556px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;exception_cause&#160;= UNDERFLOW;</p>
+<p style="position:absolute;top:570px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;result_fval = (float)dbl_res24; // exact</p>
+<p style="position:absolute;top:585px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;if (sw &amp; PRECISION_MASK)&#160;exc_env-&gt;status_flag_inexact = 1;</p>
+<p style="position:absolute;top:601px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;return (RAISE_EXCEPTION);</p>
+<p style="position:absolute;top:615px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }&#160;</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;if overflow traps are enabled and the result is&#160;huge, take</p>
+<p style="position:absolute;top:660px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;overflow trap</p>
+<p style="position:absolute;top:675px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; if&#160;(!(exc_env-&gt;exc_masks &amp;&#160;OVERFLOW_MASK) &amp;&amp; &#160;result_huge) {</p>
+<p style="position:absolute;top:691px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;dbl_res24 = TWO_TO_M192&#160;* dbl_res24; // exact</p>
+<p style="position:absolute;top:706px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;status_flag_overflow = 1;</p>
+<p style="position:absolute;top:720px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;exception_cause&#160;= OVERFLOW;</p>
+<p style="position:absolute;top:736px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;exc_env-&gt;result_fval = (float)dbl_res24; // exact&#160;</p>
+<p style="position:absolute;top:751px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;if (sw &amp; PRECISION_MASK)&#160;exc_env-&gt;status_flag_inexact = 1;</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;return (RAISE_EXCEPTION);</p>
+<p style="position:absolute;top:780px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }&#160;</p>
+<p style="position:absolute;top:810px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;set control word with rounding mode set to exc_env-&gt;rounding_mode,&#160;</p>
+<p style="position:absolute;top:825px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;double precision, and all exceptions disabled</p>
+<p style="position:absolute;top:841px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; cw&#160;= cw | 0200H; // set precision to double</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; __asm {</p>
+<p style="position:absolute;top:870px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;fldcw WORD PTR cw;</p>
+<p style="position:absolute;top:886px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }</p>
+<p style="position:absolute;top:915px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; switch (exc_env-&gt;operation) {</p>
+<p style="position:absolute;top:945px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case ADDPS:</p>
+<p style="position:absolute;top:960px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;case ADDSS:</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; // perform the addition</p>
+<p style="position:absolute;top:990px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; __asm {</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; // load input operands</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd1; // may set the denormal&#160;status flag</p>
+<p style="position:absolute;top:1035px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; fld DWORD PTR uiopd2; // may set the denormal&#160;status flag</p>
+<p style="position:absolute;top:1050px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; faddp st(1), st(0);&#160;// rounded to 53 bits, may set the inexact&#160;</p>
+<p style="position:absolute;top:1066px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;// status flag</p>
+</div>
+</body>
+</html>

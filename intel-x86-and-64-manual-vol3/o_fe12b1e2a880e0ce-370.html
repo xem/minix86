@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 370</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page370-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce370.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-8&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">10.4.3&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Enabling or Disabling the Local APIC</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft07">The&#160;local APIC can be enabled or disabled in&#160;either of&#160;two ways:<br/>1.&#160;Using&#160;the&#160;APIC global enable/disable flag&#160;in the&#160;IA32_APIC_BASE&#160;MSR (MSR&#160;address 1BH; see<a href="o_fe12b1e2a880e0ce-371.html">&#160;Figure&#160;10-5):</a></p>
+<p style="position:absolute;top:177px;left:93px;white-space:nowrap" class="ft03">—&#160;When&#160;IA32_APIC_BASE[11] is 0,&#160;the processor is functionally equivalent to&#160;an IA-32 processor&#160;without an&#160;</p>
+<p style="position:absolute;top:193px;left:119px;white-space:nowrap" class="ft08">on-chip APIC. The CPUID&#160;feature flag for&#160;the APIC&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-369.html">Section 10.4.2,&#160;“Presence&#160;of the&#160;Local APIC”) is</a>&#160;also&#160;<br/>set to&#160;0.</p>
+<p style="position:absolute;top:234px;left:93px;white-space:nowrap" class="ft03">—&#160;When IA32_APIC_BASE[11] is set to 0,&#160;processor APICs based on the 3-wire APIC bus cannot be generally&#160;</p>
+<p style="position:absolute;top:250px;left:119px;white-space:nowrap" class="ft08">re-enabled&#160;until a system hardware reset. The&#160;3-wire&#160;bus loses&#160;track of arbitration&#160;that&#160;would&#160;be necessary&#160;<br/>for complete re-enabling. Certain&#160;APIC functionality can&#160;be&#160;enabled (for example: performance&#160;and&#160;<br/>thermal monitoring&#160;interrupt generation).</p>
+<p style="position:absolute;top:307px;left:93px;white-space:nowrap" class="ft03">—&#160;For processors that&#160;use Front&#160;Side Bus (FSB) delivery&#160;of&#160;interrupts,&#160;software may disable&#160;or enable&#160;the&#160;</p>
+<p style="position:absolute;top:324px;left:119px;white-space:nowrap" class="ft08">APIC&#160;by&#160;setting&#160;and&#160;resetting IA32_APIC_BASE[11].&#160;A&#160;hardware reset is&#160;not required&#160;to re-start&#160;APIC&#160;<br/>functionality,&#160;if&#160;software guarantees no&#160;interrupt&#160;will&#160;be&#160;sent&#160;to the&#160;APIC as&#160;IA32_APIC_BASE[11]&#160;is&#160;<br/>cleared.</p>
+<p style="position:absolute;top:381px;left:93px;white-space:nowrap" class="ft03">—&#160;When&#160;IA32_APIC_BASE[11]&#160;is set to 0, prior&#160;initialization to the APIC&#160;may be lost and the APIC may return&#160;</p>
+<p style="position:absolute;top:397px;left:119px;white-space:nowrap" class="ft03">to the state&#160;described&#160;<a href="o_fe12b1e2a880e0ce-372.html">in Section 10.4.7.1,&#160;“Local&#160;APIC&#160;State After&#160;Power-Up or&#160;Reset.”</a></p>
+<p style="position:absolute;top:421px;left:68px;white-space:nowrap" class="ft03">2.&#160;Using&#160;the&#160;APIC software enable/disable&#160;flag in&#160;the&#160;spurious-interrupt&#160;ve<a href="o_fe12b1e2a880e0ce-395.html">ctor register (see Figure&#160;10-23):</a></p>
+<p style="position:absolute;top:445px;left:93px;white-space:nowrap" class="ft03">—&#160;If IA32_APIC_BASE[11] is 1,&#160;software can temporarily disable a local APIC at any time&#160;by clearing&#160;the APIC&#160;</p>
+<p style="position:absolute;top:462px;left:119px;white-space:nowrap" class="ft08">software&#160;enable/disable flag&#160;in the&#160;spurious-interrupt&#160;vector&#160;register&#160;(see<a href="o_fe12b1e2a880e0ce-395.html">&#160;Figure&#160;10-23).</a>&#160;The&#160;state&#160;of the&#160;<br/>local APIC&#160;when&#160;in this&#160;software-disabled state is&#160;described&#160;<a href="o_fe12b1e2a880e0ce-372.html">in Section 10.4.7.2,&#160;“Local&#160;APIC&#160;State&#160;After&#160;It&#160;<br/>Has&#160;Been Software&#160;Disabled.”</a>&#160;</p>
+<p style="position:absolute;top:519px;left:93px;white-space:nowrap" class="ft03">—&#160;When&#160;the local APIC&#160;is&#160;in the software-disabled state,&#160;it can&#160;be re-enabled at&#160;any time by setting the APIC&#160;</p>
+<p style="position:absolute;top:535px;left:119px;white-space:nowrap" class="ft03">software enable/disable flag&#160;to 1.</p>
+<p style="position:absolute;top:559px;left:68px;white-space:nowrap" class="ft08">For&#160;the Pentium processor,&#160;the&#160;APICEN&#160;pin (which is&#160;shared&#160;with the&#160;PICD1&#160;pin)&#160;is used&#160;during&#160;power-up&#160;or reset&#160;<br/>to disable&#160;the local&#160;APIC.<br/>Note that each entry in&#160;the LVT&#160;has a&#160;mask&#160;bit that&#160;can&#160;be&#160;used&#160;to&#160;inhibit interrupts from being delivered&#160;to the&#160;<br/>processor from selected local&#160;interrupt sources (the LINT0 and&#160;LINT1 pins,&#160;the APIC&#160;timer,&#160;the performance-moni-<br/>toring counters, the&#160;thermal sensor, and/or&#160;the internal&#160;APIC error detector).</p>
+<p style="position:absolute;top:683px;left:68px;white-space:nowrap" class="ft02">10.4.4&#160;</p>
+<p style="position:absolute;top:683px;left:148px;white-space:nowrap" class="ft02">Local APIC Status and Location</p>
+<p style="position:absolute;top:714px;left:68px;white-space:nowrap" class="ft03">The&#160;status and&#160;location of the&#160;local APIC are contained in the IA32_APIC_BASE MSR (see<a href="o_fe12b1e2a880e0ce-371.html">&#160;</a></p>
+<p style="position:absolute;top:714px;left:672px;white-space:nowrap" class="ft01"><a href="o_fe12b1e2a880e0ce-371.html">Figure&#160;10-5</a></p>
+<p style="position:absolute;top:714px;left:751px;white-space:nowrap" class="ft03">). MSR bit&#160;</p>
+<p style="position:absolute;top:730px;left:68px;white-space:nowrap" class="ft03">functions&#160;are described&#160;below:</p>
+<p style="position:absolute;top:752px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:753px;left:93px;white-space:nowrap" class="ft05"><b>BSP&#160;flag, bit 8&#160;</b>⎯&#160;Indicates if the&#160;processor&#160;is the&#160;bootstrap processor (BSP).&#160;S<a href="o_fe12b1e2a880e0ce-274.html">ee&#160;Section 8.4, “Multiple-</a></p>
+<p style="position:absolute;top:769px;left:93px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-274.html">Processor (MP) Initialization.” F</a>ollowing&#160;a power-up or&#160;reset, this&#160;flag&#160;is&#160;set&#160;to 1&#160;for&#160;the processor selected as&#160;<br/>the&#160;BSP&#160;and set to&#160;0 for the remaining processors&#160;(APs).</p>
+<p style="position:absolute;top:808px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:808px;left:93px;white-space:nowrap" class="ft05"><b>APIC&#160;Global Enable flag, bit&#160;11&#160;</b>⎯&#160;Enables or&#160;disables the&#160;local AP<a href="o_fe12b1e2a880e0ce-370.html">IC (see Section 10.4.3,&#160;“Enabling&#160;or&#160;</a></p>
+<p style="position:absolute;top:825px;left:93px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-370.html">Disabling&#160;the Local APIC”). Thi</a>s&#160;flag&#160;is available&#160;in the&#160;Pentium&#160;4,&#160;Intel Xeon,&#160;and P6 family processors.&#160;It is&#160;not&#160;<br/>guaranteed&#160;to be available or available at&#160;the same&#160;location in future&#160;Intel 64 or&#160;IA-32 processors.</p>
+<p style="position:absolute;top:863px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:864px;left:93px;white-space:nowrap" class="ft05"><b>APIC&#160;Base&#160;field,&#160;bits&#160;12&#160;through&#160;35&#160;</b>⎯&#160;Specifies the base&#160;address of the&#160;APIC registers. This 24-bit value&#160;is&#160;</p>
+<p style="position:absolute;top:880px;left:93px;white-space:nowrap" class="ft08">extended by&#160;12&#160;bits at the low end to&#160;form the base&#160;address.&#160;This automatically aligns the address on&#160;a 4-KByte&#160;<br/>boundary.&#160;Following&#160;a power-up or&#160;reset,&#160;the&#160;field&#160;is set to FEE0&#160;0000H.</p>
+<p style="position:absolute;top:919px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:919px;left:93px;white-space:nowrap" class="ft03">Bits 0&#160;through 7,&#160;bits&#160;9 and&#160;10,&#160;and&#160;bits MAXPHYADDR</p>
+<p style="position:absolute;top:917px;left:459px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:919px;left:466px;white-space:nowrap" class="ft03">&#160;through&#160;63&#160;in&#160;the IA32_APIC_BASE MSR are&#160;reserved.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">1.&#160;The MAXPHYADDR is 36 bits for processors that&#160;do&#160;not support CPUID leaf&#160;80000008H, or&#160;indicated by&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">CPUID.80000008H:EAX[bits 7:0]&#160;for processors that&#160;support CPUID leaf&#160;80000008H.</p>
+</div>
+</body>
+</html>

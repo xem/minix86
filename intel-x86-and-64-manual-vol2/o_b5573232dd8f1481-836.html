@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 836</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page836-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481836.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:579px;white-space:nowrap" class="ft00">MULX — Unsigned Multiply Without Affecting Flags</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-156&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">MULX — Unsigned&#160;Multiply Without Affecting Flags</p>
+<p style="position:absolute;top:287px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:390px;left:68px;white-space:nowrap" class="ft03">Description&#160;</p>
+<p style="position:absolute;top:417px;left:68px;white-space:nowrap" class="ft06">Performs&#160;an unsigned&#160;multiplication of the&#160;implicit&#160;source operand&#160;(EDX/RDX)&#160;and the&#160;specified source&#160;operand&#160;<br/>(the third operand) and stores&#160;the low half of&#160;the&#160;result&#160;in the&#160;second&#160;destination (second operand), the&#160;high half&#160;<br/>of&#160;the&#160;result in the&#160;first destination operand&#160;(first&#160;operand), without&#160;reading or&#160;writing&#160;the&#160;arithmetic flags. This&#160;<br/>enables&#160;efficient programming where the&#160;software can&#160;interleave&#160;add with carry operations and multiplications.&#160;<br/>If&#160;the first and second&#160;operand are&#160;identical, it&#160;will&#160;contain the&#160;high half of the&#160;multiplication result.<br/>This instruction&#160;is not supported&#160;in real&#160;mode&#160;and virtual-8086 mode.&#160;The operand&#160;size is&#160;always 32&#160;bits&#160;if not in&#160;<br/>64-bit&#160;mode.&#160;In&#160;64-bit&#160;mode&#160;operand&#160;size 64 requires&#160;VEX.W1. VEX.W1 is&#160;ignored in non-64-bit modes.&#160;An&#160;<br/>attempt to&#160;execute&#160;this instruction with&#160;VEX.L not equal to&#160;0 will&#160;cause #UD.</p>
+<p style="position:absolute;top:581px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:607px;left:68px;white-space:nowrap" class="ft08">// DEST1:&#160;ModRM:reg<br/>// DEST2:&#160;VEX.vvvv<br/>IF&#160;(OperandSize = 32)</p>
+<p style="position:absolute;top:661px;left:88px;white-space:nowrap" class="ft04">SRC1&#160;←&#160;EDX;</p>
+<p style="position:absolute;top:679px;left:88px;white-space:nowrap" class="ft04">DEST2&#160;←&#160;(SRC1*SRC2)[31:0];</p>
+<p style="position:absolute;top:697px;left:88px;white-space:nowrap" class="ft04">DEST1&#160;←&#160;(SRC1*SRC2)[63:32];</p>
+<p style="position:absolute;top:715px;left:68px;white-space:nowrap" class="ft04">ELSE&#160;IF (OperandSize&#160;= 64)</p>
+<p style="position:absolute;top:733px;left:88px;white-space:nowrap" class="ft04">SRC1&#160;←&#160;RDX;</p>
+<p style="position:absolute;top:751px;left:115px;white-space:nowrap" class="ft04">DEST2&#160;←&#160;(SRC1*SRC2)[63:0];</p>
+<p style="position:absolute;top:769px;left:115px;white-space:nowrap" class="ft04">DEST1&#160;←&#160;(SRC1*SRC2)[127:64];</p>
+<p style="position:absolute;top:787px;left:68px;white-space:nowrap" class="ft04">FI</p>
+<p style="position:absolute;top:822px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:843px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:880px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:907px;left:68px;white-space:nowrap" class="ft04">Auto-generated&#160;from&#160;high-level language when possible.</p>
+<p style="position:absolute;top:933px;left:68px;white-space:nowrap" class="ft04">unsigned&#160;int mulx_u32(unsigned int a,&#160;unsigned&#160;int b,&#160;unsigned int * hi);</p>
+<p style="position:absolute;top:958px;left:68px;white-space:nowrap" class="ft04">unsigned&#160;__int64&#160;mulx_u64(unsigned&#160;__int64 a,&#160;unsigned __int64&#160;b,&#160;unsigned&#160;__int64 * hi);</p>
+<p style="position:absolute;top:995px;left:68px;white-space:nowrap" class="ft03">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:1020px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:271px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:139px;left:271px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:321px;white-space:nowrap" class="ft04">64/32</p>
+<p style="position:absolute;top:139px;left:321px;white-space:nowrap" class="ft04">-bit&#160;</p>
+<p style="position:absolute;top:155px;left:321px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:379px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:379px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:379px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:445px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:77px;white-space:nowrap" class="ft04">VEX.NDD.LZ.F2.0F38.W0&#160;F6&#160;/r</p>
+<p style="position:absolute;top:175px;left:271px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:175px;left:321px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:379px;white-space:nowrap" class="ft04">BMI2</p>
+<p style="position:absolute;top:175px;left:445px;white-space:nowrap" class="ft04">Unsigned&#160;multiply of&#160;<i>r/m32</i>&#160;with EDX without affecting arithmetic&#160;</p>
+<p style="position:absolute;top:191px;left:445px;white-space:nowrap" class="ft04">flags.</p>
+<p style="position:absolute;top:195px;left:77px;white-space:nowrap" class="ft09">MULX&#160;<i>r32a, r32b, r/m32<br/></i>VEX.NDD.LZ.F2.0F38.W1&#160;F6&#160;/r</p>
+<p style="position:absolute;top:214px;left:271px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:214px;left:321px;white-space:nowrap" class="ft04">V/N.E.</p>
+<p style="position:absolute;top:214px;left:379px;white-space:nowrap" class="ft04">BMI2</p>
+<p style="position:absolute;top:214px;left:445px;white-space:nowrap" class="ft04">Unsigned multiply of&#160;<i>r/m64</i>&#160;with RDX without affecting arithmetic&#160;</p>
+<p style="position:absolute;top:231px;left:445px;white-space:nowrap" class="ft04">flags.</p>
+<p style="position:absolute;top:234px;left:77px;white-space:nowrap" class="ft04">MULX&#160;<i>r64a, r64b, r/m64</i></p>
+<p style="position:absolute;top:310px;left:82px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:310px;left:185px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:310px;left:355px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:310px;left:529px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:310px;left:712px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:342px;left:86px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:342px;left:172px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:342px;left:347px;white-space:nowrap" class="ft04">VEX.vvvv (w)</p>
+<p style="position:absolute;top:342px;left:518px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:334px;left:655px;white-space:nowrap" class="ft04">RDX/EDX is&#160;implied 64/32&#160;bits&#160;</p>
+<p style="position:absolute;top:351px;left:723px;white-space:nowrap" class="ft04">source</p>
+</div>
+</body>
+</html>

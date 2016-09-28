@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 678</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page678-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce678.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-42&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft02">18.8.2&#160;</p>
+<p style="position:absolute;top:514px;left:148px;white-space:nowrap" class="ft02">Performance Monitoring Facility in the Uncore</p>
+<p style="position:absolute;top:544px;left:68px;white-space:nowrap" class="ft08">The&#160;“uncore” in&#160;Intel&#160;microarchitecture code name Nehalem refers&#160;to subsystems&#160;in the&#160;physical&#160;processor&#160;<br/>package&#160;that are shared&#160;by multiple&#160;processor cores.&#160;Some&#160;of the sub-systems in&#160;the&#160;uncore&#160;include&#160;the&#160;L3&#160;cache,&#160;<br/>Intel QuickPath&#160;Interconnect link logic,&#160;and integrated&#160;memory controller.&#160;The&#160;performance monitoring&#160;facilities&#160;<br/>inside&#160;the uncore&#160;operates in&#160;the same&#160;clock domain as&#160;the&#160;uncore (U-clock domain), which&#160;is usually&#160;different&#160;<br/>from&#160;the&#160;processor&#160;core clock&#160;domain. The uncore&#160;performance monitoring facilities described in this&#160;section apply&#160;<br/>to Intel Xeon&#160;processor 5500 series and processors with the following CPUID signatures:&#160;06_1AH, 06_1EH,&#160;06_1FH&#160;<br/><a href="��">(see Chapter&#160;35</a>). An overview&#160;of&#160;the uncore&#160;performance&#160;monitoring&#160;facilities is&#160;described separately.&#160;<br/>The&#160;performance monitoring facilities available&#160;in the&#160;U-clock&#160;domain consist of:</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:690px;left:93px;white-space:nowrap" class="ft07">Eight General-purpose&#160;counters (MSR_UNCORE_PerfCntr0 through MSR_UNCORE_PerfCntr7).&#160;The&#160;counters&#160;<br/>are&#160;48&#160;bits&#160;wide.&#160;Each counter is&#160;associated&#160;with a configuration&#160;MSR,&#160;MSR_UNCORE_PerfEvtSelx,&#160;to&#160;specify&#160;<br/>event code,&#160;event mask and&#160;other event qualification&#160;fields. A set&#160;of global uncore performance counter&#160;<br/>enabling/overflow/status control MSRs&#160;are also&#160;provided&#160;for software.</p>
+<p style="position:absolute;top:761px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:762px;left:93px;white-space:nowrap" class="ft07">Performance&#160;monitoring in the&#160;uncore provides&#160;an address/opcode match MSR that&#160;provides event qualification&#160;<br/>control&#160;based on&#160;address value or&#160;QPI command&#160;opcode.</p>
+<p style="position:absolute;top:800px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:801px;left:93px;white-space:nowrap" class="ft07">One fixed-function counter,&#160;MSR_UNCORE_FixedCntr0. The fixed-function uncore counter&#160;increments at&#160;the&#160;<br/>rate&#160;of&#160;the U-clock when enabled.<br/>The&#160;frequency&#160;of the&#160;uncore&#160;clock domain&#160;can&#160;be&#160;determined from&#160;the&#160;uncore clock ratio which&#160;is available in&#160;<br/>the&#160;PCI configuration space&#160;register at offset&#160;C0H under device number&#160;0 and Function 0.&#160;</p>
+<p style="position:absolute;top:901px;left:68px;white-space:nowrap" class="ft05">18.8.2.1 &#160;&#160;Uncore&#160;Performance&#160;Monitoring Management&#160;Facility</p>
+<p style="position:absolute;top:929px;left:68px;white-space:nowrap" class="ft07">MSR_UNCORE_PERF_GLOBAL_CTRL&#160;provides bit fields&#160;to&#160;enable/disable&#160;general-purpose and fixed-function coun-<br/>ters&#160;in&#160;the uncore.<a href="o_fe12b1e2a880e0ce-679.html">&#160;Figure&#160;18-25</a>&#160;shows&#160;the&#160;layout of&#160;MSR_UNCORE_PERF_GLOBAL_CTRL&#160;for&#160;an uncore that&#160;is&#160;<br/>shared by four&#160;processor cores&#160;in&#160;a&#160;physical&#160;package.&#160;</p>
+<p style="position:absolute;top:984px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:985px;left:93px;white-space:nowrap" class="ft07">EN_PCn (bit n,&#160;n = 0,&#160;7): When&#160;set,&#160;enables counting&#160;for&#160;the general-purpose uncore&#160;counter&#160;<br/>MSR_UNCORE_PerfCntr n.</p>
+<p style="position:absolute;top:1023px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1024px;left:93px;white-space:nowrap" class="ft03">EN_FC0 (bit 32):&#160;When&#160;set,&#160;enables&#160;counting for&#160;the&#160;fixed-function&#160;uncore counter MSR_UNCORE_FixedCntr0.</p>
+<p style="position:absolute;top:148px;left:74px;white-space:nowrap" class="ft03">PF_IFETCH</p>
+<p style="position:absolute;top:148px;left:185px;white-space:nowrap" class="ft03">6</p>
+<p style="position:absolute;top:148px;left:250px;white-space:nowrap" class="ft03">(R/W). Counts&#160;the number&#160;of&#160;code&#160;reads generated by&#160;L2 prefetchers.</p>
+<p style="position:absolute;top:172px;left:74px;white-space:nowrap" class="ft03">OTHER</p>
+<p style="position:absolute;top:172px;left:185px;white-space:nowrap" class="ft03">7</p>
+<p style="position:absolute;top:172px;left:250px;white-space:nowrap" class="ft03">(R/W). Counts&#160;one&#160;of&#160;the&#160;following transaction types,&#160;including&#160;L3&#160;invalidate,&#160;I/O,&#160;full or&#160;partial writes,&#160;</p>
+<p style="position:absolute;top:189px;left:250px;white-space:nowrap" class="ft03">WC&#160;or non-temporal stores, CLFLUSH, Fences, lock, unlock, split lock.</p>
+<p style="position:absolute;top:213px;left:74px;white-space:nowrap" class="ft03">UNCORE_HIT</p>
+<p style="position:absolute;top:213px;left:185px;white-space:nowrap" class="ft03">8</p>
+<p style="position:absolute;top:213px;left:250px;white-space:nowrap" class="ft03">(R/W).&#160;L3&#160;Hit:&#160;local or&#160;remote home requests that&#160;hit L3&#160;cache&#160;in&#160;the&#160;uncore&#160;with&#160;no&#160;coherency actions&#160;</p>
+<p style="position:absolute;top:229px;left:250px;white-space:nowrap" class="ft03">required&#160;(snooping).</p>
+<p style="position:absolute;top:253px;left:74px;white-space:nowrap" class="ft03">OTHER_CORE_HI</p>
+<p style="position:absolute;top:270px;left:74px;white-space:nowrap" class="ft03">T_SNP</p>
+<p style="position:absolute;top:253px;left:185px;white-space:nowrap" class="ft03">9</p>
+<p style="position:absolute;top:253px;left:250px;white-space:nowrap" class="ft03">(R/W). L3 Hit:&#160;local or remote home requests that&#160;hit L3 cache in&#160;the&#160;uncore&#160;and was serviced by&#160;</p>
+<p style="position:absolute;top:270px;left:250px;white-space:nowrap" class="ft03">another core&#160;with a cross core&#160;snoop where no&#160;modified&#160;copies&#160;were&#160;found&#160;(clean).</p>
+<p style="position:absolute;top:294px;left:74px;white-space:nowrap" class="ft03">OTHER_CORE_HI</p>
+<p style="position:absolute;top:310px;left:74px;white-space:nowrap" class="ft03">TM</p>
+<p style="position:absolute;top:294px;left:185px;white-space:nowrap" class="ft03">10</p>
+<p style="position:absolute;top:294px;left:250px;white-space:nowrap" class="ft03">(R/W). L3 Hit:&#160;local or remote&#160;home requests that&#160;hit L3 cache in&#160;the&#160;uncore&#160;and was serviced by&#160;</p>
+<p style="position:absolute;top:310px;left:250px;white-space:nowrap" class="ft03">another&#160;core&#160;with a&#160;cross core&#160;snoop where modified&#160;copies&#160;were&#160;found&#160;(HITM).</p>
+<p style="position:absolute;top:334px;left:74px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:334px;left:185px;white-space:nowrap" class="ft03">11</p>
+<p style="position:absolute;top:334px;left:250px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:358px;left:74px;white-space:nowrap" class="ft03">REMOTE_CACHE_</p>
+<p style="position:absolute;top:375px;left:74px;white-space:nowrap" class="ft03">FWD</p>
+<p style="position:absolute;top:358px;left:185px;white-space:nowrap" class="ft03">12</p>
+<p style="position:absolute;top:358px;left:250px;white-space:nowrap" class="ft03">(R/W). L3 Miss: local homed requests that&#160;missed&#160;the L3 cache&#160;and was serviced&#160;by forwarded data&#160;</p>
+<p style="position:absolute;top:375px;left:250px;white-space:nowrap" class="ft03">following&#160;a&#160;cross package&#160;snoop&#160;where no&#160;modified&#160;copies&#160;found.&#160;(Remote home&#160;requests are not&#160;</p>
+<p style="position:absolute;top:391px;left:250px;white-space:nowrap" class="ft03">counted)</p>
+<p style="position:absolute;top:415px;left:74px;white-space:nowrap" class="ft03">REMOTE_DRAM</p>
+<p style="position:absolute;top:415px;left:186px;white-space:nowrap" class="ft03">13</p>
+<p style="position:absolute;top:415px;left:250px;white-space:nowrap" class="ft03">(R/W).&#160;L3 Miss: remote&#160;home requests that&#160;missed the L3 cache&#160;and were&#160;serviced by&#160;remote DRAM.</p>
+<p style="position:absolute;top:439px;left:74px;white-space:nowrap" class="ft03">LOCAL_DRAM</p>
+<p style="position:absolute;top:439px;left:185px;white-space:nowrap" class="ft03">14</p>
+<p style="position:absolute;top:439px;left:250px;white-space:nowrap" class="ft03">(R/W). L3&#160;Miss: local home requests that&#160;missed the L3 cache and were&#160;serviced by&#160;local DRAM.</p>
+<p style="position:absolute;top:463px;left:74px;white-space:nowrap" class="ft03">NON_DRAM</p>
+<p style="position:absolute;top:463px;left:185px;white-space:nowrap" class="ft03">15</p>
+<p style="position:absolute;top:463px;left:250px;white-space:nowrap" class="ft03">(R/W). Non-DRAM requests&#160;that&#160;were&#160;serviced by IOH.</p>
+<p style="position:absolute;top:100px;left:144px;white-space:nowrap" class="ft06">Table 18-26.&#160; MSR_OFFCORE_RSP_0&#160;and&#160;MSR_OFFCORE_RSP_1&#160;Bit&#160;Field&#160;Definition&#160;(Contd.)</p>
+<p style="position:absolute;top:124px;left:74px;white-space:nowrap" class="ft03">Bit Name</p>
+<p style="position:absolute;top:124px;left:185px;white-space:nowrap" class="ft03">Offset</p>
+<p style="position:absolute;top:124px;left:250px;white-space:nowrap" class="ft03">Description</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 578</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page578-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce578.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-4&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">Certain debug exceptions&#160;may clear&#160;bits&#160;0-3.&#160;The remaining contents&#160;of the DR6 register are&#160;never cleared by&#160;the&#160;<br/>processor.&#160;To&#160;avoid confusion&#160;in identifying debug&#160;exceptions,&#160;debug handlers should&#160;clear the&#160;register (except&#160;<br/>bit&#160;16,&#160;which they should&#160;set)&#160;before&#160;returning to&#160;the interrupted task.</p>
+<p style="position:absolute;top:184px;left:68px;white-space:nowrap" class="ft03">17.2.4&#160;</p>
+<p style="position:absolute;top:184px;left:148px;white-space:nowrap" class="ft03">Debug Control Register (DR7)</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft07">The debug control register&#160;(DR7) enables or disables breakpoints and se<a href="o_fe12b1e2a880e0ce-576.html">ts breakpoint conditions (see Figure&#160;17-1).</a>&#160;<br/>The flags&#160;and fields in&#160;this register control&#160;the following things:</p>
+<p style="position:absolute;top:253px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:253px;left:93px;white-space:nowrap" class="ft07"><b>L0&#160;through&#160;L3&#160;(local breakpoint&#160;enable) flags&#160;(bits 0, 2, 4, and&#160;6) —&#160;</b>Enables (when set) the breakpoint&#160;<br/>condition&#160;for&#160;the associated&#160;breakpoint for the&#160;current&#160;task. When&#160;a breakpoint condition is&#160;detected and&#160;its&#160;<br/>associated&#160;L<i>n</i>&#160;flag&#160;is set,&#160;a debug&#160;exception is&#160;generated.&#160;The processor automatically clears these flags&#160;on&#160;<br/>every&#160;task&#160;switch&#160;to avoid unwanted&#160;breakpoint&#160;conditions&#160;in&#160;the new task.</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:325px;left:93px;white-space:nowrap" class="ft07"><b>G0 through G3 (global breakpoint enable) flags (bits 1,&#160;3, 5,&#160;and&#160;7)&#160;—&#160;</b>Enables (when set)&#160;the&#160;<br/>breakpoint condition for&#160;the associated breakpoint for all&#160;tasks. When&#160;a breakpoint condition&#160;is detected and&#160;its&#160;<br/>associated&#160;G<i>n</i>&#160;flag&#160;is set,&#160;a debug&#160;exception is&#160;generated. The processor does not clear these flags&#160;on&#160;a task&#160;<br/>switch, allowing a&#160;breakpoint&#160;to be enabled&#160;for&#160;all tasks.</p>
+<p style="position:absolute;top:397px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:397px;left:93px;white-space:nowrap" class="ft07"><b>LE and GE (local and global exact&#160;breakpoint&#160;enable)&#160;flags&#160;(bits 8, 9)&#160;—&#160;</b>This&#160;feature is not supported&#160;in&#160;<br/>the P6 family processors,&#160;later IA-32 processors,&#160;and&#160;Intel 64 processors.&#160;When set,&#160;these flags cause&#160;the&#160;<br/>processor to&#160;detect&#160;the&#160;exact instruction that caused&#160;a&#160;data&#160;breakpoint&#160;condition.&#160;For backward and forward&#160;<br/>compatibility with other&#160;Intel processors,&#160;we&#160;recommend&#160;that the LE&#160;and GE flags be set&#160;to 1 if exact&#160;<br/>breakpoints are&#160;required.</p>
+<p style="position:absolute;top:485px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:486px;left:93px;white-space:nowrap" class="ft07"><b>RTM&#160;(restricted transactional memory) flag&#160;(bit&#160;11)</b>&#160;—&#160;Enables (when set) advanced&#160;debugging of&#160;RTM&#160;<br/>transactional re<a href="o_fe12b1e2a880e0ce-584.html">gions (see Section 17.3.3). This adv</a>anced&#160;debugging is enabled only if IA32_DEBUGCTL.RTM is&#160;<br/>also set.</p>
+<p style="position:absolute;top:541px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:541px;left:93px;white-space:nowrap" class="ft07"><b>GD&#160;(general&#160;detect enable) flag (bit&#160;13)&#160;—&#160;</b>Enables (when set)&#160;debug-register protection,&#160;which causes&#160;a&#160;<br/>debug&#160;exception to be&#160;generated&#160;prior to&#160;any MOV instruction that&#160;accesses&#160;a debug&#160;register.&#160;When&#160;such a&#160;<br/>condition is&#160;detected, the&#160;BD&#160;flag in debug&#160;status register DR6&#160;is set&#160;prior&#160;to generating&#160;the exception. This&#160;<br/>condition is&#160;provided&#160;to support in-circuit&#160;emulators.&#160;<br/>When the&#160;emulator needs to&#160;access&#160;the debug&#160;registers,&#160;emulator software&#160;can set the&#160;GD&#160;flag&#160;to&#160;prevent&#160;<br/>interference&#160;from&#160;the program currently executing on the&#160;processor.<br/>The&#160;processor&#160;clears the&#160;GD&#160;flag upon&#160;entering&#160;to the&#160;debug&#160;exception&#160;handler,&#160;to&#160;allow the&#160;handler access to&#160;<br/>the debug&#160;registers.</p>
+<p style="position:absolute;top:691px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:691px;left:93px;white-space:nowrap" class="ft07"><b>R/W0 through&#160;R/W3&#160;(read/write) fields (bits&#160;16, 17, 20, 21, 24,&#160;25, 28, and 29) —&#160;</b>Specifies the&#160;<br/>breakpoint condition for the corresponding breakpoint. The DE&#160;(debug extensions) flag in control register&#160;CR4&#160;<br/>determines how the&#160;bits&#160;in the&#160;R/W<i>n</i>&#160;fields&#160;are&#160;interpreted.&#160;When&#160;the&#160;DE&#160;flag&#160;is set,&#160;the processor interprets&#160;<br/>bits as&#160;follows:</p>
+<p style="position:absolute;top:765px;left:144px;white-space:nowrap" class="ft07">00&#160;— Break on instruction&#160;execution only.&#160;<br/>01&#160;— Break on data writes&#160;only.<br/>10&#160;— Break on I/O&#160;reads&#160;or writes.<br/>11&#160;— Break on data reads or&#160;writes&#160;but&#160;not&#160;instruction fetches.</p>
+<p style="position:absolute;top:837px;left:93px;white-space:nowrap" class="ft07">When the DE flag is clear,&#160;the processor interprets the R/W<i>n</i>&#160;bits the same as for&#160;the&#160;Intel386™&#160;and&#160;Intel486™&#160;<br/>processors,&#160;which is&#160;as&#160;follows:</p>
+<p style="position:absolute;top:877px;left:144px;white-space:nowrap" class="ft07">00&#160;— Break on instruction&#160;execution only.<br/>01&#160;— Break on data writes&#160;only.<br/>10 —&#160;Undefined.<br/>11&#160;— Break on data reads or&#160;writes&#160;but&#160;not&#160;instruction fetches.</p>
+<p style="position:absolute;top:949px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:949px;left:93px;white-space:nowrap" class="ft07"><b>LEN0&#160;through LEN3&#160;(Length) fields (bits 18,&#160;19, 22, 23, 26, 27,&#160;30, and 31) —&#160;</b>Specify&#160;the size&#160;of the&#160;<br/>memory location at&#160;the address&#160;specified in&#160;the corresponding breakpoint address&#160;register&#160;(DR0 through DR3).&#160;<br/>These fields are&#160;interpreted&#160;as follows:</p>
+<p style="position:absolute;top:1006px;left:144px;white-space:nowrap" class="ft07">00 —&#160;1-byte length.<br/>01 —&#160;2-byte length.<br/>10 —&#160;Undefined (or&#160;8 byte&#160;length, see note&#160;below).<br/>11 —&#160;4-byte length.</p>
+</div>
+</body>
+</html>

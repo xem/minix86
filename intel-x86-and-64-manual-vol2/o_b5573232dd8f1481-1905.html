@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1905</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1905-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811905.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VSHUFF32x4/VSHUFF64x2/VSHUFI32x4/VSHUFI64x2—Shuffle Packed Values&#160;at 128-bit Granularity</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-519</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">The first&#160;source operand&#160;is&#160;a vector register. The second&#160;source&#160;operand can&#160;be&#160;a&#160;ZMM register, a&#160;512-bit&#160;memory&#160;<br/>location&#160;or&#160;a 512-bit vector broadcasted from a&#160;32/64-bit&#160;memory location. The&#160;destination&#160;operand is&#160;a vector&#160;<br/>register.<br/>The&#160;writemask updates&#160;the destination operand&#160;with&#160;the&#160;granularity of 32/64-bit data elements.</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:213px;left:69px;white-space:nowrap" class="ft05">Select2(SRC, control) {<br/>CASE&#160;(control[0]) OF</p>
+<p style="position:absolute;top:249px;left:89px;white-space:nowrap" class="ft02">0: TMP&#160;</p>
+<p style="position:absolute;top:250px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:249px;left:158px;white-space:nowrap" class="ft02">&#160;SRC[127:0];</p>
+<p style="position:absolute;top:267px;left:89px;white-space:nowrap" class="ft02">1: TMP&#160;</p>
+<p style="position:absolute;top:268px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:267px;left:158px;white-space:nowrap" class="ft02">&#160;SRC[255:128];</p>
+<p style="position:absolute;top:285px;left:69px;white-space:nowrap" class="ft05">ESAC;<br/>RETURN TMP<br/>}</p>
+<p style="position:absolute;top:357px;left:69px;white-space:nowrap" class="ft05">Select4(SRC, control) {<br/>CASE&#160;(control[1:0]) OF</p>
+<p style="position:absolute;top:393px;left:89px;white-space:nowrap" class="ft02">0: TMP&#160;</p>
+<p style="position:absolute;top:394px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:393px;left:158px;white-space:nowrap" class="ft02">&#160;SRC[127:0];</p>
+<p style="position:absolute;top:411px;left:89px;white-space:nowrap" class="ft02">1: TMP&#160;</p>
+<p style="position:absolute;top:412px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:411px;left:158px;white-space:nowrap" class="ft02">&#160;SRC[255:128];</p>
+<p style="position:absolute;top:429px;left:89px;white-space:nowrap" class="ft02">2: TMP&#160;</p>
+<p style="position:absolute;top:430px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:429px;left:158px;white-space:nowrap" class="ft02">&#160;SRC[383:256];</p>
+<p style="position:absolute;top:447px;left:89px;white-space:nowrap" class="ft02">3: TMP&#160;</p>
+<p style="position:absolute;top:448px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:447px;left:158px;white-space:nowrap" class="ft02">&#160;SRC[511:384];</p>
+<p style="position:absolute;top:465px;left:69px;white-space:nowrap" class="ft05">ESAC;<br/>RETURN TMP<br/>}</p>
+<p style="position:absolute;top:537px;left:69px;white-space:nowrap" class="ft05">VSHUFF32x4 (EVEX versions)<br/>(KL,&#160;VL) = (8, 256),&#160;(16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:591px;left:89px;white-space:nowrap" class="ft05">i&#160;&#160;j * 32<br/>IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:627px;left:116px;white-space:nowrap" class="ft05">THEN&#160;TMP_SRC2[i+31:i]&#160;&#160;SRC2[31:0]<br/>ELSE TMP_SRC2[i+31:i]&#160;&#160;SRC2[i+31:i]</p>
+<p style="position:absolute;top:663px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:681px;left:69px;white-space:nowrap" class="ft05">ENDFOR;<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:717px;left:89px;white-space:nowrap" class="ft05">TMP_DEST[127:0]&#160;&#160;Select2(SRC1[255:0], imm8[0]);<br/>TMP_DEST[255:128]&#160;&#160;Select2(SRC2[255:0], imm8[1]);</p>
+<p style="position:absolute;top:753px;left:69px;white-space:nowrap" class="ft05">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:789px;left:89px;white-space:nowrap" class="ft05">TMP_DEST[127:0]&#160;&#160;Select4(SRC1[511:0], imm8[1:0]);<br/>TMP_DEST[255:128]&#160;&#160;Select4(SRC1[511:0], imm8[3:2]);<br/>TMP_DEST[383:256]&#160;&#160;Select4(TMP_SRC2[511:0], imm8[5:4]);<br/>TMP_DEST[511:384]&#160;&#160;Select4(TMP_SRC2[511:0], imm8[7:6]);</p>
+<p style="position:absolute;top:861px;left:69px;white-space:nowrap" class="ft05">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:897px;left:89px;white-space:nowrap" class="ft05">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:933px;left:116px;white-space:nowrap" class="ft05">THEN DEST[i+31:i]&#160;&#160;TMP_DEST[i+31:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:969px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:969px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:987px;left:170px;white-space:nowrap" class="ft05">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:1005px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:1023px;left:197px;white-space:nowrap" class="ft02">THEN DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:1041px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1059px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+</div>
+</body>
+</html>

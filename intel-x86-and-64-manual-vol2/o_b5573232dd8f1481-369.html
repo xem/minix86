@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 369</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page369-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481369.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CVTPD2PS—Convert Packed&#160;Double-Precision&#160;Floating-Point&#160;Values&#160;to Packed Single-Precision&#160;Floating-Point Values</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-241</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">VCVTPD2PS (EVEX encoded version) when&#160;src operand is&#160;a&#160;memory source<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>k&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:226px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:244px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1)&#160;</p>
+<p style="position:absolute;top:262px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:280px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;Convert_Double_Precision_Floating_Point_To_Single_Precision_Floating_Point(SRC[63:0])</p>
+<p style="position:absolute;top:298px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:316px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;Convert_Double_Precision_Floating_Point_To_Single_Precision_Floating_Point(SRC[k+63:k])</p>
+<p style="position:absolute;top:334px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:352px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:370px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:370px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:388px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:406px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:424px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:442px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL/2]&#160;&#160;0</p>
+<p style="position:absolute;top:532px;left:69px;white-space:nowrap" class="ft03">VCVTPD2PS (VEX.256&#160;encoded version)<br/>DEST[31:0]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[63:0])<br/>DEST[63:32]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[127:64])<br/>DEST[95:64]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[191:128])<br/>DEST[127:96]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[255:192)<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft03">VCVTPD2PS (VEX.128&#160;encoded version)<br/>DEST[31:0]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[63:0])<br/>DEST[63:32]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[127:64])<br/>DEST[MAX_VL-1:64]&#160;&#160;0</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft03">CVTPD2PS&#160;(128-bit Legacy SSE&#160;version)<br/>DEST[31:0]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[63:0])<br/>DEST[63:32]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[127:64])<br/>DEST[127:64]&#160;&#160;0<br/>DEST[MAX_VL-1:128] (unmodified)</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1329</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1329-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811329.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">STOS/STOSB/STOSW/STOSD/STOSQ—Store String</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-649</p>
+<p style="position:absolute;top:99px;left:433px;white-space:nowrap" class="ft02">NOTE</p>
+<p style="position:absolute;top:124px;left:122px;white-space:nowrap" class="ft07">To&#160;improve&#160;performance,&#160;more recent processors support modifications to&#160;the&#160;processor’s&#160;<br/>operation during the string&#160;store&#160;operations initiated with STOS and STOSB.&#160;See<a href="��">&#160;Section 7.3.9.3 in&#160;<br/>the&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;Architectures Software&#160;Developer’s&#160;Manual,&#160;Volume 1</i>&#160;for additional&#160;<br/></a>information on fast-string&#160;operation.</p>
+<p style="position:absolute;top:222px;left:69px;white-space:nowrap" class="ft07">In&#160;64-bit mode, the&#160;default&#160;address size&#160;is 64 bits,&#160;32-bit&#160;address&#160;size is&#160;supported using&#160;the&#160;prefix 67H.&#160;Using a&#160;<br/>REX prefix&#160;in the form of REX.W promotes operation on&#160;doubleword operand to 64&#160;bits.&#160;The promoted&#160;no-operand&#160;<br/>mnemonic&#160;is STOSQ.&#160;STOSQ (and&#160;its explicit operands&#160;variant) store a&#160;quadword from the&#160;RAX register&#160;into&#160;the&#160;<br/>destination addressed by RDI or EDI.&#160;See the&#160;summary&#160;chart&#160;at the beginning of this section for encoding data and&#160;<br/>limits.<br/>The STOS, STOSB,&#160;STOSW,&#160;STOSD,&#160;STOSQ&#160;instructions&#160;can&#160;be&#160;preceded by the&#160;REP prefix&#160;for&#160;block loads of ECX&#160;<br/>bytes, words, or&#160;doublewords.&#160;More&#160;often,&#160;however,&#160;these instructions&#160;are used within&#160;a LOOP&#160;construct&#160;because&#160;<br/>data&#160;needs&#160;to be moved into&#160;the AL, AX, or EAX&#160;register&#160;before it&#160;can&#160;be stored.&#160;See “REP/REPE/REPZ&#160;<br/>/REPNE/REPNZ—Repeat&#160;String Operation Prefix” in&#160;this&#160;chapter&#160;for&#160;a description of the REP&#160;prefix.</p>
+<p style="position:absolute;top:398px;left:69px;white-space:nowrap" class="ft05">Operation</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">Non-64-bit Mode:</p>
+<p style="position:absolute;top:454px;left:69px;white-space:nowrap" class="ft03">IF&#160;(Byte store)</p>
+<p style="position:absolute;top:472px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:490px;left:116px;white-space:nowrap" class="ft03">DEST&#160;←&#160;AL;</p>
+<p style="position:absolute;top:508px;left:143px;white-space:nowrap" class="ft03">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:508px;left:211px;white-space:nowrap" class="ft06">=&#160;</p>
+<p style="position:absolute;top:508px;left:223px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:526px;left:170px;white-space:nowrap" class="ft03">THEN (E)DI&#160;←&#160;(E)DI&#160;+&#160;1;&#160;</p>
+<p style="position:absolute;top:544px;left:170px;white-space:nowrap" class="ft03">ELSE (E)DI&#160;←&#160;(E)DI –&#160;1;&#160;</p>
+<p style="position:absolute;top:562px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:580px;left:89px;white-space:nowrap" class="ft03">ELSE IF&#160;(Word&#160;store)</p>
+<p style="position:absolute;top:598px;left:116px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:616px;left:143px;white-space:nowrap" class="ft03">DEST&#160;←&#160;AX;</p>
+<p style="position:absolute;top:634px;left:170px;white-space:nowrap" class="ft03">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:634px;left:238px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:634px;left:247px;white-space:nowrap" class="ft03">&#160;0</p>
+<p style="position:absolute;top:652px;left:197px;white-space:nowrap" class="ft03">THEN (E)DI&#160;←&#160;(E)DI&#160;+&#160;2;&#160;</p>
+<p style="position:absolute;top:670px;left:197px;white-space:nowrap" class="ft03">ELSE (E)DI&#160;←&#160;(E)DI –&#160;2;&#160;</p>
+<p style="position:absolute;top:688px;left:170px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:706px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:724px;left:89px;white-space:nowrap" class="ft03">ELSE IF&#160;(Doubleword store)</p>
+<p style="position:absolute;top:742px;left:116px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:760px;left:143px;white-space:nowrap" class="ft03">DEST&#160;←&#160;EAX;</p>
+<p style="position:absolute;top:778px;left:170px;white-space:nowrap" class="ft03">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:778px;left:238px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:778px;left:247px;white-space:nowrap" class="ft03">&#160;0</p>
+<p style="position:absolute;top:796px;left:197px;white-space:nowrap" class="ft03">THEN (E)DI&#160;←&#160;(E)DI&#160;+&#160;4;&#160;</p>
+<p style="position:absolute;top:814px;left:197px;white-space:nowrap" class="ft03">ELSE (E)DI&#160;←&#160;(E)DI –&#160;4;&#160;</p>
+<p style="position:absolute;top:832px;left:170px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:850px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:868px;left:69px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:904px;left:69px;white-space:nowrap" class="ft03">64-bit&#160;Mode:</p>
+<p style="position:absolute;top:934px;left:69px;white-space:nowrap" class="ft03">IF&#160;(Byte store)</p>
+<p style="position:absolute;top:952px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:970px;left:116px;white-space:nowrap" class="ft03">DEST&#160;←&#160;AL;</p>
+<p style="position:absolute;top:988px;left:143px;white-space:nowrap" class="ft03">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:988px;left:211px;white-space:nowrap" class="ft06">=&#160;</p>
+<p style="position:absolute;top:988px;left:223px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:1006px;left:170px;white-space:nowrap" class="ft03">THEN (R|E)DI&#160;←&#160;(R|E)DI&#160;+&#160;1;&#160;</p>
+<p style="position:absolute;top:1024px;left:170px;white-space:nowrap" class="ft03">ELSE (R|E)DI&#160;←&#160;(R|E)DI – 1;&#160;</p>
+<p style="position:absolute;top:1042px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:1060px;left:89px;white-space:nowrap" class="ft03">ELSE IF&#160;(Word&#160;store)</p>
+</div>
+</body>
+</html>

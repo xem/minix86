@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 223</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page223-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481223.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">BNDLDX—Load Extended Bounds Using Address Translation</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-95</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">BNDLDX—Load Extended Bounds&#160;Using Address Translation</p>
+<p style="position:absolute;top:262px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:362px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:385px;left:69px;white-space:nowrap" class="ft05">BNDLDX&#160;uses&#160;the&#160;linear&#160;address constructed from the&#160;base&#160;register&#160;and displacement&#160;of the&#160;SIB-addressing&#160;form&#160;<br/>of&#160;the memory&#160;operand (mib) to&#160;perform address translation to&#160;access a&#160;bound table entry and&#160;conditionally&#160;load&#160;<br/>the bounds in the&#160;BTE&#160;to the&#160;destination. The&#160;destination&#160;register is&#160;updated with the&#160;bounds in&#160;the BTE,&#160;if&#160;the&#160;<br/>content&#160;of&#160;the index&#160;register of mib matches&#160;the pointer&#160;value stored in&#160;the BTE.&#160;<br/>If&#160;the pointer&#160;value comparison&#160;fails, the destination&#160;is updated with INIT&#160;bounds&#160;(lb&#160;=&#160;0x0,&#160;ub&#160;=&#160;0x0) (note:&#160;as&#160;<br/>articulated&#160;earlier,&#160;the&#160;upper bound&#160;is represented using&#160;1's complement, therefore,&#160;the&#160;0x0&#160;value&#160;of upper&#160;bound&#160;<br/>allows for&#160;access to&#160;full&#160;memory).&#160;<br/>This instruction does not cause&#160;memory access&#160;to the linear address of mib nor the effective address referenced by&#160;<br/>the&#160;base,&#160;and does not read or&#160;write any&#160;flags.&#160;<br/>Segment&#160;overrides apply to&#160;the linear&#160;address computation&#160;with&#160;the base of&#160;mib,&#160;and&#160;are&#160;used&#160;during address&#160;<br/>translation to&#160;generate the address of&#160;the bound&#160;table entry.&#160;By&#160;default,&#160;the address&#160;of the&#160;BTE is&#160;assumed&#160;to be&#160;<br/>linear address.&#160;There are&#160;no segmentation&#160;checks performed on&#160;the&#160;base&#160;of mib.&#160;<br/>The&#160;base&#160;of&#160;mib will&#160;not&#160;be&#160;checked for canonical&#160;address violation as&#160;it does&#160;not access memory.&#160;<br/>Any encoding of this&#160;instruction&#160;that&#160;does not specify base or&#160;index register&#160;will&#160;treat&#160;those registers&#160;as zero&#160;<br/>(constant). The&#160;reg-reg form of this&#160;instruction&#160;will&#160;remain a&#160;NOP.<br/>The scale field&#160;of&#160;the&#160;SIB byte&#160;has no&#160;effect&#160;on these&#160;instructions and&#160;is ignored.<br/>The&#160;bound register may be&#160;partially&#160;updated on memory&#160;faults. The order in which&#160;memory operands are loaded is&#160;<br/>implementation specific.</p>
+<p style="position:absolute;top:741px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft07">base&#160;&#160;mib.SIB.base ? mib.SIB.base&#160;+ Disp: 0;<br/>ptr_value&#160;&#160;mib.SIB.index ? mib.SIB.index&#160;: 0;</p>
+<p style="position:absolute;top:819px;left:69px;white-space:nowrap" class="ft07">Outside 64-bit&#160;mode<br/>A_BDE[31:0]&#160;&#160;(Zero_extend32(base[31:12] « 2) + (BNDCFG[31:12] «12&#160;);<br/>A_BT[31:0]&#160;&#160;LoadFrom(A_BDE&#160;);<br/>IF A_BT[0] equal 0 Then</p>
+<p style="position:absolute;top:890px;left:89px;white-space:nowrap" class="ft07">BNDSTATUS&#160;&#160;A_BDE |&#160;02H;&#160;<br/>#BR;&#160;</p>
+<p style="position:absolute;top:926px;left:69px;white-space:nowrap" class="ft07">FI;<br/>A_BTE[31:0]&#160;&#160;(Zero_extend32(base[11:2] « 4) +&#160;(A_BT[31:2] « 2 );<br/>Temp_lb[31:0]&#160;&#160;LoadFrom(A_BTE);<br/>Temp_ub[31:0]&#160;&#160;LoadFrom(A_BTE&#160;+ 4);<br/>Temp_ptr[31:0]&#160;&#160;LoadFrom(A_BTE&#160;+ 8);<br/>IF&#160;Temp_ptr&#160;equal ptr_value&#160;Then</p>
+<p style="position:absolute;top:1034px;left:89px;white-space:nowrap" class="ft07">BND.LB&#160;&#160;Temp_lb;&#160;<br/>BND.UB&#160;&#160;Temp_ub;&#160;</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:260px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:316px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:316px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:316px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:389px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:389px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:456px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">0F&#160;1A&#160;/r</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">BNDLDX&#160;bnd,&#160;mib</p>
+<p style="position:absolute;top:175px;left:260px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:316px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:389px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:175px;left:456px;white-space:nowrap" class="ft04">Load&#160;the&#160;bounds stored&#160;in&#160;a&#160;bound&#160;table&#160;entry (BTE) into&#160;bnd with&#160;</p>
+<p style="position:absolute;top:191px;left:456px;white-space:nowrap" class="ft04">address&#160;translation using the&#160;base&#160;of&#160;mib and&#160;conditional on&#160;the&#160;</p>
+<p style="position:absolute;top:208px;left:456px;white-space:nowrap" class="ft04">index of&#160;mib&#160;matching&#160;the pointer value&#160;in&#160;the&#160;BTE.</p>
+<p style="position:absolute;top:285px;left:100px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:285px;left:239px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:285px;left:459px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:285px;left:689px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:317px;left:108px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:317px;left:227px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:308px;left:401px;white-space:nowrap" class="ft04">SIB.base (r): Address of&#160;pointer</p>
+<p style="position:absolute;top:325px;left:457px;white-space:nowrap" class="ft04">SIB.index(r)</p>
+<p style="position:absolute;top:317px;left:710px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

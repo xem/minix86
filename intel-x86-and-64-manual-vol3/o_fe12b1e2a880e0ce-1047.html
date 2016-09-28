@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1047</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1047-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1047.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;24-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 24</p>
+<p style="position:absolute;top:120px;left:379px;white-space:nowrap" class="ft01">VIRTUAL MACHINE CONTROL STRUCTURES</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft02">24.1 OVERVIEW</p>
+<p style="position:absolute;top:232px;left:68px;white-space:nowrap" class="ft08">A logical processor uses&#160;<b>virtual-machine control data&#160;structures</b>&#160;(<b>VMCSs</b>) while it&#160;is in&#160;VMX&#160;operation. These&#160;<br/>manage transitions into and out of VMX non-root&#160;operation (VM&#160;entries&#160;and VM&#160;exits)&#160;as well as processor behavior&#160;<br/>in VMX&#160;non-root&#160;operation. This structure&#160;is manipulated by&#160;the&#160;new instructions VMCLEAR,&#160;VMPTRLD,&#160;VMREAD,&#160;<br/>and VMWRITE.<br/>A VMM&#160;can use&#160;a different&#160;VMCS for each&#160;virtual&#160;machine&#160;that&#160;it supports.&#160;For&#160;a virtual machine with multiple&#160;<br/>logical processors (virtual processors),&#160;the VMM&#160;can use&#160;a different&#160;VMCS&#160;for each&#160;virtual&#160;processor.<br/>A logical processor associates&#160;a&#160;region in&#160;memory with each VMCS. This&#160;region&#160;is called the&#160;<b>VMCS&#160;region</b>.</p>
+<p style="position:absolute;top:344px;left:788px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:346px;left:795px;white-space:nowrap" class="ft03">&#160;Soft-</p>
+<p style="position:absolute;top:363px;left:68px;white-space:nowrap" class="ft07">ware references a&#160;specific VMCS&#160;using the&#160;64-bit physical&#160;address of the region&#160;(a&#160;<b>VMCS&#160;pointer</b>). VMCS pointers&#160;<br/>must be aligned&#160;on&#160;a 4-KByte&#160;boundary (bits&#160;11:0 must&#160;be&#160;zero). These pointers must not set bits beyond&#160;the&#160;<br/>processor’s physical-address&#160;width.</p>
+<p style="position:absolute;top:393px;left:307px;white-space:nowrap" class="ft05">2,3</p>
+<p style="position:absolute;top:420px;left:68px;white-space:nowrap" class="ft08">A logical processor may maintain a&#160;number of&#160;VMCSs&#160;that are&#160;<b>active</b>. The processor may&#160;optimize&#160;VMX&#160;operation&#160;<br/>by maintaining&#160;the state of an active&#160;VMCS&#160;in memory,&#160;on&#160;the processor,&#160;or both. At&#160;any&#160;given time, at&#160;most&#160;one&#160;<br/>of the active&#160;VMCSs is&#160;the&#160;<b>current</b>&#160;VMCS. (This&#160;document frequently&#160;uses the term “the&#160;VMCS”&#160;to refer&#160;to the&#160;<br/>current VMCS.) The VMLAUNCH,&#160;VMREAD, VMRESUME,&#160;and&#160;VMWRITE&#160;instructions operate only&#160;on the&#160;current&#160;<br/>VMCS.<br/>The&#160;following items&#160;describe how a&#160;logical processor determines which&#160;VMCSs are&#160;active&#160;and&#160;which is&#160;current:</p>
+<p style="position:absolute;top:532px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:532px;left:93px;white-space:nowrap" class="ft07">The memory operand of the&#160;VMPTRLD&#160;instruction is&#160;the address&#160;of&#160;a VMCS. After execution of the&#160;instruction,&#160;<br/>that&#160;VMCS is both&#160;active&#160;and current on the logical processor.&#160;Any other VMCS that had been&#160;active remains so,&#160;<br/>but no other&#160;VMCS&#160;is&#160;current.</p>
+<p style="position:absolute;top:587px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:588px;left:93px;white-space:nowrap" class="ft07">The VMCS link&#160;pointer&#160;field in the current&#160;VMCS (see<a href="o_fe12b1e2a880e0ce-1051.html">&#160;Section&#160;24.4.2)&#160;</a>is itself the address&#160;of a&#160;VMCS. If&#160;VM&#160;entry&#160;<br/>is performed successfully with the&#160;1-setting of the&#160;“VMCS shadowing” VM-execution&#160;control, the&#160;VMCS&#160;<br/>referenced&#160;by the&#160;VMCS&#160;link pointer&#160;field&#160;becomes&#160;active&#160;on&#160;the logical processor.&#160;The identity of the&#160;current&#160;<br/>VMCS does not&#160;change.</p>
+<p style="position:absolute;top:659px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:660px;left:93px;white-space:nowrap" class="ft07">The&#160;memory&#160;operand of the&#160;VMCLEAR instruction is&#160;also&#160;the address&#160;of a VMCS.&#160;After&#160;execution of the&#160;<br/>instruction, that&#160;VMCS&#160;is neither active&#160;nor current&#160;on&#160;the logical processor.&#160;If&#160;the VMCS&#160;had&#160;been current&#160;on&#160;<br/>the&#160;logical processor,&#160;the&#160;logical&#160;processor&#160;no longer&#160;has a&#160;current VMCS.</p>
+<p style="position:absolute;top:717px;left:68px;white-space:nowrap" class="ft07">The&#160;VMPTRST&#160;instruction&#160;stores&#160;the&#160;address&#160;of&#160;the&#160;logical processor’s&#160;current&#160;VMCS into a&#160;specified memory loca-<br/>tion (it&#160;stores the&#160;value FFFFFFFF_FFFFFFFFH&#160;if there&#160;is&#160;no&#160;current VMCS).<br/>The&#160;<b>launch&#160;state</b>&#160;of a&#160;VMCS&#160;determines&#160;which&#160;VM-entry&#160;instruction&#160;should be used with that VMCS:&#160;the&#160;<br/>VMLAUNCH instruction requires&#160;a&#160;VMCS&#160;whose&#160;launch state is “clear”; the VMRESUME instruction&#160;requires a VMCS&#160;<br/>whose launch state is “launched”. A logical processor maintains a VMCS’s&#160;launch state in the corresponding VMCS&#160;<br/>region. The&#160;following&#160;items describe how&#160;a logical processor manages&#160;the&#160;launch&#160;state of&#160;a VMCS:</p>
+<p style="position:absolute;top:829px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:829px;left:93px;white-space:nowrap" class="ft07">If&#160;the launch state of the&#160;current VMCS&#160;is “clear”,&#160;successful&#160;execution of the&#160;VMLAUNCH instruction changes&#160;<br/>the launch state to “launched”.</p>
+<p style="position:absolute;top:868px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:868px;left:93px;white-space:nowrap" class="ft07">The memory&#160;operand of&#160;the VMCLEAR instruction&#160;is the address of a VMCS. After execution of the instruction,&#160;<br/>the&#160;launch state&#160;of that&#160;VMCS&#160;is “clear”.</p>
+<p style="position:absolute;top:907px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:907px;left:93px;white-space:nowrap" class="ft07">There&#160;are no other ways to modify the&#160;launch&#160;state of&#160;a&#160;VMCS&#160;(it cannot be&#160;modified&#160;using&#160;VMWRITE) and&#160;there&#160;<br/>is no direct&#160;way&#160;to&#160;discover it&#160;(it cannot be read&#160;using VMREAD).</p>
+<p style="position:absolute;top:979px;left:68px;white-space:nowrap" class="ft03">1.&#160;The amount&#160;of&#160;memory required for a VMCS&#160;region&#160;is at&#160;most&#160;4 KBytes.&#160;The exact size&#160;is&#160;implementation&#160;specific and can be&#160;deter-</p>
+<p style="position:absolute;top:996px;left:89px;white-space:nowrap" class="ft03">mined by consulting the VMX capability MSR IA32_VMX_BASIC to&#160;determine the size&#160;of&#160;the VMCS region (see<a href="o_fe12b1e2a880e0ce-1943.html">&#160;Appendix A.1)</a>.</p>
+<p style="position:absolute;top:1017px;left:68px;white-space:nowrap" class="ft03">2.&#160;Software&#160;can determine a&#160;processor’s physical-address width&#160;by&#160;executing CPUID with&#160;80000008H in&#160;EAX. The physical-address&#160;</p>
+<p style="position:absolute;top:1033px;left:89px;white-space:nowrap" class="ft03">width is&#160;returned&#160;in&#160;bits&#160;7:0 of&#160;EAX.</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft03">3.&#160;If IA32_VMX_BASIC[48] is&#160;read&#160;as&#160;1, these pointers must&#160;not set any bits in the ra<a href="o_fe12b1e2a880e0ce-1943.html">nge 63:32; see Appendix A.1.</a></p>
+</div>
+</body>
+</html>

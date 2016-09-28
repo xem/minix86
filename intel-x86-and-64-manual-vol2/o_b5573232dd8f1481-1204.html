@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1204</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1204-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811204.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:697px;white-space:nowrap" class="ft00">RCL/RCR/ROL/ROR—Rotate</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-524&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">(* RCR instruction operation *)<br/>IF (COUNT &amp; COUNTMASK) = 1</p>
+<p style="position:absolute;top:136px;left:88px;white-space:nowrap" class="ft02">THEN&#160;OF&#160;←&#160;MSB(DEST) XOR CF;</p>
+<p style="position:absolute;top:154px;left:88px;white-space:nowrap" class="ft02">ELSE OF&#160;is&#160;undefined;</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft07">FI;<br/>WHILE&#160;(tempCOUNT&#160;</p>
+<p style="position:absolute;top:190px;left:185px;white-space:nowrap" class="ft03">≠</p>
+<p style="position:absolute;top:190px;left:193px;white-space:nowrap" class="ft02">&#160;0)</p>
+<p style="position:absolute;top:208px;left:88px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:226px;left:115px;white-space:nowrap" class="ft02">tempCF&#160;←&#160;LSB(SRC);</p>
+<p style="position:absolute;top:244px;left:115px;white-space:nowrap" class="ft02">DEST<i>&#160;</i>←&#160;(DEST&#160;/ 2)&#160;+&#160;(CF * 2</p>
+<p style="position:absolute;top:241px;left:276px;white-space:nowrap" class="ft05">SIZE</p>
+<p style="position:absolute;top:244px;left:296px;white-space:nowrap" class="ft02">);</p>
+<p style="position:absolute;top:262px;left:115px;white-space:nowrap" class="ft02">CF&#160;←&#160;tempCF;</p>
+<p style="position:absolute;top:280px;left:115px;white-space:nowrap" class="ft02">tempCOUNT&#160;←&#160;tempCOUNT – 1;</p>
+<p style="position:absolute;top:298px;left:88px;white-space:nowrap" class="ft02">OD;</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft07">(* ROL and ROR&#160;instructions *)<br/>IF&#160;OperandSize = 64</p>
+<p style="position:absolute;top:370px;left:88px;white-space:nowrap" class="ft07">THEN COUNTMASK&#160;= 3FH;<br/>ELSE COUNTMASK = 1FH;</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:442px;left:68px;white-space:nowrap" class="ft07">(* ROL instruction&#160;operation *)<br/>tempCOUNT&#160;←&#160;(COUNT&#160;&amp; COUNTMASK)&#160;MOD SIZE</p>
+<p style="position:absolute;top:496px;left:68px;white-space:nowrap" class="ft02">WHILE (tempCOUNT&#160;</p>
+<p style="position:absolute;top:494px;left:185px;white-space:nowrap" class="ft06">≠</p>
+<p style="position:absolute;top:496px;left:194px;white-space:nowrap" class="ft02">&#160;0)</p>
+<p style="position:absolute;top:514px;left:88px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:532px;left:115px;white-space:nowrap" class="ft02">tempCF&#160;←&#160;MSB(DEST);</p>
+<p style="position:absolute;top:550px;left:115px;white-space:nowrap" class="ft02">DEST&#160;←&#160;(DEST<i>&#160;</i></p>
+<p style="position:absolute;top:550px;left:203px;white-space:nowrap" class="ft03">∗</p>
+<p style="position:absolute;top:550px;left:211px;white-space:nowrap" class="ft02">&#160;2)&#160;+&#160;tempCF;</p>
+<p style="position:absolute;top:568px;left:115px;white-space:nowrap" class="ft02">tempCOUNT&#160;←&#160;tempCOUNT – 1;</p>
+<p style="position:absolute;top:586px;left:88px;white-space:nowrap" class="ft02">OD;</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft07">ELIHW;<br/>IF&#160;(COUNT &amp; COUNTMASK)&#160;≠&#160;0</p>
+<p style="position:absolute;top:640px;left:88px;white-space:nowrap" class="ft02">THEN CF&#160;←&#160;LSB(DEST);</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft07">FI;<br/>IF&#160;(COUNT &amp; COUNTMASK)&#160;</p>
+<p style="position:absolute;top:676px;left:223px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:676px;left:231px;white-space:nowrap" class="ft02">&#160;1</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft02">THEN&#160;OF&#160;←&#160;MSB(DEST) XOR CF;</p>
+<p style="position:absolute;top:712px;left:88px;white-space:nowrap" class="ft02">ELSE OF&#160;is&#160;undefined;</p>
+<p style="position:absolute;top:730px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:766px;left:68px;white-space:nowrap" class="ft07">(* ROR instruction&#160;operation *)<br/>tempCOUNT&#160;←&#160;(COUNT&#160;&amp; COUNTMASK)&#160;MOD SIZE</p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft02">WHILE (tempCOUNT&#160;</p>
+<p style="position:absolute;top:800px;left:185px;white-space:nowrap" class="ft06">≠</p>
+<p style="position:absolute;top:802px;left:194px;white-space:nowrap" class="ft02">&#160;0)</p>
+<p style="position:absolute;top:820px;left:88px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:838px;left:115px;white-space:nowrap" class="ft02">tempCF&#160;←&#160;LSB(SRC);</p>
+<p style="position:absolute;top:856px;left:115px;white-space:nowrap" class="ft02">DEST<i>&#160;</i>←&#160;(DEST&#160;/ 2)&#160;+&#160;(tempCF&#160;</p>
+<p style="position:absolute;top:856px;left:288px;white-space:nowrap" class="ft03">∗</p>
+<p style="position:absolute;top:856px;left:295px;white-space:nowrap" class="ft02">&#160;2</p>
+<p style="position:absolute;top:853px;left:307px;white-space:nowrap" class="ft05">SIZE</p>
+<p style="position:absolute;top:856px;left:327px;white-space:nowrap" class="ft02">);</p>
+<p style="position:absolute;top:874px;left:115px;white-space:nowrap" class="ft02">tempCOUNT&#160;←&#160;tempCOUNT – 1;</p>
+<p style="position:absolute;top:892px;left:88px;white-space:nowrap" class="ft02">OD;</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft07">ELIHW;<br/>IF&#160;(COUNT &amp; COUNTMASK)&#160;≠&#160;0</p>
+<p style="position:absolute;top:946px;left:88px;white-space:nowrap" class="ft02">THEN CF&#160;←&#160;MSB(DEST);</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft07">FI;<br/>IF&#160;(COUNT &amp; COUNTMASK)&#160;</p>
+<p style="position:absolute;top:982px;left:223px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:982px;left:235px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:1000px;left:88px;white-space:nowrap" class="ft02">THEN&#160;OF&#160;←&#160;MSB(DEST) XOR&#160;MSB&#160;−&#160;1(DEST);</p>
+<p style="position:absolute;top:1018px;left:88px;white-space:nowrap" class="ft02">ELSE OF&#160;is&#160;undefined;</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+</div>
+</body>
+</html>

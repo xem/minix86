@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 359</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page359-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce359.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;9-47</p>
+<p style="position:absolute;top:47px;left:560px;white-space:nowrap" class="ft01">PROCESSOR&#160;MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:556px;left:69px;white-space:nowrap" class="ft05">This control is provided on&#160;a&#160;global basis for all&#160;updates and processors. The caller can&#160;determine the current status&#160;<br/>of update loading&#160;(enabled&#160;or disabled) without changing the state.&#160;The function does not&#160;allow the caller to disable&#160;<br/>loading&#160;of&#160;binary updates, as&#160;this&#160;poses&#160;a security&#160;risk.<br/>The&#160;caller specifies&#160;the requested operation by placing one&#160;of&#160;the values&#160;<a href="o_fe12b1e2a880e0ce-359.html">from Table 9-17&#160;in&#160;</a>the BH register.&#160;After&#160;<br/>successfully completing this function,&#160;the&#160;BL register&#160;contains either the enable or the disable designator. Note that&#160;<br/>if the&#160;function fails, the&#160;update status return&#160;value is&#160;undefined.</p>
+<p style="position:absolute;top:774px;left:69px;white-space:nowrap" class="ft05">The&#160;READ_FAILURE&#160;error code returned by&#160;this function has meaning&#160;only&#160;if the&#160;control function is&#160;implemented in&#160;<br/>the&#160;BIOS NVRAM.&#160;The state of this&#160;feature (enabled/disabled)&#160;can also&#160;be&#160;implemented using&#160;CMOS RAM&#160;bits&#160;<br/>where READ failure&#160;errors cannot occur.&#160;</p>
+<p style="position:absolute;top:851px;left:69px;white-space:nowrap" class="ft03">9.11.8.8 &#160;&#160;Function 03H—Read Microcode Update&#160;Data</p>
+<p style="position:absolute;top:880px;left:69px;white-space:nowrap" class="ft05">This&#160;function reads a&#160;currently installed microcode&#160;update&#160;from&#160;the BIOS storage&#160;into&#160;a caller-provided RAM buffer.&#160;<br/><a href="o_fe12b1e2a880e0ce-359.html">Table 9-18 lists th</a>e&#160;parameters and&#160;return codes.&#160;</p>
+<p style="position:absolute;top:105px;left:248px;white-space:nowrap" class="ft04">Table 9-16. &#160;Parameters for&#160;the Control&#160;Update&#160;Sub-function</p>
+<p style="position:absolute;top:130px;left:75px;white-space:nowrap" class="ft06">Input<br/>AX</p>
+<p style="position:absolute;top:154px;left:206px;white-space:nowrap" class="ft02">Function&#160;Code</p>
+<p style="position:absolute;top:154px;left:374px;white-space:nowrap" class="ft02">0D042H</p>
+<p style="position:absolute;top:178px;left:75px;white-space:nowrap" class="ft02">BL</p>
+<p style="position:absolute;top:178px;left:206px;white-space:nowrap" class="ft02">Sub-function</p>
+<p style="position:absolute;top:178px;left:374px;white-space:nowrap" class="ft02">02H&#160;- Control update</p>
+<p style="position:absolute;top:202px;left:75px;white-space:nowrap" class="ft02">BH</p>
+<p style="position:absolute;top:202px;left:206px;white-space:nowrap" class="ft02">Task</p>
+<p style="position:absolute;top:202px;left:374px;white-space:nowrap" class="ft02">See the description below.</p>
+<p style="position:absolute;top:226px;left:75px;white-space:nowrap" class="ft02">CX</p>
+<p style="position:absolute;top:226px;left:206px;white-space:nowrap" class="ft02">Scratch Pad1</p>
+<p style="position:absolute;top:226px;left:374px;white-space:nowrap" class="ft02">Real&#160;mode&#160;segment&#160;of&#160;64&#160;KBytes&#160;of&#160;RAM&#160;block</p>
+<p style="position:absolute;top:250px;left:75px;white-space:nowrap" class="ft02">DX</p>
+<p style="position:absolute;top:250px;left:206px;white-space:nowrap" class="ft02">Scratch Pad2</p>
+<p style="position:absolute;top:250px;left:374px;white-space:nowrap" class="ft02">Real&#160;mode&#160;segment&#160;of&#160;64&#160;KBytes&#160;of&#160;RAM&#160;block</p>
+<p style="position:absolute;top:274px;left:75px;white-space:nowrap" class="ft02">SI</p>
+<p style="position:absolute;top:274px;left:206px;white-space:nowrap" class="ft02">Scratch&#160;Pad3</p>
+<p style="position:absolute;top:274px;left:374px;white-space:nowrap" class="ft02">Real mode&#160;segment&#160;of&#160;64&#160;KBytes&#160;of&#160;RAM&#160;block</p>
+<p style="position:absolute;top:298px;left:75px;white-space:nowrap" class="ft02">SS:SP</p>
+<p style="position:absolute;top:298px;left:206px;white-space:nowrap" class="ft02">Stack&#160;pointer</p>
+<p style="position:absolute;top:298px;left:374px;white-space:nowrap" class="ft02">32&#160;kilobytes of&#160;stack&#160;minimum</p>
+<p style="position:absolute;top:322px;left:75px;white-space:nowrap" class="ft06">Output<br/>CF</p>
+<p style="position:absolute;top:346px;left:206px;white-space:nowrap" class="ft02">Carry Flag</p>
+<p style="position:absolute;top:346px;left:374px;white-space:nowrap" class="ft07">Carry Set - Failure - AH contains status<br/>Carry Clear - All return values valid.</p>
+<p style="position:absolute;top:391px;left:75px;white-space:nowrap" class="ft02">AH</p>
+<p style="position:absolute;top:391px;left:206px;white-space:nowrap" class="ft02">Return Code</p>
+<p style="position:absolute;top:391px;left:374px;white-space:nowrap" class="ft02">Status of&#160;the call</p>
+<p style="position:absolute;top:415px;left:75px;white-space:nowrap" class="ft02">AL</p>
+<p style="position:absolute;top:415px;left:206px;white-space:nowrap" class="ft02">OEM Error</p>
+<p style="position:absolute;top:415px;left:374px;white-space:nowrap" class="ft02">Additional&#160;OEM Information.&#160;</p>
+<p style="position:absolute;top:439px;left:75px;white-space:nowrap" class="ft02">BL</p>
+<p style="position:absolute;top:439px;left:206px;white-space:nowrap" class="ft02">Update Status</p>
+<p style="position:absolute;top:439px;left:374px;white-space:nowrap" class="ft02">Either enable or disable indicator</p>
+<p style="position:absolute;top:463px;left:75px;white-space:nowrap" class="ft06">Return Codes (see&#160;<a href="o_fe12b1e2a880e0ce-361.html">Table&#160;9-19&#160;f</a>or code&#160;definitions)<br/>SUCCESS</p>
+<p style="position:absolute;top:487px;left:374px;white-space:nowrap" class="ft02">Function completed successfully.</p>
+<p style="position:absolute;top:511px;left:75px;white-space:nowrap" class="ft02">READ_FAILURE</p>
+<p style="position:absolute;top:511px;left:374px;white-space:nowrap" class="ft02">A failure occurred because of&#160;the inability to&#160;read&#160;the&#160;storage&#160;device.&#160;</p>
+<p style="position:absolute;top:677px;left:353px;white-space:nowrap" class="ft04">Table 9-17.&#160;&#160;Mnemonic&#160;Values</p>
+<p style="position:absolute;top:699px;left:74px;white-space:nowrap" class="ft02">Mnemonic</p>
+<p style="position:absolute;top:699px;left:284px;white-space:nowrap" class="ft02">Value</p>
+<p style="position:absolute;top:699px;left:351px;white-space:nowrap" class="ft02">Meaning</p>
+<p style="position:absolute;top:721px;left:74px;white-space:nowrap" class="ft02">Enable</p>
+<p style="position:absolute;top:721px;left:297px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:721px;left:351px;white-space:nowrap" class="ft02">Enable the Update loading at&#160;initialization&#160;time.</p>
+<p style="position:absolute;top:744px;left:74px;white-space:nowrap" class="ft02">Query</p>
+<p style="position:absolute;top:744px;left:297px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:744px;left:352px;white-space:nowrap" class="ft02">Determine the&#160;current state of&#160;the update&#160;control without&#160;changing&#160;its status.</p>
+<p style="position:absolute;top:937px;left:216px;white-space:nowrap" class="ft04">Table&#160;9-18. &#160;Parameters&#160;for the&#160;Read Microcode Update Data Function</p>
+<p style="position:absolute;top:959px;left:75px;white-space:nowrap" class="ft08">Input<br/>AX</p>
+<p style="position:absolute;top:981px;left:273px;white-space:nowrap" class="ft02">Function&#160;Code</p>
+<p style="position:absolute;top:981px;left:520px;white-space:nowrap" class="ft02">0D042H</p>
+<p style="position:absolute;top:1004px;left:75px;white-space:nowrap" class="ft02">BL</p>
+<p style="position:absolute;top:1004px;left:273px;white-space:nowrap" class="ft02">Sub-function</p>
+<p style="position:absolute;top:1004px;left:520px;white-space:nowrap" class="ft02">03H&#160;- Read&#160;Update</p>
+<p style="position:absolute;top:1026px;left:75px;white-space:nowrap" class="ft02">ES:DI</p>
+<p style="position:absolute;top:1026px;left:273px;white-space:nowrap" class="ft02">Buffer Address</p>
+<p style="position:absolute;top:1026px;left:520px;white-space:nowrap" class="ft02">Real Mode&#160;pointer&#160;to&#160;the&#160;Intel&#160;Update structure that&#160;</p>
+<p style="position:absolute;top:1043px;left:520px;white-space:nowrap" class="ft02">will be written with the binary data</p>
+</div>
+</body>
+</html>

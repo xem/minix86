@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 187</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page187-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481187.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">AESKEYGENASSIST—AES Round Key Generation Assist</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-59</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">AESKEYGENASSIST—AES Round Key Generation Assist</p>
+<p style="position:absolute;top:386px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:470px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:493px;left:69px;white-space:nowrap" class="ft07">Assist&#160;in&#160;expanding the&#160;AES cipher key,&#160;by&#160;computing steps&#160;towards generating a&#160;round key for encryption, using&#160;<br/>128-bit data specified&#160;in the&#160;source operand&#160;and an&#160;8-bit&#160;round&#160;constant specified&#160;as an&#160;immediate,&#160;store&#160;the&#160;<br/>result in&#160;the destination operand.<br/>The destination operand&#160;is an&#160;XMM&#160;register. The source&#160;operand can be an&#160;XMM register&#160;or a&#160;128-bit&#160;memory&#160;loca-<br/>tion.<br/>128-bit Legacy&#160;SSE version: Bits (VLMAX-1:128) of&#160;the&#160;corresponding&#160;YMM destination register&#160;remain&#160;<br/>unchanged.<br/>VEX.128&#160;encoded version: Bits&#160;(VLMAX-1:128) of&#160;the destination&#160;YMM register&#160;are zeroed.<br/>Note: In VEX-encoded&#160;versions, VEX.vvvv&#160;is reserved&#160;and&#160;must be&#160;1111b,&#160;otherwise&#160;instructions&#160;will&#160;#UD.</p>
+<p style="position:absolute;top:686px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:709px;left:69px;white-space:nowrap" class="ft08">AESKEYGENASSIST<br/>X3[31:0]&#160;←&#160;SRC [127: 96];</p>
+<p style="position:absolute;top:745px;left:69px;white-space:nowrap" class="ft04">X2[31:0]&#160;←&#160;SRC [95: 64];</p>
+<p style="position:absolute;top:763px;left:69px;white-space:nowrap" class="ft04">X1[31:0]&#160;←&#160;SRC&#160;[63:&#160;32];</p>
+<p style="position:absolute;top:781px;left:69px;white-space:nowrap" class="ft04">X0[31:0]&#160;←&#160;SRC [31:&#160;0];</p>
+<p style="position:absolute;top:799px;left:69px;white-space:nowrap" class="ft04">RCON[31:0]&#160;←&#160;ZeroExtend(Imm8[7:0]);</p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft04">DEST[31:0]&#160;←&#160;SubWord(X1);</p>
+<p style="position:absolute;top:835px;left:69px;white-space:nowrap" class="ft04">DEST[63:32&#160;]&#160;←&#160;RotWord( SubWord(X1) )&#160;XOR&#160;RCON;</p>
+<p style="position:absolute;top:853px;left:69px;white-space:nowrap" class="ft04">DEST[95:64]&#160;←&#160;SubWord(X3);</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft04">DEST[127:96]&#160;←&#160;RotWord( SubWord(X3) ) XOR RCON;</p>
+<p style="position:absolute;top:889px;left:69px;white-space:nowrap" class="ft04">DEST[VLMAX-1:128] (Unmodified)</p>
+<p style="position:absolute;top:123px;left:75px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:75px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:392px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:392px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:429px;white-space:nowrap" class="ft04">64/32-bit&#160;</p>
+<p style="position:absolute;top:137px;left:429px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:500px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:500px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:500px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:570px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:75px;white-space:nowrap" class="ft04">66 0F 3A DF /r ib</p>
+<p style="position:absolute;top:191px;left:75px;white-space:nowrap" class="ft04">AESKEYGENASSIST xmm1, xmm2/m128, imm8</p>
+<p style="position:absolute;top:175px;left:392px;white-space:nowrap" class="ft04">RMI&#160;V/V</p>
+<p style="position:absolute;top:175px;left:500px;white-space:nowrap" class="ft04">AES</p>
+<p style="position:absolute;top:175px;left:570px;white-space:nowrap" class="ft04">Assist in&#160;AES round&#160;key generation&#160;using&#160;an&#160;8&#160;</p>
+<p style="position:absolute;top:191px;left:570px;white-space:nowrap" class="ft04">bits Round Constant&#160;(RCON) specified&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:208px;left:570px;white-space:nowrap" class="ft04">immediate&#160;byte, operating on&#160;128&#160;bits&#160;of&#160;data&#160;</p>
+<p style="position:absolute;top:224px;left:570px;white-space:nowrap" class="ft04">specified in&#160;xmm2/m128 and stores the&#160;</p>
+<p style="position:absolute;top:241px;left:570px;white-space:nowrap" class="ft04">result in xmm1.</p>
+<p style="position:absolute;top:263px;left:75px;white-space:nowrap" class="ft04">VEX.128.66.0F3A.WIG&#160;DF&#160;/r ib</p>
+<p style="position:absolute;top:280px;left:75px;white-space:nowrap" class="ft04">VAESKEYGENASSIST xmm1, xmm2/m128, imm8</p>
+<p style="position:absolute;top:263px;left:392px;white-space:nowrap" class="ft04">RMI&#160;V/V</p>
+<p style="position:absolute;top:263px;left:500px;white-space:nowrap" class="ft04">Both&#160;AES&#160;</p>
+<p style="position:absolute;top:280px;left:500px;white-space:nowrap" class="ft04">and</p>
+<p style="position:absolute;top:296px;left:500px;white-space:nowrap" class="ft04">AVX&#160;flags</p>
+<p style="position:absolute;top:263px;left:570px;white-space:nowrap" class="ft04">Assist&#160;in&#160;AES round&#160;key generation&#160;using 8&#160;</p>
+<p style="position:absolute;top:280px;left:570px;white-space:nowrap" class="ft04">bits Round Constant&#160;(RCON) specified&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:296px;left:570px;white-space:nowrap" class="ft04">immediate&#160;byte, operating on&#160;128&#160;bits&#160;of&#160;data&#160;</p>
+<p style="position:absolute;top:313px;left:570px;white-space:nowrap" class="ft04">specified in&#160;xmm2/m128 and stores the&#160;</p>
+<p style="position:absolute;top:330px;left:570px;white-space:nowrap" class="ft04">result in xmm1.</p>
+<p style="position:absolute;top:409px;left:86px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:409px;left:192px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:409px;left:369px;white-space:nowrap" class="ft04">Operand2</p>
+<p style="position:absolute;top:409px;left:547px;white-space:nowrap" class="ft04">Operand3</p>
+<p style="position:absolute;top:409px;left:721px;white-space:nowrap" class="ft04">Operand4</p>
+<p style="position:absolute;top:433px;left:93px;white-space:nowrap" class="ft04">RMI</p>
+<p style="position:absolute;top:433px;left:179px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:433px;left:357px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:433px;left:559px;white-space:nowrap" class="ft04">imm8</p>
+<p style="position:absolute;top:433px;left:740px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

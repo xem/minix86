@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1353</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1353-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811353.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">SYSEXIT—Fast Return from Fast System&#160;Call</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-673</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">SYSEXIT—Fast&#160;Return from Fast&#160;System Call</p>
+<p style="position:absolute;top:255px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:343px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:369px;left:69px;white-space:nowrap" class="ft08">Executes&#160;a&#160;fast return&#160;to privilege level 3 user code. SYSEXIT is a&#160;companion instruction to the&#160;SYSENTER instruc-<br/>tion.&#160;The instruction is&#160;optimized&#160;to provide&#160;the&#160;maximum&#160;performance for returns&#160;from&#160;system&#160;procedures&#160;<br/>executing&#160;at protections&#160;levels 0&#160;to user procedures&#160;executing&#160;at protection&#160;level 3.&#160;It must be&#160;executed&#160;from code&#160;<br/>executing at&#160;privilege level&#160;0.&#160;<br/>With a&#160;64-bit&#160;operand size, SYSEXIT&#160;remains in&#160;64-bit mode;&#160;otherwise,&#160;it either enters compatibility&#160;mode (if&#160;the&#160;<br/>logical processor is&#160;in IA-32e mode)&#160;or remains&#160;in protected&#160;mode (if&#160;it is&#160;not).<br/>Prior&#160;to executing SYSEXIT,&#160;software&#160;must specify the&#160;privilege&#160;level 3&#160;code&#160;segment and&#160;code&#160;entry&#160;point,&#160;and&#160;the&#160;<br/>privilege&#160;level 3&#160;stack segment and&#160;stack pointer&#160;by writing values&#160;into&#160;the following MSR&#160;and general-purpose&#160;<br/>registers:</p>
+<p style="position:absolute;top:538px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:538px;left:95px;white-space:nowrap" class="ft08"><b>IA32_SYSENTER_CS</b>&#160;(MSR&#160;address 174H) — Contains a 32-bit value&#160;that is used&#160;to determine&#160;the segment&#160;<br/>selectors for the&#160;privilege level&#160;3 code and stack segments (see&#160;the&#160;Operation section)</p>
+<p style="position:absolute;top:577px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:577px;left:95px;white-space:nowrap" class="ft08"><b>RDX</b>&#160;—&#160;The canonical&#160;address in&#160;this register&#160;is loaded&#160;into RIP (thus, this&#160;value references the first&#160;instruction&#160;<br/>to&#160;be&#160;executed&#160;in the&#160;user code).&#160;If the&#160;return&#160;is not to&#160;64-bit mode, only bits&#160;31:0&#160;are&#160;loaded.</p>
+<p style="position:absolute;top:616px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:616px;left:95px;white-space:nowrap" class="ft08"><b>ECX</b>&#160;— The canonical address in this register is loaded&#160;into RSP (thus, this value contains the stack pointer for&#160;<br/>the&#160;privilege&#160;level&#160;3 stack). If the&#160;return is&#160;not to 64-bit&#160;mode, only bits&#160;31:0 are&#160;loaded.</p>
+<p style="position:absolute;top:657px;left:69px;white-space:nowrap" class="ft08">The IA32_SYSENTER_CS MSR can&#160;be&#160;read&#160;from&#160;and written to&#160;using RDMSR and&#160;WRMSR.<br/>While SYSEXIT loads the&#160;CS and&#160;SS&#160;selectors with&#160;values&#160;derived from the IA32_SYSENTER_CS MSR,&#160;the CS&#160;and&#160;<br/>SS&#160;descriptor caches&#160;are&#160;<b>not</b>&#160;loaded&#160;from the descriptors (in GDT&#160;or LDT) referenced&#160;by those&#160;selectors. Instead,&#160;<br/>the descriptor&#160;caches are&#160;loaded&#160;with fixed values. See&#160;the&#160;Operation&#160;section for details. It&#160;is the&#160;responsibility of&#160;<br/>OS&#160;software to ensure that the descriptors (in&#160;GDT or&#160;LDT)&#160;referenced by those&#160;selector&#160;values&#160;correspond to&#160;the&#160;<br/>fixed values&#160;loaded into the&#160;descriptor caches; the&#160;SYSEXIT instruction&#160;does not&#160;ensure this&#160;correspondence.<br/>The SYSEXIT instruction can&#160;be&#160;invoked&#160;from all&#160;operating modes except&#160;real-address mode&#160;and virtual-8086&#160;<br/>mode.&#160;<br/>The SYSENTER and SYSEXIT instructions&#160;were&#160;introduced into&#160;the IA-32 architecture&#160;in the&#160;Pentium&#160;II processor.&#160;<br/>The availability of these instructions on a processor is&#160;indicated with the&#160;SYSENTER/SYSEXIT present (SEP) feature&#160;<br/>flag returned to&#160;the EDX&#160;register by the&#160;CPUID instruction. An operating&#160;system&#160;that qualifies the&#160;SEP&#160;flag must&#160;<br/>also qualify&#160;the&#160;processor family&#160;and&#160;model to&#160;ensure&#160;that&#160;the SYSENTER/SYSEXIT&#160;instructions are actually&#160;<br/>present.&#160;For example:</p>
+<p style="position:absolute;top:907px;left:69px;white-space:nowrap" class="ft04">IF&#160;CPUID SEP bit is set</p>
+<p style="position:absolute;top:925px;left:89px;white-space:nowrap" class="ft04">THEN&#160;IF (Family&#160;</p>
+<p style="position:absolute;top:925px;left:183px;white-space:nowrap" class="ft07">=&#160;</p>
+<p style="position:absolute;top:925px;left:195px;white-space:nowrap" class="ft04">6) and&#160;(Model&#160;&lt;&#160;3)&#160;and (Stepping&#160;&lt;&#160;3)&#160;</p>
+<p style="position:absolute;top:943px;left:116px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:961px;left:143px;white-space:nowrap" class="ft04">SYSENTER/SYSEXIT_Not_Supported; FI;</p>
+<p style="position:absolute;top:979px;left:116px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:997px;left:143px;white-space:nowrap" class="ft04">SYSENTER/SYSEXIT_Supported; FI;</p>
+<p style="position:absolute;top:1015px;left:69px;white-space:nowrap" class="ft08">FI;<br/>When the&#160;CPUID&#160;instruction is&#160;executed&#160;on&#160;the&#160;Pentium Pro&#160;processor&#160;(model&#160;1),&#160;the processor returns&#160;a the&#160;SEP&#160;<br/>flag&#160;as set,&#160;but does not&#160;support&#160;the SYSENTER/SYSEXIT&#160;instructions.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:390px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:390px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:427px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:427px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:499px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:499px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:569px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F 35</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">SYSEXIT</p>
+<p style="position:absolute;top:160px;left:390px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:427px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:499px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:569px;white-space:nowrap" class="ft04">Fast return to&#160;privilege level 3 user code.</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft04">REX.W + 0F&#160;35</p>
+<p style="position:absolute;top:182px;left:221px;white-space:nowrap" class="ft04">SYSEXIT</p>
+<p style="position:absolute;top:182px;left:390px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:182px;left:427px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:499px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:569px;white-space:nowrap" class="ft04">Fast return&#160;to&#160;64-bit mode&#160;privilege&#160;level 3&#160;</p>
+<p style="position:absolute;top:199px;left:569px;white-space:nowrap" class="ft04">user&#160;code.</p>
+<p style="position:absolute;top:279px;left:86px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:279px;left:194px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:279px;left:369px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:279px;left:546px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:279px;left:721px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:303px;left:95px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:303px;left:215px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:390px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:567px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:742px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 199</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page199-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a199.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:782px;white-space:nowrap" class="ft00">Vol. 1&#160;8-9</p>
+<p style="position:absolute;top:47px;left:634px;white-space:nowrap" class="ft01">PROGRAMMING&#160;WITH&#160;THE X87&#160;FPU</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">The&#160;x87 FPU&#160;uses the&#160;tag&#160;values&#160;to&#160;detect stack overflow&#160;and&#160;underflow conditions (s<a href="o_7281d5ea06a5b67a-217.html">ee&#160;Section&#160;8.5.1.1,&#160;“Stack&#160;<br/>Overflow&#160;or Underflow Exception&#160;(#IS)”).<br/></a>Application programs and&#160;exception&#160;handlers can&#160;use this tag information to&#160;check&#160;the contents of an&#160;x87 FPU&#160;data&#160;<br/>register without performing complex decoding of the actual&#160;data in the register. To&#160;read the tag register, it must be&#160;<br/>stored&#160;in memory&#160;using either the&#160;FSTENV/FNSTENV or&#160;FSAVE/FNSAVE instructions.&#160;The location&#160;of&#160;the tag word&#160;<br/>in memory&#160;after being&#160;saved&#160;with&#160;one of these instructions&#160;is shown&#160;in<a href="o_7281d5ea06a5b67a-201.html">&#160;Figures 8-9 throu</a>g<a href="o_7281d5ea06a5b67a-202.html">h&#160;8-12.<br/></a>Software&#160;cannot&#160;directly&#160;load&#160;or&#160;modify&#160;the&#160;tags&#160;in&#160;the&#160;tag register.&#160;The FLDENV&#160;and FRSTOR instructions&#160;load an&#160;<br/>image of the&#160;tag&#160;register into the&#160;x87&#160;FPU; however,&#160;the&#160;x87&#160;FPU uses&#160;those tag values&#160;only&#160;to determine&#160;if the&#160;<br/>data registers&#160;are empty (11B)&#160;or non-empty&#160;(00B, 01B, or 10B).&#160;<br/>If the tag register image indicates that a&#160;data&#160;register is empty,&#160;the tag&#160;in the&#160;tag register&#160;for&#160;that&#160;data&#160;register&#160;is&#160;<br/>marked empty (11B); if the&#160;tag register image&#160;indicates&#160;that&#160;the data register is&#160;non-empty,&#160;the&#160;x87 FPU reads the&#160;<br/>actual value in the data register and sets the tag for&#160;the&#160;register&#160;accordingly.&#160;This action prevents a program from&#160;<br/>setting&#160;the values&#160;in the&#160;tag register&#160;to incorrectly represent the&#160;actual contents&#160;of&#160;non-empty data registers.</p>
+<p style="position:absolute;top:371px;left:69px;white-space:nowrap" class="ft03">8.1.8&#160;</p>
+<p style="position:absolute;top:371px;left:149px;white-space:nowrap" class="ft03">x87 FPU Instruction and Data (Operand) Pointers</p>
+<p style="position:absolute;top:402px;left:69px;white-space:nowrap" class="ft06">The&#160;x87 FPU&#160;stores&#160;pointers to&#160;the instruction and&#160;data&#160;(operand) for the last&#160;non-control instruction executed.&#160;<br/>These are&#160;the x87&#160;FPU instruction pointer&#160;and x87&#160;FPU data&#160;(operand) pointers;&#160;software can&#160;save&#160;these pointers&#160;<br/>to provide&#160;state&#160;information&#160;for&#160;exception handlers. The&#160;pointers are&#160;illustrate<a href="o_7281d5ea06a5b67a-192.html">d in&#160;Figure&#160;8-1&#160;</a>(the figure&#160;illustrates&#160;<br/>the&#160;pointers&#160;as used outside 64-bit&#160;mode; see below).<br/>Note that the&#160;value in&#160;the x87&#160;FPU data&#160;pointer&#160;is always a&#160;pointer&#160;to&#160;a memory operand. If the&#160;last&#160;non-control&#160;<br/>instruction&#160;that was&#160;executed&#160;did&#160;not have&#160;a&#160;memory&#160;operand, the&#160;value in&#160;the&#160;data pointer&#160;is undefined&#160;<br/>(reserved).&#160;If CPUID.(EAX=07H,ECX=0H):EBX[bit 6]&#160;= 1, the&#160;data&#160;pointer&#160;is updated&#160;only&#160;for&#160;x87 non-control&#160;<br/>instructions&#160;that incur unmasked x87&#160;exceptions.<br/>The contents&#160;of&#160;the x87 FPU&#160;instruction&#160;and data pointers&#160;remain unchanged&#160;when&#160;any of&#160;the following instructions&#160;<br/>are executed: FCLEX/FNCLEX, FLDCW,&#160;FSTCW/FNSTCW,&#160;FSTSW/FNSTSW,&#160;FSTENV/FNSTENV, FLDENV, and&#160;<br/>WAIT/FWAIT.<br/>For all the x87&#160;FPUs and NPXs except the 8087,&#160;the x87 FPU&#160;instruction pointer points to any prefixes&#160;that preceded&#160;<br/>the instruction.&#160;For&#160;the 8087,&#160;the&#160;x87&#160;FPU instruction pointer points&#160;only&#160;to the&#160;actual opcode.<br/>The x87&#160;FPU instruction and data&#160;pointers each&#160;consists of an&#160;offset&#160;and&#160;a segment selector:</p>
+<p style="position:absolute;top:668px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:669px;left:95px;white-space:nowrap" class="ft05">The&#160;x87&#160;FPU Instruction Pointer Offset&#160;(FIP)&#160;comprises 64&#160;bits on&#160;processors&#160;that&#160;support&#160;IA-32e&#160;mode;&#160;on&#160;<br/>other processors,&#160;it offset comprises 32 bits.</p>
+<p style="position:absolute;top:707px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:708px;left:95px;white-space:nowrap" class="ft02">The&#160;x87&#160;FPU Instruction Pointer Selector (FCS)&#160;comprises 16&#160;bits.</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:730px;left:95px;white-space:nowrap" class="ft05">The&#160;x87&#160;FPU Data Pointer Offset&#160;(FDP) comprises&#160;64&#160;bits&#160;on processors that support IA-32e&#160;mode; on other&#160;<br/>processors,&#160;it offset comprises 32&#160;bits.</p>
+<p style="position:absolute;top:769px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:769px;left:95px;white-space:nowrap" class="ft02">The&#160;x87&#160;FPU Data Pointer Selector&#160;(FDS) comprises 16&#160;bits.</p>
+<p style="position:absolute;top:793px;left:69px;white-space:nowrap" class="ft05">The&#160;pointers are&#160;accessed&#160;by&#160;the FINIT/FNINIT,&#160;FLDENV, FRSTOR,&#160;FSAVE/FNSAVE,&#160;FSTENV/FNSTENV, FXRSTOR,&#160;<br/>FXSAVE, XRSTOR, XSAVE,&#160;and&#160;XSAVEOPT instructions as&#160;follows:</p>
+<p style="position:absolute;top:832px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:832px;left:95px;white-space:nowrap" class="ft02">FINIT/FNINIT.&#160;Each instruction clears&#160;FIP,&#160;FCS,&#160;FDP,&#160;and&#160;FDS.</p>
+<p style="position:absolute;top:854px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:855px;left:95px;white-space:nowrap" class="ft06">FLDENV,&#160;FRSTOR.&#160;These&#160;instructions&#160;use the&#160;memory formats given&#160;in&#160;Figures&#160;<a href="o_7281d5ea06a5b67a-201.html">8-9</a>&#160;<a href="o_7281d5ea06a5b67a-202.html">through 8-12:<br/></a>—&#160;For&#160;each&#160;of&#160;FIP and FDP,&#160;each instruction loads&#160;the lower 32 bits&#160;from memory and clears the upper 32 bits.<br/>—&#160;If CR0.PE&#160;= 1,&#160;each&#160;instruction loads&#160;FCS&#160;and&#160;FDS from memory; otherwise,&#160;it clears them.</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:925px;left:95px;white-space:nowrap" class="ft07">FSAVE/FNSAVE, FSTENV/FNSTENV. These&#160;instructions&#160;use the&#160;memory formats given&#160;in&#160;Figures&#160;<a href="o_7281d5ea06a5b67a-201.html">8-9 thro</a>ugh&#160;<br/><a href="o_7281d5ea06a5b67a-202.html">8-12</a>.<br/>—&#160;Each instruction saves&#160;the&#160;lower 32 bits of each&#160;FIP&#160;and FDP into memory. the upper 32&#160;bits&#160;are not saved.<br/>—&#160;If CR0.PE&#160;= 1,&#160;each&#160;instruction&#160;saves&#160;FCS&#160;and&#160;FDS into memory.&#160;If&#160;</p>
+<p style="position:absolute;top:1006px;left:120px;white-space:nowrap" class="ft05">CPUID.(EAX=07H,ECX=0H):EBX[bit&#160;13] = 1, the&#160;processor&#160;deprecates FCS&#160;and FDS;&#160;it saves each&#160;as&#160;<br/>0000H.</p>
+<p style="position:absolute;top:1047px;left:95px;white-space:nowrap" class="ft02">—&#160;After saving&#160;these data into&#160;memory, FSAVE/FNSAVE clears&#160;FIP,&#160;FCS,&#160;FDP,&#160;and FDS.</p>
+</div>
+</body>
+</html>

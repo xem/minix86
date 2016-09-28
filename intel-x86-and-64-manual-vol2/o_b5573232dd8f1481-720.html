@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 720</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft013{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page720-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481720.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:643px;white-space:nowrap" class="ft00">MOV‚ÄîMove to/from Control&#160;Registers</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-40&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">MOV‚ÄîMove&#160;to/from Control Registers</p>
+<p style="position:absolute;top:538px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:649px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:675px;left:68px;white-space:nowrap" class="ft06">Moves the&#160;contents of a&#160;control&#160;register (CR0, CR2, CR3,&#160;CR4,&#160;or CR8)&#160;to a&#160;general-purpose&#160;register&#160;or the&#160;<br/>contents of a general purpose register to a control register. The operand size for these instructions is always 32 bits&#160;<br/>in non-64-bit modes, regardless of the operand-size attribute. (See&#160;‚ÄúControl&#160;Re<a href="˛ˇ">gisters‚Äù in Chapter 2&#160;</a>of the&#160;<a href="˛ˇ"><i>Intel¬Æ&#160;<br/>64 and&#160;IA-32 Architectures Software&#160;Developer‚Äôs Manual, Volume&#160;3A</i>,&#160;</a>for&#160;a detailed description of the flags&#160;and&#160;<br/>fields in&#160;the control registers.) This&#160;instruction&#160;can be&#160;executed only when the&#160;current privilege level&#160;is 0.<br/>At&#160;the opcode&#160;level, the&#160;<i>reg</i>&#160;field within the ModR/M byte specifies which&#160;of the&#160;control registers is loaded&#160;or read.&#160;<br/>The&#160;2 bits in&#160;the&#160;<i>mod&#160;</i>field are&#160;ignored. The&#160;<i>r/m</i>&#160;field specifies&#160;the general-purpose register&#160;loaded or read.&#160;<br/>Attempts&#160;to reference CR1, CR5, CR6, CR7,&#160;and&#160;CR9‚ÄìCR15&#160;result&#160;in undefined opcode (#UD)&#160;exceptions.<br/>When loading control&#160;registers, programs&#160;should not attempt to&#160;change the&#160;reserved&#160;bits;&#160;that is, always set&#160;<br/>reserved&#160;bits to&#160;the value previously&#160;read. An&#160;attempt to&#160;change CR4's reserved&#160;bits will cause&#160;a general&#160;protection&#160;<br/>fault.&#160;Reserved bits in&#160;CR0 and&#160;CR3 remain&#160;clear after&#160;any load&#160;of those&#160;registers; attempts&#160;to set them&#160;have&#160;no&#160;<br/>impact. On Pentium 4,&#160;Intel Xeon and&#160;P6&#160;family&#160;processors, CR0.ET remains&#160;set&#160;after any&#160;load of CR0;&#160;attempts&#160;to&#160;<br/>clear this&#160;bit have&#160;no&#160;impact.<br/>In certain cases, these&#160;instructions&#160;have the side effect&#160;of invalidating entries in the&#160;TLBs and&#160;the&#160;paging-structure&#160;<br/>caches. See<a href="˛ˇ">&#160;Section&#160;4.10.4.1, ‚ÄúOperations that Invalidate TLBs and Paging-Structure Caches,‚Äù&#160;in the&#160;<i>Intel¬Æ 64&#160;and&#160;<br/>IA-32&#160;Architectures&#160;Software Developer‚Äôs Manual, Volume&#160;3A</i>&#160;for details.<br/></a>The following side effects are&#160;implementation-specific for&#160;the Pentium 4, Intel Xeon, and P6 processor family: when&#160;<br/>modifying PE&#160;or PG&#160;in register&#160;CR0,&#160;or&#160;PSE&#160;or PAE in&#160;register&#160;CR4, all&#160;TLB&#160;entries are&#160;flushed, including&#160;global&#160;<br/>entries.&#160;Software&#160;should not depend on&#160;this&#160;functionality in all&#160;Intel&#160;64&#160;or IA-32&#160;processors.<br/>In 64-bit mode, the&#160;instruction‚Äôs default operation size&#160;is&#160;64 bits. The REX.R prefix must be used&#160;to access CR8.&#160;Use&#160;<br/>of&#160;REX.B permits access&#160;to additional&#160;registers&#160;(R8-R15). Use of the&#160;REX.W&#160;prefix or 66H&#160;prefix is&#160;ignored. Use of&#160;</p>
+<p style="position:absolute;top:132px;left:73px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:146px;left:73px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:132px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:146px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:132px;left:425px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:146px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:132px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:146px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:132px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:169px;left:73px;white-space:nowrap" class="ft010">0F 20/<i>r<br/></i>MOV&#160;<i>r32,&#160;</i>CR0‚ÄìCR7</p>
+<p style="position:absolute;top:169px;left:388px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:169px;left:425px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:169px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:169px;left:568px;white-space:nowrap" class="ft04">Move&#160;control register&#160;to&#160;<i>r32</i>.</p>
+<p style="position:absolute;top:213px;left:73px;white-space:nowrap" class="ft011">0F 20/<i>r<br/></i>MOV&#160;<i>r64,&#160;</i>CR0‚ÄìCR7</p>
+<p style="position:absolute;top:213px;left:388px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:213px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:213px;left:498px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:213px;left:568px;white-space:nowrap" class="ft04">Move&#160;extended&#160;control register&#160;to&#160;<i>r64</i>.&#160;</p>
+<p style="position:absolute;top:256px;left:73px;white-space:nowrap" class="ft012">REX.R&#160;+&#160;0F 20&#160;/0<br/>MOV&#160;<i>r64,&#160;</i>CR8</p>
+<p style="position:absolute;top:256px;left:388px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:256px;left:425px;white-space:nowrap" class="ft04">Valid&#160;</p>
+<p style="position:absolute;top:256px;left:498px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:256px;left:568px;white-space:nowrap" class="ft04">Move&#160;extended&#160;CR8 to&#160;<i>r64</i>.</p>
+<p style="position:absolute;top:253px;left:725px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:299px;left:73px;white-space:nowrap" class="ft010">0F 22&#160;/<i>r<br/></i>MOV CR0‚ÄìCR7,&#160;<i>r32</i></p>
+<p style="position:absolute;top:299px;left:388px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:299px;left:425px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:299px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:299px;left:568px;white-space:nowrap" class="ft04">Move&#160;<i>r32</i>&#160;to control register.</p>
+<p style="position:absolute;top:343px;left:73px;white-space:nowrap" class="ft011">0F 22&#160;/<i>r<br/></i>MOV CR0‚ÄìCR7,&#160;<i>r64</i></p>
+<p style="position:absolute;top:343px;left:388px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:343px;left:425px;white-space:nowrap" class="ft04">Valid&#160;N.E.</p>
+<p style="position:absolute;top:343px;left:568px;white-space:nowrap" class="ft04">Move&#160;</p>
+<p style="position:absolute;top:343px;left:602px;white-space:nowrap" class="ft05"><i>r64</i>&#160;to extended control register.</p>
+<p style="position:absolute;top:387px;left:73px;white-space:nowrap" class="ft013">REX.R&#160;+&#160;0F 22&#160;/0<br/>MOV CR8,&#160;<i>r64</i></p>
+<p style="position:absolute;top:387px;left:388px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:387px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:387px;left:498px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:387px;left:568px;white-space:nowrap" class="ft04">Move&#160;<i>r64</i>&#160;to extended CR8.</p>
+<p style="position:absolute;top:384px;left:725px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:430px;left:73px;white-space:nowrap" class="ft01">NOTE:</p>
+<p style="position:absolute;top:451px;left:73px;white-space:nowrap" class="ft04">1.&#160;&#160;MOV CR* instructions,&#160;except&#160;for&#160;MOV&#160;CR8,&#160;are&#160;serializing instructions.&#160;MOV CR8&#160;is not&#160;</p>
+<p style="position:absolute;top:468px;left:94px;white-space:nowrap" class="ft04">architecturally defined as&#160;a serializing instruction.&#160;For more&#160;information, se<a href="˛ˇ">e Chapter 8</a>&#160;in<a href="˛ˇ">&#160;<i>Intel¬Æ 64&#160;and&#160;IA-32 Architectures&#160;Soft-</i></a></p>
+<p style="position:absolute;top:484px;left:94px;white-space:nowrap" class="ft05"><a href="˛ˇ"><i>ware&#160;Developer‚Äôs Manual, Volume 3A</i>.</a></p>
+<p style="position:absolute;top:561px;left:87px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:561px;left:195px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:561px;left:367px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:561px;left:539px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:561px;left:714px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:585px;left:96px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:585px;left:181px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(w)</p>
+<p style="position:absolute;top:585px;left:357px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r)</p>
+<p style="position:absolute;top:585px;left:560px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:585px;left:735px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:609px;left:96px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:609px;left:182px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:609px;left:356px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:609px;left:560px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:609px;left:735px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

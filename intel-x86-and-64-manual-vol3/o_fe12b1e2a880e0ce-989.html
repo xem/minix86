@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 989</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:9px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page989-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce989.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;20-13</p>
+<p style="position:absolute;top:47px;left:734px;white-space:nowrap" class="ft01">8086 EMULATION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">3.&#160;Clears the&#160;segment registers.&#160;Saving&#160;the&#160;DS,&#160;ES,&#160;FS,&#160;and&#160;GS&#160;registers on&#160;the&#160;stack and then clearing the&#160;</p>
+<p style="position:absolute;top:117px;left:94px;white-space:nowrap" class="ft06">registers&#160;lets the&#160;interrupt&#160;or exception handler safely&#160;save&#160;and restore these registers&#160;regardless of&#160;the type&#160;<br/>segment selectors they contain&#160;(protected-mode&#160;or&#160;8086-style). The&#160;interrupt&#160;and exception&#160;handlers, which&#160;<br/>may&#160;be&#160;called&#160;in the&#160;context of either a&#160;protected-mode&#160;task or&#160;a virtual-8086-mode&#160;task, can&#160;use the&#160;same&#160;<br/>code&#160;sequences for saving&#160;and restoring the&#160;registers&#160;for any task. Clearing&#160;these registers&#160;before&#160;execution of&#160;<br/>the&#160;IRET instruction does not&#160;cause a&#160;trap&#160;in the&#160;interrupt&#160;handler.&#160;Interrupt procedures&#160;that&#160;expect&#160;values in&#160;<br/>the&#160;segment&#160;registers or that&#160;return values in&#160;the segment registers&#160;must&#160;use the&#160;register images&#160;saved on&#160;the&#160;<br/>stack for privilege&#160;level 0.</p>
+<p style="position:absolute;top:240px;left:69px;white-space:nowrap" class="ft06">4.&#160;Clears VM,&#160;NT,&#160;RF&#160;and&#160;TF flags (in the&#160;EFLAGS&#160;register).&#160;If the&#160;gate is&#160;an&#160;interrupt&#160;gate, clears the&#160;IF flag.<br/>5.&#160;Begins executing the&#160;selected&#160;interrupt or&#160;exception handler.<br/>If&#160;the trap or&#160;interrupt gate references&#160;a&#160;procedure in&#160;a conforming&#160;segment&#160;or in&#160;a segment at&#160;a privilege&#160;level&#160;<br/>other than 0,&#160;the processor generates&#160;a&#160;general-protection&#160;exception (#GP).&#160;Here,&#160;the&#160;error code&#160;is&#160;the&#160;segment&#160;<br/>selector of the code segment to&#160;which a&#160;call was&#160;attempted.</p>
+<p style="position:absolute;top:826px;left:69px;white-space:nowrap" class="ft06">Interrupt and&#160;exception handlers&#160;can examine&#160;the VM flag&#160;on&#160;the stack to&#160;determine if the&#160;interrupted procedure&#160;<br/>was running in&#160;virtual-8086&#160;mode. If so, the&#160;interrupt or&#160;exception can be&#160;handled&#160;in&#160;one of&#160;three ways:</p>
+<p style="position:absolute;top:864px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:865px;left:95px;white-space:nowrap" class="ft02">The&#160;protected-mode interrupt or&#160;exception&#160;handler&#160;that&#160;was called&#160;can handle&#160;the interrupt or&#160;exception.</p>
+<p style="position:absolute;top:887px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:888px;left:95px;white-space:nowrap" class="ft06">The&#160;protected-mode&#160;interrupt&#160;or&#160;exception&#160;handler&#160;can call&#160;the&#160;virtual-8086 monitor to handle the interrupt or&#160;<br/>exception.</p>
+<p style="position:absolute;top:926px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:927px;left:95px;white-space:nowrap" class="ft06">The&#160;virtual-8086&#160;monitor&#160;(if&#160;called)&#160;can in turn pass control back&#160;to the 8086&#160;program’s interrupt and&#160;exception&#160;<br/>handler.</p>
+<p style="position:absolute;top:967px;left:69px;white-space:nowrap" class="ft06">If&#160;the interrupt&#160;or exception&#160;is handled with a&#160;protected-mode handler,&#160;the handler&#160;can return&#160;to&#160;the interrupted&#160;<br/>program&#160;in virtual-8086 mode&#160;by executing an IRET instruction.&#160;This instruction loads the&#160;EFLAGS and segment&#160;<br/>registers from&#160;the images&#160;saved in the&#160;privilege level&#160;0 stack (see<a href="o_fe12b1e2a880e0ce-989.html">&#160;Figure&#160;20-4).</a>&#160;A&#160;set&#160;VM&#160;flag in the&#160;EFLAGS image&#160;<br/>causes the&#160;processor to switch back&#160;to virtual-8086 mode.&#160;The&#160;CPL&#160;at&#160;the time&#160;the&#160;IRET&#160;instruction is&#160;executed&#160;<br/>must&#160;be&#160;0, otherwise&#160;the&#160;processor does&#160;not change&#160;the&#160;state&#160;of&#160;the&#160;VM flag.</p>
+<p style="position:absolute;top:753px;left:272px;white-space:nowrap" class="ft04">Figure&#160;20-4.&#160;&#160;Privilege Level 0 Stack After&#160;Interrupt or&#160;</p>
+<p style="position:absolute;top:771px;left:346px;white-space:nowrap" class="ft04">Exception in&#160;Virtual-8086 Mode</p>
+<p style="position:absolute;top:435px;left:507px;white-space:nowrap" class="ft00">Unused</p>
+<p style="position:absolute;top:462px;left:535px;white-space:nowrap" class="ft00">Old GS</p>
+<p style="position:absolute;top:597px;left:505px;white-space:nowrap" class="ft00">Old ESP</p>
+<p style="position:absolute;top:396px;left:483px;white-space:nowrap" class="ft05"><b>With Error Code</b></p>
+<p style="position:absolute;top:429px;left:616px;white-space:nowrap" class="ft00">ESP from</p>
+<p style="position:absolute;top:489px;left:535px;white-space:nowrap" class="ft00">Old FS</p>
+<p style="position:absolute;top:516px;left:535px;white-space:nowrap" class="ft00">Old DS</p>
+<p style="position:absolute;top:543px;left:535px;white-space:nowrap" class="ft00">Old ES</p>
+<p style="position:absolute;top:570px;left:535px;white-space:nowrap" class="ft00">Old SS</p>
+<p style="position:absolute;top:624px;left:493px;white-space:nowrap" class="ft00">Old EFLAGS</p>
+<p style="position:absolute;top:651px;left:535px;white-space:nowrap" class="ft00">Old CS</p>
+<p style="position:absolute;top:678px;left:507px;white-space:nowrap" class="ft00">Old EIP</p>
+<p style="position:absolute;top:705px;left:499px;white-space:nowrap" class="ft00">Error&#160;Code</p>
+<p style="position:absolute;top:704px;left:616px;white-space:nowrap" class="ft00">New&#160;ESP</p>
+<p style="position:absolute;top:442px;left:616px;white-space:nowrap" class="ft00">TSS</p>
+<p style="position:absolute;top:435px;left:272px;white-space:nowrap" class="ft00">Unused</p>
+<p style="position:absolute;top:462px;left:300px;white-space:nowrap" class="ft00">Old GS</p>
+<p style="position:absolute;top:597px;left:269px;white-space:nowrap" class="ft00">Old ESP</p>
+<p style="position:absolute;top:396px;left:238px;white-space:nowrap" class="ft05"><b>Without Error Code</b></p>
+<p style="position:absolute;top:429px;left:381px;white-space:nowrap" class="ft00">ESP from</p>
+<p style="position:absolute;top:489px;left:300px;white-space:nowrap" class="ft00">Old FS</p>
+<p style="position:absolute;top:516px;left:300px;white-space:nowrap" class="ft00">Old DS</p>
+<p style="position:absolute;top:543px;left:300px;white-space:nowrap" class="ft00">Old ES</p>
+<p style="position:absolute;top:570px;left:300px;white-space:nowrap" class="ft00">Old SS</p>
+<p style="position:absolute;top:624px;left:258px;white-space:nowrap" class="ft00">Old EFLAGS</p>
+<p style="position:absolute;top:651px;left:300px;white-space:nowrap" class="ft00">Old CS</p>
+<p style="position:absolute;top:678px;left:272px;white-space:nowrap" class="ft00">Old EIP</p>
+<p style="position:absolute;top:678px;left:381px;white-space:nowrap" class="ft00">New ESP</p>
+<p style="position:absolute;top:442px;left:381px;white-space:nowrap" class="ft00">TSS</p>
+</div>
+</body>
+</html>

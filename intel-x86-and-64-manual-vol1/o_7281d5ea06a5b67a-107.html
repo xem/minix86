@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 107</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page107-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a107.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;4-23</p>
+<p style="position:absolute;top:47px;left:764px;white-space:nowrap" class="ft01">DATA&#160;TYPES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">4.9.2&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">Floating-Point&#160;Exception Priority</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft07">The processor handles exceptions according to a predetermined&#160;precedence.&#160;When an instruction generates two or&#160;<br/>more&#160;exception&#160;conditions,&#160;the&#160;exception precedence&#160;sometimes results&#160;in the&#160;higher-priority exception&#160;being&#160;<br/>handled&#160;and&#160;the&#160;lower-priority&#160;exceptions being&#160;ignored.&#160;For&#160;example,&#160;dividing an SNaN&#160;by&#160;zero can potentially&#160;<br/>signal an invalid-operation&#160;exception (due to&#160;the SNaN&#160;operand) and&#160;a divide-by-zero exception.&#160;Here,&#160;if both&#160;<br/>exceptions are&#160;masked, the&#160;processor&#160;handles the&#160;higher-priority exception&#160;only (the&#160;invalid-operation exception),&#160;<br/>returning a&#160;QNaN to&#160;the destination.&#160;Alternately,&#160;a&#160;denormal-operand&#160;or inexact-result&#160;exception can&#160;accompany&#160;<br/>a numeric underflow or&#160;overflow&#160;exception with both&#160;exceptions being handled.<br/>The precedence for floating-point&#160;exceptions is&#160;as follows:<br/>1.&#160;Invalid-operation exception, subdivided&#160;as follows:</p>
+<p style="position:absolute;top:300px;left:95px;white-space:nowrap" class="ft07">a.&#160;stack underflow (occurs with&#160;x87&#160;FPU&#160;only)<br/>b.&#160;stack overflow (occurs&#160;with&#160;x87 FPU&#160;only)<br/>c.&#160;operand&#160;of unsupported&#160;format&#160;(occurs with x87&#160;FPU only when using&#160;the double&#160;extended-precision&#160;</p>
+<p style="position:absolute;top:364px;left:120px;white-space:nowrap" class="ft03">floating-point format)</p>
+<p style="position:absolute;top:388px;left:95px;white-space:nowrap" class="ft03">d.&#160;SNaN operand</p>
+<p style="position:absolute;top:412px;left:69px;white-space:nowrap" class="ft03">2.&#160;QNaN&#160;operand.&#160;Though this is&#160;not an exception,&#160;the handling of a&#160;QNaN operand&#160;has&#160;precedence over&#160;lower-</p>
+<p style="position:absolute;top:429px;left:94px;white-space:nowrap" class="ft03">priority exceptions. For example,&#160;a&#160;QNaN divided&#160;by&#160;zero&#160;results in a&#160;QNaN,&#160;not a&#160;zero-divide&#160;exception.</p>
+<p style="position:absolute;top:453px;left:69px;white-space:nowrap" class="ft08">3.&#160;Any other&#160;invalid-operation exception not&#160;mentioned above&#160;or a&#160;divide-by-zero exception.<br/>4.&#160;Denormal-operand exception. If&#160;masked, then&#160;instruction execution&#160;continues&#160;and a&#160;lower-priority&#160;exception&#160;</p>
+<p style="position:absolute;top:493px;left:94px;white-space:nowrap" class="ft03">can occur&#160;as well.</p>
+<p style="position:absolute;top:517px;left:69px;white-space:nowrap" class="ft06">5.&#160;Numeric overflow and&#160;underflow&#160;exceptions; possibly&#160;in&#160;conjunction with the&#160;inexact-result exception.<br/>6.&#160;Inexact-result exception.<br/>Invalid&#160;operation,&#160;zero&#160;divide, and denormal&#160;operand exceptions are detected&#160;before&#160;a floating-point&#160;operation&#160;<br/>begins.&#160;Overflow, underflow,&#160;and precision exceptions&#160;are not detected until&#160;a true&#160;result&#160;has been&#160;computed.&#160;<br/>When an&#160;unmasked&#160;<b>pre-operation&#160;</b>exception is&#160;detected, the destination operand&#160;has not yet been&#160;updated, and&#160;<br/>appears as&#160;if the&#160;offending instruction&#160;has&#160;not been executed. When&#160;an&#160;unmasked&#160;<b>post-operation&#160;</b>exception is&#160;<br/>detected,&#160;the destination operand may&#160;be&#160;updated with a result, depending on&#160;the&#160;nature&#160;of the exception (except&#160;<br/>for SSE/SSE2/SSE3 instructions,&#160;which&#160;do not update&#160;their destination operands&#160;in&#160;such cases).</p>
+<p style="position:absolute;top:698px;left:69px;white-space:nowrap" class="ft02">4.9.3&#160;</p>
+<p style="position:absolute;top:698px;left:149px;white-space:nowrap" class="ft02">Typical Actions of&#160;a Floating-Point&#160;Exception Handler</p>
+<p style="position:absolute;top:729px;left:69px;white-space:nowrap" class="ft06">After&#160;the floating-point exception&#160;handler is invoked,&#160;the processor handles&#160;the&#160;exception in the&#160;same manner that&#160;<br/>it handles non-floating-point exceptions.&#160;The&#160;floating-point exception&#160;handler is&#160;normally&#160;part of&#160;the&#160;operating&#160;<br/>system or executive&#160;software,&#160;and it&#160;usually&#160;invokes&#160;a user-registered&#160;floating-point exception handle.&#160;<br/>A typical action of&#160;the exception&#160;handler is&#160;to store&#160;state information&#160;in memory. Other&#160;typical&#160;exception handler&#160;<br/>actions include:</p>
+<p style="position:absolute;top:824px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:825px;left:95px;white-space:nowrap" class="ft03">Examining&#160;the stored state information&#160;to determine the&#160;nature of the error</p>
+<p style="position:absolute;top:847px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:847px;left:95px;white-space:nowrap" class="ft03">Taking&#160;actions&#160;to correct&#160;the condition&#160;that caused the&#160;error</p>
+<p style="position:absolute;top:869px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:870px;left:95px;white-space:nowrap" class="ft03">Clearing the&#160;exception flags</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:892px;left:95px;white-space:nowrap" class="ft03">Returning to&#160;the interrupted program&#160;and resuming&#160;normal&#160;execution</p>
+<p style="position:absolute;top:916px;left:69px;white-space:nowrap" class="ft03">In lieu&#160;of&#160;writing recovery procedures,&#160;the&#160;exception handler can do the&#160;following:</p>
+<p style="position:absolute;top:938px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:939px;left:95px;white-space:nowrap" class="ft03">Increment&#160;in&#160;software an&#160;exception counter for&#160;later display or printing</p>
+<p style="position:absolute;top:961px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:961px;left:95px;white-space:nowrap" class="ft03">Print or&#160;display diagnostic information&#160;(such as&#160;the state information)</p>
+<p style="position:absolute;top:983px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:984px;left:95px;white-space:nowrap" class="ft03">Halt further program execution</p>
+</div>
+</body>
+</html>

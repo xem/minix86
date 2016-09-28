@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 245</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:9px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft013{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page245-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce245.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;7-7</p>
+<p style="position:absolute;top:47px;left:720px;white-space:nowrap" class="ft01">TASK&#160;MANAGEMENT</p>
+<p style="position:absolute;top:633px;left:69px;white-space:nowrap" class="ft02">7.2.4 Task&#160;</p>
+<p style="position:absolute;top:633px;left:191px;white-space:nowrap" class="ft02">Register</p>
+<p style="position:absolute;top:664px;left:69px;white-space:nowrap" class="ft08">The task register holds the 16-bit segment selector and&#160;the&#160;entire segment descriptor (32-bit&#160;base address (64 bits&#160;<br/>in IA-32e&#160;mode), 16-bit&#160;segment&#160;limit,&#160;and descriptor&#160;attributes)&#160;for&#160;the&#160;TSS&#160;of the&#160;current task (see<a href="o_fe12b1e2a880e0ce-74.html">&#160;Figure&#160;2-6).</a>&#160;<br/>This information&#160;is copied&#160;from&#160;the TSS descriptor&#160;in the&#160;GDT for the current task<a href="o_fe12b1e2a880e0ce-246.html">. Figure&#160;7-5 s</a>hows the&#160;path&#160;the&#160;<br/>processor uses&#160;to access the&#160;TSS&#160;(using the information&#160;in&#160;the task&#160;register).<br/>The task register&#160;has a&#160;visible part (that&#160;can&#160;be&#160;read and&#160;changed&#160;by software)&#160;and&#160;an&#160;invisible&#160;part&#160;(maintained&#160;<br/>by&#160;the&#160;processor and is&#160;inaccessible&#160;by software). The&#160;segment selector in the&#160;visible&#160;portion points to&#160;a TSS&#160;<br/>descriptor in the GDT.&#160;The&#160;processor uses&#160;the&#160;invisible&#160;portion of the&#160;task register to cache&#160;the&#160;segment descriptor&#160;<br/>for the&#160;TSS.&#160;Caching these values in&#160;a register&#160;makes execution of&#160;the&#160;task more&#160;efficient.&#160;The&#160;LTR (load&#160;task&#160;<br/>register) and&#160;STR (store&#160;task register) instructions load&#160;and read the&#160;visible&#160;portion&#160;of&#160;the task register:&#160;<br/>The LTR instruction loads a segment&#160;selector (source operand)&#160;into the task register that points to a TSS descriptor&#160;<br/>in the GDT.&#160;It then loads the invisible&#160;portion of the task register with information from&#160;the TSS descriptor.&#160;LTR is a&#160;<br/>privileged instruction that may be executed&#160;only when the&#160;CPL is&#160;0.&#160;It’s&#160;used during&#160;system initialization to put an&#160;<br/>initial value&#160;in&#160;the task&#160;register. Afterwards, the&#160;contents&#160;of the&#160;task register are&#160;changed implicitly&#160;when&#160;a task&#160;<br/>switch occurs.<br/>The STR (store&#160;task register) instruction&#160;stores&#160;the&#160;visible&#160;portion of the&#160;task&#160;register in a&#160;general-purpose register&#160;<br/>or memory. This instruction can be executed by code running&#160;at any&#160;privilege&#160;level in&#160;order to identify the&#160;currently&#160;<br/>running task. However,&#160;it is&#160;normally used only by&#160;operating&#160;system software. (If CR4.UMIP&#160;=&#160;1,&#160;STR&#160;can&#160;be&#160;<br/>executed&#160;only when&#160;CPL&#160;=&#160;0.)<br/>On&#160;power up&#160;or reset of the processor,&#160;segment&#160;selector and base address are set to the default value of 0; the limit&#160;<br/>is set to&#160;FFFFH.</p>
+<p style="position:absolute;top:589px;left:245px;white-space:nowrap" class="ft04">Figure&#160;7-4. &#160;Format of&#160;TSS and LDT&#160;Descriptors in 64-bit&#160;Mode</p>
+<p style="position:absolute;top:314px;left:244px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:314px;left:335px;white-space:nowrap" class="ft05">24&#160;23&#160;22&#160;21&#160;20&#160;19</p>
+<p style="position:absolute;top:314px;left:435px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:314px;left:473px;white-space:nowrap" class="ft05">13</p>
+<p style="position:absolute;top:314px;left:460px;white-space:nowrap" class="ft05">14</p>
+<p style="position:absolute;top:314px;left:486px;white-space:nowrap" class="ft05">12&#160;11</p>
+<p style="position:absolute;top:315px;left:540px;white-space:nowrap" class="ft05">8&#160;7</p>
+<p style="position:absolute;top:314px;left:643px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:345px;left:449px;white-space:nowrap" class="ft05">P</p>
+<p style="position:absolute;top:344px;left:268px;white-space:nowrap" class="ft06">Base 31:24</p>
+<p style="position:absolute;top:344px;left:348px;white-space:nowrap" class="ft05">G</p>
+<p style="position:absolute;top:336px;left:468px;white-space:nowrap" class="ft011">D<br/>P</p>
+<p style="position:absolute;top:356px;left:468px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:336px;left:511px;white-space:nowrap" class="ft06">Type</p>
+<p style="position:absolute;top:356px;left:489px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:345px;left:374px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:380px;left:244px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:380px;left:435px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:381px;left:643px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:409px;left:298px;white-space:nowrap" class="ft06">Base&#160;Address&#160;15:00</p>
+<p style="position:absolute;top:410px;left:502px;white-space:nowrap" class="ft06">Segment&#160;Limit&#160;15:00</p>
+<p style="position:absolute;top:344px;left:572px;white-space:nowrap" class="ft06">Base 23:16</p>
+<p style="position:absolute;top:336px;left:386px;white-space:nowrap" class="ft011">A<br/>V</p>
+<p style="position:absolute;top:356px;left:387px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:339px;left:410px;white-space:nowrap" class="ft06">Limit</p>
+<p style="position:absolute;top:349px;left:408px;white-space:nowrap" class="ft06">19:16</p>
+<p style="position:absolute;top:344px;left:361px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:147px;left:363px;white-space:nowrap" class="ft07"><b>TSS (or LDT)&#160;Descriptor</b></p>
+<p style="position:absolute;top:455px;left:288px;white-space:nowrap" class="ft012">AVL<br/>B<br/>BASE<br/>DPL<br/>G</p>
+<p style="position:absolute;top:455px;left:334px;white-space:nowrap" class="ft012">Available for use by system software<br/>Busy flag<br/>Segment Base&#160;Address<br/>Descriptor&#160;Privilege&#160;Level<br/>Granularity</p>
+<p style="position:absolute;top:525px;left:288px;white-space:nowrap" class="ft013">LIMIT<br/>P<br/>TYPE</p>
+<p style="position:absolute;top:525px;left:334px;white-space:nowrap" class="ft012">Segment Limit<br/>Segment Present<br/>Segment Type</p>
+<p style="position:absolute;top:411px;left:653px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:342px;left:653px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:171px;left:243px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:172px;left:472px;white-space:nowrap" class="ft05">13&#160;12</p>
+<p style="position:absolute;top:172px;left:539px;white-space:nowrap" class="ft05">8&#160;7</p>
+<p style="position:absolute;top:172px;left:642px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:198px;left:334px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:237px;left:243px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:238px;left:642px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:269px;left:392px;white-space:nowrap" class="ft06">Base Address&#160;63:32</p>
+<p style="position:absolute;top:201px;left:571px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:200px;left:505px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:269px;left:652px;white-space:nowrap" class="ft00">8</p>
+<p style="position:absolute;top:199px;left:652px;white-space:nowrap" class="ft00">12</p>
+</div>
+</body>
+</html>

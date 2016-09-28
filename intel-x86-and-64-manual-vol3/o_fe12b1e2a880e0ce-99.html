@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 99</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:7px;line-height:10px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page99-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce099.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;3-11</p>
+<p style="position:absolute;top:47px;left:589px;white-space:nowrap" class="ft01">PROTECTED-MODE MEMORY&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02"><b>S (descriptor&#160;type) flag</b></p>
+<p style="position:absolute;top:117px;left:170px;white-space:nowrap" class="ft07">Specifies&#160;whether&#160;the segment descriptor&#160;is for a&#160;system segment (S&#160;flag&#160;is&#160;clear) or&#160;a code&#160;or data&#160;<br/>segment (S flag&#160;is set).</p>
+<p style="position:absolute;top:157px;left:69px;white-space:nowrap" class="ft02"><b>DPL (descriptor privilege level) field</b></p>
+<p style="position:absolute;top:174px;left:170px;white-space:nowrap" class="ft07">Specifies&#160;the&#160;privilege level of&#160;the segment. The privilege level can&#160;range from 0 to 3,&#160;with 0 being&#160;<br/>the&#160;most&#160;privileged level. The DPL is used&#160;to&#160;control&#160;access to the&#160;segment. Se<a href="o_fe12b1e2a880e0ce-158.html">e Section 5.5,&#160;“Priv-<br/>ilege Levels”,&#160;</a>for&#160;a description of&#160;the relationship of the DPL&#160;to the&#160;CPL of&#160;the executing code&#160;<br/>segment and&#160;the&#160;RPL&#160;of a&#160;segment selector.</p>
+<p style="position:absolute;top:247px;left:69px;white-space:nowrap" class="ft02"><b>P (segment-present) flag</b></p>
+<p style="position:absolute;top:264px;left:170px;white-space:nowrap" class="ft07">Indicates whether the segment is present in memory (set) or not present (clear). If this flag is&#160;clear,&#160;<br/>the&#160;processor generates&#160;a segment-not-present&#160;exception (#NP) when a&#160;segment&#160;selector&#160;that&#160;<br/>points to the segment descriptor&#160;is loaded into a&#160;segment register. Memory management software&#160;<br/>can use&#160;this flag&#160;to control which segments are&#160;actually loaded into&#160;physical&#160;memory&#160;at a&#160;given&#160;<br/>time. It&#160;offers&#160;a control in&#160;addition&#160;to paging for managing virtual memory.<br/><a href="o_fe12b1e2a880e0ce-99.html">Figure&#160;3-9 shows th</a>e&#160;format&#160;of&#160;a segment descriptor&#160;when the&#160;segment-present flag&#160;is&#160;clear.&#160;When&#160;<br/>this&#160;flag&#160;is clear,&#160;the operating&#160;system&#160;or executive&#160;is free&#160;to use the&#160;locations&#160;marked “Available” to&#160;<br/>store&#160;its own&#160;data, such&#160;as information&#160;regarding the&#160;whereabouts of the&#160;missing segment.</p>
+<p style="position:absolute;top:411px;left:69px;white-space:nowrap" class="ft02"><b>D/B&#160;(default&#160;operation size/default stack pointer size and/or upper bound) flag</b></p>
+<p style="position:absolute;top:427px;left:170px;white-space:nowrap" class="ft09">Performs&#160;different functions depending on&#160;whether&#160;the segment descriptor is&#160;an&#160;executable&#160;code&#160;<br/>segment, an&#160;expand-down data segment,&#160;or&#160;a stack&#160;segment.&#160;(This flag&#160;should always be&#160;set to&#160;1&#160;<br/>for&#160;32-bit&#160;code&#160;and&#160;data segments and&#160;to 0&#160;for 16-bit&#160;code&#160;and data segments.)<br/>•</p>
+<p style="position:absolute;top:484px;left:195px;white-space:nowrap" class="ft07"><b>Executable code segment.</b>&#160;The&#160;flag&#160;is called the&#160;D&#160;flag and it&#160;indicates&#160;the default&#160;length&#160;for&#160;<br/>effective&#160;addresses&#160;and operands&#160;referenced&#160;by instructions in the&#160;segment.&#160;If&#160;the flag&#160;is set,&#160;<br/>32-bit addresses and&#160;32-bit or 8-bit&#160;operands&#160;are&#160;assumed; if&#160;it is&#160;clear,&#160;16-bit addresses&#160;and&#160;<br/>16-bit&#160;or 8-bit operands&#160;are assumed.&#160;<br/>The&#160;instruction&#160;prefix 66H&#160;can be used to&#160;select&#160;an&#160;operand size&#160;other than&#160;the default, and the&#160;<br/>prefix 67H&#160;can be&#160;used select an&#160;address size&#160;other than the&#160;default.</p>
+<p style="position:absolute;top:591px;left:170px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:591px;left:195px;white-space:nowrap" class="ft07"><b>Stack segment (data segment pointed to by the&#160;SS&#160;register).</b>&#160;The&#160;flag&#160;is called the B (big)&#160;<br/>flag&#160;and&#160;it specifies the&#160;size&#160;of&#160;the stack pointer used for implicit stack operations (such&#160;as&#160;<br/>pushes,&#160;pops, and&#160;calls). If the&#160;flag&#160;is set, a&#160;32-bit&#160;stack pointer&#160;is used,&#160;which&#160;is stored in the&#160;<br/>32-bit ESP&#160;register;&#160;if&#160;the flag&#160;is clear,&#160;a 16-bit stack&#160;pointer is&#160;used, which is&#160;stored&#160;in the&#160;16-<br/>bit SP register. If the stack segment is set&#160;up&#160;to&#160;be an expand-down&#160;data segment&#160;(described in&#160;<br/>the&#160;next paragraph),&#160;the B flag&#160;also&#160;specifies&#160;the upper&#160;bound of the&#160;stack segment.</p>
+<p style="position:absolute;top:697px;left:170px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:697px;left:195px;white-space:nowrap" class="ft07"><b>Expand-down&#160;data&#160;segment.</b>&#160;The flag is called&#160;the B flag&#160;and&#160;it specifies the&#160;upper bound of&#160;<br/>the segment. If the&#160;flag is set,&#160;the&#160;upper bound is FFFFFFFFH (4 GBytes); if the&#160;flag is clear,&#160;the&#160;<br/>upper bound&#160;is FFFFH&#160;(64&#160;KBytes).</p>
+<p style="position:absolute;top:984px;left:69px;white-space:nowrap" class="ft02"><b>G (granularity) flag</b></p>
+<p style="position:absolute;top:1001px;left:170px;white-space:nowrap" class="ft07">Determines&#160;the scaling of the&#160;segment&#160;limit field.&#160;When the&#160;granularity flag&#160;is&#160;clear,&#160;the segment&#160;<br/>limit is interpreted&#160;in&#160;byte units; when flag is&#160;set, the&#160;segment&#160;limit is interpreted in&#160;4-KByte&#160;units.&#160;<br/>(This flag does not affect the granularity of the base&#160;address;&#160;it&#160;is&#160;always&#160;byte&#160;granular.)&#160;When&#160;the&#160;<br/>granularity flag is&#160;set,&#160;the twelve&#160;least significant&#160;bits of an offset are&#160;not&#160;tested when&#160;checking&#160;the&#160;</p>
+<p style="position:absolute;top:938px;left:222px;white-space:nowrap" class="ft04">Figure&#160;3-9.&#160;&#160;Segment Descriptor&#160;When&#160;Segment-Present&#160;Flag Is&#160;Clear</p>
+<p style="position:absolute;top:790px;left:243px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:791px;left:433px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:791px;left:472px;white-space:nowrap" class="ft05">13</p>
+<p style="position:absolute;top:791px;left:459px;white-space:nowrap" class="ft05">14</p>
+<p style="position:absolute;top:791px;left:484px;white-space:nowrap" class="ft05">12&#160;11</p>
+<p style="position:absolute;top:791px;left:539px;white-space:nowrap" class="ft05">8&#160;7</p>
+<p style="position:absolute;top:791px;left:643px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:821px;left:448px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:820px;left:327px;white-space:nowrap" class="ft06">Available</p>
+<p style="position:absolute;top:812px;left:466px;white-space:nowrap" class="ft010">D<br/>P</p>
+<p style="position:absolute;top:832px;left:467px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:820px;left:511px;white-space:nowrap" class="ft06">Type</p>
+<p style="position:absolute;top:821px;left:486px;white-space:nowrap" class="ft05">S</p>
+<p style="position:absolute;top:820px;left:655px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:870px;left:243px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:870px;left:642px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:897px;left:424px;white-space:nowrap" class="ft06">Available</p>
+<p style="position:absolute;top:898px;left:655px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:820px;left:576px;white-space:nowrap" class="ft06">Available</p>
+</div>
+</body>
+</html>

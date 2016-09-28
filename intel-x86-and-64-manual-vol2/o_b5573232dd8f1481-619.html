@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 619</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000080;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page619-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481619.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">JMP—Jump</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-491</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">NONCONFORMING-CODE-SEGMENT:</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">IF L-Bit&#160;</p>
+<p style="position:absolute;top:116px;left:133px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:118px;left:142px;white-space:nowrap" class="ft02">&#160;1 and&#160;D-BIT&#160;</p>
+<p style="position:absolute;top:116px;left:216px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:118px;left:225px;white-space:nowrap" class="ft02">&#160;1 and&#160;IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:116px;left:358px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:118px;left:367px;white-space:nowrap" class="ft02">&#160;1</p>
+<p style="position:absolute;top:136px;left:116px;white-space:nowrap" class="ft02">THEN GP(new code segment selector); FI;</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft02">IF (RPL&#160;&gt;&#160;CPL) OR (DPL&#160;</p>
+<p style="position:absolute;top:152px;left:222px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:154px;left:235px;white-space:nowrap" class="ft02">CPL)</p>
+<p style="position:absolute;top:172px;left:116px;white-space:nowrap" class="ft02">THEN #GP(code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:190px;left:89px;white-space:nowrap" class="ft02">IF segment not present&#160;</p>
+<p style="position:absolute;top:208px;left:116px;white-space:nowrap" class="ft02">THEN #NP(segment selector); FI;</p>
+<p style="position:absolute;top:226px;left:89px;white-space:nowrap" class="ft02">tempEIP&#160;←&#160;DEST(Offset);</p>
+<p style="position:absolute;top:244px;left:89px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:242px;left:178px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:244px;left:187px;white-space:nowrap" class="ft02">&#160;16&#160;</p>
+<p style="position:absolute;top:262px;left:116px;white-space:nowrap" class="ft02">&#160;THEN tempEIP&#160;←&#160;tempEIP AND 0000FFFFH; FI;</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft02">IF (IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:278px;left:201px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:280px;left:210px;white-space:nowrap" class="ft02">&#160;0 OR target mode&#160;</p>
+<p style="position:absolute;top:278px;left:319px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:280px;left:328px;white-space:nowrap" class="ft02">&#160;Compatibility mode)&#160;</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">and tempEIP&#160;outside&#160;code&#160;segment limit&#160;</p>
+<p style="position:absolute;top:316px;left:116px;white-space:nowrap" class="ft02">THEN #GP(0); FI</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft05">IF tempEIP is&#160;non-canonical THEN&#160;#GP(0); FI;<br/>CS&#160;←&#160;DEST[segment selector</p>
+<p style="position:absolute;top:352px;left:257px;white-space:nowrap" class="ft04">]</p>
+<p style="position:absolute;top:352px;left:261px;white-space:nowrap" class="ft02">; (* Segment descriptor information also loaded *)</p>
+<p style="position:absolute;top:370px;left:89px;white-space:nowrap" class="ft02">CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft02">END;</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft02">CALL-GATE:</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">IF call&#160;gate DPL&#160;&lt;&#160;CPL&#160;</p>
+<p style="position:absolute;top:478px;left:89px;white-space:nowrap" class="ft02">or call gate DPL&#160;&lt;&#160;call gate segment-selector&#160;RPL&#160;</p>
+<p style="position:absolute;top:496px;left:143px;white-space:nowrap" class="ft02">THEN #GP(call gate selector); FI;</p>
+<p style="position:absolute;top:514px;left:89px;white-space:nowrap" class="ft02">IF&#160;call&#160;gate not&#160;present</p>
+<p style="position:absolute;top:532px;left:116px;white-space:nowrap" class="ft02">THEN #NP(call gate&#160;selector); FI;</p>
+<p style="position:absolute;top:550px;left:89px;white-space:nowrap" class="ft02">IF call&#160;gate code-segment selector is NULL</p>
+<p style="position:absolute;top:568px;left:116px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:586px;left:89px;white-space:nowrap" class="ft02">IF&#160;call&#160;gate code-segment&#160;selector&#160;index&#160;outside&#160;descriptor&#160;table&#160;limits</p>
+<p style="position:absolute;top:604px;left:116px;white-space:nowrap" class="ft02">THEN #GP(code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:622px;left:89px;white-space:nowrap" class="ft05">Read&#160;code&#160;segment descriptor;<br/>IF code-segment&#160;segment descriptor does&#160;not indicate&#160;a code&#160;segment<br/>or&#160;code-segment&#160;segment descriptor&#160;is&#160;conforming&#160;and DPL&#160;&gt;&#160;CPL</p>
+<p style="position:absolute;top:676px;left:89px;white-space:nowrap" class="ft02">or code-segment segment descriptor is non-conforming&#160;and&#160;DPL</p>
+<p style="position:absolute;top:673px;left:456px;white-space:nowrap" class="ft03">&#160;≠&#160;</p>
+<p style="position:absolute;top:676px;left:473px;white-space:nowrap" class="ft02">CPL</p>
+<p style="position:absolute;top:694px;left:143px;white-space:nowrap" class="ft02">THEN&#160;#GP(code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:712px;left:89px;white-space:nowrap" class="ft02">IF IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:710px;left:197px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:712px;left:206px;white-space:nowrap" class="ft02">&#160;1&#160;and (code-segment descriptor is not a&#160;64-bit code&#160;segment&#160;</p>
+<p style="position:absolute;top:730px;left:89px;white-space:nowrap" class="ft02">or&#160;code-segment&#160;segment descriptor&#160;has&#160;both&#160;L-Bit and D-bit set)</p>
+<p style="position:absolute;top:748px;left:143px;white-space:nowrap" class="ft02">THEN&#160;#GP(code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:766px;left:89px;white-space:nowrap" class="ft02">IF code&#160;segment is not present</p>
+<p style="position:absolute;top:784px;left:116px;white-space:nowrap" class="ft02">THEN #NP(code-segment&#160;selector); FI;</p>
+<p style="position:absolute;top:802px;left:89px;white-space:nowrap" class="ft02">&#160;IF instruction pointer&#160;is&#160;not within code-segment&#160;limit&#160;</p>
+<p style="position:absolute;top:820px;left:116px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:838px;left:89px;white-space:nowrap" class="ft02">&#160;tempEIP&#160;←&#160;DEST(Offset);</p>
+<p style="position:absolute;top:856px;left:89px;white-space:nowrap" class="ft02">&#160;IF GateSize&#160;</p>
+<p style="position:absolute;top:854px;left:160px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:856px;left:169px;white-space:nowrap" class="ft02">&#160;16&#160;</p>
+<p style="position:absolute;top:874px;left:116px;white-space:nowrap" class="ft02">&#160;THEN tempEIP&#160;←&#160;tempEIP AND 0000FFFFH; FI;</p>
+<p style="position:absolute;top:892px;left:89px;white-space:nowrap" class="ft02">IF (IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:890px;left:201px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:892px;left:210px;white-space:nowrap" class="ft02">&#160;0 OR target mode&#160;</p>
+<p style="position:absolute;top:890px;left:319px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:892px;left:328px;white-space:nowrap" class="ft02">&#160;Compatibility mode) AND tempEIP&#160;</p>
+<p style="position:absolute;top:909px;left:89px;white-space:nowrap" class="ft02">outside&#160;code&#160;segment limit&#160;</p>
+<p style="position:absolute;top:926px;left:116px;white-space:nowrap" class="ft02">THEN #GP(0); FI</p>
+<p style="position:absolute;top:944px;left:89px;white-space:nowrap" class="ft02">CS&#160;←&#160;DEST[SegmentSelector);&#160;(* Segment descriptor&#160;information also loaded&#160;*)</p>
+<p style="position:absolute;top:962px;left:89px;white-space:nowrap" class="ft02">CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:980px;left:89px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:998px;left:69px;white-space:nowrap" class="ft05">END;<br/>TASK-GATE:</p>
+<p style="position:absolute;top:1034px;left:89px;white-space:nowrap" class="ft02">IF task&#160;gate DPL&#160;&lt;&#160;CPL&#160;</p>
+<p style="position:absolute;top:1052px;left:89px;white-space:nowrap" class="ft02">or task gate DPL&#160;&lt;&#160;task gate segment-selector RPL&#160;</p>
+</div>
+</body>
+</html>

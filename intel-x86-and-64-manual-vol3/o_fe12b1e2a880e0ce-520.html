@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 520</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:8px;font-family:Times;color:#000000;}
+	.ft010{font-size:9px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft013{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft014{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page520-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce520.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-14&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:391px;left:68px;white-space:nowrap" class="ft012">CMCI&#160;interrupt delivery&#160;is configured by writing&#160;to&#160;the LVT&#160;CMCI register&#160;entry in&#160;the&#160;local APIC register&#160;space&#160;at&#160;<br/>default address&#160;of&#160;APIC_BASE + 2F0H.&#160;A&#160;CMCI interrupt can be delivered&#160;to more&#160;than&#160;one logical processors if&#160;<br/>multiple logical processors&#160;are affected by&#160;the&#160;associated&#160;MC errors.&#160;For example, if a corrected bit error in a cache&#160;<br/>shared by two logical processors caused a&#160;CMCI, the&#160;interrupt&#160;will be&#160;delivered&#160;to&#160;both logical processors sharing&#160;<br/>that microarchitectural&#160;sub-system.&#160;Similarly,&#160;package&#160;level errors may&#160;cause CMCI to&#160;be&#160;delivered to&#160;all logical&#160;<br/>processors within the&#160;package. However,&#160;system&#160;level errors&#160;will&#160;not be&#160;handled by CMCI.<br/>Se<a href="o_fe12b1e2a880e0ce-374.html">e Section 10.5.1, “Local Vector Table”&#160;</a>for&#160;details&#160;regarding the&#160;LVT&#160;CMCI register.</p>
+<p style="position:absolute;top:546px;left:68px;white-space:nowrap" class="ft03">15.5.2&#160;</p>
+<p style="position:absolute;top:546px;left:148px;white-space:nowrap" class="ft03">System Software&#160;Recommendation for Managing CMCI and Machine Check Resources</p>
+<p style="position:absolute;top:576px;left:68px;white-space:nowrap" class="ft011">System&#160;software must&#160;enable and&#160;manage&#160;CMCI, set up interrupt handlers to&#160;service&#160;CMCI interrupts delivered&#160;to&#160;<br/>affected logical&#160;processors, program CMCI LVT entry,&#160;and&#160;query machine&#160;check banks that are shared by more than&#160;<br/>one logical processors.&#160;<br/>This section describes&#160;techniques&#160;system software&#160;can&#160;implement to&#160;manage CMCI initialization, service&#160;CMCI&#160;<br/>interrupts in&#160;a&#160;efficient manner&#160;to&#160;minimize&#160;contentions to&#160;access shared MSR&#160;resources.</p>
+<p style="position:absolute;top:692px;left:68px;white-space:nowrap" class="ft04">15.5.2.1 &#160;&#160;CMCI Initialization</p>
+<p style="position:absolute;top:719px;left:68px;white-space:nowrap" class="ft011">Although a&#160;CMCI interrupt may&#160;be&#160;delivered to&#160;more than&#160;one logical processors depending on the&#160;nature&#160;of the&#160;<br/>corrected MC error,&#160;only one&#160;instance&#160;of the&#160;interrupt&#160;service routine&#160;needs to&#160;perform the&#160;necessary service and&#160;<br/>make&#160;queries to&#160;the machine-check banks. The following&#160;steps&#160;describes a&#160;technique&#160;that limits the&#160;amount&#160;of&#160;<br/>work the&#160;system has&#160;to do&#160;in response&#160;to&#160;a CMCI.</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:791px;left:93px;white-space:nowrap" class="ft011">To&#160;provide&#160;maximum flexibility,&#160;system&#160;software&#160;should define per-thread data structure&#160;for&#160;each logical&#160;<br/>processor&#160;to allow equal-opportunity and&#160;efficient response&#160;to interrupt delivery.&#160;Specifically,&#160;the per-thread&#160;<br/>data structure should&#160;include&#160;a set of per-bank&#160;fields to&#160;track which machine check&#160;bank&#160;it needs&#160;to access&#160;in&#160;<br/>response&#160;to a&#160;delivered&#160;CMCI&#160;interrupt.&#160;The&#160;number&#160;of&#160;banks that&#160;needs&#160;to be tracked is&#160;determined by&#160;<br/>IA32_MCG_CAP[7:0].</p>
+<p style="position:absolute;top:879px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:879px;left:93px;white-space:nowrap" class="ft014">Initialization of per-thread data structure. The&#160;initialization of per-thread data&#160;structure must be done serially&#160;<br/>on&#160;each&#160;logical processor in&#160;the system. The&#160;sequencing&#160;order&#160;to start&#160;the&#160;per-thread initialization between&#160;<br/>different logical processor is&#160;arbitrary.&#160;But it&#160;must&#160;observe&#160;the following specific detail&#160;to&#160;satisfy the&#160;shared&#160;<br/>nature of specific MSR&#160;resources:<br/>a.&#160;Each&#160;thread initializes its&#160;data structure&#160;to indicate that&#160;it does not own any&#160;MC bank registers.<br/>b.&#160;Each thread&#160;examines IA32_MCi_CTL2[30] indicator&#160;for each&#160;bank&#160;to&#160;determine&#160;if&#160;another thread has&#160;</p>
+<p style="position:absolute;top:993px;left:119px;white-space:nowrap" class="ft02">already claimed ownership&#160;of&#160;that&#160;bank.</p>
+<p style="position:absolute;top:1019px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1017px;left:144px;white-space:nowrap" class="ft02">If&#160;IA32_MCi_CTL2[30] had&#160;been set by another&#160;thread. This&#160;thread can&#160;not own bank&#160;<i>i</i>&#160;and should&#160;</p>
+<p style="position:absolute;top:1034px;left:143px;white-space:nowrap" class="ft011">proceed to&#160;step&#160;b.&#160;and examine the next machine&#160;check bank&#160;until&#160;all of&#160;the&#160;machine check&#160;banks are&#160;<br/>exhausted.&#160;</p>
+<p style="position:absolute;top:338px;left:355px;white-space:nowrap" class="ft08">Figure&#160;15-10. &#160;CMCI&#160;Behavior</p>
+<p style="position:absolute;top:169px;left:446px;white-space:nowrap" class="ft09">Error&#160;threshold</p>
+<p style="position:absolute;top:148px;left:232px;white-space:nowrap" class="ft09">63</p>
+<p style="position:absolute;top:147px;left:525px;white-space:nowrap" class="ft09">0</p>
+<p style="position:absolute;top:167px;left:249px;white-space:nowrap" class="ft09">MCi_CTL2</p>
+<p style="position:absolute;top:148px;left:347px;white-space:nowrap" class="ft09">30</p>
+<p style="position:absolute;top:148px;left:332px;white-space:nowrap" class="ft09">31</p>
+<p style="position:absolute;top:270px;left:325px;white-space:nowrap" class="ft09">Error count</p>
+<p style="position:absolute;top:249px;left:303px;white-space:nowrap" class="ft09">53</p>
+<p style="position:absolute;top:249px;left:525px;white-space:nowrap" class="ft09">0</p>
+<p style="position:absolute;top:136px;left:250px;white-space:nowrap" class="ft010"><b>Software write 1 to&#160;enable</b></p>
+<p style="position:absolute;top:209px;left:404px;white-space:nowrap" class="ft010"><b>Count overflow threshold&#160;-&gt; CMCI&#160;LVT&#160;in local APIC</b></p>
+<p style="position:absolute;top:148px;left:364px;white-space:nowrap" class="ft09">29</p>
+<p style="position:absolute;top:148px;left:433px;white-space:nowrap" class="ft09">14</p>
+<p style="position:absolute;top:249px;left:393px;white-space:nowrap" class="ft09">37</p>
+<p style="position:absolute;top:269px;left:237px;white-space:nowrap" class="ft09">MCi_STATUS</p>
+<p style="position:absolute;top:249px;left:377px;white-space:nowrap" class="ft09">38</p>
+<p style="position:absolute;top:249px;left:321px;white-space:nowrap" class="ft09">52</p>
+<p style="position:absolute;top:219px;left:378px;white-space:nowrap" class="ft02">?=</p>
+<p style="position:absolute;top:239px;left:594px;white-space:nowrap" class="ft010"><b>APIC_BASE&#160;+ 2F0H</b></p>
+</div>
+</body>
+</html>

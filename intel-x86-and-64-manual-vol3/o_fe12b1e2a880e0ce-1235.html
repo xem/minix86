@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1235</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1235-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1235.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;32-7</p>
+<p style="position:absolute;top:47px;left:598px;white-space:nowrap" class="ft01">VIRTUALIZATION OF&#160;SYSTEM&#160;RESOURCES</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft05">the VMM caused&#160;an address-space&#160;change and flushed the processor’s&#160;TLB,&#160;the VMM can simply re-execute the&#160;<br/>faulting instruction.&#160;<br/>The remaining steps&#160;assume&#160;that PS&#160;=&#160;0&#160;in the&#160;active&#160;and&#160;guest&#160;PDEs.</p>
+<p style="position:absolute;top:163px;left:69px;white-space:nowrap" class="ft02">8.&#160;Consult&#160;the&#160;active&#160;PTE,&#160;which can be&#160;located&#160;using&#160;the next 10&#160;bits of the faulting address&#160;(bits 21–12)&#160;and the&#160;</p>
+<p style="position:absolute;top:180px;left:95px;white-space:nowrap" class="ft04">physical page-table base address in the&#160;active&#160;PDE.&#160;The&#160;active&#160;PTE is&#160;the source&#160;of&#160;the&#160;fault if it is&#160;marked not-<br/>present&#160;or if&#160;its R/W&#160;bit&#160;and U/S bits&#160;are&#160;inconsistent with the&#160;attempted guest access (the&#160;guest&#160;privilege level&#160;<br/>and&#160;the values&#160;of&#160;CR0.WP and&#160;CR4.SMEP should&#160;also be taken into&#160;account).</p>
+<p style="position:absolute;top:237px;left:69px;white-space:nowrap" class="ft02">9.&#160;If the&#160;active&#160;PTE&#160;is not&#160;the source&#160;of&#160;the fault, then&#160;the fault has resulted&#160;from&#160;an&#160;inconsistency between&#160;the&#160;</p>
+<p style="position:absolute;top:253px;left:95px;white-space:nowrap" class="ft05">active page-table hierarchy and the processor’s TLB.&#160;Since the transition to the VMM caused an&#160;address-space&#160;<br/>change&#160;and&#160;flushed the&#160;processor’s TLB,&#160;the&#160;VMM simply re-executes&#160;the faulting&#160;instruction.<br/>The remaining steps&#160;assume&#160;that the active&#160;PTE&#160;is the source&#160;of&#160;the fault.</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft02">10.&#160;Consult the corresponding&#160;guest PTE using&#160;the same 10&#160;bits from the faulting&#160;address&#160;and the physical&#160;address&#160;</p>
+<p style="position:absolute;top:333px;left:94px;white-space:nowrap" class="ft05">that&#160;correspond to the guest&#160;page-table base address&#160;in&#160;the guest PDE. If&#160;the guest PTE would cause&#160;a page&#160;<br/>fault (it&#160;is marked not-present),&#160;the raise a&#160;page fault to&#160;the guest operating&#160;system.&#160;<br/>The following&#160;steps&#160;assume that&#160;the guest PTE would not have&#160;caused a&#160;page&#160;fault.</p>
+<p style="position:absolute;top:396px;left:69px;white-space:nowrap" class="ft02">11.&#160;If the&#160;guest&#160;PTE&#160;contains,&#160;as&#160;page&#160;base address,&#160;a&#160;physical&#160;address that&#160;is not valid for the&#160;virtual&#160;machine&#160;</p>
+<p style="position:absolute;top:412px;left:94px;white-space:nowrap" class="ft05">being supported;&#160;then raise a&#160;machine&#160;check (or&#160;some&#160;other&#160;abort) to&#160;the guest operating&#160;system.&#160;<br/>The&#160;following&#160;steps&#160;assume that&#160;the address&#160;in&#160;the guest PTE&#160;is valid&#160;for the&#160;virtual&#160;machine.</p>
+<p style="position:absolute;top:459px;left:69px;white-space:nowrap" class="ft02">12.&#160;If the&#160;active&#160;PTE&#160;is marked&#160;not-present,&#160;then&#160;set the&#160;active&#160;PTE&#160;to correspond to guest PTE:</p>
+<p style="position:absolute;top:483px;left:94px;white-space:nowrap" class="ft02">a.&#160;Set&#160;the&#160;page&#160;base&#160;address&#160;in the&#160;active&#160;PTE to&#160;be&#160;the physical address that corresponds&#160;to the guest page&#160;</p>
+<p style="position:absolute;top:499px;left:120px;white-space:nowrap" class="ft02">base&#160;address in the&#160;guest&#160;PTE.</p>
+<p style="position:absolute;top:523px;left:94px;white-space:nowrap" class="ft06">b.&#160;Set&#160;the P,&#160;U/S,&#160;and&#160;PS bits in the&#160;active&#160;PTE&#160;to be identical to&#160;those in&#160;the guest PTE.<br/>c.&#160;Set the&#160;PWT,&#160;PCD,&#160;and&#160;G bits according to&#160;the&#160;policy&#160;of&#160;the VMM.<br/>d.&#160;Set A&#160;=&#160;1 in&#160;the guest PTE.<br/>e.&#160;If&#160;D&#160;=&#160;1 in&#160;the guest PTE,&#160;then&#160;set&#160;the R/W&#160;bit in&#160;the active PTE as&#160;in the&#160;guest&#160;PTE.<br/>f.</p>
+<p style="position:absolute;top:619px;left:120px;white-space:nowrap" class="ft04">If&#160;D&#160;=&#160;0 in the&#160;guest PTE&#160;and the attempted access is a write, then set R/W&#160;in the active&#160;PTE as in the&#160;guest&#160;<br/>PTE&#160;and set D&#160;=&#160;1 in&#160;the guest PTE.</p>
+<p style="position:absolute;top:660px;left:94px;white-space:nowrap" class="ft05">g.&#160;If&#160;D&#160;=&#160;0&#160;in the&#160;guest&#160;PTE and the&#160;attempted access is&#160;not&#160;a write, then&#160;set R/W&#160;=&#160;0 in&#160;the active PTE.<br/>h.&#160;After&#160;modifying the&#160;active PTE, re-execute&#160;the faulting instruction.&#160;<br/>The remaining steps&#160;assume&#160;that the active&#160;PTE&#160;is already marked present.</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft02">13.&#160;If the&#160;attempted access is&#160;a write, D&#160;=&#160;0 (not&#160;dirty) in&#160;the guest PTE and&#160;the active PTE has caused a&#160;fault&#160;</p>
+<p style="position:absolute;top:747px;left:94px;white-space:nowrap" class="ft04">solely because&#160;it has R/W&#160;=&#160;0 (read-only);&#160;then&#160;set&#160;R/W in&#160;the active&#160;PTE&#160;as in the&#160;guest&#160;PTE,&#160;set D&#160;=&#160;1&#160;in&#160;the&#160;<br/>guest PTE&#160;and re-execute&#160;the faulting&#160;instruction.</p>
+<p style="position:absolute;top:787px;left:69px;white-space:nowrap" class="ft02">14.&#160;If&#160;none of the&#160;above cases apply,&#160;then&#160;raise&#160;a page&#160;fault of&#160;the guest operating&#160;system.</p>
+<p style="position:absolute;top:832px;left:69px;white-space:nowrap" class="ft03">32.3.5.3 &#160;&#160;Response&#160;to Uses of&#160;INVLPG</p>
+<p style="position:absolute;top:860px;left:69px;white-space:nowrap" class="ft06">Operating-systems can use&#160;INVLPG&#160;to flush entries from the&#160;TLB.&#160;This instruction takes a&#160;linear address&#160;as an&#160;<br/>operand and&#160;software expects any&#160;cached&#160;translations for&#160;the&#160;address&#160;to be&#160;flushed. A VMM should&#160;set&#160;the&#160;<br/>processor-based&#160;VM-execution&#160;control&#160;“INVLPG exiting” to&#160;1 so&#160;that any attempts by a privileged&#160;guest to&#160;execute&#160;<br/>INVLPG will trap to&#160;the VMM. The VMM&#160;can then&#160;modify&#160;the active&#160;page-table hierarchy to&#160;emulate the desired&#160;<br/>effect of the INVLPG.&#160;<br/>The following&#160;steps are&#160;performed. Note that these steps&#160;are performed only&#160;if the&#160;guest&#160;invocation&#160;of&#160;INVLPG&#160;<br/>would not&#160;fault&#160;and only&#160;if&#160;the guest software&#160;is running at&#160;privilege level&#160;0:<br/>1.&#160;Locate the relevant active PDE using the&#160;upper 10&#160;bits&#160;of the operand address and the current value of CR3. If&#160;</p>
+<p style="position:absolute;top:1007px;left:94px;white-space:nowrap" class="ft02">the PDE refers&#160;to a&#160;4-MByte&#160;page&#160;(PS&#160;=&#160;1),&#160;then&#160;set P&#160;=&#160;0 in&#160;the PDE.</p>
+<p style="position:absolute;top:1031px;left:69px;white-space:nowrap" class="ft02">2.&#160;If the&#160;PDE is&#160;marked present and&#160;refers to a&#160;page&#160;table (PS&#160;=&#160;0),&#160;locate the&#160;relevant active&#160;PTE&#160;using the next&#160;</p>
+<p style="position:absolute;top:1048px;left:94px;white-space:nowrap" class="ft02">10&#160;bits of the&#160;operand&#160;address (bits 21–12) and the page-table base&#160;address in the&#160;PDE. Set P&#160;=&#160;0 in&#160;the&#160;PTE.&#160;</p>
+</div>
+</body>
+</html>

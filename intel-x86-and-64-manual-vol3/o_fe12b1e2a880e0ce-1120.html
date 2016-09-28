@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1120</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1120-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1120.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">27-2&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;EXITS</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">—&#160;An&#160;external interrupt does not acknowledge the&#160;interrupt controller&#160;and the interrupt&#160;remains pending,&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft06">unless&#160;the&#160;“acknowledge&#160;interrupt&#160;on&#160;exit”&#160;VM-exit control is&#160;1. In such a&#160;case, the&#160;interrupt&#160;controller is&#160;<br/>acknowledged and&#160;the interrupt&#160;is no longer&#160;pending.</p>
+<p style="position:absolute;top:157px;left:93px;white-space:nowrap" class="ft07">—&#160;The flags&#160;L0&#160;–&#160;L3&#160;in DR7&#160;(bit&#160;0, bit&#160;2, bit&#160;4,&#160;and&#160;bit&#160;6)&#160;are&#160;not cleared&#160;when a&#160;task switch&#160;causes a VM&#160;exit.<br/>—&#160;If&#160;a task switch causes&#160;a&#160;VM&#160;exit, none of&#160;the&#160;following&#160;are&#160;modified&#160;by&#160;the task&#160;switch: old task-state&#160;</p>
+<p style="position:absolute;top:198px;left:119px;white-space:nowrap" class="ft02">segment (TSS); new TSS; old TSS descriptor;&#160;new&#160;TSS&#160;descriptor; RFLAGS.NT</p>
+<p style="position:absolute;top:195px;left:650px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:198px;left:657px;white-space:nowrap" class="ft02">; or&#160;the TR&#160;register.</p>
+<p style="position:absolute;top:222px;left:93px;white-space:nowrap" class="ft08">—&#160;No last-exception record is&#160;made&#160;if the&#160;event&#160;that would do&#160;so directly causes&#160;a VM&#160;exit.&#160;<br/>—&#160;If a&#160;machine-check&#160;exception causes&#160;a VM&#160;exit directly,&#160;this does not&#160;prevent&#160;machine-check MSRs from&#160;</p>
+<p style="position:absolute;top:262px;left:119px;white-space:nowrap" class="ft06">being updated.&#160;These are&#160;updated by&#160;the machine-check event itself and not&#160;the&#160;resulting&#160;machine-check&#160;<br/>exception.</p>
+<p style="position:absolute;top:303px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the logical processor is&#160;in an inactive state (see<a href="o_fe12b1e2a880e0ce-1051.html">&#160;Section 24.4.2</a>) and&#160;not&#160;executing&#160;instructions, some&#160;</p>
+<p style="position:absolute;top:319px;left:119px;white-space:nowrap" class="ft06">events may&#160;be blocked&#160;but others&#160;may return&#160;the logical processor to&#160;the active&#160;state.&#160;Unblocked&#160;events&#160;<br/>may cause&#160;VM&#160;exits.</p>
+<p style="position:absolute;top:333px;left:257px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:336px;left:264px;white-space:nowrap" class="ft02">&#160;If&#160;an unblocked&#160;event&#160;causes a&#160;VM&#160;exit&#160;directly, a&#160;return to the&#160;active&#160;state&#160;occurs&#160;</p>
+<p style="position:absolute;top:352px;left:119px;white-space:nowrap" class="ft02">only&#160;after&#160;the VM&#160;exit&#160;completes.</p>
+<p style="position:absolute;top:350px;left:342px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:352px;left:349px;white-space:nowrap" class="ft02">&#160;The&#160;VM&#160;exit generates&#160;any special&#160;bus cycle that&#160;is normally generated&#160;</p>
+<p style="position:absolute;top:369px;left:119px;white-space:nowrap" class="ft06">when the active&#160;state is&#160;entered from&#160;that activity&#160;state.<br/>MTF&#160;VM&#160;exits&#160;(see<a href="o_fe12b1e2a880e0ce-1086.html">&#160;Section 25.5.2&#160;</a><a href="o_fe12b1e2a880e0ce-1116.html">and Section 26.6.8)&#160;</a>are&#160;not blocked&#160;in the&#160;HLT activity&#160;state.&#160;If&#160;an MTF&#160;<br/>VM&#160;exit&#160;occurs in&#160;the HLT activity&#160;state,&#160;the&#160;logical&#160;processor returns to&#160;the active&#160;state only after&#160;the&#160;<br/>VM&#160;exit completes. MTF VM&#160;exits are&#160;blocked&#160;the shutdown&#160;state&#160;and the wait-for-SIPI state.</p>
+<p style="position:absolute;top:448px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:448px;left:93px;white-space:nowrap" class="ft08">If an&#160;event&#160;causes&#160;a VM&#160;exit indirectly,&#160;the&#160;event does&#160;update architectural state:<br/>—&#160;A&#160;debug&#160;exception updates DR6,&#160;DR7,&#160;and&#160;the&#160;IA32_DEBUGCTL&#160;MSR.&#160;No debug&#160;exceptions&#160;are considered&#160;</p>
+<p style="position:absolute;top:489px;left:119px;white-space:nowrap" class="ft02">pending.</p>
+<p style="position:absolute;top:513px;left:93px;white-space:nowrap" class="ft08">—&#160;A&#160;page fault updates&#160;CR2.<br/>—&#160;An NMI causes&#160;subsequent NMIs&#160;to be&#160;blocked&#160;before&#160;the&#160;VM&#160;exit commences.<br/>—&#160;An&#160;external interrupt acknowledges&#160;the interrupt&#160;controller&#160;and the&#160;interrupt&#160;is no longer pending.<br/>—&#160;If&#160;the logical processor had&#160;been in an&#160;inactive&#160;state, it&#160;enters the active&#160;state and, before the&#160;VM&#160;exit&#160;</p>
+<p style="position:absolute;top:601px;left:119px;white-space:nowrap" class="ft06">commences, generates any&#160;special&#160;bus&#160;cycle&#160;that is&#160;normally generated&#160;when the active&#160;state is&#160;entered&#160;<br/>from that&#160;activity&#160;state.</p>
+<p style="position:absolute;top:642px;left:93px;white-space:nowrap" class="ft08">—&#160;There&#160;is no blocking by STI or&#160;by&#160;MOV&#160;SS when&#160;the VM&#160;exit commences.<br/>—&#160;Processor state that is&#160;normally&#160;updated&#160;as part of&#160;delivery through the&#160;IDT&#160;(CS,&#160;RIP,&#160;SS,&#160;RSP,&#160;RFLAGS) is&#160;</p>
+<p style="position:absolute;top:682px;left:119px;white-space:nowrap" class="ft02">not modified.&#160;However,&#160;the&#160;incomplete&#160;delivery of the&#160;event may&#160;write to&#160;the&#160;stack.</p>
+<p style="position:absolute;top:706px;left:93px;white-space:nowrap" class="ft02">—&#160;The treatment of last-exception&#160;records is&#160;implementation&#160;dependent:</p>
+<p style="position:absolute;top:732px;left:119px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:730px;left:144px;white-space:nowrap" class="ft06">Some processors make&#160;a&#160;last-exception record&#160;when&#160;beginning&#160;the delivery&#160;of&#160;an event through&#160;the IDT&#160;<br/>(before it&#160;can encounter&#160;a nested&#160;exception). Such&#160;processors&#160;perform this&#160;update&#160;even if the&#160;event&#160;<br/>encounters a nested&#160;exception that&#160;causes&#160;a&#160;VM&#160;exit (including the case where nested&#160;exceptions&#160;lead&#160;<br/>to&#160;a triple fault).</p>
+<p style="position:absolute;top:805px;left:119px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:804px;left:144px;white-space:nowrap" class="ft06">Other processors delay&#160;making a&#160;last-exception&#160;record until event delivery&#160;has reached some&#160;event&#160;<br/>handler&#160;successfully (perhaps&#160;after one or&#160;more nested&#160;exceptions). Such processors do not&#160;update the&#160;<br/>last-exception&#160;record if&#160;a VM&#160;exit or&#160;triple&#160;fault&#160;occurs&#160;before&#160;an event handler is&#160;reached.</p>
+<p style="position:absolute;top:859px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:859px;left:93px;white-space:nowrap" class="ft06">If the “virtual&#160;NMIs” VM-execution&#160;control&#160;is&#160;1,&#160;VM&#160;entry injects&#160;an NMI, and delivery of&#160;the&#160;NMI&#160;causes&#160;a&#160;<br/>nested&#160;exception,&#160;double fault, task switch,&#160;or APIC access&#160;that causes&#160;a&#160;VM&#160;exit, virtual-NMI blocking is&#160;in&#160;<br/>effect before the&#160;VM&#160;exit&#160;commences.</p>
+<p style="position:absolute;top:930px;left:68px;white-space:nowrap" class="ft02">1.&#160;This&#160;chapter uses&#160;the notation&#160;RAX,&#160;RIP,&#160;RSP,&#160;RFLAGS, etc.&#160;for processor registers because most&#160;processors that&#160;support VMX&#160;oper-</p>
+<p style="position:absolute;top:946px;left:89px;white-space:nowrap" class="ft02">ation&#160;also&#160;support Intel 64&#160;architecture. For processors&#160;that&#160;do&#160;not support Intel 64 architecture, this notation refers to&#160;the&#160;32-bit&#160;</p>
+<p style="position:absolute;top:963px;left:89px;white-space:nowrap" class="ft02">forms&#160;of&#160;those&#160;registers&#160;(EAX, EIP,&#160;ESP,&#160;EFLAGS,&#160;etc.).&#160;In&#160;a few&#160;places, notation such as EAX is used to&#160;refer specifically&#160;to&#160;lower 32&#160;</p>
+<p style="position:absolute;top:979px;left:89px;white-space:nowrap" class="ft02">bits of&#160;the indicated register.</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft02">2.&#160;If a&#160;VM&#160;exit takes the&#160;processor from&#160;an&#160;inactive&#160;state&#160;resulting&#160;from execution of&#160;a&#160;specific instruction (HLT&#160;or&#160;MWAIT), the&#160;value&#160;</p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft02">saved&#160;for&#160;RIP&#160;by&#160;that&#160;VM&#160;exit&#160;will&#160;reference&#160;the&#160;following&#160;instruction.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">3.&#160;An exception is&#160;made&#160;if&#160;the&#160;logical processor had&#160;been&#160;inactive&#160;due to execution&#160;of&#160;MWAIT; in&#160;this case, it&#160;is considered&#160;to&#160;have&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">become active&#160;before&#160;the VM&#160;exit.</p>
+</div>
+</body>
+</html>

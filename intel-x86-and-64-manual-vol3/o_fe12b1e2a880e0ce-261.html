@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 261</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page261-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce261.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-5</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">Self-modifying code&#160;will execute at&#160;a lower level&#160;of performance&#160;than&#160;non-self-modifying or normal code. The&#160;<br/>degree of the performance&#160;deterioration will&#160;depend upon&#160;the&#160;frequency of modification&#160;and specific characteristics&#160;<br/>of the&#160;code.<br/>The act&#160;of&#160;one processor writing data&#160;into&#160;the currently executing code segment of a&#160;second&#160;processor&#160;with&#160;the&#160;<br/>intent&#160;of&#160;having&#160;the second processor execute that&#160;data&#160;as code is&#160;called&#160;<b>cross-modifying&#160;code</b>. As with self-<br/>modifying&#160;code, IA-32 processors exhibit&#160;model-specific behavior&#160;when&#160;executing cross-modifying&#160;code,&#160;<br/>depending upon how&#160;far ahead of&#160;the executing&#160;processors&#160;current execution pointer the code&#160;has&#160;been modified.&#160;<br/>To&#160;write&#160;cross-modifying code&#160;and&#160;ensure that&#160;it is&#160;compliant with current&#160;and future&#160;versions of the&#160;IA-32&#160;archi-<br/>tecture,&#160;the following processor synchronization&#160;algorithm must be&#160;implemented:</p>
+<p style="position:absolute;top:277px;left:89px;white-space:nowrap" class="ft08">(*&#160;Action&#160;of&#160;Modifying Processor&#160;*)<br/>Memory_Flag&#160;←&#160;0; (* Set Memory_Flag&#160;to value other than 1 *)</p>
+<p style="position:absolute;top:313px;left:89px;white-space:nowrap" class="ft08">Store modified&#160;code&#160;(as&#160;data) into code&#160;segment;<br/>Memory_Flag&#160;←&#160;1;</p>
+<p style="position:absolute;top:361px;left:89px;white-space:nowrap" class="ft08">(*&#160;Action&#160;of&#160;Executing Processor&#160;*)<br/>WHILE (Memory_Flag&#160;≠&#160;1)</p>
+<p style="position:absolute;top:397px;left:116px;white-space:nowrap" class="ft02">Wait for code to&#160;update;</p>
+<p style="position:absolute;top:415px;left:89px;white-space:nowrap" class="ft02">ELIHW;</p>
+<p style="position:absolute;top:431px;left:89px;white-space:nowrap" class="ft08">Execute serializing&#160;instruction;&#160;(*&#160;For&#160;example,&#160;CPUID instruction *)<br/>Begin&#160;executing&#160;modified&#160;code;</p>
+<p style="position:absolute;top:474px;left:69px;white-space:nowrap" class="ft07">(The use&#160;of&#160;this option&#160;is&#160;not&#160;required for programs intended to run on the Intel486 processor,&#160;but is recommended&#160;<br/>to ensure&#160;compatibility&#160;with&#160;the Pentium 4, Intel Xeon, P6 family,&#160;and Pentium processors.)<br/>Like&#160;self-modifying code,&#160;cross-modifying code&#160;will execute&#160;at&#160;a lower level&#160;of&#160;performance than&#160;non-cross-modi-<br/>fying&#160;(normal)&#160;code, depending upon&#160;the frequency of&#160;modification and&#160;specific&#160;characteristics of the&#160;code.<br/>The&#160;restrictions on self-modifying code and cross-modifying code also&#160;apply&#160;to the&#160;Intel 64&#160;architecture.</p>
+<p style="position:absolute;top:605px;left:69px;white-space:nowrap" class="ft04">8.1.4&#160;</p>
+<p style="position:absolute;top:605px;left:149px;white-space:nowrap" class="ft04">Effects of&#160;a LOCK Operation on Internal Processor Caches</p>
+<p style="position:absolute;top:636px;left:69px;white-space:nowrap" class="ft06">For the&#160;Intel486 and Pentium processors,&#160;the LOCK# signal is&#160;always asserted on&#160;the bus during&#160;a LOCK operation,&#160;<br/>even&#160;if&#160;the area of memory&#160;being&#160;locked&#160;is cached&#160;in&#160;the processor.<br/>For&#160;the P6 and&#160;more recent processor families, if the&#160;area of memory being locked&#160;during a&#160;LOCK&#160;operation&#160;is&#160;<br/>cached&#160;in the&#160;processor that&#160;is&#160;performing the&#160;LOCK&#160;operation as&#160;write-back&#160;memory&#160;and is&#160;completely contained&#160;<br/>in a cache line, the processor may not assert the LOCK# signal on the bus. Instead, it will modify the&#160;memory&#160;loca-<br/>tion&#160;internally and allow it’s&#160;cache coherency mechanism to&#160;ensure&#160;that the operation is carried out atomically.&#160;This&#160;<br/>operation&#160;is called&#160;“cache&#160;locking.” The&#160;cache&#160;coherency mechanism automatically prevents&#160;two or&#160;more&#160;proces-<br/>sors that&#160;have cached the&#160;same area&#160;of memory&#160;from simultaneously modifying&#160;data in&#160;that area.</p>
+<p style="position:absolute;top:814px;left:69px;white-space:nowrap" class="ft05">8.2 MEMORY&#160;</p>
+<p style="position:absolute;top:814px;left:238px;white-space:nowrap" class="ft05">ORDERING</p>
+<p style="position:absolute;top:850px;left:69px;white-space:nowrap" class="ft06">The term&#160;<b>memory&#160;ordering</b>&#160;refers to&#160;the order in which the&#160;processor&#160;issues reads&#160;(loads) and writes (stores)&#160;<br/>through&#160;the system&#160;bus to&#160;system memory.&#160;The&#160;Intel 64&#160;and IA-32 architectures support several memory-ordering&#160;<br/>models depending on&#160;the&#160;implementation&#160;of&#160;the architecture.&#160;For&#160;example,&#160;the&#160;Intel386&#160;processor enforces&#160;<br/><b>program ordering</b>&#160;(generally referred to&#160;as&#160;<b>strong&#160;ordering</b>), where reads and&#160;writes&#160;are&#160;issued on&#160;the&#160;system&#160;<br/>bus in&#160;the order they occur&#160;in the&#160;instruction&#160;stream under&#160;all circumstances.&#160;<br/>To&#160;allow performance optimization of instruction execution,&#160;the IA-32 architecture allows departures&#160;from&#160;strong-<br/>ordering model&#160;called&#160;<b>processor ordering</b>&#160;in Pentium&#160;4,&#160;Intel Xeon, and P6 family processors. These&#160;<b>processor-<br/>ordering</b>&#160;variations (called here&#160;the&#160;<b>memory-ordering&#160;model</b>) allow performance enhancing operations such as&#160;<br/>allowing reads to go ahead of buffered writes. The&#160;goal&#160;of&#160;any of these&#160;variations is&#160;to increase&#160;instruction execu-<br/>tion&#160;speeds,&#160;while maintaining memory coherency,&#160;even in&#160;multiple-processor&#160;systems.<br/><a href="o_fe12b1e2a880e0ce-262.html">Section 8.2.1&#160;and Section 8.2.2</a>&#160;describe the&#160;memory-ordering implemented&#160;by&#160;Intel486,&#160;Pentium, Intel Core 2&#160;<br/>Duo,&#160;Intel&#160;Atom,&#160;Intel Core Duo,&#160;Pentium 4,&#160;Intel Xeon,&#160;and&#160;P6&#160;family processors.<a href="o_fe12b1e2a880e0ce-263.html">&#160;Section 8.2.3 g</a>ives&#160;examples&#160;</p>
+</div>
+</body>
+</html>

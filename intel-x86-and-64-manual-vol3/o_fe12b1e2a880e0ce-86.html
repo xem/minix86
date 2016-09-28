@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 86</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page86-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce086.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">2-24&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;ARCHITECTURE&#160;OVERVIEW</p>
+<p style="position:absolute;top:427px;left:68px;white-space:nowrap" class="ft02">The INVLPG (invalidate TLB entry)&#160;instruction&#160;invalidates (flushes)&#160;the&#160;TLB entry for a&#160;specified page.</p>
+<p style="position:absolute;top:477px;left:68px;white-space:nowrap" class="ft03">2.8.5&#160;</p>
+<p style="position:absolute;top:477px;left:148px;white-space:nowrap" class="ft03">Controlling the Processor</p>
+<p style="position:absolute;top:520px;left:68px;white-space:nowrap" class="ft07">The HLT (halt processor) instruction stops the&#160;processor until an enabled interrupt&#160;(such&#160;as NMI or SMI, which&#160;are&#160;<br/>normally enabled), a&#160;debug exception,&#160;the&#160;BINIT#&#160;signal,&#160;the&#160;INIT# signal, or&#160;the RESET#&#160;signal&#160;is received.&#160;The&#160;<br/>processor generates a&#160;special&#160;bus&#160;cycle&#160;to indicate that&#160;the halt mode has&#160;been&#160;entered.&#160;<br/>Hardware may respond to&#160;this signal in a number of ways.&#160;An&#160;indicator light on&#160;the front panel may be turned on.&#160;<br/>An NMI interrupt for&#160;recording diagnostic information may&#160;be&#160;generated. Reset&#160;initialization may be&#160;invoked&#160;(note&#160;<br/>that the&#160;BINIT# pin&#160;was introduced with the&#160;Pentium&#160;Pro&#160;processor). If&#160;any&#160;non-wake&#160;events are&#160;pending during&#160;<br/>shutdown,&#160;they will be&#160;handled&#160;after the wake&#160;event from&#160;shutdown&#160;is processed (for example,&#160;A20M# interrupts).<br/>The&#160;LOCK prefix&#160;invokes a&#160;locked (atomic) read-modify-write operation when modifying a&#160;memory&#160;operand.&#160;This&#160;<br/>mechanism&#160;is used to allow reliable communications&#160;between processors in multiprocessor systems, as described&#160;<br/>below:</p>
+<p style="position:absolute;top:705px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:706px;left:93px;white-space:nowrap" class="ft07">In the&#160;Pentium&#160;processor&#160;and earlier IA-32 processors,&#160;the LOCK&#160;prefix causes the&#160;processor&#160;to assert&#160;the&#160;<br/>LOCK#&#160;signal&#160;during the&#160;instruction.&#160;This always causes&#160;an&#160;explicit bus&#160;lock to&#160;occur.&#160;</p>
+<p style="position:absolute;top:744px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:745px;left:93px;white-space:nowrap" class="ft07">In the&#160;Pentium&#160;4,&#160;Intel&#160;Xeon, and P6 family processors,&#160;the&#160;locking operation is&#160;handled with either&#160;a&#160;cache&#160;lock&#160;<br/>or&#160;bus lock.&#160;If a&#160;memory access is&#160;cacheable&#160;and&#160;affects only a&#160;single&#160;cache line, a&#160;cache&#160;lock&#160;is invoked and&#160;<br/>the&#160;system bus&#160;and the&#160;actual memory location in&#160;system&#160;memory are not locked&#160;during the&#160;operation.&#160;Here,&#160;<br/>other Pentium 4, Intel Xeon, or&#160;P6&#160;family processors&#160;on the&#160;bus write-back&#160;any modified&#160;data&#160;and&#160;invalidate&#160;<br/>their&#160;caches as&#160;necessary&#160;to maintain system memory&#160;coherency.&#160;If the&#160;memory&#160;access&#160;is not cacheable&#160;<br/>and/or it&#160;crosses&#160;a cache&#160;line boundary,&#160;the&#160;processor’s LOCK#&#160;signal is&#160;asserted and&#160;the processor does not&#160;<br/>respond&#160;to requests for&#160;bus control during the&#160;locked&#160;operation.</p>
+<p style="position:absolute;top:868px;left:68px;white-space:nowrap" class="ft07">The RSM (return from SMM) instruction restores the&#160;processor (from a context dump) to the state it was in prior to&#160;<br/>a system&#160;management mode&#160;(SMM) interrupt.</p>
+<p style="position:absolute;top:935px;left:68px;white-space:nowrap" class="ft03">2.8.6&#160;</p>
+<p style="position:absolute;top:935px;left:148px;white-space:nowrap" class="ft03">Reading Performance-Monitoring and Time-Stamp Counters</p>
+<p style="position:absolute;top:965px;left:68px;white-space:nowrap" class="ft07">The RDPMC (read performance-monitoring&#160;counter)&#160;and&#160;RDTSC (read time-stamp&#160;counter) instructions allow&#160;<br/>application&#160;programs to read the processor’s&#160;performance-monitoring&#160;and time-stamp&#160;counters, respectively.&#160;<br/>Processors based on&#160;Intel&#160;NetBurst</p>
+<p style="position:absolute;top:995px;left:301px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:998px;left:312px;white-space:nowrap" class="ft02">&#160;microarchitecture have&#160;eighteen&#160;40-bit performance-monitoring counters;&#160;P6&#160;</p>
+<p style="position:absolute;top:1015px;left:68px;white-space:nowrap" class="ft02">family processors have&#160;two&#160;40-bit counters. Intel</p>
+<p style="position:absolute;top:1012px;left:399px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:1015px;left:410px;white-space:nowrap" class="ft02">&#160;Atom™ processors and most of the&#160;processors based on&#160;the&#160;</p>
+<p style="position:absolute;top:1031px;left:68px;white-space:nowrap" class="ft07">Intel&#160;Core&#160;microarchitecture support two types of performance monitoring counters:&#160;programmable performance&#160;<br/>counters similar&#160;to those&#160;available in&#160;the&#160;P6 family,&#160;and three fixed-function performance&#160;monitoring&#160;counters.&#160;</p>
+<p style="position:absolute;top:390px;left:192px;white-space:nowrap" class="ft06">Figure&#160;2-10. &#160;WBINVD&#160;Invalidation of&#160;Shared&#160;and Non-Shared Cache Hierarchy</p>
+<p style="position:absolute;top:176px;left:186px;white-space:nowrap" class="ft00">Logical Processors</p>
+<p style="position:absolute;top:196px;left:187px;white-space:nowrap" class="ft00">L1 &amp; L2 Cache</p>
+<p style="position:absolute;top:175px;left:301px;white-space:nowrap" class="ft00">LP0</p>
+<p style="position:absolute;top:176px;left:507px;white-space:nowrap" class="ft00">LP5</p>
+<p style="position:absolute;top:328px;left:326px;white-space:nowrap" class="ft00">QPI</p>
+<p style="position:absolute;top:175px;left:345px;white-space:nowrap" class="ft00">LP1</p>
+<p style="position:absolute;top:175px;left:385px;white-space:nowrap" class="ft00">LP2</p>
+<p style="position:absolute;top:175px;left:427px;white-space:nowrap" class="ft00">LP3</p>
+<p style="position:absolute;top:175px;left:465px;white-space:nowrap" class="ft00">LP4</p>
+<p style="position:absolute;top:175px;left:547px;white-space:nowrap" class="ft00">LP6</p>
+<p style="position:absolute;top:176px;left:585px;white-space:nowrap" class="ft00">LP7</p>
+<p style="position:absolute;top:239px;left:186px;white-space:nowrap" class="ft00">Execution Engine</p>
+<p style="position:absolute;top:262px;left:186px;white-space:nowrap" class="ft00">L3 Cache</p>
+<p style="position:absolute;top:286px;left:187px;white-space:nowrap" class="ft00">Uncore</p>
+<p style="position:absolute;top:350px;left:558px;white-space:nowrap" class="ft00">DDR3</p>
+<p style="position:absolute;top:206px;left:303px;white-space:nowrap" class="ft00">Written back</p>
+<p style="position:absolute;top:265px;left:345px;white-space:nowrap" class="ft00">Written back and Invalidated</p>
+<p style="position:absolute;top:153px;left:606px;white-space:nowrap" class="ft00">Not Written back and&#160;</p>
+<p style="position:absolute;top:167px;left:640px;white-space:nowrap" class="ft00">not Invalidated</p>
+<p style="position:absolute;top:219px;left:303px;white-space:nowrap" class="ft00">&amp; Invalidated</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 388</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page388-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce388.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-26&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">For&#160;the P6 family and&#160;Pentium&#160;processors, the&#160;local and&#160;I/O APICs use&#160;an APIC-based arbitration mechanism to&#160;<br/>determine&#160;the&#160;order&#160;in which IPIs are&#160;handled.&#160;Here,&#160;each&#160;local&#160;APIC&#160;is given&#160;an arbitration priority&#160;of from&#160;0 to&#160;15,&#160;<br/>which&#160;the I/O&#160;APIC uses during&#160;arbitration&#160;to determine which local&#160;APIC should&#160;be&#160;given access to&#160;the&#160;APIC bus.&#160;<br/>The&#160;local APIC with&#160;the&#160;highest arbitration priority&#160;always wins&#160;bus&#160;access. Upon completion&#160;of an arbitration&#160;<br/>round, the&#160;winning&#160;local APIC&#160;lowers its&#160;arbitration&#160;priority&#160;to 0&#160;and&#160;the losing&#160;local APICs each raise&#160;theirs&#160;by&#160;1.<br/>The current&#160;arbitration&#160;priority for a&#160;local APIC is&#160;stored&#160;in&#160;a&#160;4-bit, software-transparent arbitration ID (Arb ID)&#160;<br/>register. During reset, this register&#160;is initialized to&#160;the&#160;APIC ID number (stored in&#160;the local&#160;APIC&#160;ID&#160;register).&#160;The&#160;<br/>INIT&#160;level-deassert IPI,&#160;which&#160;is issued&#160;with and ICR command,&#160;can be used to&#160;resynchronize&#160;the arbitration&#160;prior-<br/>ities&#160;of&#160;the&#160;local APICs by resetting Arb ID&#160;register&#160;of&#160;each agent&#160;to its current APIC ID value.&#160;(The Pentium 4 and&#160;<br/>Intel&#160;Xeon processors do not implement the&#160;Arb&#160;ID&#160;register.)<br/><a href="o_fe12b1e2a880e0ce-394.html">Section&#160;10.10, “APIC Bus Message Passing&#160;Mechanism and Protocol&#160;(P6 Family,&#160;Pentium Processors),” de</a>scribes the&#160;<br/>APIC&#160;bus arbitration protocols&#160;and&#160;bus message formats,&#160;wh<a href="o_fe12b1e2a880e0ce-380.html">ile Section 10.6.1, “Interrupt&#160;Command Register&#160;<br/>(ICR),” de</a>scribes the&#160;INIT&#160;level de-assert IPI&#160;message.&#160;<br/>Note that except for the SIPI IPI&#160;(s<a href="o_fe12b1e2a880e0ce-380.html">ee Section&#160;10.6.1, “Interrupt Command Register (ICR)”), all bu</a>s messages that&#160;<br/>fail&#160;to be delivered to&#160;their specified&#160;destination&#160;or destinations&#160;are automatically retried. Software&#160;should avoid&#160;<br/>situations in&#160;which&#160;IPIs are sent to&#160;disabled or&#160;nonexistent local&#160;APICs, causing the messages to&#160;be resent repeat-<br/>edly. Additionally, interrupt&#160;sources&#160;that target the&#160;APIC&#160;should be&#160;masked&#160;or changed to&#160;no&#160;longer&#160;target&#160;the APIC.</p>
+<p style="position:absolute;top:442px;left:68px;white-space:nowrap" class="ft03">10.8 HANDLING&#160;</p>
+<p style="position:absolute;top:442px;left:252px;white-space:nowrap" class="ft03">INTERRUPTS</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft07">When a&#160;local&#160;APIC&#160;receives&#160;an interrupt from&#160;a local source,&#160;an interrupt message&#160;from an&#160;I/O APIC, or&#160;and IPI, the&#160;<br/>manner&#160;in which it&#160;handles the&#160;message&#160;depends&#160;on processor implementation, as&#160;described&#160;in the&#160;following&#160;<br/>sections.</p>
+<p style="position:absolute;top:562px;left:68px;white-space:nowrap" class="ft04">10.8.1&#160;</p>
+<p style="position:absolute;top:562px;left:148px;white-space:nowrap" class="ft04">Interrupt&#160;Handling with the Pentium 4 and Intel Xeon Processors</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft08">With the Pentium 4 and&#160;Intel Xeon&#160;processors, the local APIC handles the local&#160;interrupts,&#160;interrupt messages, and&#160;<br/>IPIs&#160;it receives&#160;as&#160;follows:&#160;<br/>1.&#160;It&#160;determines&#160;if it&#160;is the&#160;specified destination or&#160;not&#160;<a href="o_fe12b1e2a880e0ce-388.html">(see&#160;Figure&#160;10-16). If i</a>t&#160;is&#160;the&#160;specified&#160;destination, it&#160;</p>
+<p style="position:absolute;top:649px;left:93px;white-space:nowrap" class="ft02">accepts the&#160;message; if it&#160;is not, it&#160;discards the&#160;message.</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft02">2.&#160;If the&#160;local APIC determines that&#160;it is&#160;the designated&#160;destination for the&#160;interrupt and&#160;if the interrupt request is&#160;</p>
+<p style="position:absolute;top:878px;left:93px;white-space:nowrap" class="ft02">an&#160;NMI, SMI, INIT, ExtINT,&#160;or SIPI, the&#160;interrupt is&#160;sent&#160;directly&#160;to the&#160;processor&#160;core for&#160;handling.</p>
+<p style="position:absolute;top:902px;left:68px;white-space:nowrap" class="ft02">3.&#160;If the&#160;local&#160;APIC determines&#160;that it&#160;is the&#160;designated&#160;destination for the interrupt&#160;but the interrupt&#160;request&#160;is&#160;</p>
+<p style="position:absolute;top:919px;left:93px;white-space:nowrap" class="ft02">not one&#160;of the&#160;interrupts given&#160;in&#160;step&#160;2,&#160;the&#160;local APIC sets the&#160;appropriate bit in&#160;the IRR.&#160;</p>
+<p style="position:absolute;top:943px;left:68px;white-space:nowrap" class="ft02">4.&#160;When interrupts are pending in the IRR register,&#160;the&#160;local APIC dispatches them to the processor one at a time,&#160;</p>
+<p style="position:absolute;top:959px;left:93px;white-space:nowrap" class="ft07">based on&#160;their&#160;priority&#160;and the current processor priority&#160;in&#160;the&#160;<a href="o_fe12b1e2a880e0ce-390.html">PPR (see Section&#160;10.8.3.1, “Task and Processor&#160;<br/>Priorities”).</a></p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft02">5.&#160;When a&#160;fixed interrupt has&#160;been&#160;dispatched to&#160;the processor core&#160;for handling, the&#160;completion&#160;of&#160;the handler&#160;</p>
+<p style="position:absolute;top:1016px;left:93px;white-space:nowrap" class="ft07">routine is indicated with an instruction in the instruction handler code that writes to the&#160;end-of-interrupt (EOI)&#160;<br/>register&#160;in&#160;the&#160;local APIC (see<a href="o_fe12b1e2a880e0ce-392.html">&#160;Section 10.8.5,&#160;“Signaling Interrupt Servicing Completion”).&#160;</a>The&#160;act of&#160;writing&#160;to&#160;<br/>the EOI register&#160;causes the local&#160;APIC to&#160;delete&#160;the&#160;interrupt from its&#160;ISR&#160;queue&#160;and (for level-triggered&#160;</p>
+<p style="position:absolute;top:816px;left:102px;white-space:nowrap" class="ft05">Figure&#160;10-16. &#160;Interrupt&#160;Acceptance&#160;Flow&#160;Chart for&#160;the Local APIC (Pentium&#160;4&#160;and Intel Xeon&#160;Processors)</p>
+<p style="position:absolute;top:710px;left:416px;white-space:nowrap" class="ft06">Wait&#160;to&#160;Receive&#160;</p>
+<p style="position:absolute;top:722px;left:420px;white-space:nowrap" class="ft06">Bus Message</p>
+<p style="position:absolute;top:758px;left:428px;white-space:nowrap" class="ft06">Belong&#160;to&#160;</p>
+<p style="position:absolute;top:767px;left:422px;white-space:nowrap" class="ft06">Destination?</p>
+<p style="position:absolute;top:765px;left:268px;white-space:nowrap" class="ft06">Discard&#160;</p>
+<p style="position:absolute;top:777px;left:265px;white-space:nowrap" class="ft06">Message</p>
+<p style="position:absolute;top:763px;left:391px;white-space:nowrap" class="ft06">No</p>
+<p style="position:absolute;top:765px;left:549px;white-space:nowrap" class="ft06">Accept&#160;</p>
+<p style="position:absolute;top:777px;left:544px;white-space:nowrap" class="ft06">Message</p>
+<p style="position:absolute;top:761px;left:491px;white-space:nowrap" class="ft06">Yes</p>
+</div>
+</body>
+</html>

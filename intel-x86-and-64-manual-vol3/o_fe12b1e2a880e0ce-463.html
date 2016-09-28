@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 463</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page463-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce463.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;13-9</p>
+<p style="position:absolute;top:47px;left:273px;white-space:nowrap" class="ft01">SYSTEM&#160;PROGRAMMING FOR INSTRUCTION SET EXTENSIONS&#160;AND PROCESSOR EXTENDED&#160;STATES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">13.5.3&#160;</p>
+<p style="position:absolute;top:98px;left:150px;white-space:nowrap" class="ft02">Enable the Use Of XSAVE Feature Set And XSAVE State Components</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft07">Operating&#160;systems need to&#160;enable&#160;the use of XSAVE feature set by writing&#160;to CR4.OSXSAVE[bit&#160;18]&#160;to&#160;enable&#160;<br/>XSETBV/XGETBV&#160;instructions&#160;to access&#160;XCR0&#160;and&#160;to&#160;support processor extended&#160;state management using&#160;<br/>XSAVE/XRSTOR. When&#160;XSAVE feature set is&#160;enabled, all enumerated XSAVE sub&#160;features&#160;such as&#160;optimized save,&#160;<br/>compaction and supervisor&#160;state support are also&#160;enabled.&#160;Operating systems also need&#160;to enable the&#160;XSAVE&#160;state&#160;<br/>components in&#160;XCR0&#160;using XSETBV instruction.<br/>XSAVE&#160;state components&#160;can subsequently be disabled&#160;in&#160;XCR0. However,&#160;disabling state&#160;components of&#160;AVX or&#160;<br/>AVX-512 that are not in initial configuration may incur power and&#160;performance&#160;penalty on&#160;SSE&#160;and AVX instructions&#160;<br/>respectively. If AVX state&#160;is disabled&#160;when it&#160;is not&#160;in&#160;its&#160;initial configuration, subsequent SSE&#160;instructions&#160;may&#160;<br/>incur a&#160;penalty.&#160;If&#160;AVX-512 state is&#160;disabled&#160;when&#160;it&#160;is&#160;not in&#160;its initial&#160;configuration,&#160;subsequent&#160;SSE and&#160;AVX&#160;<br/>instructions&#160;may incur a&#160;penalty.&#160;It is recommended that the&#160;operating systems and VMM set AVX or AVX-512&#160;state&#160;<br/>components to&#160;their initial&#160;configuration before disabling&#160;them.&#160;This can&#160;be&#160;achieved&#160;by one of&#160;the two methods&#160;<br/>below.</p>
+<p style="position:absolute;top:337px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:337px;left:95px;white-space:nowrap" class="ft07">Using XRSTOR: Operating&#160;system&#160;or VMM can set the state&#160;of AVX or AVX-512 state&#160;components&#160;using&#160;XRSTOR&#160;<br/>instruction before&#160;disabling&#160;them&#160;in XCR0.</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:376px;left:95px;white-space:nowrap" class="ft07">Using VZEROUPPER: Operating&#160;system&#160;or VMM can&#160;set&#160;AVX and AVX-512&#160;state&#160;components&#160;to their initial&#160;<br/>configuration using&#160;VZEROUPPER instruction before&#160;disabling them&#160;in&#160;XCR0.&#160;Note that&#160;this will set&#160;both&#160;AVX&#160;<br/>and&#160;AVX-512 state&#160;components&#160;to their&#160;initial configuration.&#160;If the&#160;intent is&#160;to only disable&#160;AVX-512 state,&#160;<br/>Operating system or VMM will need&#160;to save&#160;AVX state&#160;before executing VZEROUPPER and restore it afterwards.</p>
+<p style="position:absolute;top:476px;left:69px;white-space:nowrap" class="ft02">13.5.4&#160;</p>
+<p style="position:absolute;top:476px;left:149px;white-space:nowrap" class="ft02">Provide an Initialization for the XSAVE State Components</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft07">The XSAVE&#160;header&#160;of&#160;a newly&#160;allocated XSAVE&#160;area should&#160;be&#160;initialized to all zeroes&#160;before&#160;saving&#160;context.&#160;An&#160;<br/>operating&#160;system may choose&#160;to establish beginning state-component values for a&#160;task by executing&#160;XRSTOR from&#160;<br/>an&#160;XSAVE area that&#160;the OS has configured. If it&#160;is desired&#160;to begin state component i&#160;in its initial&#160;configuration,&#160;the&#160;<br/>OS&#160;should clear&#160;bit&#160;i in&#160;the&#160;XSTATE_BV field in the&#160;XSAVE&#160;header; otherwise, it&#160;should set&#160;that bit and&#160;place&#160;the&#160;<br/>desired beginning&#160;value&#160;in the&#160;appropriate&#160;location&#160;in the&#160;XSAVE area.<br/>When&#160;a buffer&#160;is allocated for compacted&#160;size,&#160;software&#160;must&#160;ensure that&#160;the XCOMP_BV field is&#160;setup&#160;correctly&#160;<br/>before restoring from&#160;the&#160;buffer.&#160;Bit 63 of the&#160;XCOMP_BV&#160;field indicates that&#160;the save&#160;area&#160;is in&#160;the compacted&#160;<br/>format&#160;and the&#160;remaining bits indicate the&#160;states&#160;that have&#160;space allocated in&#160;the save&#160;area. If&#160;the buffer is&#160;first&#160;<br/>used&#160;to save&#160;the&#160;state in&#160;compacted format, then&#160;the save instructions will setup the&#160;XCOMP_BV field appropri-<br/>ately.&#160;If&#160;the buffer&#160;is first used to&#160;restore&#160;the state,&#160;then software&#160;must&#160;set&#160;up the&#160;XCOMP_BV&#160;field.</p>
+<p style="position:absolute;top:710px;left:69px;white-space:nowrap" class="ft02">13.5.5&#160;</p>
+<p style="position:absolute;top:710px;left:149px;white-space:nowrap" class="ft02">Providing the Required Exception Handlers</p>
+<p style="position:absolute;top:739px;left:69px;white-space:nowrap" class="ft07">Instructions&#160;part of each&#160;XSAVE managed features&#160;may&#160;generate&#160;exceptions and&#160;operating system&#160;may need&#160;to&#160;<br/>enable&#160;such&#160;exceptions and provide handlers&#160;for them<a href="o_fe12b1e2a880e0ce-464.html">. Section&#160;13.8&#160;d</a>escribes feature&#160;specific&#160;OS&#160;requirements&#160;for&#160;<br/>each&#160;XSAVE&#160;managed features.</p>
+<p style="position:absolute;top:828px;left:69px;white-space:nowrap" class="ft05">13.6&#160;</p>
+<p style="position:absolute;top:828px;left:148px;white-space:nowrap" class="ft05">INTEROPERABILITY&#160;OF&#160;THE&#160;XSAVE&#160;FEATURE&#160;SET&#160;AND&#160;FXSAVE/FXRSTOR</p>
+<p style="position:absolute;top:864px;left:69px;white-space:nowrap" class="ft07">The&#160;FXSAVE instruction writes x87&#160;FPU&#160;and SSE&#160;state&#160;information&#160;to&#160;a 512-byte&#160;FXSAVE save area. FXRSTOR&#160;<br/>restores the processor’s x87&#160;FPU and SSE states from an FXSAVE area.&#160;The XSAVE features set supports x87 FPU&#160;<br/>and SSE&#160;states using&#160;the&#160;same layout&#160;as the&#160;FXSAVE&#160;area&#160;to&#160;provide interoperability of FXSAVE versus XSAVE,&#160;and&#160;<br/>FXRSTOR&#160;versus&#160;XRSTOR.&#160;The XSAVE feature set allows system&#160;software to manage SSE state independent of&#160;x87&#160;<br/>FPU states.&#160;Thus system software&#160;that had&#160;been using&#160;FXSAVE and&#160;FXRSTOR&#160;to manage&#160;x87&#160;FPU and SSE states&#160;<br/>can transition&#160;to using&#160;the XSAVE feature set&#160;to manage&#160;x87 FPU,&#160;SSE and&#160;other processor extended&#160;states in&#160;a&#160;<br/>systematic&#160;and&#160;forward-looking manner.&#160;See&#160;<a href="��">Section 10.5 and Chapter 13 of the&#160;<i>Intel® 64 and IA-32 Architectures&#160;<br/>Software Developer’s Manual, Volume&#160;1</i></a>&#160;for more&#160;details.<br/>System software&#160;can implement forward-looking&#160;processor&#160;extended&#160;state&#160;management&#160;using the&#160;XSAVE&#160;feature&#160;<br/>set. In this&#160;case, system software&#160;must specify&#160;the bit vector mask in&#160;EDX:EAX&#160;appropriately when executing&#160;<br/>XSAVE/XRSTOR instructions.&#160;</p>
+</div>
+</body>
+</html>

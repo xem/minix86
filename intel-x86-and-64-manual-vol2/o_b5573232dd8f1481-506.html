@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 506</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page506-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481506.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:762px;white-space:nowrap" class="ft00">FSCALE—Scale</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-378&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">FSCALE—Scale</p>
+<p style="position:absolute;top:219px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft07">Truncates&#160;the value&#160;in the&#160;source&#160;operand&#160;(toward 0)&#160;to&#160;an&#160;integral value and adds that&#160;value&#160;to the&#160;exponent of&#160;<br/>the destination operand. The destination&#160;and source operands are&#160;floating-point&#160;values&#160;located in&#160;registers&#160;ST(0)&#160;<br/>and&#160;ST(1),&#160;respectively. This&#160;instruction provides rapid multiplication or&#160;division by integral&#160;powers of 2. The&#160;<br/>following table shows the&#160;results obtained when&#160;scaling various classes of numbers, assuming&#160;that neither&#160;overflow&#160;<br/>nor underflow&#160;occurs.</p>
+<p style="position:absolute;top:634px;left:68px;white-space:nowrap" class="ft07">In most cases,&#160;only&#160;the exponent&#160;is changed&#160;and the&#160;mantissa&#160;(significand)&#160;remains unchanged. However,&#160;when&#160;<br/>the value being&#160;scaled&#160;in ST(0) is&#160;a denormal value, the&#160;mantissa&#160;is also&#160;changed&#160;and the result may&#160;turn out&#160;to be&#160;<br/>a normalized number.&#160;Similarly,&#160;if overflow or underflow&#160;results from a&#160;scale&#160;operation,&#160;the resulting mantissa&#160;will&#160;<br/>differ from the&#160;source’s&#160;mantissa.<br/>The FSCALE&#160;instruction&#160;can also be used to&#160;reverse&#160;the action&#160;of the&#160;FXTRACT&#160;instruction,&#160;as shown in the following&#160;<br/>example:</p>
+<p style="position:absolute;top:745px;left:88px;white-space:nowrap" class="ft09">FXTRACT;<br/>FSCALE;<br/>FSTP ST(1);</p>
+<p style="position:absolute;top:805px;left:68px;white-space:nowrap" class="ft010">In this example, the FXTRACT&#160;instruction extracts the&#160;significand and&#160;exponent from&#160;the value in ST(0)&#160;and stores&#160;<br/>them in ST(0) and&#160;ST(1) respectively. The FSCALE then&#160;scales&#160;the significand in ST(0)&#160;by the&#160;exponent in&#160;ST(1),&#160;<br/>recreating&#160;the original value&#160;before&#160;the FXTRACT operation&#160;was performed.&#160;The FSTP ST(1) instruction overwrites&#160;<br/>the&#160;exponent (extracted&#160;by&#160;the FXTRACT instruction)&#160;with&#160;the recreated&#160;value,&#160;which returns&#160;the stack to&#160;its orig-<br/>inal state&#160;with only&#160;one register&#160;[ST(0)] occupied.<br/>This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.</p>
+<p style="position:absolute;top:929px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft04">ST(0)&#160;←&#160;ST(0)&#160;∗&#160;2</p>
+<p style="position:absolute;top:957px;left:170px;white-space:nowrap" class="ft05">RoundTowardZero(ST(1))</p>
+<p style="position:absolute;top:960px;left:286px;white-space:nowrap" class="ft04">;</p>
+<p style="position:absolute;top:994px;left:68px;white-space:nowrap" class="ft03">FPU&#160;Flags&#160;Affected</p>
+<p style="position:absolute;top:1017px;left:68px;white-space:nowrap" class="ft04">C1</p>
+<p style="position:absolute;top:1017px;left:206px;white-space:nowrap" class="ft011">Set&#160;to 0&#160;if stack underflow occurred.<br/>Set if result was&#160;rounded&#160;up; cleared&#160;otherwise.</p>
+<p style="position:absolute;top:1059px;left:68px;white-space:nowrap" class="ft04">C0, C2,&#160;C3&#160;</p>
+<p style="position:absolute;top:1059px;left:206px;white-space:nowrap" class="ft04">Undefined.</p>
+<p style="position:absolute;top:128px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:128px;left:205px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:128px;left:351px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:143px;left:351px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:128px;left:430px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:143px;left:430px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:128px;left:526px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:166px;left:73px;white-space:nowrap" class="ft04">D9&#160;FD</p>
+<p style="position:absolute;top:166px;left:205px;white-space:nowrap" class="ft04">FSCALE</p>
+<p style="position:absolute;top:166px;left:351px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:430px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:526px;white-space:nowrap" class="ft04">Scale&#160;ST(0) by ST(1).</p>
+<p style="position:absolute;top:352px;left:358px;white-space:nowrap" class="ft03">Table 3-34. &#160;FSCALE&#160;Results</p>
+<p style="position:absolute;top:373px;left:159px;white-space:nowrap" class="ft04">ST(1)</p>
+<p style="position:absolute;top:397px;left:271px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:395px;left:278px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:397px;left:357px;white-space:nowrap" class="ft04">−&#160;F</p>
+<p style="position:absolute;top:397px;left:442px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:397px;left:526px;white-space:nowrap" class="ft04">+&#160;0</p>
+<p style="position:absolute;top:397px;left:611px;white-space:nowrap" class="ft04">+&#160;F</p>
+<p style="position:absolute;top:397px;left:694px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:395px;left:701px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:396px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:419px;left:186px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:421px;left:194px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:418px;left:197px;white-space:nowrap" class="ft06">∞</p>
+<p style="position:absolute;top:419px;left:268px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:419px;left:355px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:418px;left:363px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:419px;left:440px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:418px;left:447px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:419px;left:525px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:418px;left:532px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:419px;left:609px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:418px;left:617px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:419px;left:694px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:418px;left:701px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:419px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:441px;left:75px;white-space:nowrap" class="ft04">ST(0)&#160;</p>
+<p style="position:absolute;top:442px;left:188px;white-space:nowrap" class="ft04">−&#160;</p>
+<p style="position:absolute;top:444px;left:199px;white-space:nowrap" class="ft00">F</p>
+<p style="position:absolute;top:442px;left:273px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:442px;left:357px;white-space:nowrap" class="ft04">−&#160;F</p>
+<p style="position:absolute;top:442px;left:441px;white-space:nowrap" class="ft04">−&#160;F</p>
+<p style="position:absolute;top:442px;left:526px;white-space:nowrap" class="ft04">−&#160;F</p>
+<p style="position:absolute;top:442px;left:611px;white-space:nowrap" class="ft04">−&#160;F</p>
+<p style="position:absolute;top:442px;left:694px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:440px;left:701px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:441px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:464px;left:188px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:464px;left:272px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:464px;left:357px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:463px;left:442px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:465px;left:449px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:464px;left:453px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:463px;left:526px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:465px;left:534px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:464px;left:537px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:464px;left:611px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:464px;left:691px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:464px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:487px;left:188px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:488px;left:196px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:487px;left:199px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:487px;left:273px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:488px;left:280px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:487px;left:283px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:487px;left:357px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:488px;left:365px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:487px;left:368px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:487px;left:442px;white-space:nowrap" class="ft04">+&#160;0</p>
+<p style="position:absolute;top:487px;left:526px;white-space:nowrap" class="ft04">+&#160;0</p>
+<p style="position:absolute;top:487px;left:611px;white-space:nowrap" class="ft04">+&#160;0</p>
+<p style="position:absolute;top:486px;left:691px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:486px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:509px;left:188px;white-space:nowrap" class="ft04">+&#160;F</p>
+<p style="position:absolute;top:509px;left:272px;white-space:nowrap" class="ft04">+&#160;0</p>
+<p style="position:absolute;top:509px;left:357px;white-space:nowrap" class="ft04">+&#160;F</p>
+<p style="position:absolute;top:509px;left:441px;white-space:nowrap" class="ft04">+&#160;F</p>
+<p style="position:absolute;top:509px;left:526px;white-space:nowrap" class="ft04">+&#160;F</p>
+<p style="position:absolute;top:509px;left:611px;white-space:nowrap" class="ft04">+&#160;F</p>
+<p style="position:absolute;top:509px;left:694px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:508px;left:701px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:509px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:532px;left:186px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:530px;left:194px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:531px;left:268px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:532px;left:355px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:530px;left:363px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:532px;left:440px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:530px;left:447px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:532px;left:525px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:530px;left:532px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:532px;left:609px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:530px;left:617px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:532px;left:694px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:530px;left:701px;white-space:nowrap" class="ft06">&#160;∞</p>
+<p style="position:absolute;top:531px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:555px;left:184px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:554px;left:268px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:555px;left:295px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:554px;left:353px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:554px;left:437px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:555px;left:464px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:554px;left:522px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:555px;left:549px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:554px;left:607px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:555px;left:634px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:554px;left:691px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:555px;left:718px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:554px;left:777px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:576px;left:75px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:595px;left:75px;white-space:nowrap" class="ft04">F&#160;Means&#160;&#160;finite&#160;&#160;floating-point&#160;value.</p>
+</div>
+</body>
+</html>

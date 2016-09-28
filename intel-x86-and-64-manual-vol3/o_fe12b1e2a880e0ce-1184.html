@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1184</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1184-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1184.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">30-4&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:100px;left:169px;white-space:nowrap" class="ft02">CASE INVEPT_TYPE OF</p>
+<p style="position:absolute;top:118px;left:196px;white-space:nowrap" class="ft02">1:</p>
+<p style="position:absolute;top:118px;left:304px;white-space:nowrap" class="ft02">// single-context invalidation</p>
+<p style="position:absolute;top:136px;left:223px;white-space:nowrap" class="ft04">IF&#160;VM&#160;entry with&#160;the “enable&#160;EPT“ VM&#160;execution control set to 1<br/>would fail due to the EPTP&#160;value</p>
+<p style="position:absolute;top:172px;left:250px;white-space:nowrap" class="ft04">THEN&#160;VMfail(Invalid&#160;operand to INVEPT/INVVPID);<br/>ELSE</p>
+<p style="position:absolute;top:208px;left:277px;white-space:nowrap" class="ft04">Invalidate&#160;mappings associated&#160;with EPTP[51:12];<br/>VMsucceed;</p>
+<p style="position:absolute;top:244px;left:223px;white-space:nowrap" class="ft04">FI;<br/>BREAK;</p>
+<p style="position:absolute;top:280px;left:196px;white-space:nowrap" class="ft02">2:</p>
+<p style="position:absolute;top:280px;left:304px;white-space:nowrap" class="ft02">// global invalidation</p>
+<p style="position:absolute;top:298px;left:223px;white-space:nowrap" class="ft04">Invalidate mappings associated&#160;with all EPTPs;<br/>VMsucceed;<br/>BREAK;</p>
+<p style="position:absolute;top:352px;left:169px;white-space:nowrap" class="ft02">ESAC;</p>
+<p style="position:absolute;top:370px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:425px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:451px;left:68px;white-space:nowrap" class="ft02">See the&#160;operation section&#160;and<a href="o_fe12b1e2a880e0ce-1182.html">&#160;Section 30.2.</a></p>
+<p style="position:absolute;top:488px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:511px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:511px;left:206px;white-space:nowrap" class="ft06">If&#160;the current&#160;privilege level&#160;is not 0.<br/>If the&#160;memory&#160;operand effective&#160;address&#160;is outside&#160;the&#160;CS, DS,&#160;ES, FS, or&#160;GS&#160;segment&#160;limit.<br/>If&#160;the DS,&#160;ES, FS, or&#160;GS&#160;register contains&#160;an&#160;unusable segment.<br/>If the&#160;source operand&#160;is located&#160;in an&#160;execute-only code segment.</p>
+<p style="position:absolute;top:595px;left:68px;white-space:nowrap" class="ft02">#PF(fault-code)</p>
+<p style="position:absolute;top:595px;left:206px;white-space:nowrap" class="ft02">If a&#160;page fault occurs&#160;in&#160;accessing&#160;the memory&#160;operand.</p>
+<p style="position:absolute;top:616px;left:68px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:616px;left:206px;white-space:nowrap" class="ft06">If the&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.<br/>If the&#160;SS&#160;register&#160;contains an unusable segment.</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft02">#UD</p>
+<p style="position:absolute;top:658px;left:206px;white-space:nowrap" class="ft06">If not in&#160;VMX&#160;operation.<br/>If&#160;the logical processor does not support EPT (IA32_VMX_PROCBASED_CTLS2[33]=0).<br/>If&#160;the logical processor supports EPT&#160;(IA32_VMX_PROCBASED_CTLS2[33]=1) but does&#160;not&#160;</p>
+<p style="position:absolute;top:717px;left:205px;white-space:nowrap" class="ft02">support the&#160;INVEPT&#160;instruction (IA32_VMX_EPT_VPID_CAP[20]=0).</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:777px;left:68px;white-space:nowrap" class="ft02">#UD</p>
+<p style="position:absolute;top:777px;left:206px;white-space:nowrap" class="ft02">If&#160;executed outside VMX&#160;root operation.</p>
+<p style="position:absolute;top:813px;left:68px;white-space:nowrap" class="ft03">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:837px;left:68px;white-space:nowrap" class="ft02">#UD</p>
+<p style="position:absolute;top:837px;left:206px;white-space:nowrap" class="ft02">The&#160;INVEPT instruction is&#160;not&#160;recognized&#160;in virtual-8086&#160;mode.</p>
+<p style="position:absolute;top:874px;left:68px;white-space:nowrap" class="ft03">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:897px;left:68px;white-space:nowrap" class="ft02">#UD</p>
+<p style="position:absolute;top:897px;left:206px;white-space:nowrap" class="ft02">The&#160;INVEPT instruction is&#160;not&#160;recognized in compatibility mode.</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft03">64-Bit Mode Exceptions</p>
+<p style="position:absolute;top:957px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:957px;left:206px;white-space:nowrap" class="ft05">If&#160;the current&#160;privilege level&#160;is not 0.<br/>If the&#160;memory&#160;operand&#160;is&#160;in&#160;the CS,&#160;DS,&#160;ES,&#160;FS,&#160;or GS&#160;segments and&#160;the&#160;memory address&#160;is&#160;</p>
+<p style="position:absolute;top:994px;left:205px;white-space:nowrap" class="ft02">in&#160;a non-canonical form.</p>
+<p style="position:absolute;top:1015px;left:68px;white-space:nowrap" class="ft02">#PF(fault-code)</p>
+<p style="position:absolute;top:1015px;left:206px;white-space:nowrap" class="ft02">If a&#160;page fault occurs&#160;in&#160;accessing&#160;the memory&#160;operand.</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:1036px;left:206px;white-space:nowrap" class="ft02">If&#160;the memory operand&#160;is in the&#160;SS&#160;segment and&#160;the memory address&#160;is in&#160;a non-canonical&#160;</p>
+<p style="position:absolute;top:1053px;left:205px;white-space:nowrap" class="ft02">form.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 315</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page315-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a315.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;13-9</p>
+<p style="position:absolute;top:47px;left:544px;white-space:nowrap" class="ft01">MANAGING&#160;STATE&#160;USING&#160;THE XSAVE&#160;FEATURE SET</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">13.5.1 x87&#160;</p>
+<p style="position:absolute;top:98px;left:186px;white-space:nowrap" class="ft02">State</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft010">Instructions&#160;in&#160;the XSAVE&#160;feature set&#160;can manage&#160;the&#160;same&#160;state of&#160;the&#160;x87&#160;FPU execution&#160;environment (<b>x87&#160;<br/>state</b>) that&#160;can&#160;be managed using the FXSAVE and FXRSTOR&#160;instructions. They&#160;organize&#160;all&#160;x87 state as&#160;a user&#160;<br/>state component&#160;in&#160;the legacy region of&#160;the&#160;XSAVE area&#160;(see<a href="o_7281d5ea06a5b67a-312.html">&#160;Section 13.4.1</a>).&#160;This region is&#160;illustrated&#160;in&#160;<br/><a href="o_7281d5ea06a5b67a-312.html">Table&#160;13-1;</a>&#160;the&#160;x87 state is&#160;listed below,&#160;along&#160;with&#160;details&#160;of&#160;its interactions with the&#160;XSAVE feature&#160;set:</p>
+<p style="position:absolute;top:200px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:201px;left:95px;white-space:nowrap" class="ft010">Bytes&#160;1:0,&#160;3:2, 7:6.&#160;These are used&#160;for the&#160;x87&#160;FPU Control Word&#160;(FCW),&#160;the x87 FPU&#160;Status&#160;Word (FSW),&#160;and&#160;<br/>the x87&#160;FPU Opcode&#160;(FOP), respectively.</p>
+<p style="position:absolute;top:239px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:240px;left:95px;white-space:nowrap" class="ft011">Byte&#160;4 is used for an abridged version of the&#160;x87 FPU&#160;Tag&#160;Word (FTW). The&#160;following&#160;items describe its&#160;usage:<br/>—&#160;For&#160;&#160;each&#160;&#160;<i>j</i>, 0&#160;≤&#160;<i>j&#160;</i>≤&#160;7, XSAVE,&#160;XSAVEOPT, XSAVEC,&#160;and XSAVES&#160;save&#160;a 0 into bit&#160;<i>j</i>&#160;of&#160;byte&#160;4&#160;if x87&#160;FPU data&#160;</p>
+<p style="position:absolute;top:280px;left:120px;white-space:nowrap" class="ft010">register ST<i>j</i>&#160;has a&#160;empty&#160;tag;&#160;otherwise, XSAVE,&#160;XSAVEOPT, XSAVEC,&#160;and XSAVES&#160;save&#160;a 1 into bit&#160;<i>j</i>&#160;of&#160;<br/>byte 4.</p>
+<p style="position:absolute;top:321px;left:95px;white-space:nowrap" class="ft03">—&#160;For&#160;&#160;each&#160;&#160;<i>j</i>, 0&#160;≤&#160;<i>j&#160;</i>≤&#160;7,&#160;XRSTOR and XRSTORS&#160;establish&#160;the&#160;tag value for x87 FPU data register ST<i>j</i>&#160;as follows.&#160;</p>
+<p style="position:absolute;top:337px;left:120px;white-space:nowrap" class="ft010">If&#160;bit&#160;<i>j</i>&#160;of&#160;byte&#160;4&#160;is&#160;0,&#160;the&#160;tag&#160;for&#160;ST<i>j</i>&#160;in&#160;the tag&#160;register for that&#160;data register&#160;is&#160;marked&#160;empty (11B);&#160;<br/>otherwise, the x87 FPU sets the tag for ST<i>j</i>&#160;based&#160;on the&#160;value&#160;being loaded into that register&#160;(see&#160;below).</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:376px;left:95px;white-space:nowrap" class="ft011">Bytes&#160;15:8 are used as&#160;follows:<br/>—&#160;If the&#160;instruction&#160;has no&#160;REX&#160;prefix,&#160;or if REX.W&#160;=&#160;0:</p>
+<p style="position:absolute;top:426px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:424px;left:146px;white-space:nowrap" class="ft03">Bytes&#160;11:8&#160;are used&#160;for bits&#160;31:0&#160;of&#160;the x87&#160;FPU&#160;Instruction&#160;Pointer Offset&#160;(FIP).</p>
+<p style="position:absolute;top:450px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:448px;left:146px;white-space:nowrap" class="ft010">If CPUID.(EAX=07H,ECX=0H):EBX[bit&#160;13]&#160;=&#160;0,&#160;bytes 13:12&#160;are used&#160;for x87&#160;FPU&#160;Instruction&#160;Pointer&#160;<br/>Selector (FCS).&#160;Otherwise, XSAVE, XSAVEOPT, XSAVEC,&#160;and&#160;XSAVES save&#160;these bytes&#160;as 0000H,&#160;and&#160;<br/>XRSTOR&#160;and&#160;XRSTORS ignore&#160;them.</p>
+<p style="position:absolute;top:507px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:505px;left:146px;white-space:nowrap" class="ft03">Bytes&#160;15:14 are not used.</p>
+<p style="position:absolute;top:529px;left:94px;white-space:nowrap" class="ft03">—&#160;If&#160;the instruction has&#160;a REX prefix with REX.W&#160;=&#160;1,&#160;bytes&#160;15:8 are&#160;used&#160;for the&#160;full&#160;64&#160;bits&#160;of&#160;FIP.</p>
+<p style="position:absolute;top:551px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:552px;left:95px;white-space:nowrap" class="ft011">Bytes&#160;23:16&#160;are used as&#160;follows:<br/>—&#160;If the&#160;instruction&#160;has no&#160;REX&#160;prefix,&#160;or if REX.W&#160;=&#160;0:</p>
+<p style="position:absolute;top:601px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:600px;left:146px;white-space:nowrap" class="ft03">Bytes&#160;19:16 are used&#160;for bits&#160;31:0&#160;of&#160;the x87&#160;FPU Data&#160;Pointer&#160;Offset&#160;(FDP).</p>
+<p style="position:absolute;top:625px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:624px;left:146px;white-space:nowrap" class="ft010">If CPUID.(EAX=07H,ECX=0H):EBX[bit 13]&#160;=&#160;0,&#160;bytes&#160;21:20&#160;are used&#160;for x87 FPU Data Pointer Selector&#160;<br/>(FDS).&#160;Otherwise, XSAVE,&#160;XSAVEOPT, XSAVEC,&#160;and&#160;XSAVES save&#160;these bytes&#160;as 0000H; and&#160;XRSTOR&#160;<br/>and&#160;XRSTORS ignore them.</p>
+<p style="position:absolute;top:682px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:681px;left:146px;white-space:nowrap" class="ft03">Bytes&#160;23:22 are not used.</p>
+<p style="position:absolute;top:705px;left:94px;white-space:nowrap" class="ft03">—&#160;If&#160;the instruction has&#160;a REX prefix with REX.W&#160;=&#160;1,&#160;bytes&#160;23:16&#160;are used&#160;for the&#160;full 64&#160;bits&#160;of FDP.</p>
+<p style="position:absolute;top:727px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:727px;left:95px;white-space:nowrap" class="ft03">Bytes&#160;31:24&#160;are&#160;used&#160;for&#160;SSE state&#160;(see<a href="o_7281d5ea06a5b67a-315.html">&#160;Section 13.5.2).</a></p>
+<p style="position:absolute;top:749px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:750px;left:95px;white-space:nowrap" class="ft010">Bytes&#160;159:32&#160;are&#160;used&#160;for the&#160;registers ST0–ST7 (MM0–MM7).&#160;Each of the&#160;8&#160;register&#160;is&#160;allocated&#160;a 128-bit&#160;<br/>region,&#160;with&#160;the low 80 bits used for the&#160;register and&#160;the upper&#160;48&#160;bits unused.</p>
+<p style="position:absolute;top:790px;left:69px;white-space:nowrap" class="ft010">x87 state&#160;is XSAVE-managed but&#160;the&#160;x87 FPU feature&#160;is not&#160;XSAVE-enabled.&#160;The&#160;XSAVE&#160;feature set can operate&#160;on&#160;<br/>x87 state only if the&#160;feature&#160;set is enabled (CR4.OSXSAVE&#160;= 1).</p>
+<p style="position:absolute;top:804px;left:497px;white-space:nowrap" class="ft08">1</p>
+<p style="position:absolute;top:807px;left:503px;white-space:nowrap" class="ft03">&#160;Software can otherwise use x87 state&#160;even&#160;if the&#160;</p>
+<p style="position:absolute;top:823px;left:69px;white-space:nowrap" class="ft03">XSAVE feature&#160;set is&#160;not enabled.</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft02">13.5.2 SSE&#160;</p>
+<p style="position:absolute;top:874px;left:184px;white-space:nowrap" class="ft02">State</p>
+<p style="position:absolute;top:904px;left:69px;white-space:nowrap" class="ft010">Instructions&#160;in the&#160;XSAVE feature&#160;set can&#160;manage the&#160;registers used&#160;by&#160;the&#160;streaming&#160;SIMD&#160;extensions&#160;(<b>SSE&#160;<br/>state</b>) just as the&#160;FXSAVE&#160;and FXRSTOR instructions&#160;do. They organize all SSE state as a user state component in&#160;<br/>the legacy&#160;region of the XSAVE area&#160;<a href="o_7281d5ea06a5b67a-312.html">(see Section 13.4.1).&#160;</a>This region is illustrate<a href="o_7281d5ea06a5b67a-312.html">d in Table&#160;13-1; the S</a>SE state is&#160;<br/>listed below,&#160;along&#160;with details&#160;of&#160;its interactions with the&#160;XSAVE&#160;feature set:</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:976px;left:95px;white-space:nowrap" class="ft03">Bytes&#160;23:0 are used for x87&#160;state&#160;(see<a href="o_7281d5ea06a5b67a-315.html">&#160;Section&#160;13.5.1).</a></p>
+<p style="position:absolute;top:998px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:999px;left:95px;white-space:nowrap" class="ft010">Bytes&#160;27:24&#160;are used&#160;for the&#160;MXCSR register.&#160;XRSTOR and XRSTORS&#160;generate general-protection faults (#GP)&#160;<br/>in response&#160;to attempts&#160;to set any&#160;of&#160;the reserved&#160;bits of the&#160;MXCSR&#160;register.</p>
+<p style="position:absolute;top:1013px;left:617px;white-space:nowrap" class="ft08">2</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft03">1.&#160;The processor ensures that&#160;XCR0[0] is always&#160;1.</p>
+</div>
+</body>
+</html>

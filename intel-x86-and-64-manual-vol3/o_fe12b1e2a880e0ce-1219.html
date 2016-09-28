@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1219</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1219-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1219.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;31-9</p>
+<p style="position:absolute;top:47px;left:475px;white-space:nowrap" class="ft01">VIRTUAL-MACHINE&#160;MONITOR PROGRAMMING CONSIDERATIONS</p>
+<p style="position:absolute;top:102px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:146px;white-space:nowrap" class="ft03">The&#160;value&#160;of bits&#160;7:0 of the&#160;IDT-vectoring information field&#160;indicates&#160;a contributory exception&#160;(0, 10,&#160;</p>
+<p style="position:absolute;top:117px;left:145px;white-space:nowrap" class="ft06">11,&#160;12,&#160;or 13) and&#160;the&#160;value&#160;of bits&#160;7:0&#160;of the&#160;VM-exit&#160;interruption-information field indicates a&#160;page&#160;<br/>fault (14).</p>
+<p style="position:absolute;top:157px;left:94px;white-space:nowrap" class="ft03">—&#160;If the&#160;value of bits&#160;10:8&#160;of&#160;the IDT-vectoring&#160;information field is&#160;3&#160;(hardware exception), the&#160;VMM should&#160;</p>
+<p style="position:absolute;top:174px;left:120px;white-space:nowrap" class="ft03">reflect a&#160;double-fault&#160;exception to guest software&#160;in any&#160;of&#160;the following cases:</p>
+<p style="position:absolute;top:199px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:198px;left:146px;white-space:nowrap" class="ft03">The&#160;value&#160;of bits&#160;7:0 of the&#160;IDT-vectoring information field&#160;and the&#160;value of bits&#160;7:0&#160;of&#160;the VM-exit&#160;</p>
+<p style="position:absolute;top:214px;left:145px;white-space:nowrap" class="ft03">interruption-information&#160;field each indicates a&#160;contributory&#160;exception.</p>
+<p style="position:absolute;top:240px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:238px;left:146px;white-space:nowrap" class="ft03">The&#160;value&#160;of bits&#160;7:0 of the&#160;IDT-vectoring information&#160;field indicates a&#160;page fault and the&#160;value&#160;of&#160;</p>
+<p style="position:absolute;top:255px;left:145px;white-space:nowrap" class="ft06">bits&#160;7:0&#160;of the&#160;VM-exit&#160;interruption-information field indicates either&#160;a contributory exception or&#160;a page&#160;<br/>fault.</p>
+<p style="position:absolute;top:295px;left:119px;white-space:nowrap" class="ft03">A&#160;VMM can reflect&#160;a double-fault exception to&#160;guest software&#160;by setting the VM-entry interruption-</p>
+<p style="position:absolute;top:312px;left:120px;white-space:nowrap" class="ft03">information&#160;and VM-entry&#160;exception&#160;error-code fields as follows:</p>
+<p style="position:absolute;top:337px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:336px;left:146px;white-space:nowrap" class="ft03">Set bits&#160;7:0 (vector) of the&#160;VM-entry&#160;interruption-information field to&#160;8 (#DF).</p>
+<p style="position:absolute;top:361px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:360px;left:146px;white-space:nowrap" class="ft03">Set bits&#160;10:8 (interruption type) of the&#160;VM-entry&#160;interruption-information field to 3&#160;(hardware&#160;</p>
+<p style="position:absolute;top:376px;left:145px;white-space:nowrap" class="ft03">exception).</p>
+<p style="position:absolute;top:402px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:400px;left:146px;white-space:nowrap" class="ft03">Set bit&#160;11 (deliver&#160;error code) of&#160;the VM-entry interruption-information&#160;field&#160;to 1.</p>
+<p style="position:absolute;top:426px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:424px;left:146px;white-space:nowrap" class="ft03">Clear&#160;bits&#160;30:12 (reserved) of VM-entry interruption-information&#160;field.</p>
+<p style="position:absolute;top:450px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:448px;left:146px;white-space:nowrap" class="ft03">Set&#160;bit&#160;31&#160;(valid) of VM-entry interruption-information&#160;field.</p>
+<p style="position:absolute;top:474px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:472px;left:146px;white-space:nowrap" class="ft03">Set&#160;the VM-entry exception&#160;error-code field&#160;to zero.</p>
+<p style="position:absolute;top:496px;left:94px;white-space:nowrap" class="ft03">—&#160;If the&#160;value of bits&#160;10:8&#160;of&#160;the IDT-vectoring&#160;information field is&#160;3&#160;(hardware exception)&#160;and the value of&#160;</p>
+<p style="position:absolute;top:513px;left:120px;white-space:nowrap" class="ft06">bits&#160;7:0&#160;is 8&#160;(#DF),&#160;guest software would&#160;have encountered&#160;a triple fault. Event&#160;injection&#160;should not be&#160;<br/>used in this case. The VMM may choose to terminate the&#160;guest, or it might choose to enter&#160;the guest in the&#160;<br/>shutdown activity&#160;state.</p>
+<p style="position:absolute;top:590px;left:69px;white-space:nowrap" class="ft04">31.7.1.2 &#160;&#160;Resuming Guest Software&#160;after Handling&#160;an Exception</p>
+<p style="position:absolute;top:619px;left:69px;white-space:nowrap" class="ft06">If the VMM determines that a VM&#160;exit was caused&#160;by an exception due&#160;to a condition established by the&#160;VMM itself,&#160;<br/>it may choose&#160;to&#160;resume&#160;guest software&#160;after removing&#160;the&#160;condition. The&#160;approach&#160;for&#160;removing&#160;the&#160;condition&#160;<br/>may be specific to&#160;the VMM’s software architecture.&#160;and algorithms&#160;This section&#160;describes&#160;how guest software&#160;may&#160;<br/>be&#160;resumed&#160;after removing the condition.<br/>In general, the&#160;VMM can&#160;resume&#160;guest software&#160;simply&#160;by executing&#160;VMRESUME.&#160;The following items&#160;provide&#160;<br/>details of cases that may require&#160;special handling:</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:731px;left:95px;white-space:nowrap" class="ft08">If the&#160;“NMI exiting”&#160;VM-execution control&#160;is 0,&#160;bit&#160;12 of&#160;the&#160;VM-exit interruption-information field indicates that&#160;<br/>the&#160;VM&#160;exit&#160;was due&#160;to a&#160;fault encountered&#160;during&#160;an&#160;execution&#160;of&#160;the IRET&#160;instruction that unblocked&#160;non-<br/>maskable interrupts (NMIs). In&#160;particular,&#160;it provides&#160;this indication&#160;if the&#160;following are both&#160;true:<br/>—&#160;Bit&#160;31&#160;(valid) in the IDT-vectoring&#160;information field&#160;is&#160;0.<br/>—&#160;The&#160;value of bits&#160;7:0 (vector) of&#160;the VM-exit interruption-information field is&#160;not 8&#160;(the VM&#160;exit is&#160;not due&#160;</p>
+<p style="position:absolute;top:829px;left:120px;white-space:nowrap" class="ft03">to&#160;a double-fault exception).</p>
+<p style="position:absolute;top:851px;left:95px;white-space:nowrap" class="ft06">If&#160;both&#160;are true&#160;and bit&#160;12 of&#160;the VM-exit interruption-information field is&#160;1, NMIs&#160;were blocked before guest&#160;<br/>software executed&#160;the IRET instruction that&#160;caused&#160;the&#160;fault that&#160;caused&#160;the&#160;VM&#160;exit. The VMM&#160;should set bit&#160;3&#160;<br/>(blocking by&#160;NMI) in&#160;the interruptibility-state&#160;field&#160;(using VMREAD and&#160;VMWRITE) before resuming&#160;guest&#160;<br/>software.</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:923px;left:95px;white-space:nowrap" class="ft07">If&#160;the “virtual NMIs”&#160;VM-execution&#160;control is&#160;1, bit&#160;12 of the VM-exit interruption-information&#160;field&#160;indicates&#160;<br/>that the VM&#160;exit&#160;was&#160;due to&#160;a fault encountered during&#160;an execution of the&#160;IRET instruction that&#160;removed&#160;<br/>virtual-NMI blocking. In&#160;particular,&#160;it provides&#160;this&#160;indication&#160;if&#160;the following are&#160;both true:<br/>—&#160;Bit&#160;31&#160;(valid) in the IDT-vectoring&#160;information field&#160;is&#160;0.<br/>—&#160;The&#160;value of bits&#160;7:0 (vector) of&#160;the VM-exit interruption-information field is&#160;not 8&#160;(the VM&#160;exit is&#160;not due&#160;</p>
+<p style="position:absolute;top:1021px;left:120px;white-space:nowrap" class="ft03">to&#160;a double-fault exception).</p>
+<p style="position:absolute;top:1043px;left:95px;white-space:nowrap" class="ft06">If&#160;both&#160;are true&#160;and bit&#160;12 of&#160;the VM-exit interruption-information field is&#160;1,&#160;there&#160;was virtual-NMI&#160;blocking&#160;<br/>before&#160;guest software&#160;executed&#160;the IRET&#160;instruction that caused&#160;the fault that caused&#160;the VM&#160;exit. The&#160;VMM&#160;</p>
+</div>
+</body>
+</html>

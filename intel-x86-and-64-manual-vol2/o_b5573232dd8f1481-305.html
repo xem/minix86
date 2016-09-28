@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 305</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:0px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page305-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481305.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CMPSS—Compare&#160;Scalar Single-Precision Floating-Point Value</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-177</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">by using&#160;the&#160;inverse relationship (that is,&#160;use the&#160;“not-less-than-or-equal”&#160;to make&#160;a “greater-than”&#160;comparison)&#160;<br/>or by using&#160;software emulation. When&#160;using software&#160;emulation,&#160;the program must swap the&#160;operands (copying&#160;<br/>registers when necessary&#160;to protect the&#160;data&#160;that&#160;will now be in&#160;the destination),&#160;and then&#160;perform the&#160;compare&#160;<br/>using&#160;a different&#160;predicate.&#160;The predicate&#160;to be used for these emulations is&#160;listed in the first 8 rows&#160;of Table&#160;3-7&#160;<br/>(<i>Intel 64&#160;and IA-32 Architectures&#160;Software&#160;Developer’s Manual&#160;Volume&#160;2A</i>) under&#160;the heading&#160;Emulation.&#160;<br/>Compilers and assemblers&#160;may implement&#160;the following two-operand&#160;pseudo-ops in addition to the&#160;three-operand&#160;<br/>CMPSS&#160;instruction, for processors with “CPUID.1H:ECX.AVX =0”.&#160;See&#160;<a href="o_b5573232dd8f1481-305.html">Table&#160;3-8.</a>&#160;Compiler should&#160;treat&#160;reserved&#160;<br/>Imm8&#160;values as&#160;illegal syntax.</p>
+<p style="position:absolute;top:248px;left:69px;white-space:nowrap" class="ft04">:</p>
+<p style="position:absolute;top:498px;left:69px;white-space:nowrap" class="ft06">The greater-than&#160;relations that&#160;the processor does not implement require more&#160;than&#160;one instruction to&#160;emulate in&#160;<br/>software and therefore should not be&#160;implemented&#160;as pseudo-ops.&#160;(For these,&#160;the programmer should&#160;reverse the&#160;<br/>operands of the&#160;corresponding&#160;less than relations&#160;and use&#160;move&#160;instructions&#160;to ensure&#160;that the&#160;mask&#160;is moved to&#160;<br/>the correct destination&#160;register and&#160;that&#160;the&#160;source operand&#160;is left&#160;intact.)&#160;<br/>Processors with&#160;“CPUID.1H:ECX.AVX&#160;=1” implement the full&#160;complement of 32 pred<a href="o_b5573232dd8f1481-301.html">icates shown in Table 3-7,</a>&#160;soft-<br/>ware&#160;emulation&#160;is no longer needed.&#160;Compilers&#160;and&#160;assemblers may implement&#160;the following three-operand&#160;<br/>pseudo-ops in addition to&#160;the four-operand VCMPSS&#160;instruction.&#160;Se<a href="o_b5573232dd8f1481-305.html">e Table 3-9,</a>&#160;where&#160;the notations of reg1&#160;reg2,&#160;<br/>and reg3&#160;represent either&#160;XMM&#160;registers or YMM&#160;registers.&#160;Compiler&#160;should treat reserved&#160;Imm8&#160;values&#160;as illegal&#160;<br/>syntax. Alternately,&#160;intrinsics can map the pseudo-ops to&#160;pre-defined constants&#160;to support a simpler intrinsic&#160;inter-<br/>face. Compilers and assemblers may implement three-operand pseudo-ops for&#160;EVEX encoded VCMPSS&#160;instructions&#160;<br/>in a&#160;similar fashion&#160;by extending the&#160;syntax listed&#160;<a href="o_b5573232dd8f1481-305.html">in&#160;Table&#160;3-9</a>.</p>
+<p style="position:absolute;top:695px;left:69px;white-space:nowrap" class="ft04">:</p>
+<p style="position:absolute;top:246px;left:287px;white-space:nowrap" class="ft05">Table 3-8.&#160;Pseudo-Op&#160;and&#160;CMPSS Implementation</p>
+<p style="position:absolute;top:271px;left:78px;white-space:nowrap" class="ft02">Pseudo-Op</p>
+<p style="position:absolute;top:271px;left:468px;white-space:nowrap" class="ft02">CMPSS Implementation</p>
+<p style="position:absolute;top:295px;left:78px;white-space:nowrap" class="ft02">CMPEQSS x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:295px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 0</i></p>
+<p style="position:absolute;top:319px;left:78px;white-space:nowrap" class="ft02">CMPLTSS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:319px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 1</i></p>
+<p style="position:absolute;top:343px;left:78px;white-space:nowrap" class="ft02">CMPLESS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:343px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 2</i></p>
+<p style="position:absolute;top:367px;left:78px;white-space:nowrap" class="ft02">CMPUNORDSS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:367px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 3</i></p>
+<p style="position:absolute;top:391px;left:78px;white-space:nowrap" class="ft02">CMPNEQSS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:391px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 4</i></p>
+<p style="position:absolute;top:415px;left:78px;white-space:nowrap" class="ft02">CMPNLTSS x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:415px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 5</i></p>
+<p style="position:absolute;top:439px;left:78px;white-space:nowrap" class="ft02">CMPNLESS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:439px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 6</i></p>
+<p style="position:absolute;top:463px;left:78px;white-space:nowrap" class="ft02">CMPORDSS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:463px;left:468px;white-space:nowrap" class="ft02">CMPSS&#160;x<i>mm1, xmm2, 7</i></p>
+<p style="position:absolute;top:694px;left:282px;white-space:nowrap" class="ft05">Table 3-9. Pseudo-Op and&#160;VCMPSS Implementation</p>
+<p style="position:absolute;top:718px;left:77px;white-space:nowrap" class="ft02">Pseudo-Op</p>
+<p style="position:absolute;top:718px;left:468px;white-space:nowrap" class="ft02">CMPSS Implementation</p>
+<p style="position:absolute;top:742px;left:77px;white-space:nowrap" class="ft02">VCMPEQSS r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:742px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;0</i></p>
+<p style="position:absolute;top:766px;left:77px;white-space:nowrap" class="ft02">VCMPLTSS&#160;r<i>eg1,&#160;reg2,&#160;reg3</i></p>
+<p style="position:absolute;top:766px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;1</i></p>
+<p style="position:absolute;top:790px;left:77px;white-space:nowrap" class="ft02">VCMPLESS&#160;r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:790px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;2</i></p>
+<p style="position:absolute;top:814px;left:77px;white-space:nowrap" class="ft02">VCMPUNORDSS&#160;r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:814px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;3</i></p>
+<p style="position:absolute;top:838px;left:77px;white-space:nowrap" class="ft02">VCMPNEQSS&#160;r<i>eg1, reg2,&#160;reg3</i></p>
+<p style="position:absolute;top:838px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;4</i></p>
+<p style="position:absolute;top:862px;left:77px;white-space:nowrap" class="ft02">VCMPNLTSS&#160;r<i>eg1,&#160;reg2,&#160;reg3</i></p>
+<p style="position:absolute;top:862px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;5</i></p>
+<p style="position:absolute;top:886px;left:77px;white-space:nowrap" class="ft02">VCMPNLESS&#160;r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:886px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;6</i></p>
+<p style="position:absolute;top:910px;left:77px;white-space:nowrap" class="ft02">VCMPORDSS&#160;r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:910px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;7</i></p>
+<p style="position:absolute;top:934px;left:77px;white-space:nowrap" class="ft02">VCMPEQ_UQSS&#160;r<i>eg1,&#160;reg2,&#160;reg3</i></p>
+<p style="position:absolute;top:934px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;8</i></p>
+<p style="position:absolute;top:958px;left:77px;white-space:nowrap" class="ft02">VCMPNGESS&#160;r<i>eg1, reg2,&#160;reg3</i></p>
+<p style="position:absolute;top:958px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;9</i></p>
+<p style="position:absolute;top:982px;left:77px;white-space:nowrap" class="ft02">VCMPNGTSS r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:982px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;0AH</i></p>
+<p style="position:absolute;top:1006px;left:77px;white-space:nowrap" class="ft02">VCMPFALSESS r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:1006px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;0BH</i></p>
+<p style="position:absolute;top:1030px;left:77px;white-space:nowrap" class="ft02">VCMPNEQ_OQSS&#160;r<i>eg1, reg2,&#160;reg3</i></p>
+<p style="position:absolute;top:1030px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;0CH</i></p>
+<p style="position:absolute;top:1054px;left:77px;white-space:nowrap" class="ft02">VCMPGESS r<i>eg1,&#160;reg2, reg3</i></p>
+<p style="position:absolute;top:1054px;left:468px;white-space:nowrap" class="ft02">VCMPSS&#160;r<i>eg1,&#160;reg2, reg3,&#160;0DH</i></p>
+</div>
+</body>
+</html>

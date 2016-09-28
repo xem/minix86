@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1015</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1015-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1015.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;22-11</p>
+<p style="position:absolute;top:47px;left:657px;white-space:nowrap" class="ft01">ARCHITECTURE&#160;COMPATIBILITY</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">22.18.6.8&#160;&#160;&#160;Invalid Operation&#160;Exception On&#160;Denormals&#160;</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft05">An invalid-operation&#160;exception is not generated&#160;on&#160;the&#160;32-bit x87&#160;FPUs&#160;upon encountering&#160;a denormal value&#160;when&#160;<br/>executing a FSQRT,&#160;FDIV, or&#160;FPREM&#160;instruction&#160;or upon&#160;conversion to&#160;BCD or&#160;to integer.&#160;The operation&#160;proceeds by&#160;<br/>first normalizing&#160;the value. On the&#160;16-bit IA-32 math coprocessors, upon encountering&#160;this situation, the&#160;invalid-<br/>operation&#160;exception&#160;is generated. This difference has no&#160;impact on existing&#160;software. Software running&#160;on&#160;the 32-<br/>bit x87&#160;FPUs continues&#160;to execute in&#160;cases where&#160;the 16-bit IA-32 math coprocessors trap. The reason&#160;for&#160;this&#160;<br/>change was&#160;to eliminate&#160;an exception&#160;from being&#160;raised.</p>
+<p style="position:absolute;top:254px;left:69px;white-space:nowrap" class="ft02">22.18.6.9&#160;&#160;&#160;Alignment Check Exceptions (#AC)</p>
+<p style="position:absolute;top:283px;left:69px;white-space:nowrap" class="ft05">If&#160;alignment checking&#160;is enabled, a&#160;misaligned data operand&#160;on&#160;the P6 family, Pentium,&#160;and Intel486&#160;processors&#160;<br/>causes an&#160;alignment check&#160;exception (#AC) when&#160;a&#160;program&#160;or procedure&#160;is running at&#160;privilege-level 3,&#160;except&#160;<br/>for&#160;the stack&#160;portion of the&#160;FSAVE/FNSAVE,&#160;FXSAVE, FRSTOR, and FXRSTOR&#160;instructions.</p>
+<p style="position:absolute;top:360px;left:69px;white-space:nowrap" class="ft02">22.18.6.10&#160; Segment Not Present Exception During FLDENV</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft05">On the Intel486&#160;processor,&#160;when&#160;a segment not present exception (#NP)&#160;occurs in the&#160;middle&#160;of an&#160;FLDENV&#160;<br/>instruction,&#160;it can happen that part of the environment is&#160;loaded and&#160;part not. In such cases, the FPU&#160;control word&#160;<br/>is left with a value of 007FH.&#160;The P6 family and Pentium&#160;processors ensure the internal&#160;state is&#160;correct at&#160;all times&#160;<br/>by&#160;attempting to read the first and&#160;last&#160;bytes of&#160;the&#160;environment before updating&#160;the&#160;internal state.</p>
+<p style="position:absolute;top:482px;left:69px;white-space:nowrap" class="ft02">22.18.6.11&#160; Device&#160;Not Available Exception (#NM)</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft05">The device-not-available&#160;exception (#NM, interrupt&#160;7) will occur in&#160;the&#160;P6&#160;family, Pentium, and Intel486&#160;processors&#160;<br/>as described&#160;in&#160;<a href="o_fe12b1e2a880e0ce-75.html">Section&#160;2.5,&#160;“Control Registers,” T</a><a href="o_fe12b1e2a880e0ce-78.html">able&#160;2-2,</a>&#160;and<a href="o_fe12b1e2a880e0ce-213.html">&#160;Chapter 6, “Interrupt&#160;7—Device Not&#160;Available&#160;<br/>Exception (#NM).”</a></p>
+<p style="position:absolute;top:588px;left:69px;white-space:nowrap" class="ft02">22.18.6.12&#160; Coprocessor&#160;Segment Overrun Exception</p>
+<p style="position:absolute;top:616px;left:69px;white-space:nowrap" class="ft05">The coprocessor segment overrun&#160;exception&#160;(interrupt&#160;9) does&#160;not occur in&#160;the P6&#160;family,&#160;Pentium,&#160;and&#160;Intel486&#160;<br/>processors. In&#160;situations&#160;where the&#160;Intel&#160;387 math coprocessor would cause&#160;an interrupt&#160;9,&#160;the P6 family,&#160;Pentium,&#160;<br/>and Intel486&#160;processors&#160;simply abort the&#160;instruction.&#160;To&#160;avoid undetected&#160;segment&#160;overruns,&#160;it&#160;is recommended&#160;<br/>that the floating-point&#160;save&#160;area be&#160;placed&#160;in&#160;the&#160;same&#160;page&#160;as the TSS.&#160;This placement&#160;will&#160;prevent the FPU envi-<br/>ronment from&#160;being&#160;lost if a&#160;page fault occurs&#160;during&#160;the execution&#160;of an FLDENV, FRSTOR,&#160;or FXRSTOR&#160;instruction&#160;<br/>while&#160;the&#160;operating system is&#160;performing a&#160;task switch.</p>
+<p style="position:absolute;top:743px;left:69px;white-space:nowrap" class="ft02">22.18.6.13&#160; General&#160;Protection&#160;Exception (#GP)</p>
+<p style="position:absolute;top:772px;left:69px;white-space:nowrap" class="ft05">A general-protection exception (#GP,&#160;interrupt 13) occurs&#160;if&#160;the&#160;starting&#160;address of a&#160;floating-point operand&#160;falls&#160;<br/>outside a&#160;segment’s size.&#160;An exception&#160;handler should&#160;be&#160;included&#160;to&#160;report these programming errors.</p>
+<p style="position:absolute;top:832px;left:69px;white-space:nowrap" class="ft02">22.18.6.14&#160; Floating-Point&#160;Error&#160;Exception&#160;(#MF)</p>
+<p style="position:absolute;top:861px;left:69px;white-space:nowrap" class="ft05">In real&#160;mode&#160;and&#160;protected&#160;mode&#160;(not including&#160;virtual-8086&#160;mode),&#160;interrupt vector 16&#160;must&#160;point to&#160;the floating-<br/>point exception&#160;handler.&#160;In virtual-8086&#160;mode, the&#160;virtual-8086&#160;monitor can be&#160;programmed&#160;to accommodate&#160;a&#160;<br/>different location&#160;of&#160;the interrupt vector for floating-point&#160;exceptions.</p>
+<p style="position:absolute;top:944px;left:69px;white-space:nowrap" class="ft04">22.18.7&#160;&#160;Changes to&#160;Floating-Point&#160;Instructions</p>
+<p style="position:absolute;top:975px;left:69px;white-space:nowrap" class="ft05">This section identifies the differences in floating-point&#160;instructions for the various Intel FPU&#160;and math&#160;coprocessor&#160;<br/>architectures, the&#160;reason for the&#160;differences, and their&#160;impact on software.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 863</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page863-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481863.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PABSB/PABSW/PABSD/PABSQ — Packed Absolute Value</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-183</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">VPABSW&#160;(EVEX encoded versions)</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">(KL, VL) = (8, 128), (16, 256), (32,&#160;512)</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:208px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:226px;left:143px;white-space:nowrap" class="ft02">Unsigned DEST[i+15:i]&#160;&#160;ABS(SRC[i+15:i])</p>
+<p style="position:absolute;top:244px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:262px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:262px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:280px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:298px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:316px;left:197px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0</p>
+<p style="position:absolute;top:334px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:352px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft02">PABSD with 128 bit operands:</p>
+<p style="position:absolute;top:442px;left:89px;white-space:nowrap" class="ft03">Unsigned&#160;DEST[31:0]ABS(SRC[31:0])&#160;<br/>Repeat operation&#160;for 2nd through&#160;3rd 32-bit&#160;double&#160;words&#160;<br/>Unsigned&#160;DEST[127:96]ABS(SRC[127:96])&#160;</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft02">VPABSD&#160;with 128 bit&#160;operands:</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft03">Unsigned&#160;DEST[31:0]ABS(SRC[31:0])&#160;<br/>Repeat operation&#160;for 2nd through&#160;3rd 32-bit&#160;double&#160;words&#160;<br/>Unsigned&#160;DEST[127:96]ABS(SRC[127:96])&#160;</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft02">VPABSD&#160;with 256 bit&#160;operands:</p>
+<p style="position:absolute;top:622px;left:89px;white-space:nowrap" class="ft03">Unsigned&#160;DEST[31:0]&#160;ABS(SRC[31:0])&#160;<br/>Repeat operation&#160;for 2nd through&#160;7th&#160;32-bit double&#160;words&#160;<br/>Unsigned&#160;DEST[255:224]&#160;ABS(SRC[255:224])&#160;</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft03">VPABSD&#160;(EVEX&#160;encoded&#160;versions)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:748px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:784px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:802px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC *is memory*)</p>
+<p style="position:absolute;top:820px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:838px;left:197px;white-space:nowrap" class="ft02">Unsigned DEST[i+31:i]&#160;&#160;ABS(SRC[31:0])</p>
+<p style="position:absolute;top:856px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:874px;left:197px;white-space:nowrap" class="ft02">Unsigned DEST[i+31:i]&#160;&#160;ABS(SRC[i+31:i])</p>
+<p style="position:absolute;top:892px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:910px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:928px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:928px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:946px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:964px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:982px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:1000px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:1018px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1036px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

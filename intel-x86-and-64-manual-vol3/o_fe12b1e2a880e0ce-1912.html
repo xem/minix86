@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1912</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1912-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1912.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-102&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">(* SECS&#160;must exist and&#160;enclave must have&#160;previously been&#160;EINITted&#160;*)<br/>IF&#160;(the&#160;enclave&#160;is&#160;not already initialized)&#160;</p>
+<p style="position:absolute;top:136px;left:88px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft03">(* make&#160;sure&#160;the logical processor’s operating&#160;mode&#160;matches the&#160;enclave *)<br/>IF&#160;( (TMP_MODE64&#160;≠&#160;TMP_SECS.ATTRIBUTES.MODE64BIT) )</p>
+<p style="position:absolute;top:208px;left:88px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft02">IF&#160;(CR4.OSFXSR = 0)</p>
+<p style="position:absolute;top:262px;left:88px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:298px;left:68px;white-space:nowrap" class="ft03">(* Check for legal values&#160;of SECS.ATTRIBUTES.XFRM&#160;*)<br/>IF&#160;(CR4.OSXSAVE = 0)</p>
+<p style="position:absolute;top:334px;left:88px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:352px;left:115px;white-space:nowrap" class="ft02">IF (TMP_SECS.ATTRIBUES.XFRM&#160;≠&#160;03H) THEN #GP(0); FI;</p>
+<p style="position:absolute;top:370px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:388px;left:115px;white-space:nowrap" class="ft02">IF ( (TMP_SECS.ATTRIBUES.XFRM &amp; XCR0)&#160;≠&#160;TMP_SECS.ATTRIBUES.XFRM) THEN #GP(0); FI;</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:442px;left:68px;white-space:nowrap" class="ft03">(* Make&#160;sure&#160;the&#160;SSA contains&#160;at least one&#160;active&#160;frame *)<br/>IF (&#160;(DS:RBX).CSSA =&#160;0)&#160;</p>
+<p style="position:absolute;top:478px;left:88px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft03">(* Compute linear&#160;address of&#160;SSA&#160;frame&#160;*)<br/>TMP_SSA&#160;&#160;(DS:RBX).OSSA + TMP_SECS.BASEADDR + 4096 * TMP_SECS.SSAFRAMESIZE * (&#160;(DS:RBX).CSSA - 1);<br/>TMP_XSIZE&#160;&#160;compute_XSAVE_frame_size(TMP_SECS.ATTRIBUTES.XFRM);</p>
+<p style="position:absolute;top:586px;left:68px;white-space:nowrap" class="ft02">FOR EACH TMP_SSA_PAGE = TMP_SSA to&#160;TMP_SSA + TMP_XSIZE</p>
+<p style="position:absolute;top:604px;left:88px;white-space:nowrap" class="ft03">(*&#160;Check&#160;page&#160;is&#160;read/write accessible *)<br/>Check that DS:TMP_SSA_PAGE is&#160;read/write&#160;accessible;&#160;<br/>If a fault occurs, release locks,&#160;abort&#160;and deliver that fault;<br/>IF (DS:TMP_SSA_PAGE&#160;does not resolve&#160;to EPC&#160;page)&#160;</p>
+<p style="position:absolute;top:676px;left:115px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_SSA_PAGE).VALID = 0)&#160;</p>
+<p style="position:absolute;top:712px;left:115px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:730px;left:88px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_SSA_PAGE).BLOCKED = 1)&#160;</p>
+<p style="position:absolute;top:748px;left:115px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:766px;left:88px;white-space:nowrap" class="ft02">IF&#160;((EPCM(DS:TMP_SSA_PAGE).PENDING&#160;=&#160;1) or&#160;(EPCM(DS:TMP_SSA_PAGE_.MODIFIED = 1))</p>
+<p style="position:absolute;top:784px;left:115px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:802px;left:88px;white-space:nowrap" class="ft02">IF ( ( EPCM(DS:TMP_SSA_PAGE).ENCLAVEADDRESS&#160;≠&#160;DS:TMPSSA_PAGE) or&#160;(EPCM(DS:TMP_SSA_PAGE).PT&#160;≠&#160;PT_REG) or</p>
+<p style="position:absolute;top:820px;left:115px;white-space:nowrap" class="ft03">(EPCM(DS:TMP_SSA_PAGE).ENCLAVESECS&#160;≠&#160;EPCM(DS:RBX).ENCLAVESECS) or&#160;<br/>(EPCM(DS:TMP_SECS).R&#160;= 0) or&#160;(EPCM(DS:TMP_SECS).W =&#160;0) )<br/>THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:874px;left:88px;white-space:nowrap" class="ft02">CR_XSAVE_PAGE_n&#160;&#160;Physical_Address(DS:TMP_SSA_PAGE);</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft02">ENDFOR</p>
+<p style="position:absolute;top:928px;left:68px;white-space:nowrap" class="ft03">(* Compute address of&#160;GPR&#160;area*)<br/>TMP_GPR&#160;&#160;TMP_SSA&#160;+ 4096 *&#160;DS:TMP_SECS.SSAFRAMESIZE&#160;-- sizeof(GPRSGX_AREA);<br/>Check that DS:TMP_SSA_PAGE&#160;is&#160;read/write accessible;&#160;<br/>If a&#160;fault&#160;occurs, release&#160;locks,&#160;abort and&#160;deliver that&#160;fault;<br/>IF&#160;(DS:TMP_GPR does not resolve to EPC page)&#160;</p>
+<p style="position:absolute;top:1018px;left:88px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_GPR).VALID&#160;= 0)&#160;</p>
+<p style="position:absolute;top:1054px;left:88px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+</div>
+</body>
+</html>

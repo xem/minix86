@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 503</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page503-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481503.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">FSAVE/FNSAVE—Store x87 FPU State</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-375</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">FSAVE/FNSAVE—Store&#160;x87 FPU State</p>
+<p style="position:absolute;top:350px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:375px;left:69px;white-space:nowrap" class="ft010">Stores the current FPU&#160;state&#160;(operating environment&#160;and register&#160;stack) at&#160;the specified destination&#160;in memory,&#160;<br/>and&#160;then&#160;re-initializes the&#160;FPU.&#160;The FSAVE&#160;instruction&#160;checks&#160;for&#160;and handles&#160;pending unmasked&#160;floating-point&#160;<br/>exceptions before&#160;storing&#160;the FPU&#160;state;&#160;the FNSAVE instruction does&#160;not.<br/>The&#160;FPU operating&#160;environment consists of&#160;the FPU&#160;control&#160;word,&#160;status word,&#160;tag&#160;word, instruction pointer,&#160;data&#160;<br/>pointer,&#160;and last&#160;opcode.&#160;Figures 8-9&#160;through 8-12&#160;in the&#160;<a href="��"><i>Intel®&#160;64&#160;and IA-32 Architectures Software Developer’s&#160;<br/>Manual, Volume 1</i></a>,&#160;show&#160;the&#160;layout&#160;in&#160;memory&#160;of&#160;the&#160;stored&#160;environment, depending&#160;on the operating mode&#160;of the&#160;<br/>processor (protected&#160;or real) and&#160;the current&#160;operand-size&#160;attribute (16-bit&#160;or&#160;32-bit).&#160;In virtual-8086 mode,&#160;the&#160;<br/>real mode&#160;layouts are&#160;used. The contents&#160;of&#160;the FPU&#160;register stack&#160;are stored in&#160;the 80 bytes&#160;immediately follow&#160;<br/>the operating&#160;environment image.<br/>The saved image reflects the&#160;state&#160;of&#160;the FPU&#160;after all&#160;floating-point instructions preceding the&#160;FSAVE/FNSAVE&#160;<br/>instruction&#160;in the&#160;instruction&#160;stream have&#160;been executed.<br/>After&#160;the FPU&#160;state&#160;has been saved,&#160;the&#160;FPU is&#160;reset&#160;to the&#160;same&#160;default&#160;values it&#160;is set to&#160;with the FINIT/FNINIT&#160;<br/>instructions&#160;<a href="o_b5573232dd8f1481-473.html">(see&#160;“FINIT/FNINIT—Initialize&#160;Floating-Point Unit”&#160;</a>in this chapter).<br/>The FSAVE/FNSAVE instructions are typically used&#160;when&#160;the operating system needs to perform a context switch,&#160;<br/>an&#160;exception handler needs to&#160;use the FPU,&#160;or an&#160;application program needs&#160;to pass a “clean”&#160;FPU&#160;to a procedure.<br/>The&#160;assembler&#160;issues&#160;two instructions&#160;for&#160;the&#160;FSAVE instruction (an FWAIT instruction followed&#160;by&#160;an FNSAVE&#160;<br/>instruction),&#160;and&#160;the&#160;processor&#160;executes&#160;each of these instructions&#160;separately.&#160;If an&#160;exception&#160;is generated for&#160;<br/>either of these instructions,&#160;the save&#160;EIP&#160;points&#160;to&#160;the instruction&#160;that&#160;caused&#160;the exception.<br/>This&#160;instruction’s operation is&#160;the same&#160;in&#160;non-64-bit modes and&#160;64-bit mode.</p>
+<p style="position:absolute;top:750px;left:69px;white-space:nowrap" class="ft03">IA-32 Architecture&#160;Compatibility</p>
+<p style="position:absolute;top:775px;left:69px;white-space:nowrap" class="ft07">For&#160;Intel math coprocessors and FPUs&#160;prior to&#160;the Intel&#160;Pentium&#160;processor,&#160;an FWAIT instruction should&#160;be&#160;<br/>executed before attempting&#160;to&#160;read&#160;from&#160;the&#160;memory image stored with a&#160;prior FSAVE/FNSAVE&#160;instruction. This&#160;<br/>FWAIT instruction helps ensure&#160;that the&#160;storage operation has&#160;been&#160;completed.<br/>When operating&#160;a Pentium or&#160;Intel486&#160;processor in MS-DOS&#160;compatibility mode,&#160;it is&#160;possible&#160;(under&#160;unusual&#160;<br/>circumstances)&#160;for an&#160;FNSAVE instruction to&#160;be interrupted&#160;prior&#160;to being executed to handle a pending&#160;FPU&#160;excep-<br/>tion. See the section titled “No-Wait&#160;FPU&#160;Instructions&#160;Can Get&#160;FPU Interrupt&#160;in&#160;Window<a href="��">” in&#160;Appendix&#160;D of the&#160;<i>Intel®&#160;<br/>64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume&#160;1</i>, for a&#160;</a>description of these&#160;circumstances. An&#160;<br/>FNSAVE instruction cannot be&#160;interrupted in this way on&#160;later Intel processors, except for the&#160;Intel Quark</p>
+<p style="position:absolute;top:896px;left:770px;white-space:nowrap" class="ft06">TM</p>
+<p style="position:absolute;top:898px;left:786px;white-space:nowrap" class="ft04">&#160;X1000&#160;</p>
+<p style="position:absolute;top:915px;left:69px;white-space:nowrap" class="ft04">processor.</p>
+<p style="position:absolute;top:128px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:128px;left:174px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:128px;left:396px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:143px;left:396px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:128px;left:458px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:143px;left:458px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:128px;left:549px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:166px;left:74px;white-space:nowrap" class="ft04">9B&#160;DD /6</p>
+<p style="position:absolute;top:166px;left:174px;white-space:nowrap" class="ft04">FSAVE&#160;<i>m94/108byte</i></p>
+<p style="position:absolute;top:166px;left:396px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:458px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:549px;white-space:nowrap" class="ft04">Store FPU&#160;state&#160;to&#160;<i>m94byte</i>&#160;or&#160;<i>m108byte</i>&#160;after&#160;</p>
+<p style="position:absolute;top:182px;left:549px;white-space:nowrap" class="ft04">checking&#160;for&#160;pending&#160;unmasked&#160;floating-point&#160;</p>
+<p style="position:absolute;top:199px;left:549px;white-space:nowrap" class="ft04">exceptions.&#160;Then&#160;re-initialize&#160;the FPU.</p>
+<p style="position:absolute;top:222px;left:74px;white-space:nowrap" class="ft04">DD /6</p>
+<p style="position:absolute;top:222px;left:174px;white-space:nowrap" class="ft04">FNSAVE</p>
+<p style="position:absolute;top:219px;left:221px;white-space:nowrap" class="ft00">*&#160;</p>
+<p style="position:absolute;top:222px;left:229px;white-space:nowrap" class="ft05"><i>m94/108byte</i></p>
+<p style="position:absolute;top:222px;left:396px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:222px;left:458px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:222px;left:549px;white-space:nowrap" class="ft04">Store&#160;FPU&#160;environment&#160;to&#160;<i>m94byte</i>&#160;or&#160;<i>m108byte</i>&#160;</p>
+<p style="position:absolute;top:238px;left:549px;white-space:nowrap" class="ft04">without checking for pending&#160;unmasked&#160;floating-</p>
+<p style="position:absolute;top:254px;left:549px;white-space:nowrap" class="ft04">point&#160;exceptions.&#160;Then&#160;re-initialize&#160;the FPU.</p>
+<p style="position:absolute;top:277px;left:74px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:297px;left:74px;white-space:nowrap" class="ft04">*&#160;See&#160;IA-32&#160;Architecture&#160;Compatibility section below.</p>
+</div>
+</body>
+</html>

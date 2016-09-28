@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 383</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page383-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a383.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;16-3</p>
+<p style="position:absolute;top:47px;left:380px;white-space:nowrap" class="ft01">PROGRAMMING WITH&#160;INTEL®&#160;TRANSACTIONAL SYNCHRONIZATION EXTENSIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">Hardware without HLE support&#160;will ignore the&#160;XACQUIRE and XRELEASE&#160;prefix hints&#160;and will not&#160;perform&#160;any&#160;<br/>elision since these prefixes&#160;correspond to the REPNE/REPE&#160;IA-32&#160;prefixes&#160;which are ignored on the&#160;instructions&#160;<br/>where&#160;XACQUIRE and&#160;XRELEASE&#160;are valid. Importantly,&#160;HLE&#160;is compatible with the&#160;existing&#160;lock-based&#160;program-<br/>ming model. Improper use of hints will not cause functional&#160;bugs though it may expose latent bugs already in the&#160;<br/>code.&#160;</p>
+<p style="position:absolute;top:217px;left:69px;white-space:nowrap" class="ft03">16.2.2&#160;</p>
+<p style="position:absolute;top:217px;left:149px;white-space:nowrap" class="ft03">RTM Software&#160;Interface</p>
+<p style="position:absolute;top:246px;left:69px;white-space:nowrap" class="ft07">RTM provides three&#160;new&#160;instructions: XBEGIN, XEND,&#160;and XABORT.&#160;<br/>Software uses&#160;the XBEGIN instruction to&#160;specify the&#160;start&#160;of&#160;the transactional&#160;region&#160;and the&#160;XEND instruction to&#160;<br/>specify&#160;the end of&#160;the transactional&#160;region. The XBEGIN&#160;instruction takes an&#160;operand that&#160;provides&#160;a relative&#160;offset&#160;<br/>to the&#160;<b>fallback&#160;instruction address</b>&#160;if the&#160;transactional region could not be&#160;successfully&#160;executed transactionally.&#160;<br/>Software using these instructions&#160;to implement lock&#160;elision&#160;must test the lock within the transactional region,&#160;and&#160;<br/>only if free should&#160;try&#160;to commit.&#160;Further,&#160;the&#160;software may&#160;also define&#160;a&#160;policy to retry&#160;if the&#160;lock&#160;is not&#160;free.<br/>A processor may abort transactional execution for many&#160;reasons. The&#160;hardware automatically detects transactional&#160;<br/>abort&#160;conditions&#160;and&#160;restarts execution from&#160;the fallback instruction&#160;address&#160;with&#160;the architectural state&#160;corre-<br/>sponding&#160;to&#160;that&#160;at the start of the XBEGIN instruction&#160;and the&#160;EAX register updated&#160;to describe the abort status.&#160;<br/>The XABORT&#160;instruction allows programmers to abort the&#160;execution of a&#160;transactional region explicitly.&#160;The&#160;<br/>XABORT&#160;instruction takes an 8&#160;bit&#160;immediate&#160;argument that&#160;is&#160;loaded into the&#160;EAX register&#160;and will thus be&#160;avail-<br/>able to&#160;software following a&#160;transactional abort.<br/>Hardware provides no guarantees as to whether a transactional execution will ever successfully commit. Program-<br/>mers must always&#160;provide an alternative code sequence&#160;in the&#160;fallback path to guarantee forward progress. When&#160;<br/>using the&#160;instructions&#160;for lock elision, this&#160;may be&#160;as simple&#160;as acquiring a&#160;lock and&#160;executing the&#160;specified code&#160;<br/>region non-transactionally.&#160;Further,&#160;a&#160;transactional region that&#160;always&#160;aborts on&#160;a given&#160;implementation&#160;may&#160;<br/>complete transactionally on a&#160;future implementation.&#160;Therefore,&#160;programmers must ensure&#160;the code paths for the&#160;<br/>transactional region and&#160;the alternative&#160;code&#160;sequence&#160;are&#160;functionally tested.<br/>If the&#160;RTM software&#160;interface&#160;is used for anything&#160;other&#160;than lock elision,&#160;the&#160;programmer&#160;must similarly ensure&#160;<br/>that the&#160;fallback path&#160;is inter-operable&#160;with the&#160;transactionally executing path.</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft05">16.3 INTEL®&#160;</p>
+<p style="position:absolute;top:646px;left:215px;white-space:nowrap" class="ft05">TSX&#160;</p>
+<p style="position:absolute;top:646px;left:258px;white-space:nowrap" class="ft05">APPLICATION PROGRAMMING MODEL</p>
+<p style="position:absolute;top:709px;left:69px;white-space:nowrap" class="ft03">16.3.1&#160;</p>
+<p style="position:absolute;top:709px;left:149px;white-space:nowrap" class="ft03">Detection of&#160;Transactional Synchronization Support</p>
+<p style="position:absolute;top:760px;left:69px;white-space:nowrap" class="ft06">16.3.1.1 &#160;&#160;Detection of&#160;HLE Support</p>
+<p style="position:absolute;top:787px;left:69px;white-space:nowrap" class="ft07">A processor supports HLE execution&#160;if&#160;CPUID.07H.EBX.HLE&#160;[bit&#160;4] = 1.&#160;However,&#160;an application can&#160;use the&#160;HLE&#160;<br/>prefixes (XACQUIRE&#160;and XRELEASE) without checking&#160;whether the&#160;processor&#160;supports HLE. Processors without&#160;<br/>HLE&#160;support&#160;ignore&#160;these prefixes and will execute&#160;the&#160;code&#160;without entering transactional execution.</p>
+<p style="position:absolute;top:864px;left:69px;white-space:nowrap" class="ft06">16.3.1.2 &#160;&#160;Detection of&#160;RTM Support</p>
+<p style="position:absolute;top:891px;left:69px;white-space:nowrap" class="ft07">A processor&#160;supports&#160;RTM&#160;execution&#160;if CPUID.07H.EBX.RTM [bit 11]&#160;= 1.&#160;An&#160;application must check if the processor&#160;<br/>supports RTM&#160;before&#160;it uses the&#160;RTM instructions&#160;(XBEGIN, XEND, XABORT). These instructions will&#160;generate a&#160;<br/>#UD&#160;exception when used&#160;on a&#160;processor&#160;that does&#160;not support RTM.</p>
+<p style="position:absolute;top:968px;left:69px;white-space:nowrap" class="ft06">16.3.1.3 &#160;&#160;Detection of&#160;XTEST Instruction</p>
+<p style="position:absolute;top:995px;left:69px;white-space:nowrap" class="ft07">A processor supports the&#160;XTEST instruction&#160;if&#160;it supports either HLE&#160;or&#160;RTM.&#160;An&#160;application must check either of&#160;<br/>these feature&#160;flags before using&#160;the XTEST instruction.&#160;This instruction will&#160;generate a&#160;#UD&#160;exception when used&#160;<br/>on&#160;a&#160;processor&#160;that does not&#160;support either HLE or&#160;RTM.</p>
+</div>
+</body>
+</html>

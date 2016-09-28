@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1739</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1739-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811739.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPERMPD—Permute&#160;Double-Precision&#160;Floating-Point Elements</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-353</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:123px;left:69px;white-space:nowrap" class="ft03">VPERMPD (EVEX&#160;-&#160;imm8&#160;control forms)<br/>(KL,&#160;VL) = (4, 256),&#160;(8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:177px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF (EVEX.b = 1) AND (SRC *is memory*)</p>
+<p style="position:absolute;top:213px;left:116px;white-space:nowrap" class="ft03">THEN&#160;TMP_SRC[i+63:i]&#160;&#160;SRC[63:0];<br/>ELSE TMP_SRC[i+63:i]&#160;&#160;SRC[i+63:i];</p>
+<p style="position:absolute;top:249px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:267px;left:69px;white-space:nowrap" class="ft02">ENDFOR;</p>
+<p style="position:absolute;top:303px;left:69px;white-space:nowrap" class="ft03">TMP_DEST[63:0]&#160;&#160;(TMP_SRC[256:0] &gt;&gt; (IMM8[1:0] * 64))[63:0];<br/>TMP_DEST[127:64]&#160;&#160;(TMP_SRC[256:0] &gt;&gt;&#160;(IMM8[3:2] * 64))[63:0];<br/>TMP_DEST[191:128]&#160;&#160;(TMP_SRC[256:0] &gt;&gt; (IMM8[5:4] * 64))[63:0];<br/>TMP_DEST[255:192]&#160;&#160;(TMP_SRC[256:0] &gt;&gt; (IMM8[7:6] * 64))[63:0];<br/>IF VL &gt;= 512</p>
+<p style="position:absolute;top:393px;left:89px;white-space:nowrap" class="ft03">TMP_DEST[319:256]&#160;&#160;(TMP_SRC[511:256] &gt;&gt;&#160;(IMM8[1:0]&#160;* 64))[63:0];<br/>TMP_DEST[383:320]&#160;&#160;(TMP_SRC[511:256] &gt;&gt;&#160;(IMM8[3:2]&#160;* 64))[63:0];<br/>TMP_DEST[447:384]&#160;&#160;(TMP_SRC[511:256] &gt;&gt;&#160;(IMM8[5:4]&#160;* 64))[63:0];<br/>TMP_DEST[511:448]&#160;&#160;(TMP_SRC[511:256] &gt;&gt;&#160;(IMM8[7:6]&#160;* 64))[63:0];</p>
+<p style="position:absolute;top:465px;left:69px;white-space:nowrap" class="ft03">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:501px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:537px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;TMP_DEST[i+63:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:573px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:573px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:591px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:609px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:627px;left:197px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:627px;left:413px;white-space:nowrap" class="ft02">;zeroing-masking</p>
+<p style="position:absolute;top:645px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:663px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:681px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;0</p>
+<p style="position:absolute;top:741px;left:69px;white-space:nowrap" class="ft03">VPERMPD (EVEX&#160;-&#160;vector&#160;control forms)<br/>(KL,&#160;VL) = (4, 256),&#160;(8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:795px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:831px;left:116px;white-space:nowrap" class="ft03">THEN&#160;TMP_SRC2[i+63:i]&#160;&#160;SRC2[63:0];<br/>ELSE TMP_SRC2[i+63:i]&#160;&#160;SRC2[i+63:i];</p>
+<p style="position:absolute;top:867px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft02">ENDFOR;</p>
+<p style="position:absolute;top:921px;left:69px;white-space:nowrap" class="ft02">IF&#160;VL = 256</p>
+<p style="position:absolute;top:939px;left:89px;white-space:nowrap" class="ft03">TMP_DEST[63:0]&#160;&#160;(TMP_SRC2[255:0]&#160;&gt;&gt; (SRC1[1:0] * 64))[63:0];<br/>TMP_DEST[127:64]&#160;&#160;(TMP_SRC2[255:0] &gt;&gt;&#160;(SRC1[65:64] * 64))[63:0];<br/>TMP_DEST[191:128]&#160;&#160;(TMP_SRC2[255:0]&#160;&gt;&gt; (SRC1[129:128] * 64))[63:0];<br/>TMP_DEST[255:192]&#160;&#160;(TMP_SRC2[255:0]&#160;&gt;&gt; (SRC1[193:192] * 64))[63:0];</p>
+<p style="position:absolute;top:1011px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:1047px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[63:0]&#160;&#160;(TMP_SRC2[511:0]&#160;&gt;&gt; (SRC1[2:0] * 64))[63:0];</p>
+</div>
+</body>
+</html>

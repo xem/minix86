@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 260</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page260-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481260.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:729px;white-space:nowrap" class="ft00">CALL—Call Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-132&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:118px;left:142px;white-space:nowrap" class="ft02">IF&#160;CallGateSize = 16</p>
+<p style="position:absolute;top:136px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:154px;left:196px;white-space:nowrap" class="ft02">IF&#160;new stack&#160;does&#160;not have&#160;room&#160;for&#160;parameters&#160;plus&#160;8 bytes</p>
+<p style="position:absolute;top:172px;left:223px;white-space:nowrap" class="ft02">THEN #SS(NewSS); FI;</p>
+<p style="position:absolute;top:190px;left:196px;white-space:nowrap" class="ft02">IF&#160;(CallGate(InstructionPointer) AND FFFFH) not in&#160;new code-segment&#160;limit</p>
+<p style="position:absolute;top:208px;left:223px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:226px;left:196px;white-space:nowrap" class="ft02">SS&#160;←&#160;newSS;&#160;(* Segment descriptor&#160;information also loaded&#160;*)</p>
+<p style="position:absolute;top:244px;left:196px;white-space:nowrap" class="ft02">ESP&#160;←&#160;newESP;&#160;</p>
+<p style="position:absolute;top:262px;left:196px;white-space:nowrap" class="ft02">CS:IP&#160;←&#160;CallGate(CS:InstructionPointer);</p>
+<p style="position:absolute;top:280px;left:196px;white-space:nowrap" class="ft04">(* Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>Push(oldSS:oldESP); (*&#160;From calling&#160;procedure&#160;*)<br/>temp&#160;←&#160;parameter count from call&#160;gate, masked to&#160;5 bits;</p>
+<p style="position:absolute;top:334px;left:196px;white-space:nowrap" class="ft04">Push(parameters from&#160;calling&#160;procedure’s stack,&#160;temp)<br/>Push(oldCS:oldEIP); (* Return&#160;address to&#160;calling procedure *)</p>
+<p style="position:absolute;top:370px;left:169px;white-space:nowrap" class="ft02">ELSE (* CallGateSize = 64&#160;*)</p>
+<p style="position:absolute;top:388px;left:196px;white-space:nowrap" class="ft02">IF&#160;pushing 32&#160;bytes on&#160;the&#160;stack&#160;would&#160;use&#160;a non-canonical address</p>
+<p style="position:absolute;top:406px;left:223px;white-space:nowrap" class="ft02">THEN #SS(NewSS); FI;</p>
+<p style="position:absolute;top:424px;left:196px;white-space:nowrap" class="ft02">IF&#160;(CallGate(InstructionPointer) is&#160;non-canonical)&#160;</p>
+<p style="position:absolute;top:442px;left:223px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:460px;left:196px;white-space:nowrap" class="ft02">SS&#160;←&#160;NewSS; (* NewSS is&#160;NULL)</p>
+<p style="position:absolute;top:478px;left:196px;white-space:nowrap" class="ft02">RSP&#160;←&#160;NewESP;&#160;</p>
+<p style="position:absolute;top:496px;left:196px;white-space:nowrap" class="ft02">CS:IP&#160;←&#160;CallGate(CS:InstructionPointer);</p>
+<p style="position:absolute;top:514px;left:196px;white-space:nowrap" class="ft04">(* Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>Push(oldSS:oldESP); (*&#160;From calling&#160;procedure&#160;*)<br/>Push(oldCS:oldEIP); (* Return&#160;address to&#160;calling procedure *)</p>
+<p style="position:absolute;top:568px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:586px;left:88px;white-space:nowrap" class="ft04">FI;<br/>CPL&#160;←&#160;CodeSegment(DPL)</p>
+<p style="position:absolute;top:622px;left:88px;white-space:nowrap" class="ft02">CS(RPL)&#160;←&#160;CPL</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft02">END;</p>
+<p style="position:absolute;top:676px;left:68px;white-space:nowrap" class="ft02">SAME-PRIVILEGE:</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft02">IF&#160;CallGateSize = 32</p>
+<p style="position:absolute;top:712px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:730px;left:142px;white-space:nowrap" class="ft02">IF stack does&#160;not have&#160;room for&#160;8 bytes</p>
+<p style="position:absolute;top:748px;left:169px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:766px;left:142px;white-space:nowrap" class="ft02">IF CallGate(InstructionPointer)&#160;not within&#160;code segment limit&#160;</p>
+<p style="position:absolute;top:784px;left:169px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:802px;left:142px;white-space:nowrap" class="ft02">CS:EIP&#160;←&#160;CallGate(CS:EIP) (* Segment&#160;descriptor&#160;information also loaded&#160;*)</p>
+<p style="position:absolute;top:820px;left:142px;white-space:nowrap" class="ft02">Push(oldCS:oldEIP); (* Return&#160;address&#160;to&#160;calling procedure *)</p>
+<p style="position:absolute;top:838px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:856px;left:142px;white-space:nowrap" class="ft02">If CallGateSize&#160;</p>
+<p style="position:absolute;top:857px;left:226px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:856px;left:235px;white-space:nowrap" class="ft02">&#160;16</p>
+<p style="position:absolute;top:874px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:892px;left:196px;white-space:nowrap" class="ft02">IF&#160;stack does&#160;not&#160;have&#160;room for&#160;4 bytes</p>
+<p style="position:absolute;top:910px;left:223px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:928px;left:196px;white-space:nowrap" class="ft02">IF&#160;CallGate(InstructionPointer)&#160;not within code&#160;segment limit&#160;</p>
+<p style="position:absolute;top:946px;left:223px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:964px;left:196px;white-space:nowrap" class="ft02">CS:IP&#160;←&#160;CallGate(CS:instruction&#160;pointer);&#160;</p>
+<p style="position:absolute;top:982px;left:196px;white-space:nowrap" class="ft04">(* Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>Push(oldCS:oldIP); (* Return&#160;address to&#160;calling&#160;procedure *)</p>
+<p style="position:absolute;top:1018px;left:169px;white-space:nowrap" class="ft02">ELSE (* CallGateSize = 64)</p>
+<p style="position:absolute;top:1036px;left:196px;white-space:nowrap" class="ft02">IF&#160;pushing&#160;16&#160;bytes&#160;on the stack&#160;touches non-canonical addresses</p>
+<p style="position:absolute;top:1054px;left:223px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+</div>
+</body>
+</html>

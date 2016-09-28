@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 591</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page591-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce591.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-17</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">17.4.8.2 &#160;&#160;LBR Stack and IA-32 Processors&#160;</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft07">The LBR MSRs&#160;in IA-32 processors introduced prior to&#160;Intel 64&#160;architecture store the 32-bit “To Linear Address”&#160;and&#160;<br/>“From&#160;Linear Address“&#160;using&#160;the high&#160;and low half of each&#160;64-bit MSR.&#160;</p>
+<p style="position:absolute;top:188px;left:69px;white-space:nowrap" class="ft02">17.4.8.3 &#160;&#160;Last&#160;Exception Records and Intel 64 Architecture</p>
+<p style="position:absolute;top:217px;left:69px;white-space:nowrap" class="ft07">Intel 64 and IA-32&#160;processors also provide MSRs that store the&#160;branch record for the&#160;last&#160;branch taken prior to an&#160;<br/>exception or&#160;an&#160;interrupt. The&#160;location of the&#160;last exception record (LER)&#160;MSRs are model&#160;specific. The MSRs&#160;that&#160;<br/>store last exception records are&#160;64-bits. If IA-32e&#160;mode&#160;is&#160;disabled,&#160;only the&#160;lower&#160;32-bits of the&#160;address&#160;is&#160;<br/>recorded.&#160;If IA-32e&#160;mode&#160;is&#160;enabled,&#160;the processor writes&#160;64-bit&#160;values into&#160;the&#160;MSR. In 64-bit&#160;mode, last&#160;excep-<br/>tion records store 64-bit addresses;&#160;in compatibility mode, the upper 32-bits of last exception records are&#160;cleared.</p>
+<p style="position:absolute;top:333px;left:69px;white-space:nowrap" class="ft04">17.4.9&#160;</p>
+<p style="position:absolute;top:333px;left:150px;white-space:nowrap" class="ft04">BTS and DS Save&#160;Area</p>
+<p style="position:absolute;top:364px;left:69px;white-space:nowrap" class="ft07">The&#160;<b>Debug store&#160;(DS)</b>&#160;feature flag&#160;(bit 21), returned&#160;by CPUID.1:EDX[21] indicates&#160;that&#160;the processor provides&#160;<br/>the&#160;debug store (DS)&#160;mechanism. The&#160;DS mechanism allows:&#160;</p>
+<p style="position:absolute;top:402px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:403px;left:95px;white-space:nowrap" class="ft03">BTMs&#160;to be&#160;stored&#160;in&#160;a&#160;memory-resident BTS buffer.&#160;Se<a href="o_fe12b1e2a880e0ce-587.html">e Section 17.4.5, “Branch Trace Store (BTS).”&#160;</a></p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:425px;left:95px;white-space:nowrap" class="ft07">Processor&#160;event-based sampling (PEBS) also&#160;uses&#160;the DS&#160;save&#160;area provided&#160;by debug&#160;store&#160;mechanism.&#160;The&#160;<br/>capability of&#160;PEBS varies&#160;across different&#160;microarchitectures.&#160;Se<a href="o_fe12b1e2a880e0ce-656.html">e Section 18.4.4,&#160;“Processor Event&#160;Based&#160;<br/>Sampling (PEBS),”</a>&#160;and&#160;the&#160;relevant&#160;PEBS sub-sections across&#160;the core&#160;PMU sections&#160;<a href="��">in Chapter&#160;18, “Perfor-<br/>mance Monitoring.”.&#160;</a></p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft03">When CPUID.1:EDX[21]&#160;is set:</p>
+<p style="position:absolute;top:520px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:521px;left:95px;white-space:nowrap" class="ft07">The&#160;BTS_UNAVAILABLE and&#160;PEBS_UNAVAILABLE&#160;flags&#160;in&#160;the IA32_MISC_ENABLE&#160;MSR indicate (when clear)&#160;<br/>the availability&#160;of&#160;the BTS and&#160;PEBS facilities,&#160;including&#160;the ability&#160;to set the&#160;BTS and BTINT&#160;bits in&#160;the&#160;<br/>appropriate DEBUGCTL&#160;MSR.</p>
+<p style="position:absolute;top:576px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:577px;left:95px;white-space:nowrap" class="ft03">The&#160;IA32_DS_AREA&#160;MSR&#160;exists&#160;and&#160;points&#160;to the&#160;DS&#160;save&#160;area.&#160;</p>
+<p style="position:absolute;top:601px;left:69px;white-space:nowrap" class="ft07">The debug store (DS)&#160;save&#160;area&#160;is&#160;a software-designated&#160;area of memory that is&#160;used&#160;to&#160;collect the&#160;following two&#160;<br/>types of information:</p>
+<p style="position:absolute;top:639px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:640px;left:95px;white-space:nowrap" class="ft07"><b>Branch&#160;records —&#160;</b>When&#160;the BTS&#160;flag&#160;in the IA32_DEBUGCTL&#160;MSR is&#160;set,&#160;a&#160;branch record is&#160;stored&#160;in the&#160;BTS&#160;<br/>buffer in&#160;the DS&#160;save&#160;area whenever&#160;a&#160;taken branch,&#160;interrupt,&#160;or exception&#160;is detected.&#160;</p>
+<p style="position:absolute;top:678px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:679px;left:95px;white-space:nowrap" class="ft07"><b>PEBS records —&#160;</b>When a&#160;performance counter&#160;is configured&#160;for PEBS,&#160;a PEBS&#160;record&#160;is stored&#160;in&#160;the PEBS&#160;<br/>buffer&#160;in the&#160;DS&#160;save&#160;area&#160;after the&#160;counter overflow occurs. This&#160;record&#160;contains&#160;the architectural state of the&#160;<br/>processor (state&#160;of the&#160;8 general&#160;purpose&#160;registers,&#160;EIP register,&#160;and&#160;EFLAGS&#160;register)&#160;at the&#160;next occurrence&#160;<br/>of the&#160;PEBS event&#160;that caused the&#160;counter&#160;to overflow. When&#160;the&#160;state information&#160;has been&#160;logged,&#160;the&#160;<br/>counter is&#160;automatically&#160;reset&#160;to a&#160;specified value, and event&#160;counting&#160;begins again. The content&#160;layout of&#160;a&#160;<br/>PEBS record varies&#160;across different&#160;implementations&#160;that support PEBS. Se<a href="o_fe12b1e2a880e0ce-657.html">e Section 18.4.4.2&#160;</a>for details of&#160;<br/>enumerating&#160;PEBS record format.</p>
+<p style="position:absolute;top:812px;left:428px;white-space:nowrap" class="ft02">NOTES</p>
+<p style="position:absolute;top:844px;left:122px;white-space:nowrap" class="ft07">Prior to&#160;processors&#160;based on the&#160;Goldmont microarchitecture,&#160;PEBS&#160;facility only supports&#160;a subset&#160;<br/>of implementation-specific precise&#160;events.&#160;See<a href="o_fe12b1e2a880e0ce-666.html">&#160;Section 18.7.1&#160;</a>for&#160;a PEBS&#160;enhancement that&#160;can&#160;<br/>generate records for&#160;both precise and non-precise events.</p>
+<p style="position:absolute;top:904px;left:122px;white-space:nowrap" class="ft07">The DS save area and&#160;recording&#160;mechanism&#160;are&#160;disabled&#160;on&#160;transition to&#160;system-management&#160;<br/>mode (SMM). Similarly,&#160;the recording mechanism is&#160;disabled on&#160;the generation&#160;of a machine-check&#160;<br/>exception&#160;and is&#160;cleared on processor RESET&#160;and&#160;INIT. DS&#160;recording&#160;is available in real-address&#160;<br/>mode.</p>
+<p style="position:absolute;top:980px;left:122px;white-space:nowrap" class="ft07">The BTS and PEBS facilities&#160;may not&#160;be&#160;available on all processors. The availability&#160;of these facilities&#160;<br/>is&#160;indicated by the&#160;BTS_UNAVAILABLE and&#160;PEBS_UNAVAILABLE flags,&#160;respectively, in&#160;the&#160;<br/>IA32_MISC_ENABLE&#160;MSR&#160;(see<a href="��">&#160;Chapter 35</a>).</p>
+</div>
+</body>
+</html>

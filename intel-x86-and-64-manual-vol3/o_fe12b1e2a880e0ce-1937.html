@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1937</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1937-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1937.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;43-5</p>
+<p style="position:absolute;top:47px;left:614px;white-space:nowrap" class="ft01">ENCLAVE CODE&#160;DEBUG AND PROFILING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">VMMs that create the VM-entry interruption information based on the interruption vector should use event type of&#160;<br/>3&#160;(instead&#160;of&#160;6) when they&#160;detect&#160;a VM&#160;exit incident to&#160;enclave&#160;mode&#160;that&#160;is due&#160;to&#160;an&#160;event with vector 3.</p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft03">43.5 BRANCH&#160;</p>
+<p style="position:absolute;top:172px;left:234px;white-space:nowrap" class="ft03">TRACING</p>
+<p style="position:absolute;top:235px;left:69px;white-space:nowrap" class="ft04">43.5.1 BTF&#160;</p>
+<p style="position:absolute;top:235px;left:185px;white-space:nowrap" class="ft04">Treatment</p>
+<p style="position:absolute;top:264px;left:69px;white-space:nowrap" class="ft02">When software&#160;enables single-stepping on branches&#160;then:</p>
+<p style="position:absolute;top:286px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:286px;left:95px;white-space:nowrap" class="ft02">Following an opt-in&#160;entry using EENTER the processor generates a single&#160;step debug exception.&#160;</p>
+<p style="position:absolute;top:308px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:309px;left:95px;white-space:nowrap" class="ft02">Following&#160;an EEXIT&#160;the processor generates a&#160;single-step debug&#160;exception</p>
+<p style="position:absolute;top:331px;left:69px;white-space:nowrap" class="ft07">Enclave entry using ERESUME (opt-in&#160;or&#160;opt-out) and an AEX&#160;from the&#160;enclave do&#160;not&#160;cause&#160;generation&#160;of the&#160;<br/>single-step debug&#160;exception.</p>
+<p style="position:absolute;top:398px;left:69px;white-space:nowrap" class="ft04">43.5.2 LBR&#160;</p>
+<p style="position:absolute;top:398px;left:186px;white-space:nowrap" class="ft04">Treatment</p>
+<p style="position:absolute;top:449px;left:69px;white-space:nowrap" class="ft06">43.5.2.1 &#160;&#160;LBR Stack on Opt-in Entry</p>
+<p style="position:absolute;top:476px;left:69px;white-space:nowrap" class="ft07">Following&#160;an opt-in&#160;entry into an&#160;enclave,&#160;last&#160;branch&#160;recording facilities if enabled&#160;continued to&#160;store branch&#160;<br/>records in&#160;the LBR&#160;stack MSRs&#160;as follows:</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:515px;left:95px;white-space:nowrap" class="ft07">On enclave entry using&#160;EENTER/ERESUME,&#160;the processor push the address of EENTER/ERESUME instruction&#160;<br/>into MSR_LASTBRANCH_n_FROM_IP,&#160;and&#160;the&#160;destination address&#160;of the&#160;EENTER/ERESUME into&#160;<br/>MSR_LASTBRANCH_n_TO_IP.&#160;</p>
+<p style="position:absolute;top:570px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:571px;left:95px;white-space:nowrap" class="ft07">On EEXIT,&#160;the processor pushes the address of EEXIT instruction into MSR_LASTBRANCH_n_FROM_IP, and the&#160;<br/>address of EEXIT&#160;destination&#160;into MSR_LASTBRANCH_n_TO_IP.&#160;</p>
+<p style="position:absolute;top:609px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:610px;left:95px;white-space:nowrap" class="ft07">On&#160;AEX,&#160;the processor pushes&#160;RIP saved&#160;in&#160;the SSA&#160;into MSR_LASTBRANCH_n_FROM_IP, and&#160;the&#160;address of&#160;<br/>AEP into MSR_LASTBRANCH_n_TO_IP.&#160;</p>
+<p style="position:absolute;top:648px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:649px;left:95px;white-space:nowrap" class="ft02">For&#160;every&#160;branch inside the&#160;enclave, a&#160;branch&#160;record&#160;is pushed on&#160;the LBR&#160;stack.</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-1938.html">Figure&#160;43-3 sho</a>ws an&#160;example of&#160;LBR stack manipulation&#160;after an&#160;opt-in&#160;entry.&#160;Every arrow&#160;in this picture indicates&#160;<br/>a branch record pushed on the&#160;LBR&#160;stack. The “From IP”&#160;of&#160;the branch record contains the linear&#160;address of the&#160;<br/>instruction&#160;located at the&#160;start&#160;of the arrow,&#160;while the “To&#160;IP” of the branch&#160;record&#160;contains the linear address of the&#160;<br/>instruction at&#160;the end of the&#160;arrow.&#160;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 993</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page993-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce993.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;20-17</p>
+<p style="position:absolute;top:47px;left:734px;white-space:nowrap" class="ft01">8086 EMULATION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">The&#160;IOPL&#160;value interacts with the&#160;VME flag and&#160;the bits&#160;in&#160;the&#160;interrupt redirection&#160;bit map&#160;to determine how&#160;<br/>specific&#160;software interrupts should be&#160;handled.<br/>The&#160;software&#160;interrupt&#160;redirection bit&#160;map (see<a href="o_fe12b1e2a880e0ce-994.html">&#160;Figure&#160;20-5)</a>&#160;is&#160;a 32-byte&#160;field&#160;in the&#160;TSS.&#160;This&#160;map is&#160;located&#160;<br/>directly&#160;below the I/O permission bit map in the&#160;TSS.&#160;Each&#160;bit in the interrupt&#160;redirection bit map is mapped to an&#160;<br/>interrupt vector.&#160;Bit 0&#160;in the&#160;interrupt redirection&#160;bit map&#160;(which maps&#160;to vector zero&#160;in&#160;the interrupt table) is&#160;<br/>located&#160;at the I/O base&#160;map address&#160;in&#160;the&#160;TSS&#160;minus 32&#160;bytes.&#160;When a&#160;bit in&#160;this bit&#160;map is&#160;set, it&#160;indicates&#160;that&#160;<br/>the&#160;associated software&#160;interrupt (interrupt generated with&#160;an INT&#160;<i>n</i>&#160;instruction)&#160;should be handled through&#160;the&#160;<br/>protected-mode&#160;IDT and&#160;interrupt&#160;and exception&#160;handlers.&#160;When&#160;a bit&#160;in this&#160;bit map is&#160;clear,&#160;the processor redi-<br/>rects the associated software&#160;interrupt back&#160;to the interrupt table in the&#160;8086&#160;program (located&#160;at linear address 0&#160;<br/>in the&#160;program’s&#160;address space).&#160;</p>
+<p style="position:absolute;top:291px;left:433px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:316px;left:122px;white-space:nowrap" class="ft06">The software interrupt redirection bit map&#160;does&#160;not&#160;affect hardware generated interrupts&#160;and&#160;<br/>exceptions.&#160;Hardware&#160;generated&#160;interrupts and&#160;exceptions&#160;are always handled by&#160;the&#160;protected-<br/>mode interrupt and&#160;exception handlers.</p>
+<p style="position:absolute;top:390px;left:191px;white-space:nowrap" class="ft05">Table&#160;20-2. &#160;Software&#160;Interrupt&#160;Handling Methods While&#160;in&#160;Virtual-8086 Mode</p>
+<p style="position:absolute;top:445px;left:74px;white-space:nowrap" class="ft02">Method&#160;VME&#160;IOPL</p>
+<p style="position:absolute;top:412px;left:223px;white-space:nowrap" class="ft02">Bit in&#160;</p>
+<p style="position:absolute;top:429px;left:221px;white-space:nowrap" class="ft02">Redir.&#160;</p>
+<p style="position:absolute;top:445px;left:214px;white-space:nowrap" class="ft02">Bitmap*</p>
+<p style="position:absolute;top:445px;left:502px;white-space:nowrap" class="ft02">Processor Action</p>
+<p style="position:absolute;top:468px;left:93px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:468px;left:141px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:468px;left:183px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:468px;left:234px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:468px;left:274px;white-space:nowrap" class="ft08">Interrupt&#160;directed&#160;to&#160;a&#160;protected-mode&#160;interrupt handler:<br/>•&#160;Switches to&#160;privilege-level&#160;0 stack</p>
+<p style="position:absolute;top:504px;left:274px;white-space:nowrap" class="ft02">•&#160;Pushes GS, FS, DS and&#160;ES&#160;onto&#160;privilege-level 0 stack</p>
+<p style="position:absolute;top:519px;left:274px;white-space:nowrap" class="ft02">•&#160;Pushes SS, ESP,&#160;EFLAGS, CS&#160;and EIP of&#160;interrupted&#160;task onto&#160;privilege-level 0&#160;stack</p>
+<p style="position:absolute;top:534px;left:274px;white-space:nowrap" class="ft02">•&#160;Clears VM, RF, NT, and&#160;TF&#160;flags</p>
+<p style="position:absolute;top:549px;left:274px;white-space:nowrap" class="ft02">•&#160;If serviced&#160;through interrupt gate, clears&#160;IF&#160;flag</p>
+<p style="position:absolute;top:564px;left:274px;white-space:nowrap" class="ft02">•&#160;Clears GS, FS,&#160;DS&#160;and ES&#160;to&#160;0</p>
+<p style="position:absolute;top:579px;left:274px;white-space:nowrap" class="ft02">•&#160;Sets CS&#160;and&#160;EIP from interrupt gate</p>
+<p style="position:absolute;top:601px;left:93px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:601px;left:141px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:601px;left:176px;white-space:nowrap" class="ft02">&#160;&lt;&#160;3</p>
+<p style="position:absolute;top:601px;left:234px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:601px;left:274px;white-space:nowrap" class="ft02">Interrupt directed&#160;to&#160;protected-mode&#160;general-protection&#160;exception (#GP) handler.</p>
+<p style="position:absolute;top:624px;left:93px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:624px;left:141px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:624px;left:177px;white-space:nowrap" class="ft02">&lt;&#160;3</p>
+<p style="position:absolute;top:624px;left:235px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:624px;left:274px;white-space:nowrap" class="ft02">Interrupt directed&#160;to&#160;a protected-mode&#160;general-protection&#160;exception (#GP) handler;&#160;VIF&#160;and VIP&#160;</p>
+<p style="position:absolute;top:640px;left:274px;white-space:nowrap" class="ft02">flag support for handling&#160;class&#160;2&#160;maskable&#160;hardware&#160;interrupts.</p>
+<p style="position:absolute;top:663px;left:93px;white-space:nowrap" class="ft02">4</p>
+<p style="position:absolute;top:663px;left:141px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:663px;left:183px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:663px;left:235px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:663px;left:274px;white-space:nowrap" class="ft02">Interrupt directed to&#160;protected-mode interrupt&#160;handler: (see&#160;method 1 processor action).</p>
+<p style="position:absolute;top:685px;left:93px;white-space:nowrap" class="ft02">5</p>
+<p style="position:absolute;top:685px;left:141px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:685px;left:183px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:685px;left:235px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:685px;left:274px;white-space:nowrap" class="ft09">Interrupt redirected to&#160;8086 program interrupt handler:<br/>•&#160;Pushes EFLAGS&#160;</p>
+<p style="position:absolute;top:721px;left:274px;white-space:nowrap" class="ft02">•&#160;Pushes CS&#160;and EIP (lower&#160;16&#160;bits only)</p>
+<p style="position:absolute;top:736px;left:274px;white-space:nowrap" class="ft02">•&#160;Clears IF flag</p>
+<p style="position:absolute;top:751px;left:274px;white-space:nowrap" class="ft02">•&#160;Clears TF&#160;flag</p>
+<p style="position:absolute;top:766px;left:274px;white-space:nowrap" class="ft02">•&#160;Loads&#160;CS&#160;and EIP (lower 16&#160;bits&#160;only) from&#160;selected entry in the interrupt&#160;vector table of&#160;the&#160;</p>
+<p style="position:absolute;top:781px;left:290px;white-space:nowrap" class="ft02">current virtual-8086 task</p>
+<p style="position:absolute;top:804px;left:93px;white-space:nowrap" class="ft02">6</p>
+<p style="position:absolute;top:804px;left:141px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:804px;left:177px;white-space:nowrap" class="ft02">&lt;&#160;3</p>
+<p style="position:absolute;top:804px;left:235px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:804px;left:274px;white-space:nowrap" class="ft02">Interrupt&#160;redirected&#160;to&#160;8086 program&#160;interrupt handler;&#160;VIF and VIP flag&#160;support&#160;for handling&#160;class&#160;</p>
+<p style="position:absolute;top:820px;left:274px;white-space:nowrap" class="ft09">2 maskable hardware&#160;interrupts:<br/>•&#160;Pushes EFLAGS with&#160;IOPL set to&#160;3 and VIF copied to&#160;IF</p>
+<p style="position:absolute;top:856px;left:274px;white-space:nowrap" class="ft02">•&#160;Pushes CS&#160;and EIP (lower&#160;16&#160;bits only)</p>
+<p style="position:absolute;top:871px;left:274px;white-space:nowrap" class="ft02">•&#160;Clears&#160;&#160;the&#160;&#160;VIF&#160;&#160;flag</p>
+<p style="position:absolute;top:886px;left:274px;white-space:nowrap" class="ft02">•&#160;Clears TF&#160;flag</p>
+<p style="position:absolute;top:901px;left:274px;white-space:nowrap" class="ft02">•&#160;Loads&#160;CS&#160;and EIP (lower 16&#160;bits&#160;only) from&#160;selected entry in the interrupt&#160;vector table of&#160;the&#160;</p>
+<p style="position:absolute;top:916px;left:290px;white-space:nowrap" class="ft02">current virtual-8086 task</p>
+<p style="position:absolute;top:939px;left:74px;white-space:nowrap" class="ft01">NOTE:</p>
+<p style="position:absolute;top:958px;left:74px;white-space:nowrap" class="ft02">*&#160;When set to&#160;0, software&#160;interrupt is redirected back to&#160;the 8086&#160;program interrupt handler;&#160;when&#160;set&#160;to&#160;1,&#160;interrupt is&#160;directed&#160;to&#160;</p>
+<p style="position:absolute;top:975px;left:88px;white-space:nowrap" class="ft02">protected-mode handler.</p>
+</div>
+</body>
+</html>

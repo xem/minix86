@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 140</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page140-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce140.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-36&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">If CR4.PCIDE&#160;=&#160;0,&#160;a logical processor does&#160;not cache&#160;information for&#160;any PCID&#160;other than&#160;000H.&#160;This is&#160;because&#160;<br/>(1)&#160;if CR4.PCIDE&#160;=&#160;0,&#160;the&#160;logical processor will associate&#160;any&#160;newly cached&#160;information&#160;with&#160;the current&#160;PCID,&#160;<br/>000H;&#160;and&#160;(2)&#160;if MOV&#160;to CR4 clears CR4.PCIDE,&#160;all cached&#160;information&#160;is invalidated&#160;(see<a href="o_fe12b1e2a880e0ce-145.html">&#160;Section 4.10.4.1).</a></p>
+<p style="position:absolute;top:168px;left:432px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:193px;left:120px;white-space:nowrap" class="ft07">In revisions of&#160;this&#160;manual&#160;that&#160;were produced&#160;when&#160;no processors allowed CR4.PCIDE to be&#160;set to&#160;<br/>1,<a href="o_fe12b1e2a880e0ce-139.html">&#160;</a></p>
+<p style="position:absolute;top:209px;left:138px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-139.html">Section 4.10</a>&#160;discussed&#160;the caching of translation&#160;information without&#160;any reference to&#160;PCIDs.&#160;</p>
+<p style="position:absolute;top:226px;left:120px;white-space:nowrap" class="ft07">While&#160;the&#160;section now refers to PCIDs in its specification of this caching, this documentation change&#160;<br/>is&#160;not&#160;intended to&#160;imply any&#160;change to&#160;the behavior of processors that&#160;do not&#160;allow&#160;CR4.PCIDE&#160;to&#160;<br/>be set to 1.</p>
+<p style="position:absolute;top:310px;left:68px;white-space:nowrap" class="ft04">4.10.2&#160;</p>
+<p style="position:absolute;top:310px;left:148px;white-space:nowrap" class="ft04">Translation Lookaside Buffers (TLBs)</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft07">A processor may&#160;cache information&#160;about the&#160;translation of&#160;linear addresses&#160;in translation lookaside&#160;buffers (TLBs).&#160;<br/>In general, TLBs contain entries that&#160;map page&#160;numbers to page&#160;frames; these terms&#160;are&#160;defined&#160;<a href="o_fe12b1e2a880e0ce-140.html">in Section&#160;<br/>4.10.2.1. Section 4.10.2.2</a>&#160;describes how&#160;information may&#160;be&#160;cached&#160;in TLBs,&#160;and<a href="o_fe12b1e2a880e0ce-141.html">&#160;Section 4.10.2.3 g</a>ives&#160;details&#160;of&#160;<br/>TLB&#160;usage.<a href="o_fe12b1e2a880e0ce-141.html">&#160;Section&#160;4.10.2.4&#160;e</a>xplains&#160;the global-page feature, which&#160;allows software to&#160;indicate that certain trans-<br/>lations should&#160;receive special&#160;treatment when cached&#160;in the&#160;TLBs.</p>
+<p style="position:absolute;top:451px;left:68px;white-space:nowrap" class="ft03">4.10.2.1 &#160;&#160;Page Numbers, Page Frames, and Page Offsets</p>
+<p style="position:absolute;top:479px;left:68px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-111.html">Section 4.3, Se</a><a href="o_fe12b1e2a880e0ce-118.html">ction&#160;4.4.2, and S</a><a href="o_fe12b1e2a880e0ce-123.html">ection 4.5&#160;</a>give&#160;details of&#160;how&#160;the&#160;different paging&#160;modes translate linear&#160;<br/>addresses&#160;to physical&#160;addresses. Specifically,&#160;the upper bits of a&#160;linear&#160;address&#160;(called the&#160;<b>page number</b>) deter-<br/>mine&#160;the&#160;upper&#160;bits&#160;of&#160;the&#160;physical&#160;address (called the&#160;<b>page&#160;frame</b>); the&#160;lower bits&#160;of&#160;the linear&#160;address (called the&#160;<br/><b>page offset</b>) determine&#160;the lower bits of the&#160;physical&#160;address.&#160;The&#160;boundary between the&#160;page&#160;number and&#160;the&#160;<br/>page&#160;offset is&#160;determined&#160;by&#160;the&#160;<b>page size</b>. Specifically:</p>
+<p style="position:absolute;top:567px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:568px;left:93px;white-space:nowrap" class="ft08">32-bit paging:<br/>—&#160;If&#160;the translation does&#160;not use&#160;a&#160;PTE&#160;(because&#160;CR4.PSE&#160;=&#160;1 and&#160;the&#160;PS&#160;flag&#160;is 1&#160;in the&#160;PDE used),&#160;the page&#160;</p>
+<p style="position:absolute;top:608px;left:119px;white-space:nowrap" class="ft02">size&#160;is 4&#160;MBytes and the&#160;page&#160;number comprises bits&#160;31:22&#160;of the&#160;linear address.</p>
+<p style="position:absolute;top:632px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the translation&#160;does&#160;use a&#160;PTE,&#160;the&#160;page&#160;size&#160;is&#160;4&#160;KBytes&#160;and&#160;the page&#160;number&#160;comprises&#160;bits&#160;31:12&#160;of&#160;</p>
+<p style="position:absolute;top:649px;left:119px;white-space:nowrap" class="ft02">the&#160;linear&#160;address.</p>
+<p style="position:absolute;top:670px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:671px;left:93px;white-space:nowrap" class="ft08">PAE paging:<br/>—&#160;If the&#160;translation&#160;does not&#160;use a&#160;PTE&#160;(because&#160;the PS&#160;flag is&#160;1 in&#160;the PDE used),&#160;the page&#160;size is&#160;2&#160;MBytes&#160;</p>
+<p style="position:absolute;top:712px;left:119px;white-space:nowrap" class="ft02">and&#160;the&#160;page&#160;number&#160;comprises bits&#160;31:21&#160;of the&#160;linear address.</p>
+<p style="position:absolute;top:736px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the translation does uses&#160;a PTE,&#160;the page&#160;size is&#160;4 KBytes and&#160;the&#160;page&#160;number comprises bits&#160;31:12 of&#160;</p>
+<p style="position:absolute;top:752px;left:119px;white-space:nowrap" class="ft02">the&#160;linear&#160;address.</p>
+<p style="position:absolute;top:774px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:775px;left:93px;white-space:nowrap" class="ft08">IA-32e&#160;paging:<br/>—&#160;If the translation does not use a PDE (because&#160;the&#160;PS&#160;flag&#160;is 1 in the PDPTE used), the page size&#160;is 1 GByte&#160;</p>
+<p style="position:absolute;top:815px;left:119px;white-space:nowrap" class="ft02">and&#160;the&#160;page&#160;number&#160;comprises bits&#160;47:30&#160;of the&#160;linear address.</p>
+<p style="position:absolute;top:839px;left:93px;white-space:nowrap" class="ft02">—&#160;If the&#160;translation does use&#160;a&#160;PDE but does not uses&#160;a&#160;PTE (because the PS flag&#160;is 1 in the&#160;PDE&#160;used), the&#160;</p>
+<p style="position:absolute;top:856px;left:119px;white-space:nowrap" class="ft02">page size is&#160;2 MBytes&#160;and the&#160;page number&#160;comprises&#160;bits&#160;47:21 of&#160;the linear&#160;address.</p>
+<p style="position:absolute;top:880px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the translation&#160;does&#160;use a&#160;PTE,&#160;the&#160;page&#160;size&#160;is&#160;4&#160;KBytes&#160;and&#160;the page&#160;number&#160;comprises&#160;bits&#160;47:12&#160;of&#160;</p>
+<p style="position:absolute;top:896px;left:119px;white-space:nowrap" class="ft02">the&#160;linear&#160;address.</p>
+<p style="position:absolute;top:940px;left:68px;white-space:nowrap" class="ft03">4.10.2.2 &#160;&#160;Caching Translations in&#160;TLBs</p>
+<p style="position:absolute;top:969px;left:68px;white-space:nowrap" class="ft07">The&#160;processor&#160;may accelerate&#160;the&#160;paging&#160;process by caching&#160;individual translations in&#160;<b>translation lookaside&#160;<br/>buffers</b>&#160;(<b>TLBs</b>). Each entry in&#160;a TLB is an&#160;individual translation.&#160;Each&#160;translation is&#160;referenced by&#160;a page number.&#160;<br/>It contains the following information from&#160;the paging-structure entries used to translate linear addresses&#160;with the&#160;<br/>page&#160;number:</p>
+<p style="position:absolute;top:1040px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1041px;left:93px;white-space:nowrap" class="ft02">The&#160;physical&#160;address corresponding&#160;to the&#160;page&#160;number&#160;(the&#160;page&#160;frame).</p>
+</div>
+</body>
+</html>

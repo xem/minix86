@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 169</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#ffffff;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page169-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce169.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;5-17</p>
+<p style="position:absolute;top:47px;left:763px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">If&#160;a call is made to&#160;a more privileged (numerically lower&#160;privilege level) nonconforming destination code&#160;segment,&#160;<br/>the CPL&#160;is lowered to the&#160;DPL of the destination&#160;code segment and a stack switch&#160;occurs (see<a href="o_fe12b1e2a880e0ce-169.html">&#160;Section&#160;5.8.5, “Stack&#160;<br/>Switching”). If a&#160;</a>call or&#160;jump&#160;is made&#160;to a&#160;more privileged&#160;conforming destination code segment,&#160;the CPL is&#160;not&#160;<br/>changed and no&#160;stack&#160;switch&#160;occurs.&#160;</p>
+<p style="position:absolute;top:617px;left:69px;white-space:nowrap" class="ft07">Call gates&#160;allow&#160;a single code segment to&#160;have&#160;procedures&#160;that can&#160;be&#160;accessed at&#160;different&#160;privilege&#160;levels. For&#160;<br/>example,&#160;an operating&#160;system located&#160;in&#160;a code&#160;segment may&#160;have&#160;some&#160;services&#160;which&#160;are intended&#160;to be&#160;used&#160;<br/>by&#160;both the operating&#160;system&#160;and application software (such as procedures&#160;for&#160;handling character&#160;I/O). Call gates&#160;<br/>for these procedures&#160;can be set up&#160;that allow access at all&#160;privilege levels&#160;(0 through&#160;3). More privileged&#160;call&#160;gates&#160;<br/>(with DPLs&#160;of 0&#160;or 1)&#160;can then&#160;be&#160;set up for other&#160;operating system&#160;services that&#160;are intended&#160;to&#160;be used&#160;only&#160;by&#160;<br/>the operating&#160;system (such as&#160;procedures&#160;that&#160;initialize&#160;device&#160;drivers).</p>
+<p style="position:absolute;top:750px;left:69px;white-space:nowrap" class="ft03">5.8.5 Stack&#160;</p>
+<p style="position:absolute;top:750px;left:198px;white-space:nowrap" class="ft03">Switching</p>
+<p style="position:absolute;top:780px;left:69px;white-space:nowrap" class="ft07">Whenever&#160;a call&#160;gate&#160;is used to&#160;transfer program control to a&#160;more privileged nonconforming code segment (that&#160;<br/>is, when&#160;the DPL&#160;of the&#160;nonconforming destination code segment&#160;is less than the CPL),&#160;the processor automatically&#160;<br/>switches&#160;to the&#160;stack for the&#160;destination&#160;code&#160;segment’s&#160;privilege&#160;level. This stack switching&#160;is carried out to&#160;<br/>prevent more&#160;privileged procedures&#160;from&#160;crashing due to&#160;insufficient stack space.&#160;It&#160;also prevents&#160;less&#160;privileged&#160;<br/>procedures from interfering&#160;(by&#160;accident or intent)&#160;with&#160;more&#160;privileged&#160;procedures&#160;through a&#160;shared&#160;stack.<br/>Each&#160;task must define&#160;up&#160;to 4&#160;stacks: one&#160;for&#160;applications&#160;code (running at&#160;privilege&#160;level 3)&#160;and&#160;one&#160;for each&#160;of&#160;<br/>the privilege&#160;levels 2,&#160;1,&#160;and&#160;0&#160;that are used. (If&#160;only two&#160;privilege levels&#160;are&#160;used&#160;[3 and 0],&#160;then only&#160;two stacks&#160;<br/>must be defined.) Each of these stacks&#160;is located in&#160;a separate&#160;segment and&#160;is identified&#160;with&#160;a segment selector&#160;<br/>and an&#160;offset&#160;into the&#160;stack segment (a stack&#160;pointer).<br/>The segment selector and&#160;stack pointer&#160;for the&#160;privilege level 3&#160;stack is&#160;located&#160;in&#160;the SS&#160;and ESP registers,&#160;respec-<br/>tively,&#160;when privilege-level-3&#160;code&#160;is being&#160;executed&#160;and&#160;is automatically stored on the&#160;called procedure’s&#160;stack&#160;<br/>when&#160;a stack switch occurs.&#160;<br/>Pointers to the&#160;privilege level&#160;0, 1, and 2&#160;stacks are stored in&#160;the TSS for the&#160;currently running task (see&#160;<br/><a href="o_fe12b1e2a880e0ce-242.html">Figure&#160;7-2). Each of these pointers co</a>nsists&#160;of&#160;a segment selector and&#160;a stack&#160;pointer (loaded&#160;into&#160;the&#160;ESP&#160;<br/>register). These&#160;initial pointers&#160;are&#160;strictly read-only values. The processor does&#160;not change them while the task&#160;is&#160;<br/>running.&#160;They&#160;are&#160;used&#160;only&#160;to create&#160;new&#160;stacks&#160;when&#160;calls are&#160;made&#160;to more privileged levels&#160;(numerically&#160;lower&#160;</p>
+<p style="position:absolute;top:571px;left:209px;white-space:nowrap" class="ft04">Figure&#160;5-12. &#160;Example&#160;of&#160;Accessing&#160;Call&#160;Gates At&#160;Various Privilege Levels</p>
+<p style="position:absolute;top:222px;left:259px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:233px;left:244px;white-space:nowrap" class="ft00">Segment A</p>
+<p style="position:absolute;top:439px;left:584px;white-space:nowrap" class="ft00">Stack&#160;Switch</p>
+<p style="position:absolute;top:439px;left:508px;white-space:nowrap" class="ft00">No Stack</p>
+<p style="position:absolute;top:451px;left:480px;white-space:nowrap" class="ft00">Switch Occurs</p>
+<p style="position:absolute;top:451px;left:614px;white-space:nowrap" class="ft00">Occurs</p>
+<p style="position:absolute;top:283px;left:225px;white-space:nowrap" class="ft00">Lowest Privilege</p>
+<p style="position:absolute;top:542px;left:226px;white-space:nowrap" class="ft00">Highest Privilege</p>
+<p style="position:absolute;top:275px;left:207px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:362px;left:207px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:448px;left:207px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:534px;left:207px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:221px;left:647px;white-space:nowrap" class="ft00">Call</p>
+<p style="position:absolute;top:232px;left:639px;white-space:nowrap" class="ft00">Gate&#160;A</p>
+<p style="position:absolute;top:309px;left:259px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:320px;left:244px;white-space:nowrap" class="ft00">Segment B</p>
+<p style="position:absolute;top:313px;left:485px;white-space:nowrap" class="ft00">Call</p>
+<p style="position:absolute;top:324px;left:477px;white-space:nowrap" class="ft00">Gate B</p>
+<p style="position:absolute;top:396px;left:259px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:407px;left:244px;white-space:nowrap" class="ft00">Segment C</p>
+<p style="position:absolute;top:486px;left:548px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:497px;left:533px;white-space:nowrap" class="ft00">Segment D</p>
+<p style="position:absolute;top:486px;left:644px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:497px;left:629px;white-space:nowrap" class="ft00">Segment&#160;E</p>
+<p style="position:absolute;top:530px;left:623px;white-space:nowrap" class="ft06">Nonconforming</p>
+<p style="position:absolute;top:541px;left:624px;white-space:nowrap" class="ft06">Code Segment</p>
+<p style="position:absolute;top:530px;left:535px;white-space:nowrap" class="ft06">Conforming</p>
+<p style="position:absolute;top:541px;left:528px;white-space:nowrap" class="ft06">Code Segment</p>
+<p style="position:absolute;top:218px;left:335px;white-space:nowrap" class="ft00">Gate Selector A</p>
+<p style="position:absolute;top:231px;left:396px;white-space:nowrap" class="ft00">RPL=3</p>
+<p style="position:absolute;top:318px;left:334px;white-space:nowrap" class="ft00">Gate&#160;Selector&#160;B1</p>
+<p style="position:absolute;top:330px;left:395px;white-space:nowrap" class="ft00">RPL=2</p>
+<p style="position:absolute;top:405px;left:334px;white-space:nowrap" class="ft00">Gate&#160;Selector&#160;B2</p>
+<p style="position:absolute;top:417px;left:395px;white-space:nowrap" class="ft00">RPL=1</p>
+<p style="position:absolute;top:251px;left:243px;white-space:nowrap" class="ft00">CPL=3</p>
+<p style="position:absolute;top:339px;left:243px;white-space:nowrap" class="ft00">CPL=2</p>
+<p style="position:absolute;top:425px;left:244px;white-space:nowrap" class="ft00">CPL=1</p>
+<p style="position:absolute;top:250px;left:627px;white-space:nowrap" class="ft00">DPL=3</p>
+<p style="position:absolute;top:342px;left:466px;white-space:nowrap" class="ft00">DPL=2</p>
+<p style="position:absolute;top:515px;left:532px;white-space:nowrap" class="ft00">DPL=0</p>
+<p style="position:absolute;top:515px;left:627px;white-space:nowrap" class="ft00">DPL=0</p>
+<p style="position:absolute;top:251px;left:336px;white-space:nowrap" class="ft00">Gate Selector B3</p>
+<p style="position:absolute;top:263px;left:396px;white-space:nowrap" class="ft00">RPL=3</p>
+</div>
+</body>
+</html>

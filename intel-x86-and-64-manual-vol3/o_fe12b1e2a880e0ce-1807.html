@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1807</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1807-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1807.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;40-5</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">ENCLAVE EXITING EVENTS</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">40.4.1&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">AEX Operational Detail</p>
+<p style="position:absolute;top:151px;left:319px;white-space:nowrap" class="ft03">Temp Variables in AEX Operational&#160;Flow</p>
+<p style="position:absolute;top:306px;left:69px;white-space:nowrap" class="ft05">The pseudo code in this section describes the internal operations that are executed&#160;when&#160;an AEX occurs in enclave&#160;<br/>mode. These operations&#160;occur&#160;just&#160;before&#160;the normal&#160;interrupt&#160;or exception processing&#160;occurs.</p>
+<p style="position:absolute;top:364px;left:69px;white-space:nowrap" class="ft06">(* Save RIP for later use&#160;*)<br/>TMP_RIP =&#160;Linear Address of&#160;Resume&#160;RIP<br/>(*&#160;Is&#160;the&#160;processor in&#160;64-bit&#160;mode? *)<br/>TMP_MODE64&#160;&#160;((IA32_EFER.LMA&#160;= 1) &amp;&amp;&#160;(CS.L = 1));</p>
+<p style="position:absolute;top:454px;left:69px;white-space:nowrap" class="ft04">(* Save all registers, When saving&#160;EFLAGS, the TF bit is set to 0 and</p>
+<p style="position:absolute;top:472px;left:89px;white-space:nowrap" class="ft04">the&#160;RF bit&#160;is set to what would&#160;have been saved on&#160;stack in&#160;the&#160;non-SGX case&#160;*)</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft04">&#160;IF&#160;(TMP_MODE64&#160;=&#160;0)</p>
+<p style="position:absolute;top:526px;left:89px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:544px;left:116px;white-space:nowrap" class="ft04">Save EAX,&#160;EBX,&#160;ECX,&#160;EDX,&#160;ESP, EBP, ESI,&#160;EDI, EFLAGS,&#160;EIP into the&#160;current SSA&#160;frame using&#160;</p>
+<p style="position:absolute;top:561px;left:69px;white-space:nowrap" class="ft04">CR_GPR_PA;&#160;(*&#160;se<a href="o_fe12b1e2a880e0ce-1813.html">e&#160;Table&#160;41-4&#160;f</a>or list of&#160;CREGs&#160;used&#160;to&#160;describe&#160;internal operation within Intel SGX *)</p>
+<p style="position:absolute;top:579px;left:116px;white-space:nowrap" class="ft04">SSA.RFLAGS.TF&#160;&#160;0;</p>
+<p style="position:absolute;top:597px;left:89px;white-space:nowrap" class="ft06">ELSE&#160;&#160; &#160;(* TMP_MODE64&#160;= 1 *)<br/>&#160;</p>
+<p style="position:absolute;top:615px;left:116px;white-space:nowrap" class="ft04">Save RAX, RBX, RCX,&#160;RDX, RSP,&#160;RBP, RSI, RDI,&#160;R8-R15, RFLAGS, RIP into&#160;the current SSA frame&#160;using&#160;</p>
+<p style="position:absolute;top:631px;left:69px;white-space:nowrap" class="ft04">CR_GPR_PA;</p>
+<p style="position:absolute;top:649px;left:116px;white-space:nowrap" class="ft04">SSA.RFLAGS.TF&#160;&#160;0;</p>
+<p style="position:absolute;top:667px;left:69px;white-space:nowrap" class="ft06">FI;<br/>Save&#160;FS&#160;and GS&#160;BASE into SSA using CR_GPR_PA;</p>
+<p style="position:absolute;top:721px;left:69px;white-space:nowrap" class="ft04">(* store XSAVE state&#160;into the current&#160;SSA&#160;frame's XSAVE area using&#160;the&#160;physical addresses&#160;</p>
+<p style="position:absolute;top:739px;left:89px;white-space:nowrap" class="ft04">that were determined and cached at enclave&#160;entry time with CR_XSAVE_PAGE_i. *)</p>
+<p style="position:absolute;top:757px;left:69px;white-space:nowrap" class="ft06">For each&#160;XSAVE state i defined&#160;by&#160;(SECS.ATTRIBUTES.XFRM[i] =&#160;1,&#160;destination address cached in&#160;<br/>CR_XSAVE_PAGE_i)<br/>&#160;&#160;&#160;SSA.XSAVE.i&#160;&#160;XSAVE_STATE_i;</p>
+<p style="position:absolute;top:828px;left:69px;white-space:nowrap" class="ft04">(*&#160;Clear bytes&#160;8 to&#160;23&#160;of&#160;XSAVE_HEADER,&#160;i.e. the next&#160;16 bytes after&#160;XHEADER_BV *)</p>
+<p style="position:absolute;top:864px;left:69px;white-space:nowrap" class="ft04">CR_XSAVE_PAGE_0.XHEADER_BV[191:64]&#160;&#160;0;</p>
+<p style="position:absolute;top:900px;left:69px;white-space:nowrap" class="ft04">(*&#160;Clear&#160;bits&#160;in&#160;XHEADER_BV[63:0]&#160;that&#160;are&#160;not enabled&#160;in&#160;ATTRIBUTES.XFRM&#160;*)</p>
+<p style="position:absolute;top:936px;left:69px;white-space:nowrap" class="ft04">CR_XSAVE_PAGE_0.XHEADER_BV[63:0]&#160;&#160;</p>
+<p style="position:absolute;top:954px;left:89px;white-space:nowrap" class="ft06">CR_XSAVE_PAGE_0.XHEADER_BV[63:0]&#160;&amp;&#160;SECS(CR_ACTIVE_SECS).ATTRIBUTES.XFRM;<br/>Apply synthetic&#160;state to&#160;GPRs, RFLAGS, extended&#160;features, etc.</p>
+<p style="position:absolute;top:1008px;left:69px;white-space:nowrap" class="ft04">(* Restore the RSP and&#160;RBP&#160;from the&#160;current SSA frame's GPR area&#160;using the physical address&#160;</p>
+<p style="position:absolute;top:1026px;left:89px;white-space:nowrap" class="ft04">that&#160;was determined&#160;and&#160;cached&#160;at&#160;enclave&#160;entry time&#160;with CR_GPR_PA.&#160;*)</p>
+<p style="position:absolute;top:1044px;left:69px;white-space:nowrap" class="ft06">RSP&#160;&#160;CR_GPR_PA.URSP;<br/>RBP&#160;&#160;CR_GPR_PA.URBP;</p>
+<p style="position:absolute;top:173px;left:73px;white-space:nowrap" class="ft04">Name</p>
+<p style="position:absolute;top:173px;left:239px;white-space:nowrap" class="ft04">Type</p>
+<p style="position:absolute;top:173px;left:368px;white-space:nowrap" class="ft04">Size&#160;(bits)</p>
+<p style="position:absolute;top:173px;left:449px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:197px;left:73px;white-space:nowrap" class="ft04">TMP_RIP</p>
+<p style="position:absolute;top:197px;left:239px;white-space:nowrap" class="ft04">Effective&#160;Address</p>
+<p style="position:absolute;top:197px;left:368px;white-space:nowrap" class="ft04">32/64</p>
+<p style="position:absolute;top:197px;left:449px;white-space:nowrap" class="ft04">Address of&#160;instruction at&#160;which&#160;to&#160;resume&#160;execution&#160;on&#160;ERESUME.</p>
+<p style="position:absolute;top:222px;left:73px;white-space:nowrap" class="ft04">TMP_MODE64</p>
+<p style="position:absolute;top:222px;left:239px;white-space:nowrap" class="ft04">binary</p>
+<p style="position:absolute;top:222px;left:368px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:222px;left:449px;white-space:nowrap" class="ft04">((IA32_EFER.LMA = 1) &amp;&amp; (CS.L =&#160;1)).</p>
+<p style="position:absolute;top:245px;left:73px;white-space:nowrap" class="ft04">TMP_BRANCH_RECORD</p>
+<p style="position:absolute;top:245px;left:239px;white-space:nowrap" class="ft04">LBR&#160;Record</p>
+<p style="position:absolute;top:245px;left:368px;white-space:nowrap" class="ft04">2x64</p>
+<p style="position:absolute;top:245px;left:449px;white-space:nowrap" class="ft04">From/To address&#160;to&#160;be&#160;pushed&#160;onto&#160;LBR stack.</p>
+</div>
+</body>
+</html>

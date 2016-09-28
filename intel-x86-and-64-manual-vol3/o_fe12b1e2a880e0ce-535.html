@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 535</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:9px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page535-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce535.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-29</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Example 15-3. &#160;Machine-Check Error&#160;Logging Pseudocode</p>
+<p style="position:absolute;top:130px;left:69px;white-space:nowrap" class="ft02">Assume&#160;that&#160;execution is&#160;restartable;</p>
+<p style="position:absolute;top:149px;left:69px;white-space:nowrap" class="ft00">IF the processor supports MCA</p>
+<p style="position:absolute;top:164px;left:88px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:179px;left:88px;white-space:nowrap" class="ft00">FOR each bank of machine-check registers&#160;</p>
+<p style="position:absolute;top:194px;left:107px;white-space:nowrap" class="ft00">DO</p>
+<p style="position:absolute;top:209px;left:126px;white-space:nowrap" class="ft00">READ IA32_MC<i>i</i>_STATUS;</p>
+<p style="position:absolute;top:224px;left:126px;white-space:nowrap" class="ft00">IF VAL flag in IA32</p>
+<p style="position:absolute;top:222px;left:220px;white-space:nowrap" class="ft04">_</p>
+<p style="position:absolute;top:224px;left:228px;white-space:nowrap" class="ft00">MC<i>i</i>_STATUS =&#160;1</p>
+<p style="position:absolute;top:239px;left:145px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:254px;left:164px;white-space:nowrap" class="ft00">IF ADDRV flag in IA32_MC<i>i</i>_STATUS = 1</p>
+<p style="position:absolute;top:269px;left:182px;white-space:nowrap" class="ft00">THEN READ IA32_MC<i>i</i>_ADDR;&#160;</p>
+<p style="position:absolute;top:284px;left:164px;white-space:nowrap" class="ft06">FI;<br/>IF MISCV flag in IA32_MC<i>i</i>_STATUS = 1</p>
+<p style="position:absolute;top:314px;left:182px;white-space:nowrap" class="ft00">THEN READ IA32_MC<i>i</i>_MISC;</p>
+<p style="position:absolute;top:329px;left:164px;white-space:nowrap" class="ft06">FI;<br/>IF MCIP flag in IA32_MCG_STATUS&#160;= 1</p>
+<p style="position:absolute;top:359px;left:182px;white-space:nowrap" class="ft06">(* Machine-check exception is in progress *)&#160;<br/>AND PCC flag in IA32_MC<i>i</i>_STATUS = 1</p>
+<p style="position:absolute;top:389px;left:182px;white-space:nowrap" class="ft00">OR RIPV flag in IA32_MCG_STATUS =&#160;0</p>
+<p style="position:absolute;top:404px;left:182px;white-space:nowrap" class="ft00">(* execution&#160;is not restartable *)</p>
+<p style="position:absolute;top:419px;left:201px;white-space:nowrap" class="ft00">THEN&#160;</p>
+<p style="position:absolute;top:434px;left:220px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE;</p>
+<p style="position:absolute;top:449px;left:220px;white-space:nowrap" class="ft00">return RESTARTABILITY&#160;to calling procedure;</p>
+<p style="position:absolute;top:464px;left:164px;white-space:nowrap" class="ft06">FI;<br/>Save&#160;time-stamp&#160;counter and processor ID;</p>
+<p style="position:absolute;top:494px;left:164px;white-space:nowrap" class="ft00">Set IA32_MC<i>i</i>_STATUS to&#160;all 0s;</p>
+<p style="position:absolute;top:509px;left:164px;white-space:nowrap" class="ft00">Execute serializing instruction (i.e., CPUID);</p>
+<p style="position:absolute;top:524px;left:126px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:539px;left:107px;white-space:nowrap" class="ft00">OD;</p>
+<p style="position:absolute;top:554px;left:69px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:574px;left:69px;white-space:nowrap" class="ft07">If the&#160;processor&#160;supports the&#160;machine-check architecture, the&#160;utility reads&#160;through&#160;the banks&#160;of&#160;error-reporting&#160;<br/>registers looking for valid register entries.&#160;It&#160;then&#160;saves the&#160;values of the&#160;IA32_MC<i>i</i>_STATUS,&#160;IA32_MC<i>i</i>_ADDR,&#160;<br/>IA32_MC<i>i</i>_MISC and&#160;IA32_MCG_STATUS&#160;registers for each&#160;bank that is&#160;valid.&#160;The&#160;routine&#160;minimizes processing&#160;<br/>time by recording the raw data into a&#160;system data structure or file, reducing the overhead&#160;associated with&#160;polling.&#160;<br/>User&#160;utilities&#160;analyze&#160;the&#160;collected data&#160;in an&#160;off-line&#160;environment.<br/>When the&#160;MCIP&#160;flag&#160;is&#160;set in&#160;the IA32_MCG_STATUS&#160;register, a&#160;machine-check exception&#160;is&#160;in progress&#160;and the&#160;<br/>machine-check&#160;exception handler has called the&#160;exception logging routine.&#160;<br/>Once&#160;the&#160;logging&#160;process has&#160;been&#160;completed&#160;the&#160;exception-handling&#160;routine must determine whether execution&#160;<br/>can be&#160;restarted, which&#160;is usually possible&#160;when&#160;damage&#160;has not occurred (The&#160;PCC flag&#160;is clear,&#160;in&#160;the&#160;<br/>IA32_MC<i>i</i>_STATUS&#160;register) and&#160;when&#160;the&#160;processor can guarantee&#160;that execution&#160;is restartable&#160;(the RIPV&#160;flag is&#160;<br/>set&#160;in&#160;the IA32_MCG_STATUS&#160;register).&#160;If&#160;execution cannot&#160;be&#160;restarted,&#160;the system&#160;is not recoverable and the&#160;<br/>exception-handling routine&#160;should signal&#160;the console&#160;appropriately before returning&#160;the error status to&#160;the Oper-<br/>ating System&#160;kernel&#160;for subsequent shutdown.<br/>The machine-check architecture allows&#160;buffering&#160;of exceptions&#160;from a&#160;given error-reporting&#160;bank although the&#160;<br/>Pentium 4,&#160;Intel Xeon, Intel Atom,&#160;and P6 family&#160;processors do&#160;not implement&#160;this feature. The error&#160;logging&#160;<br/>routine&#160;should&#160;provide compatibility with future processors by&#160;reading&#160;each hardware error-reporting bank's&#160;<br/>IA32_MC<i>i</i>_STATUS&#160;register and&#160;then writing 0s&#160;to clear the&#160;OVER&#160;and VAL&#160;flags&#160;in&#160;this&#160;register. The&#160;error&#160;logging&#160;<br/>utility should&#160;re-read the IA32_MC<i>i</i>_STATUS register&#160;for&#160;the&#160;bank ensuring that the valid&#160;bit is clear.&#160;The&#160;processor&#160;<br/>will write&#160;the next&#160;error into the&#160;register bank&#160;and set the&#160;VAL flags.&#160;<br/>Additional information that should&#160;be stored by the&#160;exception-logging routine&#160;includes the&#160;processor’s&#160;time-stamp&#160;<br/>counter&#160;value, which provides a&#160;mechanism&#160;to indicate&#160;the&#160;frequency of exceptions. A multiprocessing operating&#160;<br/>system stores&#160;the identity&#160;of the&#160;processor&#160;node&#160;incurring&#160;the exception&#160;using a&#160;unique identifier, such&#160;as the&#160;<br/>processor’s APIC ID (see<a href="o_fe12b1e2a880e0ce-388.html">&#160;Section&#160;10.8, “Handling Interrupts”).&#160;<br/></a>The basic algorithm given&#160;<a href="o_fe12b1e2a880e0ce-535.html">in Example 15-3</a>&#160;can&#160;be&#160;modified&#160;to provide more&#160;robust recovery&#160;techniques. For&#160;<br/>example, software&#160;has&#160;the&#160;flexibility to&#160;attempt recovery&#160;using&#160;information unavailable&#160;to the&#160;hardware. Specifi-<br/>cally, the machine-check exception handler can, after logging carefully analyze the error-reporting registers when&#160;<br/>the error-logging routine reports an error that&#160;does not&#160;allow execution to be&#160;restarted.&#160;These&#160;recovery techniques&#160;</p>
+</div>
+</body>
+</html>

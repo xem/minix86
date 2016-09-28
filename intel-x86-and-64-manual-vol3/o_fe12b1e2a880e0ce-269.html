@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 269</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page269-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce269.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-13</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">As explained&#160;in that&#160;section,&#160;the&#160;stores&#160;produced by fast-string operation&#160;may appear&#160;to execute&#160;out of&#160;order.&#160;Soft-<br/>ware dependent upon&#160;sequential&#160;store ordering&#160;should not&#160;use string&#160;operations&#160;for&#160;the entire data&#160;structure to be&#160;<br/>stored. Data and semaphores&#160;should&#160;be separated.&#160;Order-dependent code should&#160;write to&#160;a&#160;discrete semaphore&#160;<br/>variable after&#160;any string&#160;operations&#160;to allow correctly&#160;ordered&#160;data&#160;to be&#160;seen&#160;by all&#160;processors.&#160;Atomicity of&#160;load&#160;<br/>and store operations is guaranteed only for native&#160;data elements of the string with native&#160;data size, and only if they&#160;<br/>are&#160;included&#160;in a single cache&#160;line.<br/><a href="o_fe12b1e2a880e0ce-269.html">Section 8.2.4.1&#160;and&#160;Section 8.2.4.2 pr</a>ovide further explain&#160;and&#160;examples.</p>
+<p style="position:absolute;top:251px;left:69px;white-space:nowrap" class="ft03">8.2.4.1&#160;&#160;</p>
+<p style="position:absolute;top:251px;left:153px;white-space:nowrap" class="ft03">Memory-Ordering Model for String&#160;Operations on&#160;Write-Back (WB)&#160;Memory</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft05">This section deals with the memory-ordering model for string&#160;operations&#160;on&#160;write-back&#160;(WB)&#160;memory&#160;for&#160;the&#160;Intel&#160;<br/>64 architecture.&#160;<br/>The memory-ordering&#160;model respects&#160;the follow principles:<br/>1.&#160;Stores within a single&#160;string&#160;operation may be executed out&#160;of&#160;order.<br/>2.&#160;Stores&#160;from separate&#160;string&#160;operations&#160;(for&#160;example,&#160;stores&#160;from consecutive&#160;string&#160;operations)&#160;do&#160;not&#160;execute&#160;</p>
+<p style="position:absolute;top:385px;left:95px;white-space:nowrap" class="ft04">out of order.&#160;All&#160;the stores&#160;from&#160;an earlier string&#160;operation&#160;will&#160;complete&#160;before&#160;any&#160;store from a&#160;later string&#160;<br/>operation.&#160;</p>
+<p style="position:absolute;top:425px;left:69px;white-space:nowrap" class="ft04">3.&#160;String&#160;operations are not reordered with&#160;other store operations.<br/>Fast string operations (e.g. string operations initiated&#160;with&#160;the&#160;MOVS/STOS instructions&#160;and the REP prefix) may be&#160;<br/>interrupted by exceptions&#160;or interrupts.&#160;The&#160;interrupts are&#160;precise&#160;but may be&#160;delayed&#160;-&#160;for&#160;example,&#160;the&#160;interrup-<br/>tions may be taken at cache line boundaries, after every few&#160;iterations of the loop,&#160;or after operating&#160;on every few&#160;<br/>bytes. Different implementations&#160;may choose different options, or&#160;may even choose&#160;not to&#160;delay interrupt&#160;<br/>handling,&#160;so software should not&#160;rely on the&#160;delay.&#160;When&#160;the interrupt/trap handler is reached, the source/destina-<br/>tion registers point to the next string element&#160;to be operated on, while the&#160;EIP stored in&#160;the stack points to the&#160;<br/>string instruction, and&#160;the&#160;ECX register&#160;has the&#160;value&#160;it&#160;held following the&#160;last successful&#160;iteration. The&#160;return from&#160;<br/>that trap/interrupt handler should&#160;cause the&#160;string&#160;instruction&#160;to be&#160;resumed from&#160;the point&#160;where it&#160;was inter-<br/>rupted.<br/>The&#160;string operation memory-ordering&#160;principles,&#160;(item 2 and&#160;3 above)&#160;should&#160;be&#160;interpreted&#160;by taking the&#160;incor-<br/>ruptibility of fast&#160;string operations into&#160;account. For example,&#160;if a&#160;fast string operation gets interrupted after k&#160;iter-<br/>ations, then stores&#160;performed&#160;by the&#160;interrupt handler&#160;will become visible&#160;after the fast string&#160;stores from&#160;iteration&#160;<br/>0&#160;to&#160;k,&#160;and&#160;before&#160;the&#160;fast&#160;string&#160;stores&#160;from&#160;the (k+1)th iteration onward.&#160;<br/>Stores within a&#160;single&#160;string operation may execute out of&#160;order (item 1&#160;above) only&#160;if fast&#160;string operation is&#160;<br/>enabled. Fast&#160;string operations&#160;are enabled/disabled&#160;through the&#160;IA32_MISC_ENABLE model specific register.&#160;</p>
+<p style="position:absolute;top:739px;left:69px;white-space:nowrap" class="ft03">8.2.4.2 &#160;</p>
+<p style="position:absolute;top:739px;left:153px;white-space:nowrap" class="ft03">Examples Illustrating Memory-Ordering&#160;Principles for&#160;String&#160;Operations</p>
+<p style="position:absolute;top:768px;left:69px;white-space:nowrap" class="ft04">The&#160;following examples uses&#160;the&#160;same&#160;notation&#160;and convention as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-264.html">in Section 8.2.3.1.<br/></a><a href="o_fe12b1e2a880e0ce-269.html">In Example&#160;8-11,</a>&#160;processor 0 does&#160;one&#160;round&#160;of (128 iterations) doubleword&#160;string store operation via rep:stosd,&#160;<br/>writing&#160;the value 1 (value in&#160;EAX)&#160;into a&#160;block of 512&#160;bytes from&#160;location _x&#160;(kept&#160;in ES:EDI) in ascending&#160;order.&#160;<br/>Since each operation&#160;stores&#160;a doubleword (4 bytes),&#160;the operation&#160;is repeated 128 times&#160;(value in&#160;ECX).&#160;The block&#160;<br/>of memory initially contained 0. Processor 1 is&#160;reading&#160;two memory locations&#160;that&#160;are&#160;part of the memory&#160;block&#160;<br/>being&#160;updated by processor 0,&#160;i.e, reading&#160;locations in&#160;the range _x&#160;to (_x+511).</p>
+<p style="position:absolute;top:904px;left:71px;white-space:nowrap" class="ft01">Example&#160;8-11.&#160;&#160;Stores Within a&#160;String Operation May be&#160;Reordered</p>
+<p style="position:absolute;top:924px;left:227px;white-space:nowrap" class="ft02">Processor 0</p>
+<p style="position:absolute;top:924px;left:608px;white-space:nowrap" class="ft02">Processor 1</p>
+<p style="position:absolute;top:946px;left:76px;white-space:nowrap" class="ft02">rep:stosd [ _x]</p>
+<p style="position:absolute;top:946px;left:457px;white-space:nowrap" class="ft07">mov&#160;r1, [ _z]<br/>mov r2, [ _y]</p>
+<p style="position:absolute;top:991px;left:76px;white-space:nowrap" class="ft07">Initially on&#160;processor 0: EAX = 1, ECX=128, ES:EDI =_x&#160;<br/>Initially [_x] to&#160;511[_x]=&#160;0, _x &lt;= _y&#160;&lt; _z &lt; _x+512<br/>r1&#160;= 1 and r2 = 0 is&#160;allowed</p>
+</div>
+</body>
+</html>

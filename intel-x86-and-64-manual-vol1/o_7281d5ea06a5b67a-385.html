@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 385</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page385-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a385.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;16-5</p>
+<p style="position:absolute;top:47px;left:380px;white-space:nowrap" class="ft01">PROGRAMMING WITH&#160;INTEL®&#160;TRANSACTIONAL SYNCHRONIZATION EXTENSIONS</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">16.3.4.2 &#160;&#160;RTM Nesting</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft06">Programmers can&#160;nest RTM-based transactional&#160;regions up&#160;to an implementation specific&#160;<br/>MAX_RTM_NEST_COUNT. The logical processor&#160;tracks the nesting count internally&#160;but this&#160;count is&#160;not available to&#160;<br/>software.&#160;An XBEGIN instruction increments&#160;the&#160;nesting&#160;count, and an XEND&#160;instruction decrements&#160;it.&#160;The logical&#160;<br/>processor attempts to&#160;commit&#160;only&#160;if&#160;the nesting count becomes zero.&#160;A&#160;transactional abort&#160;occurs if&#160;the nesting&#160;<br/>count exceeds MAX_RTM_NEST_COUNT.</p>
+<p style="position:absolute;top:236px;left:69px;white-space:nowrap" class="ft02">16.3.4.3 &#160;&#160;Nesting&#160;HLE and RTM</p>
+<p style="position:absolute;top:263px;left:69px;white-space:nowrap" class="ft06">HLE&#160;and RTM provide&#160;two alternative software&#160;interfaces&#160;to a&#160;common transactional&#160;execution capability.&#160;The&#160;<br/>behavior when HLE and&#160;RTM&#160;are nested&#160;together—HLE&#160;inside&#160;RTM or&#160;RTM&#160;inside&#160;HLE—is&#160;implementation&#160;specific.&#160;<br/>However,&#160;in all cases,&#160;the&#160;implementation will maintain&#160;HLE and RTM&#160;semantics.&#160;An implementation may choose to&#160;<br/>ignore HLE hints when used inside RTM&#160;regions, and&#160;may&#160;cause a&#160;transactional abort when RTM&#160;instructions&#160;are&#160;<br/>used inside&#160;HLE regions.&#160;In the latter case, the transition&#160;from transactional to&#160;non-transactional execution occurs&#160;<br/>seamlessly since the&#160;processor will re-execute the HLE region&#160;without actually&#160;doing elision, and then execute the&#160;<br/>RTM instructions.&#160;</p>
+<p style="position:absolute;top:413px;left:69px;white-space:nowrap" class="ft04">16.3.5&#160;</p>
+<p style="position:absolute;top:413px;left:149px;white-space:nowrap" class="ft04">RTM Abort Status Definition</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft06">RTM&#160;uses the&#160;EAX register to&#160;communicate&#160;abort status&#160;to software. Following&#160;an RTM abort&#160;the EAX&#160;register&#160;has&#160;<br/>the following&#160;definition.</p>
+<p style="position:absolute;top:806px;left:69px;white-space:nowrap" class="ft06">The EAX abort status&#160;for&#160;RTM only provides causes&#160;for aborts.&#160;It does not&#160;by&#160;itself encode whether&#160;an abort&#160;or&#160;<br/>commit&#160;occurred&#160;for&#160;the RTM region. The value of&#160;EAX&#160;can be 0&#160;following&#160;an RTM&#160;abort.&#160;For example,&#160;a&#160;CPUID&#160;<br/>instruction&#160;when used&#160;inside an RTM region&#160;causes a&#160;transactional abort&#160;and may&#160;not&#160;satisfy the requirements for&#160;<br/>setting&#160;any of the&#160;EAX bits.&#160;This may&#160;result&#160;in&#160;an EAX value&#160;of&#160;0.</p>
+<p style="position:absolute;top:906px;left:69px;white-space:nowrap" class="ft04">16.3.6&#160;</p>
+<p style="position:absolute;top:906px;left:149px;white-space:nowrap" class="ft04">RTM Memory Ordering</p>
+<p style="position:absolute;top:935px;left:69px;white-space:nowrap" class="ft06">A successful&#160;RTM commit causes all&#160;memory operations&#160;in&#160;the&#160;RTM region to&#160;appear&#160;to execute atomically.&#160;A&#160;<br/>successfully&#160;committed RTM region consisting of&#160;an&#160;XBEGIN&#160;followed&#160;by&#160;an XEND, even with no memory operations&#160;<br/>in&#160;the RTM&#160;region, has&#160;the same&#160;ordering&#160;semantics as&#160;a LOCK prefixed instruction.<br/>The&#160;XBEGIN instruction does not&#160;have&#160;fencing&#160;semantics. However,&#160;if an RTM execution&#160;aborts, all&#160;memory&#160;<br/>updates from&#160;within&#160;the&#160;RTM region&#160;are&#160;discarded&#160;and never made&#160;visible&#160;to any&#160;other logical processor.</p>
+<p style="position:absolute;top:496px;left:317px;white-space:nowrap" class="ft05">Table 16-1. &#160;RTM Abort&#160;Status&#160;Definition</p>
+<p style="position:absolute;top:521px;left:78px;white-space:nowrap" class="ft03">EAX Register Bit&#160;</p>
+<p style="position:absolute;top:537px;left:103px;white-space:nowrap" class="ft03">Position</p>
+<p style="position:absolute;top:521px;left:484px;white-space:nowrap" class="ft03">Meaning</p>
+<p style="position:absolute;top:561px;left:124px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:561px;left:190px;white-space:nowrap" class="ft03">Set&#160;if abort caused&#160;by XABORT&#160;instruction.</p>
+<p style="position:absolute;top:585px;left:124px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:585px;left:190px;white-space:nowrap" class="ft03">If set, the transactional&#160;execution may succeed&#160;on&#160;a retry. This&#160;bit is&#160;always clear&#160;if bit 0&#160;is set.</p>
+<p style="position:absolute;top:609px;left:124px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:609px;left:190px;white-space:nowrap" class="ft03">Set&#160;if another logical processor conflicted&#160;with a&#160;memory address that&#160;was part of&#160;the transactional execution&#160;</p>
+<p style="position:absolute;top:626px;left:190px;white-space:nowrap" class="ft03">that&#160;aborted.&#160;</p>
+<p style="position:absolute;top:650px;left:124px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:650px;left:190px;white-space:nowrap" class="ft03">Set&#160;if&#160;an&#160;internal buffer&#160;to&#160;track&#160;transactional state&#160;overflowed.&#160;</p>
+<p style="position:absolute;top:674px;left:124px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:674px;left:190px;white-space:nowrap" class="ft03">Set&#160;if&#160;a&#160;debug exception (#DB) or&#160;breakpoint&#160;exception&#160;(#BP) was&#160;hit.</p>
+<p style="position:absolute;top:698px;left:124px;white-space:nowrap" class="ft03">5</p>
+<p style="position:absolute;top:698px;left:190px;white-space:nowrap" class="ft03">Set&#160;if&#160;an&#160;abort occurred during&#160;execution of&#160;a&#160;nested&#160;transactional execution.</p>
+<p style="position:absolute;top:722px;left:114px;white-space:nowrap" class="ft03">23:6</p>
+<p style="position:absolute;top:722px;left:190px;white-space:nowrap" class="ft03">Reserved.</p>
+<p style="position:absolute;top:746px;left:110px;white-space:nowrap" class="ft03">31:24</p>
+<p style="position:absolute;top:746px;left:190px;white-space:nowrap" class="ft03">XABORT argument&#160;(only valid if&#160;bit 0 set,&#160;otherwise&#160;reserved).</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 623</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page623-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce623.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-49</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">17.16.8.1&#160;&#160;&#160;Monitoring Dynamic&#160;Configuration&#160;</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft06">Both&#160;the IA32_QM_EVTSEL&#160;and&#160;IA32_PQR_ASSOC registers&#160;are accessible&#160;and modifiable at&#160;any time during&#160;<br/>execution&#160;using RDMSR/WRMSR unless&#160;otherwise noted.&#160;When&#160;writing to&#160;these&#160;MSRs&#160;a&#160;#GP(0) will be generated&#160;<br/>if any of&#160;the&#160;following conditions&#160;occur:</p>
+<p style="position:absolute;top:182px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:183px;left:95px;white-space:nowrap" class="ft03">A reserved bit&#160;is modified,</p>
+<p style="position:absolute;top:205px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:205px;left:95px;white-space:nowrap" class="ft03">An&#160;RMID&#160;exceeding&#160;the maxRMID is&#160;used.</p>
+<p style="position:absolute;top:250px;left:69px;white-space:nowrap" class="ft02">17.16.8.2 &#160;&#160;Monitoring Operation&#160;With Power Saving Features</p>
+<p style="position:absolute;top:278px;left:69px;white-space:nowrap" class="ft06">Note that some&#160;advanced&#160;power management&#160;features such as&#160;deep&#160;package C-states may shrink&#160;the L3&#160;cache&#160;<br/>and cause&#160;CMT occupancy count to&#160;be&#160;reduced.&#160;MBM bandwidth counts may&#160;increase due to&#160;flushing&#160;cached data&#160;<br/>out of L3.</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft02">17.16.8.3 &#160;&#160;Monitoring Operation&#160;with Other Operating Modes</p>
+<p style="position:absolute;top:384px;left:69px;white-space:nowrap" class="ft06">The states in IA32_PQR_ASSOC and&#160;monitoring&#160;counter&#160;are unmodified&#160;across an&#160;SMI&#160;delivery.&#160;Thus,&#160;the&#160;execu-<br/>tion of SMM&#160;handler code and SMM handler’s&#160;data&#160;can&#160;manifest as&#160;spurious contribution in&#160;the monitored&#160;data.&#160;<br/>It is&#160;possible for an&#160;SMM handler&#160;to minimize&#160;the&#160;impact&#160;on&#160;of&#160;spurious contribution in&#160;the QOS monitoring&#160;coun-<br/>ters by&#160;reserving a dedicated RMID&#160;for monitoring the SMM handler.&#160;Such an SMM&#160;handler can&#160;save&#160;the previously&#160;<br/>configured QOS Monitoring&#160;state immediately upon entering&#160;SMM, and restoring the QOS monitoring&#160;state back to&#160;<br/>the prev-SMM&#160;RMID&#160;upon exit.</p>
+<p style="position:absolute;top:518px;left:69px;white-space:nowrap" class="ft02">17.16.8.4&#160;&#160;&#160;Monitoring Operation&#160;with RAS Features</p>
+<p style="position:absolute;top:547px;left:69px;white-space:nowrap" class="ft06">In general the Reliability,&#160;Availability and Serviceability (RAS) features present in Intel Platforms are not expected&#160;<br/>to significantly affect&#160;shared&#160;resource monitoring counts. In cases where&#160;software&#160;RAS&#160;features cause&#160;memory&#160;<br/>copies&#160;or cache&#160;accesses&#160;these&#160;may&#160;be&#160;tracked and may&#160;influence the&#160;shared resource&#160;monitoring&#160;counter&#160;values.</p>
+<p style="position:absolute;top:635px;left:69px;white-space:nowrap" class="ft05">17.17&#160;&#160;INTEL® RESOURCE&#160;DIRECTOR TECHNOLOGY (INTEL® RDT) ALLOCATION&#160;</p>
+<p style="position:absolute;top:661px;left:147px;white-space:nowrap" class="ft05">FEATURES</p>
+<p style="position:absolute;top:697px;left:69px;white-space:nowrap" class="ft08">The Intel&#160;Resource&#160;Director&#160;Technology (Intel RDT)&#160;feature&#160;set provides a set&#160;of allocation&#160;(resource control) capa-<br/>bilities including&#160;Cache&#160;Allocation&#160;Technology (CAT) and&#160;Code and Data Prioritization (CDP).&#160;The&#160;Intel Xeon&#160;<br/>processor&#160;E5&#160;v4&#160;family&#160;(and&#160;subset&#160;of communication-focused&#160;Intel Xeon processors E5 v3&#160;family) introduce&#160;capa-<br/>bilities&#160;to&#160;configure and make&#160;use of the&#160;Cache Allocation&#160;Technology (CAT) mechanisms on the&#160;L3&#160;cache. Some&#160;<br/>future Intel platforms may also&#160;provide support for control&#160;over the L2 cache, with capabilities as described below.&#160;<br/>The programming interface&#160;for&#160;Cache Allocation&#160;Technology&#160;and for the&#160;more general&#160;allocation&#160;capabilities&#160;are&#160;<br/>described in&#160;the rest of&#160;this&#160;chapter.&#160;<br/>Cache&#160;Allocation&#160;Technology enables&#160;an&#160;Operating System&#160;(OS),&#160;Hypervisor&#160;/Virtual Machine Manager (VMM)&#160;or&#160;<br/>similar system service&#160;management&#160;agent&#160;to specify&#160;the&#160;amount of cache&#160;space into&#160;which an&#160;application&#160;can fill&#160;<br/>(as a hint to hardware - certain features&#160;such&#160;as power management may override CAT&#160;settings). Specialized&#160;user-<br/>level implementations with minimal&#160;OS&#160;support&#160;are also&#160;possible, though not necessarily recommended (see&#160;notes&#160;<br/>below for OS/Hypervisor&#160;with respect&#160;to ring&#160;3 software&#160;and virtual guests).&#160;Depending on the&#160;processor&#160;famility,&#160;<br/>L2&#160;or L3&#160;cache allocation&#160;capability may be&#160;provided, and&#160;the technology is designed&#160;to&#160;scale across multiple&#160;cache&#160;<br/>levels and&#160;technology generations.<br/>Software can determine&#160;which levels are supported in a give&#160;platform programmatically&#160;using CPUID&#160;as described&#160;<br/>in&#160;the following sections.<br/>The CAT mechanisms defined in&#160;this document provide&#160;the&#160;following key features:</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1006px;left:95px;white-space:nowrap" class="ft06">A mechanism to enumerate&#160;platform&#160;Cache Allocation Technology capabilities and available resource&#160;types that&#160;<br/>provides&#160;CAT control capabilities. For implementations that support Cache Allocation Technology, CPUID&#160;<br/>provides&#160;enumeration support to&#160;query&#160;which&#160;levels of&#160;the&#160;cache&#160;hierarchy are supported&#160;and specific CAT&#160;<br/>capabilities, such&#160;as the&#160;max&#160;allocation bitmask size,&#160;</p>
+</div>
+</body>
+</html>

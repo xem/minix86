@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 672</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page672-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481672.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:708px;white-space:nowrap" class="ft00">LSL—Load Segment Limit</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-544&#160;Vol. 2A</p>
+<p style="position:absolute;top:583px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:613px;left:68px;white-space:nowrap" class="ft03">IF&#160;SRC(Offset)&#160;&gt;&#160;descriptor table limit</p>
+<p style="position:absolute;top:631px;left:88px;white-space:nowrap" class="ft03">THEN&#160;ZF&#160;←&#160;0; FI;</p>
+<p style="position:absolute;top:661px;left:68px;white-space:nowrap" class="ft03">Read&#160;segment descriptor;</p>
+<p style="position:absolute;top:691px;left:68px;white-space:nowrap" class="ft03">IF SegmentDescriptor(Type)&#160;</p>
+<p style="position:absolute;top:689px;left:231px;white-space:nowrap" class="ft04">≠&#160;</p>
+<p style="position:absolute;top:691px;left:244px;white-space:nowrap" class="ft03">conforming code segment</p>
+<p style="position:absolute;top:709px;left:68px;white-space:nowrap" class="ft03">and (CPL&#160;&gt;&#160;DPL) OR (RPL&#160;&gt;&#160;DPL)</p>
+<p style="position:absolute;top:727px;left:68px;white-space:nowrap" class="ft03">or&#160;Segment type&#160;is not valid&#160;for&#160;instruction</p>
+<p style="position:absolute;top:745px;left:115px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:763px;left:142px;white-space:nowrap" class="ft03">ZF&#160;←&#160;0;</p>
+<p style="position:absolute;top:781px;left:115px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:799px;left:142px;white-space:nowrap" class="ft03">temp&#160;←&#160;SegmentLimit([SRC]);</p>
+<p style="position:absolute;top:817px;left:142px;white-space:nowrap" class="ft03">IF (G&#160;←&#160;1)</p>
+<p style="position:absolute;top:835px;left:169px;white-space:nowrap" class="ft03">THEN&#160;temp&#160;←&#160;ShiftLeft(12, temp) OR 00000FFFH;</p>
+<p style="position:absolute;top:853px;left:142px;white-space:nowrap" class="ft03">ELSE IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:851px;left:262px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:853px;left:271px;white-space:nowrap" class="ft03">&#160;32&#160;</p>
+<p style="position:absolute;top:871px;left:169px;white-space:nowrap" class="ft03">THEN&#160;DEST&#160;←&#160;temp;&#160;FI;</p>
+<p style="position:absolute;top:889px;left:142px;white-space:nowrap" class="ft03">ELSE IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:887px;left:262px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:889px;left:271px;white-space:nowrap" class="ft03">&#160;64 (* REX.W used *)</p>
+<p style="position:absolute;top:907px;left:169px;white-space:nowrap" class="ft03">THEN DEST&#160;(* Zero-extended *)&#160;←&#160;temp; FI;</p>
+<p style="position:absolute;top:925px;left:142px;white-space:nowrap" class="ft03">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:923px;left:262px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:925px;left:275px;white-space:nowrap" class="ft03">16&#160;*)</p>
+<p style="position:absolute;top:943px;left:169px;white-space:nowrap" class="ft03">DEST&#160;←&#160;temp&#160;AND FFFFH;</p>
+<p style="position:absolute;top:961px;left:142px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:979px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:1013px;left:68px;white-space:nowrap" class="ft02">Flags Affected</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">The ZF flag&#160;is&#160;set to&#160;1 if&#160;the segment limit&#160;is&#160;loaded successfully; otherwise, it is&#160;set&#160;to 0.</p>
+<p style="position:absolute;top:100px;left:290px;white-space:nowrap" class="ft02">Table 3-55. &#160;Segment&#160;and&#160;Gate Descriptor&#160;Types</p>
+<p style="position:absolute;top:124px;left:111px;white-space:nowrap" class="ft03">Type</p>
+<p style="position:absolute;top:124px;left:291px;white-space:nowrap" class="ft03">Protected&#160;Mode</p>
+<p style="position:absolute;top:124px;left:627px;white-space:nowrap" class="ft03">IA-32e&#160;Mode</p>
+<p style="position:absolute;top:148px;left:256px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:148px;left:418px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:148px;left:573px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:148px;left:744px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:174px;left:122px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:172px;left:187px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:174px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:172px;left:504px;white-space:nowrap" class="ft03">Upper 8 byte of&#160;a&#160;16-Byte&#160;</p>
+<p style="position:absolute;top:189px;left:504px;white-space:nowrap" class="ft03">descriptor</p>
+<p style="position:absolute;top:174px;left:747px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:214px;left:122px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:213px;left:187px;white-space:nowrap" class="ft03">Available&#160;16-bit TSS</p>
+<p style="position:absolute;top:214px;left:421px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:213px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:214px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:238px;left:122px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:236px;left:187px;white-space:nowrap" class="ft03">LDT</p>
+<p style="position:absolute;top:238px;left:421px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:236px;left:504px;white-space:nowrap" class="ft03">LDT</p>
+<p style="position:absolute;top:238px;left:747px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:262px;left:122px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:261px;left:187px;white-space:nowrap" class="ft03">Busy 16-bit&#160;TSS</p>
+<p style="position:absolute;top:262px;left:421px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:261px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:262px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:286px;left:122px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:285px;left:187px;white-space:nowrap" class="ft03">16-bit call gate</p>
+<p style="position:absolute;top:286px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:285px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:286px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:310px;left:122px;white-space:nowrap" class="ft03">5</p>
+<p style="position:absolute;top:308px;left:187px;white-space:nowrap" class="ft03">16-bit/32-bit task gate</p>
+<p style="position:absolute;top:310px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:308px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:310px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:334px;left:122px;white-space:nowrap" class="ft03">6</p>
+<p style="position:absolute;top:333px;left:187px;white-space:nowrap" class="ft03">16-bit&#160;interrupt&#160;gate</p>
+<p style="position:absolute;top:334px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:333px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:334px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:358px;left:122px;white-space:nowrap" class="ft03">7</p>
+<p style="position:absolute;top:357px;left:187px;white-space:nowrap" class="ft03">16-bit trap gate</p>
+<p style="position:absolute;top:358px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:357px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:358px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:382px;left:122px;white-space:nowrap" class="ft03">8</p>
+<p style="position:absolute;top:381px;left:187px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:382px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:381px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:382px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:406px;left:122px;white-space:nowrap" class="ft03">9</p>
+<p style="position:absolute;top:405px;left:187px;white-space:nowrap" class="ft03">Available&#160;32-bit TSS</p>
+<p style="position:absolute;top:406px;left:421px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:405px;left:504px;white-space:nowrap" class="ft03">64-bit TSS</p>
+<p style="position:absolute;top:406px;left:747px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:430px;left:121px;white-space:nowrap" class="ft03">A</p>
+<p style="position:absolute;top:429px;left:187px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:430px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:429px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:430px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:454px;left:121px;white-space:nowrap" class="ft03">B</p>
+<p style="position:absolute;top:453px;left:187px;white-space:nowrap" class="ft03">Busy 32-bit&#160;TSS</p>
+<p style="position:absolute;top:454px;left:421px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:453px;left:504px;white-space:nowrap" class="ft03">Busy 64-bit TSS</p>
+<p style="position:absolute;top:454px;left:747px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:478px;left:121px;white-space:nowrap" class="ft03">C</p>
+<p style="position:absolute;top:477px;left:187px;white-space:nowrap" class="ft03">32-bit call gate</p>
+<p style="position:absolute;top:478px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:477px;left:504px;white-space:nowrap" class="ft03">64-bit call gate</p>
+<p style="position:absolute;top:478px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:502px;left:121px;white-space:nowrap" class="ft03">D</p>
+<p style="position:absolute;top:501px;left:187px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:502px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:501px;left:504px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:502px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:526px;left:121px;white-space:nowrap" class="ft03">E</p>
+<p style="position:absolute;top:525px;left:187px;white-space:nowrap" class="ft03">32-bit&#160;interrupt&#160;gate</p>
+<p style="position:absolute;top:526px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:525px;left:504px;white-space:nowrap" class="ft03">64-bit interrupt gate</p>
+<p style="position:absolute;top:526px;left:750px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:550px;left:122px;white-space:nowrap" class="ft03">F</p>
+<p style="position:absolute;top:549px;left:187px;white-space:nowrap" class="ft03">32-bit trap gate</p>
+<p style="position:absolute;top:550px;left:424px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:549px;left:504px;white-space:nowrap" class="ft03">64-bit trap gate</p>
+<p style="position:absolute;top:550px;left:750px;white-space:nowrap" class="ft03">No</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 82</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:7px;font-family:Times;color:#000000;}
+	.ft09{font-size:8px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+	.ft012{font-size:7px;line-height:10px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page82-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce082.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">2-20&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;ARCHITECTURE&#160;OVERVIEW</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft010">XCR0.BNDCSR (bit&#160;4): If&#160;1,&#160;MPX instructions can&#160;be&#160;executed&#160;and&#160;the XSAVE&#160;feature set can be&#160;used&#160;to&#160;<br/>manage the&#160;BNDCFGU&#160;and&#160;BNDSTATUS registers.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft010">XCR0.opmask (bit 5):&#160;If 1, AVX-512&#160;instructions&#160;can be&#160;executed&#160;and&#160;the XSAVE&#160;feature set can be&#160;used&#160;to&#160;<br/>manage the&#160;opmask&#160;registers&#160;k0–k7.</p>
+<p style="position:absolute;top:178px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:178px;left:93px;white-space:nowrap" class="ft010">XCR0.ZMM_Hi256&#160;(bit 6): If 1,&#160;AVX-512&#160;instructions&#160;can be&#160;executed&#160;and the&#160;XSAVE&#160;feature set can be used to&#160;<br/>manage the&#160;upper halves of the&#160;lower ZMM&#160;registers (ZMM0-ZMM15 in&#160;64-bit mode;&#160;otherwise ZMM0-ZMM7).</p>
+<p style="position:absolute;top:217px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:217px;left:93px;white-space:nowrap" class="ft010">XCR0.Hi16_ZMM (bit 7):&#160;If 1,&#160;AVX-512&#160;instructions can be executed&#160;and the&#160;XSAVE&#160;feature set&#160;can be used&#160;to&#160;<br/>manage the&#160;upper ZMM&#160;registers (ZMM16-ZMM31, only in&#160;64-bit&#160;mode).</p>
+<p style="position:absolute;top:256px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:256px;left:93px;white-space:nowrap" class="ft03">XCR0.PKRU (bit&#160;9): If&#160;1,&#160;the XSAVE&#160;feature set&#160;can be used&#160;to manage&#160;the PKRU&#160;register&#160;(see<a href="o_fe12b1e2a880e0ce-82.html">&#160;Section 2.7).</a>&#160;</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft010">An attempt to use XSETBV to&#160;write to XCR0&#160;results&#160;in general-protection&#160;exceptions (#GP) if it&#160;would&#160;do any of the&#160;<br/>following:</p>
+<p style="position:absolute;top:319px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:319px;left:93px;white-space:nowrap" class="ft010">Set a bit reserved in XCR0 for a given processor (as determined by the&#160;contents of&#160;EAX and EDX after executing&#160;<br/>CPUID with EAX=0DH,&#160;ECX=&#160;0H).</p>
+<p style="position:absolute;top:358px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:358px;left:93px;white-space:nowrap" class="ft03">Clear XCR0.x87.</p>
+<p style="position:absolute;top:380px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:381px;left:93px;white-space:nowrap" class="ft03">Clear XCR0.SSE&#160;and set XCR0.AVX.</p>
+<p style="position:absolute;top:403px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:403px;left:93px;white-space:nowrap" class="ft03">Clear XCR0.AVX&#160;and&#160;set any&#160;of XCR0.opmask, XCR0.ZMM_Hi256, and&#160;XCR0.Hi16_ZMM.</p>
+<p style="position:absolute;top:425px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:426px;left:93px;white-space:nowrap" class="ft03">Set either XCR0.BNDREG and&#160;XCR0.BNDCSR&#160;while not setting the other.</p>
+<p style="position:absolute;top:448px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:448px;left:93px;white-space:nowrap" class="ft03">Set any&#160;of XCR0.opmask,&#160;XCR0.ZMM_Hi256,&#160;and&#160;XCR0.Hi16_ZMM&#160;while not setting all of them.</p>
+<p style="position:absolute;top:471px;left:68px;white-space:nowrap" class="ft03">After reset,&#160;all bits (except&#160;bit&#160;0) in&#160;XCR0&#160;are cleared&#160;to zero; XCR0[0] is&#160;set to&#160;1.</p>
+<p style="position:absolute;top:526px;left:68px;white-space:nowrap" class="ft04">2.7&#160;</p>
+<p style="position:absolute;top:526px;left:147px;white-space:nowrap" class="ft04">PROTECTION KEY RIGHTS REGISTER (PKRU)</p>
+<p style="position:absolute;top:562px;left:68px;white-space:nowrap" class="ft010">If CPUID.(EAX=07H,ECX=0H):ECX.PKU&#160;[bit&#160;3]&#160;= 1,&#160;the&#160;processor&#160;supports&#160;the protection-key feature&#160;for IA-32e&#160;<br/>paging.&#160;The feature&#160;allows&#160;selective&#160;protection of&#160;user-mode pages&#160;depending on the 4-bit protection&#160;key assigned&#160;<br/>to&#160;each&#160;page. The&#160;<b>protection key rights&#160;register&#160;for user&#160;pages&#160;</b>(PKRU) allows software&#160;to specify&#160;the access&#160;<br/>rights for each&#160;protection&#160;key.&#160;</p>
+<p style="position:absolute;top:783px;left:68px;white-space:nowrap" class="ft010">The&#160;layout of the&#160;PKRU register&#160;is shown&#160;<a href="o_fe12b1e2a880e0ce-82.html">in Figure&#160;2-9.&#160;</a>It contains&#160;16&#160;pairs of disable&#160;controls to&#160;prevent data&#160;<br/>accesses&#160;to user-mode linear addresses based&#160;on their protection keys. Each&#160;protection key&#160;<i>i</i>&#160;is associated&#160;with two&#160;<br/>bits in&#160;the PKRU&#160;register:</p>
+<p style="position:absolute;top:838px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:838px;left:93px;white-space:nowrap" class="ft010">Bit 2<i>i</i>, shown&#160;as “AD<i>i</i>”&#160;(access disable): if set,&#160;the&#160;processor prevents&#160;any data&#160;accesses to&#160;user-mode&#160;linear&#160;<br/>addresses&#160;with protection key&#160;<i>i.</i></p>
+<p style="position:absolute;top:877px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:877px;left:93px;white-space:nowrap" class="ft010">Bit 2<i>i</i>+1, shown&#160;as “WD<i>i</i>” (write&#160;disable): if set,&#160;the processor prevents&#160;write&#160;accesses to&#160;user-mode&#160;linear&#160;<br/>addresses&#160;with protection key&#160;<i>i.</i></p>
+<p style="position:absolute;top:918px;left:68px;white-space:nowrap" class="ft010">Se<a href="o_fe12b1e2a880e0ce-135.html">e Section 4.6.2,&#160;“Protection Keys,”&#160;for&#160;</a>details&#160;of&#160;how the processor uses&#160;the PKRU register to&#160;control&#160;accesses&#160;to&#160;<br/>user-mode&#160;linear&#160;addresses.</p>
+<p style="position:absolute;top:990px;left:68px;white-space:nowrap" class="ft04">2.8&#160;SYSTEM&#160;</p>
+<p style="position:absolute;top:990px;left:228px;white-space:nowrap" class="ft04">INSTRUCTION&#160;</p>
+<p style="position:absolute;top:990px;left:362px;white-space:nowrap" class="ft04">SUMMARY</p>
+<p style="position:absolute;top:1026px;left:68px;white-space:nowrap" class="ft010">System instructions handle&#160;system-level functions such&#160;as&#160;loading&#160;system registers, managing&#160;the&#160;cache,&#160;<br/>managing interrupts,&#160;or setting up&#160;the debug&#160;registers.&#160;Many&#160;of&#160;these instructions&#160;can&#160;be&#160;executed&#160;only by oper-</p>
+<p style="position:absolute;top:761px;left:232px;white-space:nowrap" class="ft07">Figure&#160;2-9. &#160;Protection&#160;Key Rights Register&#160;for User Pages (PKRU)</p>
+<p style="position:absolute;top:701px;left:613px;white-space:nowrap" class="ft08">A</p>
+<p style="position:absolute;top:680px;left:192px;white-space:nowrap" class="ft08">31</p>
+<p style="position:absolute;top:680px;left:492px;white-space:nowrap" class="ft08">9</p>
+<p style="position:absolute;top:680px;left:505px;white-space:nowrap" class="ft08">8</p>
+<p style="position:absolute;top:680px;left:519px;white-space:nowrap" class="ft08">7</p>
+<p style="position:absolute;top:680px;left:532px;white-space:nowrap" class="ft08">6</p>
+<p style="position:absolute;top:680px;left:546px;white-space:nowrap" class="ft08">5</p>
+<p style="position:absolute;top:680px;left:559px;white-space:nowrap" class="ft08">4</p>
+<p style="position:absolute;top:680px;left:573px;white-space:nowrap" class="ft08">3</p>
+<p style="position:absolute;top:680px;left:586px;white-space:nowrap" class="ft08">2</p>
+<p style="position:absolute;top:680px;left:600px;white-space:nowrap" class="ft08">1</p>
+<p style="position:absolute;top:680px;left:613px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:680px;left:422px;white-space:nowrap" class="ft08">14</p>
+<p style="position:absolute;top:680px;left:368px;white-space:nowrap" class="ft08">18&#160;17</p>
+<p style="position:absolute;top:680px;left:341px;white-space:nowrap" class="ft08">20</p>
+<p style="position:absolute;top:680px;left:395px;white-space:nowrap" class="ft08">16&#160;15</p>
+<p style="position:absolute;top:680px;left:314px;white-space:nowrap" class="ft08">22&#160;21</p>
+<p style="position:absolute;top:680px;left:354px;white-space:nowrap" class="ft08">19</p>
+<p style="position:absolute;top:680px;left:206px;white-space:nowrap" class="ft08">30&#160;29&#160;28&#160;27</p>
+<p style="position:absolute;top:680px;left:273px;white-space:nowrap" class="ft08">25&#160;24&#160;23</p>
+<p style="position:absolute;top:680px;left:260px;white-space:nowrap" class="ft08">26</p>
+<p style="position:absolute;top:680px;left:635px;white-space:nowrap" class="ft09">Bit&#160;Position</p>
+<p style="position:absolute;top:680px;left:476px;white-space:nowrap" class="ft08">10</p>
+<p style="position:absolute;top:680px;left:462px;white-space:nowrap" class="ft08">11</p>
+<p style="position:absolute;top:680px;left:449px;white-space:nowrap" class="ft08">12</p>
+<p style="position:absolute;top:680px;left:435px;white-space:nowrap" class="ft08">13</p>
+<p style="position:absolute;top:711px;left:613px;white-space:nowrap" class="ft08">D</p>
+<p style="position:absolute;top:701px;left:599px;white-space:nowrap" class="ft012">W<br/>D<br/>0</p>
+<p style="position:absolute;top:701px;left:586px;white-space:nowrap" class="ft012">A<br/>D<br/>1</p>
+<p style="position:absolute;top:701px;left:572px;white-space:nowrap" class="ft012">W<br/>D<br/>1</p>
+<p style="position:absolute;top:721px;left:613px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:701px;left:559px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:701px;left:545px;white-space:nowrap" class="ft012">W<br/>D<br/>2</p>
+<p style="position:absolute;top:701px;left:532px;white-space:nowrap" class="ft012">A<br/>D<br/>3</p>
+<p style="position:absolute;top:701px;left:518px;white-space:nowrap" class="ft012">W<br/>D<br/>3</p>
+<p style="position:absolute;top:721px;left:559px;white-space:nowrap" class="ft08">2</p>
+<p style="position:absolute;top:701px;left:505px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:701px;left:491px;white-space:nowrap" class="ft012">W<br/>D<br/>4</p>
+<p style="position:absolute;top:701px;left:478px;white-space:nowrap" class="ft012">A<br/>D<br/>5</p>
+<p style="position:absolute;top:701px;left:464px;white-space:nowrap" class="ft012">W<br/>D<br/>5</p>
+<p style="position:absolute;top:721px;left:505px;white-space:nowrap" class="ft08">4</p>
+<p style="position:absolute;top:701px;left:451px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:701px;left:437px;white-space:nowrap" class="ft012">W<br/>D<br/>6</p>
+<p style="position:absolute;top:701px;left:424px;white-space:nowrap" class="ft012">A<br/>D<br/>7</p>
+<p style="position:absolute;top:701px;left:410px;white-space:nowrap" class="ft012">W<br/>D<br/>7</p>
+<p style="position:absolute;top:721px;left:451px;white-space:nowrap" class="ft08">6</p>
+<p style="position:absolute;top:701px;left:397px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:701px;left:383px;white-space:nowrap" class="ft012">W<br/>D<br/>8</p>
+<p style="position:absolute;top:701px;left:370px;white-space:nowrap" class="ft012">A<br/>D<br/>9</p>
+<p style="position:absolute;top:701px;left:356px;white-space:nowrap" class="ft012">W<br/>D<br/>9</p>
+<p style="position:absolute;top:721px;left:397px;white-space:nowrap" class="ft08">8</p>
+<p style="position:absolute;top:701px;left:343px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:701px;left:329px;white-space:nowrap" class="ft011">W<br/>D</p>
+<p style="position:absolute;top:721px;left:328px;white-space:nowrap" class="ft08">10</p>
+<p style="position:absolute;top:701px;left:316px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:721px;left:315px;white-space:nowrap" class="ft08">11</p>
+<p style="position:absolute;top:701px;left:302px;white-space:nowrap" class="ft011">W<br/>D</p>
+<p style="position:absolute;top:721px;left:301px;white-space:nowrap" class="ft08">11</p>
+<p style="position:absolute;top:721px;left:340px;white-space:nowrap" class="ft08">10</p>
+<p style="position:absolute;top:701px;left:289px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:701px;left:275px;white-space:nowrap" class="ft011">W<br/>D</p>
+<p style="position:absolute;top:721px;left:274px;white-space:nowrap" class="ft08">12</p>
+<p style="position:absolute;top:701px;left:262px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:721px;left:261px;white-space:nowrap" class="ft08">13</p>
+<p style="position:absolute;top:701px;left:248px;white-space:nowrap" class="ft011">W<br/>D</p>
+<p style="position:absolute;top:721px;left:247px;white-space:nowrap" class="ft08">13</p>
+<p style="position:absolute;top:721px;left:288px;white-space:nowrap" class="ft08">12</p>
+<p style="position:absolute;top:701px;left:235px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:701px;left:221px;white-space:nowrap" class="ft011">W<br/>D</p>
+<p style="position:absolute;top:721px;left:220px;white-space:nowrap" class="ft08">14</p>
+<p style="position:absolute;top:701px;left:208px;white-space:nowrap" class="ft011">A<br/>D</p>
+<p style="position:absolute;top:721px;left:207px;white-space:nowrap" class="ft08">15</p>
+<p style="position:absolute;top:701px;left:194px;white-space:nowrap" class="ft011">W<br/>D</p>
+<p style="position:absolute;top:721px;left:234px;white-space:nowrap" class="ft08">14</p>
+<p style="position:absolute;top:721px;left:193px;white-space:nowrap" class="ft08">15</p>
+</div>
+</body>
+</html>

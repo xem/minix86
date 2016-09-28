@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 260</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page260-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce260.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-4&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">A locked&#160;instruction is guaranteed&#160;to lock&#160;only the&#160;area&#160;of memory defined&#160;by the&#160;destination operand,&#160;but may be&#160;<br/>interpreted by the&#160;system as&#160;a lock for a&#160;larger&#160;memory&#160;area.<br/>Software should&#160;access semaphores&#160;(shared&#160;memory used&#160;for signalling between multiple processors) using iden-<br/>tical&#160;addresses&#160;and operand&#160;lengths. For example, if&#160;one processor accesses a&#160;semaphore&#160;using a&#160;word&#160;access,&#160;<br/>other processors should&#160;not access&#160;the semaphore using&#160;a byte&#160;access.&#160;</p>
+<p style="position:absolute;top:208px;left:432px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:234px;left:120px;white-space:nowrap" class="ft07">Do not implement semaphores using the WC memory&#160;type. Do not&#160;perform&#160;non-temporal&#160;stores to&#160;<br/>a&#160;cache line&#160;containing a&#160;location used to implement a&#160;semaphore.</p>
+<p style="position:absolute;top:291px;left:68px;white-space:nowrap" class="ft07">The integrity of a&#160;bus lock&#160;is not affected by the&#160;alignment of&#160;the memory&#160;field. The LOCK&#160;semantics are followed&#160;<br/>for&#160;as many&#160;bus cycles&#160;as necessary to update the entire&#160;operand. However,&#160;it&#160;is recommend that locked accesses&#160;<br/>be&#160;aligned on their natural boundaries&#160;for&#160;better&#160;system&#160;performance:</p>
+<p style="position:absolute;top:346px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:346px;left:93px;white-space:nowrap" class="ft02">Any&#160;boundary&#160;for an&#160;8-bit access (locked&#160;or&#160;otherwise).</p>
+<p style="position:absolute;top:368px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:369px;left:93px;white-space:nowrap" class="ft02">16-bit&#160;boundary&#160;for locked word accesses.</p>
+<p style="position:absolute;top:391px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:391px;left:93px;white-space:nowrap" class="ft02">32-bit&#160;boundary&#160;for locked doubleword accesses.</p>
+<p style="position:absolute;top:413px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:414px;left:93px;white-space:nowrap" class="ft02">64-bit boundary for&#160;locked&#160;quadword accesses.</p>
+<p style="position:absolute;top:438px;left:68px;white-space:nowrap" class="ft08">Locked operations&#160;are atomic&#160;with respect&#160;to all&#160;other memory operations and&#160;all externally&#160;visible&#160;events. Only&#160;<br/>instruction&#160;fetch and page table&#160;accesses can pass locked&#160;instructions. Locked&#160;instructions can be&#160;used&#160;to&#160;synchro-<br/>nize&#160;data written by one&#160;processor&#160;and read by&#160;another&#160;processor.<br/>For the P6 family processors, locked operations serialize&#160;all outstanding load and store&#160;operations (that is, wait for&#160;<br/>them to&#160;complete). This&#160;rule is&#160;also true for the&#160;Pentium 4&#160;and Intel Xeon&#160;processors, with&#160;one&#160;exception.&#160;Load&#160;<br/>operations&#160;that reference weakly ordered memory&#160;types&#160;(such as&#160;the WC memory type) may&#160;not be serialized.<br/>Locked&#160;instructions&#160;should not be used to&#160;ensure that&#160;data written&#160;can&#160;be&#160;fetched&#160;as instructions.&#160;</p>
+<p style="position:absolute;top:586px;left:432px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:612px;left:120px;white-space:nowrap" class="ft07">The&#160;locked&#160;instructions for the&#160;current versions of the&#160;Pentium&#160;4, Intel&#160;Xeon, P6&#160;family, Pentium,&#160;<br/>and&#160;Intel486 processors allow data written to&#160;be&#160;fetched&#160;as instructions.&#160;However,&#160;Intel&#160;<br/>recommends&#160;that developers who require the&#160;use of&#160;self-modifying code use a&#160;different synchro-<br/>nizing mechanism,&#160;described in the&#160;following&#160;sections.</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft05">8.1.3&#160;</p>
+<p style="position:absolute;top:712px;left:148px;white-space:nowrap" class="ft05">Handling Self- and Cross-Modifying Code</p>
+<p style="position:absolute;top:742px;left:68px;white-space:nowrap" class="ft07">The act of&#160;a&#160;processor writing data&#160;into&#160;a&#160;currently executing&#160;code&#160;segment&#160;with&#160;the&#160;intent&#160;of executing that&#160;data&#160;<br/>as&#160;code&#160;is&#160;called&#160;<b>self-modifying code</b>.&#160;IA-32&#160;processors&#160;exhibit model-specific&#160;behavior when&#160;executing&#160;self-<br/>modified&#160;code,&#160;depending&#160;upon how far ahead&#160;of the&#160;current&#160;execution pointer the code&#160;has been modified.&#160;<br/>As processor microarchitectures become more complex and start to speculatively execute&#160;code ahead of the retire-<br/>ment&#160;point (as&#160;in P6 and&#160;more recent processor&#160;families),&#160;the&#160;rules regarding&#160;which code should&#160;execute, pre- or&#160;<br/>post-modification, become blurred. To&#160;write self-modifying&#160;code and ensure&#160;that it&#160;is compliant&#160;with current&#160;and&#160;<br/>future versions&#160;of the IA-32&#160;architectures,&#160;use one&#160;of the&#160;following coding options:</p>
+<p style="position:absolute;top:879px;left:88px;white-space:nowrap" class="ft010">(*&#160;OPTION&#160;1 *)<br/>Store modified&#160;code&#160;(as&#160;data) into code&#160;segment;&#160;<br/>Jump to&#160;new code&#160;or&#160;an&#160;intermediate location;<br/>Execute new&#160;code;</p>
+<p style="position:absolute;top:962px;left:88px;white-space:nowrap" class="ft010">(*&#160;OPTION&#160;2 *)<br/>Store modified&#160;code&#160;(as&#160;data) into code&#160;segment;<br/>Execute&#160;a serializing instruction;&#160;(*&#160;For&#160;example,&#160;CPUID instruction *)<br/>Execute new&#160;code;</p>
+<p style="position:absolute;top:1041px;left:68px;white-space:nowrap" class="ft07">The use&#160;of&#160;one&#160;of&#160;these options is&#160;not&#160;required&#160;for programs&#160;intended to run&#160;on the&#160;Pentium or Intel486&#160;processors,&#160;<br/>but&#160;are&#160;recommended&#160;to ensure&#160;compatibility&#160;with&#160;the P6 and more recent processor families.</p>
+</div>
+</body>
+</html>

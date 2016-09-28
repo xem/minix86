@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 200</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page200-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce200.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-14&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND EXCEPTION&#160;HANDLING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">Because&#160;exceptions&#160;and&#160;interrupts generally&#160;do not occur&#160;at predictable times,&#160;these privilege&#160;rules effectively&#160;<br/>impose restrictions&#160;on&#160;the&#160;privilege&#160;levels at which exception and interrupt-&#160;handling procedures can run. Either of&#160;<br/>the&#160;following&#160;techniques&#160;can be used&#160;to&#160;avoid privilege-level&#160;violations.</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft06">The exception&#160;or interrupt handler can&#160;be placed&#160;in&#160;a conforming&#160;code&#160;segment. This&#160;technique&#160;can&#160;be&#160;used for&#160;<br/>handlers&#160;that only need&#160;to&#160;access&#160;data&#160;available on&#160;the&#160;stack (for example,&#160;divide&#160;error&#160;exceptions).&#160;If&#160;the&#160;<br/>handler&#160;needs data from&#160;a data segment, the data segment needs to&#160;be accessible from privilege&#160;level 3, which&#160;<br/>would make&#160;it&#160;unprotected.</p>
+<p style="position:absolute;top:227px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:228px;left:93px;white-space:nowrap" class="ft06">The handler&#160;can be placed in&#160;a nonconforming&#160;code&#160;segment with privilege&#160;level 0. This&#160;handler&#160;would&#160;always&#160;<br/>run, regardless of&#160;the&#160;CPL&#160;that&#160;the interrupted program or&#160;task&#160;is running at.</p>
+<p style="position:absolute;top:289px;left:68px;white-space:nowrap" class="ft04">6.12.1.2&#160;&#160;&#160;Flag&#160;Usage&#160;By&#160;Exception- or Interrupt-Handler Procedure</p>
+<p style="position:absolute;top:317px;left:68px;white-space:nowrap" class="ft06">When accessing an&#160;exception or&#160;interrupt handler through either an interrupt&#160;gate or a&#160;trap gate,&#160;the processor&#160;<br/>clears the&#160;TF&#160;flag in&#160;the EFLAGS&#160;register after&#160;it saves the contents&#160;of&#160;the EFLAGS&#160;register on&#160;the&#160;stack.&#160;(On calls&#160;<br/>to exception and interrupt&#160;handlers,&#160;the processor also&#160;clears the&#160;VM,&#160;RF,&#160;and NT&#160;flags&#160;in&#160;the EFLAGS&#160;register, after&#160;<br/>they&#160;are&#160;saved on&#160;the stack.) Clearing the TF flag prevents&#160;instruction tracing from affecting interrupt response. A&#160;<br/>subsequent&#160;IRET instruction restores the&#160;TF&#160;(and VM,&#160;RF,&#160;and NT) flags&#160;to the&#160;values in the saved contents&#160;of&#160;the&#160;<br/>EFLAGS register&#160;on&#160;the stack.<br/>The only difference between an interrupt&#160;gate and&#160;a trap gate&#160;is the&#160;way&#160;the processor handles&#160;the&#160;IF flag&#160;in the&#160;<br/>EFLAGS register.&#160;When accessing an&#160;exception- or&#160;interrupt-handling&#160;procedure through an&#160;interrupt gate, the&#160;<br/>processor clears the IF flag&#160;to prevent&#160;other interrupts from&#160;interfering with the current&#160;interrupt handler.&#160;A&#160;subse-<br/>quent&#160;IRET instruction restores&#160;the&#160;IF flag&#160;to its&#160;value&#160;in&#160;the&#160;saved&#160;contents of the&#160;EFLAGS&#160;register on&#160;the&#160;stack.&#160;<br/>Accessing a&#160;handler&#160;procedure through a&#160;trap gate does not&#160;affect&#160;the IF flag.</p>
+<p style="position:absolute;top:540px;left:68px;white-space:nowrap" class="ft05">6.12.2 Interrupt&#160;</p>
+<p style="position:absolute;top:540px;left:225px;white-space:nowrap" class="ft05">Tasks</p>
+<p style="position:absolute;top:571px;left:68px;white-space:nowrap" class="ft06">When an&#160;exception&#160;or interrupt&#160;handler is&#160;accessed through&#160;a task gate&#160;in the&#160;IDT,&#160;a task switch results. Handling&#160;<br/>an&#160;exception or&#160;interrupt with&#160;a separate task offers&#160;several advantages:</p>
+<p style="position:absolute;top:609px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:610px;left:93px;white-space:nowrap" class="ft02">The entire&#160;context of the&#160;interrupted program or&#160;task&#160;is saved&#160;automatically.</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:632px;left:93px;white-space:nowrap" class="ft06">A&#160;new TSS permits the handler&#160;to&#160;use a&#160;new privilege&#160;level&#160;0&#160;stack when handling the&#160;exception or&#160;interrupt. If&#160;<br/>an exception&#160;or interrupt&#160;occurs when the&#160;current privilege level 0 stack is&#160;corrupted,&#160;accessing&#160;the handler&#160;<br/>through a&#160;task gate&#160;can prevent&#160;a system&#160;crash by&#160;providing the&#160;handler&#160;with&#160;a new privilege&#160;level 0&#160;stack.</p>
+<p style="position:absolute;top:687px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:688px;left:93px;white-space:nowrap" class="ft06">The handler&#160;can be further isolated from other&#160;tasks&#160;by&#160;giving it&#160;a separate address&#160;space.&#160;This&#160;is done by&#160;<br/>giving&#160;it&#160;a separate&#160;LDT.</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft06">The disadvantage&#160;of&#160;handling an&#160;interrupt with a&#160;separate&#160;task&#160;is that&#160;the amount&#160;of machine state that&#160;must&#160;be&#160;<br/>saved on a&#160;task switch makes&#160;it slower than&#160;using an interrupt gate,&#160;resulting&#160;in&#160;increased interrupt&#160;latency.<br/>A&#160;task gate in the IDT&#160;references&#160;a TSS descriptor&#160;in the&#160;GD<a href="o_fe12b1e2a880e0ce-201.html">T (see&#160;Figure&#160;6-5)</a>. A switch to&#160;the handler&#160;task is&#160;<br/>handled in&#160;the same&#160;manner as&#160;an&#160;ordinary task switch&#160;<a href="o_fe12b1e2a880e0ce-247.html">(see Section 7.3, “Task Switching”).</a>&#160;The link back&#160;to the&#160;<br/>interrupted&#160;task is&#160;stored&#160;in the&#160;previous&#160;task link&#160;field of&#160;the&#160;handler&#160;task’s&#160;TSS.&#160;If&#160;an&#160;exception&#160;caused&#160;an error&#160;<br/>code&#160;to be generated,&#160;this error&#160;code&#160;is copied&#160;to the&#160;stack of the&#160;new&#160;task.<br/>When exception-&#160;or interrupt-handler&#160;tasks are&#160;used&#160;in&#160;an operating&#160;system, there are&#160;actually two mechanisms&#160;<br/>that can be used to&#160;dispatch&#160;tasks:&#160;the software&#160;scheduler&#160;(part of the&#160;operating system) and&#160;the hardware sched-<br/>uler (part of the&#160;processor's interrupt mechanism).&#160;The&#160;software&#160;scheduler needs&#160;to accommodate&#160;interrupt tasks&#160;<br/>that may&#160;be&#160;dispatched&#160;when&#160;interrupts are&#160;enabled.</p>
+</div>
+</body>
+</html>

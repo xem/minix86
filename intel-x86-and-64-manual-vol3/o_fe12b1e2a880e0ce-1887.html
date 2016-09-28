@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1887</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1887-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1887.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-77</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_SSA_PAGE).VALID&#160;=&#160;0)&#160;</p>
+<p style="position:absolute;top:118px;left:116px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:136px;left:89px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_SSA_PAGE).BLOCKED = 1)&#160;</p>
+<p style="position:absolute;top:154px;left:116px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft02">IF&#160;((EPCM(DS:TMP_SSA_PAGE).PENDING&#160;=&#160;1) or&#160;(EPCM(DS:TMP_SSA_PAGE).MODIFIED =&#160;1))</p>
+<p style="position:absolute;top:190px;left:116px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:208px;left:89px;white-space:nowrap" class="ft02">IF ( ( EPCM(DS:TMP_SSA_PAGE).ENCLAVEADDRESS&#160;≠&#160;DS:TMPSSA_PAGE) or&#160;(EPCM(DS:TMP_SSA_PAGE).PT&#160;≠&#160;PT_REG) or</p>
+<p style="position:absolute;top:226px;left:116px;white-space:nowrap" class="ft03">(EPCM(DS:TMP_SSA_PAGE).ENCLAVESECS&#160;≠&#160;EPCM(DS:RBX).ENCLAVESECS) or&#160;<br/>(EPCM(DS:TMP_SECS).R&#160;= 0) or&#160;(EPCM(DS:TMP_SECS).W =&#160;0) )<br/>THEN #PF(DS:TMP_SSA_PAGE); FI;</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft02">CR_XSAVE_PAGE_n&#160;&#160;Physical_Address(DS:TMP_SSA_PAGE);</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft02">ENDFOR</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft03">(* Compute address of&#160;GPR&#160;area*)<br/>TMP_GPR&#160;&#160;TMP_SSA + 4096&#160;* DS:TMP_SECS.SSAFRAMESIZE&#160;--&#160;sizeof(GPRSGX_AREA);<br/>If a&#160;fault&#160;occurs; release locks, abort and deliver that fault;</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft02">IF&#160;(DS:TMP_GPR does not resolve to EPC page)&#160;</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_GPR).VALID =&#160;0)&#160;</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_GPR).BLOCKED =&#160;1)&#160;</p>
+<p style="position:absolute;top:496px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft02">IF ((EPCM(DS:TMP_GPR).PENDING = 1)&#160;or&#160;(EPCM(DS:TMP_GPR).MODIFIED = 1))</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:550px;left:69px;white-space:nowrap" class="ft02">IF ( (&#160;EPCM(DS:TMP_GPR).ENCLAVEADDRESS&#160;≠&#160;DS:TMP_GPR) or (EPCM(DS:TMP_GPR).PT&#160;≠&#160;PT_REG) or</p>
+<p style="position:absolute;top:568px;left:89px;white-space:nowrap" class="ft03">(EPCM(DS:TMP_GPR).ENCLAVESECS&#160;EPCM(DS:RBX).ENCLAVESECS) or&#160;<br/>(EPCM(DS:TMP_GPR).R&#160;= 0) or&#160;(EPCM(DS:TMP_GPR).W = 0) )<br/>THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:640px;left:69px;white-space:nowrap" class="ft02">IF&#160;(TMP_MODE64&#160;= 0)</p>
+<p style="position:absolute;top:658px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:676px;left:116px;white-space:nowrap" class="ft02">IF (TMP_GPR + (GPR_SIZE -1) is not&#160;in DS segment) THEN #GP(0); FI;</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft02">CR_GPR_PA&#160;&#160;Physical_Address (DS: TMP_GPR);</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft03">(* Validate&#160;TCS.OENTRY *)<br/>TMP_TARGET&#160;&#160;(DS:RBX).OENTRY + TMP_SECS.BASEADDR;<br/>IF&#160;(TMP_MODE64&#160;= 1)</p>
+<p style="position:absolute;top:820px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:838px;left:116px;white-space:nowrap" class="ft02">IF&#160;(TMP_TARGET&#160;is not canonical)&#160;THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:856px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:874px;left:116px;white-space:nowrap" class="ft02">IF (TMP_TARGET &gt;&#160;CS limit)&#160;THEN #GP(0); FI;</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft03">(* Ensure&#160;the&#160;enclave&#160;is not&#160;already active&#160;and this&#160;thread&#160;is&#160;the&#160;only one using the&#160;TCS*)<br/>IF (DS:RBX.STATE = ACTIVE))&#160;</p>
+<p style="position:absolute;top:964px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft03">CR_ENCALVE_MODE&#160;&#160;1;<br/>CR_ACTIVE_SECS&#160;&#160;TMP_SECS;<br/>CR_ELRANGE&#160;&#160;(TMPSECS.BASEADDR, TMP_SECS.SIZE);</p>
+</div>
+</body>
+</html>

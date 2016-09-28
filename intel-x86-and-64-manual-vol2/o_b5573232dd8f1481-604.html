@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 604</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page604-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481604.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:686px;white-space:nowrap" class="ft00">IRET/IRETD—Interrupt Return</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-476&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">This unblocking occurs&#160;even if the instruction causes a fault. In such a case, NMIs are unmasked before&#160;the excep-<br/>tion handler&#160;is invoked.<br/>In 64-bit&#160;mode, the instruction’s default operation&#160;size&#160;is&#160;32&#160;bits. Use of&#160;the&#160;REX.W&#160;prefix&#160;promotes&#160;operation to&#160;64&#160;<br/>bits (IRETQ). See&#160;the summary&#160;chart at&#160;the beginning&#160;of this section for encoding data and&#160;limits.&#160;<br/>See “Changes to Instruction Behavior in VMX&#160;Non-Root Oper<a href="��">ation” in Chapter 25&#160;of the&#160;<i>Intel® 64&#160;and IA-32&#160;Archi-<br/>tectures&#160;Software Developer’s Manual, Volume&#160;3C</i>, for mo</a>re&#160;information about&#160;the behavior&#160;of&#160;this instruction in&#160;<br/>VMX&#160;non-root operation.</p>
+<p style="position:absolute;top:248px;left:68px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:279px;left:68px;white-space:nowrap" class="ft02">IF&#160;PE&#160;= 0</p>
+<p style="position:absolute;top:297px;left:88px;white-space:nowrap" class="ft02">THEN GOTO&#160;REAL-ADDRESS-MODE;</p>
+<p style="position:absolute;top:314px;left:68px;white-space:nowrap" class="ft02">ELSIF (IA32_EFER.LMA = 0)</p>
+<p style="position:absolute;top:332px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:350px;left:115px;white-space:nowrap" class="ft02">IF (EFLAGS.VM = 1)</p>
+<p style="position:absolute;top:368px;left:142px;white-space:nowrap" class="ft09">THEN GOTO&#160;RETURN-FROM-VIRTUAL-8086-MODE;<br/>ELSE&#160;GOTO&#160;PROTECTED-MODE;</p>
+<p style="position:absolute;top:404px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:422px;left:88px;white-space:nowrap" class="ft02">ELSE GOTO IA-32e-MODE;</p>
+<p style="position:absolute;top:440px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:476px;left:68px;white-space:nowrap" class="ft02">REAL-ADDRESS-MODE;</p>
+<p style="position:absolute;top:494px;left:88px;white-space:nowrap" class="ft02">IF&#160;OperandSize =&#160;32</p>
+<p style="position:absolute;top:512px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:530px;left:142px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:548px;left:142px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (*&#160;32-bit pop,&#160;high-order&#160;16&#160;bits&#160;discarded *)</p>
+<p style="position:absolute;top:566px;left:142px;white-space:nowrap" class="ft02">tempEFLAGS&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:584px;left:142px;white-space:nowrap" class="ft02">EFLAGS&#160;←&#160;(tempEFLAGS AND 257FD5H)&#160;OR (EFLAGS AND 1A0000H);</p>
+<p style="position:absolute;top:602px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:601px;left:235px;white-space:nowrap" class="ft05">=&#160;</p>
+<p style="position:absolute;top:603px;left:248px;white-space:nowrap" class="ft02">16 *)</p>
+<p style="position:absolute;top:621px;left:142px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Pop(); (* 16-bit pop; clear upper 16&#160;bits *)</p>
+<p style="position:absolute;top:638px;left:142px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (* 16-bit pop *)</p>
+<p style="position:absolute;top:656px;left:142px;white-space:nowrap" class="ft02">EFLAGS[15:0]&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:674px;left:88px;white-space:nowrap" class="ft09">FI;<br/>END;</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft09">RETURN-FROM-VIRTUAL-8086-MODE:&#160;<br/>(* Processor is&#160;in&#160;virtual-8086 mode when&#160;IRET&#160;is&#160;executed&#160;and stays in&#160;virtual-8086 mode&#160;*)</p>
+<p style="position:absolute;top:764px;left:88px;white-space:nowrap" class="ft02">IF IOPL&#160;</p>
+<p style="position:absolute;top:763px;left:131px;white-space:nowrap" class="ft05">=&#160;</p>
+<p style="position:absolute;top:765px;left:144px;white-space:nowrap" class="ft02">3 (* Virtual mode: PE&#160;</p>
+<p style="position:absolute;top:763px;left:266px;white-space:nowrap" class="ft05">=&#160;</p>
+<p style="position:absolute;top:765px;left:279px;white-space:nowrap" class="ft02">1, VM&#160;</p>
+<p style="position:absolute;top:763px;left:314px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:766px;left:323px;white-space:nowrap" class="ft02">&#160;1, IOPL&#160;</p>
+<p style="position:absolute;top:763px;left:370px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:766px;left:379px;white-space:nowrap" class="ft02">&#160;3 *)</p>
+<p style="position:absolute;top:782px;left:115px;white-space:nowrap" class="ft02">THEN&#160;IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:781px;left:239px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:783px;left:248px;white-space:nowrap" class="ft02">&#160;32</p>
+<p style="position:absolute;top:800px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:818px;left:169px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:836px;left:169px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (*&#160;32-bit pop,&#160;high-order&#160;16&#160;bits&#160;discarded *)</p>
+<p style="position:absolute;top:854px;left:169px;white-space:nowrap" class="ft02">EFLAGS&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:872px;left:169px;white-space:nowrap" class="ft09">(* VM, IOPL,VIP and VIF EFLAG&#160;bits&#160;not modified&#160;by pop *)<br/>IF EIP not within CS limit</p>
+<p style="position:absolute;top:908px;left:196px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:926px;left:142px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:925px;left:262px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:927px;left:271px;white-space:nowrap" class="ft02">&#160;16&#160;*)</p>
+<p style="position:absolute;top:945px;left:169px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Pop(); (* 16-bit pop; clear upper 16&#160;bits *)</p>
+<p style="position:absolute;top:962px;left:169px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (* 16-bit&#160;pop *)</p>
+<p style="position:absolute;top:980px;left:169px;white-space:nowrap" class="ft02">EFLAGS[15:0]&#160;←&#160;Pop();&#160;(* IOPL&#160;in EFLAGS not modified&#160;by&#160;pop *)</p>
+<p style="position:absolute;top:998px;left:169px;white-space:nowrap" class="ft02">IF EIP not within CS limit</p>
+<p style="position:absolute;top:1016px;left:196px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1034px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1052px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+</div>
+</body>
+</html>

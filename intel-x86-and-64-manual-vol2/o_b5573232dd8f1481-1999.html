@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1999</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1999-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811999.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">GETSEC[SENTER]—Enter a Measured Environment</p>
+<p style="position:absolute;top:47px;left:615px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2D&#160;6-25</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">shutdown action. This also&#160;applies to&#160;an RLP&#160;while&#160;in&#160;the&#160;SENTER&#160;sleep&#160;state. For&#160;each logical processor&#160;CR4.MCE&#160;<br/>must be reestablished with a&#160;valid machine&#160;check&#160;exception&#160;handler to&#160;otherwise avoid an TXT-shutdown&#160;under&#160;<br/>such conditions.<br/>The&#160;MSR&#160;IA32_EFER is&#160;also&#160;unconditionally cleared&#160;as&#160;part of&#160;the&#160;processor state&#160;initialized&#160;by SENTER&#160;for both&#160;the&#160;<br/>ILP&#160;and RLP.&#160;Since paging&#160;is disabled&#160;upon entering&#160;authenticated code execution&#160;mode, a&#160;new&#160;paging environ-<br/>ment will have&#160;to be re-established if&#160;it is&#160;desired to&#160;enable&#160;IA-32e&#160;mode while&#160;operating in authenticated code&#160;<br/>execution mode.&#160;<br/>The miscellaneous&#160;feature control&#160;MSR, IA32_MISC_ENABLE,&#160;is initialized as&#160;part&#160;of&#160;the measured environment&#160;<br/>launch.&#160;Certain&#160;bits of&#160;this&#160;MSR are&#160;preserved&#160;because preserving these bits&#160;may&#160;be&#160;important to&#160;maintain&#160;previ-<br/>ously&#160;established platform settings.&#160;See the footnote for&#160;<a href="o_b5573232dd8f1481-1987.html">Table&#160;6-5 Th</a>e remaining bits are&#160;cleared for the purpose&#160;<br/>of&#160;establishing&#160;a more&#160;consistent&#160;environment for the&#160;execution of authenticated code&#160;modules.&#160;Among&#160;the impact&#160;<br/>of initializing&#160;this MSR,&#160;any&#160;previous condition established by the&#160;MONITOR instruction will be&#160;cleared.&#160;<br/>Effect&#160;of&#160;MSR&#160;IA32_FEATURE_CONTROL&#160;MSR<br/>Bits 15:8 of the&#160;IA32_FEATURE_CONTROL&#160;MSR affect the&#160;execution of GETSEC[SENTER].&#160;These bits consist of two&#160;<br/>fields:&#160;</p>
+<p style="position:absolute;top:383px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:384px;left:95px;white-space:nowrap" class="ft02">Bit 15: a&#160;global enable&#160;control for&#160;execution of SENTER.</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:406px;left:95px;white-space:nowrap" class="ft06">Bits&#160;14:8: a&#160;parameter control field providing the&#160;ability to qualify&#160;SENTER execution based on&#160;the level&#160;of&#160;<br/>functionality&#160;specified with corresponding&#160;EDX parameter bits 6:0.&#160;</p>
+<p style="position:absolute;top:447px;left:69px;white-space:nowrap" class="ft07">The&#160;layout of these&#160;fields&#160;in the&#160;IA32_FEATURE_CONTROL&#160;MSR&#160;is shown&#160;<a href="o_b5573232dd8f1481-1976.html">in Table&#160;6-1</a>.&#160;<br/>Prior to&#160;the execution of GETSEC[SENTER],&#160;the lock&#160;bit&#160;of&#160;IA32_FEATURE_CONTROL MSR&#160;must be bit set to&#160;affirm&#160;<br/>the settings to&#160;be&#160;used. Once&#160;the lock&#160;bit is&#160;set, only a&#160;power-up&#160;reset&#160;condition will clear this&#160;MSR. The&#160;<br/>IA32_FEATURE_CONTROL MSR must&#160;be&#160;configured&#160;in&#160;accordance to&#160;the intended&#160;usage at&#160;platform&#160;initialization.&#160;<br/>Note that this&#160;MSR is&#160;only&#160;available on&#160;SMX or&#160;VMX&#160;enabled processors.&#160;Otherwise,&#160;IA32_FEATURE_CONTROL&#160;is&#160;<br/>treated as&#160;reserved.<br/>The&#160;</p>
+<p style="position:absolute;top:561px;left:98px;white-space:nowrap" class="ft04"><i>Intel® Trusted Execution Technology&#160;Measured&#160;Launched Environment Programming&#160;Guide&#160;</i>provides additional details&#160;and&#160;</p>
+<p style="position:absolute;top:577px;left:69px;white-space:nowrap" class="ft02">requirements for programming measured environment&#160;software to&#160;launch&#160;in&#160;an Intel&#160;TXT&#160;platform.</p>
+<p style="position:absolute;top:614px;left:69px;white-space:nowrap" class="ft05">Operation in a&#160;Uni-Processor Platform</p>
+<p style="position:absolute;top:634px;left:69px;white-space:nowrap" class="ft09">(* The&#160;state&#160;of the internal flag ACMODEFLAG&#160;and SENTERFLAG&#160;persist across instruction&#160;boundary&#160;*)<br/>GETSEC[SENTER] (ILP only):<br/>IF&#160;(CR4.SMXE=0)</p>
+<p style="position:absolute;top:688px;left:89px;white-space:nowrap" class="ft02">THEN&#160;#UD;</p>
+<p style="position:absolute;top:706px;left:69px;white-space:nowrap" class="ft02">ELSE&#160;IF&#160;(in&#160;VMX non-root&#160;operation)</p>
+<p style="position:absolute;top:724px;left:89px;white-space:nowrap" class="ft02">THEN VM&#160;Exit (reason=”GETSEC&#160;instruction”);</p>
+<p style="position:absolute;top:742px;left:69px;white-space:nowrap" class="ft02">ELSE&#160;IF&#160;(GETSEC leaf&#160;unsupported)</p>
+<p style="position:absolute;top:760px;left:89px;white-space:nowrap" class="ft02">THEN&#160;#UD;</p>
+<p style="position:absolute;top:778px;left:69px;white-space:nowrap" class="ft02">ELSE&#160;IF&#160;((in&#160;VMX root operation)&#160;or</p>
+<p style="position:absolute;top:796px;left:89px;white-space:nowrap" class="ft09">(CR0.PE=0)&#160;or (CR0.CD=1)&#160;or&#160;(CR0.NW=1) or&#160;(CR0.NE=0) or<br/>(CPL&gt;0) or (EFLAGS.VM=1) or<br/>(IA32_APIC_BASE.BSP=0)&#160;or&#160;(TXT&#160;chipset not&#160;present)&#160;or<br/>(SENTERFLAG=1)&#160;or (ACMODEFLAG=1) or (IN_SMM=1) or<br/>(TPM interface is not present) or<br/>(EDX&#160;≠&#160;(SENTER_EDX_support_mask&#160;&amp; EDX))&#160;or<br/>(IA32_FEATURE_CONTROL[0]=0) or&#160;(IA32_FEATURE_CONTROL[15]=0)&#160;or<br/>((IA32_FEATURE_CONTROL[14:8]&#160;&amp; EDX[6:0])&#160;≠&#160;EDX[6:0]))</p>
+<p style="position:absolute;top:940px;left:116px;white-space:nowrap" class="ft02">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:958px;left:69px;white-space:nowrap" class="ft02">IF&#160;(GETSEC[PARAMETERS].Parameter_Type = 5, MCA_Handling (bit 6) = 0)</p>
+<p style="position:absolute;top:976px;left:89px;white-space:nowrap" class="ft02">FOR I = 0 to&#160;IA32_MCG_CAP.COUNT-1&#160;DO</p>
+<p style="position:absolute;top:994px;left:116px;white-space:nowrap" class="ft02">IF IA32_MC[I]_STATUS&#160;= uncorrectable&#160;error</p>
+<p style="position:absolute;top:1012px;left:143px;white-space:nowrap" class="ft02">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:1030px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1048px;left:89px;white-space:nowrap" class="ft02">OD;</p>
+</div>
+</body>
+</html>

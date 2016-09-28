@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1151</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1151-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1151.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;28-3</p>
+<p style="position:absolute;top:47px;left:581px;white-space:nowrap" class="ft01">VMX SUPPORT&#160;FOR ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">28.2.2&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">EPT Translation Mechanism</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft03">The EPT&#160;translation mechanism uses only&#160;bits&#160;47:0&#160;of&#160;each guest-physical address.</p>
+<p style="position:absolute;top:126px;left:628px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:129px;left:634px;white-space:nowrap" class="ft03">&#160;It uses a&#160;page-walk length of&#160;</p>
+<p style="position:absolute;top:145px;left:69px;white-space:nowrap" class="ft03">4, meaning&#160;that&#160;at most&#160;4 EPT paging-structure entries&#160;are&#160;accessed to&#160;translate a&#160;guest-physical address.</p>
+<p style="position:absolute;top:143px;left:791px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:169px;left:69px;white-space:nowrap" class="ft03">These 48 bits are partitioned by the logical&#160;processor&#160;to traverse&#160;the EPT paging structures:</p>
+<p style="position:absolute;top:191px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:192px;left:95px;white-space:nowrap" class="ft07">A 4-KByte naturally&#160;aligned&#160;EPT&#160;PML4 table is&#160;located at&#160;the physical address&#160;specified&#160;in&#160;bits&#160;51:12&#160;of the&#160;<br/>extended-page-table pointer&#160;(EPTP),&#160;a VM-execution control field&#160;<a href="o_fe12b1e2a880e0ce-1061.html">(see Table&#160;24-8 in&#160;Section 24.6.11). A</a>n&#160;EPT&#160;<br/>PML4 table&#160;comprises 512&#160;64-bit entries (EPT PML4Es). An EPT&#160;PML4E is&#160;selected&#160;using the&#160;physical&#160;address&#160;<br/>defined as&#160;follows:<br/>—&#160;Bits&#160;63:52 are&#160;all 0.<br/>—&#160;Bits&#160;51:12&#160;are from the&#160;EPTP.<br/>—&#160;Bits&#160;11:3 are&#160;bits&#160;47:39&#160;of&#160;the guest-physical&#160;address.<br/>—&#160;Bits&#160;2:0&#160;are&#160;all 0.<br/>Because an EPT&#160;PML4E is identified&#160;using bits&#160;47:39 of&#160;the guest-physical address, it controls access&#160;to a&#160;512-<br/>GByte region of the&#160;guest-physical-address&#160;space.&#160;The format of an&#160;EPT PML4E&#160;is given&#160;<a href="o_fe12b1e2a880e0ce-1151.html">in Table&#160;28-1.</a></p>
+<p style="position:absolute;top:850px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:851px;left:95px;white-space:nowrap" class="ft08">A&#160;4-KByte&#160;naturally aligned EPT page-directory-pointer table&#160;is located at&#160;the&#160;physical address&#160;specified&#160;in&#160;<br/>bits&#160;51:12 of the&#160;EPT PML4E. An&#160;EPT page-directory-pointer table comprises&#160;512 64-bit&#160;entries (EPT&#160;PDPTEs).&#160;<br/>An EPT PDPTE&#160;is selected&#160;using&#160;the physical address&#160;defined&#160;as follows:<br/>—&#160;Bits&#160;63:52 are&#160;all 0.<br/>—&#160;Bits&#160;51:12&#160;are from the&#160;EPT PML4E.</p>
+<p style="position:absolute;top:967px;left:69px;white-space:nowrap" class="ft03">1.&#160;No processors&#160;supporting the&#160;Intel&#160;64 architecture&#160;support more&#160;than 48 physical-address bits. Thus, no&#160;such processor can pro-</p>
+<p style="position:absolute;top:984px;left:91px;white-space:nowrap" class="ft03">duce a&#160;guest-physical&#160;address&#160;with more&#160;than&#160;48 bits. An attempt to&#160;use such an address causes a page fault.&#160;An attempt to&#160;load&#160;</p>
+<p style="position:absolute;top:1000px;left:91px;white-space:nowrap" class="ft03">CR3&#160;with&#160;such&#160;an&#160;address causes&#160;a general-protection fault. If&#160;PAE paging is&#160;being used, an&#160;attempt to&#160;load&#160;CR3 that&#160;would load&#160;a&#160;</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft03">PDPTE&#160;with&#160;such&#160;an&#160;address causes a general-protection&#160;fault.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">2.&#160;Future&#160;processors&#160;may include support for&#160;other EPT&#160;page-walk lengths.&#160;Software&#160;should&#160;read&#160;the&#160;VMX capability MSR&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">IA32_VMX_EPT_VPID_CA<a href="o_fe12b1e2a880e0ce-1949.html">P (see Appendix&#160;A.10) t</a>o&#160;determine&#160;what&#160;EPT page-walk lengths are&#160;supported.</p>
+<p style="position:absolute;top:407px;left:101px;white-space:nowrap" class="ft06">Table 28-1.&#160;&#160;Format of&#160;an&#160;EPT PML4 Entry (PML4E)&#160;that&#160;References an EPT Page-Directory-Pointer&#160;Table</p>
+<p style="position:absolute;top:441px;left:80px;white-space:nowrap" class="ft03">Bit&#160;</p>
+<p style="position:absolute;top:456px;left:80px;white-space:nowrap" class="ft03">Position(s)</p>
+<p style="position:absolute;top:441px;left:167px;white-space:nowrap" class="ft03">Contents</p>
+<p style="position:absolute;top:484px;left:80px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:484px;left:167px;white-space:nowrap" class="ft03">Read access; indicates whether&#160;reads are&#160;allowed&#160;from the 512-GByte region&#160;controlled by&#160;this&#160;entry</p>
+<p style="position:absolute;top:513px;left:80px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:513px;left:167px;white-space:nowrap" class="ft03">Write access; indicates&#160;whether writes are allowed to the&#160;512-GByte&#160;region&#160;controlled&#160;by this entry</p>
+<p style="position:absolute;top:541px;left:80px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:541px;left:167px;white-space:nowrap" class="ft03">Execute access; indicates whether&#160;instruction fetches are&#160;allowed&#160;from the 512-GByte region&#160;controlled&#160;by&#160;this&#160;</p>
+<p style="position:absolute;top:558px;left:167px;white-space:nowrap" class="ft03">entry</p>
+<p style="position:absolute;top:586px;left:80px;white-space:nowrap" class="ft03">7:3</p>
+<p style="position:absolute;top:586px;left:167px;white-space:nowrap" class="ft03">Reserved&#160;(must be&#160;0)</p>
+<p style="position:absolute;top:615px;left:80px;white-space:nowrap" class="ft03">8</p>
+<p style="position:absolute;top:615px;left:167px;white-space:nowrap" class="ft03">If bit&#160;6&#160;of&#160;EPTP is 1, accessed flag&#160;for EPT;&#160;indicates whether software&#160;has accessed the 512-GByte region&#160;</p>
+<p style="position:absolute;top:631px;left:167px;white-space:nowrap" class="ft03">controlled by&#160;this&#160;entry (see<a href="o_fe12b1e2a880e0ce-1159.html">&#160;Section&#160;28.2.4). Ignor</a>ed if bit&#160;6&#160;of&#160;EPTP is&#160;0</p>
+<p style="position:absolute;top:660px;left:80px;white-space:nowrap" class="ft03">11:9</p>
+<p style="position:absolute;top:660px;left:167px;white-space:nowrap" class="ft03">Ignored</p>
+<p style="position:absolute;top:688px;left:80px;white-space:nowrap" class="ft03">(N–1):12</p>
+<p style="position:absolute;top:688px;left:167px;white-space:nowrap" class="ft03">Physical&#160;address of&#160;4-KByte aligned EPT&#160;page-directory-pointer&#160;table referenced&#160;by&#160;this&#160;entry</p>
+<p style="position:absolute;top:685px;left:701px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:775px;left:72px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:794px;left:71px;white-space:nowrap" class="ft03">1.&#160;N is&#160;the&#160;physical-address width&#160;supported&#160;by&#160;the&#160;processor.&#160;Software&#160;can&#160;determine&#160;a&#160;processor’s&#160;physical-address width&#160;by execut-</p>
+<p style="position:absolute;top:810px;left:86px;white-space:nowrap" class="ft03">ing CPUID with&#160;80000008H in&#160;EAX. The physical-address width&#160;is&#160;returned&#160;in&#160;bits 7:0 of&#160;EAX.</p>
+<p style="position:absolute;top:717px;left:80px;white-space:nowrap" class="ft03">51:N</p>
+<p style="position:absolute;top:717px;left:167px;white-space:nowrap" class="ft03">Reserved&#160;(must be&#160;0)</p>
+<p style="position:absolute;top:745px;left:80px;white-space:nowrap" class="ft03">63:52</p>
+<p style="position:absolute;top:745px;left:167px;white-space:nowrap" class="ft03">Ignored</p>
+</div>
+</body>
+</html>

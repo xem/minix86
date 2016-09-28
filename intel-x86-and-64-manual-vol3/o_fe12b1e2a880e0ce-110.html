@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 110</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page110-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce110.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-6&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:97px;left:68px;white-space:nowrap" class="ft02">4.2&#160;</p>
+<p style="position:absolute;top:97px;left:147px;white-space:nowrap" class="ft02">HIERARCHICAL PAGING STRUCTURES: AN OVERVIEW</p>
+<p style="position:absolute;top:133px;left:68px;white-space:nowrap" class="ft07">All three&#160;paging modes&#160;translate linear addresses using&#160;<b>hierarchical&#160;paging&#160;structures</b>. This section provides an&#160;<br/>overview&#160;of&#160;their&#160;oper<a href="o_fe12b1e2a880e0ce-111.html">ation. Section 4.3,</a><a href="o_fe12b1e2a880e0ce-117.html">&#160;Section 4.4,&#160;</a><a href="o_fe12b1e2a880e0ce-123.html">and Section 4.5</a>&#160;provide&#160;details for the&#160;three&#160;paging&#160;modes.<br/>Every paging&#160;structure&#160;is&#160;4096&#160;Bytes in&#160;size&#160;and comprises a&#160;number of individual&#160;<b>entries</b>. With&#160;32-bit paging,&#160;<br/>each entry&#160;is 32&#160;bits (4 bytes); there are thus 1024&#160;entries in each structure.&#160;With PAE&#160;paging and IA-32e&#160;paging,&#160;<br/>each entry is 64&#160;bits (8 bytes); there are thus 512 entries&#160;in each structure. (PAE paging includes&#160;one&#160;exception,&#160;a&#160;<br/>paging&#160;structure&#160;that&#160;is 32&#160;bytes&#160;in size, containing&#160;4 64-bit&#160;entries.)<br/>The processor uses the upper&#160;portion of a&#160;linear&#160;address to identify a&#160;series of paging-structure entries.&#160;The last&#160;of&#160;<br/>these entries identifies the&#160;physical&#160;address of the&#160;region to&#160;which the&#160;linear&#160;address translates&#160;(called the&#160;<b>page&#160;<br/>frame</b>). The&#160;lower portion&#160;of&#160;the&#160;linear address (called the&#160;<b>page offset</b>) identifies&#160;the&#160;specific address within that&#160;<br/>region&#160;to which&#160;the linear address translates.<br/>Each&#160;paging-structure entry&#160;contains&#160;a physical&#160;address,&#160;which&#160;is either the address&#160;of another&#160;paging structure&#160;or&#160;<br/>the address&#160;of a page&#160;frame.&#160;In the&#160;first case, the entry is&#160;said&#160;to&#160;<b>reference</b>&#160;the&#160;other paging&#160;structure; in the&#160;<br/>latter,&#160;the entry&#160;is said to&#160;<b>map a page</b>.<br/>The first paging&#160;structure used for any&#160;translation is&#160;located at&#160;the physical address&#160;in CR3. A linear&#160;address is&#160;<br/>translated&#160;using the&#160;following&#160;iterative procedure. A portion of the&#160;linear address&#160;(initially the&#160;uppermost&#160;bits)&#160;<br/>selects&#160;an&#160;entry in a paging structure (initially the one located using CR3). If&#160;that entry references another paging&#160;<br/>structure, the process continues with that&#160;paging structure and&#160;with the&#160;portion of&#160;the&#160;linear&#160;address immediately&#160;<br/>below that&#160;just used.&#160;If instead&#160;the entry maps a page, the process completes: the physical address in&#160;the&#160;entry is&#160;<br/>that of the&#160;page frame&#160;and the&#160;remaining&#160;lower&#160;portion of the&#160;linear&#160;address&#160;is&#160;the&#160;page&#160;offset.<br/>The following items&#160;give an example for each&#160;of&#160;the&#160;three&#160;paging&#160;modes&#160;(each&#160;example locates a&#160;4-KByte&#160;page&#160;<br/>frame):</p>
+<p style="position:absolute;top:523px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:523px;left:93px;white-space:nowrap" class="ft03">With 32-bit&#160;paging, each paging structure&#160;comprises&#160;1024&#160;=&#160;2</p>
+<p style="position:absolute;top:521px;left:515px;white-space:nowrap" class="ft06">10</p>
+<p style="position:absolute;top:523px;left:528px;white-space:nowrap" class="ft03">&#160;entries.&#160;For this&#160;reason,&#160;the translation&#160;</p>
+<p style="position:absolute;top:540px;left:93px;white-space:nowrap" class="ft07">process uses 10 bits at a time from a 32-bit linear address. Bits&#160;31:22 identify the first paging-structure entry&#160;<br/>and bits 21:12&#160;identify a&#160;second. The latter&#160;identifies&#160;the page frame.&#160;Bits&#160;11:0 of&#160;the linear&#160;address are&#160;the&#160;<br/>page offset within the&#160;4-KByte&#160;page frame. (See<a href="o_fe12b1e2a880e0ce-113.html">&#160;Figure&#160;4-2 for an&#160;</a>illustration.)</p>
+<p style="position:absolute;top:595px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:595px;left:93px;white-space:nowrap" class="ft03">With&#160;PAE paging,&#160;the first&#160;paging structure comprises only 4&#160;=&#160;2</p>
+<p style="position:absolute;top:593px;left:528px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:595px;left:534px;white-space:nowrap" class="ft03">&#160;entries. Translation thus begins&#160;by&#160;using&#160;</p>
+<p style="position:absolute;top:612px;left:93px;white-space:nowrap" class="ft07">bits&#160;31:30 from a&#160;32-bit linear&#160;address to&#160;identify the&#160;first paging-structure entry.&#160;Other&#160;paging&#160;structures&#160;<br/>comprise&#160;512&#160;=2</p>
+<p style="position:absolute;top:626px;left:209px;white-space:nowrap" class="ft06">9</p>
+<p style="position:absolute;top:628px;left:216px;white-space:nowrap" class="ft03">&#160;entries, so&#160;the process&#160;continues&#160;by&#160;using 9&#160;bits at&#160;a time. Bits&#160;29:21&#160;identify&#160;a second&#160;</p>
+<p style="position:absolute;top:645px;left:93px;white-space:nowrap" class="ft07">paging-structure entry&#160;and bits&#160;20:12 identify&#160;a third. This&#160;last identifies the&#160;page frame.&#160;(See&#160;<a href="o_fe12b1e2a880e0ce-119.html">Figure&#160;4-5&#160;</a>for&#160;<br/>an illustration.)</p>
+<p style="position:absolute;top:683px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:684px;left:93px;white-space:nowrap" class="ft03">With IA-32e paging, each&#160;paging structure&#160;comprises&#160;512&#160;=&#160;2</p>
+<p style="position:absolute;top:681px;left:511px;white-space:nowrap" class="ft06">9</p>
+<p style="position:absolute;top:684px;left:518px;white-space:nowrap" class="ft03">&#160;entries and&#160;translation uses 9&#160;bits&#160;at a&#160;time&#160;</p>
+<p style="position:absolute;top:700px;left:93px;white-space:nowrap" class="ft07">from&#160;a&#160;48-bit linear address.&#160;Bits&#160;47:39 identify&#160;the first paging-structure entry,&#160;bits&#160;38:30&#160;identify&#160;a second,&#160;<br/>bits&#160;29:21 a&#160;third, and&#160;bits&#160;20:12 identify a&#160;fourth.&#160;Again,&#160;the last identifies&#160;the&#160;page&#160;frame.&#160;(See&#160;<a href="o_fe12b1e2a880e0ce-124.html">Figure&#160;4-8&#160;<br/></a>for an&#160;illustration.)</p>
+<p style="position:absolute;top:757px;left:68px;white-space:nowrap" class="ft07">The&#160;translation process in&#160;each of the&#160;examples&#160;above&#160;completes by identifying&#160;a&#160;page&#160;frame;&#160;the&#160;page&#160;frame&#160;is&#160;<br/>part of the&#160;<b>translation</b>&#160;of&#160;the&#160;original&#160;linear address. In&#160;some&#160;cases,&#160;however,&#160;the&#160;paging structures&#160;may&#160;be&#160;<br/>configured&#160;so that the&#160;translation process&#160;terminates&#160;before&#160;identifying&#160;a&#160;page frame. This occurs if&#160;the process&#160;<br/>encounters&#160;a&#160;paging-structure&#160;entry&#160;that&#160;is&#160;marked&#160;“not&#160;present”&#160;(because&#160;its&#160;P&#160;flag&#160;—&#160;bit&#160;0&#160;—&#160;is&#160;clear)&#160;or&#160;in&#160;which&#160;<br/>a reserved&#160;bit is&#160;set. In&#160;this&#160;case, there is&#160;no translation&#160;for&#160;the&#160;linear address;&#160;an access to&#160;that&#160;address causes&#160;a&#160;<br/>page-fault&#160;exception (see<a href="o_fe12b1e2a880e0ce-135.html">&#160;Section 4.7).<br/></a>In the examples above, a paging-structure entry maps a page&#160;with&#160;a&#160;4-KByte&#160;page&#160;frame&#160;when&#160;only&#160;12&#160;bits&#160;remain&#160;<br/>in the&#160;linear address;&#160;entries&#160;identified&#160;earlier always&#160;reference other&#160;paging&#160;structures. That&#160;may not&#160;apply&#160;in&#160;<br/>other&#160;cases. The following items&#160;identify when&#160;an&#160;entry maps&#160;a&#160;page&#160;and&#160;when&#160;it references&#160;another paging struc-<br/>ture:</p>
+<p style="position:absolute;top:935px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:936px;left:93px;white-space:nowrap" class="ft07">If more&#160;than&#160;12&#160;bits remain in&#160;the linear&#160;address, bit&#160;7&#160;(PS —&#160;page size) of the current&#160;paging-structure entry&#160;<br/>is consulted.&#160;If the bit is 0,&#160;the entry references another paging structure; if the bit is 1,&#160;the entry maps a page.</p>
+<p style="position:absolute;top:974px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:975px;left:93px;white-space:nowrap" class="ft07">If only 12&#160;bits remain&#160;in&#160;the linear address, the&#160;current paging-structure entry&#160;always&#160;maps a&#160;page (bit&#160;7 is&#160;<br/>used for other&#160;purposes).</p>
+<p style="position:absolute;top:1015px;left:68px;white-space:nowrap" class="ft07">If&#160;a paging-structure entry&#160;maps a&#160;page when&#160;more than&#160;12&#160;bits remain&#160;in the&#160;linear address, the&#160;entry identifies&#160;<br/>a page&#160;frame larger than 4 KBytes.&#160;For example,&#160;32-bit paging uses the&#160;upper&#160;10 bits of&#160;a linear address to locate&#160;<br/>the first paging-structure entry;&#160;22 bits remain. If&#160;that entry&#160;maps&#160;a page,&#160;the page frame is&#160;2</p>
+<p style="position:absolute;top:1046px;left:693px;white-space:nowrap" class="ft06">22</p>
+<p style="position:absolute;top:1048px;left:707px;white-space:nowrap" class="ft03">&#160;Bytes&#160;=&#160;4 MBytes.&#160;</p>
+</div>
+</body>
+</html>

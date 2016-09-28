@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 606</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page606-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481606.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:686px;white-space:nowrap" class="ft00">IRET/IRETD—Interrupt Return</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-478&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:142px;white-space:nowrap" class="ft02">ESP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:118px;left:142px;white-space:nowrap" class="ft02">SS&#160;←&#160;Pop(); (* 32-bit pop, high-order 16 bits discarded *)</p>
+<p style="position:absolute;top:136px;left:88px;white-space:nowrap" class="ft02">ELSE IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:134px;left:208px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:136px;left:217px;white-space:nowrap" class="ft02">&#160;16&#160;</p>
+<p style="position:absolute;top:154px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">ESP&#160;←&#160;Pop(); (* 16-bit&#160;pop;&#160;clear upper bits *)</p>
+<p style="position:absolute;top:190px;left:142px;white-space:nowrap" class="ft02">SS&#160;←&#160;Pop(); (* 16-bit pop *)</p>
+<p style="position:absolute;top:208px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:206px;left:235px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:208px;left:244px;white-space:nowrap" class="ft02">&#160;64&#160;*)</p>
+<p style="position:absolute;top:226px;left:142px;white-space:nowrap" class="ft02">RSP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:244px;left:142px;white-space:nowrap" class="ft02">SS&#160;←&#160;Pop(); (* 64-bit pop, high-order 48 bits discarded *)</p>
+<p style="position:absolute;top:262px;left:88px;white-space:nowrap" class="ft04">FI;<br/>IF new mode&#160;</p>
+<p style="position:absolute;top:278px;left:164px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:280px;left:177px;white-space:nowrap" class="ft02">64-Bit Mode</p>
+<p style="position:absolute;top:298px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:316px;left:142px;white-space:nowrap" class="ft02">IF EIP is not within CS limit</p>
+<p style="position:absolute;top:334px;left:169px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:352px;left:115px;white-space:nowrap" class="ft02">ELSE (* new mode = 64-bit mode *)</p>
+<p style="position:absolute;top:370px;left:142px;white-space:nowrap" class="ft02">IF&#160;RIP is non-canonical</p>
+<p style="position:absolute;top:388px;left:196px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:406px;left:88px;white-space:nowrap" class="ft04">FI;<br/>EFLAGS&#160;(CF,&#160;PF,&#160;AF, ZF,&#160;SF, TF, DF,&#160;OF, NT)&#160;←&#160;tempEFLAGS;</p>
+<p style="position:absolute;top:442px;left:88px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:440px;left:177px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:442px;left:190px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:460px;left:115px;white-space:nowrap" class="ft02">THEN EFLAGS(RF,&#160;AC, ID)&#160;←&#160;tempEFLAGS;&#160;FI;</p>
+<p style="position:absolute;top:478px;left:88px;white-space:nowrap" class="ft02">IF CPL&#160;≤&#160;IOPL&#160;</p>
+<p style="position:absolute;top:496px;left:115px;white-space:nowrap" class="ft02">THEN EFLAGS(IF)&#160;←&#160;tempEFLAGS; FI;</p>
+<p style="position:absolute;top:514px;left:88px;white-space:nowrap" class="ft02">IF CPL&#160;</p>
+<p style="position:absolute;top:512px;left:126px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:514px;left:139px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:532px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:550px;left:142px;white-space:nowrap" class="ft02">EFLAGS(IOPL)&#160;←&#160;tempEFLAGS;</p>
+<p style="position:absolute;top:568px;left:142px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:566px;left:231px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:568px;left:244px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:586px;left:169px;white-space:nowrap" class="ft02">THEN EFLAGS(VM,&#160;VIF,&#160;VIP)&#160;←&#160;tempEFLAGS; FI;</p>
+<p style="position:absolute;top:604px;left:142px;white-space:nowrap" class="ft02">IF&#160;OperandSize =&#160;64</p>
+<p style="position:absolute;top:622px;left:169px;white-space:nowrap" class="ft02">THEN EFLAGS(VIF, VIP)&#160;←&#160;tempEFLAGS; FI;</p>
+<p style="position:absolute;top:640px;left:88px;white-space:nowrap" class="ft04">FI;<br/>CPL&#160;←&#160;CS(RPL);</p>
+<p style="position:absolute;top:676px;left:88px;white-space:nowrap" class="ft02">FOR&#160;each&#160;SegReg&#160;in&#160;(ES,&#160;FS, GS,&#160;and DS)</p>
+<p style="position:absolute;top:694px;left:115px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:712px;left:142px;white-space:nowrap" class="ft02">tempDesc&#160;←&#160;descriptor&#160;cache&#160;for SegReg&#160;(*&#160;hidden&#160;part of&#160;segment register&#160;*)</p>
+<p style="position:absolute;top:730px;left:142px;white-space:nowrap" class="ft02">IF tempDesc(DPL) &lt; CPL AND tempDesc(Type) is data&#160;or&#160;non-conforming&#160;code</p>
+<p style="position:absolute;top:748px;left:169px;white-space:nowrap" class="ft02">THEN&#160;(* Segment register&#160;invalid&#160;*)</p>
+<p style="position:absolute;top:766px;left:196px;white-space:nowrap" class="ft02">SegReg&#160;←&#160;NULL;</p>
+<p style="position:absolute;top:784px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:802px;left:115px;white-space:nowrap" class="ft02">OD;</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft02">END;</p>
+<p style="position:absolute;top:856px;left:68px;white-space:nowrap" class="ft02">RETURN-TO-SAME-PRIVILEGE-LEVEL: (* PE&#160;</p>
+<p style="position:absolute;top:854px;left:315px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:856px;left:328px;white-space:nowrap" class="ft02">1, RPL&#160;</p>
+<p style="position:absolute;top:854px;left:367px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:856px;left:381px;white-space:nowrap" class="ft02">CPL *)</p>
+<p style="position:absolute;top:874px;left:88px;white-space:nowrap" class="ft02">IF new mode&#160;</p>
+<p style="position:absolute;top:872px;left:164px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:874px;left:177px;white-space:nowrap" class="ft02">64-Bit Mode</p>
+<p style="position:absolute;top:892px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:910px;left:142px;white-space:nowrap" class="ft02">IF EIP is not within CS limit</p>
+<p style="position:absolute;top:928px;left:169px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:946px;left:115px;white-space:nowrap" class="ft02">ELSE (* new mode = 64-bit mode *)</p>
+<p style="position:absolute;top:964px;left:142px;white-space:nowrap" class="ft02">IF&#160;RIP is non-canonical</p>
+<p style="position:absolute;top:982px;left:196px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1000px;left:88px;white-space:nowrap" class="ft04">FI;<br/>EFLAGS&#160;(CF,&#160;PF,&#160;AF, ZF,&#160;SF, TF, DF,&#160;OF, NT)&#160;←&#160;tempEFLAGS;</p>
+<p style="position:absolute;top:1036px;left:88px;white-space:nowrap" class="ft02">IF&#160;OperandSize =&#160;32&#160;or&#160;OperandSize = 64</p>
+<p style="position:absolute;top:1054px;left:115px;white-space:nowrap" class="ft02">THEN EFLAGS(RF,&#160;AC, ID)&#160;←&#160;tempEFLAGS;&#160;FI;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 948</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page948-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481948.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:491px;white-space:nowrap" class="ft00">PCMPISTRM — Packed Compare Implicit Length&#160;Strings, Return Mask</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-268&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">PCMPISTRM — Packed Compare Implicit Length Strings, Return Mask</p>
+<p style="position:absolute;top:320px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:407px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:433px;left:68px;white-space:nowrap" class="ft06">The instruction compares data&#160;from&#160;two&#160;strings based&#160;on&#160;the&#160;encoded&#160;value&#160;in the&#160;imm8&#160;byte (s<a href="o_b5573232dd8f1481-681.html">ee&#160;Section&#160;4.1,&#160;<br/>“Imm8 Control Byte Operation&#160;for&#160;PCMPESTRI&#160;/ PCMPESTRM&#160;/ PCMPISTRI /&#160;PCMPISTRM”) gener</a>ating a&#160;mask&#160;<br/>stored to&#160;XMM0.<br/>Each string is represented&#160;by a single value. The value&#160;is an xmm (or possibly m128&#160;for the second operand) which&#160;<br/>contains the&#160;data elements of&#160;the string&#160;(byte or&#160;word data).&#160;&#160;Each input&#160;byte/word&#160;is augmented&#160;with a&#160;<br/>valid/invalid tag.&#160;&#160;A byte/word is&#160;considered valid&#160;only&#160;if&#160;it has a&#160;lower index&#160;than&#160;the&#160;least significant&#160;null&#160;<br/>byte/word. &#160;(The least significant&#160;null&#160;byte/word is&#160;also considered&#160;invalid.) &#160;<br/>The&#160;comparison and&#160;aggregation operation are performed according to&#160;the encoded&#160;value of Imm8&#160;bit fields (see&#160;<br/><a href="o_b5573232dd8f1481-681.html">Section 4.1). As de</a>fined&#160;by&#160;imm8[6],&#160;IntRes2 is&#160;then&#160;either stored to&#160;the least significant bits of XMM0 (zero&#160;<br/>extended&#160;to&#160;128&#160;bits)&#160;or expanded&#160;into a&#160;byte/word-mask and&#160;then stored&#160;to&#160;XMM0.<br/>Note that the Arithmetic Flags are written in&#160;a non-standard manner in&#160;order&#160;to supply&#160;the most relevant informa-<br/>tion:</p>
+<p style="position:absolute;top:667px;left:88px;white-space:nowrap" class="ft09">CFlag – Reset if IntRes2 is&#160;equal to&#160;zero,&#160;set otherwise<br/>ZFlag – Set&#160;if&#160;any byte/word of&#160;xmm2/mem128&#160;is&#160;null,&#160;reset otherwise<br/>SFlag – Set if&#160;any byte/word&#160;of xmm1&#160;is&#160;null, reset otherwise<br/>OFlag – IntRes2[0]<br/>AFlag –&#160;Reset<br/>PFlag&#160;– Reset</p>
+<p style="position:absolute;top:780px;left:68px;white-space:nowrap" class="ft06">Note:&#160;In&#160;VEX.128 encoded&#160;versions, bits (VLMAX-1:128) of&#160;XMM0&#160;are&#160;zeroed.&#160;VEX.vvvv&#160;is reserved and&#160;must be&#160;<br/>1111b, VEX.L must be 0,&#160;otherwise&#160;the instruction&#160;will&#160;#UD.</p>
+<p style="position:absolute;top:833px;left:68px;white-space:nowrap" class="ft03">Effective Operand Size</p>
+<p style="position:absolute;top:1003px;left:68px;white-space:nowrap" class="ft03">Intel&#160;C/C++ Compiler&#160;Intrinsic Equivalent&#160;For&#160;Returning Mask</p>
+<p style="position:absolute;top:1030px;left:68px;white-space:nowrap" class="ft04">__m128i _mm_cmpistrm (__m128i a, __m128i b, const int mode);</p>
+<p style="position:absolute;top:123px;left:71px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:71px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:391px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:391px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:428px;white-space:nowrap" class="ft04">64/32 bit&#160;</p>
+<p style="position:absolute;top:137px;left:428px;white-space:nowrap" class="ft04">Mode&#160;</p>
+<p style="position:absolute;top:153px;left:428px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:500px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:500px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:500px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:570px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:71px;white-space:nowrap" class="ft04">66 0F&#160;3A 62&#160;<i>/r imm8</i></p>
+<p style="position:absolute;top:191px;left:71px;white-space:nowrap" class="ft04">PCMPISTRM&#160;<i>xmm1, xmm2/m128, imm8</i></p>
+<p style="position:absolute;top:175px;left:391px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:428px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:500px;white-space:nowrap" class="ft04">SSE4_2</p>
+<p style="position:absolute;top:175px;left:570px;white-space:nowrap" class="ft04">Perform&#160;a packed&#160;comparison of&#160;string data&#160;</p>
+<p style="position:absolute;top:191px;left:570px;white-space:nowrap" class="ft04">with&#160;implicit&#160;lengths,&#160;generating a&#160;mask, and&#160;</p>
+<p style="position:absolute;top:208px;left:570px;white-space:nowrap" class="ft04">storing the&#160;result in&#160;<i>XMM0.</i></p>
+<p style="position:absolute;top:231px;left:71px;white-space:nowrap" class="ft04">VEX.128.66.0F3A.WIG&#160;62 /r ib</p>
+<p style="position:absolute;top:247px;left:71px;white-space:nowrap" class="ft04">VPCMPISTRM&#160;<i>xmm1, xmm2/m128, imm8</i></p>
+<p style="position:absolute;top:231px;left:391px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:231px;left:428px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:231px;left:500px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:231px;left:570px;white-space:nowrap" class="ft04">Perform a&#160;packed&#160;comparison of&#160;string&#160;data&#160;</p>
+<p style="position:absolute;top:247px;left:570px;white-space:nowrap" class="ft04">with&#160;implicit&#160;lengths,&#160;generating a&#160;Mask, and&#160;</p>
+<p style="position:absolute;top:263px;left:570px;white-space:nowrap" class="ft04">storing the&#160;result in&#160;<i>XMM0</i>.</p>
+<p style="position:absolute;top:343px;left:83px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:343px;left:193px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:343px;left:370px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:343px;left:548px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:343px;left:721px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:367px;left:92px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:367px;left:183px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r)</p>
+<p style="position:absolute;top:367px;left:360px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:367px;left:562px;white-space:nowrap" class="ft04">imm8</p>
+<p style="position:absolute;top:367px;left:742px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:871px;left:78px;white-space:nowrap" class="ft04">Operating&#160;mode/size</p>
+<p style="position:absolute;top:871px;left:392px;white-space:nowrap" class="ft04">Operand1</p>
+<p style="position:absolute;top:871px;left:538px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:871px;left:696px;white-space:nowrap" class="ft04">Result</p>
+<p style="position:absolute;top:894px;left:78px;white-space:nowrap" class="ft04">16&#160;bit</p>
+<p style="position:absolute;top:894px;left:392px;white-space:nowrap" class="ft04">xmm</p>
+<p style="position:absolute;top:894px;left:538px;white-space:nowrap" class="ft04">xmm/m128</p>
+<p style="position:absolute;top:894px;left:696px;white-space:nowrap" class="ft04">XMM0</p>
+<p style="position:absolute;top:916px;left:78px;white-space:nowrap" class="ft04">32&#160;bit</p>
+<p style="position:absolute;top:916px;left:392px;white-space:nowrap" class="ft04">xmm</p>
+<p style="position:absolute;top:916px;left:538px;white-space:nowrap" class="ft04">xmm/m128</p>
+<p style="position:absolute;top:916px;left:696px;white-space:nowrap" class="ft04">XMM0</p>
+<p style="position:absolute;top:939px;left:78px;white-space:nowrap" class="ft04">64&#160;bit</p>
+<p style="position:absolute;top:939px;left:392px;white-space:nowrap" class="ft04">xmm</p>
+<p style="position:absolute;top:939px;left:538px;white-space:nowrap" class="ft04">xmm/m128</p>
+<p style="position:absolute;top:939px;left:696px;white-space:nowrap" class="ft04">XMM0</p>
+<p style="position:absolute;top:961px;left:78px;white-space:nowrap" class="ft04">64&#160;bit + REX.W</p>
+<p style="position:absolute;top:961px;left:392px;white-space:nowrap" class="ft04">xmm</p>
+<p style="position:absolute;top:961px;left:538px;white-space:nowrap" class="ft04">xmm/m128</p>
+<p style="position:absolute;top:961px;left:696px;white-space:nowrap" class="ft04">XMM0</p>
+</div>
+</body>
+</html>

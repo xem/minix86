@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1499</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1499-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811499.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VFIXUPIMMSS—Fix Up Special Scalar Float32 Value</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-113</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VFIXUPIMMSS—Fix Up Special Scalar Float32 Value</p>
+<p style="position:absolute;top:262px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:369px;left:69px;white-space:nowrap" class="ft05">Perform a&#160;fix-up of the&#160;low doubleword element encoded in&#160;single-precision floating-point format in the&#160;first&#160;source&#160;<br/>operand (the&#160;second&#160;operand) using&#160;a 32-bit, two-level&#160;look-up&#160;table&#160;specified in&#160;the low doubleword&#160;element of&#160;<br/>the second source operand (the third operand) with exception reporting specifier imm8. The&#160;element that is fixed-<br/>up is&#160;selected&#160;by mask bit&#160;of&#160;1 specified in&#160;the&#160;opmask k1.&#160;Mask bit&#160;of&#160;0 in the&#160;opmask&#160;k1 or table response&#160;action&#160;<br/>of 0000b preserves the&#160;corresponding element&#160;of the&#160;first operand. The fixed-up element from&#160;the first&#160;source&#160;<br/>operand&#160;or&#160;the&#160;preserved element in&#160;the&#160;first operand&#160;becomes&#160;the&#160;low&#160;doubleword element of the&#160;destination&#160;<br/>operand&#160;(the&#160;first operand) Bits&#160;127:32&#160;of the destination&#160;operand is copied&#160;from the corresponding bits&#160;of the first&#160;<br/>source operand. The destination and first source operands&#160;are&#160;XMM&#160;registers. The&#160;second&#160;source&#160;operand&#160;can be&#160;a&#160;<br/>XMM register&#160;or a&#160;32-bit memory&#160;location.<br/>The two-level look-up&#160;table perform a&#160;fix-up of&#160;each SP FP&#160;input data in the first source&#160;operand by decoding&#160;the&#160;<br/>input data encoding&#160;into 8 token&#160;types. A response table&#160;is defined for each token&#160;type&#160;that converts&#160;the input&#160;<br/>encoding in&#160;the first&#160;source operand with&#160;one&#160;of&#160;16&#160;response actions.&#160;<br/>This instruction is&#160;specifically&#160;intended for use&#160;in fixing&#160;up&#160;the results of arithmetic&#160;calculations involving one&#160;<br/>source so&#160;that they match the spec,&#160;although it is&#160;generally&#160;useful for&#160;fixing&#160;up&#160;the&#160;results of&#160;multiple-instruction&#160;<br/>sequences&#160;to reflect&#160;special-number inputs. For example, consider rcp(0).&#160;Input 0 to&#160;rcp,&#160;and you&#160;should get INF&#160;<br/>according to&#160;the DX10&#160;spec. However,&#160;evaluating rcp via Newton-Raphson, where x=approx(1/0),&#160;yields&#160;an incor-<br/>rect&#160;result.&#160;To&#160;deal with this, VFIXUPIMMPD can&#160;be&#160;used&#160;after the&#160;N-R reciprocal sequence&#160;to set the&#160;result to&#160;the&#160;<br/>correct value&#160;(i.e.&#160;INF when the&#160;input is&#160;0).<br/>If&#160;MXCSR.DAZ is not set,&#160;denormal input&#160;elements in the first source&#160;operand are considered&#160;as normal inputs and&#160;<br/>do&#160;not trigger&#160;any fixup nor fault reporting.<br/>Imm8&#160;is used to&#160;set the&#160;required flags reporting.&#160;It&#160;supports #ZE&#160;and #IE fault reporting (see&#160;details&#160;below).<br/>MXCSR.DAZ&#160;is&#160;used&#160;and refer&#160;to zmm2 only (i.e.&#160;zmm1&#160;is&#160;not considered&#160;as zero in&#160;case&#160;MXCSR.DAZ is&#160;set).<br/>MXCSR&#160;mask bits are ignored and&#160;are&#160;treated&#160;as if&#160;all mask&#160;bits are&#160;set&#160;to masked response).&#160;If any of&#160;the&#160;imm8&#160;<br/>bits&#160;is set and&#160;the condition&#160;met for fault reporting,&#160;MXCSR.IE&#160;or MXCSR.ZE&#160;might be&#160;updated.</p>
+<p style="position:absolute;top:819px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:841px;left:69px;white-space:nowrap" class="ft07">enum TOKEN_TYPE<br/>{</p>
+<p style="position:absolute;top:877px;left:89px;white-space:nowrap" class="ft07">QNAN_TOKEN&#160;&#160;0,<br/>SNAN_TOKEN&#160;&#160;1,<br/>ZERO_VALUE_TOKEN&#160;&#160;2,<br/>POS_ONE_VALUE_TOKEN&#160;&#160;3,<br/>NEG_INF_TOKEN&#160;&#160;4,<br/>POS_INF_TOKEN&#160;&#160;5,<br/>NEG_VALUE_TOKEN&#160;&#160;6,<br/>POS_VALUE_TOKEN&#160;&#160;7</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft04">}</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:304px;white-space:nowrap" class="ft04">Op&#160;/&#160;</p>
+<p style="position:absolute;top:137px;left:304px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:348px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:348px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:348px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:421px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:421px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:421px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:500px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:78px;white-space:nowrap" class="ft04">EVEX.NDS.LIG.66.0F3A.W0&#160;55&#160;/r&#160;ib</p>
+<p style="position:absolute;top:172px;left:304px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:172px;left:348px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:421px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:172px;left:500px;white-space:nowrap" class="ft04">Fix&#160;up&#160;a float32&#160;number&#160;in&#160;the&#160;low doubleword&#160;element&#160;</p>
+<p style="position:absolute;top:189px;left:500px;white-space:nowrap" class="ft04">in&#160;xmm2&#160;using scalar&#160;int32 table in&#160;xmm3/m32&#160;and store&#160;</p>
+<p style="position:absolute;top:205px;left:500px;white-space:nowrap" class="ft04">the&#160;result in xmm1.</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">VFIXUPIMMSS xmm1 {k1}{z}, xmm2,&#160;</p>
+<p style="position:absolute;top:208px;left:78px;white-space:nowrap" class="ft04">xmm3/m32{sae}, imm8</p>
+<p style="position:absolute;top:285px;left:110px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:285px;left:237px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:285px;left:398px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:285px;left:561px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:285px;left:726px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:308px;left:116px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:308px;left:219px;white-space:nowrap" class="ft04">ModRM:reg (r, w)</p>
+<p style="position:absolute;top:308px;left:397px;white-space:nowrap" class="ft04">EVEX.vvvv</p>
+<p style="position:absolute;top:308px;left:550px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:308px;left:739px;white-space:nowrap" class="ft04">Imm8</p>
+</div>
+</body>
+</html>

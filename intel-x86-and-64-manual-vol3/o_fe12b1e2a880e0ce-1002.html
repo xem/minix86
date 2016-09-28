@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1002</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1002-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1002.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">21-6&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MIXING&#160;16-BIT&#160;AND 32-BIT&#160;CODE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">be&#160;stored in 32-bit format. If the&#160;call is to a 32-bit code&#160;segment,&#160;the instructions in that code&#160;segment will be able&#160;<br/>to read&#160;the&#160;stack coherently. Also, a&#160;RET instruction from the&#160;32-bit code&#160;segment without&#160;an operand-size&#160;prefix&#160;<br/>will&#160;maintain stack coherency&#160;with the&#160;16-bit code&#160;segment being&#160;returned&#160;to.<br/>When a&#160;CALL instruction&#160;references a&#160;call-gate descriptor,&#160;the type of&#160;call&#160;is determined by&#160;the&#160;type of call gate&#160;(16-<br/>bit&#160;or 32-bit).&#160;The&#160;offset&#160;to the&#160;destination&#160;in the&#160;code&#160;segment being called&#160;is taken&#160;from&#160;the gate&#160;descriptor;&#160;<br/>therefore,&#160;if a&#160;32-bit call gate is used,&#160;a&#160;procedure in&#160;a 16-bit code segment can&#160;call&#160;a procedure located more&#160;than&#160;<br/>64 KBytes from the&#160;base&#160;of a&#160;32-bit&#160;code&#160;segment, because&#160;a 32-bit&#160;call gate uses&#160;a 32-bit&#160;offset.<br/>Note that regardless of the operand size&#160;of&#160;the call and how&#160;it&#160;is&#160;determined, the size of the stack&#160;pointer used (SP&#160;<br/>or ESP) is&#160;always controlled by&#160;the&#160;B&#160;flag in the stack-segment descriptor currently in use (that is,&#160;when B is clear,&#160;<br/>SP&#160;is used,&#160;and when B&#160;is&#160;set, ESP is&#160;used).<br/>An&#160;unmodified 16-bit code&#160;segment that&#160;has run successfully on&#160;an&#160;8086 processor or&#160;in real-mode on a&#160;later&#160;IA-<br/>32&#160;architecture&#160;processor&#160;will&#160;have its&#160;D&#160;flag&#160;clear and will not use&#160;operand-size override&#160;prefixes. As a&#160;result, all&#160;<br/>CALL instructions in&#160;this&#160;code&#160;segment&#160;will use&#160;the 16-bit&#160;operand-size&#160;attribute.&#160;Procedures&#160;in these code&#160;<br/>segments&#160;can be modified to&#160;safely&#160;call procedures&#160;to&#160;32-bit code segments in&#160;either of&#160;two&#160;ways:</p>
+<p style="position:absolute;top:359px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:360px;left:93px;white-space:nowrap" class="ft06">Relink the&#160;CALL&#160;instruction to point&#160;to 32-bit&#160;call gate<a href="o_fe12b1e2a880e0ce-1002.html">s (see Section 21.4.2.2,&#160;“Passing Parameters With&#160;a&#160;<br/>Gate”).</a></p>
+<p style="position:absolute;top:398px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:399px;left:93px;white-space:nowrap" class="ft02">Add a&#160;32-bit operand-size&#160;prefix&#160;to&#160;each CALL&#160;instruction.</p>
+<p style="position:absolute;top:443px;left:68px;white-space:nowrap" class="ft04">21.4.2.2 &#160;&#160;Passing&#160;Parameters&#160;With a Gate</p>
+<p style="position:absolute;top:472px;left:68px;white-space:nowrap" class="ft06">When referencing 32-bit gates with 16-bit procedures,&#160;it&#160;is&#160;important to consider the number of parameters passed&#160;<br/>in each&#160;procedure&#160;call.&#160;The&#160;count field&#160;of the&#160;gate&#160;descriptor&#160;specifies the&#160;size of the&#160;parameter string&#160;to copy&#160;from&#160;<br/>the current stack to the stack&#160;of a more&#160;privileged (numerically&#160;lower privilege&#160;level) procedure.&#160;The count field&#160;of&#160;<br/>a&#160;16-bit gate specifies&#160;the number&#160;of&#160;16-bit words to&#160;be&#160;copied,&#160;whereas&#160;the&#160;count field&#160;of a&#160;32-bit gate&#160;specifies&#160;<br/>the&#160;number of 32-bit&#160;doublewords&#160;to be copied. The count field&#160;for a&#160;32-bit&#160;gate must thus be half the&#160;size&#160;of&#160;the&#160;<br/>number of words&#160;being&#160;placed&#160;on&#160;the&#160;stack by&#160;a 16-bit&#160;procedure.&#160;Also, the&#160;16-bit procedure must&#160;use an even&#160;<br/>number of words&#160;as parameters.</p>
+<p style="position:absolute;top:621px;left:68px;white-space:nowrap" class="ft05">21.4.3&#160;</p>
+<p style="position:absolute;top:621px;left:148px;white-space:nowrap" class="ft05">Interrupt&#160;Control Transfers</p>
+<p style="position:absolute;top:652px;left:68px;white-space:nowrap" class="ft06">A&#160;program-control&#160;transfer&#160;caused by an&#160;exception or interrupt is&#160;always&#160;carried&#160;out through an interrupt or&#160;trap&#160;<br/>gate (located&#160;in&#160;the IDT). Here, the&#160;type of the gate (16-bit&#160;or&#160;32-bit) determines the&#160;operand-size attribute&#160;used&#160;<br/>in the&#160;implicit&#160;call to&#160;the&#160;exception or&#160;interrupt&#160;handler procedure&#160;in another code segment.<br/>A 32-bit&#160;interrupt&#160;or trap gate provides a&#160;safe&#160;interface&#160;to a 32-bit&#160;exception or interrupt&#160;handler when the&#160;excep-<br/>tion or interrupt occurs in&#160;either&#160;a 32-bit or&#160;a 16-bit&#160;code&#160;segment. It&#160;is sometimes&#160;impractical, however,&#160;to&#160;place&#160;<br/>exception or&#160;interrupt handlers in 16-bit&#160;code&#160;segments, because&#160;only&#160;16-bit&#160;return addresses are&#160;saved on the&#160;<br/>stack. If an&#160;exception or&#160;interrupt occurs in&#160;a 32-bit&#160;code&#160;segment when&#160;the&#160;EIP&#160;was&#160;greater than FFFFH,&#160;the&#160;16-<br/>bit handler&#160;procedure cannot provide the&#160;correct&#160;return&#160;address.</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft05">21.4.4 Parameter&#160;</p>
+<p style="position:absolute;top:825px;left:237px;white-space:nowrap" class="ft05">Translation</p>
+<p style="position:absolute;top:856px;left:68px;white-space:nowrap" class="ft06">When&#160;segment&#160;offsets or&#160;pointers (which contain segment offsets) are passed&#160;as parameters&#160;between&#160;16-bit&#160;and&#160;<br/>32-bit&#160;procedures,&#160;some translation&#160;is required. If a&#160;32-bit&#160;procedure&#160;passes a&#160;pointer&#160;to data&#160;located&#160;beyond&#160;64&#160;<br/>KBytes&#160;to a&#160;16-bit procedure,&#160;the&#160;16-bit procedure cannot&#160;use&#160;it.&#160;Except&#160;for this&#160;limitation,&#160;interface&#160;code&#160;can&#160;<br/>perform&#160;any format conversion between 32-bit and&#160;16-bit pointers that may be needed.<br/>Parameters passed&#160;by&#160;value between 32-bit&#160;and 16-bit&#160;code&#160;also&#160;may require translation&#160;between&#160;32-bit and&#160;16-<br/>bit&#160;formats. The form&#160;of&#160;the translation is&#160;application-dependent.</p>
+<p style="position:absolute;top:996px;left:68px;white-space:nowrap" class="ft05">21.4.5&#160;</p>
+<p style="position:absolute;top:996px;left:148px;white-space:nowrap" class="ft05">Writing Interface Procedures</p>
+<p style="position:absolute;top:1027px;left:68px;white-space:nowrap" class="ft06">Placing interface code between 32-bit&#160;and&#160;16-bit procedures can&#160;be&#160;the solution&#160;to&#160;the following interface prob-<br/>lems:</p>
+</div>
+</body>
+</html>

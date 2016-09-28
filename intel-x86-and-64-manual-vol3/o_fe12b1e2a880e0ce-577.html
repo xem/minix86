@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 577</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page577-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce577.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-3</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">Debug registers are privileged resources; a MOV instruction&#160;that accesses these registers can only be&#160;executed in&#160;<br/>real-address mode,&#160;in&#160;SMM&#160;or in&#160;protected mode&#160;at&#160;a CPL&#160;of 0. An attempt&#160;to read or&#160;write the&#160;debug registers&#160;<br/>from any&#160;other privilege&#160;level&#160;generates&#160;a general-protection exception (#GP).<br/>The primary function&#160;of&#160;the&#160;debug registers is to set&#160;up&#160;and monitor from 1 to 4 breakpoints, numbered 0 though&#160;<br/>3.&#160;For each breakpoint, the following information&#160;can be specified:</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:196px;left:95px;white-space:nowrap" class="ft02">The linear&#160;address&#160;where&#160;the breakpoint&#160;is&#160;to&#160;occur.</p>
+<p style="position:absolute;top:218px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:219px;left:95px;white-space:nowrap" class="ft02">The&#160;length of the&#160;breakpoint&#160;location: 1, 2,&#160;4,&#160;or&#160;8 bytes&#160;(refer&#160;to the&#160;note<a href="o_fe12b1e2a880e0ce-578.html">s in Section 17.2.4).</a></p>
+<p style="position:absolute;top:241px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:241px;left:95px;white-space:nowrap" class="ft02">The operation that must be&#160;performed&#160;at the&#160;address for a&#160;debug&#160;exception&#160;to&#160;be&#160;generated.</p>
+<p style="position:absolute;top:263px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:264px;left:95px;white-space:nowrap" class="ft02">Whether&#160;the breakpoint is&#160;enabled.</p>
+<p style="position:absolute;top:286px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:286px;left:95px;white-space:nowrap" class="ft02">Whether&#160;the breakpoint condition&#160;was present&#160;when the&#160;debug&#160;exception&#160;was generated.</p>
+<p style="position:absolute;top:327px;left:69px;white-space:nowrap" class="ft02">The&#160;following paragraphs describe&#160;the&#160;functions of&#160;flags and&#160;fields&#160;in the&#160;debug registers.</p>
+<p style="position:absolute;top:377px;left:69px;white-space:nowrap" class="ft04">17.2.1&#160;</p>
+<p style="position:absolute;top:377px;left:149px;white-space:nowrap" class="ft04">Debug Address Registers (DR0-DR3)</p>
+<p style="position:absolute;top:408px;left:69px;white-space:nowrap" class="ft07">Each&#160;of the&#160;debug-address registers (DR0&#160;through&#160;DR3)&#160;holds the&#160;32-bit linear address of&#160;a breakpoint&#160;(see&#160;<br/><a href="o_fe12b1e2a880e0ce-576.html">Figure&#160;17-1).&#160;</a>Breakpoint comparisons are&#160;made&#160;before physical&#160;address translation&#160;occurs. The&#160;contents of debug&#160;<br/>register&#160;DR7&#160;further specifies breakpoint conditions.&#160;</p>
+<p style="position:absolute;top:491px;left:69px;white-space:nowrap" class="ft04">17.2.2&#160;</p>
+<p style="position:absolute;top:491px;left:149px;white-space:nowrap" class="ft04">Debug Registers DR4 and DR5</p>
+<p style="position:absolute;top:522px;left:69px;white-space:nowrap" class="ft07">Debug&#160;registers DR4&#160;and DR5&#160;are reserved when debug&#160;extensions are&#160;enabled (when the&#160;DE&#160;flag in control&#160;<br/>register&#160;CR4 is set) and attempts to&#160;reference the&#160;DR4&#160;and DR5&#160;registers cause invalid-opcode exceptions&#160;(#UD).&#160;<br/>When debug&#160;extensions&#160;are&#160;not enabled (when&#160;the DE&#160;flag&#160;is clear), these registers are aliased to debug&#160;registers&#160;<br/>DR6&#160;and&#160;DR7.</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft04">17.2.3&#160;</p>
+<p style="position:absolute;top:622px;left:149px;white-space:nowrap" class="ft04">Debug Status Register (DR6)</p>
+<p style="position:absolute;top:652px;left:69px;white-space:nowrap" class="ft07">The&#160;debug status register&#160;(DR6)&#160;reports debug&#160;conditions&#160;that were&#160;sampled&#160;at the time&#160;the last&#160;debug exception&#160;<br/>was genera<a href="o_fe12b1e2a880e0ce-576.html">ted (see Figure&#160;17-1). Updates to&#160;</a>this register only occur when an exception&#160;is generated.&#160;The flags in&#160;<br/>this&#160;register show&#160;the following information:</p>
+<p style="position:absolute;top:707px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:708px;left:95px;white-space:nowrap" class="ft07"><b>B0&#160;through B3 (breakpoint condition&#160;detected) flags (bits 0 through 3)&#160;—&#160;</b>Indicates (when set)&#160;that its&#160;<br/>associated&#160;breakpoint condition&#160;was met&#160;when&#160;a debug&#160;exception was&#160;generated. These flags&#160;are&#160;set if&#160;the&#160;<br/>condition described for each&#160;breakpoint&#160;by&#160;the LEN<i>n</i>, and R/W<i>n</i>&#160;flags&#160;in debug&#160;control&#160;register&#160;DR7 is&#160;true.&#160;<br/>They&#160;may&#160;or&#160;may&#160;not&#160;be&#160;set&#160;if&#160;the&#160;breakpoint&#160;is&#160;not&#160;enabled&#160;by&#160;the&#160;Ln&#160;or&#160;the&#160;Gn&#160;flags&#160;in&#160;register&#160;DR7.&#160;Therefore&#160;<br/>on&#160;a #DB,&#160;a debug&#160;handler should&#160;check only those&#160;B0-B3&#160;bits which correspond&#160;to&#160;an enabled&#160;breakpoint.</p>
+<p style="position:absolute;top:796px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:796px;left:95px;white-space:nowrap" class="ft07"><b>BD (debug&#160;register access&#160;detected)&#160;flag (bit&#160;13) —&#160;</b>Indicates that&#160;the&#160;next instruction in&#160;the instruction&#160;<br/>stream accesses one&#160;of the&#160;debug registers&#160;(DR0&#160;through&#160;DR7).&#160;This&#160;flag&#160;is enabled&#160;when&#160;the&#160;GD&#160;(general&#160;<br/>detect)&#160;flag in debug control register&#160;DR7&#160;is set.&#160;Se<a href="o_fe12b1e2a880e0ce-578.html">e Section 17.2.4, “Debug&#160;Control&#160;Register (DR7),”&#160;</a>for&#160;<br/>further explanation&#160;of&#160;the purpose of&#160;this&#160;flag.&#160;</p>
+<p style="position:absolute;top:868px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:868px;left:95px;white-space:nowrap" class="ft07"><b>BS&#160;(single step) flag (bit&#160;14) —&#160;</b>Indicates (when set)&#160;that the&#160;debug exception&#160;was triggered by the&#160;single-<br/>step&#160;execution&#160;mode&#160;(enabled&#160;with the&#160;TF flag&#160;in the&#160;EFLAGS register). The&#160;single-step&#160;mode is&#160;the highest-<br/>priority&#160;debug exception.&#160;When&#160;the BS&#160;flag&#160;is set,&#160;any&#160;of the&#160;other debug&#160;status bits&#160;also may be&#160;set.</p>
+<p style="position:absolute;top:923px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:924px;left:95px;white-space:nowrap" class="ft07"><b>BT (task switch) flag (bit&#160;15) —&#160;</b>Indicates&#160;(when set) that the debug&#160;exception resulted from a&#160;task&#160;switch&#160;<br/>where the&#160;T&#160;flag (debug&#160;trap&#160;flag)&#160;in&#160;the TSS&#160;of&#160;the target task&#160;was set.&#160;S<a href="o_fe12b1e2a880e0ce-241.html">ee&#160;Section 7.2.1,&#160;“Task-State&#160;<br/>Segment (TSS),” for the format of a T</a>SS.&#160;There is no flag&#160;in debug control register&#160;DR7 to enable&#160;or&#160;disable&#160;this&#160;<br/>exception;&#160;the&#160;T&#160;flag of&#160;the&#160;TSS is&#160;the only enabling flag.</p>
+<p style="position:absolute;top:995px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:996px;left:95px;white-space:nowrap" class="ft07"><b>RTM&#160;(restricted transactional memory) flag&#160;(bit&#160;16)</b>&#160;— Indicates (when&#160;<b>clear</b>) that&#160;a debug&#160;exception&#160;<br/>(#DB)&#160;or breakpoint exception&#160;(#BP)&#160;occurred inside an&#160;RTM&#160;region&#160;while&#160;advanced&#160;debugging&#160;of RTM&#160;trans-<br/>actional regions&#160;was&#160;enable<a href="o_fe12b1e2a880e0ce-584.html">d (see Section 17.3.3)</a>. This&#160;bit is&#160;set&#160;for&#160;any other&#160;debug exception (including all&#160;<br/>those that occur&#160;when advanced debugging&#160;of RTM transactional regions is not enabled). This bit is always 1 if&#160;<br/>the processor does not support RTM.</p>
+</div>
+</body>
+</html>

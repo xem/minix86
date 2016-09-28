@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1924</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1924-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1924.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">42-6&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® SGX INTERACTIONS WITH IA32 AND INTEL® 64&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">The various consistency requirements are enforced&#160;at different&#160;times in&#160;the&#160;enclave's&#160;life&#160;cycle,&#160;and the&#160;exact&#160;<br/>enforcement mechanisms are&#160;elaborated<a href="o_fe12b1e2a880e0ce-1925.html">&#160;in Section 42.7.3&#160;</a>through&#160;<a href="o_fe12b1e2a880e0ce-1926.html">Section 42.7.6</a>.<br/>On processors not supporting XSAVE, software&#160;should initialize XFRM&#160;to 0x3. On processors&#160;supporting&#160;XSAVE,&#160;<br/>software&#160;should initialize&#160;XFRM to&#160;be&#160;a subset of XCR0&#160;that would be present at&#160;the&#160;time of enclave execution.&#160;<br/>Because&#160;bits&#160;0&#160;and&#160;1&#160;of&#160;XFRM&#160;must&#160;always&#160;be&#160;set,&#160;the&#160;use&#160;of&#160;Intel&#160;SGX&#160;requires&#160;that&#160;SSE&#160;be&#160;enabled&#160;(CR4.OSFXSR&#160;<br/>= 1).</p>
+<p style="position:absolute;top:233px;left:68px;white-space:nowrap" class="ft03">42.7.2.2 &#160;&#160;SECS.SSAFRAMESIZE</p>
+<p style="position:absolute;top:260px;left:68px;white-space:nowrap" class="ft02">The SSAFRAMESIZE field in&#160;the SECS&#160;data&#160;structure&#160;specifies the&#160;number of pages&#160;which&#160;software allocated</p>
+<p style="position:absolute;top:258px;left:795px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:260px;left:802px;white-space:nowrap" class="ft02">&#160;for&#160;</p>
+<p style="position:absolute;top:277px;left:68px;white-space:nowrap" class="ft05">each SSA&#160;frame, including&#160;both the GPRSGX area, MISC area,&#160;the XSAVE area (x87&#160;and XMM states are&#160;stored&#160;in&#160;<br/>the latter area),&#160;and optionally padding between the&#160;MISC and XSAVE area.&#160;The&#160;GPRSGX&#160;area must&#160;hold all&#160;the&#160;<br/>general-purpose&#160;registers and additional Intel&#160;SGX specific&#160;information. The MISC area&#160;must&#160;hold&#160;the&#160;Miscella-<br/>neous state&#160;as&#160;specified by SECS.MISCSELECT,&#160;the XSAVE&#160;area holds&#160;the set of processor&#160;extended&#160;states&#160;specified&#160;<br/>by SECS.ATTRIBUTES.XFRM&#160;(see<a href="o_fe12b1e2a880e0ce-1777.html">&#160;Section 38.9&#160;</a>for&#160;the&#160;layout&#160;of SSA&#160;<a href="o_fe12b1e2a880e0ce-1925.html">and Section 42.7.3</a>&#160;for ECREATE's&#160;consistency&#160;<br/>checks). The SSA&#160;is always in&#160;non-compacted&#160;format.<br/>If the&#160;processor does&#160;not support XSAVE, the XSAVE area will&#160;always be&#160;576 bytes; a copy of XFRM&#160;(which will be&#160;<br/>set&#160;to 0x3)&#160;is saved&#160;at offset&#160;512 on&#160;an AEX.<br/>If&#160;the processor does support XSAVE,&#160;the length of&#160;the XSAVE&#160;area depends on SECS.ATTRIBUTES.XFRM.&#160;The&#160;<br/>length would be equal to&#160;what&#160;CPUID.(EAX=0DH, ECX=&#160;0):EBX&#160;would&#160;return if XCR0&#160;were set&#160;to XFRM. The&#160;<br/>following pseudo code illustrates how software&#160;can&#160;calculate&#160;this&#160;length using&#160;XFRM&#160;as&#160;the input&#160;parameter without&#160;<br/>modifying XCR0:</p>
+<p style="position:absolute;top:490px;left:95px;white-space:nowrap" class="ft05">offset&#160;=&#160;576;<br/>size_last_x =&#160;0;<br/>For x=2 to 63<br/>IF (XFRM[x]&#160;!= 0) Then</p>
+<p style="position:absolute;top:556px;left:111px;white-space:nowrap" class="ft02">tmp_offset =&#160;CPUID.(EAX=0DH, ECX= x):EBX[31:0];</p>
+<p style="position:absolute;top:572px;left:114px;white-space:nowrap" class="ft02">IF (tmp_offset &gt;=&#160;offset +&#160;size_last_x)&#160;Then</p>
+<p style="position:absolute;top:589px;left:137px;white-space:nowrap" class="ft05">offset =&#160;tmp_offset;<br/>size_last_x = CPUID.(EAX=0DH, ECX= x):EAX[31:0];</p>
+<p style="position:absolute;top:622px;left:118px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:638px;left:95px;white-space:nowrap" class="ft05">FI;<br/>EndFor<br/>return (offset + size_last_x); (*</p>
+<p style="position:absolute;top:671px;left:310px;white-space:nowrap" class="ft02">&#160;compute_xsave_size(XFRM),&#160;see<a href="o_fe12b1e2a880e0ce-1831.html">&#160;“ECREATE—Create&#160;an SECS page&#160;in the Enclave&#160;</a></p>
+<p style="position:absolute;top:688px;left:95px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1831.html">Page&#160;Cache”</a>*)</p>
+<p style="position:absolute;top:710px;left:68px;white-space:nowrap" class="ft05">Where&#160;the non-zero bits in&#160;XFRM&#160;are&#160;a subset of non-zero bit fields&#160;in XCR0.<br/>The&#160;size&#160;of the&#160;MISC&#160;region depends on&#160;the setting of&#160;SECS.MISCSELECT and&#160;can be calculated using&#160;the&#160;layout&#160;<br/>information described<a href="o_fe12b1e2a880e0ce-1779.html">&#160;in&#160;Section&#160;38.9.2</a></p>
+<p style="position:absolute;top:793px;left:68px;white-space:nowrap" class="ft03">42.7.2.3 &#160;&#160;XSAVE Area in SSA</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft02">The XSAVE&#160;area of an&#160;SSA&#160;frame&#160;begins&#160;at offset 0 of the&#160;frame.</p>
+<p style="position:absolute;top:865px;left:68px;white-space:nowrap" class="ft03">42.7.2.4&#160;&#160;&#160;MISC Area in&#160;SSA</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft02">The&#160;MISC area&#160;of an&#160;SSA&#160;frame&#160;is positioned&#160;immediately before the&#160;GPRSGX region.</p>
+<p style="position:absolute;top:936px;left:68px;white-space:nowrap" class="ft03">42.7.2.5 &#160;&#160;SIGSTRUCT&#160;Fields</p>
+<p style="position:absolute;top:963px;left:68px;white-space:nowrap" class="ft05">Intel&#160;SGX provides&#160;the&#160;flexibility for an&#160;enclave&#160;developer&#160;to&#160;choose the&#160;enclave's code path according to&#160;the&#160;<br/>features that&#160;are&#160;enabled on the&#160;platform (e.g. optimize for AVX&#160;and&#160;fallback&#160;to SSE). Se<a href="o_fe12b1e2a880e0ce-1922.html">e&#160;Section&#160;42.7.1</a>&#160;for&#160;<br/>details.</p>
+<p style="position:absolute;top:1055px;left:68px;white-space:nowrap" class="ft02">1.&#160;It is&#160;the&#160;responsibility of&#160;the enclave&#160;to&#160;actually allocate this&#160;memory.</p>
+</div>
+</body>
+</html>

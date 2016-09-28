@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 277</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page277-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a277.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;11-23</p>
+<p style="position:absolute;top:47px;left:401px;white-space:nowrap" class="ft01">PROGRAMMING&#160;WITH INTEL® STREAMING SIMD EXTENSIONS 2&#160;(INTEL® SSE2)</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">may result&#160;in&#160;a&#160;SIMD floating-point&#160;exception (such as&#160;numeric&#160;overflow [#O] or&#160;invalid operation [#I])&#160;being&#160;<br/>generated, but the&#160;actual&#160;source&#160;of&#160;the problem (inconsistent&#160;data&#160;types)&#160;is not detected.<br/>The ability to&#160;operate&#160;on an operand that contains&#160;a&#160;data type that is inconsistent with the typing of the instruction&#160;<br/>being executed,&#160;permits&#160;some valid&#160;operations&#160;to be performed.&#160;For example,&#160;the following instructions load&#160;a&#160;<br/>packed&#160;double-precision floating-point&#160;operand from&#160;memory&#160;to register XMM0,&#160;and a&#160;mask&#160;to register&#160;XMM1;&#160;<br/>then they use XORPD to&#160;toggle&#160;the&#160;sign bits of the&#160;two&#160;packed values&#160;in register XMM0.<br/>movapd</p>
+<p style="position:absolute;top:214px;left:170px;white-space:nowrap" class="ft02">xmm0,&#160;[eax]&#160;&#160;; EAX&#160;register&#160;contains&#160;pointer&#160;to&#160;packed&#160;</p>
+<p style="position:absolute;top:238px;left:257px;white-space:nowrap" class="ft02">; double-precision&#160;floating-point&#160;operand</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft02">movaps</p>
+<p style="position:absolute;top:262px;left:170px;white-space:nowrap" class="ft02">xmm1,&#160;[ebx]</p>
+<p style="position:absolute;top:262px;left:261px;white-space:nowrap" class="ft02">;&#160;EBX&#160;register&#160;contains&#160;pointer&#160;to&#160;packed</p>
+<p style="position:absolute;top:286px;left:260px;white-space:nowrap" class="ft02">; double-precision&#160;floating-point&#160;mask</p>
+<p style="position:absolute;top:310px;left:69px;white-space:nowrap" class="ft02">xorpd</p>
+<p style="position:absolute;top:310px;left:170px;white-space:nowrap" class="ft02">xmm0,&#160;xmm1&#160;; XOR&#160;operation toggles sign&#160;bits using&#160;</p>
+<p style="position:absolute;top:334px;left:257px;white-space:nowrap" class="ft02">; the&#160;mask in&#160;xmm1</p>
+<p style="position:absolute;top:358px;left:69px;white-space:nowrap" class="ft06">In&#160;this example:&#160;XORPS&#160;or PXOR&#160;can be used in&#160;place of XORPD&#160;and yield the&#160;same&#160;correct&#160;result.&#160;However,&#160;<br/>because&#160;of the type mismatch&#160;between&#160;the operand data type&#160;and the instruction&#160;data&#160;type,&#160;a latency penalty will&#160;<br/>be incurred due&#160;to implementations&#160;of the&#160;instructions&#160;at the&#160;microarchitecture level.&#160;<br/>Latency penalties can&#160;also be incurred&#160;by using&#160;move&#160;instructions&#160;of&#160;the wrong type.&#160;For example,&#160;MOVAPS&#160;and&#160;<br/>MOVAPD&#160;can both be&#160;used to&#160;move&#160;a packed&#160;single-precision&#160;operand from memory to&#160;an XMM&#160;register.&#160;However,&#160;<br/>if MOVAPD&#160;is used, a latency penalty will be&#160;incurred when a correctly typed instruction attempts&#160;to use the&#160;data in&#160;<br/>the register.<br/>Note&#160;that&#160;these&#160;latency penalties are not incurred&#160;when moving data&#160;from&#160;XMM registers&#160;to memory.</p>
+<p style="position:absolute;top:539px;left:69px;white-space:nowrap" class="ft03">11.6.10&#160;&#160;Interfacing with SSE/SSE2 Procedures and Functions</p>
+<p style="position:absolute;top:570px;left:69px;white-space:nowrap" class="ft05">SSE and&#160;SSE2 extensions&#160;allow&#160;direct access&#160;to XMM registers. This&#160;means&#160;that all&#160;existing&#160;interface conventions&#160;<br/>between procedures&#160;and functions that apply to&#160;the use&#160;of the&#160;general-purpose&#160;registers&#160;(EAX, EBX, etc.)&#160;also&#160;<br/>apply to&#160;XMM register&#160;usage.</p>
+<p style="position:absolute;top:647px;left:69px;white-space:nowrap" class="ft04">11.6.10.1&#160;&#160;&#160;Passing&#160;Parameters&#160;in&#160;XMM&#160;Registers</p>
+<p style="position:absolute;top:676px;left:69px;white-space:nowrap" class="ft05">The state of XMM registers&#160;is preserved across procedure&#160;(or&#160;function) boundaries.&#160;Parameters can be passed&#160;from&#160;<br/>one procedure&#160;to another using&#160;XMM registers.</p>
+<p style="position:absolute;top:736px;left:69px;white-space:nowrap" class="ft04">11.6.10.2 &#160;&#160;Saving XMM Register&#160;State&#160;on a&#160;Procedure or&#160;Function Call</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft05">The state of XMM registers&#160;can be saved in&#160;two&#160;ways: using an&#160;FXSAVE instruction or&#160;a move&#160;instruction.&#160;FXSAVE&#160;<br/>saves the state of all XMM&#160;registers (along with&#160;the&#160;state&#160;of MXCSR and the x87 FPU registers). This instruction&#160;is&#160;<br/>typically used&#160;for major changes&#160;in the&#160;context of the&#160;execution environment, such as&#160;a task&#160;switch. FXRSTOR&#160;<br/>restores&#160;the XMM, MXCSR,&#160;and x87&#160;FPU&#160;registers stored with&#160;FXSAVE.<br/>In cases where only XMM&#160;registers must be saved, or&#160;where selected XMM&#160;registers need to&#160;be&#160;saved,&#160;move&#160;<br/>instructions&#160;(MOVAPS,&#160;MOVUPS,&#160;MOVSS,&#160;MOVAPD,&#160;MOVUPD,&#160;MOVSD,&#160;MOVDQA,&#160;and&#160;MOVDQU)&#160;can&#160;be&#160;used.&#160;<br/>These instructions&#160;can&#160;also be used to&#160;restore&#160;the contents of XMM&#160;registers.&#160;To&#160;avoid performance&#160;degradation&#160;<br/>when&#160;saving&#160;XMM&#160;registers&#160;to memory or when loading XMM registers from memory,&#160;be&#160;sure to&#160;use the&#160;appropri-<br/>ately typed&#160;move instructions.<br/>The move&#160;instructions&#160;can also be&#160;used&#160;to&#160;save the contents&#160;of XMM registers on&#160;the stack. Here, the&#160;stack pointer&#160;<br/>(in the&#160;ESP register) can be used&#160;as the memory address to&#160;the next available byte in the stack. Note that the&#160;stack&#160;<br/>pointer&#160;is not automatically incremented when using&#160;a move&#160;instruction (as&#160;it is&#160;with PUSH).&#160;<br/>A&#160;move-instruction procedure that&#160;saves&#160;the contents&#160;of&#160;an XMM&#160;register&#160;to the&#160;stack is&#160;responsible for decre-<br/>menting the&#160;value&#160;in&#160;the&#160;ESP&#160;register by&#160;16.&#160;Likewise,&#160;a&#160;move-instruction&#160;procedure that loads an XMM register&#160;<br/>from the stack needs also to increment the ESP register&#160;by 16. To&#160;avoid&#160;performance&#160;degradation when moving the&#160;<br/>contents of XMM&#160;registers,&#160;use the&#160;appropriately typed&#160;move instructions.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 331</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page331-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce331.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;9-19</p>
+<p style="position:absolute;top:47px;left:560px;white-space:nowrap" class="ft01">PROCESSOR&#160;MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:106px;left:69px;white-space:nowrap" class="ft02">&#160;100 &#160;</p>
+<p style="position:absolute;top:124px;left:69px;white-space:nowrap" class="ft02">&#160;101 &#160;; offset of GDT and IDT descriptors in&#160;builder&#160;generated GDT</p>
+<p style="position:absolute;top:142px;left:69px;white-space:nowrap" class="ft02">&#160;102 &#160;GDT_DESC_OFF&#160;&#160; &#160;EQU 1*SIZE(DESC)</p>
+<p style="position:absolute;top:160px;left:69px;white-space:nowrap" class="ft02">&#160;103 &#160;IDT_DESC_OFF&#160;&#160; &#160;EQU 2*SIZE(DESC)</p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft02">&#160;104 &#160;</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft02">&#160;105 &#160;; equates for&#160;building temporary GDT in&#160;RAM</p>
+<p style="position:absolute;top:214px;left:69px;white-space:nowrap" class="ft02">&#160;106 &#160;LINEAR_SEL &#160;&#160;&#160; &#160; &#160; &#160;EQU &#160; &#160; 1*SIZE (DESC)</p>
+<p style="position:absolute;top:232px;left:69px;white-space:nowrap" class="ft02">&#160;107 &#160;LINEAR_PROTO_LO &#160; &#160; EQU &#160; &#160; 00000FFFFH&#160; ; LINEAR_ALIAS</p>
+<p style="position:absolute;top:250px;left:69px;white-space:nowrap" class="ft02">&#160;108 &#160;LINEAR_PROTO_HI &#160; &#160; EQU &#160; &#160; 000CF9200H</p>
+<p style="position:absolute;top:268px;left:69px;white-space:nowrap" class="ft02">&#160;109 &#160;</p>
+<p style="position:absolute;top:286px;left:69px;white-space:nowrap" class="ft02">&#160;110 &#160;; Protection&#160;Enable Bit in CR0</p>
+<p style="position:absolute;top:304px;left:69px;white-space:nowrap" class="ft02">&#160;111 &#160;PE_BIT &#160;EQU 1B</p>
+<p style="position:absolute;top:322px;left:69px;white-space:nowrap" class="ft02">&#160;112 &#160;</p>
+<p style="position:absolute;top:340px;left:69px;white-space:nowrap" class="ft02">&#160;113 &#160;; ------------------------------------------------------------</p>
+<p style="position:absolute;top:358px;left:69px;white-space:nowrap" class="ft02">&#160;114 &#160;</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft02">&#160;115 &#160;; ------------------------- DATA SEGMENT----------------------</p>
+<p style="position:absolute;top:394px;left:69px;white-space:nowrap" class="ft02">&#160;116 &#160;</p>
+<p style="position:absolute;top:412px;left:69px;white-space:nowrap" class="ft02">&#160;117 &#160;; Initially,&#160;this &#160;data segment starts&#160;at linear 0, according</p>
+<p style="position:absolute;top:430px;left:69px;white-space:nowrap" class="ft02">&#160;118 &#160;; to&#160;the processor’s&#160;power-up&#160;state.</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft02">&#160;119 &#160;</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft02">&#160;120 &#160;STARTUP_DATA&#160;&#160; &#160;SEGMENT RW</p>
+<p style="position:absolute;top:484px;left:69px;white-space:nowrap" class="ft02">&#160;121 &#160;</p>
+<p style="position:absolute;top:502px;left:69px;white-space:nowrap" class="ft02">&#160;122 &#160;free_mem_linear_base&#160;&#160; &#160;LABEL&#160;&#160; DWORD</p>
+<p style="position:absolute;top:520px;left:69px;white-space:nowrap" class="ft02">&#160;123 &#160;TEMP_GDT &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;&#160; &#160;LABEL&#160;&#160; BYTE &#160;; must be&#160;first&#160;in segment</p>
+<p style="position:absolute;top:538px;left:69px;white-space:nowrap" class="ft02">&#160;124 &#160;TEMP_GDT_NULL_DESC &#160;&#160;DESC &#160; &#160;&lt;&gt;</p>
+<p style="position:absolute;top:556px;left:69px;white-space:nowrap" class="ft02">&#160;125 &#160;TEMP_GDT_LINEAR_DESC&#160;DESC &#160; &#160;&lt;&gt;</p>
+<p style="position:absolute;top:574px;left:69px;white-space:nowrap" class="ft02">&#160;126 &#160;</p>
+<p style="position:absolute;top:592px;left:69px;white-space:nowrap" class="ft02">&#160;127 &#160;; scratch areas for LGDT and LIDT instructions</p>
+<p style="position:absolute;top:610px;left:69px;white-space:nowrap" class="ft02">&#160;128 &#160;TEMP_GDT_SCRATCH TABLE_REG &#160; &lt;&gt;</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft02">&#160;129 &#160;APP_GDT_RAM &#160;&#160; &#160;TABLE_REG &#160; &#160;&lt;&gt;</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft02">&#160;130 &#160;APP_IDT_RAM &#160;&#160; &#160;TABLE_REG &#160; &#160;&lt;&gt;</p>
+<p style="position:absolute;top:664px;left:69px;white-space:nowrap" class="ft02">&#160;131 &#160; &#160; &#160;&#160;&#160; &#160;; align end_data</p>
+<p style="position:absolute;top:682px;left:69px;white-space:nowrap" class="ft02">&#160;132 &#160;fill&#160;&#160; &#160;DW &#160;&#160;&#160; &#160;?</p>
+<p style="position:absolute;top:700px;left:69px;white-space:nowrap" class="ft02">&#160;133 &#160;&#160;</p>
+<p style="position:absolute;top:718px;left:69px;white-space:nowrap" class="ft02">&#160;134 &#160;; last thing&#160;in this&#160;segment -&#160;should&#160;be on a&#160;dword boundary</p>
+<p style="position:absolute;top:736px;left:69px;white-space:nowrap" class="ft02">&#160;135 &#160;end_data &#160; &#160;LABEL &#160; BYTE</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft02">&#160;136 &#160;</p>
+<p style="position:absolute;top:772px;left:69px;white-space:nowrap" class="ft02">&#160;137 &#160;STARTUP_DATA&#160;&#160; &#160;ENDS</p>
+<p style="position:absolute;top:790px;left:69px;white-space:nowrap" class="ft02">&#160;138 &#160;; ------------------------------------------------------------</p>
+<p style="position:absolute;top:808px;left:69px;white-space:nowrap" class="ft02">&#160;139 &#160;</p>
+<p style="position:absolute;top:826px;left:69px;white-space:nowrap" class="ft02">&#160;140 &#160;</p>
+<p style="position:absolute;top:844px;left:69px;white-space:nowrap" class="ft02">&#160;141 &#160;; ------------------------- CODE SEGMENT----------------------</p>
+<p style="position:absolute;top:862px;left:69px;white-space:nowrap" class="ft02">&#160;142 &#160;STARTUP_CODE&#160;SEGMENT&#160;ER PUBLIC&#160;USE16</p>
+<p style="position:absolute;top:880px;left:69px;white-space:nowrap" class="ft02">&#160;143 &#160;</p>
+<p style="position:absolute;top:898px;left:69px;white-space:nowrap" class="ft02">&#160;144 &#160;; filled in by&#160;builder</p>
+<p style="position:absolute;top:916px;left:69px;white-space:nowrap" class="ft02">&#160;145 &#160; &#160; &#160;PUBLIC &#160;GDT_EPROM</p>
+<p style="position:absolute;top:934px;left:69px;white-space:nowrap" class="ft02">&#160;146 &#160;GDT_EPROM &#160; TABLE_REG&#160; &#160;&lt;&gt;</p>
+<p style="position:absolute;top:952px;left:69px;white-space:nowrap" class="ft02">&#160;147 &#160;</p>
+<p style="position:absolute;top:970px;left:69px;white-space:nowrap" class="ft02">&#160;148 &#160;; filled in by&#160;builder</p>
+<p style="position:absolute;top:988px;left:69px;white-space:nowrap" class="ft02">&#160;149 &#160; &#160; &#160;PUBLIC &#160;IDT_EPROM</p>
+<p style="position:absolute;top:1006px;left:69px;white-space:nowrap" class="ft02">&#160;150 &#160;IDT_EPROM &#160; TABLE_REG&#160; &#160;&lt;&gt;</p>
+<p style="position:absolute;top:1024px;left:69px;white-space:nowrap" class="ft02">&#160;151 &#160;</p>
+<p style="position:absolute;top:1042px;left:69px;white-space:nowrap" class="ft02">&#160;152 &#160;; entry point&#160;into startup code - the&#160;bootstrap will vector</p>
+<p style="position:absolute;top:1060px;left:69px;white-space:nowrap" class="ft02">&#160;153 &#160;; here &#160;with&#160;a &#160;near&#160;JMP &#160;generated by&#160; the builder. &#160;&#160;This</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1714</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1714-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1714.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">36-30&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® PROCESSOR TRACE</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">36.3.2.2 &#160;&#160;Disabling Packet&#160;Generation</p>
+<p style="position:absolute;top:126px;left:68px;white-space:nowrap" class="ft06">After disabling&#160;packet generation by clearing IA32_RTIT_CTL,&#160;it is&#160;advisable&#160;to&#160;read the IA32_RTIT_STATUS MSR&#160;<br/><a href="o_fe12b1e2a880e0ce-1703.html">(Section 36.2.7.4):</a></p>
+<p style="position:absolute;top:164px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:165px;left:93px;white-space:nowrap" class="ft06">If the Error bit is set,&#160;an operational error was encountered,&#160;and the trace is most likely compromised.&#160;Software&#160;<br/>should check the&#160;source of the&#160;error&#160;(by&#160;examining&#160;the output MSR values), correct&#160;the source&#160;of&#160;the problem,&#160;<br/>and&#160;then attempt to&#160;gather the trace again. For details&#160;on oper<a href="o_fe12b1e2a880e0ce-1719.html">ational errors, see Section&#160;36.3.9</a>.&#160;Software&#160;<br/>should&#160;clear IA32_RTIT_STATUS.Error before re-enabling&#160;packet&#160;generation.&#160;</p>
+<p style="position:absolute;top:236px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:237px;left:93px;white-space:nowrap" class="ft06">If&#160;the Stopped bit is&#160;set,&#160;software&#160;execution&#160;encountered&#160;an IP&#160;TraceStop (s<a href="o_fe12b1e2a880e0ce-1689.html">ee&#160;Section&#160;36.2.4.3</a>)&#160;or the&#160;ToPA&#160;<br/>Stop condition&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1696.html">“ToPA STOP” in Section 3</a><a href="o_fe12b1e2a880e0ce-1693.html">6.2.6.2)&#160;</a>before&#160;packet&#160;generation was&#160;disabled.</p>
+<p style="position:absolute;top:304px;left:68px;white-space:nowrap" class="ft05">36.3.3&#160;</p>
+<p style="position:absolute;top:304px;left:148px;white-space:nowrap" class="ft05">Flushing Trace Output</p>
+<p style="position:absolute;top:333px;left:68px;white-space:nowrap" class="ft06">Packets are&#160;first buffered&#160;internally&#160;and then&#160;written&#160;out asynchronously.&#160;To&#160;collect packet&#160;output for post-<br/>processing,&#160;a collector&#160;needs first to&#160;ensure that&#160;all packet&#160;data&#160;has been&#160;flushed from&#160;internal buffers. Software&#160;<br/>can&#160;ensure this&#160;by stopping packet&#160;generation by clearing IA32_RTIT_CTL.TraceE<a href="o_fe12b1e2a880e0ce-1703.html">n (see “Disabling&#160;Packet&#160;Genera-<br/>tion”&#160;</a><a href="o_fe12b1e2a880e0ce-1700.html">in Section 36.2.7.2).<br/></a>When software&#160;clears&#160;IA32_RTIT_CTL.TraceEn&#160;to flush out internally&#160;buffered&#160;packets, the&#160;logical processor issues&#160;<br/>an SFENCE operation which&#160;ensures&#160;that WC trace output&#160;stores will be&#160;ordered with&#160;respect to&#160;the next&#160;store,&#160;or&#160;<br/>serializing&#160;operation. A subsequent read from the&#160;same&#160;logical processor will see the&#160;flushed trace&#160;data, while&#160;a&#160;<br/>read&#160;from another logical&#160;processor should be preceded by&#160;a store, fence,&#160;or&#160;architecturally serializing operation on&#160;<br/>the tracing logical processor.<br/>When&#160;the flush operations complete,&#160;the IA32_RTIT_OUTPUT_*&#160;MSR values indicate where&#160;the&#160;trace&#160;ended.&#160;While&#160;<br/>TraceEn&#160;is set, these MSRs&#160;may hold&#160;stale&#160;values.</p>
+<p style="position:absolute;top:560px;left:68px;white-space:nowrap" class="ft05">36.3.4 Warm&#160;</p>
+<p style="position:absolute;top:560px;left:199px;white-space:nowrap" class="ft05">Reset</p>
+<p style="position:absolute;top:589px;left:68px;white-space:nowrap" class="ft06">The MSRs software uses to program Intel Processor Trace are cleared&#160;after a&#160;power-on RESET&#160;(or&#160;cold&#160;RESET). On&#160;<br/>a warm RESET,&#160;the contents of&#160;those MSRs can retain their values from before&#160;the warm RESET with&#160;the exception&#160;<br/>that IA32_RTIT_CTL.TraceEn will be cleared&#160;(which may&#160;have&#160;the side&#160;effect of clearing some&#160;bits&#160;in&#160;<br/>IA32_RTIT_STATUS).&#160;</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft05">36.3.5&#160;</p>
+<p style="position:absolute;top:689px;left:148px;white-space:nowrap" class="ft05">Context Switch Consideration</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft06">To&#160;facilitate&#160;construction&#160;of instruction execution traces at&#160;the granularity of&#160;a software&#160;process&#160;or thread context,&#160;<br/>software can&#160;save&#160;and restore&#160;the&#160;states&#160;of&#160;the trace configuration&#160;MSRs&#160;across&#160;the&#160;process or&#160;thread context&#160;<br/>switch&#160;boundary.&#160;The&#160;principle&#160;is&#160;the&#160;same&#160;as saving and restoring the&#160;typical architectural processor states&#160;across&#160;<br/>context switches.&#160;</p>
+<p style="position:absolute;top:812px;left:68px;white-space:nowrap" class="ft02">36.3.5.1 &#160;&#160;Manual Trace&#160;Configuration Context Switch</p>
+<p style="position:absolute;top:839px;left:68px;white-space:nowrap" class="ft09">The&#160;configuration&#160;can be saved&#160;and restored&#160;through&#160;a sequence&#160;of instructions of RDMSR,&#160;management of MSR&#160;<br/>content and&#160;WRMSR. To&#160;stop tracing and to&#160;ensure&#160;that&#160;all configuration MSRs&#160;contain stable&#160;values, software&#160;must&#160;<br/>clear IA32_RTIT_CTL.TraceEn before reading any&#160;other&#160;trace&#160;configuration MSRs. The&#160;recommended method&#160;for&#160;<br/>saving trace configuration context&#160;manually follows:<br/>1.&#160;RDMSR IA32_RTIT_CTL,&#160;save value&#160;to memory&#160;<br/>2.&#160;WRMSR IA32_RTIT_CTL&#160;with&#160;saved value from RDMSR above and TraceEn cleared<br/>3.&#160;RDMSR all&#160;other configuration MSRs&#160;whose&#160;values&#160;had changed from&#160;previous&#160;saved value,&#160;save&#160;changed&#160;</p>
+<p style="position:absolute;top:977px;left:93px;white-space:nowrap" class="ft03">values to&#160;memory</p>
+</div>
+</body>
+</html>

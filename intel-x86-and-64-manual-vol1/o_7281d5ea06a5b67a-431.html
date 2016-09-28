@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 431</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page431-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a431.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:781px;white-space:nowrap" class="ft00">Vol. 1&#160;D-9</p>
+<p style="position:absolute;top:47px;left:500px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87&#160;FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:398px;left:69px;white-space:nowrap" class="ft07">By&#160;masking&#160;or unmasking specific&#160;numeric exceptions&#160;in the&#160;x87&#160;FPU control word, programmers can&#160;delegate&#160;<br/>responsibility for most exceptions&#160;to the&#160;processor,&#160;reserving the&#160;most severe&#160;exceptions for programmed&#160;excep-<br/>tion&#160;handlers. Exception-handling software is&#160;often difficult to write, and&#160;the&#160;masked&#160;responses have been&#160;tailored&#160;<br/>to&#160;deliver the&#160;most reasonable result&#160;for each&#160;condition.&#160;For the&#160;majority&#160;of applications, masking all&#160;exceptions&#160;<br/>yields&#160;satisfactory&#160;results with the&#160;least&#160;programming&#160;effort. Certain exceptions&#160;can usefully be&#160;left&#160;unmasked&#160;<br/>during&#160;the&#160;debugging&#160;phase&#160;of software&#160;development,&#160;and&#160;then masked&#160;when&#160;the&#160;clean software&#160;is actually run.&#160;<br/>An invalid-operation&#160;exception&#160;for example, typically&#160;indicates&#160;a program error&#160;that must be&#160;corrected.<br/>The exception flags in the x87 FPU status word provide&#160;a cumulative&#160;record&#160;of exceptions&#160;that have&#160;occurred since&#160;<br/>these&#160;flags were&#160;last cleared. Once&#160;set, these&#160;flags&#160;can be&#160;cleared only by&#160;executing&#160;the&#160;FCLEX/FNCLEX (clear&#160;<br/>exceptions)&#160;instruction, by reinitializing the&#160;x87 FPU&#160;with FINIT/FNINIT&#160;or FSAVE/FNSAVE, or by overwriting the&#160;<br/>flags with an&#160;FRSTOR or&#160;FLDENV&#160;instruction. This&#160;allows&#160;a programmer to&#160;mask&#160;all exceptions, run a&#160;calculation,&#160;<br/>and&#160;then&#160;inspect the&#160;status&#160;word&#160;to&#160;see if any&#160;exceptions&#160;were&#160;detected at&#160;any point&#160;in the&#160;calculation.</p>
+<p style="position:absolute;top:632px;left:69px;white-space:nowrap" class="ft03">D.3.2.2&#160;&#160;</p>
+<p style="position:absolute;top:632px;left:153px;white-space:nowrap" class="ft03">Software&#160;Exception Handling</p>
+<p style="position:absolute;top:660px;left:69px;white-space:nowrap" class="ft07">If&#160;the x87&#160;FPU in or with an&#160;IA-32 processor (Intel 286&#160;and onwards) encounters an&#160;unmasked exception condition,&#160;<br/>with the system&#160;operated&#160;in&#160;the MS-DOS compatibility&#160;mode&#160;and with&#160;IGNNE#&#160;not asserted, a software exception&#160;<br/>handler is&#160;invoked through a&#160;PIC and the&#160;processor’s INTR&#160;pin.&#160;The FERR# (or ERROR#) output from the x87 FPU&#160;<br/>that begins the process of invoking&#160;the&#160;exception handler&#160;may occur when the&#160;error condition&#160;is first&#160;detected, or&#160;<br/>when the&#160;processor encounters&#160;the next WAIT&#160;or&#160;x87 FPU&#160;instruction. Which of&#160;these two cases&#160;occurs&#160;depends on&#160;<br/>the&#160;processor&#160;generation and&#160;also on&#160;which exception&#160;and which&#160;x87&#160;FPU instruction triggered it, as&#160;discussed&#160;<br/><a href="o_7281d5ea06a5b67a-423.html">earlier in&#160;Section&#160;D.1, “MS-DOS Compatibility&#160;Sub-mode&#160;for Handling&#160;x87 FPU&#160;Exceptions,”</a><a href="o_7281d5ea06a5b67a-424.html">&#160;and Section D.2,&#160;<br/>“Implementation of the MS-DOS* Compatibility Sub-mode&#160;in the Intel486™, Pentium®, and P6&#160;Processor Family,&#160;<br/>and&#160;Pentium®&#160;4 Processors.”&#160;The elapse</a>d&#160;time between the&#160;initial&#160;error signal and&#160;the invocation of&#160;the&#160;x87&#160;FPU&#160;<br/>exception&#160;handler depends of&#160;course&#160;on the&#160;external hardware interface, and&#160;also&#160;on&#160;whether&#160;the external&#160;inter-<br/>rupt&#160;for&#160;x87&#160;FPU errors&#160;is enabled. But the architecture&#160;ensures&#160;that&#160;the handler will be invoked before execution&#160;<br/>of&#160;the next&#160;WAIT or floating-point instruction since an&#160;unmasked&#160;floating-point exception causes the processor to&#160;<br/>freeze&#160;just before executing such an&#160;instruction&#160;(unless the&#160;IGNNE#&#160;input is&#160;active,&#160;or&#160;it is&#160;a no-wait x87&#160;FPU&#160;<br/>instruction).&#160;<br/>The frozen processor waits&#160;for&#160;an external&#160;interrupt,&#160;which&#160;must be&#160;supplied&#160;by external&#160;hardware in&#160;response&#160;to&#160;<br/>the FERR# (or&#160;ERROR#)&#160;output of the&#160;processor&#160;(or coprocessor),&#160;usually&#160;through IRQ13 on&#160;the&#160;“slave”&#160;PIC, and&#160;<br/>then through INTR.&#160;Then the external&#160;interrupt invokes&#160;the exception&#160;handling&#160;routine. Note&#160;that if&#160;the external&#160;<br/>interrupt&#160;for x87&#160;FPU errors&#160;is disabled when the&#160;processor executes an&#160;x87 FPU&#160;instruction, the&#160;processor will&#160;<br/>freeze&#160;until&#160;some&#160;other (enabled)&#160;interrupt occurs&#160;if&#160;an unmasked&#160;x87 FPU&#160;exception condition is&#160;in effect. If NE =&#160;<br/>0&#160;but the IGNNE# input is active, the&#160;processor disregards the&#160;exception&#160;and continues. Error reporting via an&#160;<br/>external&#160;interrupt is&#160;supported&#160;for MS-DOS&#160;compatibility.<a href="��">&#160;Chapter&#160;22, “IA-32&#160;Architecture Compatibility,” of the&#160;<br/></a><i>Intel® 64&#160;and IA-32 Architectures Software&#160;Developer’s&#160;Manual, Volume 3B,</i>&#160;contains further&#160;discussion of compat-<br/>ibility&#160;issues.</p>
+<p style="position:absolute;top:353px;left:299px;white-space:nowrap" class="ft05">Figure&#160;D-4.&#160;&#160;Arithmetic Example Using&#160;Infinity</p>
+<p style="position:absolute;top:302px;left:342px;white-space:nowrap" class="ft00">Equivalent Resistance =</p>
+<p style="position:absolute;top:293px;left:516px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:310px;left:482px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:328px;left:480px;white-space:nowrap" class="ft00">R</p>
+<p style="position:absolute;top:333px;left:489px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:319px;left:535px;white-space:nowrap" class="ft00">+</p>
+<p style="position:absolute;top:319px;left:500px;white-space:nowrap" class="ft00">+</p>
+<p style="position:absolute;top:185px;left:406px;white-space:nowrap" class="ft00">R</p>
+<p style="position:absolute;top:190px;left:415px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:310px;left:517px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:328px;left:515px;white-space:nowrap" class="ft00">R</p>
+<p style="position:absolute;top:333px;left:523px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:310px;left:550px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:328px;left:548px;white-space:nowrap" class="ft00">R</p>
+<p style="position:absolute;top:333px;left:556px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:185px;left:461px;white-space:nowrap" class="ft00">R</p>
+<p style="position:absolute;top:189px;left:469px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:184px;left:514px;white-space:nowrap" class="ft00">R</p>
+<p style="position:absolute;top:189px;left:523px;white-space:nowrap" class="ft06">3</p>
+</div>
+</body>
+</html>

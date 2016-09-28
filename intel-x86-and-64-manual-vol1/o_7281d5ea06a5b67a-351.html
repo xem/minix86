@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 351</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:16px;line-height:20px;font-family:Times;color:#000000;}
+	.ft010{font-size:16px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page351-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a351.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;14-23</p>
+<p style="position:absolute;top:47px;left:591px;white-space:nowrap" class="ft01">PROGRAMMING WITH&#160;AVX,&#160;FMA AND AVX2</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">An&#160;arithmetic&#160;FMA&#160;operation of&#160;the&#160;form,&#160;r=(x*y)+z,&#160;takes&#160;two&#160;IEEE-754-2008&#160;single&#160;(double) precision values&#160;<br/>and multiplies them&#160;to form&#160;an infinite precision intermediate&#160;value.&#160;This intermediate value&#160;is added to a&#160;third&#160;<br/>single (double) precision value (also at infinite precision)&#160;and rounded to produce a single (double) precision result.&#160;<br/>The rounding&#160;and exception behavior are&#160;controlled&#160;by&#160;the&#160;MXCSR and&#160;control bits&#160;specified in lower 4-bits of the&#160;<br/>8-bit immediate field (imm8). See<a href="o_7281d5ea06a5b67a-351.html">&#160;Figure&#160;14-4.</a></p>
+<p style="position:absolute;top:505px;left:284px;white-space:nowrap" class="ft03">Figure&#160;14-4. &#160;Immediate&#160;Byte&#160;for&#160;FMA instructions</p>
+<p style="position:absolute;top:541px;left:69px;white-space:nowrap" class="ft07">Note:&#160;The imm8[7:4] specify one&#160;of&#160;the&#160;source&#160;register&#160;and&#160;is explained&#160;in&#160;detail in later sections.<br/>If imm8[2]&#160;=&#160;1 then&#160;rounding control mode&#160;is&#160;selected&#160;from imm8[1:0] otherwise rounding control mode&#160;is&#160;<br/>selected&#160;from MXCSR.&#160;The imm8[3] bit&#160;controls the&#160;suppression&#160;of SIMD floating-point&#160;exception signaling&#160;and&#160;<br/>reporting.&#160;When&#160;imm8[3]=1 no&#160;SIMD&#160;FP&#160;exceptions&#160;are raised and&#160;no flags&#160;are updated in&#160;MXCSR as&#160;a result&#160;of&#160;<br/>executing&#160;the instruction.&#160;&#160;The&#160;numerical result is&#160;computed&#160;as&#160;if&#160;all SIMD FP exceptions were&#160;masked.<br/><a href="o_7281d5ea06a5b67a-352.html">Table&#160;14-17</a>&#160;describes&#160;the&#160;numerical&#160;behavior of the FMA&#160;operation, r=(x*y)+z, r=(x*y)-z, r=-(x*y)+z, r=-(x*y)-<br/>z&#160;for&#160;various&#160;input values.&#160;The&#160;input values&#160;can be 0,&#160;finite&#160;non-zero&#160;(F&#160;in<a href="o_7281d5ea06a5b67a-352.html">&#160;Table&#160;14-17</a>),&#160;infinity&#160;of&#160;either&#160;sign&#160;(INF&#160;<br/>in&#160;<a href="o_7281d5ea06a5b67a-352.html">Table&#160;14-17),</a>&#160;positive<a href="o_7281d5ea06a5b67a-352.html">&#160;infinity (+INF in&#160;Table&#160;14-17</a>), negative&#160;infinity&#160;(-INF in&#160;<a href="o_7281d5ea06a5b67a-352.html">Table&#160;14-17), or NaN&#160;</a>(including&#160;<br/>QNaN or SNaN).&#160;If&#160;any one of the&#160;input values is&#160;a NAN,&#160;the&#160;result of FMA operation,&#160;r,&#160;may be&#160;a quietized NAN.&#160;The&#160;<br/>result can&#160;be&#160;either&#160;Q(x),&#160;Q(y),&#160;or Q(z),&#160;see&#160;<a href="o_7281d5ea06a5b67a-352.html">Table&#160;14-17.</a>&#160;If x is&#160;a NaN,&#160;then:</p>
+<p style="position:absolute;top:727px;left:120px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:726px;left:146px;white-space:nowrap" class="ft02">Q(x)&#160;=&#160;x if x is&#160;QNaN or</p>
+<p style="position:absolute;top:751px;left:120px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:750px;left:146px;white-space:nowrap" class="ft02">Q(x) = the&#160;quietized NaN&#160;obtained&#160;from&#160;x if x is&#160;SNaN</p>
+<p style="position:absolute;top:772px;left:69px;white-space:nowrap" class="ft02">The notation for the&#160;output value&#160;in&#160;<a href="o_7281d5ea06a5b67a-352.html">Table&#160;14-17</a>&#160;are:</p>
+<p style="position:absolute;top:794px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:795px;left:95px;white-space:nowrap" class="ft07">“+INF”: positive&#160;infinity, “-INF”: negative&#160;infinity. When&#160;the&#160;result&#160;depends on&#160;a conditional&#160;expression, both&#160;<br/>values are&#160;listed in&#160;the result&#160;column&#160;and the&#160;condition is&#160;described in the&#160;comment column.</p>
+<p style="position:absolute;top:833px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:834px;left:95px;white-space:nowrap" class="ft07">QNaNIndefinite&#160;represents&#160;the&#160;QNaN which has the sign bit&#160;equal to 1, the&#160;most significand field equal to 1,&#160;and&#160;<br/>the remaining&#160;significand field bits equal to&#160;0.&#160;</p>
+<p style="position:absolute;top:872px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:873px;left:95px;white-space:nowrap" class="ft07">The&#160;summation or&#160;subtraction of 0s or&#160;identical&#160;values&#160;in&#160;FMA&#160;operation&#160;can lead to&#160;the following&#160;situations&#160;<br/>shown in&#160;<a href="o_7281d5ea06a5b67a-352.html">Table&#160;14-16</a></p>
+<p style="position:absolute;top:911px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:912px;left:95px;white-space:nowrap" class="ft07">If the&#160;FMA computation represents&#160;an invalid operation&#160;(e.g. when adding&#160;two&#160;INF with opposite signs)),&#160;the&#160;<br/>invalid exception is&#160;signaled,&#160;and&#160;the&#160;MXCSR.IE flag&#160;is set.</p>
+<p style="position:absolute;top:219px;left:326px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:218px;left:218px;white-space:nowrap" class="ft06">7</p>
+<p style="position:absolute;top:218px;left:373px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:218px;left:407px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:218px;left:434px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:218px;left:474px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:259px;left:400px;white-space:nowrap" class="ft04">O</p>
+<p style="position:absolute;top:259px;left:454px;white-space:nowrap" class="ft04">RC</p>
+<p style="position:absolute;top:250px;left:512px;white-space:nowrap" class="ft09">00: Nearest<br/>01: Down / toward&#160;-INF<br/>10: Up / toward +INF<br/>11: truncate</p>
+<p style="position:absolute;top:358px;left:409px;white-space:nowrap" class="ft09">0:&#160;use&#160;MXCSR:RC<br/>1:&#160;use&#160;IMM8[1:0]</p>
+<p style="position:absolute;top:411px;left:349px;white-space:nowrap" class="ft010">Suppress&#160;all FMA exceptions<br/>1: Suppress FMA exception&#160;signaling and reporting<br/>0: Honor&#160;MXCSR&#160;for FMA Exceptions</p>
+<p style="position:absolute;top:251px;left:222px;white-space:nowrap" class="ft07">source&#160;register&#160;<br/>specifier</p>
+<p style="position:absolute;top:257px;left:359px;white-space:nowrap" class="ft02">S</p>
+</div>
+</body>
+</html>

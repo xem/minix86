@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 518</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page518-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce518.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-12&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:613px;left:68px;white-space:nowrap" class="ft07">When a&#160;machine-check error&#160;is detected on a&#160;Pentium&#160;4 or&#160;Intel Xeon processor,&#160;the&#160;processor saves&#160;the&#160;state of&#160;<br/>the general-purpose&#160;registers,&#160;the R/EFLAGS&#160;register,&#160;and&#160;the&#160;R/EIP&#160;in&#160;these&#160;extended&#160;machine-check&#160;state&#160;MSRs.&#160;<br/>This information can be&#160;used&#160;by a&#160;debugger to analyze&#160;the&#160;error.<br/>These registers are read/write to zero&#160;registers. This&#160;means software&#160;can read them;&#160;but if software&#160;writes to&#160;<br/>them, only all zeros is allowed. If&#160;software attempts to&#160;write&#160;a non-zero&#160;value&#160;into one&#160;of these&#160;registers,&#160;a&#160;general-<br/>protection&#160;(#GP) exception is&#160;generated.&#160;These&#160;registers are&#160;cleared on&#160;a hardware&#160;reset&#160;(power-up or RESET),&#160;<br/>but maintain their contents following a&#160;soft reset (INIT&#160;reset).</p>
+<p style="position:absolute;top:769px;left:68px;white-space:nowrap" class="ft03">15.3.3&#160;</p>
+<p style="position:absolute;top:769px;left:148px;white-space:nowrap" class="ft03">Mapping of&#160;the Pentium</p>
+<p style="position:absolute;top:771px;left:342px;white-space:nowrap" class="ft01">&#160;</p>
+<p style="position:absolute;top:769px;left:346px;white-space:nowrap" class="ft03">Processor Machine-Check Errors</p>
+<p style="position:absolute;top:790px;left:148px;white-space:nowrap" class="ft03">to&#160;the&#160;Machine-Check Architecture</p>
+<p style="position:absolute;top:819px;left:68px;white-space:nowrap" class="ft08">The Pentium processor reports machine-check errors&#160;using two registers:&#160;P5_MC_TYPE&#160;and P5_MC_ADDR.&#160;The&#160;<br/>Pentium 4,&#160;Intel Xeon,&#160;Intel Atom,&#160;and P6&#160;family&#160;processors map&#160;these&#160;registers to&#160;the IA32_MC<i>i</i>_STATUS and&#160;<br/>IA32_MC<i>i</i>_ADDR in&#160;the error-reporting register bank. This&#160;bank&#160;reports on the&#160;same type of&#160;external bus&#160;errors&#160;<br/>reported&#160;in P5_MC_TYPE and&#160;P5_MC_ADDR.&#160;<br/>The&#160;information in&#160;these registers&#160;can then&#160;be&#160;accessed in two ways:</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:913px;left:93px;white-space:nowrap" class="ft07">By reading&#160;the IA32_MC<i>i</i>_STATUS and&#160;IA32_MC<i>i</i>_ADDR registers as part of&#160;a general machine-check exception&#160;<br/>handler&#160;written for Pentium 4, Intel&#160;Atom and&#160;P6&#160;family&#160;processors.</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:952px;left:93px;white-space:nowrap" class="ft02">By reading the&#160;P5_MC_TYPE&#160;and P5_MC_ADDR&#160;registers using&#160;the RDMSR instruction.</p>
+<p style="position:absolute;top:975px;left:68px;white-space:nowrap" class="ft07">The second capability permits a machine-check exception handler written to run on a Pentium processor to be&#160;run&#160;<br/>on&#160;a Pentium&#160;4, Intel Xeon, Intel Atom, or&#160;P6 family processor.&#160;There is a&#160;limitation in that information returned&#160;by&#160;<br/>the&#160;Pentium&#160;4,&#160;Intel&#160;Xeon, Intel&#160;Atom, and P6 family&#160;processors is&#160;encoded differently than&#160;information&#160;returned&#160;<br/>by&#160;the Pentium processor.&#160;To&#160;run&#160;a Pentium processor&#160;machine-check exception&#160;handler&#160;on&#160;a Pentium 4, Intel&#160;<br/>Xeon,&#160;Intel Atom,&#160;or P6 family processor; the&#160;handler must be&#160;written&#160;to interpret P5_MC_TYPE encodings&#160;<br/>correctly.</p>
+<p style="position:absolute;top:162px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RCX</p>
+<p style="position:absolute;top:162px;left:248px;white-space:nowrap" class="ft02">182H</p>
+<p style="position:absolute;top:162px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the RCX register&#160;at&#160;the time&#160;of&#160;the machine-check&#160;error.</p>
+<p style="position:absolute;top:184px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RDX</p>
+<p style="position:absolute;top:184px;left:248px;white-space:nowrap" class="ft02">183H</p>
+<p style="position:absolute;top:184px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the RDX register&#160;at&#160;the time of&#160;the machine-check&#160;error.</p>
+<p style="position:absolute;top:207px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RSI</p>
+<p style="position:absolute;top:207px;left:248px;white-space:nowrap" class="ft02">184H</p>
+<p style="position:absolute;top:207px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the RSI register&#160;at&#160;the time&#160;of&#160;the machine-check&#160;error.</p>
+<p style="position:absolute;top:229px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RDI</p>
+<p style="position:absolute;top:229px;left:248px;white-space:nowrap" class="ft02">185H</p>
+<p style="position:absolute;top:229px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the RDI register at&#160;the time&#160;of&#160;the machine-check error.</p>
+<p style="position:absolute;top:252px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RBP</p>
+<p style="position:absolute;top:252px;left:248px;white-space:nowrap" class="ft02">186H</p>
+<p style="position:absolute;top:252px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the RBP register at&#160;the time of&#160;the machine-check&#160;error.</p>
+<p style="position:absolute;top:274px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RSP</p>
+<p style="position:absolute;top:274px;left:248px;white-space:nowrap" class="ft02">187H</p>
+<p style="position:absolute;top:274px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the RSP register at&#160;the time of&#160;the machine-check&#160;error.</p>
+<p style="position:absolute;top:297px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RFLAGS</p>
+<p style="position:absolute;top:297px;left:248px;white-space:nowrap" class="ft02">188H</p>
+<p style="position:absolute;top:297px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the RFLAGS&#160;register&#160;at&#160;the time&#160;of&#160;the&#160;machine-check&#160;error.</p>
+<p style="position:absolute;top:319px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_RIP</p>
+<p style="position:absolute;top:319px;left:248px;white-space:nowrap" class="ft02">189H</p>
+<p style="position:absolute;top:319px;left:342px;white-space:nowrap" class="ft02">Contains state&#160;of&#160;the&#160;RIP register&#160;at&#160;the time&#160;of&#160;the machine-check error.</p>
+<p style="position:absolute;top:342px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_MISC</p>
+<p style="position:absolute;top:342px;left:248px;white-space:nowrap" class="ft02">18AH</p>
+<p style="position:absolute;top:342px;left:342px;white-space:nowrap" class="ft02">When set, indicates that&#160;a&#160;page&#160;assist&#160;or page&#160;fault occurred&#160;during&#160;DS normal&#160;</p>
+<p style="position:absolute;top:358px;left:342px;white-space:nowrap" class="ft02">operation.</p>
+<p style="position:absolute;top:381px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_</p>
+<p style="position:absolute;top:397px;left:74px;white-space:nowrap" class="ft02">RSERVED[1:5]</p>
+<p style="position:absolute;top:381px;left:248px;white-space:nowrap" class="ft02">18BH-</p>
+<p style="position:absolute;top:397px;left:248px;white-space:nowrap" class="ft02">18FH</p>
+<p style="position:absolute;top:381px;left:342px;white-space:nowrap" class="ft02">These registers,&#160;if&#160;present, are&#160;reserved.</p>
+<p style="position:absolute;top:420px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R8</p>
+<p style="position:absolute;top:420px;left:248px;white-space:nowrap" class="ft02">190H</p>
+<p style="position:absolute;top:420px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R8&#160;register&#160;at&#160;the time&#160;of&#160;the machine-check&#160;error.</p>
+<p style="position:absolute;top:442px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R9</p>
+<p style="position:absolute;top:442px;left:248px;white-space:nowrap" class="ft02">191H</p>
+<p style="position:absolute;top:442px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R9&#160;register&#160;at&#160;the time&#160;of&#160;the machine-check&#160;error.</p>
+<p style="position:absolute;top:465px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R10</p>
+<p style="position:absolute;top:465px;left:248px;white-space:nowrap" class="ft02">192H</p>
+<p style="position:absolute;top:465px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R10&#160;register&#160;at&#160;the&#160;time&#160;of&#160;the&#160;machine-check&#160;error.</p>
+<p style="position:absolute;top:487px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R11</p>
+<p style="position:absolute;top:487px;left:248px;white-space:nowrap" class="ft02">193H</p>
+<p style="position:absolute;top:487px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R11&#160;register&#160;at&#160;the&#160;time&#160;of&#160;the&#160;machine-check&#160;error.</p>
+<p style="position:absolute;top:510px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R12</p>
+<p style="position:absolute;top:510px;left:248px;white-space:nowrap" class="ft02">194H</p>
+<p style="position:absolute;top:510px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R12&#160;register&#160;at&#160;the&#160;time&#160;of&#160;the&#160;machine-check&#160;error.</p>
+<p style="position:absolute;top:532px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R13</p>
+<p style="position:absolute;top:532px;left:248px;white-space:nowrap" class="ft02">195H</p>
+<p style="position:absolute;top:532px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R13&#160;register&#160;at&#160;the&#160;time&#160;of&#160;the&#160;machine-check&#160;error.</p>
+<p style="position:absolute;top:555px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R14</p>
+<p style="position:absolute;top:555px;left:248px;white-space:nowrap" class="ft02">196H</p>
+<p style="position:absolute;top:555px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R14&#160;register&#160;at&#160;the&#160;time&#160;of&#160;the&#160;machine-check&#160;error.</p>
+<p style="position:absolute;top:577px;left:74px;white-space:nowrap" class="ft02">IA32_MCG_R15</p>
+<p style="position:absolute;top:577px;left:248px;white-space:nowrap" class="ft02">197H</p>
+<p style="position:absolute;top:577px;left:342px;white-space:nowrap" class="ft02">Contains&#160;state of&#160;the R15&#160;register&#160;at&#160;the&#160;time&#160;of&#160;the&#160;machine-check&#160;error.</p>
+<p style="position:absolute;top:100px;left:286px;white-space:nowrap" class="ft06">Table 15-5.&#160;&#160;Extended Machine&#160;Check&#160;State&#160;MSRs&#160;</p>
+<p style="position:absolute;top:118px;left:248px;white-space:nowrap" class="ft06">In&#160;Processors With Support For&#160;Intel 64 Architecture&#160;(Contd.)</p>
+<p style="position:absolute;top:139px;left:74px;white-space:nowrap" class="ft02">MSR</p>
+<p style="position:absolute;top:139px;left:248px;white-space:nowrap" class="ft02">Address</p>
+<p style="position:absolute;top:139px;left:342px;white-space:nowrap" class="ft02">Description</p>
+</div>
+</body>
+</html>

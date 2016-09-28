@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1273</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1273-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1273.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-23</p>
+<p style="position:absolute;top:47px;left:666px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft03">the&#160;valid bit (bit&#160;31) in&#160;the&#160;VM-entry interruption-information&#160;field&#160;is 1</p>
+<p style="position:absolute;top:122px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:123px;left:95px;white-space:nowrap" class="ft03">the&#160;interruption type&#160;(bits&#160;10:8)&#160;is not 7&#160;(other&#160;event);&#160;and</p>
+<p style="position:absolute;top:145px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:145px;left:95px;white-space:nowrap" class="ft03">the vector (bits&#160;7:0) is&#160;not 0&#160;(pending MTF VM&#160;exit).</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft04">34.15.4.4 &#160;&#160;Checks on&#160;the Guest State&#160;Area</p>
+<p style="position:absolute;top:218px;left:69px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-1100.html">Section 26.3.1</a>&#160;specifies&#160;checks&#160;performed on fields in the&#160;guest-state&#160;area of the VMCS.&#160;Some&#160;of these&#160;checks are&#160;<br/>conditioned on&#160;the settings of certain&#160;VM-execution&#160;controls (e.g.,&#160;“virtual NMIs”&#160;or “unrestricted&#160;guest”).&#160;<br/>VM&#160;entries&#160;that return from SMM&#160;modify these checks&#160;based on whether the executive-VMCS&#160;pointer field contains&#160;<br/>the VMXON pointer:</p>
+<p style="position:absolute;top:265px;left:204px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:289px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:290px;left:95px;white-space:nowrap" class="ft06">If&#160;the&#160;executive-VMCS&#160;pointer field&#160;contains&#160;the&#160;VMXON&#160;pointer&#160;(the&#160;VM&#160;entry remains in VMX root&#160;operation),&#160;<br/>the checks&#160;are performed as&#160;all relevant&#160;VM-execution controls&#160;were 0. (As a&#160;result,&#160;some checks&#160;may not&#160;be&#160;<br/>performed at&#160;all.)</p>
+<p style="position:absolute;top:345px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:346px;left:95px;white-space:nowrap" class="ft06">If the&#160;executive-VMCS&#160;pointer field&#160;does not&#160;contain&#160;the VMXON pointer (the&#160;VM&#160;entry enters VMX non-root&#160;<br/>operation),&#160;this check is&#160;performed based on&#160;the settings of the&#160;VM-execution controls in the&#160;executive VMCS&#160;<br/>(the&#160;VMCS&#160;referenced&#160;by&#160;the executive-VMCS pointer field&#160;in the&#160;current VMCS).</p>
+<p style="position:absolute;top:403px;left:69px;white-space:nowrap" class="ft06">For VM&#160;entries that return from&#160;SMM, the activity-state field&#160;must not indicate&#160;the wait-for-SIPI state if the execu-<br/>tive-VMCS&#160;pointer field contains&#160;the VMXON pointer&#160;(the&#160;VM&#160;entry is&#160;to VMX&#160;root operation).</p>
+<p style="position:absolute;top:463px;left:69px;white-space:nowrap" class="ft04">34.15.4.5&#160;&#160;&#160;Loading Guest&#160;State</p>
+<p style="position:absolute;top:492px;left:69px;white-space:nowrap" class="ft06">VM&#160;entries that&#160;return&#160;from&#160;SMM load&#160;the SMBASE register&#160;from the SMBASE&#160;field.<br/>VM&#160;entries that&#160;return&#160;from&#160;SMM invalidate linear mappings&#160;and combined mappings associated&#160;with&#160;all VPIDs.&#160;<br/>Combined mappings are&#160;invalidated&#160;for&#160;all EP4TA values (EP4TA&#160;is&#160;the value&#160;of bits&#160;51:12&#160;of EPTP;&#160;se<a href="o_fe12b1e2a880e0ce-1161.html">e Section&#160;<br/>28.3).</a>&#160;(Ordinary VM&#160;entries are required&#160;to&#160;perform such invalidation only for&#160;VPID&#160;0000H and are not required&#160;to&#160;<br/>do even&#160;that&#160;if the&#160;“enable&#160;VPID” VM-execution&#160;control&#160;is 1;&#160;see<a href="o_fe12b1e2a880e0ce-1109.html">&#160;Section 26.3.2.5.)</a></p>
+<p style="position:absolute;top:610px;left:69px;white-space:nowrap" class="ft04">34.15.4.6&#160;&#160;&#160;VMX-Preemption&#160;Timer</p>
+<p style="position:absolute;top:638px;left:69px;white-space:nowrap" class="ft06">A&#160;VM&#160;entry that&#160;returns from&#160;SMM activates the&#160;VMX-preemption timer&#160;only&#160;if the&#160;executive-VMCS pointer field&#160;<br/>does&#160;not contain the&#160;VMXON&#160;pointer (the&#160;VM&#160;entry&#160;enters&#160;VMX non-root operation) and&#160;the “activate&#160;VMX-preemp-<br/>tion timer”&#160;VM-execution control is&#160;1 in the executive VMCS&#160;(the VMCS referenced&#160;by the&#160;executive-VMCS pointer&#160;<br/>field). In&#160;this&#160;case, VM entry&#160;starts the&#160;VMX-preemption timer&#160;with the value in&#160;the VMX-preemption&#160;timer-value&#160;<br/>field in&#160;the current VMCS.</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft04">34.15.4.7 &#160;&#160;Updating the&#160;Current-VMCS and SMM-Transfer VMCS Pointers</p>
+<p style="position:absolute;top:777px;left:69px;white-space:nowrap" class="ft06">Successful VM&#160;entries (returning&#160;from&#160;SMM) load the&#160;SMM-transfer VMCS&#160;pointer with the&#160;current-VMCS pointer.&#160;<br/>Following this, they&#160;load the&#160;current-VMCS&#160;pointer&#160;from&#160;a field in&#160;the&#160;current VMCS:</p>
+<p style="position:absolute;top:815px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:816px;left:95px;white-space:nowrap" class="ft06">If&#160;the&#160;executive-VMCS&#160;pointer field&#160;contains&#160;the&#160;VMXON&#160;pointer&#160;(the&#160;VM&#160;entry remains in VMX root&#160;operation),&#160;<br/>the&#160;current-VMCS pointer is&#160;loaded&#160;from&#160;the VMCS-link pointer field.</p>
+<p style="position:absolute;top:854px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:855px;left:95px;white-space:nowrap" class="ft06">If the&#160;executive-VMCS&#160;pointer field&#160;does not&#160;contain&#160;the VMXON pointer (the&#160;VM&#160;entry enters VMX non-root&#160;<br/>operation), the&#160;current-VMCS pointer is&#160;loaded with&#160;the value&#160;of the executive-VMCS&#160;pointer&#160;field.</p>
+<p style="position:absolute;top:895px;left:69px;white-space:nowrap" class="ft06">If&#160;the&#160;VM&#160;entry successfully enters&#160;VMX non-root operation,&#160;the VM-execution controls&#160;in&#160;effect after the VM&#160;entry&#160;<br/>are those from the&#160;new&#160;current&#160;VMCS. This includes any structures&#160;external to the VMCS&#160;referenced by&#160;VM-execu-<br/>tion control fields.<br/>The&#160;updating&#160;of these&#160;VMCS&#160;pointers occurs&#160;before&#160;event&#160;injection. Event&#160;injection is&#160;determined, however,&#160;by&#160;the&#160;<br/>VM-entry control fields in&#160;the VMCS&#160;that&#160;was current&#160;when&#160;the VM&#160;entry&#160;commenced.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">1.&#160;The&#160;STM&#160;can&#160;determine&#160;the VMXON&#160;pointer&#160;by&#160;reading&#160;the&#160;executive-VMCS&#160;pointer&#160;field&#160;in&#160;the&#160;current VMCS&#160;after&#160;the&#160;SMM VM&#160;exit&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">that&#160;activates the dual-monitor&#160;treatment.</p>
+</div>
+</body>
+</html>

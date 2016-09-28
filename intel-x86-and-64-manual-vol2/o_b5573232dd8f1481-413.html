@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 413</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page413-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481413.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">DIV—Unsigned Divide</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-285</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:130px;left:69px;white-space:nowrap" class="ft03">IF&#160;SRC</p>
+<p style="position:absolute;top:127px;left:105px;white-space:nowrap" class="ft04">&#160;=</p>
+<p style="position:absolute;top:130px;left:118px;white-space:nowrap" class="ft03">&#160;0</p>
+<p style="position:absolute;top:148px;left:89px;white-space:nowrap" class="ft03">THEN #DE; FI; (* Divide&#160;Error *)&#160;</p>
+<p style="position:absolute;top:166px;left:69px;white-space:nowrap" class="ft03">IF&#160;OperandSize = 8 (* Word/Byte&#160;Operation&#160;*)</p>
+<p style="position:absolute;top:184px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:202px;left:116px;white-space:nowrap" class="ft03">temp&#160;←&#160;AX&#160;/ SRC;</p>
+<p style="position:absolute;top:220px;left:116px;white-space:nowrap" class="ft03">IF temp&#160;&gt;&#160;FFH</p>
+<p style="position:absolute;top:238px;left:143px;white-space:nowrap" class="ft05">THEN #DE; (* Divide&#160;error *)&#160;<br/>ELSE</p>
+<p style="position:absolute;top:274px;left:170px;white-space:nowrap" class="ft03">AL&#160;←&#160;temp;</p>
+<p style="position:absolute;top:292px;left:170px;white-space:nowrap" class="ft03">AH&#160;←&#160;AX&#160;MOD&#160;SRC;</p>
+<p style="position:absolute;top:310px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:328px;left:89px;white-space:nowrap" class="ft03">ELSE&#160;IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:326px;left:209px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:328px;left:218px;white-space:nowrap" class="ft03">&#160;16&#160;(* Doubleword/word&#160;operation *)</p>
+<p style="position:absolute;top:346px;left:116px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:364px;left:143px;white-space:nowrap" class="ft03">temp&#160;←&#160;DX:AX / SRC;</p>
+<p style="position:absolute;top:382px;left:143px;white-space:nowrap" class="ft03">IF temp&#160;&gt;&#160;FFFFH</p>
+<p style="position:absolute;top:400px;left:170px;white-space:nowrap" class="ft03">THEN #DE; (* Divide&#160;error *)&#160;</p>
+<p style="position:absolute;top:418px;left:143px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:436px;left:170px;white-space:nowrap" class="ft03">AX&#160;←&#160;temp;</p>
+<p style="position:absolute;top:454px;left:170px;white-space:nowrap" class="ft03">DX&#160;←&#160;DX:AX MOD SRC;</p>
+<p style="position:absolute;top:472px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:490px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:508px;left:89px;white-space:nowrap" class="ft03">ELSE IF&#160;Operandsize = 32&#160;(* Quadword/doubleword&#160;operation *)</p>
+<p style="position:absolute;top:526px;left:116px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:544px;left:143px;white-space:nowrap" class="ft03">temp&#160;←&#160;EDX:EAX / SRC;</p>
+<p style="position:absolute;top:562px;left:143px;white-space:nowrap" class="ft03">IF temp&#160;&gt;&#160;FFFFFFFFH</p>
+<p style="position:absolute;top:580px;left:170px;white-space:nowrap" class="ft03">THEN #DE; (* Divide&#160;error *)&#160;</p>
+<p style="position:absolute;top:598px;left:143px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:616px;left:170px;white-space:nowrap" class="ft03">EAX&#160;←&#160;temp;</p>
+<p style="position:absolute;top:634px;left:170px;white-space:nowrap" class="ft03">EDX&#160;←&#160;EDX:EAX MOD SRC;</p>
+<p style="position:absolute;top:652px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:670px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:688px;left:89px;white-space:nowrap" class="ft03">ELSE IF&#160;64-Bit Mode&#160;and Operandsize&#160;= 64 (* Doublequadword/quadword&#160;operation *)</p>
+<p style="position:absolute;top:706px;left:116px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:724px;left:143px;white-space:nowrap" class="ft03">temp&#160;←&#160;RDX:RAX / SRC;</p>
+<p style="position:absolute;top:742px;left:143px;white-space:nowrap" class="ft03">IF temp&#160;&gt;&#160;FFFFFFFFFFFFFFFFH</p>
+<p style="position:absolute;top:760px;left:170px;white-space:nowrap" class="ft03">THEN #DE; (* Divide&#160;error *)&#160;</p>
+<p style="position:absolute;top:778px;left:143px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:796px;left:170px;white-space:nowrap" class="ft03">RAX&#160;←&#160;temp;</p>
+<p style="position:absolute;top:814px;left:170px;white-space:nowrap" class="ft03">RDX&#160;←&#160;RDX:RAX&#160;MOD SRC;</p>
+<p style="position:absolute;top:832px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:850px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:868px;left:69px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:902px;left:69px;white-space:nowrap" class="ft02">Flags Affected</p>
+<p style="position:absolute;top:927px;left:69px;white-space:nowrap" class="ft03">The&#160;CF, OF,&#160;SF, ZF, AF,&#160;and&#160;PF flags are&#160;undefined.</p>
+</div>
+</body>
+</html>

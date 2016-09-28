@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 327</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page327-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a327.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;13-21</p>
+<p style="position:absolute;top:47px;left:544px;white-space:nowrap" class="ft01">MANAGING&#160;STATE&#160;USING&#160;THE XSAVE&#160;FEATURE SET</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07">State components 0&#160;and&#160;1 are&#160;located&#160;in the legacy&#160;region of the XSAVE area&#160;<a href="o_7281d5ea06a5b67a-312.html">(see Section 13.4.1).</a>&#160;Each state&#160;<br/>component&#160;<i>i</i>, 2&#160;≤&#160;<i>i</i>&#160;≤&#160;62,&#160;is&#160;located&#160;in the&#160;extended&#160;region; XRSTORS&#160;uses the&#160;compacted&#160;format for the&#160;</p>
+<p style="position:absolute;top:133px;left:95px;white-space:nowrap" class="ft07">extended region&#160;(see<a href="o_7281d5ea06a5b67a-314.html">&#160;Section 13.4.3).<br/></a>The&#160;MXCSR register&#160;is part&#160;of&#160;SS<a href="o_7281d5ea06a5b67a-315.html">E state (see Section 13.5.2) and</a>&#160;is&#160;thus&#160;loaded&#160;from memory&#160;if RFBM[1]&#160;=&#160;<br/>XSTATE_BV[<i>i</i>]&#160;=&#160;1.&#160;XRSTORS causes&#160;a&#160;general-protection&#160;exception&#160;(#GP) if&#160;it would load MXCSR&#160;with&#160;an&#160;<br/>illegal value.</p>
+<p style="position:absolute;top:213px;left:69px;white-space:nowrap" class="ft07">If&#160;an&#160;execution&#160;of&#160;XRSTORS causes an&#160;exception&#160;or a&#160;VM&#160;exit&#160;during&#160;or after&#160;restoring a&#160;supervisor state compo-<br/>nent,&#160;each element of that&#160;state&#160;component may have&#160;the value&#160;it held before&#160;the&#160;XRSTORS&#160;execution,&#160;the&#160;value&#160;<br/>loaded from the&#160;XSAVE&#160;area, or the&#160;element’s&#160;initial value (as&#160;defined&#160;<a href="o_7281d5ea06a5b67a-318.html">in Section 13.6).</a>&#160;Se<a href="o_7281d5ea06a5b67a-318.html">e Section 13.5.6&#160;</a>for&#160;<br/>some special&#160;treatment of PT state&#160;for the&#160;case&#160;in which&#160;XRSTORS causes&#160;an exception&#160;or a&#160;VM&#160;exit.<br/>Like&#160;XRSTOR,&#160;execution of XRSTORS causes the&#160;processor&#160;to update&#160;is tracking for the&#160;init and modified&#160;optimiza-<br/>tions (see<a href="o_7281d5ea06a5b67a-318.html">&#160;Section 13.6</a>&#160;and&#160;<a href="o_7281d5ea06a5b67a-322.html">Section&#160;13.8.3).&#160;</a>The&#160;following items provide&#160;details:</p>
+<p style="position:absolute;top:325px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:325px;left:95px;white-space:nowrap" class="ft010">The processor&#160;updates its&#160;tracking for&#160;the init optimization&#160;as follows:<br/>—&#160;If&#160;&#160;RFBM[<i>i</i>]&#160;=&#160;&#160;0,&#160;&#160;XINUSE[<i>i</i>]&#160;is not changed.<br/>—&#160;If&#160;&#160;RFBM[<i>i</i>]&#160;=&#160;1&#160;and XSTATE_BV[<i>i</i>]&#160;=&#160;0, state&#160;component&#160;<i>i</i>&#160;may be tracked&#160;as init;&#160;XINUSE[<i>i</i>]&#160;may be set to&#160;</p>
+<p style="position:absolute;top:390px;left:120px;white-space:nowrap" class="ft02">0 or&#160;1.</p>
+<p style="position:absolute;top:414px;left:94px;white-space:nowrap" class="ft02">—&#160;If&#160;&#160;RFBM[<i>i</i>]&#160;=&#160;1 and&#160;XSTATE_BV[<i>i</i>]&#160;=&#160;1,&#160;state component&#160;<i>i</i>&#160;is&#160;tracked&#160;as not init;&#160;XINUSE[<i>i</i>]&#160;is set to 1.</p>
+<p style="position:absolute;top:436px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:436px;left:95px;white-space:nowrap" class="ft010">The&#160;processor&#160;updates its&#160;tracking for&#160;the&#160;modified&#160;optimization&#160;and records information&#160;about the&#160;XRSTORS&#160;<br/>execution for future interaction with the&#160;XSAVEOPT and&#160;XSAVES&#160;instructions&#160;as follows:<br/>—&#160;If&#160;&#160;RFBM[<i>i</i>]&#160;=&#160;0,&#160;state component&#160;<i>i</i>&#160;is tracked&#160;as modified; XMODIFIED[<i>i</i>] is&#160;set to&#160;1.<br/>—&#160;If&#160;&#160;RFBM[<i>i</i>]&#160;=&#160;1,&#160;state component&#160;<i>i</i>&#160;may&#160;be&#160;tracked&#160;as unmodified;&#160;XMODIFIED[<i>i</i>] may be set&#160;to 0 or 1.<br/>—&#160;XRSTOR_INFO&#160;is set to&#160;the 4-tuple&#160;</p>
+<p style="position:absolute;top:522px;left:359px;white-space:nowrap" class="ft05"></p>
+<p style="position:absolute;top:525px;left:365px;white-space:nowrap" class="ft03"><i>w</i>,<i>x</i>,<i>y</i>,<i>z</i></p>
+<p style="position:absolute;top:522px;left:412px;white-space:nowrap" class="ft05"></p>
+<p style="position:absolute;top:525px;left:417px;white-space:nowrap" class="ft02">, where&#160;<i>w</i>&#160;is&#160;the&#160;CPL;&#160;<i>x</i>&#160;is&#160;1&#160;if the&#160;logical processor is&#160;in VMX&#160;</p>
+<p style="position:absolute;top:541px;left:120px;white-space:nowrap" class="ft07">non-root operation and 0&#160;otherwise;&#160;<i>y</i>&#160;is&#160;the linear&#160;address of the XSAVE area; and&#160;<i>z</i>&#160;is XCOMP_BV (this&#160;<br/>implies that&#160;<i>z</i>[63]&#160;= 1).</p>
+<p style="position:absolute;top:613px;left:69px;white-space:nowrap" class="ft06">13.13&#160;&#160;MEMORY ACCESSES&#160;BY&#160;THE XSAVE FEATURE SET</p>
+<p style="position:absolute;top:649px;left:69px;white-space:nowrap" class="ft07">Each&#160;instruction in the XSAVE feature&#160;set operates&#160;on&#160;a&#160;set of XSAVE-managed state&#160;components.&#160;The specific set&#160;<br/>of components&#160;on which&#160;an instruction operates&#160;is determined&#160;by the&#160;values of XCR0,&#160;the&#160;IA32_XSS&#160;MSR,&#160;<br/>EDX:EAX,&#160;and (for XRSTOR&#160;and XRSTORS) the&#160;XSAVE&#160;header.<br/><a href="o_7281d5ea06a5b67a-312.html">Section 13.4 pro</a>vides&#160;the details&#160;necessary to&#160;determine the&#160;location of&#160;each&#160;state&#160;component for any execution&#160;of&#160;<br/>an instruction in the&#160;XSAVE feature&#160;set. An execution of&#160;an&#160;instruction&#160;in the&#160;XSAVE feature&#160;set may access any&#160;<br/>byte&#160;of any&#160;state&#160;component on which that execution&#160;operates.<br/><a href="o_7281d5ea06a5b67a-314.html">Section 13.5&#160;</a>provides details&#160;of the different XSAVE-managed&#160;state&#160;components. Some&#160;portions&#160;of some&#160;of these&#160;<br/>components are accessible&#160;only in&#160;64-bit mode. Executions of XRSTOR and XRSTORS outside&#160;64-bit mode will not&#160;<br/>update&#160;those portions;&#160;executions of XSAVE, XSAVEC,&#160;XSAVEOPT,&#160;and XSAVES&#160;will not modify the&#160;corresponding&#160;<br/>locations in memory.<br/>Despite this fact, any&#160;execution&#160;of these instructions&#160;outside&#160;64-bit mode may access&#160;any byte in&#160;any state&#160;compo-<br/>nent on which that execution operates&#160;—&#160;even those&#160;at&#160;addresses&#160;corresponding&#160;to&#160;registers&#160;that are&#160;accessible&#160;<br/>only in&#160;64-bit&#160;mode. As result, such&#160;an&#160;execution&#160;may incur a&#160;fault&#160;due&#160;to an&#160;attempt to&#160;access&#160;such&#160;an address.<br/>For&#160;example, an execution&#160;of XSAVE outside&#160;64-bit&#160;mode may incur a&#160;page&#160;fault if paging&#160;does&#160;not map&#160;as&#160;<br/>read/write the section of&#160;the&#160;XSAVE area containing state component&#160;7&#160;(Hi16_ZMM state) — despite the fact that&#160;<br/>state component&#160;7 can&#160;be&#160;accessed only in&#160;64-bit&#160;mode.</p>
+</div>
+</body>
+</html>

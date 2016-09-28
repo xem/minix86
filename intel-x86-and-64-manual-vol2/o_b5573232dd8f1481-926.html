@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 926</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page926-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481926.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:505px;white-space:nowrap" class="ft00">PCMPEQB/PCMPEQW/PCMPEQD— Compare Packed Data for Equal</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-246&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">VEX.256 encoded version: The&#160;first source operand is a YMM register. The second&#160;source&#160;operand is a YMM register&#160;<br/>or a&#160;256-bit memory location.&#160;The&#160;destination&#160;operand&#160;is&#160;a YMM&#160;register.<br/>EVEX encoded&#160;VPCMPEQD: The&#160;first source&#160;operand (second operand)&#160;is a&#160;ZMM/YMM/XMM&#160;register. The&#160;second&#160;<br/>source operand&#160;can be&#160;a ZMM/YMM/XMM&#160;register,&#160;a&#160;512/256/128-bit memory&#160;location or a&#160;512/256/128-bit&#160;vector&#160;<br/>broadcasted from&#160;a 32-bit&#160;memory&#160;location. The destination operand&#160;(first&#160;operand) is&#160;a mask register&#160;updated&#160;<br/>according to&#160;the writemask k2.<br/>EVEX&#160;encoded&#160;VPCMPEQB/W:&#160;The first source&#160;operand&#160;(second&#160;operand)&#160;is a&#160;ZMM/YMM/XMM&#160;register. The second&#160;<br/>source operand&#160;can be&#160;a&#160;ZMM/YMM/XMM register,&#160;a 512/256/128-bit memory&#160;location. The&#160;destination&#160;operand&#160;<br/>(first&#160;operand) is&#160;a mask register&#160;updated according to&#160;the writemask k2.</p>
+<p style="position:absolute;top:281px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:307px;left:68px;white-space:nowrap" class="ft02">PCMPEQB (with&#160;64-bit operands)</p>
+<p style="position:absolute;top:325px;left:88px;white-space:nowrap" class="ft02">IF DEST[7:0]</p>
+<p style="position:absolute;top:324px;left:158px;white-space:nowrap" class="ft04">&#160;=</p>
+<p style="position:absolute;top:325px;left:170px;white-space:nowrap" class="ft02">&#160;SRC[7:0]</p>
+<p style="position:absolute;top:343px;left:115px;white-space:nowrap" class="ft02">THEN&#160;DEST[7:0)&#160;←&#160;FFH;&#160;</p>
+<p style="position:absolute;top:361px;left:115px;white-space:nowrap" class="ft02">ELSE DEST[7:0]&#160;←&#160;0; FI;</p>
+<p style="position:absolute;top:379px;left:88px;white-space:nowrap" class="ft07">(*&#160;Continue&#160;comparison&#160;of&#160;2nd&#160;through 7th&#160;bytes in&#160;DEST&#160;and&#160;SRC *)<br/>IF DEST[63:56]</p>
+<p style="position:absolute;top:396px;left:174px;white-space:nowrap" class="ft04">&#160;=&#160;</p>
+<p style="position:absolute;top:397px;left:190px;white-space:nowrap" class="ft02">SRC[63:56]</p>
+<p style="position:absolute;top:415px;left:115px;white-space:nowrap" class="ft02">THEN DEST[63:56]&#160;←&#160;FFH;</p>
+<p style="position:absolute;top:433px;left:115px;white-space:nowrap" class="ft02">ELSE DEST[63:56]&#160;←&#160;0;&#160;FI;</p>
+<p style="position:absolute;top:469px;left:68px;white-space:nowrap" class="ft02">COMPARE_BYTES_EQUAL (SRC1,&#160;SRC2)</p>
+<p style="position:absolute;top:487px;left:88px;white-space:nowrap" class="ft07">IF SRC1[7:0] = SRC2[7:0]<br/>THEN DEST[7:0]&#160;FFH;<br/>ELSE DEST[7:0]&#160;0; FI;</p>
+<p style="position:absolute;top:541px;left:68px;white-space:nowrap" class="ft02">(* Continue&#160;comparison&#160;of&#160;2nd&#160;through 15th bytes in&#160;SRC1&#160;and&#160;SRC2 *)</p>
+<p style="position:absolute;top:559px;left:88px;white-space:nowrap" class="ft07">IF&#160;SRC1[127:120]&#160;= SRC2[127:120]<br/>THEN DEST[127:120]&#160;FFH;<br/>ELSE DEST[127:120]&#160;0;&#160;FI;</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft02">COMPARE_WORDS_EQUAL (SRC1,&#160;SRC2)</p>
+<p style="position:absolute;top:649px;left:88px;white-space:nowrap" class="ft07">IF&#160;SRC1[15:0] = SRC2[15:0]<br/>THEN DEST[15:0]&#160;FFFFH;<br/>ELSE DEST[15:0]&#160;0; FI;</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft02">(* Continue&#160;comparison&#160;of&#160;2nd&#160;through 7th 16-bit words in&#160;SRC1&#160;and SRC2 *)</p>
+<p style="position:absolute;top:721px;left:88px;white-space:nowrap" class="ft07">IF&#160;SRC1[127:112]&#160;= SRC2[127:112]<br/>THEN DEST[127:112]&#160;FFFFH;<br/>ELSE DEST[127:112]&#160;0;&#160;FI;</p>
+<p style="position:absolute;top:793px;left:68px;white-space:nowrap" class="ft02">COMPARE_DWORDS_EQUAL (SRC1,&#160;SRC2)</p>
+<p style="position:absolute;top:811px;left:88px;white-space:nowrap" class="ft07">IF&#160;SRC1[31:0] = SRC2[31:0]<br/>THEN DEST[31:0]&#160;FFFFFFFFH;<br/>ELSE DEST[31:0]&#160;0; FI;</p>
+<p style="position:absolute;top:865px;left:68px;white-space:nowrap" class="ft02">(* Continue&#160;comparison&#160;of&#160;2nd&#160;through 3rd&#160;32-bit dwords in&#160;SRC1&#160;and&#160;SRC2 *)</p>
+<p style="position:absolute;top:883px;left:88px;white-space:nowrap" class="ft07">IF SRC1[127:96]&#160;= SRC2[127:96]<br/>THEN DEST[127:96]&#160;FFFFFFFFH;<br/>ELSE DEST[127:96]&#160;0; FI;</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft07">PCMPEQB (with&#160;128-bit operands)<br/>DEST[127:0]&#160;COMPARE_BYTES_EQUAL(DEST[127:0],SRC[127:0])<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:1039px;left:68px;white-space:nowrap" class="ft07">VPCMPEQB (VEX.128 encoded&#160;version)<br/>DEST[127:0]&#160;COMPARE_BYTES_EQUAL(SRC1[127:0],SRC2[127:0])</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1261</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1261-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1261.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-11</p>
+<p style="position:absolute;top:47px;left:666px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft06">The&#160;IF&#160;flag&#160;in&#160;the&#160;EFLAGS&#160;register&#160;is&#160;cleared,&#160;which inhibits&#160;maskable&#160;hardware&#160;interrupts from being&#160;<br/>generated.</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft03">The&#160;TF&#160;flag in&#160;the EFLAGS register is&#160;cleared,&#160;which&#160;disables&#160;single-step&#160;traps.</p>
+<p style="position:absolute;top:161px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:162px;left:95px;white-space:nowrap" class="ft06">Debug register&#160;DR7&#160;is cleared,&#160;which&#160;disables breakpoint traps.&#160;(This action&#160;prevents&#160;a debugger&#160;from acciden-<br/>tally breaking into&#160;an&#160;SMI handler&#160;if&#160;a&#160;debug breakpoint is&#160;set in&#160;normal&#160;address space that&#160;overlays code or&#160;<br/>data&#160;in SMRAM.)</p>
+<p style="position:absolute;top:217px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:217px;left:95px;white-space:nowrap" class="ft06">NMI,&#160;SMI,&#160;and A20M interrupts&#160;are&#160;blocked by internal&#160;SMM logic.&#160;(S<a href="o_fe12b1e2a880e0ce-1263.html">ee Section 34.8&#160;</a>for more information&#160;<br/>about&#160;how NMIs are handled in SMM.)</p>
+<p style="position:absolute;top:258px;left:69px;white-space:nowrap" class="ft07">Software-invoked interrupts&#160;and exceptions&#160;can still&#160;occur,&#160;and maskable&#160;hardware&#160;interrupts&#160;can be enabled&#160;by&#160;<br/>setting&#160;the IF&#160;flag. Intel&#160;recommends that&#160;SMM code be written in&#160;so that&#160;it does not invoke&#160;software interrupts&#160;<br/>(with the&#160;INT&#160;<i>n</i>,&#160;INTO, INT 3, or&#160;BOUND instructions) or generate&#160;exceptions.&#160;<br/>If&#160;the SMI handler&#160;requires interrupt and exception&#160;handling,&#160;an SMM interrupt table and the necessary exception&#160;<br/>and&#160;interrupt&#160;handlers must be created and&#160;initialized&#160;from&#160;within SMM. Until the&#160;interrupt table is&#160;correctly initial-<br/>ized (using&#160;the LIDT&#160;instruction),&#160;exceptions and&#160;software interrupts will result&#160;in unpredictable processor&#160;<br/>behavior.&#160;<br/>The&#160;following restrictions apply when&#160;designing&#160;SMM interrupt and&#160;exception-handling facilities:</p>
+<p style="position:absolute;top:410px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:411px;left:95px;white-space:nowrap" class="ft06">The&#160;interrupt table should&#160;be&#160;located&#160;at linear address&#160;0 and&#160;must&#160;contain real-address mode style&#160;interrupt&#160;<br/>vectors (4&#160;bytes containing&#160;CS and&#160;IP).</p>
+<p style="position:absolute;top:449px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:450px;left:95px;white-space:nowrap" class="ft06">Due&#160;to&#160;the real-address mode style of base&#160;address formation,&#160;an interrupt or&#160;exception cannot transfer control&#160;<br/>to&#160;a segment with&#160;a base address&#160;of more that&#160;20&#160;bits.</p>
+<p style="position:absolute;top:488px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:489px;left:95px;white-space:nowrap" class="ft03">An&#160;interrupt or&#160;exception&#160;cannot&#160;transfer&#160;control&#160;to a&#160;segment&#160;offset&#160;of&#160;more than&#160;16 bits (64 KBytes).</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:511px;left:95px;white-space:nowrap" class="ft06">When&#160;an&#160;exception or interrupt occurs,&#160;only&#160;the 16&#160;least-significant&#160;bits of the&#160;return address&#160;(EIP) are&#160;pushed&#160;<br/>onto&#160;the stack. If the&#160;offset of the&#160;interrupted procedure&#160;is greater than&#160;64&#160;KBytes,&#160;it is&#160;not&#160;possible for the&#160;<br/>interrupt/exception&#160;handler to&#160;return control to&#160;that procedure. (One&#160;solution&#160;to this problem is&#160;for a&#160;handler&#160;<br/>to adjust the&#160;return address&#160;on&#160;the stack.)</p>
+<p style="position:absolute;top:583px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:583px;left:95px;white-space:nowrap" class="ft06">The&#160;SMBASE relocation&#160;feature affects&#160;the way the&#160;processor&#160;will&#160;return&#160;from an interrupt or&#160;exception&#160;<br/>generated while the&#160;SMI handler&#160;is executing. For&#160;example, if the SMBASE&#160;is relocated&#160;to above 1 MByte, but&#160;<br/>the exception&#160;handlers are below&#160;1 MByte, a&#160;normal&#160;return&#160;to&#160;the SMI handler is&#160;not&#160;possible.&#160;One solution&#160;is&#160;<br/>to provide the exception&#160;handler with a mechanism for&#160;calculating a&#160;return&#160;address above&#160;1 MByte&#160;from the&#160;16-<br/>bit&#160;return&#160;address on the stack,&#160;then use&#160;a 32-bit&#160;far call&#160;to return&#160;to the&#160;interrupted procedure.</p>
+<p style="position:absolute;top:671px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:672px;left:95px;white-space:nowrap" class="ft06">If an&#160;SMI handler needs access to the debug trap facilities, it must insure that an&#160;SMM accessible debug handler&#160;<br/>is&#160;available&#160;and save&#160;the&#160;current&#160;contents of debug registers DR0&#160;through&#160;DR3 (for later restoration). Debug&#160;<br/>registers&#160;DR0&#160;through DR3 and&#160;DR7 must then&#160;be initialized with the&#160;appropriate values.</p>
+<p style="position:absolute;top:727px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:727px;left:95px;white-space:nowrap" class="ft06">If&#160;an SMI handler needs access to&#160;the single-step&#160;mechanism,&#160;it must insure&#160;that&#160;an SMM&#160;accessible single-<br/>step handler is&#160;available,&#160;and then&#160;set&#160;the&#160;TF&#160;flag&#160;in the&#160;EFLAGS register.</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:766px;left:95px;white-space:nowrap" class="ft06">If the&#160;SMI design requires&#160;the processor&#160;to respond to&#160;maskable hardware interrupts&#160;or software-generated&#160;<br/>interrupts&#160;while&#160;in SMM, it&#160;must&#160;ensure&#160;that&#160;SMM accessible interrupt&#160;handlers&#160;are available and&#160;then set&#160;the&#160;<br/>IF&#160;flag in&#160;the EFLAGS register (using&#160;the STI&#160;instruction).&#160;Software&#160;interrupts are not blocked&#160;upon&#160;entry&#160;to&#160;<br/>SMM,&#160;so they do not need to&#160;be&#160;enabled.</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft05">34.7&#160;</p>
+<p style="position:absolute;top:871px;left:148px;white-space:nowrap" class="ft05">MANAGING SYNCHRONOUS AND ASYNCHRONOUS</p>
+<p style="position:absolute;top:897px;left:147px;white-space:nowrap" class="ft05">SYSTEM MANAGEMENT&#160;INTERRUPTS</p>
+<p style="position:absolute;top:933px;left:69px;white-space:nowrap" class="ft06">When&#160;coding&#160;for&#160;a multiprocessor&#160;system&#160;or&#160;a system&#160;with Intel&#160;HT Technology, it&#160;was not&#160;always&#160;possible for an&#160;<br/>SMI handler&#160;to distinguish between a&#160;synchronous SMI&#160;(triggered during an&#160;I/O instruction) and&#160;an asynchronous&#160;<br/>SMI. To&#160;facilitate&#160;the&#160;discrimination of these two events,&#160;incremental state information has been added to the SMM&#160;<br/>state save&#160;map.&#160;<br/>Processors that&#160;have&#160;an&#160;SMM revision ID of&#160;30004H&#160;or&#160;higher have&#160;the&#160;incremental state&#160;information&#160;described&#160;<br/>below.</p>
+</div>
+</body>
+</html>

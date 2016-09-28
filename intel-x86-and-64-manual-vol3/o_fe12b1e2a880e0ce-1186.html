@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1186</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1186-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1186.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">30-6&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">INVVPID— Invalidate Translations Based on VPID</p>
+<p style="position:absolute;top:269px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:295px;left:68px;white-space:nowrap" class="ft09">Invalidates&#160;mappings in&#160;the&#160;translation&#160;lookaside buffers (TLBs) and&#160;paging-structure caches&#160;based on&#160;<b>virtual-<br/>processor identifier&#160;</b>(VPID).&#160;(See<a href="o_fe12b1e2a880e0ce-1149.html">&#160;Chapter&#160;28,&#160;“VMX Support for Address Translation”.)&#160;</a>Invalidation is&#160;based on&#160;<br/>the&#160;<b>INVVPID type</b>&#160;specified&#160;in the&#160;register operand&#160;and the&#160;<b>INVVPID descriptor</b>&#160;specified&#160;in the&#160;memory&#160;<br/>operand.<br/>Outside&#160;IA-32e&#160;mode,&#160;the&#160;register&#160;operand&#160;is always 32&#160;bits,&#160;regardless of the&#160;value of CS.D; in&#160;64-bit mode,&#160;the&#160;<br/>register operand&#160;has&#160;64&#160;bits&#160;(the instruction cannot&#160;be&#160;executed in compatibility mode).<br/>The&#160;INVVPID&#160;types supported&#160;by&#160;a logical processors&#160;are&#160;reported&#160;in&#160;the IA32_VMX_EPT_VPID_CAP&#160;MSR&#160;(see&#160;<br/><a href="��">Appendix&#160;A, “VMX&#160;Capability Reporting Facility”).</a>&#160;There are four&#160;INVVPID types currently defined:</p>
+<p style="position:absolute;top:448px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:448px;left:93px;white-space:nowrap" class="ft09">Individual-address invalidation: If the&#160;INVVPID&#160;type&#160;is&#160;0,&#160;the logical processor invalidates mappings&#160;for&#160;the&#160;<br/>linear address&#160;and VPID specified&#160;in the&#160;INVVPID descriptor.&#160;In some&#160;cases,&#160;it may invalidate mappings&#160;for&#160;<br/>other&#160;linear addresses (or other&#160;VPIDs)&#160;as well.</p>
+<p style="position:absolute;top:503px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:504px;left:93px;white-space:nowrap" class="ft09">Single-context invalidation: If&#160;the INVVPID type is 1,&#160;the&#160;logical processor invalidates&#160;all mappings tagged with&#160;<br/>the&#160;VPID&#160;specified in the&#160;INVVPID descriptor.&#160;In some&#160;cases,&#160;it may&#160;invalidate mappings for&#160;other&#160;VPIDs&#160;as&#160;<br/>well.</p>
+<p style="position:absolute;top:559px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:559px;left:93px;white-space:nowrap" class="ft09">All-contexts invalidation: If the&#160;INVVPID&#160;type is 2, the&#160;logical processor invalidates&#160;all mappings tagged with all&#160;<br/>VPIDs except&#160;VPID&#160;0000H.&#160;In some&#160;cases,&#160;it&#160;may invalidate&#160;translations with VPID&#160;0000H as well.</p>
+<p style="position:absolute;top:598px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:598px;left:93px;white-space:nowrap" class="ft012">Single-context&#160;invalidation, retaining global translations: If the&#160;INVVPID type is&#160;3, the&#160;logical&#160;processor&#160;<br/>invalidates all mappings tagged with&#160;the&#160;VPID&#160;specified&#160;in&#160;the INVVPID descriptor&#160;except global translations. In&#160;<br/>some cases,&#160;it may&#160;invalidate global translations&#160;(and&#160;mappings&#160;with&#160;other&#160;VPIDs)&#160;as well. See&#160;the “Caching&#160;<br/>Translation&#160;Information” section&#160;<a href="o_fe12b1e2a880e0ce-105.html">in Chapter&#160;4 of the&#160;</a><i>IA-32 Intel&#160;Architecture Software Developer’s&#160;Manual,&#160;<br/>Volumes 3A</i>&#160;for&#160;information about global translations.</p>
+<p style="position:absolute;top:688px;left:68px;white-space:nowrap" class="ft010">If an unsupported&#160;INVVPID&#160;type&#160;is specified,&#160;the&#160;instruction fails.<br/>INVVPID invalidates&#160;all the&#160;specified mappings for the&#160;indicated VPID(s) regardless&#160;of the&#160;EPTP&#160;and PCID values&#160;<br/>with&#160;which those&#160;mappings may&#160;be&#160;associated.<br/>The INVVPID&#160;descriptor&#160;comprises&#160;128 bits&#160;and&#160;consists of&#160;a&#160;VPID and a&#160;linear address&#160;as shown&#160;<a href="o_fe12b1e2a880e0ce-1186.html">in Figure 30-2.</a></p>
+<p style="position:absolute;top:137px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:201px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:373px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">66&#160;0F 38&#160;81</p>
+<p style="position:absolute;top:160px;left:201px;white-space:nowrap" class="ft04">INVVPID r64,&#160;m128</p>
+<p style="position:absolute;top:160px;left:374px;white-space:nowrap" class="ft04">Invalidates&#160;entries&#160;in&#160;the TLBs and paging-structure&#160;caches based on&#160;VPID (in&#160;</p>
+<p style="position:absolute;top:177px;left:374px;white-space:nowrap" class="ft04">64-bit mode)</p>
+<p style="position:absolute;top:199px;left:74px;white-space:nowrap" class="ft04">66&#160;0F 38&#160;81</p>
+<p style="position:absolute;top:199px;left:201px;white-space:nowrap" class="ft04">INVVPID r32,&#160;m128</p>
+<p style="position:absolute;top:199px;left:373px;white-space:nowrap" class="ft04">Invalidates&#160;entries&#160;in&#160;the TLBs and paging-structure&#160;caches based on&#160;VPID&#160;</p>
+<p style="position:absolute;top:216px;left:374px;white-space:nowrap" class="ft04">(outside&#160;64-bit mode)</p>
+<p style="position:absolute;top:906px;left:343px;white-space:nowrap" class="ft03">Figure&#160;30-2.&#160;&#160;INVVPID Descriptor</p>
+<p style="position:absolute;top:817px;left:224px;white-space:nowrap" class="ft04">127</p>
+<p style="position:absolute;top:817px;left:442px;white-space:nowrap" class="ft04">64&#160;63</p>
+<p style="position:absolute;top:817px;left:683px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:817px;left:632px;white-space:nowrap" class="ft04">15</p>
+<p style="position:absolute;top:817px;left:614px;white-space:nowrap" class="ft04">16</p>
+<p style="position:absolute;top:840px;left:471px;white-space:nowrap" class="ft04">Reserved (must be zero)</p>
+<p style="position:absolute;top:840px;left:300px;white-space:nowrap" class="ft04">Linear Address</p>
+<p style="position:absolute;top:840px;left:644px;white-space:nowrap" class="ft04">VPID</p>
+</div>
+</body>
+</html>

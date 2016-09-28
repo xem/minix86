@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1723</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1723-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811723.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPERMI2W/D/Q/PS/PD—Full&#160;Permute&#160;From Two Tables&#160;Overwriting&#160;the Index</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-337</p>
+<p style="position:absolute;top:398px;left:354px;white-space:nowrap" class="ft02">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:507px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:529px;left:69px;white-space:nowrap" class="ft05">Permutes&#160;16-bit/32-bit/64-bit values&#160;in the&#160;second operand (the&#160;first source&#160;operand) and&#160;the third&#160;operand (the&#160;<br/>second&#160;source&#160;operand)&#160;using indices in&#160;the&#160;first operand&#160;to select elements from the&#160;second&#160;and third&#160;operands.&#160;<br/>The&#160;selected&#160;elements&#160;are written to&#160;the destination operand (the first operand)&#160;according&#160;to the&#160;writemask k1.&#160;<br/>The first and&#160;second&#160;operands are ZMM/YMM/XMM&#160;registers.&#160;The&#160;first operand&#160;contains&#160;input indices to&#160;select&#160;<br/>elements from the&#160;two&#160;input tables in&#160;the&#160;2nd&#160;and&#160;3rd&#160;operands.&#160;The&#160;first operand&#160;is also&#160;the destination of the&#160;<br/>result.&#160;<br/>D/Q/PS/PD element versions: The&#160;second&#160;source operand&#160;can be&#160;a&#160;ZMM/YMM/XMM&#160;register,&#160;a 512/256/128-bit&#160;<br/>memory location or a&#160;512/256/128-bit vector broadcasted from&#160;a 32/64-bit&#160;memory location. Broadcast from&#160;the&#160;<br/>low 32/64-bit&#160;memory&#160;location is performed if EVEX.b and the&#160;id bit for table&#160;selection are set (selecting&#160;table_2).<br/>Dword/PS&#160;versions:&#160;The&#160;id bit for table selection is&#160;bit 4/3/2,&#160;depending&#160;on VL=512,&#160;256,&#160;128.&#160;Bits&#160;<br/>[3:0]/[2:0]/[1:0] of&#160;each element in&#160;the input&#160;index vector&#160;select&#160;an element within&#160;the two source&#160;operands,&#160;If&#160;<br/>the id bit is&#160;0,&#160;table_1&#160;(the&#160;first source)&#160;is selected; otherwise&#160;the&#160;second source&#160;operand is&#160;selected.<br/>Qword/PD versions: The id&#160;bit&#160;for table selection&#160;is bit 3/2/1, and bits [2:0]/[1:0] /bit 0 selects&#160;element&#160;within&#160;each&#160;<br/>input table.<br/>Word&#160;element versions: The&#160;second&#160;source operand&#160;can be&#160;a&#160;ZMM/YMM/XMM&#160;register,&#160;or a&#160;512/256/128-bit&#160;<br/>memory&#160;location.&#160;The id bit for table selection is&#160;bit&#160;5/4/3,&#160;and bits [4:0]/[3:0]/[2:0]&#160;selects&#160;element&#160;within&#160;each&#160;<br/>input table.&#160;<br/>Note that these instructions permit a&#160;16-bit/32-bit/64-bit&#160;value&#160;in the&#160;source operands&#160;to be copied to&#160;more than&#160;<br/>one location&#160;in&#160;the destination operand. Note&#160;also that&#160;in&#160;this case, the&#160;same&#160;table&#160;can be reused for example for&#160;<br/>a&#160;second&#160;iteration, while the&#160;index elements are overwritten.<br/>Bits (MAX_VL-1:256/128) of the&#160;destination&#160;are&#160;zeroed&#160;for&#160;VL=256,128.&#160;</p>
+<p style="position:absolute;top:154px;left:78px;white-space:nowrap" class="ft03">EVEX.DDS.128.66.0F38.W1&#160;77&#160;/r</p>
+<p style="position:absolute;top:154px;left:320px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:154px;left:364px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:154px;left:436px;white-space:nowrap" class="ft03">AVX512VL</p>
+<p style="position:absolute;top:154px;left:521px;white-space:nowrap" class="ft03">Permute&#160;double-precision&#160;FP&#160;values&#160;from&#160;two&#160;tables&#160;in&#160;</p>
+<p style="position:absolute;top:171px;left:521px;white-space:nowrap" class="ft03">xmm3/m128/m64bcst and&#160;xmm2&#160;using indexes&#160;in&#160;</p>
+<p style="position:absolute;top:187px;left:521px;white-space:nowrap" class="ft03">xmm1&#160;and store the&#160;result in xmm1&#160;using&#160;writemask&#160;</p>
+<p style="position:absolute;top:204px;left:521px;white-space:nowrap" class="ft03">k1.</p>
+<p style="position:absolute;top:173px;left:78px;white-space:nowrap" class="ft03">VPERMI2PD xmm1 {k1}{z}, xmm2,&#160;</p>
+<p style="position:absolute;top:190px;left:78px;white-space:nowrap" class="ft03">xmm3/m128/m64bcst</p>
+<p style="position:absolute;top:173px;left:436px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:226px;left:78px;white-space:nowrap" class="ft03">EVEX.DDS.256.66.0F38.W1&#160;77&#160;/r</p>
+<p style="position:absolute;top:226px;left:320px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:226px;left:364px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:226px;left:436px;white-space:nowrap" class="ft03">AVX512VL</p>
+<p style="position:absolute;top:226px;left:521px;white-space:nowrap" class="ft03">Permute&#160;double-precision&#160;FP&#160;values&#160;from&#160;two&#160;tables&#160;in&#160;</p>
+<p style="position:absolute;top:243px;left:521px;white-space:nowrap" class="ft03">ymm3/m256/m64bcst and ymm2&#160;using&#160;indexes in&#160;</p>
+<p style="position:absolute;top:259px;left:521px;white-space:nowrap" class="ft03">ymm1 and&#160;store the result&#160;in&#160;ymm1&#160;using&#160;writemask&#160;</p>
+<p style="position:absolute;top:276px;left:521px;white-space:nowrap" class="ft03">k1.</p>
+<p style="position:absolute;top:245px;left:78px;white-space:nowrap" class="ft03">VPERMI2PD ymm1 {k1}{z}, ymm2,&#160;</p>
+<p style="position:absolute;top:262px;left:78px;white-space:nowrap" class="ft03">ymm3/m256/m64bcst</p>
+<p style="position:absolute;top:245px;left:436px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:298px;left:78px;white-space:nowrap" class="ft03">EVEX.DDS.512.66.0F38.W1&#160;77&#160;/r</p>
+<p style="position:absolute;top:298px;left:320px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:298px;left:364px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:298px;left:436px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:298px;left:521px;white-space:nowrap" class="ft03">Permute&#160;double-precision&#160;FP&#160;values&#160;from&#160;two&#160;tables&#160;in&#160;</p>
+<p style="position:absolute;top:315px;left:521px;white-space:nowrap" class="ft03">zmm3/m512/m64bcst and&#160;zmm2&#160;using indices&#160;in&#160;</p>
+<p style="position:absolute;top:331px;left:521px;white-space:nowrap" class="ft03">zmm1&#160;and store the&#160;result&#160;in&#160;zmm1&#160;using writemask&#160;</p>
+<p style="position:absolute;top:348px;left:521px;white-space:nowrap" class="ft03">k1.</p>
+<p style="position:absolute;top:317px;left:78px;white-space:nowrap" class="ft03">VPERMI2PD zmm1 {k1}{z},&#160;zmm2,&#160;</p>
+<p style="position:absolute;top:334px;left:78px;white-space:nowrap" class="ft03">zmm3/m512/m64bcst</p>
+<p style="position:absolute;top:421px;left:109px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:421px;left:229px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:421px;left:390px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:421px;left:556px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:421px;left:722px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:445px;left:113px;white-space:nowrap" class="ft03">FVM</p>
+<p style="position:absolute;top:445px;left:212px;white-space:nowrap" class="ft03">ModRM:reg&#160;(r,w)</p>
+<p style="position:absolute;top:445px;left:381px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:445px;left:545px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:445px;left:743px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:469px;left:118px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:469px;left:211px;white-space:nowrap" class="ft03">ModRM:reg (r,&#160;w)</p>
+<p style="position:absolute;top:469px;left:381px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:469px;left:545px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:469px;left:743px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:105px;left:78px;white-space:nowrap" class="ft03">Opcode/</p>
+<p style="position:absolute;top:119px;left:78px;white-space:nowrap" class="ft03">Instruction</p>
+<p style="position:absolute;top:105px;left:320px;white-space:nowrap" class="ft03">Op /&#160;</p>
+<p style="position:absolute;top:119px;left:320px;white-space:nowrap" class="ft03">En</p>
+<p style="position:absolute;top:105px;left:364px;white-space:nowrap" class="ft03">64/32&#160;</p>
+<p style="position:absolute;top:119px;left:364px;white-space:nowrap" class="ft03">bit Mode&#160;</p>
+<p style="position:absolute;top:135px;left:364px;white-space:nowrap" class="ft03">Support</p>
+<p style="position:absolute;top:105px;left:436px;white-space:nowrap" class="ft03">CPUID&#160;</p>
+<p style="position:absolute;top:119px;left:436px;white-space:nowrap" class="ft03">Feature&#160;</p>
+<p style="position:absolute;top:135px;left:436px;white-space:nowrap" class="ft03">Flag</p>
+<p style="position:absolute;top:105px;left:521px;white-space:nowrap" class="ft03">Description</p>
+</div>
+</body>
+</html>

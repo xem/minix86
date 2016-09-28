@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 396</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page396-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce396.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-34&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:120px;white-space:nowrap" class="ft08">data&#160;specifies the message. System software is expected&#160;to initialize the&#160;message destination&#160;and&#160;<br/>message during&#160;device&#160;configuration, allocating&#160;one or&#160;more&#160;non-shared&#160;messages&#160;to each&#160;MSI&#160;<br/>capable function.”&#160;</p>
+<p style="position:absolute;top:157px;left:68px;white-space:nowrap" class="ft08">The capabilities&#160;mechanism&#160;provided by the&#160;<i>PCI Local Bus Specification</i>&#160;is used to&#160;identify&#160;and&#160;configure MSI&#160;<br/>capable PCI&#160;devices. Among other&#160;fields, this structure&#160;contains a&#160;Message Data Register and&#160;a Message&#160;Address&#160;<br/>Register.&#160;To&#160;request&#160;service,&#160;the&#160;PCI device&#160;function&#160;writes&#160;the contents&#160;of&#160;the Message Data Register to&#160;the&#160;<br/>address contained in the&#160;Message&#160;Address&#160;Register&#160;(and&#160;the&#160;Message Upper Address register&#160;for&#160;64-bit message&#160;<br/>addresses).&#160;<br/><a href="o_fe12b1e2a880e0ce-396.html">Section&#160;10.11.1&#160;an</a><a href="o_fe12b1e2a880e0ce-397.html">d Section 10.11.2 pro</a>vide&#160;layout&#160;details for the&#160;Message Address Register and the Message&#160;Data&#160;<br/>Register.&#160;The operation issued by&#160;the device is&#160;a PCI&#160;write&#160;command&#160;to the&#160;Message Address Register&#160;with the&#160;<br/>Message Data Register contents. The operation follows semantic rules as defined for PCI write&#160;operations&#160;and is a&#160;<br/>DWORD&#160;operation.</p>
+<p style="position:absolute;top:347px;left:68px;white-space:nowrap" class="ft04">10.11.1&#160;&#160;Message Address Register Format</p>
+<p style="position:absolute;top:378px;left:68px;white-space:nowrap" class="ft02">The format of&#160;the&#160;Message&#160;Address Register (lower&#160;32-bits)&#160;is&#160;shown in<a href="o_fe12b1e2a880e0ce-396.html">&#160;Figure&#160;10-24.</a></p>
+<p style="position:absolute;top:588px;left:68px;white-space:nowrap" class="ft010">Fields in the&#160;Message&#160;Address&#160;Register&#160;are as&#160;follows:<br/>1.&#160;<b>Bits 31-20</b>&#160;— These&#160;bits contain a&#160;fixed value for interrupt messages (0FEEH).&#160;This value locates interrupts at&#160;</p>
+<p style="position:absolute;top:628px;left:93px;white-space:nowrap" class="ft08">the 1-MByte area&#160;with&#160;a base address&#160;of&#160;4G&#160;– 18M. All accesses to&#160;this region are&#160;directed&#160;as interrupt&#160;<br/>messages. Care must to&#160;be&#160;taken&#160;to ensure&#160;that&#160;no other&#160;device&#160;claims the&#160;region&#160;as I/O space.</p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft02">2.&#160;<b>Destination&#160;ID</b>&#160;—&#160;This field contains&#160;an&#160;8-bit&#160;destination&#160;ID.&#160;It identifies the&#160;message’s&#160;target processor(s).&#160;</p>
+<p style="position:absolute;top:685px;left:93px;white-space:nowrap" class="ft08">The&#160;destination&#160;ID&#160;corresponds&#160;to bits 63:56&#160;of&#160;the I/O&#160;APIC&#160;Redirection Table Entry if the&#160;IOAPIC&#160;is used to&#160;<br/>dispatch&#160;the interrupt to&#160;the processor(s).</p>
+<p style="position:absolute;top:726px;left:68px;white-space:nowrap" class="ft02">3.&#160;<b>Redirection hint&#160;indication</b>&#160;(RH) —&#160;This bit indicates whether the&#160;message should&#160;be&#160;directed&#160;to&#160;the&#160;</p>
+<p style="position:absolute;top:742px;left:93px;white-space:nowrap" class="ft02">processor&#160;with&#160;the lowest interrupt priority&#160;among processors that can&#160;receive&#160;the interrupt.&#160;</p>
+<p style="position:absolute;top:768px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:766px;left:144px;white-space:nowrap" class="ft02">When RH&#160;is&#160;0,&#160;the&#160;interrupt&#160;is directed&#160;to the processor listed&#160;in&#160;the Destination ID field.&#160;</p>
+<p style="position:absolute;top:792px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:790px;left:144px;white-space:nowrap" class="ft02">When RH is&#160;1 and the physical destination mode&#160;is used,&#160;the&#160;Destination&#160;ID field must not be set&#160;to FFH;&#160;</p>
+<p style="position:absolute;top:807px;left:143px;white-space:nowrap" class="ft02">it&#160;must&#160;point to&#160;a processor that is&#160;present and&#160;enabled to&#160;receive the interrupt.</p>
+<p style="position:absolute;top:832px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:831px;left:144px;white-space:nowrap" class="ft02">When RH&#160;is&#160;1&#160;and the&#160;logical&#160;destination&#160;mode is&#160;active&#160;in a&#160;system using&#160;a flat addressing&#160;model, the&#160;</p>
+<p style="position:absolute;top:847px;left:143px;white-space:nowrap" class="ft08">Destination&#160;ID field must be set so&#160;that bits set to 1 identify processors that are present&#160;and&#160;enabled to&#160;<br/>receive the&#160;interrupt.</p>
+<p style="position:absolute;top:889px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:888px;left:144px;white-space:nowrap" class="ft02">If&#160;RH&#160;is set to&#160;1 and&#160;the logical destination mode&#160;is&#160;active&#160;in a&#160;system using&#160;cluster addressing model,&#160;</p>
+<p style="position:absolute;top:904px;left:143px;white-space:nowrap" class="ft08">then Destination ID field must not&#160;be&#160;set to&#160;FFH; the&#160;processors&#160;identified with&#160;this field must be&#160;<br/>present and&#160;enabled to&#160;receive the interrupt.</p>
+<p style="position:absolute;top:945px;left:68px;white-space:nowrap" class="ft02">4.&#160;<b>Destination&#160;mode&#160;(DM)</b>&#160;— This bit indicates whether the&#160;Destination ID field should be interpreted as logical&#160;</p>
+<p style="position:absolute;top:961px;left:93px;white-space:nowrap" class="ft08">or physical APIC&#160;ID&#160;for&#160;delivery of&#160;the lowest priority&#160;interrupt.&#160;If RH is&#160;1 and DM is&#160;0, the&#160;Destination&#160;ID&#160;field&#160;<br/>is&#160;in physical destination&#160;mode&#160;and only the&#160;processor&#160;in the&#160;system&#160;that has&#160;the matching APIC ID is&#160;<br/>considered&#160;for&#160;delivery of that interrupt (this means&#160;no&#160;re-direction). If RH is&#160;1 and&#160;DM is&#160;1,&#160;the Destination&#160;ID&#160;<br/>Field is interpreted as&#160;in logical destination mode&#160;and the&#160;redirection is limited to only those processors that are&#160;<br/>part of the&#160;logical&#160;group of processors&#160;based on the&#160;processor’s logical APIC ID and&#160;the&#160;Destination ID field in&#160;<br/>the&#160;message. The&#160;logical&#160;group of processors consists&#160;of&#160;those identified&#160;by&#160;matching&#160;the 8-bit Destination ID&#160;<br/>with&#160;the logical destination&#160;identified by the&#160;Destination&#160;Format Register&#160;and&#160;the Logical&#160;Destination&#160;Register in&#160;</p>
+<p style="position:absolute;top:543px;left:253px;white-space:nowrap" class="ft07">Figure&#160;10-24. &#160;Layout&#160;of&#160;the MSI Message Address&#160;Register</p>
+<p style="position:absolute;top:447px;left:259px;white-space:nowrap" class="ft00">31</p>
+<p style="position:absolute;top:447px;left:346px;white-space:nowrap" class="ft00">20&#160;19</p>
+<p style="position:absolute;top:447px;left:439px;white-space:nowrap" class="ft00">12&#160;11</p>
+<p style="position:absolute;top:447px;left:522px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:447px;left:552px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:447px;left:595px;white-space:nowrap" class="ft00">2</p>
+<p style="position:absolute;top:447px;left:622px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:447px;left:662px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:474px;left:284px;white-space:nowrap" class="ft00">0FEEH</p>
+<p style="position:absolute;top:474px;left:376px;white-space:nowrap" class="ft00">Destination&#160;ID</p>
+<p style="position:absolute;top:474px;left:471px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:474px;left:546px;white-space:nowrap" class="ft00">RH</p>
+<p style="position:absolute;top:474px;left:586px;white-space:nowrap" class="ft00">DM</p>
+<p style="position:absolute;top:474px;left:632px;white-space:nowrap" class="ft00">XX</p>
+</div>
+</body>
+</html>

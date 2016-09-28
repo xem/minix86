@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 226</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page226-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce226.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-40&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND EXCEPTION&#160;HANDLING</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">Interrupt&#160;14—Page-Fault Exception (#PF)</p>
+<p style="position:absolute;top:146px;left:68px;white-space:nowrap" class="ft03">Exception&#160;Class</p>
+<p style="position:absolute;top:144px;left:206px;white-space:nowrap" class="ft04">Fault.</p>
+<p style="position:absolute;top:185px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:211px;left:68px;white-space:nowrap" class="ft08">Indicates&#160;that, with paging&#160;enabled (the&#160;PG&#160;flag in the&#160;CR0 register&#160;is set),&#160;the processor detected one&#160;of&#160;the&#160;<br/>following&#160;conditions while using&#160;the page-translation&#160;mechanism&#160;to translate a&#160;linear address&#160;to a&#160;physical&#160;<br/>address:</p>
+<p style="position:absolute;top:266px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:267px;left:93px;white-space:nowrap" class="ft08">The&#160;P&#160;(present) flag&#160;in&#160;a page-directory or page-table&#160;entry&#160;needed&#160;for&#160;the&#160;address&#160;translation is&#160;clear,&#160;<br/>indicating&#160;that a&#160;page table&#160;or&#160;the page&#160;containing&#160;the&#160;operand is&#160;not present in physical memory.</p>
+<p style="position:absolute;top:305px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:306px;left:93px;white-space:nowrap" class="ft08">The&#160;procedure does not&#160;have sufficient privilege&#160;to access&#160;the indicated&#160;page (that is, a&#160;procedure running in&#160;<br/>user mode&#160;attempts&#160;to access a&#160;supervisor-mode page). If&#160;the SMAP flag&#160;is set in&#160;CR4, a&#160;page fault may also&#160;<br/>be triggered by code running in&#160;supervisor mode that&#160;tries&#160;to access data&#160;at a&#160;user-mode address. If&#160;the PKE&#160;<br/>flag&#160;is set in CR4, the&#160;PKRU register&#160;may cause&#160;page faults&#160;on&#160;data&#160;accesses&#160;to user-mode&#160;addresses with&#160;<br/>certain&#160;protection keys.</p>
+<p style="position:absolute;top:394px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:394px;left:93px;white-space:nowrap" class="ft08">Code&#160;running&#160;in user&#160;mode attempts to&#160;write to a&#160;read-only page. If&#160;the WP flag&#160;is set in CR0, the&#160;page fault&#160;<br/>will also&#160;be&#160;triggered&#160;by code&#160;running in supervisor&#160;mode that&#160;tries to&#160;write to&#160;a&#160;read-only page.</p>
+<p style="position:absolute;top:433px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:433px;left:93px;white-space:nowrap" class="ft08">An&#160;instruction&#160;fetch&#160;to a&#160;linear address&#160;that translates to&#160;a physical address&#160;in&#160;a memory&#160;page&#160;with&#160;the&#160;<br/>execute-disable bit set (for information&#160;about the&#160;execute-disable&#160;bit,&#160;se<a href="o_fe12b1e2a880e0ce-105.html">e Chapter&#160;4,&#160;“Paging”).&#160;</a>If the&#160;SMEP&#160;<br/>flag&#160;is set in CR4, a&#160;page fault will also&#160;be triggered by&#160;code running&#160;in&#160;supervisor mode&#160;that tries&#160;to fetch&#160;an&#160;<br/>instruction from a&#160;user-mode&#160;address.</p>
+<p style="position:absolute;top:505px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:505px;left:93px;white-space:nowrap" class="ft05">One&#160;or more reserved bits in&#160;paging-structure&#160;entry are&#160;set to&#160;1.&#160;See description&#160;below&#160;of RSVD error&#160;code&#160;flag.</p>
+<p style="position:absolute;top:527px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:528px;left:93px;white-space:nowrap" class="ft08">An&#160;enclave access violates one of the specified access-control requirements.&#160;Se<a href="o_fe12b1e2a880e0ce-1771.html">e Section 38.3,&#160;“Access-control&#160;<br/>Requirements”&#160;</a>and<a href="o_fe12b1e2a880e0ce-1786.html">&#160;Section 38.19,&#160;“Enclave&#160;Page&#160;Cache&#160;Map (EPCM)” in&#160;</a><a href="o_fe12b1e2a880e0ce-1771.html">Chapter&#160;38, “Enclave&#160;Access Control&#160;<br/>and Data Structures.”</a>&#160;In this case, the exception is called an&#160;<b>SGX-induced page&#160;fault</b>.&#160;The processor uses&#160;the&#160;<br/>error code (below)&#160;to distinguish SGX-induced&#160;page&#160;faults from&#160;ordinary page&#160;faults.</p>
+<p style="position:absolute;top:601px;left:68px;white-space:nowrap" class="ft09">The&#160;exception handler&#160;can recover from page-not-present&#160;conditions&#160;and restart the&#160;program&#160;or task without&#160;any&#160;<br/>loss of program&#160;continuity. It&#160;can&#160;also restart the&#160;program&#160;or task after&#160;a privilege&#160;violation, but&#160;the problem&#160;that&#160;<br/>caused the&#160;privilege violation may be uncorrectable.<br/>See&#160;<a href="o_fe12b1e2a880e0ce-135.html">also: Section 4.7, “Page-Fault&#160;Exceptions.”</a></p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft03">Exception&#160;Error&#160;Code</p>
+<p style="position:absolute;top:721px;left:68px;white-space:nowrap" class="ft08">Yes&#160;(special format).&#160;The processor provides the&#160;page-fault&#160;handler with two&#160;items&#160;of&#160;information to&#160;aid in&#160;diag-<br/>nosing the&#160;exception and&#160;recovering&#160;from it:</p>
+<p style="position:absolute;top:760px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:760px;left:93px;white-space:nowrap" class="ft010">An&#160;error code on the stack. The&#160;error code&#160;for&#160;a page fault has a format different&#160;from that for other&#160;exceptions&#160;<br/>(see<a href="o_fe12b1e2a880e0ce-227.html">&#160;Figure&#160;6-9).</a>&#160;The&#160;processor&#160;establishes the&#160;bits&#160;in the&#160;error code&#160;as&#160;follows:<br/>—&#160;P&#160;&#160;flag&#160;&#160;(bit&#160;0).</p>
+<p style="position:absolute;top:817px;left:119px;white-space:nowrap" class="ft08">This flag&#160;is 0&#160;if there&#160;is&#160;no&#160;translation for the&#160;linear address&#160;because&#160;the P flag&#160;was 0 in one&#160;of&#160;the&#160;paging-<br/>structure&#160;entries&#160;used&#160;to translate&#160;that&#160;address.</p>
+<p style="position:absolute;top:858px;left:93px;white-space:nowrap" class="ft05">—&#160;W/R (bit&#160;1).</p>
+<p style="position:absolute;top:874px;left:119px;white-space:nowrap" class="ft08">If the&#160;access&#160;causing the&#160;page-fault exception&#160;was&#160;a write,&#160;this flag&#160;is 1;&#160;otherwise,&#160;it is&#160;0. This&#160;flag&#160;<br/>describes the&#160;access&#160;causing the&#160;page-fault exception, not&#160;the access rights&#160;specified by&#160;paging.</p>
+<p style="position:absolute;top:915px;left:93px;white-space:nowrap" class="ft05">—&#160;U/S (bit&#160;2).</p>
+<p style="position:absolute;top:931px;left:119px;white-space:nowrap" class="ft08">If a user-mode access caused the page-fault&#160;exception,&#160;this&#160;flag&#160;is 1; it is 0 if a&#160;supervisor-mode access&#160;did&#160;<br/>so. This&#160;flag describes&#160;the&#160;access&#160;causing the&#160;page-fault exception, not the&#160;access&#160;rights&#160;specified by&#160;<br/>paging.</p>
+<p style="position:absolute;top:988px;left:93px;white-space:nowrap" class="ft05">—&#160;RSVD&#160;&#160;flag&#160;&#160;(bit&#160;3).</p>
+<p style="position:absolute;top:1005px;left:119px;white-space:nowrap" class="ft08">This flag&#160;is 1&#160;if there&#160;is&#160;no&#160;translation for the&#160;linear address&#160;because&#160;a reserved bit was&#160;set in&#160;one of the&#160;<br/>paging-structure entries used to&#160;translate&#160;that&#160;address.</p>
+</div>
+</body>
+</html>

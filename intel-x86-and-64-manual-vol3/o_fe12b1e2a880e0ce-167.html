@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 167</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:25px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page167-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce167.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;5-15</p>
+<p style="position:absolute;top:47px;left:763px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft08">If a&#160;far call&#160;references&#160;a 16-bit&#160;call gate type (04H)&#160;in&#160;IA-32e&#160;mode,&#160;a general-protection exception (#GP)&#160;is&#160;<br/>generated.</p>
+<p style="position:absolute;top:141px;left:69px;white-space:nowrap" class="ft08">When a call references&#160;a 64-bit mode&#160;call&#160;gate, actions taken are identical to&#160;those taken&#160;in&#160;32-bit mode, with the&#160;<br/>following exceptions:</p>
+<p style="position:absolute;top:179px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:180px;left:95px;white-space:nowrap" class="ft03">Stack&#160;pushes&#160;are made&#160;in eight-byte increments.</p>
+<p style="position:absolute;top:202px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:202px;left:95px;white-space:nowrap" class="ft03">A&#160;64-bit RIP is&#160;pushed&#160;onto the&#160;stack.</p>
+<p style="position:absolute;top:224px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:225px;left:95px;white-space:nowrap" class="ft03">Parameter&#160;copying&#160;is not&#160;performed.</p>
+<p style="position:absolute;top:249px;left:69px;white-space:nowrap" class="ft08">Use a matching far-return instruction size&#160;for correct operation (returns from&#160;64-bit calls&#160;must be performed with&#160;<br/>a&#160;64-bit operand-size&#160;return to&#160;process&#160;the stack correctly).</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft04">5.8.4&#160;</p>
+<p style="position:absolute;top:316px;left:149px;white-space:nowrap" class="ft04">Accessing a Code Segment Through a Call Gate</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft08">To&#160;access a&#160;call gate, a&#160;far&#160;pointer&#160;to the&#160;gate&#160;is provided as&#160;a target&#160;operand in a&#160;CALL or JMP&#160;instruction. The&#160;<br/>segment selector&#160;from&#160;this pointer&#160;identifies the&#160;call&#160;gate<a href="o_fe12b1e2a880e0ce-167.html">&#160;(see Figure&#160;5-10); the offset from&#160;</a>the pointer is required,&#160;<br/>but not&#160;used&#160;or&#160;checked by the&#160;processor.&#160;(The&#160;offset can&#160;be&#160;set to&#160;any value.)&#160;<br/>When&#160;the processor has&#160;accessed the&#160;call gate, it&#160;uses the segment selector from the&#160;call gate to&#160;locate&#160;the&#160;<br/>segment descriptor&#160;for&#160;the destination code segment.&#160;(This&#160;segment&#160;descriptor can be&#160;in&#160;the GDT or&#160;the&#160;LDT.) It&#160;<br/>then combines&#160;the base&#160;address from&#160;the code-segment descriptor with the&#160;offset from&#160;the call&#160;gate to&#160;form the&#160;<br/>linear&#160;address of&#160;the procedure entry&#160;point in&#160;the code segment.<br/>As&#160;<a href="o_fe12b1e2a880e0ce-168.html">shown in Figure&#160;5-11, four&#160;</a>different privilege levels&#160;are used&#160;to check the validity of&#160;a program control transfer&#160;<br/>through&#160;a&#160;call&#160;gate:</p>
+<p style="position:absolute;top:515px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:516px;left:95px;white-space:nowrap" class="ft03">The&#160;CPL&#160;(current privilege&#160;level).</p>
+<p style="position:absolute;top:538px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:538px;left:95px;white-space:nowrap" class="ft03">The&#160;RPL (requestor's&#160;privilege&#160;level)&#160;of&#160;the call&#160;gate’s&#160;selector.</p>
+<p style="position:absolute;top:560px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:561px;left:95px;white-space:nowrap" class="ft03">The&#160;DPL&#160;(descriptor privilege level)&#160;of the&#160;call gate descriptor.</p>
+<p style="position:absolute;top:583px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:583px;left:95px;white-space:nowrap" class="ft03">The&#160;DPL&#160;of&#160;the segment descriptor&#160;of&#160;the destination code segment.</p>
+<p style="position:absolute;top:607px;left:69px;white-space:nowrap" class="ft03">The C flag&#160;(conforming)&#160;in&#160;the segment descriptor&#160;for&#160;the destination code segment is&#160;also checked.</p>
+<p style="position:absolute;top:983px;left:338px;white-space:nowrap" class="ft05">Figure&#160;5-10. &#160;Call-Gate Mechanism</p>
+<p style="position:absolute;top:687px;left:471px;white-space:nowrap" class="ft00">Offset</p>
+<p style="position:absolute;top:687px;left:265px;white-space:nowrap" class="ft00">Segment Selector</p>
+<p style="position:absolute;top:665px;left:311px;white-space:nowrap" class="ft00">Far Pointer to&#160;Call Gate</p>
+<p style="position:absolute;top:706px;left:405px;white-space:nowrap" class="ft06">Required but&#160;not&#160;used&#160;by&#160;processor</p>
+<p style="position:absolute;top:796px;left:604px;white-space:nowrap" class="ft011">Call-Gate<br/>Descriptor</p>
+<p style="position:absolute;top:887px;left:604px;white-space:nowrap" class="ft012">Code-Segment<br/>Descriptor</p>
+<p style="position:absolute;top:731px;left:445px;white-space:nowrap" class="ft00">Descriptor Table</p>
+<p style="position:absolute;top:794px;left:419px;white-space:nowrap" class="ft00">Offset</p>
+<p style="position:absolute;top:884px;left:394px;white-space:nowrap" class="ft00">Base</p>
+<p style="position:absolute;top:903px;left:420px;white-space:nowrap" class="ft00">Base</p>
+<p style="position:absolute;top:813px;left:526px;white-space:nowrap" class="ft00">Offset</p>
+<p style="position:absolute;top:884px;left:556px;white-space:nowrap" class="ft00">Base</p>
+<p style="position:absolute;top:813px;left:387px;white-space:nowrap" class="ft00">Segment Selector</p>
+<p style="position:absolute;top:896px;left:243px;white-space:nowrap" class="ft07">+</p>
+<p style="position:absolute;top:946px;left:224px;white-space:nowrap" class="ft00">Procedure</p>
+<p style="position:absolute;top:960px;left:222px;white-space:nowrap" class="ft00">Entry Point</p>
+</div>
+</body>
+</html>

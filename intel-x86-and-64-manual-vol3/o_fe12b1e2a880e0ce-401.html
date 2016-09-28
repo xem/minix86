@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 401</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page401-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce401.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;10-39</p>
+<p style="position:absolute;top:47px;left:484px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE&#160;INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:739px;left:69px;white-space:nowrap" class="ft02">10.12.1.3&#160;&#160;&#160;Reserved&#160;Bit Checking</p>
+<p style="position:absolute;top:768px;left:69px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-399.html">Section 10.12.1.2</a><a href="o_fe12b1e2a880e0ce-400.html">&#160;and Table&#160;10-6 sp</a>ecifies the reserved&#160;bit&#160;definitions&#160;for the&#160;APIC registers in x2APIC&#160;mode. Non-<br/>zero writes (by WRMSR&#160;instruction)&#160;to reserved bits&#160;to these&#160;registers will raise a&#160;general protection fault exception&#160;<br/>while&#160;reads return zeros&#160;(RsvdZ semantics).<br/>In x2APIC&#160;mode, the&#160;local APIC ID register&#160;is increased to&#160;32&#160;bits&#160;wide.&#160;This enables&#160;2</p>
+<p style="position:absolute;top:821px;left:651px;white-space:nowrap" class="ft04">32</p>
+<p style="position:absolute;top:823px;left:664px;white-space:nowrap" class="ft03">–1&#160;processors to&#160;be&#160;</p>
+<p style="position:absolute;top:840px;left:69px;white-space:nowrap" class="ft06">addressable in physical destination&#160;mode. This 32-bit value is referred to&#160;as “x2APIC ID”.&#160;A&#160;processor implementa-<br/>tion&#160;may choose&#160;to support less&#160;than 32 bits&#160;in its&#160;hardware.&#160;System software&#160;should be&#160;agnostic&#160;to the&#160;actual&#160;<br/>number of bits that&#160;are implemented. All non-implemented bits&#160;will return zeros&#160;on reads by software.&#160;<br/>The&#160;APIC ID&#160;value&#160;of&#160;FFFF_FFFFH and&#160;the highest value&#160;corresponding&#160;to the&#160;implemented bit-width of the&#160;local&#160;<br/>APIC ID register&#160;in&#160;the system&#160;are reserved and&#160;cannot be assigned&#160;to&#160;any logical processor.&#160;<br/>In x2APIC&#160;mode, the local&#160;APIC ID&#160;register&#160;is a read-only&#160;register&#160;to system software&#160;and will be initialized by hard-<br/>ware. It&#160;is accessed&#160;via&#160;the RDMSR instruction reading&#160;the&#160;MSR&#160;at address 0802H.&#160;<br/>Each&#160;logical processor in&#160;the system&#160;(including clusters&#160;with&#160;a communication&#160;fabric) must be configured with an&#160;<br/>unique x2APIC ID&#160;to avoid collisions&#160;of&#160;x2APIC IDs. On DP and high-end MP processors targeted&#160;to specific market&#160;<br/>segments&#160;and depending on&#160;the&#160;system configuration,&#160;it&#160;is possible&#160;that logical processors in different and&#160;“un-<br/>connected”&#160;clusters power&#160;up initialized with overlapping&#160;x2APIC IDs.&#160;In these configurations, a&#160;model-specific&#160;<br/>means may&#160;be&#160;provided in&#160;those product&#160;segments&#160;to enable BIOS&#160;and/or platform&#160;firmware&#160;to&#160;re-configure the&#160;</p>
+<p style="position:absolute;top:164px;left:75px;white-space:nowrap" class="ft03">828H</p>
+<p style="position:absolute;top:164px;left:214px;white-space:nowrap" class="ft03">280H</p>
+<p style="position:absolute;top:164px;left:340px;white-space:nowrap" class="ft03">Error&#160;Status Register&#160;(ESR)</p>
+<p style="position:absolute;top:164px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:164px;left:629px;white-space:nowrap" class="ft03">WRMSR&#160;of&#160;a&#160;non-zero&#160;value&#160;causes&#160;</p>
+<p style="position:absolute;top:181px;left:629px;white-space:nowrap" class="ft03">#GP(0).&#160;Se<a href="o_fe12b1e2a880e0ce-376.html">e Section 10.5.3.</a></p>
+<p style="position:absolute;top:205px;left:75px;white-space:nowrap" class="ft03">82FH</p>
+<p style="position:absolute;top:205px;left:214px;white-space:nowrap" class="ft03">2F0H</p>
+<p style="position:absolute;top:205px;left:340px;white-space:nowrap" class="ft03">LVT CMCI register</p>
+<p style="position:absolute;top:205px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:205px;left:629px;white-space:nowrap" class="ft03">See<a href="o_fe12b1e2a880e0ce-375.html">&#160;Figure&#160;10-8 f</a>or reserved&#160;bits.</p>
+<p style="position:absolute;top:229px;left:75px;white-space:nowrap" class="ft03">830H</p>
+<p style="position:absolute;top:226px;left:107px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:229px;left:214px;white-space:nowrap" class="ft03">300H&#160;and 310H</p>
+<p style="position:absolute;top:229px;left:340px;white-space:nowrap" class="ft03">Interrupt&#160;Command&#160;Register&#160;</p>
+<p style="position:absolute;top:245px;left:340px;white-space:nowrap" class="ft03">(ICR)</p>
+<p style="position:absolute;top:229px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:229px;left:629px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-406.html">e Figure&#160;10-28 f</a>or reserved&#160;bits</p>
+<p style="position:absolute;top:270px;left:75px;white-space:nowrap" class="ft03">832H</p>
+<p style="position:absolute;top:270px;left:214px;white-space:nowrap" class="ft03">320H</p>
+<p style="position:absolute;top:270px;left:340px;white-space:nowrap" class="ft03">LVT&#160;Timer register</p>
+<p style="position:absolute;top:270px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:270px;left:629px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-375.html">e Figure&#160;10-8 f</a>or&#160;reserved bits.</p>
+<p style="position:absolute;top:294px;left:75px;white-space:nowrap" class="ft03">833H</p>
+<p style="position:absolute;top:294px;left:214px;white-space:nowrap" class="ft03">330H</p>
+<p style="position:absolute;top:294px;left:340px;white-space:nowrap" class="ft03">LVT&#160;Thermal Sensor&#160;register</p>
+<p style="position:absolute;top:294px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:294px;left:629px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-375.html">e Figure&#160;10-8&#160;f</a>or&#160;reserved&#160;bits.</p>
+<p style="position:absolute;top:317px;left:75px;white-space:nowrap" class="ft03">834H</p>
+<p style="position:absolute;top:317px;left:214px;white-space:nowrap" class="ft03">340H</p>
+<p style="position:absolute;top:317px;left:340px;white-space:nowrap" class="ft03">LVT Performance Monitoring&#160;</p>
+<p style="position:absolute;top:334px;left:340px;white-space:nowrap" class="ft03">register</p>
+<p style="position:absolute;top:317px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:317px;left:629px;white-space:nowrap" class="ft03">See<a href="o_fe12b1e2a880e0ce-375.html">&#160;Figure&#160;10-8&#160;fo</a>r&#160;reserved&#160;bits.</p>
+<p style="position:absolute;top:358px;left:75px;white-space:nowrap" class="ft03">835H</p>
+<p style="position:absolute;top:358px;left:214px;white-space:nowrap" class="ft03">350H</p>
+<p style="position:absolute;top:358px;left:340px;white-space:nowrap" class="ft03">LVT&#160;LINT0 register</p>
+<p style="position:absolute;top:358px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:358px;left:629px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-375.html">e Figure&#160;10-8 f</a>or&#160;reserved bits.</p>
+<p style="position:absolute;top:382px;left:75px;white-space:nowrap" class="ft03">836H</p>
+<p style="position:absolute;top:382px;left:214px;white-space:nowrap" class="ft03">360H</p>
+<p style="position:absolute;top:382px;left:340px;white-space:nowrap" class="ft03">LVT&#160;LINT1 register</p>
+<p style="position:absolute;top:382px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:382px;left:629px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-375.html">e Figure&#160;10-8 f</a>or&#160;reserved bits.</p>
+<p style="position:absolute;top:406px;left:75px;white-space:nowrap" class="ft03">837H</p>
+<p style="position:absolute;top:406px;left:214px;white-space:nowrap" class="ft03">370H</p>
+<p style="position:absolute;top:406px;left:340px;white-space:nowrap" class="ft03">LVT&#160;Error&#160;register</p>
+<p style="position:absolute;top:406px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:406px;left:629px;white-space:nowrap" class="ft03">See<a href="o_fe12b1e2a880e0ce-375.html">&#160;Figure&#160;10-8&#160;fo</a>r&#160;reserved&#160;bits.</p>
+<p style="position:absolute;top:430px;left:75px;white-space:nowrap" class="ft03">838H</p>
+<p style="position:absolute;top:430px;left:214px;white-space:nowrap" class="ft03">380H</p>
+<p style="position:absolute;top:430px;left:340px;white-space:nowrap" class="ft03">Initial&#160;Count register (for&#160;</p>
+<p style="position:absolute;top:447px;left:340px;white-space:nowrap" class="ft03">Timer)</p>
+<p style="position:absolute;top:430px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:471px;left:75px;white-space:nowrap" class="ft03">839H</p>
+<p style="position:absolute;top:471px;left:214px;white-space:nowrap" class="ft03">390H</p>
+<p style="position:absolute;top:471px;left:340px;white-space:nowrap" class="ft03">Current&#160;Count register&#160;(for&#160;</p>
+<p style="position:absolute;top:487px;left:340px;white-space:nowrap" class="ft03">Timer)</p>
+<p style="position:absolute;top:471px;left:526px;white-space:nowrap" class="ft03">Read-only</p>
+<p style="position:absolute;top:511px;left:75px;white-space:nowrap" class="ft03">83EH</p>
+<p style="position:absolute;top:511px;left:214px;white-space:nowrap" class="ft03">3E0H</p>
+<p style="position:absolute;top:511px;left:340px;white-space:nowrap" class="ft03">Divide&#160;Configuration&#160;Register&#160;</p>
+<p style="position:absolute;top:528px;left:340px;white-space:nowrap" class="ft03">(DCR; for Timer)</p>
+<p style="position:absolute;top:511px;left:526px;white-space:nowrap" class="ft03">Read/write</p>
+<p style="position:absolute;top:511px;left:629px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-378.html">e Figure&#160;10-10 f</a>or reserved&#160;bits.</p>
+<p style="position:absolute;top:552px;left:75px;white-space:nowrap" class="ft03">83FH</p>
+<p style="position:absolute;top:552px;left:214px;white-space:nowrap" class="ft03">Not&#160;available</p>
+<p style="position:absolute;top:552px;left:340px;white-space:nowrap" class="ft03">SELF IPI</p>
+<p style="position:absolute;top:549px;left:385px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:552px;left:526px;white-space:nowrap" class="ft03">Write-only</p>
+<p style="position:absolute;top:552px;left:629px;white-space:nowrap" class="ft03">Available only in&#160;x2APIC&#160;mode.</p>
+<p style="position:absolute;top:578px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:597px;left:69px;white-space:nowrap" class="ft09">1.&#160;WRMSR causes&#160;#GP(0)&#160;for read-only registers.<br/>2.&#160;WRMSR causes #GP(0) for attempts to&#160;set a reserved bit to&#160;1&#160;in&#160;a read/write&#160;register&#160;(including&#160;bits&#160;63:32&#160;of&#160;each&#160;register).<br/>3. RDMSR causes #GP(0)&#160;for write-only registers.<br/>4.&#160;MSR 831H&#160;is reserved;&#160;read/write&#160;operations&#160;cause general-protection&#160;exceptions.&#160;The contents of&#160;the APIC register&#160;at&#160;MMIO&#160;offset&#160;</p>
+<p style="position:absolute;top:672px;left:83px;white-space:nowrap" class="ft03">310H are&#160;accessible in&#160;x2APIC&#160;mode&#160;through the&#160;MSR at&#160;address 830H.</p>
+<p style="position:absolute;top:692px;left:69px;white-space:nowrap" class="ft03">5.&#160;SELF IPI register is supported&#160;only&#160;in x2APIC mode.</p>
+<p style="position:absolute;top:100px;left:202px;white-space:nowrap" class="ft05">Table 10-6. Local APIC Register&#160;Address&#160;Map Supported&#160;by&#160;x2APIC&#160;(Contd.)</p>
+<p style="position:absolute;top:124px;left:75px;white-space:nowrap" class="ft03">MSR&#160;Address&#160;</p>
+<p style="position:absolute;top:141px;left:75px;white-space:nowrap" class="ft03">(x2APIC&#160;mode)</p>
+<p style="position:absolute;top:124px;left:214px;white-space:nowrap" class="ft03">MMIO Offset&#160;</p>
+<p style="position:absolute;top:141px;left:214px;white-space:nowrap" class="ft03">(xAPIC mode)</p>
+<p style="position:absolute;top:132px;left:340px;white-space:nowrap" class="ft03">Register&#160;Name</p>
+<p style="position:absolute;top:124px;left:526px;white-space:nowrap" class="ft03">MSR R/W&#160;</p>
+<p style="position:absolute;top:141px;left:526px;white-space:nowrap" class="ft03">Semantics</p>
+<p style="position:absolute;top:132px;left:629px;white-space:nowrap" class="ft03">Comments</p>
+</div>
+</body>
+</html>

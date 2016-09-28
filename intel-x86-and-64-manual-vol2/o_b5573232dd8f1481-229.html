@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 229</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page229-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481229.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">BNDMOV—Move&#160;Bounds</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-101</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">BNDMOV&#160;from&#160;memory<br/>IF&#160;64-bit mode&#160;THEN</p>
+<p style="position:absolute;top:136px;left:116px;white-space:nowrap" class="ft04">DEST.LB&#160;&#160;LOAD_QWORD(SRC);&#160;<br/>DEST.UB&#160;&#160;LOAD_QWORD(SRC+8);&#160;</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:190px;left:116px;white-space:nowrap" class="ft04">DEST.LB&#160;&#160;LOAD_DWORD_ZERO_EXT(SRC);&#160;<br/>DEST.UB&#160;&#160;LOAD_DWORD_ZERO_EXT(SRC+4);&#160;</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft04">BNDMOV&#160;to memory<br/>IF&#160;64-bit mode&#160;THEN</p>
+<p style="position:absolute;top:298px;left:116px;white-space:nowrap" class="ft04">DEST[63:0]&#160;&#160;SRC.LB;&#160;<br/>DEST[127:64]&#160;&#160;SRC.UB;&#160;</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:352px;left:116px;white-space:nowrap" class="ft04">DEST[31:0]&#160;&#160;SRC.LB;&#160;<br/>DEST[63:32]&#160;&#160;SRC.UB;&#160;</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:422px;left:69px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:445px;left:69px;white-space:nowrap" class="ft02">BNDMOV&#160;</p>
+<p style="position:absolute;top:445px;left:163px;white-space:nowrap" class="ft02">void&#160;* _bnd_copy_ptr_bounds(const void&#160;*q, const void&#160;*r)</p>
+<p style="position:absolute;top:479px;left:69px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:502px;left:69px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:536px;left:69px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:559px;left:69px;white-space:nowrap" class="ft02">#UD</p>
+<p style="position:absolute;top:559px;left:207px;white-space:nowrap" class="ft05">If the&#160;LOCK prefix&#160;is used&#160;but&#160;the destination&#160;is not&#160;a memory&#160;operand.<br/>If ModRM.r/m&#160;encodes&#160;BND4-BND7&#160;when Intel MPX&#160;is enabled.<br/>If&#160;67H prefix&#160;is not used and&#160;CS.D=0.<br/>If&#160;67H prefix&#160;is used and&#160;CS.D=1.</p>
+<p style="position:absolute;top:643px;left:69px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:643px;left:207px;white-space:nowrap" class="ft02">If the&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:664px;left:69px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:664px;left:207px;white-space:nowrap" class="ft05">If the&#160;memory&#160;operand&#160;effective&#160;address&#160;is&#160;outside&#160;the&#160;CS,&#160;DS,&#160;ES,&#160;FS,&#160;or GS&#160;segment limit.<br/>If&#160;the destination operand&#160;points to&#160;a non-writable&#160;segment<br/>If&#160;the&#160;DS,&#160;ES,&#160;FS,&#160;or GS&#160;segment register&#160;contains&#160;a NULL segment selector.</p>
+<p style="position:absolute;top:727px;left:69px;white-space:nowrap" class="ft02">#AC(0)</p>
+<p style="position:absolute;top:727px;left:207px;white-space:nowrap" class="ft02">If alignment&#160;checking is&#160;enabled and an unaligned memory reference&#160;is&#160;made&#160;while&#160;CPL is&#160;3.</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft02">#PF(fault&#160;code)</p>
+<p style="position:absolute;top:748px;left:207px;white-space:nowrap" class="ft02">If a&#160;page&#160;fault occurs.</p>
+<p style="position:absolute;top:782px;left:69px;white-space:nowrap" class="ft03">Real-Address Mode&#160;Exceptions</p>
+<p style="position:absolute;top:805px;left:69px;white-space:nowrap" class="ft02">#UD</p>
+<p style="position:absolute;top:805px;left:207px;white-space:nowrap" class="ft05">If the&#160;LOCK prefix&#160;is used&#160;but&#160;the destination&#160;is not&#160;a memory&#160;operand.<br/>If ModRM.r/m&#160;encodes&#160;BND4-BND7&#160;when Intel MPX&#160;is enabled.<br/>If 16-bit&#160;addressing&#160;is&#160;used.</p>
+<p style="position:absolute;top:868px;left:69px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:868px;left:207px;white-space:nowrap" class="ft02">If the&#160;memory&#160;operand&#160;effective&#160;address&#160;is&#160;outside&#160;the&#160;CS,&#160;DS,&#160;ES,&#160;FS,&#160;or GS&#160;segment limit.</p>
+<p style="position:absolute;top:889px;left:69px;white-space:nowrap" class="ft02">#SS</p>
+<p style="position:absolute;top:889px;left:207px;white-space:nowrap" class="ft02">If the&#160;memory&#160;operand effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+</div>
+</body>
+</html>

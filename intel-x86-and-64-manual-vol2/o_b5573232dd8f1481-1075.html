@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1075</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1075-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811075.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">POPF/POPFD/POPFQ—Pop Stack into EFLAGS Register</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-395</p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:843px;left:69px;white-space:nowrap" class="ft03">IF&#160;VM&#160;=&#160;0 (* Not in&#160;Virtual-8086&#160;Mode *)</p>
+<p style="position:absolute;top:861px;left:89px;white-space:nowrap" class="ft03">THEN&#160;IF CPL&#160;</p>
+<p style="position:absolute;top:861px;left:163px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:861px;left:175px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:879px;left:116px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:897px;left:143px;white-space:nowrap" class="ft03">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:897px;left:232px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:897px;left:240px;white-space:nowrap" class="ft03">&#160;32;</p>
+<p style="position:absolute;top:915px;left:170px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:933px;left:197px;white-space:nowrap" class="ft03">EFLAGS&#160;←&#160;Pop(); (* 32-bit&#160;pop *)</p>
+<p style="position:absolute;top:951px;left:197px;white-space:nowrap" class="ft03">(* All non-reserved&#160;flags except RF,&#160;VIP,&#160;VIF,&#160;and&#160;VM&#160;can&#160;be&#160;modified;&#160;</p>
+<p style="position:absolute;top:968px;left:197px;white-space:nowrap" class="ft03">VIP,&#160;VIF, VM, and all reserved bits are&#160;unaffected.&#160;RF is cleared. *)</p>
+<p style="position:absolute;top:986px;left:170px;white-space:nowrap" class="ft03">ELSE IF&#160;(Operandsize = 64)</p>
+<p style="position:absolute;top:1004px;left:197px;white-space:nowrap" class="ft06">RFLAGS =&#160;Pop();&#160;(* 64-bit pop *)<br/>(* All non-reserved&#160;flags except RF,&#160;VIP,&#160;VIF,&#160;and&#160;VM&#160;can&#160;be&#160;modified;&#160;<br/>VIP,&#160;VIF, VM, and all reserved bits are&#160;unaffected.&#160;RF is cleared. *)</p>
+<p style="position:absolute;top:1058px;left:170px;white-space:nowrap" class="ft03">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:1057px;left:290px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:1058px;left:298px;white-space:nowrap" class="ft03">&#160;16 *)</p>
+<p style="position:absolute;top:100px;left:256px;white-space:nowrap" class="ft02">Table 4-15. &#160;Effect&#160;of&#160;POPF/POPFD on&#160;the EFLAGS&#160;Register&#160;</p>
+<p style="position:absolute;top:140px;left:98px;white-space:nowrap" class="ft00">Mode</p>
+<p style="position:absolute;top:140px;left:164px;white-space:nowrap" class="ft00">Operand&#160;</p>
+<p style="position:absolute;top:155px;left:175px;white-space:nowrap" class="ft00">Size</p>
+<p style="position:absolute;top:140px;left:223px;white-space:nowrap" class="ft00">CPL&#160;IOPL</p>
+<p style="position:absolute;top:125px;left:528px;white-space:nowrap" class="ft00">Flags</p>
+<p style="position:absolute;top:140px;left:801px;white-space:nowrap" class="ft00">Notes</p>
+<p style="position:absolute;top:147px;left:297px;white-space:nowrap" class="ft00">21</p>
+<p style="position:absolute;top:147px;left:327px;white-space:nowrap" class="ft00">20</p>
+<p style="position:absolute;top:147px;left:358px;white-space:nowrap" class="ft00">19</p>
+<p style="position:absolute;top:147px;left:388px;white-space:nowrap" class="ft00">18&#160;17&#160;16&#160;14&#160;13:12&#160;11&#160;10</p>
+<p style="position:absolute;top:147px;left:612px;white-space:nowrap" class="ft00">9</p>
+<p style="position:absolute;top:147px;left:639px;white-space:nowrap" class="ft00">8</p>
+<p style="position:absolute;top:147px;left:666px;white-space:nowrap" class="ft00">7</p>
+<p style="position:absolute;top:147px;left:692px;white-space:nowrap" class="ft00">6</p>
+<p style="position:absolute;top:147px;left:719px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:147px;left:748px;white-space:nowrap" class="ft00">2</p>
+<p style="position:absolute;top:147px;left:777px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:170px;left:299px;white-space:nowrap" class="ft00">ID</p>
+<p style="position:absolute;top:170px;left:326px;white-space:nowrap" class="ft00">VIP&#160;VIF&#160;AC&#160;VM&#160;RF&#160;NT</p>
+<p style="position:absolute;top:170px;left:507px;white-space:nowrap" class="ft00">IOPL</p>
+<p style="position:absolute;top:170px;left:550px;white-space:nowrap" class="ft00">OF</p>
+<p style="position:absolute;top:170px;left:580px;white-space:nowrap" class="ft00">DF</p>
+<p style="position:absolute;top:170px;left:611px;white-space:nowrap" class="ft00">IF</p>
+<p style="position:absolute;top:170px;left:636px;white-space:nowrap" class="ft00">TF&#160;SF&#160;ZF&#160;AF&#160;PF</p>
+<p style="position:absolute;top:170px;left:774px;white-space:nowrap" class="ft00">CF</p>
+<p style="position:absolute;top:192px;left:77px;white-space:nowrap" class="ft00">Real-Address&#160;</p>
+<p style="position:absolute;top:207px;left:76px;white-space:nowrap" class="ft00">Mode&#160;(CR0.PE&#160;</p>
+<p style="position:absolute;top:222px;left:102px;white-space:nowrap" class="ft00">= 0)</p>
+<p style="position:absolute;top:192px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:192px;left:230px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:192px;left:261px;white-space:nowrap" class="ft00">0-3</p>
+<p style="position:absolute;top:192px;left:301px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:192px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:192px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:192px;left:392px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:192px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:192px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:192px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:517px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:192px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:179px;white-space:nowrap" class="ft00">32</p>
+<p style="position:absolute;top:215px;left:230px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:215px;left:261px;white-space:nowrap" class="ft00">0-3</p>
+<p style="position:absolute;top:215px;left:301px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:215px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:215px;left:392px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:215px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:215px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:517px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:215px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:85px;white-space:nowrap" class="ft00">Protected,&#160;</p>
+<p style="position:absolute;top:260px;left:76px;white-space:nowrap" class="ft00">Compatibility,&#160;</p>
+<p style="position:absolute;top:275px;left:85px;white-space:nowrap" class="ft00">and 64-Bit&#160;</p>
+<p style="position:absolute;top:290px;left:95px;white-space:nowrap" class="ft00">Modes</p>
+<p style="position:absolute;top:320px;left:80px;white-space:nowrap" class="ft00">(CR0.PE =&#160;1,&#160;</p>
+<p style="position:absolute;top:335px;left:77px;white-space:nowrap" class="ft00">EFLAGS.VM =&#160;</p>
+<p style="position:absolute;top:350px;left:107px;white-space:nowrap" class="ft00">0)</p>
+<p style="position:absolute;top:245px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:245px;left:230px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:245px;left:261px;white-space:nowrap" class="ft00">0-3</p>
+<p style="position:absolute;top:245px;left:301px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:245px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:245px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:245px;left:392px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:245px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:245px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:245px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:517px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:245px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:267px;left:224px;white-space:nowrap" class="ft00">1-3</p>
+<p style="position:absolute;top:267px;left:257px;white-space:nowrap" class="ft00">&lt;CPL</p>
+<p style="position:absolute;top:267px;left:301px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:267px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:267px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:267px;left:392px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:267px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:267px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:267px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:267px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:612px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:267px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:267px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:290px;left:224px;white-space:nowrap" class="ft00">1-3</p>
+<p style="position:absolute;top:290px;left:257px;white-space:nowrap" class="ft00">≥CPL</p>
+<p style="position:absolute;top:290px;left:301px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:290px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:290px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:290px;left:392px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:290px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:290px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:290px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:290px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:290px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:170px;white-space:nowrap" class="ft00">32,&#160;64</p>
+<p style="position:absolute;top:312px;left:230px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:312px;left:261px;white-space:nowrap" class="ft00">0-3</p>
+<p style="position:absolute;top:312px;left:301px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:312px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:312px;left:392px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:312px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:312px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:517px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:312px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:170px;white-space:nowrap" class="ft00">32,&#160;64</p>
+<p style="position:absolute;top:335px;left:224px;white-space:nowrap" class="ft00">1-3</p>
+<p style="position:absolute;top:335px;left:257px;white-space:nowrap" class="ft00">&lt;CPL</p>
+<p style="position:absolute;top:335px;left:301px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:335px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:335px;left:392px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:335px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:335px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:335px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:612px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:335px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:335px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:170px;white-space:nowrap" class="ft00">32,&#160;64</p>
+<p style="position:absolute;top:357px;left:224px;white-space:nowrap" class="ft00">1-3</p>
+<p style="position:absolute;top:357px;left:257px;white-space:nowrap" class="ft00">≥CPL</p>
+<p style="position:absolute;top:357px;left:301px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:357px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:357px;left:392px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:357px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:357px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:357px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:357px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:380px;left:78px;white-space:nowrap" class="ft00">Virtual-8086</p>
+<p style="position:absolute;top:395px;left:80px;white-space:nowrap" class="ft00">(CR0.PE =&#160;1,</p>
+<p style="position:absolute;top:410px;left:77px;white-space:nowrap" class="ft00">EFLAGS.VM =&#160;</p>
+<p style="position:absolute;top:425px;left:108px;white-space:nowrap" class="ft00">1,</p>
+<p style="position:absolute;top:440px;left:77px;white-space:nowrap" class="ft00">CR4.VME =&#160;0)</p>
+<p style="position:absolute;top:380px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:380px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:380px;left:261px;white-space:nowrap" class="ft00">0-2</p>
+<p style="position:absolute;top:380px;left:301px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:331px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:362px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:392px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:421px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:450px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:479px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:516px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:554px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:583px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:612px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:639px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:666px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:692px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:719px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:748px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:380px;left:777px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:377px;left:814px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:402px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:402px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:402px;left:267px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:402px;left:301px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:402px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:402px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:402px;left:392px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:402px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:402px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:402px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:402px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:402px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:425px;left:179px;white-space:nowrap" class="ft00">32</p>
+<p style="position:absolute;top:425px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:425px;left:261px;white-space:nowrap" class="ft00">0-2</p>
+<p style="position:absolute;top:425px;left:301px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:331px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:362px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:392px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:421px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:450px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:479px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:516px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:554px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:583px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:612px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:639px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:666px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:692px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:719px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:748px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:425px;left:777px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:422px;left:814px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:447px;left:179px;white-space:nowrap" class="ft00">32</p>
+<p style="position:absolute;top:447px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:447px;left:267px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:447px;left:301px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:447px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:447px;left:392px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:447px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:447px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:447px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:447px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:470px;left:101px;white-space:nowrap" class="ft00">VME</p>
+<p style="position:absolute;top:485px;left:80px;white-space:nowrap" class="ft00">(CR0.PE =&#160;1,</p>
+<p style="position:absolute;top:500px;left:77px;white-space:nowrap" class="ft00">EFLAGS.VM =&#160;</p>
+<p style="position:absolute;top:515px;left:108px;white-space:nowrap" class="ft00">1,</p>
+<p style="position:absolute;top:530px;left:77px;white-space:nowrap" class="ft00">CR4.VME =&#160;1)</p>
+<p style="position:absolute;top:470px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:470px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:470px;left:261px;white-space:nowrap" class="ft00">0-2</p>
+<p style="position:absolute;top:470px;left:299px;white-space:nowrap" class="ft00">N/</p>
+<p style="position:absolute;top:485px;left:301px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:329px;white-space:nowrap" class="ft00">N/</p>
+<p style="position:absolute;top:485px;left:331px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:357px;white-space:nowrap" class="ft00">SV/</p>
+<p style="position:absolute;top:485px;left:362px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:390px;white-space:nowrap" class="ft00">N/</p>
+<p style="position:absolute;top:485px;left:392px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:419px;white-space:nowrap" class="ft00">N/</p>
+<p style="position:absolute;top:485px;left:421px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:448px;white-space:nowrap" class="ft00">0/</p>
+<p style="position:absolute;top:485px;left:450px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:477px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:479px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:510px;white-space:nowrap" class="ft00">N/X</p>
+<p style="position:absolute;top:470px;left:552px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:554px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:582px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:583px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:610px;white-space:nowrap" class="ft00">N/</p>
+<p style="position:absolute;top:485px;left:612px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:638px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:639px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:665px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:666px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:691px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:692px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:718px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:719px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:747px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:748px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:470px;left:776px;white-space:nowrap" class="ft00">S/</p>
+<p style="position:absolute;top:485px;left:777px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:467px;left:814px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:507px;left:179px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:507px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:507px;left:267px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:507px;left:301px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:507px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:507px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:507px;left:392px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:507px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:507px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:507px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:507px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:507px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:530px;left:179px;white-space:nowrap" class="ft00">32</p>
+<p style="position:absolute;top:530px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:530px;left:261px;white-space:nowrap" class="ft00">0-2</p>
+<p style="position:absolute;top:530px;left:301px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:331px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:362px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:392px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:421px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:450px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:479px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:516px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:554px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:583px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:612px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:639px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:666px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:692px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:719px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:748px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:530px;left:777px;white-space:nowrap" class="ft00">X</p>
+<p style="position:absolute;top:527px;left:814px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:552px;left:179px;white-space:nowrap" class="ft00">32</p>
+<p style="position:absolute;top:552px;left:230px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:552px;left:267px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:552px;left:301px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:331px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:552px;left:362px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:552px;left:392px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:421px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:552px;left:450px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:552px;left:479px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:516px;white-space:nowrap" class="ft00">N</p>
+<p style="position:absolute;top:552px;left:554px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:584px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:612px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:640px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:667px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:693px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:720px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:749px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:552px;left:778px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:577px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:596px;left:69px;white-space:nowrap" class="ft07">1.&#160;#GP fault - no&#160;flag&#160;update<br/>2.&#160;#GP fault with no flag&#160;update if VIP=1 in EFLAGS register&#160;and IF=1 in FLAGS value on stack</p>
+<p style="position:absolute;top:660px;left:266px;white-space:nowrap" class="ft03">Key</p>
+<p style="position:absolute;top:684px;left:109px;white-space:nowrap" class="ft03">S</p>
+<p style="position:absolute;top:684px;left:163px;white-space:nowrap" class="ft03">Updated&#160;from stack</p>
+<p style="position:absolute;top:708px;left:105px;white-space:nowrap" class="ft03">SV</p>
+<p style="position:absolute;top:708px;left:163px;white-space:nowrap" class="ft03">Updated from IF (bit&#160;9) in FLAGS value on stack</p>
+<p style="position:absolute;top:732px;left:108px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:732px;left:163px;white-space:nowrap" class="ft03">No change in value</p>
+<p style="position:absolute;top:756px;left:109px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:756px;left:163px;white-space:nowrap" class="ft03">No EFLAGS update</p>
+<p style="position:absolute;top:780px;left:109px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:780px;left:163px;white-space:nowrap" class="ft03">Value&#160;is&#160;cleared</p>
+</div>
+</body>
+</html>

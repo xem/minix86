@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 579</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page579-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481579.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">INS/INSB/INSW/INSD—Input&#160;from Port to&#160;String</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-451</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">The INS,&#160;INSB, INSW, and INSD&#160;instructions can be preceded&#160;by&#160;the&#160;REP prefix for block&#160;input&#160;of ECX bytes, words,&#160;<br/>or&#160;doublewords.&#160;See&#160;“REP/REPE/REPZ&#160;/REPNE/REPNZ—Repeat String&#160;Operation&#160;Prefix”&#160;in<a href="��">&#160;Chapter&#160;4 o</a>f&#160;the<a href="��">&#160;<i>Intel®&#160;<br/>64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume&#160;2B</i></a>, for a&#160;description&#160;of the&#160;REP prefix.<br/>These&#160;instructions are&#160;only&#160;useful for accessing I/O ports&#160;located in the processor’s I/O address&#160;space. Se<a href="��">e Chapter&#160;<br/>18, “Input/Output,” in&#160;</a>th<a href="��">e&#160;<i>Intel®&#160;64&#160;and IA-32&#160;Architectures&#160;Software&#160;Developer’s Manual,&#160;Volume&#160;1</i></a>, for more&#160;<br/>information&#160;on accessing I/O&#160;ports in&#160;the I/O&#160;address space.<br/>In 64-bit mode,&#160;default address&#160;size is&#160;64&#160;bits,&#160;32&#160;bit&#160;address size&#160;is supported&#160;using the&#160;prefix 67H. The&#160;address&#160;<br/>of&#160;the memory destination is&#160;specified by RDI or&#160;EDI. 16-bit address&#160;size is&#160;not supported&#160;in 64-bit mode.&#160;The&#160;<br/>operand size&#160;is not&#160;promoted.</p>
+<p style="position:absolute;top:281px;left:69px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:312px;left:69px;white-space:nowrap" class="ft02">IF&#160;((PE&#160;</p>
+<p style="position:absolute;top:310px;left:108px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:312px;left:117px;white-space:nowrap" class="ft02">&#160;1) and&#160;((CPL&#160;&gt;&#160;IOPL) or (VM</p>
+<p style="position:absolute;top:311px;left:274px;white-space:nowrap" class="ft05">&#160;</p>
+<p style="position:absolute;top:310px;left:279px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:312px;left:288px;white-space:nowrap" class="ft02">&#160;1)))</p>
+<p style="position:absolute;top:330px;left:89px;white-space:nowrap" class="ft02">THEN&#160;(* Protected mode&#160;with&#160;CPL&#160;&gt;&#160;IOPL or virtual-8086 mode&#160;*)</p>
+<p style="position:absolute;top:348px;left:116px;white-space:nowrap" class="ft02">IF (Any I/O Permission&#160;Bit&#160;for I/O&#160;port being accessed&#160;</p>
+<p style="position:absolute;top:346px;left:421px;white-space:nowrap" class="ft05">=&#160;</p>
+<p style="position:absolute;top:348px;left:435px;white-space:nowrap" class="ft02">1)</p>
+<p style="position:absolute;top:366px;left:143px;white-space:nowrap" class="ft02">THEN&#160;(* I/O operation&#160;is&#160;not allowed *)</p>
+<p style="position:absolute;top:384px;left:170px;white-space:nowrap" class="ft02">#GP(0);</p>
+<p style="position:absolute;top:402px;left:143px;white-space:nowrap" class="ft02">ELSE (* I/O&#160;operation is&#160;allowed *)&#160;</p>
+<p style="position:absolute;top:420px;left:170px;white-space:nowrap" class="ft02">DEST&#160;←&#160;SRC; (* Read from I/O port *)</p>
+<p style="position:absolute;top:438px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:456px;left:89px;white-space:nowrap" class="ft02">ELSE (Real Mode&#160;or Protected Mode&#160;with&#160;CPL&#160;IOPL&#160;*)</p>
+<p style="position:absolute;top:474px;left:116px;white-space:nowrap" class="ft02">DEST&#160;←&#160;SRC; (* Read from I/O port *)</p>
+<p style="position:absolute;top:492px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:521px;left:69px;white-space:nowrap" class="ft02">Non-64-bit Mode:</p>
+<p style="position:absolute;top:552px;left:69px;white-space:nowrap" class="ft02">IF&#160;(Byte transfer)</p>
+<p style="position:absolute;top:570px;left:89px;white-space:nowrap" class="ft02">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:568px;left:157px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:570px;left:166px;white-space:nowrap" class="ft02">&#160;0</p>
+<p style="position:absolute;top:588px;left:116px;white-space:nowrap" class="ft02">THEN (E)DI&#160;←&#160;(E)DI&#160;+&#160;1;&#160;</p>
+<p style="position:absolute;top:606px;left:116px;white-space:nowrap" class="ft02">ELSE (E)DI&#160;←&#160;(E)DI – 1; FI;</p>
+<p style="position:absolute;top:624px;left:89px;white-space:nowrap" class="ft02">ELSE IF&#160;(Word&#160;transfer)</p>
+<p style="position:absolute;top:642px;left:116px;white-space:nowrap" class="ft02">THEN&#160;IF DF</p>
+<p style="position:absolute;top:638px;left:181px;white-space:nowrap" class="ft05">&#160;=&#160;</p>
+<p style="position:absolute;top:642px;left:198px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:660px;left:143px;white-space:nowrap" class="ft02">THEN (E)DI&#160;←&#160;(E)DI&#160;+&#160;2;&#160;</p>
+<p style="position:absolute;top:678px;left:143px;white-space:nowrap" class="ft02">ELSE (E)DI&#160;←&#160;(E)DI – 2; FI;</p>
+<p style="position:absolute;top:696px;left:116px;white-space:nowrap" class="ft02">ELSE (* Doubleword&#160;transfer&#160;*)</p>
+<p style="position:absolute;top:714px;left:143px;white-space:nowrap" class="ft02">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:712px;left:211px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:714px;left:220px;white-space:nowrap" class="ft02">&#160;0</p>
+<p style="position:absolute;top:732px;left:170px;white-space:nowrap" class="ft02">THEN (E)DI&#160;←&#160;(E)DI&#160;+&#160;4;&#160;</p>
+<p style="position:absolute;top:750px;left:170px;white-space:nowrap" class="ft02">ELSE (E)DI&#160;←&#160;(E)DI –&#160;4;&#160;FI;</p>
+<p style="position:absolute;top:768px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:786px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:816px;left:69px;white-space:nowrap" class="ft02">FI64-bit Mode:</p>
+<p style="position:absolute;top:845px;left:69px;white-space:nowrap" class="ft02">IF&#160;(Byte transfer)</p>
+<p style="position:absolute;top:863px;left:89px;white-space:nowrap" class="ft02">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:862px;left:157px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:864px;left:166px;white-space:nowrap" class="ft02">&#160;0</p>
+<p style="position:absolute;top:882px;left:116px;white-space:nowrap" class="ft02">THEN (E|R)DI&#160;←&#160;(E|R)DI&#160;+&#160;1;&#160;</p>
+<p style="position:absolute;top:899px;left:116px;white-space:nowrap" class="ft02">ELSE (E|R)DI&#160;←&#160;(E|R)DI – 1;&#160;FI;</p>
+<p style="position:absolute;top:917px;left:89px;white-space:nowrap" class="ft02">ELSE IF&#160;(Word&#160;transfer)</p>
+<p style="position:absolute;top:935px;left:116px;white-space:nowrap" class="ft02">THEN&#160;IF DF</p>
+<p style="position:absolute;top:932px;left:181px;white-space:nowrap" class="ft05">&#160;=&#160;</p>
+<p style="position:absolute;top:936px;left:198px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:954px;left:143px;white-space:nowrap" class="ft02">THEN (E)DI&#160;←&#160;(E)DI&#160;+&#160;2;&#160;</p>
+<p style="position:absolute;top:971px;left:143px;white-space:nowrap" class="ft02">ELSE (E)DI&#160;←&#160;(E)DI – 2; FI;</p>
+<p style="position:absolute;top:989px;left:116px;white-space:nowrap" class="ft02">ELSE (* Doubleword&#160;transfer&#160;*)</p>
+<p style="position:absolute;top:1007px;left:143px;white-space:nowrap" class="ft02">THEN&#160;IF DF&#160;</p>
+<p style="position:absolute;top:1006px;left:211px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:1008px;left:220px;white-space:nowrap" class="ft02">&#160;0</p>
+<p style="position:absolute;top:1025px;left:170px;white-space:nowrap" class="ft02">THEN (E|R)DI&#160;←&#160;(E|R)DI&#160;+&#160;4;&#160;</p>
+<p style="position:absolute;top:1043px;left:170px;white-space:nowrap" class="ft02">ELSE (E|R)DI&#160;←&#160;(E|R)DI – 4; FI;</p>
+<p style="position:absolute;top:1061px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+</div>
+</body>
+</html>

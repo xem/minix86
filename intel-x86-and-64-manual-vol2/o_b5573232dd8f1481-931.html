@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 931</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page931-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481931.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PCMPEQQ — Compare Packed Qword Data&#160;for Equal</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-251</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:132px;left:69px;white-space:nowrap" class="ft04">PCMPEQQ (with 128-bit operands)<br/>IF&#160;(DEST[63:0] = SRC[63:0])&#160;</p>
+<p style="position:absolute;top:173px;left:89px;white-space:nowrap" class="ft05">THEN DEST[63:0]&#160;&#160;FFFFFFFFFFFFFFFFH;<br/>ELSE DEST[63:0]&#160;&#160;0;&#160;FI;</p>
+<p style="position:absolute;top:209px;left:69px;white-space:nowrap" class="ft03">IF&#160;(DEST[127:64] = SRC[127:64])&#160;</p>
+<p style="position:absolute;top:227px;left:89px;white-space:nowrap" class="ft05">THEN DEST[127:64]&#160;&#160;FFFFFFFFFFFFFFFFH;<br/>ELSE DEST[127:64]&#160;&#160;0; FI;</p>
+<p style="position:absolute;top:263px;left:69px;white-space:nowrap" class="ft03">DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:299px;left:69px;white-space:nowrap" class="ft03">COMPARE_QWORDS_EQUAL (SRC1,&#160;SRC2)</p>
+<p style="position:absolute;top:317px;left:89px;white-space:nowrap" class="ft05">IF&#160;SRC1[63:0] = SRC2[63:0]<br/>THEN DEST[63:0]&#160;FFFFFFFFFFFFFFFFH;<br/>ELSE DEST[63:0]&#160;0;&#160;FI;<br/>IF SRC1[127:64]&#160;= SRC2[127:64]<br/>THEN DEST[127:64]&#160;FFFFFFFFFFFFFFFFH;<br/>ELSE DEST[127:64]&#160;0; FI;</p>
+<p style="position:absolute;top:444px;left:69px;white-space:nowrap" class="ft05">VPCMPEQQ (VEX.128 encoded version)<br/>DEST[127:0]&#160;COMPARE_QWORDS_EQUAL(SRC1,SRC2)<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:516px;left:69px;white-space:nowrap" class="ft05">VPCMPEQQ (VEX.256 encoded version)<br/>DEST[127:0]&#160;COMPARE_QWORDS_EQUAL(SRC1[127:0],SRC2[127:0])<br/>DEST[255:128]&#160;COMPARE_QWORDS_EQUAL(SRC1[255:128],SRC2[255:128])<br/>DEST[VLMAX-1:256]&#160;&#160;0</p>
+<p style="position:absolute;top:606px;left:69px;white-space:nowrap" class="ft05">VPCMPEQQ (EVEX&#160;encoded&#160;versions)<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:660px;left:89px;white-space:nowrap" class="ft05">i&#160;&#160;j * 64<br/>IF k2[j] OR *no writemask*</p>
+<p style="position:absolute;top:696px;left:116px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:714px;left:143px;white-space:nowrap" class="ft03">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:732px;left:170px;white-space:nowrap" class="ft05">THEN CMP&#160;&#160;SRC1[i+63:i]&#160;= SRC2[63:0];<br/>ELSE CMP&#160;&#160;SRC1[i+63:i]&#160;= SRC2[i+63:i];</p>
+<p style="position:absolute;top:768px;left:143px;white-space:nowrap" class="ft05">FI;<br/>IF CMP = TRUE</p>
+<p style="position:absolute;top:804px;left:170px;white-space:nowrap" class="ft05">THEN DEST[j]&#160;&#160;1;<br/>ELSE DEST[j]&#160;&#160;0; FI;</p>
+<p style="position:absolute;top:840px;left:116px;white-space:nowrap" class="ft03">ELSE DEST[j]&#160;</p>
+<p style="position:absolute;top:841px;left:215px;white-space:nowrap" class="ft03"></p>
+<p style="position:absolute;top:840px;left:228px;white-space:nowrap" class="ft03">&#160;0</p>
+<p style="position:absolute;top:840px;left:332px;white-space:nowrap" class="ft03">;&#160;zeroing-masking only</p>
+<p style="position:absolute;top:858px;left:89px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:876px;left:69px;white-space:nowrap" class="ft05">ENDFOR<br/>DEST[MAX_KL-1:KL]&#160;&#160;0</p>
+<p style="position:absolute;top:931px;left:69px;white-space:nowrap" class="ft02">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:951px;left:69px;white-space:nowrap" class="ft05">VPCMPEQQ&#160;__mmask8&#160;_mm512_cmpeq_epi64_mask( __m512i a, __m512i b);<br/>VPCMPEQQ&#160;__mmask8&#160;_mm512_mask_cmpeq_epi64_mask(__mmask8&#160;k, __m512i a, __m512i&#160;b);<br/>VPCMPEQQ&#160;__mmask8&#160;_mm256_cmpeq_epi64_mask( __m256i a, __m256i b);<br/>VPCMPEQQ&#160;__mmask8&#160;_mm256_mask_cmpeq_epi64_mask(__mmask8&#160;k, __m256i a, __m256i&#160;b);<br/>VPCMPEQQ&#160;__mmask8&#160;_mm_cmpeq_epi64_mask( __m128i a, __m128i b);<br/>VPCMPEQQ&#160;__mmask8&#160;_mm_mask_cmpeq_epi64_mask(__mmask8&#160;k, __m128i a, __m128i b);<br/>(V)PCMPEQQ:</p>
+<p style="position:absolute;top:1059px;left:170px;white-space:nowrap" class="ft03">__m128i&#160;_mm_cmpeq_epi64(__m128i a,&#160;__m128i&#160;b);</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1058</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1058-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1058.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">24-12&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VIRTUAL MACHINE CONTROL STRUCTURES</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">24.6.3 Exception&#160;</p>
+<p style="position:absolute;top:98px;left:232px;white-space:nowrap" class="ft02">Bitmap</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft08">The&#160;<b>exception bitmap</b>&#160;is a&#160;32-bit field that contains&#160;one&#160;bit&#160;for each&#160;exception.&#160;When an exception&#160;occurs,&#160;its&#160;<br/>vector&#160;is used&#160;to&#160;select&#160;a bit in this&#160;field. If the bit&#160;is&#160;1,&#160;the exception causes&#160;a VM&#160;exit.&#160;If the bit is 0,&#160;the&#160;exception&#160;<br/>is delivered&#160;normally through&#160;the&#160;IDT,&#160;using&#160;the&#160;descriptor corresponding to&#160;the exception’s&#160;vector.<br/>Whether a&#160;page&#160;fault (exception&#160;with vector 14) causes a&#160;VM&#160;exit is&#160;determined by bit 14&#160;in the&#160;exception bitmap&#160;<br/>as well as the&#160;error code produced&#160;by the&#160;page&#160;fault and two&#160;32-bit fields&#160;in&#160;the&#160;VMCS (the&#160;<b>page-fault error-code&#160;<br/>mask</b>&#160;and&#160;<b>page-fault error-code match)</b>.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-1079.html">Section&#160;25.2 for d</a>etails.</p>
+<p style="position:absolute;top:269px;left:68px;white-space:nowrap" class="ft02">24.6.4 I/O-Bitmap&#160;</p>
+<p style="position:absolute;top:269px;left:240px;white-space:nowrap" class="ft02">Addresses</p>
+<p style="position:absolute;top:300px;left:68px;white-space:nowrap" class="ft06">The VM-execution&#160;control fields include&#160;the&#160;64-bit physical&#160;addresses of&#160;<b>I/O bitmaps</b>&#160;A and B (each of which are&#160;<br/>4&#160;KBytes&#160;in size). I/O&#160;bitmap A contains one&#160;bit for each&#160;I/O&#160;port in the&#160;range&#160;0000H through 7FFFH;&#160;I/O&#160;bitmap&#160;B&#160;<br/>contains&#160;bits for&#160;ports in&#160;the range 8000H through&#160;FFFFH.<br/>A&#160;logical&#160;processor&#160;uses these&#160;bitmaps if and only&#160;if the&#160;“use&#160;I/O&#160;bitmaps” control is&#160;1. If&#160;the&#160;bitmaps are&#160;used,&#160;<br/>execution of an&#160;I/O instruction causes a VM&#160;exit if any bit in&#160;the&#160;I/O bitmaps corresponding to a port it accesses is&#160;<br/>1.&#160;S<a href="o_fe12b1e2a880e0ce-1076.html">ee&#160;Section&#160;25.1.3</a>&#160;for details.&#160;If the&#160;bitmaps&#160;are used,&#160;their addresses&#160;must&#160;be&#160;4-KByte aligned.</p>
+<p style="position:absolute;top:440px;left:68px;white-space:nowrap" class="ft02">24.6.5&#160;</p>
+<p style="position:absolute;top:440px;left:148px;white-space:nowrap" class="ft02">Time-Stamp Counter Offset&#160;and Multiplier</p>
+<p style="position:absolute;top:471px;left:68px;white-space:nowrap" class="ft09">The&#160;VM-execution control fields include&#160;a 64-bit&#160;<b>TSC-offset</b>&#160;field. If&#160;the “RDTSC&#160;exiting” control&#160;is 0&#160;and the&#160;“use&#160;<br/>TSC&#160;offsetting”&#160;control is&#160;1,&#160;this field controls executions&#160;of the&#160;RDTSC and RDTSCP instructions.&#160;It also&#160;controls&#160;<br/>executions of&#160;the&#160;RDMSR&#160;instruction that read from the&#160;IA32_TIME_STAMP_COUNTER&#160;MSR.&#160;For all&#160;of these,&#160;the&#160;<br/>value of&#160;the TSC offset is added to the value&#160;of the time-stamp counter, and the sum is&#160;returned to guest software&#160;<br/>in EDX:EAX.<br/>Processors that&#160;support&#160;the 1-setting of&#160;the “use&#160;TSC&#160;scaling” control&#160;also support&#160;a 64-bit&#160;<b>TSC-multiplier</b>&#160;field.&#160;<br/>If this control&#160;is 1&#160;(and&#160;the&#160;“RDTSC&#160;exiting” control is&#160;0&#160;and the&#160;“use TSC offsetting” control is&#160;1), this&#160;field also&#160;<br/>affects the&#160;executions of the&#160;RDTSC,&#160;RDTSCP,&#160;and&#160;RDMSR&#160;instructions&#160;identified above. Specifically,&#160;the contents&#160;<br/>of the time-stamp&#160;counter is&#160;first&#160;multiplied by&#160;the&#160;TSC&#160;multiplier before adding&#160;the TSC offset.<br/>See&#160;<a href="o_fe12b1e2a880e0ce-1119.html">Chapter 27&#160;</a>for&#160;a detailed treatment of&#160;the&#160;behavior&#160;of&#160;RDTSC, RDTSCP, and&#160;RDMSR&#160;in VMX non-root operation.</p>
+<p style="position:absolute;top:685px;left:68px;white-space:nowrap" class="ft02">24.6.6&#160;</p>
+<p style="position:absolute;top:685px;left:148px;white-space:nowrap" class="ft02">Guest/Host&#160;Masks and Read Shadows for CR0 and CR4</p>
+<p style="position:absolute;top:715px;left:68px;white-space:nowrap" class="ft07">VM-execution control fields include&#160;<b>guest/host masks</b>&#160;and&#160;<b>read shadows</b>&#160;for the CR0 and CR4 registers. These&#160;<br/>fields control&#160;executions of&#160;instructions that&#160;access&#160;those registers&#160;(including CLTS, LMSW, MOV CR,&#160;and&#160;SMSW).&#160;<br/>They&#160;are&#160;64&#160;bits&#160;on&#160;processors&#160;that&#160;support Intel 64 architecture&#160;and 32 bits on&#160;processors&#160;that&#160;do&#160;not.<br/>In&#160;general,&#160;bits&#160;set to&#160;1&#160;in&#160;a guest/host mask correspond to&#160;bits “owned” by the&#160;host:</p>
+<p style="position:absolute;top:794px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:795px;left:93px;white-space:nowrap" class="ft06">Guest attempts&#160;to set them&#160;(using CLTS,&#160;LMSW,&#160;or MOV&#160;to&#160;CR) to&#160;values differing from the corresponding&#160;bits&#160;<br/>in&#160;the&#160;corresponding read shadow&#160;cause&#160;VM&#160;exits.</p>
+<p style="position:absolute;top:833px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:834px;left:93px;white-space:nowrap" class="ft03">Guest reads&#160;(using MOV from&#160;CR&#160;or SMSW) return&#160;values&#160;for these bits from the&#160;corresponding&#160;read&#160;shadow.</p>
+<p style="position:absolute;top:858px;left:68px;white-space:nowrap" class="ft07">Bits&#160;cleared to 0 correspond to bits “owned” by the guest;&#160;guest attempts to&#160;modify them&#160;succeed and guest reads&#160;<br/>return values&#160;for&#160;these bits from the&#160;control&#160;register itself.<br/>Se<a href="o_fe12b1e2a880e0ce-1119.html">e Chapter&#160;27&#160;</a>for&#160;details regarding&#160;how these&#160;fields&#160;affect VMX non-root operation.</p>
+<p style="position:absolute;top:949px;left:68px;white-space:nowrap" class="ft02">24.6.7 CR3-Target&#160;</p>
+<p style="position:absolute;top:949px;left:243px;white-space:nowrap" class="ft02">Controls</p>
+<p style="position:absolute;top:979px;left:68px;white-space:nowrap" class="ft06">The&#160;VM-execution control fields include&#160;a set of 4&#160;<b>CR3-target values</b>&#160;and&#160;a&#160;<b>CR3-target&#160;count</b>. The&#160;CR3-target&#160;<br/>values each have&#160;64&#160;bits&#160;on processors&#160;that support Intel&#160;64&#160;architecture and 32 bits on processors that do not.&#160;The&#160;<br/>CR3-target&#160;count&#160;has 32&#160;bits on all&#160;processors.</p>
+</div>
+</body>
+</html>

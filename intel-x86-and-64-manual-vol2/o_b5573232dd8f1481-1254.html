@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1254</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1254-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811254.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:596px;white-space:nowrap" class="ft00">RSM—Resume from System Management Mode</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-574&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">RSM—Resume from System Management Mode</p>
+<p style="position:absolute;top:217px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:304px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:330px;left:68px;white-space:nowrap" class="ft07">Returns program control&#160;from system&#160;management mode&#160;(SMM)&#160;to the&#160;application program or operating-system&#160;<br/>procedure&#160;that&#160;was interrupted&#160;when the&#160;processor&#160;received an&#160;SMM interrupt. The processor’s&#160;state&#160;is restored&#160;<br/>from&#160;the dump created upon entering&#160;SMM. If the processor detects invalid&#160;state information during state restora-<br/>tion, it&#160;enters&#160;the shutdown&#160;state. The following invalid information&#160;can cause&#160;a shutdown:</p>
+<p style="position:absolute;top:401px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:402px;left:93px;white-space:nowrap" class="ft04">Any reserved bit&#160;of CR4 is&#160;set&#160;to 1.</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:424px;left:93px;white-space:nowrap" class="ft04">Any&#160;illegal&#160;combination of&#160;bits in CR0, such&#160;as (PG=1 and PE=0) or (NW=1 and&#160;CD=0).</p>
+<p style="position:absolute;top:446px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:447px;left:93px;white-space:nowrap" class="ft07">(Intel Pentium&#160;and Intel486™ processors&#160;only.) The value&#160;stored&#160;in&#160;the state dump base&#160;field&#160;is not&#160;a 32-KByte&#160;<br/>aligned address.</p>
+<p style="position:absolute;top:487px;left:68px;white-space:nowrap" class="ft010">The&#160;contents of the&#160;model-specific registers&#160;are not affected&#160;by&#160;a return from SMM.<br/>The SMM&#160;state&#160;map used&#160;by RSM supports resuming&#160;processor&#160;context for non-64-bit modes&#160;and&#160;64-bit&#160;mode.&#160;<br/>Se<a href="��">e Chapter&#160;34,&#160;“System Management&#160;Mode,”&#160;</a>in the&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32&#160;Architectures Software&#160;Developer’s&#160;<br/>Manual, Volume&#160;3C</i></a>, for more&#160;information about&#160;SMM and&#160;the behavior&#160;of&#160;the RSM&#160;instruction.</p>
+<p style="position:absolute;top:588px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:615px;left:68px;white-space:nowrap" class="ft011">ReturnFromSMM;<br/>IF&#160;(IA-32e mode&#160;supported) or (CPUID&#160;DisplayFamily_DisplayModel = 06H_0CH )</p>
+<p style="position:absolute;top:651px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:669px;left:115px;white-space:nowrap" class="ft04">ProcessorState&#160;←&#160;Restore(SMMDump(IA-32e&#160;SMM STATE MAP));</p>
+<p style="position:absolute;top:687px;left:88px;white-space:nowrap" class="ft04">Else</p>
+<p style="position:absolute;top:705px;left:115px;white-space:nowrap" class="ft04">ProcessorState&#160;←&#160;Restore(SMMDump(Non-32-Bit-Mode&#160;SMM STATE MAP));</p>
+<p style="position:absolute;top:723px;left:68px;white-space:nowrap" class="ft04">FI</p>
+<p style="position:absolute;top:759px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:786px;left:68px;white-space:nowrap" class="ft04">All.</p>
+<p style="position:absolute;top:822px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:846px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:846px;left:206px;white-space:nowrap" class="ft012">If an&#160;attempt is&#160;made&#160;to execute this&#160;instruction&#160;when&#160;the processor is&#160;not&#160;in SMM.<br/>If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:904px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:927px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as in&#160;protected mode.</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft03">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:987px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as in&#160;protected mode.</p>
+<p style="position:absolute;top:1024px;left:68px;white-space:nowrap" class="ft03">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:1047px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as in&#160;protected mode.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode*</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F AA</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">RSM</p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Resume operation&#160;of&#160;interrupted&#160;program.</p>
+<p style="position:absolute;top:240px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:240px;left:192px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:240px;left:368px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:240px;left:544px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:240px;left:717px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:263px;left:94px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:263px;left:213px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:390px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:565px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

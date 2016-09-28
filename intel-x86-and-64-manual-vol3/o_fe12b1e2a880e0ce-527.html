@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 527</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page527-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce527.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-21</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:202px;left:69px;white-space:nowrap" class="ft06">The&#160;“Interpretation” column in the&#160;table&#160;indicates the&#160;name&#160;of&#160;a&#160;compound&#160;error.&#160;The&#160;name&#160;is&#160;constructed by&#160;<br/>substituting mnemonics for the&#160;sub-field&#160;names given&#160;within curly braces. For&#160;example, the&#160;error&#160;code&#160;<br/>ICACHEL1_RD_ERR&#160;is constructed from&#160;the form:&#160;</p>
+<p style="position:absolute;top:255px;left:88px;white-space:nowrap" class="ft07">{TT}CACHE{LL}_{RRRR}_ERR,<br/>where&#160;{TT} is replaced by I, {LL} is replaced by L1, and {RRRR} is replaced by RD.</p>
+<p style="position:absolute;top:291px;left:69px;white-space:nowrap" class="ft06">For&#160;more&#160;information&#160;on&#160;the “Form” and “Interpretation”&#160;columns, see<a href="o_fe12b1e2a880e0ce-527.html">&#160;Sections Section 15.9.2.1, “Correction&#160;<br/>Report Filtering (F) Bit”</a>&#160;through&#160;<a href="o_fe12b1e2a880e0ce-528.html">Section&#160;15.9.2.5,&#160;“Bus and Interconnect&#160;Errors”.</a></p>
+<p style="position:absolute;top:352px;left:69px;white-space:nowrap" class="ft03">15.9.2.1 &#160;&#160;Correction Report&#160;Filtering (F) Bit&#160;</p>
+<p style="position:absolute;top:379px;left:69px;white-space:nowrap" class="ft06">Starting&#160;with&#160;Intel Core Duo&#160;processors, bit 12&#160;in the “Form”&#160;<a href="o_fe12b1e2a880e0ce-526.html">column in Table 15-9 is&#160;</a>used&#160;to&#160;indicate&#160;that a partic-<br/>ular posting to a&#160;log&#160;may be the&#160;last&#160;posting&#160;for&#160;corrections in&#160;that&#160;line/entry,&#160;at least for some&#160;time:</p>
+<p style="position:absolute;top:417px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:418px;left:95px;white-space:nowrap" class="ft02">0&#160;in bit 12&#160;indicates “normal”&#160;filtering (original&#160;P6/Pentium4/Atom/Xeon processor meaning).</p>
+<p style="position:absolute;top:439px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:440px;left:95px;white-space:nowrap" class="ft06">1&#160;in bit 12&#160;indicates “corrected”&#160;filtering (filtering is activated for&#160;the line/entry in the&#160;posting). Filtering means&#160;<br/>that some or all of the&#160;subsequent corrections to this entry (in&#160;this structure) will not be posted. The enhanced&#160;<br/>error reporting introduced with the&#160;Intel Core&#160;Duo processors&#160;is based&#160;on tracking&#160;the lines&#160;affected&#160;by&#160;<br/>repeated&#160;<a href="o_fe12b1e2a880e0ce-519.html">corrections (see Section 15.4,&#160;“Enhanced&#160;Cache&#160;Error reporting”).&#160;</a>This capability&#160;is indicated by&#160;<br/>IA32_MCG_CAP[11].&#160;Only the&#160;first few correction&#160;events&#160;for a&#160;line&#160;are&#160;posted; subsequent&#160;redundant&#160;<br/>correction events to&#160;the same&#160;line&#160;are not&#160;posted. Uncorrected events are always posted.&#160;</p>
+<p style="position:absolute;top:545px;left:69px;white-space:nowrap" class="ft06">The behavior&#160;of&#160;error filtering&#160;after crossing&#160;the&#160;yellow threshold&#160;is model-specific. Filtering has&#160;meaning only&#160;for&#160;<br/>corrected&#160;errors&#160;(UC=0 in IA32_MCi_STATUS MSR). System software must ignore filtering bit&#160;(12) for uncorrected&#160;<br/>errors.</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft03">15.9.2.2 &#160;&#160;Transaction Type (TT) Sub-Field</p>
+<p style="position:absolute;top:649px;left:69px;white-space:nowrap" class="ft06">The 2-bit TT<a href="o_fe12b1e2a880e0ce-527.html">&#160;sub-field (Table 15-10)&#160;</a>indicates&#160;the type of&#160;transaction (data,&#160;instruction,&#160;or&#160;generic). The sub-field&#160;<br/>applies to&#160;the TLB,&#160;cache, and interconnect&#160;error conditions.&#160;Note that&#160;interconnect error&#160;conditions are primarily&#160;<br/>associated&#160;with P6 family&#160;and&#160;Pentium&#160;processors, which&#160;utilize an&#160;external APIC bus&#160;separate&#160;from the&#160;system&#160;<br/>bus.&#160;The&#160;generic&#160;type&#160;is&#160;reported&#160;when&#160;the&#160;processor cannot determine the&#160;transaction&#160;type.</p>
+<p style="position:absolute;top:865px;left:69px;white-space:nowrap" class="ft03">15.9.2.3 &#160;&#160;Level&#160;(LL) Sub-Field</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-527.html">The 2-bit LL sub-field (see Table 15-11)&#160;</a>indicates&#160;the&#160;level&#160;in the memory hierarchy where the&#160;error occurred&#160;(level&#160;<br/>0, level 1,&#160;level 2, or&#160;generic). The LL&#160;sub-field&#160;also applies to&#160;the TLB, cache, and interconnect&#160;error conditions.&#160;<br/>The Pentium 4, Intel&#160;Xeon, Intel Atom, and P6 family processors support two levels in the&#160;cache hierarchy and one&#160;<br/>level in&#160;the&#160;TLBs.&#160;Again, the&#160;generic type&#160;is&#160;reported&#160;when&#160;the processor cannot determine the&#160;hierarchy&#160;level.</p>
+<p style="position:absolute;top:121px;left:75px;white-space:nowrap" class="ft02">Cache Hierarchy Errors</p>
+<p style="position:absolute;top:121px;left:304px;white-space:nowrap" class="ft02">000F 0001 RRRR&#160;TTLL</p>
+<p style="position:absolute;top:121px;left:505px;white-space:nowrap" class="ft02">{TT}CACHE{LL}_{RRRR}_ERR</p>
+<p style="position:absolute;top:144px;left:75px;white-space:nowrap" class="ft02">Bus and Interconnect Errors</p>
+<p style="position:absolute;top:144px;left:304px;white-space:nowrap" class="ft02">000F 1PPT RRRR&#160;IILL</p>
+<p style="position:absolute;top:144px;left:505px;white-space:nowrap" class="ft02">BUS{LL}_{PP}_{RRRR}_{II}_{T}_ERR</p>
+<p style="position:absolute;top:730px;left:256px;white-space:nowrap" class="ft05">Table 15-10. &#160;Encoding&#160;for TT&#160;(Transaction&#160;Type)&#160;Sub-Field</p>
+<p style="position:absolute;top:751px;left:145px;white-space:nowrap" class="ft02">Transaction Type</p>
+<p style="position:absolute;top:751px;left:422px;white-space:nowrap" class="ft02">Mnemonic</p>
+<p style="position:absolute;top:751px;left:660px;white-space:nowrap" class="ft02">Binary&#160;Encoding</p>
+<p style="position:absolute;top:774px;left:74px;white-space:nowrap" class="ft02">Instruction</p>
+<p style="position:absolute;top:774px;left:451px;white-space:nowrap" class="ft02">I</p>
+<p style="position:absolute;top:774px;left:701px;white-space:nowrap" class="ft02">00</p>
+<p style="position:absolute;top:796px;left:74px;white-space:nowrap" class="ft02">Data</p>
+<p style="position:absolute;top:796px;left:449px;white-space:nowrap" class="ft02">D</p>
+<p style="position:absolute;top:796px;left:701px;white-space:nowrap" class="ft02">01</p>
+<p style="position:absolute;top:819px;left:74px;white-space:nowrap" class="ft02">Generic</p>
+<p style="position:absolute;top:819px;left:449px;white-space:nowrap" class="ft02">G</p>
+<p style="position:absolute;top:819px;left:701px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:973px;left:211px;white-space:nowrap" class="ft05">Table&#160;15-11. &#160;Level&#160;Encoding for&#160;LL&#160;(Memory Hierarchy Level)&#160;Sub-Field&#160;</p>
+<p style="position:absolute;top:994px;left:151px;white-space:nowrap" class="ft02">Hierarchy&#160;Level</p>
+<p style="position:absolute;top:994px;left:422px;white-space:nowrap" class="ft02">Mnemonic</p>
+<p style="position:absolute;top:994px;left:660px;white-space:nowrap" class="ft02">Binary Encoding</p>
+<p style="position:absolute;top:1017px;left:74px;white-space:nowrap" class="ft02">Level&#160;0</p>
+<p style="position:absolute;top:1017px;left:446px;white-space:nowrap" class="ft02">L0</p>
+<p style="position:absolute;top:1017px;left:701px;white-space:nowrap" class="ft02">00</p>
+<p style="position:absolute;top:1039px;left:74px;white-space:nowrap" class="ft02">Level&#160;1</p>
+<p style="position:absolute;top:1039px;left:446px;white-space:nowrap" class="ft02">L1</p>
+<p style="position:absolute;top:1039px;left:701px;white-space:nowrap" class="ft02">01</p>
+<p style="position:absolute;top:100px;left:195px;white-space:nowrap" class="ft05">Table 15-9. &#160;IA32_MCi_Status&#160;[15:0]&#160;Compound&#160;Error&#160;Code&#160;Encoding&#160; (Contd.)</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1121</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1121-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1121.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;27-3</p>
+<p style="position:absolute;top:47px;left:782px;white-space:nowrap" class="ft01">VM&#160;EXITS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft04">If a&#160;VM&#160;exit&#160;results from a&#160;fault, EPT violation,&#160;EPT&#160;misconfiguration, or page-modification log-full&#160;event is&#160;<br/>encountered&#160;during&#160;execution&#160;of&#160;IRET and&#160;the&#160;“NMI exiting” VM-execution&#160;control&#160;is&#160;0,&#160;any blocking by NMI is&#160;<br/>cleared before the VM&#160;exit commences.&#160;However,&#160;the previous state of blocking&#160;by NMI may be recorded in&#160;the&#160;<br/>VM-exit&#160;interrup<a href="o_fe12b1e2a880e0ce-1128.html">tion-information field; see Section 27.2.2.</a></p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:172px;left:95px;white-space:nowrap" class="ft04">If a&#160;VM&#160;exit&#160;results from a&#160;fault, EPT violation,&#160;EPT&#160;misconfiguration, or page-modification log-full&#160;event is&#160;<br/>encountered&#160;during&#160;execution of IRET&#160;and&#160;the&#160;“virtual&#160;NMIs” VM-execution&#160;control&#160;is&#160;1, virtual-NMI&#160;blocking is&#160;<br/>cleared&#160;before the&#160;VM&#160;exit&#160;commences.&#160;However,&#160;the&#160;previous&#160;state of&#160;virtual-NMI&#160;blocking&#160;may be recorded&#160;<br/>in the&#160;VM-exit interruption-inform<a href="o_fe12b1e2a880e0ce-1128.html">ation field; see Section 27.2.2.</a></p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:244px;left:95px;white-space:nowrap" class="ft04">Suppose&#160;that a&#160;VM&#160;exit&#160;is caused&#160;directly&#160;by an x87&#160;FPU&#160;Floating-Point&#160;Error&#160;(#MF) or&#160;by&#160;any of the following&#160;<br/>events if&#160;the&#160;event was&#160;unblocked&#160;due&#160;to (and&#160;given priority&#160;over) an&#160;x87 FPU&#160;Floating-Point Error: an&#160;INIT&#160;<br/>signal,&#160;an external&#160;interrupt, an&#160;NMI,&#160;an SMI; or&#160;a&#160;machine-check exception. In&#160;these cases,&#160;there&#160;is no&#160;<br/>blocking by STI&#160;or by MOV&#160;SS when the&#160;VM&#160;exit&#160;commences.</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:316px;left:95px;white-space:nowrap" class="ft04">Normally, a&#160;last-branch&#160;record&#160;may be made when an&#160;event is&#160;delivered&#160;through the&#160;IDT.&#160;However,&#160;if such an&#160;<br/>event results&#160;in a&#160;VM&#160;exit&#160;before&#160;delivery is&#160;complete, no last-branch record is&#160;made.</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:355px;left:95px;white-space:nowrap" class="ft04">If&#160;machine-check&#160;exception&#160;results in&#160;a&#160;VM&#160;exit, processor state is&#160;suspect&#160;and may result&#160;in&#160;suspect state&#160;<br/>being saved&#160;to the&#160;guest-state&#160;area.&#160;A&#160;VM&#160;monitor&#160;should&#160;consult&#160;the RIPV&#160;and EIPV bits in&#160;the&#160;<br/>IA32_MCG_STATUS&#160;MSR before resuming&#160;a guest that&#160;caused&#160;a VM&#160;exit&#160;resulting&#160;from&#160;a machine-check&#160;<br/>exception.</p>
+<p style="position:absolute;top:427px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:427px;left:95px;white-space:nowrap" class="ft04">If a&#160;VM&#160;exit&#160;results from a&#160;fault, APIC access (see<a href="o_fe12b1e2a880e0ce-1171.html">&#160;Section&#160;29.4), EPT&#160;</a>violation, EPT misconfiguration,&#160;or page-<br/>modification log-full&#160;event&#160;is encountered&#160;while&#160;executing&#160;an&#160;instruction, data breakpoints due&#160;to that&#160;<br/>instruction&#160;may have&#160;been recognized and information about&#160;them may&#160;be&#160;saved&#160;in the&#160;pending debug&#160;<br/>exceptions field&#160;(see<a href="o_fe12b1e2a880e0ce-1141.html">&#160;Section 27.3.4).</a></p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:499px;left:95px;white-space:nowrap" class="ft05">The&#160;following&#160;VM&#160;exits&#160;are&#160;considered&#160;to happen after&#160;an instruction is&#160;executed:<br/>—&#160;VM&#160;exits resulting&#160;from debug&#160;traps&#160;(single-step,&#160;I/O breakpoints,&#160;and data breakpoints).<br/>—&#160;VM&#160;exits resulting from debug&#160;exceptions whose recognition&#160;was delayed by&#160;blocking by&#160;MOV&#160;SS.<br/>—&#160;VM&#160;exits resulting from some&#160;machine-check&#160;exceptions.<br/>—&#160;Trap-like VM&#160;exits due to&#160;execution of MOV to&#160;CR8 when&#160;the&#160;“CR8-load exiting”&#160;VM-execution control is&#160;0&#160;</p>
+<p style="position:absolute;top:612px;left:120px;white-space:nowrap" class="ft04">and&#160;the “use TPR shadow”&#160;VM-execution control is 1<a href="o_fe12b1e2a880e0ce-1171.html">&#160;(see Section&#160;29.3</a>). (Such VM&#160;exits can occur only&#160;from&#160;<br/>64-bit mode and&#160;thus&#160;only&#160;on processors that support Intel&#160;64&#160;architecture.)</p>
+<p style="position:absolute;top:652px;left:95px;white-space:nowrap" class="ft03">—&#160;Trap-like VM&#160;exits due to&#160;execution of WRMSR when&#160;the&#160;“use MSR bitmaps” VM-execution&#160;control&#160;is 1;&#160;the&#160;</p>
+<p style="position:absolute;top:669px;left:120px;white-space:nowrap" class="ft04">value of ECX is&#160;in the range&#160;800H–8FFH; and the bit corresponding to&#160;the&#160;ECX value in&#160;write bitmap&#160;for low&#160;<br/>MSRs&#160;is 0; and&#160;the “virtualize&#160;x2APIC mode” VM-execution&#160;control is&#160;1.&#160;Se<a href="o_fe12b1e2a880e0ce-1178.html">e Section 29.5.</a></p>
+<p style="position:absolute;top:709px;left:95px;white-space:nowrap" class="ft03">—&#160;VM&#160;exits&#160;caused&#160;by&#160;APIC-write emulation (see&#160;<a href="o_fe12b1e2a880e0ce-1174.html">Section&#160;29.4.3.2) that&#160;</a>result from APIC accesses as&#160;part&#160;of&#160;</p>
+<p style="position:absolute;top:726px;left:120px;white-space:nowrap" class="ft03">instruction execution.</p>
+<p style="position:absolute;top:748px;left:95px;white-space:nowrap" class="ft04">For these&#160;VM&#160;exits, the&#160;instruction’s modifications to&#160;architectural state complete before the&#160;VM&#160;exit&#160;occurs.&#160;<br/>Such modifications include those&#160;to the&#160;logical&#160;processor’<a href="o_fe12b1e2a880e0ce-1052.html">s interruptibility state (see Table&#160;24-3)</a>. If there had&#160;<br/>been blocking by MOV&#160;SS,&#160;POP SS,&#160;or&#160;STI before the instruction executed, such blocking is no longer in effect.</p>
+<p style="position:absolute;top:805px;left:69px;white-space:nowrap" class="ft04">A VM&#160;exit that&#160;occurs in&#160;enclave mode sets bit&#160;27 of&#160;the&#160;exit-reason&#160;field&#160;and bit 4&#160;of&#160;the&#160;guest&#160;interruptibility-state&#160;<br/>field.&#160;Before such a&#160;VM&#160;exit&#160;is delivered, an Asynchronous&#160;Enclave&#160;Exit (AEX) occurs&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1803.html">Chapter 40,&#160;“Enclave&#160;<br/>Exiting&#160;Events”).&#160;</a>An AEX&#160;modifies architectural state<a href="o_fe12b1e2a880e0ce-1805.html">&#160;(Section 40.3). In&#160;</a>particular,&#160;the processor establishes&#160;the&#160;<br/>following architectural state&#160;as indicated:</p>
+<p style="position:absolute;top:877px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:877px;left:95px;white-space:nowrap" class="ft03">The following&#160;bits&#160;in RFLAGS are&#160;cleared:&#160;CF, PF,&#160;AF, ZF, SF,&#160;OF, and&#160;RF.</p>
+<p style="position:absolute;top:899px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:900px;left:95px;white-space:nowrap" class="ft03">FS&#160;and GS are restored to&#160;the values&#160;they&#160;had&#160;prior to&#160;the most recent enclave entry.</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:922px;left:95px;white-space:nowrap" class="ft03">RIP&#160;is&#160;loaded&#160;with&#160;the AEP of interrupted&#160;enclave&#160;thread.</p>
+<p style="position:absolute;top:944px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:945px;left:95px;white-space:nowrap" class="ft03">RSP is loaded from the&#160;URSP&#160;field&#160;in&#160;the&#160;enclave’s&#160;state-save area&#160;(SSA).</p>
+</div>
+</body>
+</html>

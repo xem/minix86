@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1216</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1216-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1216.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">31-6&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VIRTUAL-MACHINE MONITOR PROGRAMMING CONSIDERATIONS</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">c.&#160;Set&#160;the VMX controls as&#160;follows:</p>
+<p style="position:absolute;top:124px;left:119px;white-space:nowrap" class="ft05">i)&#160;If&#160;the&#160;relevant VMX capability MSR&#160;reports that a control&#160;has a single setting, use that&#160;setting.<br/>ii)&#160;If (1)&#160;the&#160;relevant&#160;VMX capability&#160;MSR reports&#160;that a control can&#160;be set to 0 or 1; and (2)&#160;the control’s&#160;</p>
+<p style="position:absolute;top:165px;left:144px;white-space:nowrap" class="ft02">meaning is&#160;known to&#160;the VMM;&#160;then set&#160;the control&#160;based on functionality desired.</p>
+<p style="position:absolute;top:189px;left:119px;white-space:nowrap" class="ft02">iii)&#160;If (1)&#160;the&#160;relevant VMX capability MSR&#160;reports&#160;that&#160;a control&#160;can be&#160;set&#160;to 0&#160;or 1;&#160;(2)&#160;the&#160;control’s&#160;</p>
+<p style="position:absolute;top:205px;left:144px;white-space:nowrap" class="ft06">meaning is&#160;not known&#160;to the&#160;VMM; and (3)&#160;the control&#160;is&#160;not&#160;in the default1 class; then&#160;set&#160;the control&#160;<br/>to 0.</p>
+<p style="position:absolute;top:246px;left:119px;white-space:nowrap" class="ft02">iv)&#160;If (1)&#160;the&#160;relevant VMX capability&#160;MSR&#160;reports&#160;that&#160;a control&#160;can be&#160;set&#160;to 0&#160;or 1;&#160;(2)&#160;the&#160;control’s&#160;</p>
+<p style="position:absolute;top:262px;left:144px;white-space:nowrap" class="ft02">meaning is not&#160;known to the VMM; and (3)&#160;the control&#160;is&#160;in the default1&#160;class; then&#160;set the control to 1.</p>
+<p style="position:absolute;top:285px;left:93px;white-space:nowrap" class="ft06">A VMM using this algorithm will set&#160;to 1 all controls in&#160;default1 class whose meaning it&#160;does not know (either<br/>in step&#160;<a href="o_fe12b1e2a880e0ce-1216.html">(c)(i) or step&#160;(c)(iv)). It will oper</a>ate&#160;correctly&#160;even&#160;on processors&#160;that allow&#160;some controls in the<br/>default1&#160;class to be 0. Unlike a VMM using Algorithm&#160;<a href="o_fe12b1e2a880e0ce-1215.html">1</a>, a&#160;VMM using Algorithm&#160;<a href="o_fe12b1e2a880e0ce-1215.html">2</a>&#160;will be&#160;able&#160;to use the new<br/>features enabled by&#160;the 0-setting of such controls.</p>
+<p style="position:absolute;top:358px;left:68px;white-space:nowrap" class="ft02">3.&#160;The&#160;following algorithm&#160;uses the&#160;details given in&#160;<a href="o_fe12b1e2a880e0ce-1944.html">Appendix A.2. This&#160;</a>algorithm does&#160;not require&#160;software&#160;to&#160;</p>
+<p style="position:absolute;top:375px;left:93px;white-space:nowrap" class="ft05">know&#160;the identity&#160;of the&#160;controls in the&#160;default1&#160;class:<br/>a.&#160;Using RDMSR,&#160;read the VMX capability MSRs&#160;IA32_VMX_BASIC,&#160;IA32_VMX_PINBASED_CTLS,&#160;</p>
+<p style="position:absolute;top:415px;left:119px;white-space:nowrap" class="ft02">IA32_VMX_PROCBASED_CTLS, IA32_VMX_EXIT_CTLS,&#160;and&#160;IA32_VMX_ENTRY_CTLS.</p>
+<p style="position:absolute;top:439px;left:93px;white-space:nowrap" class="ft02">b.&#160;If bit&#160;55 of&#160;the IA32_VMX_BASIC MSR is&#160;0,&#160;set&#160;the&#160;VMX controls&#160;as follows:</p>
+<p style="position:absolute;top:463px;left:119px;white-space:nowrap" class="ft05">i)&#160;If&#160;the&#160;relevant VMX capability MSR&#160;reports that a control&#160;has a single setting, use that&#160;setting.<br/>ii)&#160;If (1)&#160;the&#160;relevant&#160;VMX capability&#160;MSR reports&#160;that a control can&#160;be set to 0 or 1; and (2)&#160;the control’s&#160;</p>
+<p style="position:absolute;top:504px;left:144px;white-space:nowrap" class="ft02">meaning is&#160;known to&#160;the VMM;&#160;then set&#160;the control&#160;based on functionality desired.</p>
+<p style="position:absolute;top:528px;left:119px;white-space:nowrap" class="ft02">iii)&#160;If (1)&#160;the&#160;relevant&#160;VMX capability&#160;MSR reports&#160;that a control can&#160;be set to 0 or 1; and (2)&#160;the control’s&#160;</p>
+<p style="position:absolute;top:544px;left:144px;white-space:nowrap" class="ft02">meaning is&#160;not known to&#160;the VMM;&#160;then set the&#160;control&#160;to 0.</p>
+<p style="position:absolute;top:568px;left:93px;white-space:nowrap" class="ft02">c.&#160;If bit&#160;55 of&#160;the IA32_VMX_BASIC MSR is&#160;1,&#160;use RDMSR to&#160;read&#160;the&#160;VMX capability MSRs&#160;</p>
+<p style="position:absolute;top:585px;left:119px;white-space:nowrap" class="ft07">IA32_VMX_TRUE_PINBASED_CTLS,&#160;IA32_VMX_TRUE_PROCBASED_CTLS, IA32_VMX_TRUE_EXIT_CTLS,&#160;<br/>and&#160;IA32_VMX_TRUE_ENTRY_CTLS.&#160;Set&#160;the&#160;VMX&#160;controls as&#160;follows:<br/>i)&#160;If&#160;the&#160;relevant VMX capability MSR&#160;just&#160;read reports that a&#160;control has&#160;a&#160;single&#160;setting,&#160;use that&#160;</p>
+<p style="position:absolute;top:642px;left:144px;white-space:nowrap" class="ft02">setting.</p>
+<p style="position:absolute;top:666px;left:119px;white-space:nowrap" class="ft02">ii)&#160;If (1)&#160;the relevant&#160;VMX capability MSR just&#160;read&#160;reports that a&#160;control can&#160;be set to 0&#160;or&#160;1; and (2)&#160;the&#160;</p>
+<p style="position:absolute;top:682px;left:144px;white-space:nowrap" class="ft02">control’s meaning&#160;is known&#160;to the&#160;VMM; then set the&#160;control based&#160;on&#160;functionality desired.</p>
+<p style="position:absolute;top:706px;left:119px;white-space:nowrap" class="ft02">iii)&#160;If (1)&#160;the&#160;relevant VMX capability MSR&#160;just&#160;read&#160;reports that a&#160;control can be&#160;set to&#160;0 or&#160;1;&#160;(2)&#160;the&#160;</p>
+<p style="position:absolute;top:723px;left:144px;white-space:nowrap" class="ft06">control’s&#160;meaning&#160;is not known to&#160;the VMM; and&#160;(3)&#160;the relevant VMX capability MSR as read in step&#160;<a href="o_fe12b1e2a880e0ce-1216.html">(a)&#160;<br/></a>reports&#160;that a&#160;control&#160;can be set to 0; then&#160;set the control to&#160;0.</p>
+<p style="position:absolute;top:763px;left:119px;white-space:nowrap" class="ft02">iv)&#160;If (1)&#160;the&#160;relevant VMX capability&#160;MSR just read reports that a&#160;control can be&#160;set to&#160;0 or&#160;1;&#160;(2)&#160;the&#160;</p>
+<p style="position:absolute;top:780px;left:144px;white-space:nowrap" class="ft06">control’s&#160;meaning&#160;is not known to&#160;the VMM; and&#160;(3)&#160;the relevant VMX capability MSR as read in step&#160;<a href="o_fe12b1e2a880e0ce-1216.html">(a)&#160;<br/></a>reports that&#160;a control must&#160;be&#160;1; then&#160;set the control to&#160;1.</p>
+<p style="position:absolute;top:819px;left:93px;white-space:nowrap" class="ft06">A VMM using&#160;this algorithm will set to 1&#160;all controls&#160;in&#160;the default1 class&#160;whose&#160;meaning it&#160;does not&#160;know (in<br/>step&#160;<a href="o_fe12b1e2a880e0ce-1216.html">(b)(i), step&#160;(c)(i</a>), or&#160;step&#160;(<a href="o_fe12b1e2a880e0ce-1216.html">c)(iv)). It&#160;</a>will&#160;operate&#160;correctly&#160;even&#160;on processors that allow&#160;some&#160;controls<br/>in the default1&#160;class to be 0.&#160;Unlike a VMM using Algorithm&#160;<a href="o_fe12b1e2a880e0ce-1215.html">1, a VMM using Algorithm&#160;</a><a href="o_fe12b1e2a880e0ce-1216.html">3&#160;will be able</a>&#160;to use&#160;the<br/>new features enabled&#160;by&#160;the&#160;0-setting&#160;of such controls. Unlike a&#160;VMM using Algorithm&#160;<a href="o_fe12b1e2a880e0ce-1215.html">2, a&#160;</a>VMM using<br/>Algorithm&#160;<a href="o_fe12b1e2a880e0ce-1216.html">3</a>&#160;need not know the identities&#160;of the controls in the default1 class.</p>
+<p style="position:absolute;top:940px;left:68px;white-space:nowrap" class="ft03">31.6&#160;</p>
+<p style="position:absolute;top:940px;left:147px;white-space:nowrap" class="ft03">PREPARATION AND LAUNCHING A VIRTUAL MACHINE</p>
+<p style="position:absolute;top:976px;left:68px;white-space:nowrap" class="ft02">The following list&#160;describes the minimal&#160;steps required by the&#160;VMM to&#160;set up and&#160;launch&#160;a guest VM.</p>
+<p style="position:absolute;top:998px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:999px;left:93px;white-space:nowrap" class="ft06">Create&#160;a&#160;VMCS&#160;region&#160;in&#160;non-pageable&#160;memory&#160;of&#160;size specified&#160;by the VMX capability MSR IA32_VMX_BASIC&#160;<br/>and aligned&#160;to 4-KBytes.&#160;Software&#160;should read the&#160;capability MSRs&#160;to&#160;determine width of the&#160;physical&#160;<br/>addresses&#160;that may be used for a&#160;VMCS&#160;region&#160;and ensure the&#160;entire&#160;VMCS region&#160;can be addressed by&#160;</p>
+</div>
+</body>
+</html>

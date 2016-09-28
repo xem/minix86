@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 167</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft013{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page167-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a167.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:782px;white-space:nowrap" class="ft00">Vol. 1&#160;7-3</p>
+<p style="position:absolute;top:47px;left:510px;white-space:nowrap" class="ft01">PROGRAMMING WITH GENERAL-PURPOSE INSTRUCTIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft03">Stack&#160;manipulation</p>
+<p style="position:absolute;top:122px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:123px;left:95px;white-space:nowrap" class="ft03">Type&#160;conversion</p>
+<p style="position:absolute;top:167px;left:69px;white-space:nowrap" class="ft04">7.3.1.1 &#160;</p>
+<p style="position:absolute;top:167px;left:153px;white-space:nowrap" class="ft04">General Data&#160;Movement&#160;Instructions</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft08"><b>Move instructions —</b>&#160;The&#160;MOV (move)&#160;and CMOVcc (conditional&#160;move) instructions transfer&#160;data&#160;between&#160;<br/>memory&#160;and registers&#160;or between registers.<br/>The MOV instruction performs&#160;basic&#160;load data and&#160;store&#160;data&#160;operations between memory&#160;and the&#160;processor’s&#160;<br/>registers and&#160;data&#160;movement operations between registers. It&#160;handles&#160;data&#160;transfers along&#160;the paths listed in&#160;<br/><a href="o_7281d5ea06a5b67a-167.html">Table&#160;7-1.</a>&#160;(See&#160;“MOV—Move to/from Control&#160;Registers”&#160;and “MOV—Move&#160;to/from&#160;Debug&#160;Registers” in&#160;<a href="��">Chapter 4,&#160;<br/>“Instruction Set&#160;Reference,&#160;M-U,” of the&#160;</a><i>Intel® 64&#160;and IA-32&#160;Architectures&#160;Software&#160;Developer’s Manual,&#160;Volume&#160;<br/>2A,</i>&#160;for information&#160;on moving&#160;data&#160;to and from&#160;the control&#160;and debug&#160;registers.)&#160;<br/>The MOV instruction cannot move data&#160;from&#160;one memory location&#160;to&#160;another or&#160;from&#160;one&#160;segment&#160;register to&#160;<br/>another segment register.&#160;Memory-to-memory moves are&#160;performed&#160;with&#160;the MOVS&#160;(string move) instruction (see&#160;<br/><a href="o_7281d5ea06a5b67a-182.html">Section 7.3.9,&#160;“String Operations”).&#160;<br/></a><b>Conditional move instructions —</b>&#160;The&#160;CMOVcc&#160;instructions&#160;are a&#160;group of instructions that check&#160;the&#160;state&#160;of&#160;the&#160;<br/>status flags in&#160;the EFLAGS register&#160;and perform&#160;a move&#160;operation if the&#160;flags are in a specified state. These instruc-<br/>tions can be&#160;used to move&#160;a 16-bit or 32-bit value from&#160;memory to&#160;a&#160;general-purpose register or from&#160;one general-<br/>purpose register&#160;to another.&#160;The&#160;flag state being tested&#160;is&#160;specified&#160;with&#160;a condition&#160;code&#160;(cc) associated with the&#160;<br/>instruction. If&#160;the&#160;condition&#160;is not satisfied,&#160;a move&#160;is&#160;not&#160;performed&#160;and execution continues with the&#160;instruction&#160;<br/>following the&#160;CMOVcc instruction.</p>
+<p style="position:absolute;top:856px;left:69px;white-space:nowrap" class="ft08"><a href="o_7281d5ea06a5b67a-168.html">Table&#160;7-2&#160;</a>shows mnemonics for&#160;CMOVcc instructions and&#160;the conditions&#160;being&#160;tested for each&#160;instruction. The&#160;<br/>condition code mnemonics are&#160;appended to the&#160;letters&#160;“CMOV” to&#160;form&#160;the&#160;mnemonics for CMOVcc&#160;instructions.&#160;<br/>The inst<a href="o_7281d5ea06a5b67a-168.html">ructions listed in&#160;Table&#160;7-2&#160;</a>as pairs&#160;(for example,&#160;CMOVA/CMOVNBE) are alternate names for the same&#160;<br/>instruction. The&#160;assembler provides these alternate&#160;names to&#160;make&#160;it&#160;easier&#160;to read program&#160;listings.<br/>CMOVcc instructions are useful&#160;for optimizing&#160;small IF constructions.&#160;They&#160;also help eliminate&#160;branching&#160;overhead&#160;<br/>for IF statements&#160;and the&#160;possibility of branch mispredictions by the&#160;processor.&#160;<br/>These&#160;conditional move&#160;instructions are&#160;supported in the&#160;P6&#160;family, Pentium&#160;4, and&#160;Intel Xeon processors. Software&#160;<br/>can check if&#160;CMOVcc instructions are&#160;supported&#160;by&#160;checking the&#160;processor’s feature information with the&#160;CPUID&#160;<br/>instruction.</p>
+<p style="position:absolute;top:496px;left:321px;white-space:nowrap" class="ft07">Table 7-1.&#160;&#160;Move&#160;Instruction Operations</p>
+<p style="position:absolute;top:521px;left:77px;white-space:nowrap" class="ft03">Type&#160;of&#160;Data Movement</p>
+<p style="position:absolute;top:521px;left:373px;white-space:nowrap" class="ft03">Source&#160;→&#160;Destination</p>
+<p style="position:absolute;top:545px;left:77px;white-space:nowrap" class="ft03">From memory to&#160;a register</p>
+<p style="position:absolute;top:545px;left:373px;white-space:nowrap" class="ft012">Memory location&#160;→&#160;General-purpose&#160;register<br/>Memory&#160;location&#160;→&#160;Segment register</p>
+<p style="position:absolute;top:590px;left:77px;white-space:nowrap" class="ft03">From a&#160;register to&#160;memory</p>
+<p style="position:absolute;top:590px;left:373px;white-space:nowrap" class="ft012">General-purpose&#160;register&#160;→&#160;Memory&#160;location<br/>Segment register&#160;→&#160;Memory&#160;location</p>
+<p style="position:absolute;top:635px;left:77px;white-space:nowrap" class="ft03">Between&#160;registers</p>
+<p style="position:absolute;top:635px;left:373px;white-space:nowrap" class="ft013">General-purpose&#160;register&#160;→&#160;General-purpose&#160;register<br/>General-purpose&#160;register&#160;→&#160;Segment register<br/>Segment register&#160;→&#160;General-purpose&#160;register<br/>General-purpose&#160;register&#160;→&#160;Control&#160;register<br/>Control&#160;register&#160;→&#160;General-purpose&#160;register<br/>General-purpose&#160;register&#160;→&#160;Debug register<br/>Debug register&#160;→&#160;General-purpose&#160;register</p>
+<p style="position:absolute;top:785px;left:77px;white-space:nowrap" class="ft03">Immediate&#160;data to&#160;a&#160;register</p>
+<p style="position:absolute;top:785px;left:373px;white-space:nowrap" class="ft03">Immediate&#160;→&#160;General-purpose&#160;register</p>
+<p style="position:absolute;top:809px;left:77px;white-space:nowrap" class="ft03">Immediate&#160;data to&#160;memory</p>
+<p style="position:absolute;top:809px;left:373px;white-space:nowrap" class="ft03">Immediate&#160;→&#160;Memory location</p>
+</div>
+</body>
+</html>

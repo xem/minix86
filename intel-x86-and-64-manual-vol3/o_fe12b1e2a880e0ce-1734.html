@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1734</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1734-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1734.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">36-50&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® PROCESSOR TRACE</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">36.4.2.12 &#160;&#160;Mini Time Counter (MTC) Packet</p>
+<p style="position:absolute;top:142px;left:335px;white-space:nowrap" class="ft03">Table 36-31. MTC Packet&#160;Definition</p>
+<p style="position:absolute;top:166px;left:74px;white-space:nowrap" class="ft04">Name</p>
+<p style="position:absolute;top:166px;left:177px;white-space:nowrap" class="ft04">Mini&#160;time&#160;Counter (MTC) Packet</p>
+<p style="position:absolute;top:190px;left:74px;white-space:nowrap" class="ft04">Packet&#160;Format</p>
+<p style="position:absolute;top:304px;left:74px;white-space:nowrap" class="ft04">Dependencies</p>
+<p style="position:absolute;top:304px;left:177px;white-space:nowrap" class="ft04">IA32_RTIT_CTL.MTCEn&#160;&amp;&amp;&#160;</p>
+<p style="position:absolute;top:320px;left:177px;white-space:nowrap" class="ft04">TriggerEn</p>
+<p style="position:absolute;top:304px;left:342px;white-space:nowrap" class="ft04">Generation&#160;</p>
+<p style="position:absolute;top:320px;left:342px;white-space:nowrap" class="ft04">Scenario</p>
+<p style="position:absolute;top:304px;left:438px;white-space:nowrap" class="ft04">Periodic, based on&#160;the&#160;core&#160;crystal clock,&#160;or&#160;Always Running&#160;Timer&#160;</p>
+<p style="position:absolute;top:320px;left:438px;white-space:nowrap" class="ft04">(ART).</p>
+<p style="position:absolute;top:344px;left:74px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:344px;left:177px;white-space:nowrap" class="ft04">When&#160;enabled&#160;by&#160;software,&#160;an&#160;MTC packet&#160;provides&#160;a&#160;periodic indication&#160;of&#160;wall-clock time. The&#160;8-bit CTC&#160;(Common&#160;</p>
+<p style="position:absolute;top:361px;left:177px;white-space:nowrap" class="ft04">Timestamp Copy) payload value is&#160;set to&#160;(ART&#160;&gt;&gt; N) &amp; 0xFF. The frequency of&#160;the ART&#160;is related&#160;to&#160;the&#160;Maximum&#160;</p>
+<p style="position:absolute;top:377px;left:177px;white-space:nowrap" class="ft04">Non-Turbo frequency,&#160;and the ratio can be&#160;determined&#160;from&#160;CPUID leaf&#160;15H, as&#160;described in<a href="o_fe12b1e2a880e0ce-1763.html">&#160;Section 36.8.3</a>.</p>
+<p style="position:absolute;top:394px;left:177px;white-space:nowrap" class="ft04">Software&#160;can select the threshold&#160;N,&#160;which determines&#160;the&#160;MTC frequency&#160;by setting the IA32_RTIT_CTL.MTCFreq&#160;</p>
+<p style="position:absolute;top:410px;left:177px;white-space:nowrap" class="ft04">field (see<a href="o_fe12b1e2a880e0ce-1700.html">&#160;Section 36.2.7.2) t</a>o&#160;a supported value using the&#160;lookup&#160;enumerated&#160;by CPUID (see<a href="o_fe12b1e2a880e0ce-1709.html">&#160;Section&#160;36.3.1).</a>&#160;</p>
+<p style="position:absolute;top:427px;left:177px;white-space:nowrap" class="ft04">See<a href="o_fe12b1e2a880e0ce-1763.html">&#160;Section 36.8.3&#160;f</a>or&#160;details on&#160;how to&#160;use the MTC payload to&#160;track TSC time.</p>
+<p style="position:absolute;top:443px;left:177px;white-space:nowrap" class="ft04">MTC&#160;provides&#160;8 bits from&#160;the ART,&#160;starting with the bit&#160;selected&#160;by MTCFreq to dictate&#160;the frequency of&#160;the packet.&#160;</p>
+<p style="position:absolute;top:460px;left:177px;white-space:nowrap" class="ft04">Whenever&#160;that&#160;8-bit range being&#160;watched changes,&#160;an&#160;MTC packet&#160;will be sent&#160;out&#160;with&#160;the new value of&#160;that&#160;8-bit&#160;</p>
+<p style="position:absolute;top:476px;left:177px;white-space:nowrap" class="ft04">range.&#160;This&#160;allows&#160;the&#160;decoder&#160;to&#160;keep&#160;track of&#160;how&#160;much&#160;wall-clock time has elapsed&#160;since the last&#160;TSC&#160;packet&#160;was&#160;</p>
+<p style="position:absolute;top:493px;left:177px;white-space:nowrap" class="ft04">sent, by&#160;keeping&#160;track of&#160;how many&#160;MTC packets were&#160;sent&#160;and what&#160;their value&#160;was. The decoder can infer the&#160;</p>
+<p style="position:absolute;top:509px;left:177px;white-space:nowrap" class="ft04">truncated bits, CTC[N-1:0],&#160;are 0 at&#160;the time of&#160;the MTC packet.</p>
+<p style="position:absolute;top:526px;left:177px;white-space:nowrap" class="ft04">There are&#160;cases in&#160;which MTC packet&#160;can be&#160;dropped, due to&#160;overflow&#160;or&#160;other micro-architectural conditions. The&#160;</p>
+<p style="position:absolute;top:542px;left:177px;white-space:nowrap" class="ft04">decoder should be&#160;able&#160;to&#160;recover from&#160;such cases by checking&#160;the 8-bit payload of&#160;the&#160;next MTC&#160;packet, to&#160;deter-</p>
+<p style="position:absolute;top:559px;left:177px;white-space:nowrap" class="ft04">mine&#160;how many&#160;MTC&#160;packets were&#160;dropped. It is not expected that&#160;&gt;256 consecutive MTC packets should ever&#160;be&#160;</p>
+<p style="position:absolute;top:575px;left:177px;white-space:nowrap" class="ft04">dropped.</p>
+<p style="position:absolute;top:599px;left:74px;white-space:nowrap" class="ft04">Application</p>
+<p style="position:absolute;top:599px;left:177px;white-space:nowrap" class="ft04">MTC&#160;does not precisely indicate the&#160;time&#160;of&#160;any&#160;other&#160;packet, nor does&#160;it&#160;bind&#160;to&#160;any&#160;IP. However,&#160;all&#160;preceding pack-</p>
+<p style="position:absolute;top:616px;left:177px;white-space:nowrap" class="ft04">ets&#160;represent instructions or&#160;events&#160;that&#160;executed&#160;before&#160;the indicated ART time, and&#160;all&#160;subsequent&#160;packets repre-</p>
+<p style="position:absolute;top:632px;left:177px;white-space:nowrap" class="ft04">sent&#160;instructions that&#160;executed after,&#160;or&#160;at&#160;the same&#160;time&#160;as,&#160;the ART&#160;time.</p>
+<p style="position:absolute;top:212px;left:256px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:212px;left:319px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:212px;left:381px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:212px;left:443px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:212px;left:505px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:212px;left:567px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:212px;left:629px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:212px;left:691px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:194px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:256px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:319px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:233px;left:381px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:443px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:233px;left:505px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:233px;left:567px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:629px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:233px;left:691px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:254px;left:194px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:254px;left:256px;white-space:nowrap" class="ft04">CTC[N+7:N]</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 58</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page58-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce058.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">1-6&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ABOUT THIS MANUAL</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft010"><b>Chapter 38&#160;— Enclave&#160;Access&#160;Control and Data&#160;Structures.&#160;</b>Describes Enclave Access Control procedures and&#160;<br/>defines various Intel&#160;SGX&#160;data structures.<br/><b>Chapter 39 — Enclave Operation.&#160;</b>Describes enclave creation&#160;and initialization, adding&#160;pages and measuring&#160;an&#160;<br/>enclave,&#160;and&#160;enclave&#160;entry and&#160;exit.<br/><b>Chapter 40 — Enclave Exiting Events.&#160;</b>Describes&#160;enclave-exiting events (EEE) and&#160;asynchronous enclave exit&#160;<br/>(AEX).<br/><b>Chapter&#160;41&#160;— SGX Instruction References.&#160;</b>Describes the&#160;supervisor&#160;and user&#160;level instructions provided by&#160;<br/>Intel SGX.<br/><b>Chapter&#160;42 — Intel</b></p>
+<p style="position:absolute;top:260px;left:209px;white-space:nowrap" class="ft04"><b>®</b></p>
+<p style="position:absolute;top:262px;left:219px;white-space:nowrap" class="ft02"><b>&#160;SGX Interactions&#160;with&#160;IA32&#160;and Intel</b></p>
+<p style="position:absolute;top:260px;left:504px;white-space:nowrap" class="ft04"><b>®</b></p>
+<p style="position:absolute;top:262px;left:514px;white-space:nowrap" class="ft02"><b>&#160;64&#160;Architecture.&#160;</b>Describes the&#160;Intel SGX&#160;</p>
+<p style="position:absolute;top:279px;left:68px;white-space:nowrap" class="ft09">collection of enclave&#160;instructions for creating protected&#160;execution environments&#160;on processors supporting&#160;IA32 and&#160;<br/>Intel 64 architectures.<br/><b>Chapter 43 — Enclave Code&#160;Debug&#160;and&#160;Profiling.&#160;</b>Describes&#160;enclave&#160;code&#160;debug&#160;processes and&#160;options.<br/><b>Appendix&#160;A&#160;— VMX Capability Reporting Facility.&#160;</b>Describes&#160;the&#160;VMX capability MSRs.&#160;Support for specific VMX&#160;<br/>features&#160;is&#160;determined&#160;by reading capability&#160;MSRs.<br/><b>Appendix B — Field Encoding&#160;in&#160;VMCS.&#160;</b>Enumerates&#160;all fields in&#160;the VMCS&#160;and&#160;their encodings.&#160;Fields&#160;are&#160;<br/>grouped&#160;by width&#160;(16-bit,&#160;32-bit,&#160;etc.)&#160;and type&#160;(guest-state,&#160;host-state, etc.).<br/><b>Appendix C — VM Basic Exit&#160;Reasons.</b>&#160;Describes the&#160;32-bit fields that&#160;encode&#160;reasons for a&#160;VM&#160;exit. Examples&#160;<br/>of&#160;exit reasons&#160;include, but&#160;are&#160;not&#160;limited&#160;to: software&#160;interrupts, processor exceptions, software traps, NMIs,&#160;<br/>external interrupts,&#160;and triple faults.</p>
+<p style="position:absolute;top:513px;left:68px;white-space:nowrap" class="ft05">1.3&#160;NOTATIONAL&#160;</p>
+<p style="position:absolute;top:513px;left:276px;white-space:nowrap" class="ft05">CONVENTIONS</p>
+<p style="position:absolute;top:549px;left:68px;white-space:nowrap" class="ft09">This manual uses specific notation for data-structure formats,&#160;for&#160;symbolic&#160;representation of instructions,&#160;and for&#160;<br/>hexadecimal and&#160;binary numbers.&#160;A&#160;review&#160;of&#160;this notation makes&#160;the&#160;manual&#160;easier&#160;to read.</p>
+<p style="position:absolute;top:616px;left:68px;white-space:nowrap" class="ft06">1.3.1&#160;</p>
+<p style="position:absolute;top:616px;left:148px;white-space:nowrap" class="ft06">Bit and Byte Order</p>
+<p style="position:absolute;top:646px;left:68px;white-space:nowrap" class="ft09">In illustrations of data structures in memory, smaller addresses appear toward the bottom of the figure; addresses&#160;<br/>increase&#160;toward&#160;the top.&#160;Bit positions&#160;are&#160;numbered&#160;from right to left. The numerical&#160;value&#160;of a set bit is&#160;equal&#160;to&#160;<br/>two raised to the power&#160;of the bit position. Intel 64 and&#160;IA-32 processors are “little endian” machines; this means&#160;<br/>the bytes of a word&#160;are&#160;numbered starting from the least&#160;<a href="o_fe12b1e2a880e0ce-59.html">significant byte.&#160;Figure&#160;1-1 illustr</a>ates these&#160;conventions.</p>
+<p style="position:absolute;top:746px;left:68px;white-space:nowrap" class="ft06">1.3.2&#160;</p>
+<p style="position:absolute;top:746px;left:148px;white-space:nowrap" class="ft06">Reserved Bits and Software&#160;Compatibility</p>
+<p style="position:absolute;top:777px;left:68px;white-space:nowrap" class="ft09">In many&#160;register and memory layout descriptions, certain bits are&#160;marked&#160;as&#160;<b>reserved</b>.&#160;When bits are&#160;marked&#160;as&#160;<br/>reserved, it&#160;is essential for compatibility with future processors that&#160;software treat these&#160;bits&#160;as having a&#160;future,&#160;<br/>though unknown, effect. The behavior&#160;of&#160;reserved&#160;bits&#160;should&#160;be&#160;regarded&#160;as&#160;not&#160;only&#160;undefined,&#160;but&#160;unpredict-<br/>able. Software should&#160;follow&#160;these guidelines&#160;in dealing&#160;with reserved&#160;bits:</p>
+<p style="position:absolute;top:848px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:849px;left:93px;white-space:nowrap" class="ft09">Do not depend on the&#160;states of any reserved bits&#160;when testing the values of registers which contain such&#160;bits.&#160;<br/>Mask&#160;out&#160;the reserved bits before&#160;testing.</p>
+<p style="position:absolute;top:887px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:888px;left:93px;white-space:nowrap" class="ft03">Do&#160;not depend&#160;on the&#160;states&#160;of&#160;any reserved&#160;bits when storing&#160;to memory&#160;or to&#160;a register.</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:910px;left:93px;white-space:nowrap" class="ft03">Do not depend on the&#160;ability&#160;to retain&#160;information written into&#160;any reserved bits.</p>
+<p style="position:absolute;top:932px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:933px;left:93px;white-space:nowrap" class="ft09">When loading a register, always load the reserved bits with&#160;the values indicated in the documentation, if any,&#160;or&#160;<br/>reload&#160;them&#160;with values&#160;previously read&#160;from&#160;the same&#160;register.</p>
+<p style="position:absolute;top:984px;left:432px;white-space:nowrap" class="ft08">NOTE</p>
+<p style="position:absolute;top:1009px;left:120px;white-space:nowrap" class="ft09">Avoid&#160;any&#160;software&#160;dependence upon&#160;the state&#160;of reserved&#160;bits&#160;in Intel 64&#160;and&#160;IA-32&#160;registers.&#160;<br/>Depending&#160;upon the&#160;values of reserved register&#160;bits&#160;will&#160;make&#160;software&#160;dependent upon the&#160;<br/>unspecified&#160;manner in&#160;which the&#160;processor&#160;handles these bits.&#160;Programs&#160;that depend&#160;upon&#160;<br/>reserved values risk&#160;incompatibility&#160;with future processors.</p>
+</div>
+</body>
+</html>

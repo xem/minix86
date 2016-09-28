@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1263</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:10px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:10px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1263-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1263.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-13</p>
+<p style="position:absolute;top:47px;left:666px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:97px;left:69px;white-space:nowrap" class="ft02">34.8&#160;</p>
+<p style="position:absolute;top:97px;left:148px;white-space:nowrap" class="ft02">NMI HANDLING WHILE IN SMM</p>
+<p style="position:absolute;top:133px;left:69px;white-space:nowrap" class="ft06">NMI&#160;interrupts are&#160;blocked&#160;upon entry to&#160;the&#160;SMI handler.&#160;If&#160;an&#160;NMI request&#160;occurs&#160;during&#160;the SMI handler,&#160;it&#160;is&#160;<br/>latched and&#160;serviced&#160;after&#160;the processor exits&#160;SMM.&#160;Only&#160;one NMI request will&#160;be&#160;latched&#160;during the&#160;SMI handler.&#160;<br/>If an NMI request is pending when the processor executes&#160;the&#160;RSM&#160;instruction, the NMI&#160;is serviced before the next&#160;<br/>instruction&#160;of&#160;the&#160;interrupted code sequence.&#160;This assumes&#160;that&#160;NMIs were&#160;not blocked before the SMI occurred. If&#160;<br/>NMIs were&#160;blocked before the&#160;SMI occurred,&#160;they&#160;are blocked&#160;after execution&#160;of RSM.<br/>Although NMI requests&#160;are blocked&#160;when&#160;the processor enters SMM, they may be enabled through&#160;software&#160;by&#160;<br/>executing&#160;an IRET&#160;instruction. If the&#160;SMI handler requires&#160;the&#160;use of NMI interrupts,&#160;it should&#160;invoke&#160;a&#160;dummy&#160;<br/>interrupt service routine&#160;for&#160;the purpose of&#160;executing an&#160;IRET instruction.&#160;Once an&#160;IRET instruction is&#160;executed,&#160;<br/>NMI&#160;interrupt requests&#160;are serviced&#160;in&#160;the same&#160;“real&#160;mode”&#160;manner&#160;in which they are&#160;handled outside&#160;of SMM.<br/>A special&#160;case can&#160;occur&#160;if an&#160;SMI&#160;handler&#160;nests inside&#160;an&#160;NMI handler&#160;and&#160;then another NMI occurs. During&#160;NMI&#160;<br/>interrupt handling,&#160;NMI&#160;interrupts are disabled, so&#160;normally&#160;NMI interrupts are&#160;serviced and&#160;completed with&#160;an&#160;<br/>IRET instruction one&#160;at a&#160;time.&#160;When the&#160;processor enters SMM&#160;while executing&#160;an&#160;NMI handler,&#160;the&#160;processor&#160;<br/>saves&#160;the SMRAM state save&#160;map&#160;but does not&#160;save&#160;the attribute to keep NMI&#160;interrupts&#160;disabled. Potentially,&#160;an&#160;<br/>NMI&#160;could be latched (while&#160;in&#160;SMM or&#160;upon exit) and serviced&#160;upon&#160;exit of SMM&#160;even&#160;though&#160;the&#160;previous NMI&#160;<br/>handler has still&#160;not completed.&#160;One or more&#160;NMIs could thus&#160;be&#160;nested inside&#160;the first NMI handler.&#160;The&#160;NMI inter-<br/>rupt handler should&#160;take&#160;this&#160;possibility into consideration.<br/>Also, for&#160;the&#160;Pentium&#160;processor,&#160;exceptions that invoke&#160;a trap&#160;or fault handler will&#160;enable&#160;NMI interrupts from&#160;inside&#160;<br/>of SMM. This behavior&#160;is&#160;implementation&#160;specific&#160;for&#160;the Pentium processor and&#160;is not part of the&#160;IA-32&#160;architec-<br/>ture.</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft02">34.9&#160;</p>
+<p style="position:absolute;top:508px;left:148px;white-space:nowrap" class="ft02">SMM REVISION IDENTIFIER</p>
+<p style="position:absolute;top:544px;left:69px;white-space:nowrap" class="ft06">The&#160;SMM&#160;revision identifier field is&#160;used&#160;to indicate the version of SMM&#160;and&#160;the SMM&#160;extensions that&#160;are supported&#160;<br/><a href="o_fe12b1e2a880e0ce-1263.html">by the processor (see Figure&#160;34-2). The SM</a>M&#160;revision identifier is&#160;written during&#160;SMM entry&#160;and can&#160;be&#160;examined&#160;<br/>in SMRAM&#160;space at&#160;offset&#160;7EFCH.&#160;The&#160;lower word of the&#160;SMM&#160;revision&#160;identifier&#160;refers to&#160;the version of the base&#160;<br/>SMM architecture.</p>
+<p style="position:absolute;top:852px;left:69px;white-space:nowrap" class="ft06">The&#160;upper&#160;word of the&#160;SMM revision identifier refers to&#160;the extensions available.&#160;If the&#160;I/O instruction restart&#160;flag&#160;<br/>(bit 16) is&#160;set, the processor supports&#160;the I/O instruction&#160;restart&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1265.html">Section&#160;34.12); if the</a>&#160;SMBASE&#160;relocation flag&#160;<br/>(bit 17) is&#160;set, SMRAM base address&#160;relocation is&#160;supp<a href="o_fe12b1e2a880e0ce-1264.html">orted (see Section 34.11).</a></p>
+<p style="position:absolute;top:940px;left:69px;white-space:nowrap" class="ft02">34.10 AUTO&#160;</p>
+<p style="position:absolute;top:940px;left:207px;white-space:nowrap" class="ft02">HALT&#160;</p>
+<p style="position:absolute;top:940px;left:261px;white-space:nowrap" class="ft02">RESTART</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft06">If the&#160;processor&#160;is in a&#160;HALT&#160;state (due to&#160;the prior execution of&#160;a&#160;HLT&#160;instruction)&#160;when&#160;it receives an SMI, the&#160;<br/>processor records the fact in the&#160;auto HALT&#160;restart flag&#160;in&#160;the&#160;saved processor state (see<a href="o_fe12b1e2a880e0ce-1264.html">&#160;Figure&#160;34-3</a>). (This flag is&#160;<br/>located&#160;at offset&#160;7F02H and&#160;bit&#160;0&#160;in the&#160;state save area&#160;of the&#160;SMRAM.)<br/>If the&#160;processor&#160;sets the auto HALT&#160;restart&#160;flag&#160;upon&#160;entering&#160;SMM (indicating that the SMI occurred when the&#160;<br/>processor&#160;was in&#160;the&#160;HALT&#160;state), the&#160;SMI handler&#160;has two options:</p>
+<p style="position:absolute;top:806px;left:329px;white-space:nowrap" class="ft04">Figure&#160;34-2. &#160;SMM&#160;Revision Identifier</p>
+<p style="position:absolute;top:697px;left:500px;white-space:nowrap" class="ft05">SMM Revision Identifier</p>
+<p style="position:absolute;top:754px;left:260px;white-space:nowrap" class="ft05">I/O Instruction Restart</p>
+<p style="position:absolute;top:737px;left:260px;white-space:nowrap" class="ft05">SMBASE Relocation</p>
+<p style="position:absolute;top:644px;left:239px;white-space:nowrap" class="ft09">Register Offset<br/>7EFCH</p>
+<p style="position:absolute;top:677px;left:240px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:677px;left:661px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:698px;left:316px;white-space:nowrap" class="ft05">Reserved</p>
+<p style="position:absolute;top:677px;left:413px;white-space:nowrap" class="ft05">18&#160;17&#160;16&#160;15</p>
+</div>
+</body>
+</html>

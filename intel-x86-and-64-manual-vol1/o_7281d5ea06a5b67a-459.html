@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 459</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page459-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a459.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:776px;white-space:nowrap" class="ft00">Vol. 1&#160;E-17</p>
+<p style="position:absolute;top:47px;left:421px;white-space:nowrap" class="ft01">GUIDELINES FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION&#160;HANDLERS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">7.&#160;The emulation function&#160;returns RAISE_EXCEPTION to the filter&#160;function if an&#160;exception has to&#160;be&#160;raised&#160;(the&#160;</p>
+<p style="position:absolute;top:117px;left:95px;white-space:nowrap" class="ft03">exception_cause&#160;field indicates&#160;the cause). Otherwise,&#160;the emulation function returns DO_NOT_&#160;<br/>RAISE_EXCEPTION.&#160;In&#160;the&#160;first case,&#160;the result&#160;is provided&#160;by the&#160;user exception&#160;handler called&#160;by&#160;the filter&#160;<br/>function. In&#160;the second&#160;case,&#160;it is&#160;provided&#160;by the&#160;emulation&#160;function. The&#160;filter function has to&#160;collect&#160;all the&#160;<br/>partial results, and&#160;to assemble&#160;the&#160;scalar&#160;or packed&#160;result that&#160;is used if execution&#160;is to&#160;continue.</p>
+<p style="position:absolute;top:207px;left:69px;white-space:nowrap" class="ft01">Example E-2. &#160;SIMD&#160;Floating-Point&#160;Emulation</p>
+<p style="position:absolute;top:237px;left:69px;white-space:nowrap" class="ft00">// masks&#160;for individual status word bits</p>
+<p style="position:absolute;top:252px;left:69px;white-space:nowrap" class="ft00">#define PRECISION_MASK&#160;20H</p>
+<p style="position:absolute;top:267px;left:69px;white-space:nowrap" class="ft00">#define UNDERFLOW_MASK&#160;10H</p>
+<p style="position:absolute;top:282px;left:69px;white-space:nowrap" class="ft00">#define OVERFLOW_MASK&#160;08H</p>
+<p style="position:absolute;top:297px;left:69px;white-space:nowrap" class="ft00">#define ZERODIVIDE_MASK&#160;04H</p>
+<p style="position:absolute;top:312px;left:69px;white-space:nowrap" class="ft00">#define DENORMAL_MASK&#160;02H</p>
+<p style="position:absolute;top:327px;left:69px;white-space:nowrap" class="ft00">#define INVALID_MASK&#160;01H</p>
+<p style="position:absolute;top:358px;left:69px;white-space:nowrap" class="ft00">// 32-bit constants</p>
+<p style="position:absolute;top:373px;left:69px;white-space:nowrap" class="ft00">static unsigned ZEROF_ARRAY[] =&#160;{00000000H};</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft00">#define&#160;&#160;ZEROF *(float *) ZEROF_ARRAY</p>
+<p style="position:absolute;top:403px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // +0.0</p>
+<p style="position:absolute;top:418px;left:69px;white-space:nowrap" class="ft00">static unsigned NZEROF_ARRAY[] =&#160;{80000000H};</p>
+<p style="position:absolute;top:433px;left:69px;white-space:nowrap" class="ft00">#define&#160;&#160;NZEROF *(float *) NZEROF_ARRAY</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // -0.0</p>
+<p style="position:absolute;top:463px;left:69px;white-space:nowrap" class="ft00">static unsigned POSINFF_ARRAY[]&#160;= {7f800000H};</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft00">#define&#160;POSINFF *(float *)POSINFF_ARRAY</p>
+<p style="position:absolute;top:493px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // +Inf</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft00">static unsigned NEGINFF_ARRAY[]&#160;= {ff800000H};</p>
+<p style="position:absolute;top:523px;left:69px;white-space:nowrap" class="ft00">#define&#160;NEGINFF *(float *)NEGINFF_ARRAY</p>
+<p style="position:absolute;top:538px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // -Inf</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft00">// 64-bit constants</p>
+<p style="position:absolute;top:583px;left:69px;white-space:nowrap" class="ft00">static unsigned MIN_SINGLE_NORMAL_ARRAY [] = {00000000H, 38100000H};&#160;</p>
+<p style="position:absolute;top:598px;left:69px;white-space:nowrap" class="ft00">#define&#160;MIN_SINGLE_NORMAL *(double *)MIN_SINGLE_NORMAL_ARRAY</p>
+<p style="position:absolute;top:613px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // +1.0 * 2^-126</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft00">static unsigned MAX_SINGLE_NORMAL_ARRAY [] = {70000000H, 47efffffH};&#160;</p>
+<p style="position:absolute;top:643px;left:69px;white-space:nowrap" class="ft00">#define&#160;MAX_SINGLE_NORMAL *(double *)MAX_SINGLE_NORMAL_ARRAY</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // +1.1...1*2^127</p>
+<p style="position:absolute;top:673px;left:69px;white-space:nowrap" class="ft00">static unsigned TWO_TO_192_ARRAY[] = {00000000H, 4bf00000H};</p>
+<p style="position:absolute;top:688px;left:69px;white-space:nowrap" class="ft00">#define&#160;TWO_TO_192 *(double *)TWO_TO_192_ARRAY</p>
+<p style="position:absolute;top:703px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // +1.0 * 2^192</p>
+<p style="position:absolute;top:718px;left:69px;white-space:nowrap" class="ft00">static unsigned TWO_TO_M192_ARRAY[] = {00000000H, 33f00000H};</p>
+<p style="position:absolute;top:733px;left:69px;white-space:nowrap" class="ft00">#define&#160;TWO_TO_M192 *(double *)TWO_TO_M192_ARRAY</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft00">&#160; &#160; // +1.0 * 2^-192</p>
+<p style="position:absolute;top:778px;left:69px;white-space:nowrap" class="ft00">// auxiliary functions</p>
+<p style="position:absolute;top:793px;left:69px;white-space:nowrap" class="ft00">static int isnanf (unsigned int&#160;); // returns 1 if f is a&#160;NaN, and 0 otherwise</p>
+<p style="position:absolute;top:808px;left:69px;white-space:nowrap" class="ft00">static float quietf (unsigned int ); // converts a signaling NaN to a quiet&#160;</p>
+<p style="position:absolute;top:823px;left:256px;white-space:nowrap" class="ft00">// NaN, and leaves a quiet NaN unchanged</p>
+<p style="position:absolute;top:838px;left:69px;white-space:nowrap" class="ft00">static unsigned int check_for_daz (unsigned int ); // converts denormals&#160;</p>
+<p style="position:absolute;top:853px;left:256px;white-space:nowrap" class="ft00">// to zeros of&#160;the same sign;&#160;</p>
+<p style="position:absolute;top:868px;left:256px;white-space:nowrap" class="ft00">// does not affect any status flags</p>
+<p style="position:absolute;top:898px;left:69px;white-space:nowrap" class="ft00">// emulation of SSE and SSE2 instructions using</p>
+<p style="position:absolute;top:913px;left:69px;white-space:nowrap" class="ft00">// C code and x87 FPU instructions</p>
+<p style="position:absolute;top:943px;left:69px;white-space:nowrap" class="ft00">unsigned&#160;int</p>
+<p style="position:absolute;top:958px;left:69px;white-space:nowrap" class="ft00">simd_fp_emulate (EXC_ENV *exc_env)</p>
+<p style="position:absolute;top:988px;left:69px;white-space:nowrap" class="ft00">{</p>
+<p style="position:absolute;top:1018px;left:69px;white-space:nowrap" class="ft00">&#160; int uiopd1; // first operand of&#160;the add, subtract, multiply, or divide</p>
+<p style="position:absolute;top:1033px;left:69px;white-space:nowrap" class="ft00">&#160; int uiopd2; // second operand&#160;of the add, subtract, multiply, or divide</p>
+<p style="position:absolute;top:1048px;left:69px;white-space:nowrap" class="ft00">&#160; float&#160;res; // result of the add, subtract, multiply, or&#160;divide</p>
+<p style="position:absolute;top:1063px;left:69px;white-space:nowrap" class="ft00">&#160; double&#160;dbl_res24; // result with 24-bit significand, but &#34;unbounded&#34; exponent</p>
+</div>
+</body>
+</html>

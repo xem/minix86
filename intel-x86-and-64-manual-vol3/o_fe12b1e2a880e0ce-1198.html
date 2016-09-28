@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1198</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1198-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1198.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">30-18&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VMPTRST—Store&#160;Pointer to&#160;Virtual-Machine Control Structure</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:240px;left:68px;white-space:nowrap" class="ft07">Stores&#160;the current-VMCS pointer into a&#160;specified memory address. The operand of this instruction is always 64 bits&#160;<br/>and is&#160;always in memory.</p>
+<p style="position:absolute;top:293px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft04">IF&#160;(register operand) or (not in&#160;VMX operation)&#160;or&#160;(CR0.PE&#160;= 0) or&#160;(RFLAGS.VM&#160;= 1) or (IA32_EFER.LMA&#160;= 1&#160;and CS.L = 0)</p>
+<p style="position:absolute;top:343px;left:88px;white-space:nowrap" class="ft04">THEN&#160;#UD;</p>
+<p style="position:absolute;top:361px;left:68px;white-space:nowrap" class="ft04">ELSIF in&#160;VMX non-root operation</p>
+<p style="position:absolute;top:379px;left:88px;white-space:nowrap" class="ft04">THEN&#160;VMexit;</p>
+<p style="position:absolute;top:397px;left:68px;white-space:nowrap" class="ft04">ELSIF CPL</p>
+<p style="position:absolute;top:396px;left:127px;white-space:nowrap" class="ft05">&gt;</p>
+<p style="position:absolute;top:397px;left:136px;white-space:nowrap" class="ft04">&#160;0</p>
+<p style="position:absolute;top:415px;left:88px;white-space:nowrap" class="ft08">THEN&#160;#GP(0);<br/>ELSE&#160;</p>
+<p style="position:absolute;top:451px;left:115px;white-space:nowrap" class="ft04">64-bit in-memory destination operand&#160;←&#160;current-VMCS&#160;pointer;</p>
+<p style="position:absolute;top:469px;left:115px;white-space:nowrap" class="ft04">VMsucceed;</p>
+<p style="position:absolute;top:487px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:524px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:547px;left:68px;white-space:nowrap" class="ft04">See the&#160;operation section&#160;and<a href="o_fe12b1e2a880e0ce-1182.html">&#160;Section 30.2.</a></p>
+<p style="position:absolute;top:584px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:607px;left:68px;white-space:nowrap" class="ft04">#GP(0)</p>
+<p style="position:absolute;top:607px;left:206px;white-space:nowrap" class="ft09">If&#160;the current&#160;privilege level&#160;is not 0.<br/>If the&#160;memory&#160;destination operand&#160;effective&#160;address&#160;is outside&#160;the&#160;CS, DS, ES, FS, or&#160;GS&#160;</p>
+<p style="position:absolute;top:645px;left:205px;white-space:nowrap" class="ft04">segment limit.</p>
+<p style="position:absolute;top:666px;left:206px;white-space:nowrap" class="ft09">If&#160;the DS,&#160;ES, FS, or&#160;GS&#160;register contains&#160;an&#160;unusable segment.<br/>If&#160;the destination operand&#160;is located in&#160;a read-only&#160;data segment or&#160;any code segment.</p>
+<p style="position:absolute;top:708px;left:68px;white-space:nowrap" class="ft04">#PF(fault-code)</p>
+<p style="position:absolute;top:708px;left:206px;white-space:nowrap" class="ft04">If a&#160;page&#160;fault occurs&#160;in&#160;accessing the&#160;memory destination operand.</p>
+<p style="position:absolute;top:729px;left:68px;white-space:nowrap" class="ft04">#SS(0)</p>
+<p style="position:absolute;top:729px;left:206px;white-space:nowrap" class="ft09">If&#160;the memory destination&#160;operand effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.<br/>If the&#160;SS&#160;register&#160;contains an unusable segment.</p>
+<p style="position:absolute;top:771px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:771px;left:206px;white-space:nowrap" class="ft010">If operand&#160;is a&#160;register.<br/>If not in&#160;VMX&#160;operation.</p>
+<p style="position:absolute;top:829px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:852px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:852px;left:206px;white-space:nowrap" class="ft04">If&#160;executed outside VMX&#160;root operation.</p>
+<p style="position:absolute;top:889px;left:68px;white-space:nowrap" class="ft03">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:912px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:912px;left:206px;white-space:nowrap" class="ft04">The&#160;VMPTRST instruction is&#160;not recognized&#160;in&#160;virtual-8086&#160;mode.</p>
+<p style="position:absolute;top:949px;left:68px;white-space:nowrap" class="ft03">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:972px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:972px;left:206px;white-space:nowrap" class="ft04">The&#160;VMPTRST instruction is&#160;not recognized&#160;in&#160;compatibility&#160;mode.</p>
+<p style="position:absolute;top:137px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:209px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:333px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F C7&#160;/7</p>
+<p style="position:absolute;top:160px;left:209px;white-space:nowrap" class="ft04">VMPTRST m64</p>
+<p style="position:absolute;top:160px;left:333px;white-space:nowrap" class="ft04">Stores the&#160;current VMCS pointer into&#160;memory<i>.</i></p>
+</div>
+</body>
+</html>

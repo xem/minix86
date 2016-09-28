@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1638</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1638-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811638.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:344px;white-space:nowrap" class="ft00">VPGATHERDQ/VPGATHERQQ — Gather&#160;Packed Qword Values Using Signed&#160;Dword/Qword Indices</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-252&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VPGATHERDQ/VPGATHERQQ — Gather Packed Qword Values Using Signed Dword/Qword&#160;</p>
+<p style="position:absolute;top:119px;left:68px;white-space:nowrap" class="ft02">Indices&#160;</p>
+<p style="position:absolute;top:506px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:608px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:633px;left:68px;white-space:nowrap" class="ft06">The instruction conditionally loads up&#160;to 2&#160;or 4 qword&#160;values from memory addresses&#160;specified by&#160;the memory&#160;<br/>operand&#160;(the second&#160;operand)&#160;and using qword indices.&#160;The memory operand&#160;uses&#160;the VSIB form of the SIB byte&#160;<br/>to specify a general&#160;purpose&#160;register&#160;operand&#160;as the&#160;common&#160;base, a vector register for an&#160;array&#160;of&#160;indices relative&#160;<br/>to the&#160;base&#160;and&#160;a constant scale&#160;factor.<br/>The mask operand&#160;(the&#160;third&#160;operand)&#160;specifies the conditional load operation from&#160;each&#160;memory address and the&#160;<br/>corresponding&#160;update of each data&#160;element&#160;of the&#160;destination&#160;operand (the&#160;first operand). Conditionality is&#160;speci-<br/>fied&#160;by&#160;the most&#160;significant bit&#160;of each&#160;data element of the&#160;mask&#160;register. If an&#160;element’s mask bit is&#160;not&#160;set, the&#160;<br/>corresponding&#160;element of the&#160;destination&#160;register&#160;is left&#160;unchanged.&#160;The&#160;width of data element in the&#160;destination&#160;<br/>register&#160;and mask register&#160;are identical.&#160;The&#160;entire&#160;mask&#160;register will be set to&#160;zero&#160;by&#160;this instruction unless&#160;the&#160;<br/>instruction&#160;causes an&#160;exception.&#160;<br/>Using&#160;dword indices in&#160;the lower half of&#160;the mask register,&#160;the instruction conditionally&#160;loads up&#160;to 2 or&#160;4 qword&#160;<br/>values from the&#160;VSIB&#160;addressing memory operand,&#160;and updates&#160;the destination register.&#160;<br/>This instruction can&#160;be suspended by an exception if at least one element is already gathered&#160;(i.e.,&#160;if the exception&#160;<br/>is triggered by an element other than the rightmost one with&#160;its mask bit set). &#160;When&#160;this happens,&#160;the&#160;destination&#160;<br/>register and&#160;the&#160;mask&#160;operand&#160;are partially updated;&#160;those&#160;elements&#160;that have&#160;been gathered&#160;are&#160;placed&#160;into&#160;the&#160;<br/>destination register&#160;and have&#160;their mask bits set&#160;to zero.&#160;&#160;If any traps or interrupts&#160;are pending from already&#160;gath-<br/>ered elements, they will be&#160;delivered in&#160;lieu of the exception;&#160;in&#160;this&#160;case, EFLAG.RF&#160;is set to&#160;one&#160;so an instruction&#160;<br/>breakpoint&#160;is not re-triggered&#160;when&#160;the&#160;instruction is&#160;continued.<br/>If&#160;the data size&#160;and index&#160;size are different, part of the&#160;destination&#160;register&#160;and&#160;part of&#160;the mask register do not&#160;<br/>correspond to any&#160;elements being gathered.&#160;&#160;This instruction&#160;sets&#160;those parts to zero.&#160;&#160;It may do this to one&#160;or both&#160;<br/>of those&#160;registers even&#160;if&#160;the instruction triggers&#160;an exception,&#160;and even if&#160;the&#160;instruction triggers&#160;the&#160;exception&#160;<br/>before gathering any&#160;elements.<br/>VEX.128 version: The&#160;instruction will gather&#160;two&#160;qword values. &#160;For dword&#160;indices,&#160;only the&#160;lower two indices in the&#160;<br/>vector index&#160;register are used.</p>
+<p style="position:absolute;top:144px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:160px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:144px;left:331px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:160px;left:331px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:144px;left:376px;white-space:nowrap" class="ft04">64/32</p>
+<p style="position:absolute;top:160px;left:376px;white-space:nowrap" class="ft04">-bit&#160;</p>
+<p style="position:absolute;top:177px;left:376px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:144px;left:434px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:160px;left:434px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:177px;left:434px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:144px;left:500px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:196px;left:77px;white-space:nowrap" class="ft04">VEX.DDS.128.66.0F38.W1&#160;90&#160;/r</p>
+<p style="position:absolute;top:196px;left:331px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:196px;left:376px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:196px;left:434px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:196px;left:500px;white-space:nowrap" class="ft04">Using dword indices&#160;specified in&#160;<i>vm32x</i>, gather&#160;qword val-</p>
+<p style="position:absolute;top:213px;left:500px;white-space:nowrap" class="ft04">ues from&#160;memory&#160;conditioned on&#160;mask&#160;specified by&#160;</p>
+<p style="position:absolute;top:229px;left:500px;white-space:nowrap" class="ft05"><i>xmm2</i>. Conditionally gathered&#160;elements are merged&#160;into&#160;</p>
+<p style="position:absolute;top:245px;left:500px;white-space:nowrap" class="ft05"><i>xmm1</i>.</p>
+<p style="position:absolute;top:216px;left:77px;white-space:nowrap" class="ft04">VPGATHERDQ&#160;<i>xmm1, vm32x,&#160;xmm2</i></p>
+<p style="position:absolute;top:265px;left:77px;white-space:nowrap" class="ft04">VEX.DDS.128.66.0F38.W1&#160;91&#160;/r</p>
+<p style="position:absolute;top:265px;left:331px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:265px;left:376px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:265px;left:434px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:265px;left:500px;white-space:nowrap" class="ft04">Using qword indices&#160;specified in&#160;<i>vm64x</i>, gather&#160;qword val-</p>
+<p style="position:absolute;top:281px;left:500px;white-space:nowrap" class="ft04">ues from&#160;memory&#160;conditioned on&#160;mask&#160;specified by&#160;</p>
+<p style="position:absolute;top:298px;left:500px;white-space:nowrap" class="ft05"><i>xmm2</i>. Conditionally gathered&#160;elements are merged&#160;into&#160;</p>
+<p style="position:absolute;top:315px;left:500px;white-space:nowrap" class="ft05"><i>xmm1</i>.</p>
+<p style="position:absolute;top:285px;left:77px;white-space:nowrap" class="ft04">VPGATHERQQ&#160;<i>xmm1, vm64x, xmm2</i></p>
+<p style="position:absolute;top:334px;left:77px;white-space:nowrap" class="ft04">VEX.DDS.256.66.0F38.W1&#160;90&#160;/r</p>
+<p style="position:absolute;top:334px;left:331px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:334px;left:376px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:334px;left:434px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:334px;left:500px;white-space:nowrap" class="ft04">Using dword indices&#160;specified in&#160;<i>vm32x</i>, gather&#160;qword val-</p>
+<p style="position:absolute;top:351px;left:500px;white-space:nowrap" class="ft04">ues from&#160;memory&#160;conditioned on&#160;mask&#160;specified by&#160;</p>
+<p style="position:absolute;top:367px;left:500px;white-space:nowrap" class="ft05"><i>ymm2</i>. Conditionally gathered&#160;elements are merged&#160;into&#160;</p>
+<p style="position:absolute;top:384px;left:500px;white-space:nowrap" class="ft05"><i>ymm1</i>.</p>
+<p style="position:absolute;top:353px;left:77px;white-space:nowrap" class="ft04">VPGATHERDQ&#160;<i>ymm1, vm32x, ymm2</i></p>
+<p style="position:absolute;top:403px;left:77px;white-space:nowrap" class="ft04">VEX.DDS.256.66.0F38.W1&#160;91&#160;/r</p>
+<p style="position:absolute;top:403px;left:331px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:403px;left:376px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:403px;left:434px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:403px;left:500px;white-space:nowrap" class="ft04">Using&#160;qword&#160;indices specified&#160;in&#160;<i>vm64y</i>, gather&#160;qword&#160;val-</p>
+<p style="position:absolute;top:420px;left:500px;white-space:nowrap" class="ft04">ues from&#160;memory&#160;conditioned on&#160;mask&#160;specified by&#160;</p>
+<p style="position:absolute;top:436px;left:500px;white-space:nowrap" class="ft05"><i>ymm2</i>. Conditionally gathered&#160;elements are merged&#160;into&#160;</p>
+<p style="position:absolute;top:453px;left:500px;white-space:nowrap" class="ft05"><i>ymm1</i>.</p>
+<p style="position:absolute;top:423px;left:77px;white-space:nowrap" class="ft04">VPGATHERQQ&#160;<i>ymm1, vm64y,&#160;ymm2</i></p>
+<p style="position:absolute;top:529px;left:89px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:529px;left:198px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:529px;left:370px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:529px;left:546px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:529px;left:719px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:553px;left:102px;white-space:nowrap" class="ft04">A</p>
+<p style="position:absolute;top:553px;left:181px;white-space:nowrap" class="ft04">ModRM:reg (r,w)</p>
+<p style="position:absolute;top:553px;left:333px;white-space:nowrap" class="ft04">BaseReg (R):&#160;VSIB:base,</p>
+<p style="position:absolute;top:570px;left:329px;white-space:nowrap" class="ft04">VectorReg(R): VSIB:index</p>
+<p style="position:absolute;top:553px;left:532px;white-space:nowrap" class="ft04">VEX.vvvv (r, w)</p>
+<p style="position:absolute;top:553px;left:740px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

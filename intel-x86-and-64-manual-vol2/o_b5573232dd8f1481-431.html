@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 431</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page431-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481431.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">ENTER—Make Stack Frame&#160;for Procedure Parameters</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-303</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">ENTER—Make&#160;Stack Frame for Procedure Parameters</p>
+<p style="position:absolute;top:295px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:379px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:403px;left:69px;white-space:nowrap" class="ft07">Creates a stack frame&#160;(comprising of space for&#160;dynamic storage and 1-32 frame pointer&#160;storage)&#160;for a&#160;procedure.&#160;<br/>The first operand&#160;(imm16)&#160;specifies the&#160;size of the&#160;dynamic storage in&#160;the stack frame&#160;(that is,&#160;the number&#160;of&#160;bytes&#160;<br/>of dynamically allocated&#160;on the&#160;stack&#160;for&#160;the procedure). The second operand&#160;(imm8) gives the&#160;lexical nesting level&#160;<br/>(0 to 31) of&#160;the procedure.&#160;The&#160;nesting&#160;level (imm8 mod&#160;32) and&#160;the&#160;OperandSize attribute determine&#160;the&#160;size&#160;in&#160;<br/>bytes of the&#160;storage space for&#160;frame&#160;pointers.<br/>The nesting level&#160;determines the number&#160;of&#160;frame pointers&#160;that are&#160;copied into&#160;the&#160;“display&#160;area” of&#160;the new stack&#160;<br/>frame&#160;from&#160;the preceding frame.&#160;The&#160;default&#160;size of the&#160;frame pointer is&#160;the StackAddrSize&#160;attribute, but&#160;can be&#160;<br/>overridden using&#160;the&#160;66H prefix.&#160;Thus,&#160;the&#160;OperandSize attribute determines&#160;the&#160;size of each frame&#160;pointer that&#160;<br/>will&#160;be&#160;copied&#160;into&#160;the&#160;stack frame&#160;and&#160;the&#160;data being transferred from SP/ESP/RSP&#160;register into&#160;the&#160;BP/EBP/RBP&#160;<br/>register.<br/>The&#160;ENTER&#160;and companion&#160;LEAVE instructions are&#160;provided&#160;to&#160;support block&#160;structured&#160;languages. The ENTER&#160;<br/>instruction&#160;(when used) is typically the first instruction in a procedure and is used to set up a new stack frame for&#160;<br/>a procedure. The&#160;LEAVE&#160;instruction&#160;is then used at&#160;the end of the&#160;procedure&#160;(just before the&#160;RET instruction) to&#160;<br/>release the&#160;stack frame.<br/>If the&#160;nesting level&#160;is 0,&#160;the&#160;processor pushes&#160;the&#160;frame pointer&#160;from&#160;the BP/EBP/RBP&#160;register onto the&#160;stack,&#160;<br/>copies the&#160;current stack&#160;pointer from&#160;the SP/ESP/RSP register into&#160;the&#160;BP/EBP/RBP&#160;register, and&#160;loads&#160;the&#160;<br/>SP/ESP/RSP register with the current&#160;stack-pointer&#160;value&#160;minus&#160;the&#160;value in the&#160;size&#160;operand.&#160;For nesting levels of&#160;<br/>1 or greater,&#160;the processor pushes additional&#160;frame&#160;pointers on the stack before adjusting the stack pointer.&#160;These&#160;<br/>additional&#160;frame pointers provide&#160;the called&#160;procedure&#160;with&#160;access&#160;points to other&#160;nested frames on&#160;the&#160;stack.&#160;See&#160;<br/>“Procedure Calls for Block-Structured Languages”&#160;in<a href="��">&#160;Chapter 6 of the&#160;<i>Intel® 64 and IA-32&#160;Architectures Software&#160;<br/>Developer’s Manual, Volume 1</i>,&#160;</a>for&#160;more information&#160;about the&#160;actions of the ENTER instruction.<br/>The ENTER instruction causes a&#160;page&#160;fault whenever&#160;a write&#160;using&#160;the&#160;final value&#160;of&#160;the stack&#160;pointer (within the&#160;<br/>current stack segment) would&#160;do so.<br/>In&#160;64-bit mode, default&#160;operation size&#160;is 64 bits; 32-bit&#160;operation&#160;size cannot be encoded. Use&#160;of&#160;66H prefix&#160;<br/>changes&#160;frame pointer&#160;operand size&#160;to 16 bits.<br/>When the&#160;66H prefix&#160;is used&#160;and&#160;causing&#160;the OperandSize attribute to&#160;be&#160;less&#160;than the&#160;StackAddrSize, software&#160;is&#160;<br/>responsible for the&#160;following:</p>
+<p style="position:absolute;top:899px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:900px;left:95px;white-space:nowrap" class="ft04">The&#160;companion LEAVE&#160;instruction&#160;must also&#160;use&#160;the&#160;66H prefix,</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:922px;left:95px;white-space:nowrap" class="ft07">The&#160;value in&#160;the&#160;RBP/EBP register prior to&#160;executing “66H&#160;ENTER”&#160;must&#160;be&#160;within&#160;the&#160;same&#160;16KByte&#160;region&#160;of&#160;<br/>the current stack pointer (RSP/ESP), such&#160;that the&#160;value&#160;of&#160;RBP/EBP after “66H ENTER”&#160;remains a valid address&#160;<br/>in the&#160;stack.&#160;This ensures “66H LEAVE” can restore 16-bits&#160;of&#160;data&#160;from the&#160;stack.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:425px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:497px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:497px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:567px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">C8&#160;<i>iw</i>&#160;00</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">ENTER&#160;<i>imm16</i>,&#160;0</p>
+<p style="position:absolute;top:160px;left:388px;white-space:nowrap" class="ft04">II</p>
+<p style="position:absolute;top:160px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:567px;white-space:nowrap" class="ft04">Create&#160;a stack&#160;frame for a&#160;procedure.</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft04">C8&#160;<i>iw&#160;</i>01</p>
+<p style="position:absolute;top:182px;left:221px;white-space:nowrap" class="ft04">ENTER&#160;<i>imm16</i>,1</p>
+<p style="position:absolute;top:182px;left:388px;white-space:nowrap" class="ft04">II</p>
+<p style="position:absolute;top:182px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:567px;white-space:nowrap" class="ft04">Create&#160;a&#160;stack&#160;frame with&#160;a nested&#160;pointer for&#160;</p>
+<p style="position:absolute;top:199px;left:567px;white-space:nowrap" class="ft04">a procedure.</p>
+<p style="position:absolute;top:222px;left:73px;white-space:nowrap" class="ft04">C8&#160;<i>iw&#160;</i>ib</p>
+<p style="position:absolute;top:222px;left:221px;white-space:nowrap" class="ft04">ENTER&#160;<i>imm16, imm8</i></p>
+<p style="position:absolute;top:222px;left:388px;white-space:nowrap" class="ft04">II</p>
+<p style="position:absolute;top:222px;left:425px;white-space:nowrap" class="ft04">Valid&#160;</p>
+<p style="position:absolute;top:222px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:222px;left:567px;white-space:nowrap" class="ft04">Create&#160;a stack&#160;frame with nested&#160;pointers&#160;for&#160;</p>
+<p style="position:absolute;top:238px;left:567px;white-space:nowrap" class="ft04">a procedure.</p>
+<p style="position:absolute;top:317px;left:88px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:317px;left:195px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:317px;left:365px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:317px;left:539px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:317px;left:717px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:342px;left:102px;white-space:nowrap" class="ft04">II</p>
+<p style="position:absolute;top:342px;left:218px;white-space:nowrap" class="ft04">iw</p>
+<p style="position:absolute;top:342px;left:379px;white-space:nowrap" class="ft04">imm8</p>
+<p style="position:absolute;top:342px;left:561px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:342px;left:738px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 281</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page281-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce281.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-25</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft03"><b>Addressable IDs for processor&#160;cores in&#160;the&#160;same&#160;Package</b></p>
+<p style="position:absolute;top:98px;left:521px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:100px;left:528px;white-space:nowrap" class="ft03"><b>&#160;(CPUID.(EAX=4, ECX=0</b></p>
+<p style="position:absolute;top:98px;left:710px;white-space:nowrap" class="ft04">8</p>
+<p style="position:absolute;top:100px;left:717px;white-space:nowrap" class="ft03"><b>):EAX[31:26]&#160;+&#160;</b></p>
+<p style="position:absolute;top:117px;left:94px;white-space:nowrap" class="ft08"><b>1 = Y)&#160;</b>—&#160;Indicates&#160;the&#160;maximum&#160;number&#160;of addressable&#160;IDs attributable&#160;to processor cores&#160;(Y) in&#160;the physical&#160;<br/>package.</p>
+<p style="position:absolute;top:155px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:95px;white-space:nowrap" class="ft08"><b>Extended Processor Topology&#160;Enumeration&#160;parameters for 32-bit APIC ID</b>:&#160;Intel 64&#160;processors&#160;<br/>supporting&#160;CPUID leaf 0BH will&#160;assign&#160;unique APIC IDs to&#160;each&#160;logical&#160;processor in&#160;the system. CPUID&#160;leaf 0BH&#160;<br/>reports&#160;the 32-bit&#160;APIC ID and provide topology&#160;enumeration parameters. See&#160;CPUID instruction reference&#160;<br/>page<a href="��">s in&#160;<i>Intel® 64&#160;and IA-32 Architectures Software&#160;Developer’s Manual, Volume&#160;2A</i></a>.</p>
+<p style="position:absolute;top:229px;left:69px;white-space:nowrap" class="ft08">The&#160;CPUID feature&#160;flag may indicate support&#160;for hardware&#160;multi-threading when only one&#160;logical processor avail-<br/>able&#160;in&#160;the&#160;package.&#160;In this case, the&#160;decimal value represented by bits 16&#160;through 23&#160;in&#160;the&#160;EBX register will have&#160;<br/>a&#160;value of 1.<br/>Software should&#160;note that the&#160;number of&#160;logical&#160;processors&#160;enabled&#160;by&#160;system&#160;software may&#160;be less than&#160;the value&#160;<br/>of&#160;“Addressable&#160;IDs for Logical processors”.&#160;Similarly,&#160;the&#160;number&#160;of cores&#160;enabled by system&#160;software&#160;may be less&#160;<br/>than&#160;the value of “Addressable IDs&#160;for&#160;processor&#160;cores”.<br/>Software&#160;can detect the&#160;availability&#160;of&#160;the&#160;CPUID&#160;extended topology&#160;enumeration leaf&#160;(0BH) by&#160;performing two&#160;<br/>steps:</p>
+<p style="position:absolute;top:382px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:382px;left:95px;white-space:nowrap" class="ft08">Check&#160;maximum&#160;input value for basic CPUID&#160;information by&#160;executing CPUID&#160;with EAX= 0.&#160;If CPUID.0H:EAX&#160;is&#160;<br/>greater than&#160;or&#160;equal&#160;or 11 (0BH),&#160;then proceed&#160;to next step,</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:421px;left:95px;white-space:nowrap" class="ft05">Check CPUID.EAX=0BH,&#160;ECX=0H:EBX&#160;is non-zero.</p>
+<p style="position:absolute;top:445px;left:69px;white-space:nowrap" class="ft08">If&#160;both of the&#160;above conditions&#160;are true, extended&#160;topology enumeration&#160;leaf is&#160;available. Note the&#160;presence of&#160;<br/>CPUID&#160;leaf 0BH in&#160;a processor does not guarantee&#160;support that the local&#160;APIC supports x2APIC.&#160;If&#160;<br/>CPUID.(EAX=0BH, ECX=0H):EBX&#160;returns zero&#160;and maximum&#160;input&#160;value for basic CPUID&#160;information is&#160;greater&#160;<br/>than&#160;0BH,&#160;then&#160;CPUID.0BH leaf&#160;is&#160;not&#160;supported on&#160;that&#160;processor.</p>
+<p style="position:absolute;top:545px;left:69px;white-space:nowrap" class="ft07">8.6.1&#160;</p>
+<p style="position:absolute;top:545px;left:149px;white-space:nowrap" class="ft07">Initializing Processors Supporting&#160;Hyper-Threading&#160;Technology</p>
+<p style="position:absolute;top:576px;left:69px;white-space:nowrap" class="ft08">The initialization process for an MP system that contains&#160;processors&#160;supporting Intel Hyper-Threading&#160;Technology&#160;<br/>is the same as for conventional MP systems (see<a href="o_fe12b1e2a880e0ce-274.html">&#160;Section&#160;8.4,&#160;“Multiple-Processor (MP)&#160;Initialization”). One logical&#160;<br/></a>processor in the system is selected as the BSP and other&#160;processors (or logical processors) are&#160;designated&#160;as APs.&#160;<br/>The initialization process is identical to that de<a href="o_fe12b1e2a880e0ce-275.html">scribed in&#160;Section 8.4.3, “MP Initialization&#160;Protocol Algorithm for MP&#160;<br/>Systems,”&#160;</a><a href="o_fe12b1e2a880e0ce-276.html">and Section 8.4.4,&#160;“MP Initialization&#160;Example.”<br/></a>During initialization,&#160;each logical processor is&#160;assigned an&#160;APIC&#160;ID&#160;that is&#160;stored&#160;in the&#160;local APIC ID register for&#160;<br/>each logical processor.&#160;If&#160;two&#160;or more processors supporting&#160;Intel Hyper-Threading&#160;Technology are&#160;present,&#160;each&#160;<br/>logical processor on&#160;the&#160;system&#160;bus&#160;is assigned&#160;a unique&#160;ID&#160;(see<a href="o_fe12b1e2a880e0ce-291.html">&#160;Section 8.9.3, “Hierarchical&#160;ID&#160;of&#160;Logical Proces-<br/>sors&#160;in an&#160;MP&#160;System”).&#160;</a>Once logical processors have&#160;APIC IDs, software&#160;communicates&#160;with&#160;them by sending&#160;APIC&#160;<br/>IPI messages.</p>
+<p style="position:absolute;top:782px;left:69px;white-space:nowrap" class="ft07">8.6.2&#160;</p>
+<p style="position:absolute;top:782px;left:149px;white-space:nowrap" class="ft07">Initializing Multi-Core&#160;Processors</p>
+<p style="position:absolute;top:813px;left:69px;white-space:nowrap" class="ft08">The initialization process&#160;for an MP&#160;system&#160;that&#160;contains multi-core&#160;Intel 64&#160;or IA-32 processors is the same&#160;as for&#160;<br/>conventional MP&#160;systems (see<a href="o_fe12b1e2a880e0ce-274.html">&#160;Section 8.4,&#160;“Multiple-Processor (MP) Initialization”). A logical&#160;</a>processor in one core&#160;<br/>is selected as&#160;the&#160;BSP; other&#160;logical&#160;processors&#160;are designated as&#160;APs.&#160;<br/>During initialization,&#160;each logical processor is&#160;assigned an&#160;APIC&#160;ID.&#160;Once&#160;logical processors have&#160;APIC&#160;IDs, soft-<br/>ware&#160;may communicate&#160;with them by&#160;sending&#160;APIC&#160;IPI messages.</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft05">6.&#160;Operating&#160;system&#160;and BIOS&#160;may implement&#160;features&#160;that&#160;reduce the&#160;number&#160;of&#160;logical processors&#160;available&#160;in&#160;a platform&#160;to&#160;applica-</p>
+<p style="position:absolute;top:963px;left:91px;white-space:nowrap" class="ft05">tions at&#160;runtime to&#160;less than the&#160;number of&#160;physical&#160;packages&#160;times the&#160;number&#160;of&#160;hardware-capable&#160;logical&#160;processors&#160;per&#160;pack-</p>
+<p style="position:absolute;top:979px;left:91px;white-space:nowrap" class="ft05">age.</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft05">7.&#160;Software&#160;must&#160;check CPUID for its support&#160;of&#160;leaf&#160;4&#160;when&#160;implementing&#160;support&#160;for&#160;multi-core. If CPUID&#160;leaf&#160;4 is not available at&#160;</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft05">runtime,&#160;software&#160;should handle the situation&#160;as if&#160;there is&#160;only one core&#160;per&#160;package.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft05">8.&#160;Maximum number of&#160;cores in&#160;the&#160;physical&#160;package must&#160;be&#160;queried by&#160;executing CPUID with EAX=4 and a&#160;valid&#160;ECX input value.&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft05">Valid ECX input values start from&#160;0.</p>
+</div>
+</body>
+</html>

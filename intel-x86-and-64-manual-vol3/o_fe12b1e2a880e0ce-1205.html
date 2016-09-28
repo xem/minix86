@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1205</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1205-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1205.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;30-25</p>
+<p style="position:absolute;top:47px;left:658px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VMXOFF‚ÄîLeave VMX Operation</p>
+<p style="position:absolute;top:214px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:240px;left:69px;white-space:nowrap" class="ft07">Takes the logical processor out of VMX operation, unblocks&#160;INIT signals,&#160;conditionally re-enables A20M, and clears&#160;<br/>any address-range monitoring.</p>
+<p style="position:absolute;top:254px;left:278px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:256px;left:285px;white-space:nowrap" class="ft04">&#160;</p>
+<p style="position:absolute;top:293px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:325px;left:69px;white-space:nowrap" class="ft04">IF (not in VMX operation) or (CR0.PE = 0) or&#160;(RFLAGS.VM&#160;= 1)&#160;or&#160;(IA32_EFER.LMA&#160;= 1 and&#160;CS.L = 0)</p>
+<p style="position:absolute;top:343px;left:89px;white-space:nowrap" class="ft04">THEN&#160;#UD;</p>
+<p style="position:absolute;top:361px;left:69px;white-space:nowrap" class="ft04">ELSIF in&#160;VMX non-root operation</p>
+<p style="position:absolute;top:379px;left:89px;white-space:nowrap" class="ft04">THEN&#160;VMexit;</p>
+<p style="position:absolute;top:397px;left:69px;white-space:nowrap" class="ft04">ELSIF&#160;CPL &gt;&#160;0</p>
+<p style="position:absolute;top:415px;left:89px;white-space:nowrap" class="ft04">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:433px;left:69px;white-space:nowrap" class="ft04">ELSIF dual-monitor treatment&#160;of SMIs and SMM is active</p>
+<p style="position:absolute;top:451px;left:89px;white-space:nowrap" class="ft08">THEN VMfail(VMXOFF under dual-monitor&#160;treatment of&#160;SMIs and SMM);<br/>ELSE</p>
+<p style="position:absolute;top:487px;left:116px;white-space:nowrap" class="ft08">leave VMX operation;<br/>unblock INIT;<br/>IF IA32_SMM_MONITOR_CTL[2] = 0</p>
+<p style="position:absolute;top:520px;left:319px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:541px;left:143px;white-space:nowrap" class="ft04">THEN&#160;unblock SMIs;</p>
+<p style="position:absolute;top:559px;left:116px;white-space:nowrap" class="ft04">IF outside SMX operation</p>
+<p style="position:absolute;top:556px;left:259px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:577px;left:143px;white-space:nowrap" class="ft04">THEN unblock and&#160;enable A20M;</p>
+<p style="position:absolute;top:595px;left:116px;white-space:nowrap" class="ft08">FI;<br/>clear&#160;address-range&#160;monitoring;<br/>VMsucceed;</p>
+<p style="position:absolute;top:649px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:686px;left:69px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:712px;left:69px;white-space:nowrap" class="ft04">See&#160;the operation section and<a href="o_fe12b1e2a880e0ce-1182.html">&#160;Section&#160;30.2</a>.</p>
+<p style="position:absolute;top:749px;left:69px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:772px;left:69px;white-space:nowrap" class="ft04">#GP(0)</p>
+<p style="position:absolute;top:772px;left:207px;white-space:nowrap" class="ft04">If&#160;executed in VMX root&#160;operation&#160;with CPL &gt; 0.</p>
+<p style="position:absolute;top:793px;left:69px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:793px;left:207px;white-space:nowrap" class="ft04">If executed&#160;outside VMX operation.</p>
+<p style="position:absolute;top:830px;left:69px;white-space:nowrap" class="ft03">Real-Address Mode&#160;Exceptions</p>
+<p style="position:absolute;top:853px;left:69px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:853px;left:207px;white-space:nowrap" class="ft04">If executed&#160;outside VMX root&#160;operation.</p>
+<p style="position:absolute;top:890px;left:69px;white-space:nowrap" class="ft03">Virtual-8086 Mode&#160;Exceptions</p>
+<p style="position:absolute;top:913px;left:69px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:913px;left:207px;white-space:nowrap" class="ft04">The&#160;VMXOFF&#160;instruction is&#160;not&#160;recognized&#160;in virtual-8086 mode.</p>
+<p style="position:absolute;top:137px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:209px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:323px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F&#160;01&#160;C4</p>
+<p style="position:absolute;top:160px;left:209px;white-space:nowrap" class="ft04">VMXOFF</p>
+<p style="position:absolute;top:160px;left:323px;white-space:nowrap" class="ft04">Leaves&#160;VMX&#160;operation<i>.</i></p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft04">1.&#160;See the&#160;information&#160;on&#160;MONITOR/MWAIT in&#160;<a href="˛ˇ">Chapter 8,&#160;‚ÄúMultiple-Processor&#160;Management,‚Äù</a>&#160;of&#160;th<a href="˛ˇ">e&#160;<i>Intel¬Æ&#160;64 and IA-32&#160;Architectures&#160;</i></a></p>
+<p style="position:absolute;top:963px;left:91px;white-space:nowrap" class="ft06"><a href="˛ˇ"><i>Software&#160;Developer‚Äôs Manual,&#160;Volume&#160;3A</i>.</a></p>
+<p style="position:absolute;top:984px;left:69px;white-space:nowrap" class="ft04">2.&#160;Setting&#160;IA32_SMM_MONITOR_CTL[bit&#160;2]&#160;to&#160;1&#160;prevents&#160;VMXOFF&#160;from&#160;unblocking&#160;SMIs&#160;regardless&#160;of&#160;the&#160;value&#160;of&#160;the&#160;register‚Äôs&#160;value&#160;</p>
+<p style="position:absolute;top:1000px;left:91px;white-space:nowrap" class="ft04">bit (bit&#160;0).&#160;Not all processors&#160;allow this bit to&#160;be set to&#160;1. Software&#160;should&#160;consult the&#160;VMX capability&#160;MSR&#160;IA32_VMX_MISC&#160;(see&#160;</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft04"><a href="o_fe12b1e2a880e0ce-1947.html">Appendix A.6)</a>&#160;to&#160;determine whether this is&#160;allowed.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft04">3.&#160;A logical processor is&#160;outside SMX operation&#160;if&#160;GETSEC[SENTER] has not been&#160;executed&#160;or if&#160;GETSEC[SEXIT] was executed after the&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft04">last&#160;execution of&#160;GETSEC[SENTER].&#160;See Chapter&#160;6,&#160;‚ÄúSafer&#160;Mode&#160;Extensions Reference.‚Äù</p>
+</div>
+</body>
+</html>

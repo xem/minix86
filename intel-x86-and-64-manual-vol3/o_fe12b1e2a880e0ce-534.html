@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 534</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page534-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce534.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-28&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Example 15-2. &#160;Machine-Check Exception&#160;Handler&#160;Pseudocode</p>
+<p style="position:absolute;top:125px;left:68px;white-space:nowrap" class="ft00">IF CPU supports MCE</p>
+<p style="position:absolute;top:140px;left:87px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:155px;left:105px;white-space:nowrap" class="ft00">IF CPU supports MCA</p>
+<p style="position:absolute;top:170px;left:124px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:185px;left:143px;white-space:nowrap" class="ft00">call&#160;errorlogging routine;&#160;(*&#160;returns&#160;restartability&#160;*)</p>
+<p style="position:absolute;top:200px;left:105px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:215px;left:87px;white-space:nowrap" class="ft00">ELSE (*&#160;Pentium(R)&#160;processor compatible *)</p>
+<p style="position:absolute;top:230px;left:105px;white-space:nowrap" class="ft06">READ P5_MC_ADDR<br/>READ P5_MC_TYPE;</p>
+<p style="position:absolute;top:260px;left:105px;white-space:nowrap" class="ft00">report RESTARTABILITY to console;</p>
+<p style="position:absolute;top:275px;left:68px;white-space:nowrap" class="ft06">FI;<br/>IF error&#160;is not restartable</p>
+<p style="position:absolute;top:305px;left:87px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:320px;left:105px;white-space:nowrap" class="ft06">report RESTARTABILITY to console;<br/>abort system;</p>
+<p style="position:absolute;top:350px;left:68px;white-space:nowrap" class="ft06">FI;<br/>CLEAR MCIP&#160;flag&#160;in IA32_MCG_STATUS;</p>
+<p style="position:absolute;top:413px;left:68px;white-space:nowrap" class="ft02">15.10.2 Pentium</p>
+<p style="position:absolute;top:416px;left:216px;white-space:nowrap" class="ft01">&#160;</p>
+<p style="position:absolute;top:413px;left:220px;white-space:nowrap" class="ft02">Processor Machine-Check Exception Handling</p>
+<p style="position:absolute;top:442px;left:68px;white-space:nowrap" class="ft07">Machine-check exception handler on P6 family,&#160;Intel&#160;Atom&#160;and later processor families,&#160;should follow&#160;the guidelines&#160;<br/>described&#160;<a href="o_fe12b1e2a880e0ce-533.html">in Section 15.10.1</a>&#160;and&#160;<a href="o_fe12b1e2a880e0ce-534.html">Example&#160;15-2&#160;</a>that check the processor’s&#160;support of&#160;MCA.</p>
+<p style="position:absolute;top:493px;left:432px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:519px;left:120px;white-space:nowrap" class="ft07">On processors that&#160;support&#160;MCA (CPUID.1.EDX.MCA&#160;= 1) reading the&#160;P5_MC_TYPE&#160;and&#160;<br/>P5_MC_ADDR&#160;registers&#160;may produce invalid data.</p>
+<p style="position:absolute;top:558px;left:68px;white-space:nowrap" class="ft07">When machine-check exceptions&#160;are&#160;enabled&#160;for the&#160;Pentium&#160;processor (MCE flag&#160;is set in&#160;control&#160;register CR4),&#160;<br/>the&#160;machine-check exception handler uses&#160;the RDMSR instruction&#160;to read the&#160;error type from the&#160;P5_MC_TYPE&#160;<br/>register and&#160;the machine check&#160;address from&#160;the P5_MC_ADDR register.&#160;The handler then normally reports these&#160;<br/>register values&#160;to the&#160;system&#160;console before aborting&#160;execution&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-534.html">Example&#160;15-2).</a></p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft02">15.10.3&#160;&#160;Logging Correctable Machine-Check Errors</p>
+<p style="position:absolute;top:687px;left:68px;white-space:nowrap" class="ft07">The&#160;error handling&#160;routine for servicing the&#160;machine-check&#160;exceptions is&#160;responsible&#160;for logging&#160;uncorrected&#160;<br/>errors.<br/>If a&#160;machine-check&#160;error is&#160;correctable,&#160;the processor does&#160;not generate&#160;a&#160;machine-check&#160;exception for it. To&#160;<br/>detect&#160;correctable machine-check errors, a&#160;utility program&#160;must&#160;be&#160;written that reads each of the&#160;machine-check&#160;<br/>error-reporting register banks and logs&#160;the&#160;results in an accounting file&#160;or data structure. This utility can be imple-<br/>mented in&#160;either&#160;of&#160;the following&#160;ways.</p>
+<p style="position:absolute;top:797px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:798px;left:93px;white-space:nowrap" class="ft03">A system daemon that polls the&#160;register&#160;banks on&#160;an&#160;infrequent basis, such as&#160;hourly or&#160;daily.</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:820px;left:93px;white-space:nowrap" class="ft07">A user-initiated&#160;application&#160;that polls the&#160;register&#160;banks and records the&#160;exceptions.&#160;Here,&#160;the&#160;actual&#160;polling&#160;<br/>service&#160;is provided by an&#160;operating-system&#160;driver&#160;or through the&#160;system call&#160;interface.</p>
+<p style="position:absolute;top:859px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:859px;left:93px;white-space:nowrap" class="ft07">An&#160;interrupt service&#160;routine servicing&#160;CMCI&#160;can read the&#160;MC&#160;banks&#160;and log&#160;the error.&#160;Please&#160;<a href="o_fe12b1e2a880e0ce-540.html">refer to&#160;Section&#160;<br/>15.10.4.2 fo</a>r guidelines&#160;on logging correctable&#160;machine&#160;checks.</p>
+<p style="position:absolute;top:898px;left:68px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-535.html">Example&#160;15-3&#160;</a>gives pseudocode for an error&#160;logging utility.</p>
+</div>
+</body>
+</html>

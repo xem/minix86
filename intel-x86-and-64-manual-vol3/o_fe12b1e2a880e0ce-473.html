@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 473</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:7px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:8px;line-height:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page473-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce473.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 3B&#160;14-7</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">POWER AND THERMAL MANAGEMENT</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">14.4.2 Enabling&#160;</p>
+<p style="position:absolute;top:98px;left:223px;white-space:nowrap" class="ft02">HWP&#160;</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft03">The&#160;layout of the&#160;IA32_PM_ENABLE MSR&#160;is shown&#160;in<a href="o_fe12b1e2a880e0ce-473.html">&#160;Figure&#160;14-4.</a>&#160;The&#160;bit fields&#160;are&#160;described&#160;below:&#160;</p>
+<p style="position:absolute;top:325px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:325px;left:95px;white-space:nowrap" class="ft09"><b>HWP_ENABLE (bit&#160;0, R/W1Once)</b>&#160;—&#160;Software sets this bit to enable&#160;HWP&#160;with autonomous selection. When&#160;<br/>set, the&#160;processor will disregard&#160;input from the&#160;legacy&#160;performance&#160;control interface&#160;(IA32_PERF_CTL). Note&#160;<br/>this bit can only&#160;be enabled&#160;once from&#160;the&#160;default value.&#160;Once set, writes to the HWP_ENABLE bit are ignored.&#160;<br/>Only RESET&#160;will&#160;clear&#160;this&#160;bit. Default = zero&#160;(0).&#160;</p>
+<p style="position:absolute;top:397px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:397px;left:95px;white-space:nowrap" class="ft03">Bits 63:1&#160;are reserved and must be zero.</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft09">After software&#160;queries&#160;CPUID and verifies the&#160;processor’s support of HWP,&#160;system&#160;software can&#160;write&#160;1 to&#160;<br/>IA32_PM_ENABLE.HWP_ENABLE (bit 0)&#160;to enable&#160;hardware controlled&#160;performance&#160;states.&#160;The&#160;default&#160;value&#160;of&#160;<br/>IA32_PM_ENABLE MSR at&#160;power-on&#160;is 0, i.e.&#160;HWP&#160;is disabled.<br/>Additional&#160;MSRs associated with HWP&#160;may only be accessed&#160;after HWP&#160;is enabled, with&#160;the&#160;exception of&#160;<br/>IA32_HWP_INTERRUPT&#160;and&#160;MSR_PPERF.&#160;Accessing&#160;the IA32_HWP_INTERRUPT MSR requires only HWP&#160;is&#160;present&#160;<br/>as enumerated&#160;by&#160;CPUID&#160;but&#160;does&#160;not require enabling HWP.<br/>IA32_PM_ENABLE is&#160;a package level&#160;MSR, i.e. writing&#160;to&#160;it&#160;from&#160;any logical processor within&#160;a package affects&#160;all&#160;<br/>logical processors within&#160;that package.</p>
+<p style="position:absolute;top:602px;left:69px;white-space:nowrap" class="ft02">14.4.3&#160;</p>
+<p style="position:absolute;top:602px;left:150px;white-space:nowrap" class="ft02">HWP Performance Range and Dynamic Capabilities</p>
+<p style="position:absolute;top:633px;left:69px;white-space:nowrap" class="ft010">The&#160;OS reads&#160;the&#160;IA32_HWP_CAPABILITIES&#160;MSR to&#160;comprehend the&#160;limits of the&#160;HWP-managed&#160;performance&#160;<br/>range&#160;as well&#160;as the&#160;dynamic capability,&#160;which&#160;may change&#160;during processor operation. The&#160;enumerated perfor-<br/>mance&#160;range values reported&#160;by IA32_HWP_CAPABILITIES directly&#160;map to initial frequency&#160;targets (prior to&#160;work-<br/>load-specific&#160;frequency optimizations of HWP). However&#160;the mapping is&#160;processor&#160;family specific.<br/>The&#160;layout of the&#160;IA32_HWP_CAPABILITIES&#160;MSR is&#160;<a href="o_fe12b1e2a880e0ce-473.html">shown in&#160;Figure&#160;14-5.</a>&#160;The bit fields&#160;are&#160;described&#160;below:&#160;</p>
+<p style="position:absolute;top:962px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:963px;left:95px;white-space:nowrap" class="ft05"><b>Highest_Performance&#160;(bits 7:0,&#160;RO)</b>&#160;—&#160;Value for the&#160;maximum&#160;non-guaranteed performance&#160;level.</p>
+<p style="position:absolute;top:985px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:986px;left:95px;white-space:nowrap" class="ft09"><b>Guaranteed_Performance&#160;(bits 15:8,&#160;RO)</b>&#160;— Current&#160;value for the&#160;guaranteed&#160;performance&#160;level. This&#160;<br/>value&#160;can change dynamically as&#160;a result&#160;of&#160;internal&#160;or&#160;external constraints, e.g. thermal&#160;or power&#160;limits.</p>
+<p style="position:absolute;top:1024px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1025px;left:95px;white-space:nowrap" class="ft09"><b>Most_Efficient_Performance&#160;(bits&#160;23:16,&#160;RO)</b>&#160;— Current&#160;value of the&#160;most efficient&#160;performance level.&#160;<br/>This&#160;value&#160;can change&#160;dynamically as&#160;a result&#160;of&#160;workload&#160;characteristics.</p>
+<p style="position:absolute;top:272px;left:330px;white-space:nowrap" class="ft06">Figure&#160;14-4.&#160; IA32_PM_ENABLE&#160;MSR</p>
+<p style="position:absolute;top:908px;left:293px;white-space:nowrap" class="ft06">Figure&#160;14-5. &#160;IA32_HWP_CAPABILITIES Register&#160;</p>
+<p style="position:absolute;top:178px;left:268px;white-space:nowrap" class="ft07">63</p>
+<p style="position:absolute;top:178px;left:667px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:199px;left:438px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:178px;left:657px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:229px;left:384px;white-space:nowrap" class="ft00">HWP_ENABLE</p>
+<p style="position:absolute;top:243px;left:249px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:778px;left:259px;white-space:nowrap" class="ft08">63</p>
+<p style="position:absolute;top:778px;left:659px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:798px;left:342px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:778px;left:514px;white-space:nowrap" class="ft08">24</p>
+<p style="position:absolute;top:778px;left:623px;white-space:nowrap" class="ft08">7</p>
+<p style="position:absolute;top:778px;left:609px;white-space:nowrap" class="ft08">8</p>
+<p style="position:absolute;top:778px;left:576px;white-space:nowrap" class="ft08">15</p>
+<p style="position:absolute;top:778px;left:566px;white-space:nowrap" class="ft08">16</p>
+<p style="position:absolute;top:778px;left:525px;white-space:nowrap" class="ft08">23</p>
+<p style="position:absolute;top:778px;left:468px;white-space:nowrap" class="ft08">31</p>
+<p style="position:absolute;top:778px;left:457px;white-space:nowrap" class="ft08">32</p>
+<p style="position:absolute;top:861px;left:261px;white-space:nowrap" class="ft07">Most_Efficient_Performance</p>
+<p style="position:absolute;top:872px;left:263px;white-space:nowrap" class="ft011">Guaranteed_Performance<br/>Highest_Performance</p>
+<p style="position:absolute;top:849px;left:261px;white-space:nowrap" class="ft07">Lowest_Performance</p>
+</div>
+</body>
+</html>

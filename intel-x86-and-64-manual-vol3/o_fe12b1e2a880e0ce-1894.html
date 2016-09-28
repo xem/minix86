@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1894</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1894-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1894.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-84&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">EGETKEY—Retrieves a Cryptographic Key&#160;</p>
+<p style="position:absolute;top:248px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:333px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:355px;left:68px;white-space:nowrap" class="ft07">The ENCLU[EGETKEY] instruction&#160;returns&#160;a 128-bit&#160;secret&#160;key from&#160;the processor specific key hierarchy.&#160;The&#160;<br/>register RBX contains the&#160;effective&#160;address&#160;of&#160;a KEYREQUEST structure, which the&#160;instruction&#160;interprets&#160;to deter-<br/>mine&#160;the key&#160;being requested. The Requesting Keys section below provides&#160;a&#160;description&#160;of&#160;the keys that can&#160;be&#160;<br/>requested. The&#160;RCX&#160;register&#160;contains the&#160;effective&#160;address&#160;where&#160;the key will be&#160;returned. Both the&#160;addresses&#160;in&#160;<br/>RBX &amp;&#160;RCX should&#160;be&#160;locations inside the&#160;enclave.&#160;<br/>EGETKEY derives keys&#160;using a processor unique&#160;value to&#160;create&#160;a specific&#160;key based&#160;on a&#160;number of possible inputs.&#160;<br/>This instruction&#160;leaf can only be executed&#160;inside&#160;an enclave.</p>
+<p style="position:absolute;top:506px;left:315px;white-space:nowrap" class="ft03">EEGETKEY Memory Parameter&#160;Semantics</p>
+<p style="position:absolute;top:591px;left:68px;white-space:nowrap" class="ft07">After validating the&#160;operands,&#160;the instruction determines&#160;which&#160;key is&#160;to be produced&#160;and performs&#160;the following&#160;<br/>actions:</p>
+<p style="position:absolute;top:629px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:630px;left:93px;white-space:nowrap" class="ft04">The&#160;instruction assembles the&#160;derivation data for the&#160;key&#160;based on the&#160;<a href="o_fe12b1e2a880e0ce-1895.html">Table&#160;41-56</a></p>
+<p style="position:absolute;top:652px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:652px;left:93px;white-space:nowrap" class="ft04">Computes derived key using the&#160;derivation&#160;data and&#160;package specific value</p>
+<p style="position:absolute;top:674px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:675px;left:93px;white-space:nowrap" class="ft04">Outputs&#160;the calculated key&#160;to the&#160;address in&#160;RCX</p>
+<p style="position:absolute;top:697px;left:68px;white-space:nowrap" class="ft07">The instruction&#160;fails with #GP(0) if the&#160;operands&#160;are&#160;not properly aligned. Successful&#160;completion&#160;of the&#160;instruction&#160;<br/>will clear&#160;RFLAGS.{ZF, CF, AF, OF, SF,&#160;PF}. The instruction&#160;returns an&#160;error&#160;code&#160;if&#160;the&#160;user tries to&#160;request&#160;a key&#160;<br/>based on an&#160;invalid&#160;CPUSVN&#160;or ISVSVN (when the&#160;user&#160;request&#160;is accepted,&#160;see&#160;the&#160;table below),&#160;requests&#160;a key&#160;<br/>for which&#160;it&#160;has not been&#160;granted the attribute to request,&#160;or&#160;requests a key that is not&#160;supported by the hardware.&#160;<br/>These&#160;checks may be&#160;performed&#160;in any&#160;order.&#160;Thus,&#160;an indication&#160;by error&#160;number of one&#160;cause (for example,&#160;<br/>invalid&#160;attribute)&#160;does&#160;not imply that&#160;there are not also&#160;other errors.&#160;Different processors may thus give&#160;different&#160;<br/>error&#160;numbers for&#160;the same&#160;Enclave.&#160;The correctness of software should&#160;not rely on&#160;the order resulting&#160;from&#160;the&#160;<br/>checks documented in&#160;this&#160;section. In such&#160;cases&#160;the&#160;ZF flag&#160;is set and&#160;the corresponding&#160;error bit&#160;<br/>(SGX_INVALID_SVN,&#160;SGX_INVALID_ATTRIBUTE, SGX_INVALID_KEYNAME) is&#160;set in&#160;RAX and the&#160;data at&#160;the&#160;<br/>address specified&#160;by RCX&#160;is unmodified.<br/><b>Requesting Keys<br/></b>The KEYREQUEST structure (see<a href="o_fe12b1e2a880e0ce-1786.html">&#160;Section 38.17.1)</a>&#160;identifies&#160;the key to be provided.&#160;The Keyrequest.KeyName&#160;field&#160;<br/>identifies which type of key&#160;is requested.&#160;<br/><b>Deriving Keys<br/></b>Key derivation&#160;is based&#160;on&#160;a combination of&#160;the&#160;enclave&#160;specific values&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1895.html">Table&#160;41-56</a>) and&#160;a processor key.&#160;<br/>Depending&#160;on the&#160;key being&#160;requested a&#160;field&#160;may either be&#160;included&#160;by&#160;definition or&#160;the&#160;value may be&#160;included&#160;<br/>from&#160;the KeyRequest.&#160;A&#160;“yes”&#160;<a href="o_fe12b1e2a880e0ce-1895.html">in Table&#160;41-56&#160;i</a>ndicates&#160;the&#160;value for&#160;the&#160;field is&#160;included&#160;from its default&#160;location,&#160;<br/>identified in&#160;the source&#160;row,&#160;and&#160;a “request” indicates the values&#160;for&#160;the field is&#160;included&#160;from&#160;its corresponding&#160;<br/>KeyRequest field.&#160;</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:259px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:315px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:315px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:315px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:388px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:388px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:454px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:77px;white-space:nowrap" class="ft04">&#160;EAX = 04H</p>
+<p style="position:absolute;top:175px;left:259px;white-space:nowrap" class="ft04">IR</p>
+<p style="position:absolute;top:175px;left:315px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:388px;white-space:nowrap" class="ft04">SGX1</p>
+<p style="position:absolute;top:175px;left:454px;white-space:nowrap" class="ft04">This leaf&#160;function retrieves a&#160;cryptographic key.</p>
+<p style="position:absolute;top:195px;left:77px;white-space:nowrap" class="ft04">ENCLU[EGETKEY]</p>
+<p style="position:absolute;top:271px;left:102px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:271px;left:266px;white-space:nowrap" class="ft04">EAX</p>
+<p style="position:absolute;top:271px;left:483px;white-space:nowrap" class="ft04">RBX</p>
+<p style="position:absolute;top:271px;left:709px;white-space:nowrap" class="ft04">RCX</p>
+<p style="position:absolute;top:295px;left:113px;white-space:nowrap" class="ft04">IR</p>
+<p style="position:absolute;top:295px;left:241px;white-space:nowrap" class="ft04">EGETKEY (In)</p>
+<p style="position:absolute;top:295px;left:409px;white-space:nowrap" class="ft04">Address&#160;to&#160;a KEYREQUEST (In)</p>
+<p style="position:absolute;top:295px;left:626px;white-space:nowrap" class="ft04">Address of&#160;the OUTPUTDATA&#160;(In)</p>
+<p style="position:absolute;top:529px;left:220px;white-space:nowrap" class="ft04">KEYREQUEST</p>
+<p style="position:absolute;top:529px;left:603px;white-space:nowrap" class="ft04">OUTPUTDATA</p>
+<p style="position:absolute;top:553px;left:202px;white-space:nowrap" class="ft04">&#160;Enclave read access</p>
+<p style="position:absolute;top:553px;left:583px;white-space:nowrap" class="ft04">&#160;Enclave write access</p>
+</div>
+</body>
+</html>

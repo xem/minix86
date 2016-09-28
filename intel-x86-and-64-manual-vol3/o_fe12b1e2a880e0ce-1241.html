@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1241</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1241-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1241.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;33-3</p>
+<p style="position:absolute;top:47px;left:436px;white-space:nowrap" class="ft01">HANDLING&#160;BOUNDARY&#160;CONDITIONS&#160;IN A VIRTUAL MACHINE MONITOR</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">33.3.1&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">Virtualization of&#160;Interrupt&#160;Vector Space</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft05">The&#160;Intel 64&#160;and&#160;IA-32&#160;architectures&#160;use 8-bit vectors of&#160;which&#160;224 (20H&#160;– FFH)&#160;are available for&#160;external inter-<br/>rupts. Vectors are used to select the appropriate entry in&#160;the&#160;interrupt descriptor table (IDT). VMX operation allows&#160;<br/>each guest to&#160;control&#160;its&#160;own IDT.&#160;Host vectors refer&#160;to vectors delivered&#160;by&#160;the platform&#160;to the&#160;processor&#160;during&#160;<br/>the interrupt acknowledgement&#160;cycle. Guest vectors refer to&#160;vectors programmed&#160;by a guest to select an&#160;entry in&#160;<br/>its guest IDT.&#160;Depending&#160;on the&#160;I/O&#160;resource&#160;management models supported&#160;by&#160;the&#160;VMM&#160;design,&#160;the&#160;guest vector&#160;<br/>space may&#160;or may&#160;not&#160;overlap with the&#160;underlying host&#160;vector&#160;space.&#160;</p>
+<p style="position:absolute;top:233px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:234px;left:95px;white-space:nowrap" class="ft05">Interrupts from virtual devices: Guest vector numbers&#160;for virtual interrupts delivered&#160;to&#160;guests&#160;on&#160;behalf&#160;of&#160;<br/>emulated virtual devices have no direct relation to the host vector numbers of interrupts from physical devices&#160;<br/>on which they are&#160;emulated.&#160;A guest-vector assigned&#160;for a&#160;virtual&#160;device&#160;by the&#160;guest&#160;operating&#160;environment&#160;<br/>is saved by&#160;the VMM&#160;and utilized&#160;when&#160;injecting virtual interrupts on behalf of&#160;the&#160;virtual&#160;device.</p>
+<p style="position:absolute;top:305px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:306px;left:95px;white-space:nowrap" class="ft05">Interrupts&#160;from&#160;assigned physical devices: Hardware&#160;support&#160;for&#160;I/O device&#160;assignment&#160;allows&#160;physical&#160;I/O&#160;<br/>devices in&#160;the&#160;host platform&#160;to be&#160;assigned&#160;(direct-mapped)&#160;to VMs.&#160;Guest&#160;vectors&#160;for&#160;interrupts from direct-<br/>mapped physical devices take&#160;up equivalent&#160;space from&#160;the&#160;host vector&#160;space, and&#160;require&#160;the&#160;VMM to&#160;perform&#160;<br/>host-vector to guest-vector&#160;mapping for interrupts.&#160;</p>
+<p style="position:absolute;top:379px;left:69px;white-space:nowrap" class="ft05"><a href="o_fe12b1e2a880e0ce-1242.html">Figure&#160;33-1 illustr</a>ates the&#160;functional&#160;relationship between&#160;host external&#160;interrupts&#160;and&#160;guest virtual external&#160;inter-<br/>rupts. Device&#160;A&#160;is owned&#160;by&#160;the host&#160;and generates&#160;external&#160;interrupts with host vector&#160;X. The&#160;host IDT&#160;is set up&#160;<br/>such&#160;that&#160;the interrupt service&#160;routine (ISR) for device&#160;driver A is&#160;hooked&#160;to host vector X as&#160;normal.&#160;VMM&#160;<br/>emulates (over&#160;device A)&#160;virtual device C in&#160;software&#160;which&#160;generates virtual&#160;interrupts to&#160;the VM with&#160;guest&#160;<br/>expected&#160;vector&#160;P.&#160;Device&#160;B is&#160;assigned&#160;to&#160;a VM&#160;and generates&#160;external&#160;interrupts with host&#160;vector&#160;Y.&#160;The host&#160;IDT&#160;<br/>is&#160;programmed to&#160;hook the VMM&#160;interrupt service&#160;routine&#160;(ISR)&#160;for assigned&#160;devices for&#160;vector&#160;Y,&#160;and the&#160;VMM&#160;<br/>handler injects virtual interrupt with guest vector Q to&#160;the VM. The&#160;guest operating system programs the guest to&#160;<br/>hook&#160;appropriate guest driver’s&#160;ISR to&#160;vectors&#160;P and&#160;Q.</p>
+</div>
+</body>
+</html>

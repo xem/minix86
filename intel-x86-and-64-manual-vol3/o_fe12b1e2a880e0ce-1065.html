@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1065</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1065-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1065.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;24-19</p>
+<p style="position:absolute;top:47px;left:591px;white-space:nowrap" class="ft01">VIRTUAL MACHINE CONTROL STRUCTURES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">24.8.1 VM-Entry&#160;</p>
+<p style="position:absolute;top:98px;left:229px;white-space:nowrap" class="ft02">Controls</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft08">The&#160;<b>VM-entry controls</b>&#160;constitute a 32-bit vector that governs the&#160;basic operation of VM&#160;entrie<a href="o_fe12b1e2a880e0ce-1065.html">s. Table 24-12</a>&#160;lists&#160;<br/>the&#160;controls su<a href="o_fe12b1e2a880e0ce-1047.html">pported. See&#160;Chapter 24 for h</a>ow&#160;these&#160;controls&#160;affect VM&#160;entries.</p>
+<p style="position:absolute;top:715px;left:69px;white-space:nowrap" class="ft08">All other bits in this field are&#160;reserved, some to 0 and some&#160;to&#160;1. Software should consult the VMX capability MSRs&#160;<br/>IA32_VMX_ENTRY_CTLS and IA32_VMX_TRUE_ENTRY_CTLS&#160;(s<a href="o_fe12b1e2a880e0ce-1947.html">ee Appendix&#160;A.5)</a>&#160;to determine how it&#160;should&#160;set&#160;<br/>the reserved bits.&#160;Failure&#160;to&#160;set&#160;reserved bits properly&#160;causes&#160;subsequent&#160;VM&#160;entries to&#160;<a href="o_fe12b1e2a880e0ce-1097.html">fail (see Section 26.2.1.3</a>).<br/>The first processors to&#160;support&#160;the virtual-machine extensions&#160;supported only the&#160;1-settings of bits&#160;0–8&#160;and 12.&#160;<br/>The VMX capability MSR IA32_VMX_ENTRY_CTLS always reports&#160;that these bits must be&#160;1. Logical processors that&#160;<br/>support&#160;the 0-settings&#160;of&#160;any of these&#160;bits will support the&#160;VMX capability&#160;MSR&#160;IA32_VMX_TRUE_ENTRY_CTLS&#160;<br/>MSR, and software should consult this MSR to&#160;discover support for the 0-settings of these bits. Software that is&#160;not&#160;<br/>aware&#160;of&#160;the&#160;functionality of any&#160;one of these bits should&#160;set that&#160;bit&#160;to 1.</p>
+<p style="position:absolute;top:888px;left:69px;white-space:nowrap" class="ft02">24.8.2&#160;</p>
+<p style="position:absolute;top:888px;left:149px;white-space:nowrap" class="ft02">VM-Entry Controls for MSRs</p>
+<p style="position:absolute;top:919px;left:69px;white-space:nowrap" class="ft08">A VMM&#160;may specify a&#160;list of MSRs&#160;to be loaded&#160;on&#160;VM&#160;entries. The&#160;following&#160;VM-entry&#160;control fields&#160;manage&#160;this&#160;<br/>functionality:</p>
+<p style="position:absolute;top:957px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:958px;left:95px;white-space:nowrap" class="ft08"><b>VM-entry MSR-load&#160;count</b>&#160;(32 bits).&#160;This&#160;field contains&#160;the number&#160;of&#160;MSRs&#160;to be&#160;loaded&#160;on VM&#160;entry.&#160;It&#160;is&#160;<br/>recommended that&#160;this count not&#160;exceed 512&#160;bytes.&#160;Otherwise, unpredictable processor behavior&#160;(including a&#160;<br/>machine check)&#160;may result during&#160;VM&#160;entry.</p>
+<p style="position:absolute;top:988px;left:393px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:179px;left:296px;white-space:nowrap" class="ft07">Table 24-12. &#160;Definitions of&#160;VM-Entry Controls</p>
+<p style="position:absolute;top:200px;left:75px;white-space:nowrap" class="ft03">Bit&#160;Position(s)&#160;Name</p>
+<p style="position:absolute;top:200px;left:294px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:223px;left:75px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:223px;left:173px;white-space:nowrap" class="ft03">Load&#160;debug&#160;</p>
+<p style="position:absolute;top:240px;left:173px;white-space:nowrap" class="ft03">controls</p>
+<p style="position:absolute;top:223px;left:294px;white-space:nowrap" class="ft010">This&#160;control determines whether&#160;DR7&#160;and the IA32_DEBUGCTL&#160;MSR are loaded&#160;on&#160;VM&#160;entry.<br/>The&#160;first processors&#160;to&#160;support the&#160;virtual-machine extensions&#160;supported&#160;only the 1-setting of&#160;</p>
+<p style="position:absolute;top:261px;left:294px;white-space:nowrap" class="ft03">this control.</p>
+<p style="position:absolute;top:283px;left:75px;white-space:nowrap" class="ft03">9</p>
+<p style="position:absolute;top:283px;left:173px;white-space:nowrap" class="ft03">IA-32e mode&#160;guest&#160;On processors&#160;that&#160;support Intel 64&#160;architecture,&#160;this control determines whether the logical&#160;</p>
+<p style="position:absolute;top:299px;left:294px;white-space:nowrap" class="ft03">processor is in IA-32e mode after VM&#160;entry. Its&#160;value is loaded into&#160;IA32_EFER.LMA&#160;as&#160;part of&#160;</p>
+<p style="position:absolute;top:316px;left:294px;white-space:nowrap" class="ft03">VM&#160;entry.</p>
+<p style="position:absolute;top:313px;left:349px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:337px;left:294px;white-space:nowrap" class="ft03">This control must&#160;be 0 on processors&#160;that&#160;do not support Intel 64 architecture.</p>
+<p style="position:absolute;top:622px;left:72px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:641px;left:71px;white-space:nowrap" class="ft03">1.&#160;Bit 5 of&#160;the IA32_VMX_MISC MSR&#160;is read&#160;as 1&#160;on&#160;any logical&#160;processor that&#160;supports the 1-setting of&#160;the “unrestricted guest”&#160;VM-</p>
+<p style="position:absolute;top:657px;left:85px;white-space:nowrap" class="ft03">execution&#160;control. If&#160;it&#160;is read&#160;as&#160;1,&#160;every VM&#160;exit&#160;stores the value&#160;of&#160;IA32_EFER.LMA into&#160;the “IA-32e&#160;mode&#160;guest” VM-entry&#160;control&#160;</p>
+<p style="position:absolute;top:674px;left:85px;white-space:nowrap" class="ft03">(see<a href="o_fe12b1e2a880e0ce-1122.html">&#160;Section&#160;27.2).</a></p>
+<p style="position:absolute;top:360px;left:75px;white-space:nowrap" class="ft03">10</p>
+<p style="position:absolute;top:360px;left:173px;white-space:nowrap" class="ft03">Entry to&#160;SMM</p>
+<p style="position:absolute;top:360px;left:294px;white-space:nowrap" class="ft03">This control determines&#160;whether the logical processor is&#160;in&#160;system-management mode&#160;(SMM)&#160;</p>
+<p style="position:absolute;top:376px;left:294px;white-space:nowrap" class="ft03">after VM&#160;entry.&#160;This control must&#160;be 0 for&#160;any VM&#160;entry from outside SMM.</p>
+<p style="position:absolute;top:399px;left:75px;white-space:nowrap" class="ft03">11</p>
+<p style="position:absolute;top:399px;left:173px;white-space:nowrap" class="ft03">Deactivate dual-</p>
+<p style="position:absolute;top:415px;left:173px;white-space:nowrap" class="ft03">monitor treatment</p>
+<p style="position:absolute;top:399px;left:294px;white-space:nowrap" class="ft03">If set to&#160;1, the default&#160;treatment of&#160;SMIs and&#160;SMM&#160;is in&#160;effect&#160;after&#160;the VM&#160;entry (see<a href="o_fe12b1e2a880e0ce-1279.html">&#160;Section&#160;</a></p>
+<p style="position:absolute;top:415px;left:294px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-1279.html">34.15.7). Th</a>is&#160;control must&#160;be&#160;0&#160;for any VM&#160;entry&#160;from outside SMM.</p>
+<p style="position:absolute;top:438px;left:75px;white-space:nowrap" class="ft03">13</p>
+<p style="position:absolute;top:438px;left:173px;white-space:nowrap" class="ft03">Load&#160;</p>
+<p style="position:absolute;top:454px;left:173px;white-space:nowrap" class="ft03">IA32_PERF_GLOBA</p>
+<p style="position:absolute;top:471px;left:173px;white-space:nowrap" class="ft03">L_CTRL</p>
+<p style="position:absolute;top:438px;left:294px;white-space:nowrap" class="ft03">This&#160;control determines whether&#160;the&#160;IA32_PERF_GLOBAL_CTRL&#160;MSR is&#160;loaded&#160;on VM&#160;entry.</p>
+<p style="position:absolute;top:493px;left:75px;white-space:nowrap" class="ft03">14</p>
+<p style="position:absolute;top:493px;left:173px;white-space:nowrap" class="ft03">Load&#160;IA32_PAT</p>
+<p style="position:absolute;top:493px;left:294px;white-space:nowrap" class="ft03">This control determines&#160;whether the IA32_PAT&#160;MSR&#160;is&#160;loaded&#160;on&#160;VM&#160;entry.</p>
+<p style="position:absolute;top:516px;left:75px;white-space:nowrap" class="ft03">15</p>
+<p style="position:absolute;top:516px;left:173px;white-space:nowrap" class="ft03">Load&#160;IA32_EFER</p>
+<p style="position:absolute;top:516px;left:294px;white-space:nowrap" class="ft03">This control determines&#160;whether the IA32_EFER MSR is&#160;loaded&#160;on&#160;VM&#160;entry.</p>
+<p style="position:absolute;top:538px;left:75px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:538px;left:173px;white-space:nowrap" class="ft03">Load&#160;</p>
+<p style="position:absolute;top:555px;left:173px;white-space:nowrap" class="ft03">IA32_BNDCFGS</p>
+<p style="position:absolute;top:538px;left:294px;white-space:nowrap" class="ft03">This&#160;control determines whether&#160;the&#160;IA32_BNDCFGS MSR is&#160;loaded&#160;on&#160;VM&#160;entry.</p>
+<p style="position:absolute;top:577px;left:75px;white-space:nowrap" class="ft03">17</p>
+<p style="position:absolute;top:577px;left:173px;white-space:nowrap" class="ft03">Conceal VM&#160;entries&#160;</p>
+<p style="position:absolute;top:594px;left:173px;white-space:nowrap" class="ft03">from&#160;Intel PT</p>
+<p style="position:absolute;top:577px;left:294px;white-space:nowrap" class="ft03">If&#160;this control is 1,&#160;Intel Processor&#160;Trace does&#160;not&#160;produce&#160;a paging&#160;information&#160;packet&#160;(PIP)&#160;on&#160;</p>
+<p style="position:absolute;top:594px;left:294px;white-space:nowrap" class="ft03">a&#160;VM&#160;entry (see<a href="��">&#160;Chapter 36).</a></p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">1.&#160;Future&#160;implementations may allow more&#160;MSRs to&#160;be loaded reliably. Software&#160;should consult the&#160;VMX capability&#160;MSR&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">IA32_VMX_MISC&#160;to&#160;determine the&#160;number&#160;supported&#160;(see<a href="o_fe12b1e2a880e0ce-1947.html">&#160;Appendix A.6)</a>.</p>
+</div>
+</body>
+</html>

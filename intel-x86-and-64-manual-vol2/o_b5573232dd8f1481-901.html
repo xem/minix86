@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 901</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page901-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481901.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PALIGNR —&#160;Packed Align Right</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-221</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">PALIGNR (with&#160;128-bit operands)<br/>temp1[255:0]&#160;&#160;((DEST[127:0]&#160;&lt;&lt; 128) OR&#160;SRC[127:0])&gt;&gt;(imm8*8);<br/>DEST[127:0]&#160;&#160;temp1[127:0]<br/>DEST[VLMAX-1:128] (Unmodified)</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft04">VPALIGNR&#160;(VEX.128&#160;encoded version)<br/>temp1[255:0]&#160;&#160;((SRC1[127:0] &lt;&lt;&#160;128) OR SRC2[127:0])&gt;&gt;(imm8*8);<br/>DEST[127:0]&#160;&#160;temp1[127:0]<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft04">VPALIGNR&#160;(VEX.256&#160;encoded version)<br/>temp1[255:0]&#160;&#160;((SRC1[127:0] &lt;&lt;&#160;128) OR SRC2[127:0])&gt;&gt;(imm8[7:0]*8);<br/>DEST[127:0]&#160;&#160;temp1[127:0]<br/>temp1[255:0]&#160;&#160;((SRC1[255:128] &lt;&lt; 128)&#160;OR&#160;SRC2[255:128])&gt;&gt;(imm8[7:0]*8);<br/>DEST[MAX_VL-1:128]&#160;&#160;temp1[127:0]</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft04">VPALIGNR&#160;(EVEX&#160;encoded&#160;versions)<br/>(KL, VL) = (16, 128), (32, 256), (64,&#160;512)</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft02">FOR l&#160;&#160;0 TO VL-1 with increments of 128</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">temp1[255:0]&#160;←&#160;((SRC1[l+127:l] &lt;&lt;&#160;128) OR&#160;SRC2[l+127:l])&gt;&gt;(imm8[7:0]*8);</p>
+<p style="position:absolute;top:478px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[l+127:l]&#160;←&#160;temp1[127:0]</p>
+<p style="position:absolute;top:496px;left:69px;white-space:nowrap" class="ft02">ENDFOR;</p>
+<p style="position:absolute;top:532px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:550px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 8<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:586px;left:116px;white-space:nowrap" class="ft04">THEN DEST[i+7:i]&#160;&#160;TMP_DEST[i+7:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:622px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:622px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:640px;left:170px;white-space:nowrap" class="ft04">THEN *DEST[i+7:i] remains&#160;unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:658px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:676px;left:197px;white-space:nowrap" class="ft02">DEST[i+7:i] = 0</p>
+<p style="position:absolute;top:694px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:712px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft04">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:785px;left:69px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalents</p>
+<p style="position:absolute;top:813px;left:69px;white-space:nowrap" class="ft02">PALIGNR:</p>
+<p style="position:absolute;top:813px;left:162px;white-space:nowrap" class="ft02">&#160;__m64&#160;_mm_alignr_pi8&#160;(__m64&#160;a, __m64&#160;b, int n)</p>
+<p style="position:absolute;top:835px;left:69px;white-space:nowrap" class="ft02">(V)PALIGNR:</p>
+<p style="position:absolute;top:835px;left:161px;white-space:nowrap" class="ft02">&#160;__m128i&#160;_mm_alignr_epi8&#160;(__m128i&#160;a, __m128i b,&#160;int n)</p>
+<p style="position:absolute;top:858px;left:69px;white-space:nowrap" class="ft02">VPALIGNR:</p>
+<p style="position:absolute;top:858px;left:170px;white-space:nowrap" class="ft02">&#160;__m256i _mm256_alignr_epi8&#160;(__m256i a, __m256i b,&#160;const int n)</p>
+<p style="position:absolute;top:877px;left:69px;white-space:nowrap" class="ft04">VPALIGNR __m512i&#160;_mm512_alignr_epi8&#160;(__m512i&#160;a, __m512i b,&#160;const int n)<br/>VPALIGNR __m512i&#160;_mm512_mask_alignr_epi8&#160;(__m512i&#160;s, __mmask64&#160;m, __m512i a, __m512i b, const int n)<br/>VPALIGNR __m512i&#160;_mm512_maskz_alignr_epi8&#160;(&#160;__mmask64 m,&#160;__m512i a, __m512i b,&#160;const int n)<br/>VPALIGNR __m256i&#160;_mm256_mask_alignr_epi8&#160;(__m256i&#160;s, __mmask32&#160;m, __m256i a, __m256i b, const int n)<br/>VPALIGNR __m256i&#160;_mm256_maskz_alignr_epi8&#160;(__mmask32 m,&#160;__m256i a, __m256i b,&#160;const int n)<br/>VPALIGNR __m128i&#160;_mm_mask_alignr_epi8 (__m128i&#160;s,&#160;__mmask16 m,&#160;__m128i&#160;a,&#160;__m128i b,&#160;const&#160;int n)<br/>VPALIGNR __m128i _mm_maskz_alignr_epi8 (__mmask16&#160;m,&#160;__m128i a,&#160;__m128i&#160;b,&#160;const int n)</p>
+<p style="position:absolute;top:1022px;left:69px;white-space:nowrap" class="ft03">SIMD Floating-Point&#160;Exceptions&#160;</p>
+<p style="position:absolute;top:1045px;left:69px;white-space:nowrap" class="ft02">None.&#160;</p>
+</div>
+</body>
+</html>

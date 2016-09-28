@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 742</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:8px;line-height:12px;font-family:Times;color:#000000;}
+	.ft012{font-size:8px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page742-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce742.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-106&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft08">IA32_PERF_CAPABILITIES.PEBSArchRegs[7]:&#160;Indicator&#160;of PEBS assist save&#160;architectural registers, see<a href="o_fe12b1e2a880e0ce-657.html">&#160;Section&#160;<br/>18.4.4.2.</a></p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft08">IA32_PERF_CAPABILITIES.PEBS_FMT[bits 11:8]: Specifies the encoding of the&#160;layout&#160;of&#160;PEBS records,&#160;see&#160;<br/><a href="o_fe12b1e2a880e0ce-657.html">Section 18.4.4.2</a>.</p>
+<p style="position:absolute;top:178px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:178px;left:93px;white-space:nowrap" class="ft08">IA32_PERF_CAPABILITIES.SMM_FRZ[12]: Indicates IA32_DEBUGCTL.FREEZE_WHILE_SMM is&#160;supported if&#160;1,&#160;<br/>se<a href="o_fe12b1e2a880e0ce-742.html">e Section 18.18.1.</a></p>
+<p style="position:absolute;top:217px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:217px;left:93px;white-space:nowrap" class="ft08">IA32_PERF_CAPABILITIES.FULL_WRITE[13]: Indicates the&#160;processor&#160;supports&#160;IA32_A_PMCx interface&#160;for&#160;<br/>updating bits 32&#160;and&#160;above&#160;of IA32_PMCx,&#160;se<a href="o_fe12b1e2a880e0ce-650.html">e&#160;Section&#160;18.2.5.</a></p>
+<p style="position:absolute;top:533px;left:68px;white-space:nowrap" class="ft04">18.18.1&#160;&#160;Filtering of&#160;SMM Handler Overhead</p>
+<p style="position:absolute;top:564px;left:68px;white-space:nowrap" class="ft08">When performance&#160;monitoring facilities and/or branch profiling facilities (see&#160;<a href="o_fe12b1e2a880e0ce-599.html">Section&#160;17.5,&#160;“Last Branch, Interrupt,&#160;<br/>and Exception Recording&#160;(Intel® Core™&#160;2&#160;Duo and Intel® Atom™ Processors)”</a>)&#160;are enabled,&#160;these facilities&#160;<br/>capture&#160;event&#160;counts,&#160;branch records and branch&#160;trace&#160;messages occurring&#160;in&#160;a logical processor.&#160;The occurrence&#160;<br/>of&#160;interrupts, instruction streams&#160;due&#160;to various interrupt&#160;handlers all&#160;contribute to&#160;the results recorded&#160;by&#160;these&#160;<br/>facilities.<br/>If CPUID.01H:ECX.PDCM[bit 15] is&#160;1,&#160;the processor supports the&#160;IA32_PERF_CAPABILITIES&#160;MSR.&#160;If&#160;<br/>IA32_PERF_CAPABILITIES.FREEZE_WHILE_SMM[Bit 12] is&#160;1,&#160;the&#160;processor&#160;supports&#160;the&#160;ability for system soft-<br/>ware using&#160;performance monitoring and/or&#160;branch&#160;profiling&#160;facilities to&#160;filter&#160;out the&#160;effects of servicing system&#160;<br/>management interrupts.&#160;<br/>If&#160;the FREEZE_WHILE_SMM&#160;capability&#160;is&#160;enabled&#160;on a logical processor and after an&#160;SMI is delivered, the processor&#160;<br/>will&#160;clear&#160;all the&#160;enable&#160;bits of IA32_PERF_GLOBAL_CTRL,&#160;save&#160;a copy of the&#160;content of IA32_DEBUGCTL and&#160;<br/>disable LBR,&#160;BTF,&#160;TR,&#160;and&#160;BTS&#160;fields&#160;of IA32_DEBUGCTL&#160;before transferring&#160;control&#160;to the&#160;SMI handler.&#160;<br/>The enable bits of IA32_PERF_GLOBAL_CTRL&#160;will be set&#160;to 1,&#160;the saved copy&#160;of&#160;IA32_DEBUGCTL prior to&#160;SMI&#160;<br/>delivery will be restored&#160;,&#160;after the&#160;SMI&#160;handler&#160;issues RSM&#160;to complete&#160;its&#160;servicing.&#160;<br/>It&#160;is the&#160;responsibility of the&#160;SMM code to&#160;ensure the&#160;state&#160;of the performance&#160;monitoring and&#160;branch profiling facil-<br/>ities are preserved upon&#160;entry or&#160;until&#160;prior&#160;to exiting&#160;the SMM.&#160;If any&#160;of this&#160;state is&#160;modified due&#160;to actions&#160;by the&#160;<br/>SMM&#160;code, the&#160;SMM code is&#160;required to&#160;restore such state to&#160;the values&#160;present&#160;at entry&#160;to&#160;the&#160;SMM handler.<br/>System software&#160;is allowed&#160;to set IA32_DEBUGCTL.FREEZE_WHILE_SMM_EN[bit 14] to 1&#160;only supported&#160;as indi-<br/>cated&#160;by&#160;IA32_PERF_CAPABILITIES.FREEZE_WHILE_SMM[Bit 12] reporting 1.</p>
+<p style="position:absolute;top:966px;left:68px;white-space:nowrap" class="ft05">18.19&#160;&#160;PERFORMANCE MONITORING AND DUAL-CORE TECHNOLOGY</p>
+<p style="position:absolute;top:1002px;left:68px;white-space:nowrap" class="ft08">The performance&#160;monitoring&#160;capability of dual-core processors&#160;duplicates&#160;the&#160;microarchitectural resources of a&#160;<br/>single-core&#160;processor implementation. Each processor core&#160;has dedicated performance&#160;monitoring resources.<br/>In the case of Pentium D&#160;processor,&#160;each logical processor&#160;is associated&#160;with dedicated resources for performance&#160;<br/>monitoring. In&#160;the case&#160;of Pentium processor Extreme edition,&#160;each processor core&#160;has dedicated resources,&#160;but&#160;</p>
+<p style="position:absolute;top:482px;left:265px;white-space:nowrap" class="ft06">Figure&#160;18-49. &#160;Layout&#160;of&#160;IA32_PERF_CAPABILITIES MSR&#160;</p>
+<p style="position:absolute;top:374px;left:203px;white-space:nowrap" class="ft011">SMM_FREEZE (R/O)<br/>PEBS_REC_FMT (R/O)&#160;</p>
+<p style="position:absolute;top:291px;left:588px;white-space:nowrap" class="ft07">8&#160;7</p>
+<p style="position:absolute;top:291px;left:690px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:290px;left:535px;white-space:nowrap" class="ft07">12</p>
+<p style="position:absolute;top:291px;left:648px;white-space:nowrap" class="ft07">3</p>
+<p style="position:absolute;top:291px;left:674px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:452px;left:240px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:290px;left:256px;white-space:nowrap" class="ft07">63</p>
+<p style="position:absolute;top:291px;left:662px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:291px;left:639px;white-space:nowrap" class="ft07">4</p>
+<p style="position:absolute;top:290px;left:549px;white-space:nowrap" class="ft07">11</p>
+<p style="position:absolute;top:291px;left:628px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:291px;left:612px;white-space:nowrap" class="ft07">6</p>
+<p style="position:absolute;top:413px;left:202px;white-space:nowrap" class="ft012">PEBS_TRAP&#160;(R/O)<br/>LBR_FMT&#160;(R/O)&#160;</p>
+<p style="position:absolute;top:399px;left:203px;white-space:nowrap" class="ft07">PEBS_ARCH_REG (R/O)</p>
+<p style="position:absolute;top:290px;left:521px;white-space:nowrap" class="ft07">13</p>
+<p style="position:absolute;top:362px;left:202px;white-space:nowrap" class="ft07">FW_WRITE (R/O)</p>
+</div>
+</body>
+</html>

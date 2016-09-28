@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 648</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page648-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481648.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:631px;white-space:nowrap" class="ft00">LDS/LES/LFS/LGS/LSS—Load Far&#160;Pointer</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-520&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">LDS/LES/LFS/LGS/LSS—Load&#160;Far Pointer</p>
+<p style="position:absolute;top:493px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:577px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:601px;left:68px;white-space:nowrap" class="ft07">Loads&#160;a far pointer (segment selector and&#160;offset)&#160;from&#160;the&#160;second&#160;operand&#160;(source&#160;operand)&#160;into a&#160;segment&#160;<br/>register&#160;and the&#160;first operand&#160;(destination operand). The&#160;source&#160;operand specifies a&#160;48-bit or&#160;a 32-bit&#160;pointer in&#160;<br/>memory depending on&#160;the&#160;current setting of the&#160;operand-size&#160;attribute (32 bits&#160;or 16 bits,&#160;respectively).&#160;The&#160;<br/>instruction&#160;opcode&#160;and&#160;the destination operand&#160;specify a&#160;segment&#160;register/general-purpose&#160;register pair. The 16-<br/>bit segment selector from the&#160;source operand&#160;is loaded&#160;into&#160;the segment register&#160;specified with the&#160;opcode&#160;(DS,&#160;<br/>SS,&#160;ES,&#160;FS,&#160;or&#160;GS).&#160;The&#160;32-bit or&#160;16-bit offset is&#160;loaded&#160;into&#160;the&#160;register specified with&#160;the destination operand.<br/>If&#160;one of these instructions is&#160;executed in protected&#160;mode, additional information&#160;from&#160;the segment descriptor&#160;<br/>pointed to by&#160;the segment selector in&#160;the source&#160;operand&#160;is loaded&#160;in&#160;the hidden&#160;part of the&#160;selected&#160;segment&#160;<br/>register.<br/>Also&#160;in protected&#160;mode,&#160;a NULL&#160;selector (values 0000&#160;through 0003) can&#160;be&#160;loaded&#160;into DS,&#160;ES,&#160;FS,&#160;or GS&#160;registers&#160;<br/>without causing a&#160;protection exception. (Any&#160;subsequent reference&#160;to&#160;a segment whose corresponding&#160;segment&#160;<br/>register is&#160;loaded with a NULL&#160;selector,&#160;causes&#160;a general-protection&#160;exception (#GP)&#160;and no&#160;memory reference to&#160;<br/>the segment occurs.)<br/>In 64-bit&#160;mode,&#160;the instruction’s&#160;default operation size&#160;is&#160;32&#160;bits.&#160;Using&#160;a REX&#160;prefix&#160;in&#160;the&#160;form of&#160;REX.W&#160;promotes&#160;<br/>operation&#160;to specify a source operand referencing an 80-bit&#160;pointer (16-bit selector, 64-bit offset) in memory. Using&#160;<br/>a REX prefix&#160;in the&#160;form of REX.R&#160;permits&#160;access&#160;to additional&#160;registers (R8-R15). See&#160;the summary&#160;chart at&#160;the&#160;<br/>beginning of this&#160;section for encoding data and&#160;limits.</p>
+<p style="position:absolute;top:922px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft04">64-BIT_MODE</p>
+<p style="position:absolute;top:970px;left:88px;white-space:nowrap" class="ft04">IF SS is&#160;loaded&#160;</p>
+<p style="position:absolute;top:988px;left:115px;white-space:nowrap" class="ft04">THEN&#160;</p>
+<p style="position:absolute;top:1006px;left:142px;white-space:nowrap" class="ft04">IF SegmentSelector&#160;</p>
+<p style="position:absolute;top:1004px;left:257px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:1006px;left:266px;white-space:nowrap" class="ft04">&#160;NULL&#160;and (&#160;(RPL&#160;= 3) or&#160;</p>
+<p style="position:absolute;top:1024px;left:196px;white-space:nowrap" class="ft04">(RPL&#160;</p>
+<p style="position:absolute;top:1022px;left:226px;white-space:nowrap" class="ft05">≠</p>
+<p style="position:absolute;top:1024px;left:235px;white-space:nowrap" class="ft04">&#160;3 and&#160;RPL&#160;</p>
+<p style="position:absolute;top:1022px;left:299px;white-space:nowrap" class="ft05">≠&#160;</p>
+<p style="position:absolute;top:1024px;left:312px;white-space:nowrap" class="ft04">CPL) )</p>
+<p style="position:absolute;top:1042px;left:169px;white-space:nowrap" class="ft04">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:1060px;left:142px;white-space:nowrap" class="ft04">ELSE IF&#160;descriptor&#160;is&#160;in&#160;non-canonical space</p>
+<p style="position:absolute;top:132px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:132px;left:219px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:132px;left:385px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:146px;left:385px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:132px;left:423px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:146px;left:423px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:132px;left:495px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:146px;left:495px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:132px;left:565px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:169px;left:73px;white-space:nowrap" class="ft04">C5 /<i>r</i></p>
+<p style="position:absolute;top:169px;left:220px;white-space:nowrap" class="ft04">LDS&#160;<i>r16,m16:16</i></p>
+<p style="position:absolute;top:169px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:169px;left:423px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:169px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:169px;left:565px;white-space:nowrap" class="ft04">Load&#160;DS:<i>r16</i>&#160;with far&#160;pointer from memory.</p>
+<p style="position:absolute;top:191px;left:73px;white-space:nowrap" class="ft04">C5 /<i>r</i></p>
+<p style="position:absolute;top:191px;left:220px;white-space:nowrap" class="ft04">LDS&#160;<i>r32,m16:32</i></p>
+<p style="position:absolute;top:191px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:191px;left:423px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:191px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:191px;left:565px;white-space:nowrap" class="ft04">Load&#160;DS:<i>r32</i>&#160;with far&#160;pointer from memory.</p>
+<p style="position:absolute;top:214px;left:73px;white-space:nowrap" class="ft04">0F B2&#160;/<i>r</i></p>
+<p style="position:absolute;top:214px;left:220px;white-space:nowrap" class="ft04">LSS&#160;<i>r16,m16:16</i></p>
+<p style="position:absolute;top:214px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:214px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:214px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:214px;left:565px;white-space:nowrap" class="ft04">Load&#160;SS:<i>r16</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:236px;left:73px;white-space:nowrap" class="ft04">0F B2&#160;/<i>r</i></p>
+<p style="position:absolute;top:236px;left:220px;white-space:nowrap" class="ft04">LSS&#160;<i>r32,m16:32</i></p>
+<p style="position:absolute;top:236px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:236px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:236px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:236px;left:565px;white-space:nowrap" class="ft04">Load&#160;SS:<i>r32</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:259px;left:73px;white-space:nowrap" class="ft04">REX +&#160;0F&#160;B2&#160;/<i>r</i></p>
+<p style="position:absolute;top:259px;left:220px;white-space:nowrap" class="ft04">LSS&#160;<i>r64,m16:64</i></p>
+<p style="position:absolute;top:259px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:259px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:259px;left:495px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:259px;left:565px;white-space:nowrap" class="ft04">Load SS:<i>r64</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:281px;left:73px;white-space:nowrap" class="ft04">C4 /<i>r</i></p>
+<p style="position:absolute;top:281px;left:220px;white-space:nowrap" class="ft04">LES&#160;<i>r16,m16:16</i></p>
+<p style="position:absolute;top:281px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:281px;left:423px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:281px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:281px;left:565px;white-space:nowrap" class="ft04">Load&#160;ES:<i>r16</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:304px;left:73px;white-space:nowrap" class="ft04">C4 /<i>r</i></p>
+<p style="position:absolute;top:304px;left:220px;white-space:nowrap" class="ft04">LES&#160;<i>r32,m16:32</i></p>
+<p style="position:absolute;top:304px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:304px;left:423px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:304px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:304px;left:565px;white-space:nowrap" class="ft04">Load&#160;ES:<i>r32</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:326px;left:73px;white-space:nowrap" class="ft04">0F B4&#160;/<i>r</i></p>
+<p style="position:absolute;top:326px;left:220px;white-space:nowrap" class="ft04">LFS&#160;<i>r16,m16:16</i></p>
+<p style="position:absolute;top:326px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:326px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:326px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:326px;left:565px;white-space:nowrap" class="ft04">Load&#160;FS:<i>r16</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:349px;left:73px;white-space:nowrap" class="ft04">0F B4&#160;/<i>r</i></p>
+<p style="position:absolute;top:349px;left:220px;white-space:nowrap" class="ft04">LFS&#160;<i>r32,m16:32</i></p>
+<p style="position:absolute;top:349px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:349px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:349px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:349px;left:565px;white-space:nowrap" class="ft04">Load&#160;FS:<i>r32</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:371px;left:73px;white-space:nowrap" class="ft04">REX +&#160;0F&#160;B4&#160;/<i>r</i></p>
+<p style="position:absolute;top:371px;left:220px;white-space:nowrap" class="ft04">LFS&#160;<i>r64,m16:64</i></p>
+<p style="position:absolute;top:371px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:371px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:371px;left:495px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:371px;left:565px;white-space:nowrap" class="ft04">Load&#160;FS:<i>r64</i>&#160;with far pointer from&#160;memory.</p>
+<p style="position:absolute;top:394px;left:73px;white-space:nowrap" class="ft04">0F B5&#160;/<i>r</i></p>
+<p style="position:absolute;top:394px;left:220px;white-space:nowrap" class="ft04">LGS&#160;<i>r16,m16:16</i></p>
+<p style="position:absolute;top:394px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:394px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:394px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:394px;left:565px;white-space:nowrap" class="ft04">Load&#160;GS:<i>r16</i>&#160;with&#160;far pointer from&#160;memory.</p>
+<p style="position:absolute;top:417px;left:73px;white-space:nowrap" class="ft04">0F B5&#160;/<i>r</i></p>
+<p style="position:absolute;top:417px;left:220px;white-space:nowrap" class="ft04">LGS&#160;<i>r32,m16:32</i></p>
+<p style="position:absolute;top:417px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:417px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:417px;left:495px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:417px;left:565px;white-space:nowrap" class="ft04">Load&#160;GS:<i>r32</i>&#160;with&#160;far pointer from&#160;memory.</p>
+<p style="position:absolute;top:439px;left:73px;white-space:nowrap" class="ft04">REX +&#160;0F&#160;B5&#160;/<i>r</i></p>
+<p style="position:absolute;top:439px;left:220px;white-space:nowrap" class="ft04">LGS&#160;<i>r64,m16:64</i></p>
+<p style="position:absolute;top:439px;left:385px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:439px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:439px;left:495px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:439px;left:565px;white-space:nowrap" class="ft04">Load GS:<i>r64</i>&#160;with&#160;far pointer from&#160;memory.</p>
+<p style="position:absolute;top:516px;left:88px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:516px;left:197px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:516px;left:369px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:516px;left:541px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:516px;left:716px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:540px;left:96px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:540px;left:184px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:540px;left:358px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:540px;left:562px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:540px;left:737px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

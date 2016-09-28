@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 543</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page543-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481543.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">FXSAVE—Save x87&#160;FPU, MMX Technology, and SSE State</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-415</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft05">used&#160;by&#160;an application program to&#160;pass a&#160;“clean” x87&#160;FPU state to&#160;a procedure,&#160;since&#160;it retains&#160;the current&#160;<br/>state. To&#160;clean&#160;the x87 FPU&#160;state, an application must&#160;explicitly execute&#160;an&#160;FINIT&#160;instruction&#160;after an FXSAVE&#160;<br/>instruction&#160;to reinitialize&#160;the x87 FPU&#160;state.</p>
+<p style="position:absolute;top:155px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:156px;left:95px;white-space:nowrap" class="ft05">The format&#160;of&#160;the&#160;memory image saved with the&#160;FXSAVE&#160;instruction is&#160;the same&#160;regardless&#160;of&#160;the current&#160;<br/>addressing mode&#160;(32-bit or&#160;16-bit) and&#160;operating mode&#160;(protected, real&#160;address,&#160;or&#160;system management).&#160;<br/>This&#160;behavior differs&#160;from the&#160;FSAVE&#160;instructions, where&#160;the memory image&#160;format&#160;is different depending&#160;on&#160;<br/>the&#160;addressing mode&#160;and&#160;operating&#160;mode.&#160;Because&#160;of&#160;the&#160;different image formats,&#160;the memory image&#160;saved&#160;<br/>with the&#160;FXSAVE instruction cannot be&#160;restored&#160;correctly&#160;with&#160;the FRSTOR instruction,&#160;and likewise&#160;the&#160;state&#160;<br/>saved&#160;with&#160;the FSAVE instruction cannot be restored correctly&#160;with the&#160;FXRSTOR instruction.</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft05">The&#160;FSAVE format for FTW can be recreated from the FTW valid bits&#160;and the stored 80-bit FP data (assuming the&#160;<br/>stored&#160;data was not&#160;the&#160;contents of&#160;MMX&#160;technology registers)&#160;us<a href="o_b5573232dd8f1481-543.html">ing Table&#160;3-45.</a></p>
+<p style="position:absolute;top:669px;left:69px;white-space:nowrap" class="ft05">The J-bit is&#160;defined&#160;to be the&#160;1-bit binary integer&#160;to&#160;the&#160;left&#160;of&#160;the decimal place in&#160;the significand.&#160;The M-bit is&#160;<br/>defined&#160;to be the&#160;most significant bit of&#160;the fractional&#160;portion of the&#160;significand&#160;(i.e.,&#160;the bit immediately&#160;to the right&#160;<br/>of&#160;the&#160;decimal place).<br/>When&#160;the M-bit&#160;is the&#160;most&#160;significant bit of the&#160;fractional portion&#160;of&#160;the significand,&#160;it must be 0&#160;if&#160;the&#160;fraction is&#160;<br/>all 0’s.</p>
+<p style="position:absolute;top:776px;left:69px;white-space:nowrap" class="ft04">IA-32e&#160;Mode&#160;Operation</p>
+<p style="position:absolute;top:801px;left:69px;white-space:nowrap" class="ft05">In compatibility&#160;sub-mode of IA-32e&#160;mode, legacy SSE&#160;registers,&#160;XMM0&#160;through&#160;XMM7,&#160;are saved according to the&#160;<br/>legacy&#160;FXSAVE&#160;map.&#160;In 64-bit&#160;mode,&#160;all of the SSE&#160;registers, XMM0 through XMM15,&#160;are saved.&#160;Additionally,&#160;there&#160;<br/>are two&#160;different&#160;layouts of the&#160;FXSAVE&#160;map&#160;in 64-bit mode,&#160;corresponding&#160;to FXSAVE64 (which requires&#160;<br/>REX.W=1)&#160;and FXSAVE&#160;(REX.W=0).&#160;In&#160;the&#160;FXSAVE64&#160;map<a href="o_b5573232dd8f1481-544.html">&#160;(Table&#160;3-46)</a>,&#160;the&#160;FPU&#160;IP&#160;and&#160;FPU&#160;DP&#160;pointers&#160;are&#160;64-bit&#160;<br/>wide.&#160;In the&#160;FXSAVE map&#160;for&#160;64-bit mode<a href="o_b5573232dd8f1481-545.html">&#160;(Table&#160;3-47</a>),&#160;the&#160;FPU IP&#160;and&#160;FPU DP&#160;pointers are&#160;32-bits.</p>
+<p style="position:absolute;top:313px;left:322px;white-space:nowrap" class="ft04">Table 3-45.&#160;&#160;Recreating&#160;FSAVE&#160;Format&#160;</p>
+<p style="position:absolute;top:342px;left:98px;white-space:nowrap" class="ft02">Exponent</p>
+<p style="position:absolute;top:358px;left:110px;white-space:nowrap" class="ft02">all&#160;1’s</p>
+<p style="position:absolute;top:342px;left:214px;white-space:nowrap" class="ft02">Exponent</p>
+<p style="position:absolute;top:358px;left:226px;white-space:nowrap" class="ft02">all 0’s</p>
+<p style="position:absolute;top:342px;left:335px;white-space:nowrap" class="ft02">Fraction</p>
+<p style="position:absolute;top:358px;left:342px;white-space:nowrap" class="ft02">all&#160;0’s</p>
+<p style="position:absolute;top:342px;left:454px;white-space:nowrap" class="ft02">J and&#160;M</p>
+<p style="position:absolute;top:358px;left:464px;white-space:nowrap" class="ft02">bits</p>
+<p style="position:absolute;top:342px;left:552px;white-space:nowrap" class="ft02">FTW valid&#160;bit</p>
+<p style="position:absolute;top:358px;left:716px;white-space:nowrap" class="ft02">x87&#160;FTW</p>
+<p style="position:absolute;top:381px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:381px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:381px;left:356px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:381px;left:468px;white-space:nowrap" class="ft02">0x</p>
+<p style="position:absolute;top:381px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:379px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:381px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:402px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:402px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:402px;left:356px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:402px;left:468px;white-space:nowrap" class="ft02">1x</p>
+<p style="position:absolute;top:402px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:400px;left:659px;white-space:nowrap" class="ft02">Valid</p>
+<p style="position:absolute;top:402px;left:781px;white-space:nowrap" class="ft02">00</p>
+<p style="position:absolute;top:423px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:423px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:423px;left:356px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:423px;left:468px;white-space:nowrap" class="ft02">00</p>
+<p style="position:absolute;top:423px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:421px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:423px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:444px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:444px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:444px;left:356px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:444px;left:468px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:444px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:442px;left:659px;white-space:nowrap" class="ft02">Valid</p>
+<p style="position:absolute;top:444px;left:781px;white-space:nowrap" class="ft02">00</p>
+<p style="position:absolute;top:465px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:465px;left:240px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:465px;left:356px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:465px;left:468px;white-space:nowrap" class="ft02">0x</p>
+<p style="position:absolute;top:465px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:463px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:465px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:486px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:486px;left:240px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:486px;left:356px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:486px;left:468px;white-space:nowrap" class="ft02">1x</p>
+<p style="position:absolute;top:486px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:484px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:486px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:507px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:507px;left:240px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:507px;left:356px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:507px;left:468px;white-space:nowrap" class="ft02">00</p>
+<p style="position:absolute;top:507px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:505px;left:659px;white-space:nowrap" class="ft02">Zero</p>
+<p style="position:absolute;top:507px;left:781px;white-space:nowrap" class="ft02">01</p>
+<p style="position:absolute;top:528px;left:124px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:528px;left:240px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:528px;left:356px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:528px;left:468px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:528px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:526px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:528px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:549px;left:124px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:549px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:549px;left:356px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:549px;left:468px;white-space:nowrap" class="ft02">1x</p>
+<p style="position:absolute;top:549px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:547px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:549px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:570px;left:124px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:570px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:570px;left:356px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:570px;left:468px;white-space:nowrap" class="ft02">1x</p>
+<p style="position:absolute;top:570px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:568px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:570px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:591px;left:124px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:591px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:591px;left:356px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:591px;left:468px;white-space:nowrap" class="ft02">00</p>
+<p style="position:absolute;top:591px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:589px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:591px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:612px;left:124px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:612px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:612px;left:356px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:612px;left:468px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:612px;left:588px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:610px;left:659px;white-space:nowrap" class="ft02">Special</p>
+<p style="position:absolute;top:612px;left:781px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:631px;left:79px;white-space:nowrap" class="ft02">For all legal combinations above.</p>
+<p style="position:absolute;top:633px;left:588px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:631px;left:659px;white-space:nowrap" class="ft02">Empty</p>
+<p style="position:absolute;top:633px;left:781px;white-space:nowrap" class="ft02">11</p>
+</div>
+</body>
+</html>

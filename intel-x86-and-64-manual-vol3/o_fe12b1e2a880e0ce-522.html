@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 522</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page522-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce522.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-16&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">15.6.1&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Detection of&#160;Software&#160;Error Recovery Support</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft05">Software&#160;must&#160;use bit 24&#160;of IA32_MCG_CAP&#160;(MCG_SER_P)&#160;to&#160;detect the&#160;presence of software&#160;error recovery&#160;<br/><a href="o_fe12b1e2a880e0ce-509.html">support (see Figure&#160;15-2). When&#160;</a>IA32_MCG_CAP[24]&#160;is set,&#160;this indicates that&#160;the processor supports&#160;software&#160;<br/>error recovery.&#160;When this&#160;bit&#160;is clear,&#160;this&#160;indicates&#160;that there&#160;is no&#160;support for&#160;error recovery from&#160;the processor&#160;<br/>and the&#160;primary responsibility&#160;of&#160;the machine check&#160;handler&#160;is logging the&#160;machine&#160;check error information&#160;and&#160;<br/>shutting&#160;down the&#160;system.&#160;<br/>The&#160;new&#160;class of&#160;architectural MCA errors&#160;from&#160;which system&#160;software&#160;can attempt recovery is&#160;called Uncorrected&#160;<br/>Recoverable (UCR)&#160;Errors. UCR errors&#160;are uncorrected errors&#160;that have been detected and&#160;signaled but&#160;have&#160;not&#160;<br/>corrupted&#160;the processor context.&#160;For&#160;certain&#160;UCR errors,&#160;this means that&#160;once system&#160;software&#160;has performed a&#160;<br/>certain recovery action, it&#160;is&#160;possible to continue execution on&#160;this processor.&#160;UCR error reporting provides an error&#160;<br/>containment mechanism for data poisoning. The machine check handler&#160;will&#160;use the&#160;error log information&#160;from the&#160;<br/>error reporting&#160;registers&#160;to analyze and implement&#160;specific error&#160;recovery&#160;actions for UCR&#160;errors.&#160;</p>
+<p style="position:absolute;top:349px;left:68px;white-space:nowrap" class="ft02">15.6.2&#160;</p>
+<p style="position:absolute;top:349px;left:148px;white-space:nowrap" class="ft02">UCR Error Reporting and Logging</p>
+<p style="position:absolute;top:378px;left:68px;white-space:nowrap" class="ft05">IA32_MCi_STATUS MSR&#160;is used&#160;for reporting UCR&#160;errors&#160;and existing&#160;corrected or&#160;uncorrected errors.&#160;The defini-<br/>tions of IA32_MCi_STATUS, including&#160;bit&#160;fields&#160;to identify&#160;UCR&#160;errors, is&#160;<a href="o_fe12b1e2a880e0ce-513.html">shown in&#160;Figure&#160;15-6.&#160;</a>UCR errors can&#160;be&#160;<br/>signaled&#160;through either the&#160;corrected&#160;machine check&#160;interrupt&#160;(CMCI)&#160;or machine check&#160;exception (MCE) path&#160;<br/>depending on&#160;the type of the&#160;UCR&#160;error.&#160;<br/>When IA32_MCG_CAP[24] is&#160;set,&#160;a&#160;UCR error&#160;is indicated&#160;by the&#160;following bit settings in&#160;the&#160;IA32_MCi_STATUS&#160;<br/>register:&#160;</p>
+<p style="position:absolute;top:488px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:489px;left:93px;white-space:nowrap" class="ft03">Valid (bit 63) = 1</p>
+<p style="position:absolute;top:511px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:511px;left:93px;white-space:nowrap" class="ft03">UC (bit 61) = 1</p>
+<p style="position:absolute;top:533px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:534px;left:93px;white-space:nowrap" class="ft03">PCC&#160;(bit 57) = 0</p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft05">Additional information from the IA32_MCi_MISC and the IA32_MCi_ADDR registers for the UCR&#160;error&#160;are&#160;available&#160;<br/>when&#160;the ADDRV&#160;and the&#160;MISCV&#160;flags&#160;in the&#160;IA32_MCi_STATUS register&#160;<a href="o_fe12b1e2a880e0ce-515.html">are set (see Section 15.3.2.4)</a>. The&#160;MCA&#160;<br/>error code&#160;field of the&#160;IA32_MCi_STATUS&#160;register indicates&#160;the type of&#160;UCR error.&#160;System&#160;software&#160;can interpret&#160;<br/>the&#160;MCA&#160;error code field to&#160;analyze&#160;and identify&#160;the necessary recovery&#160;action&#160;for the&#160;given UCR&#160;error.<br/>In addition,&#160;the IA32_MCi_STATUS&#160;register bit fields,&#160;bits 56:55, are&#160;de<a href="o_fe12b1e2a880e0ce-513.html">fined (see Figure&#160;15-6)&#160;</a>to provide addi-<br/>tional information&#160;to help system software&#160;to properly&#160;identify&#160;the necessary recovery&#160;action for the&#160;UCR&#160;error:</p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:667px;left:93px;white-space:nowrap" class="ft05">S (Signaling) flag,&#160;bit 56 -&#160;Indicates (when&#160;set)&#160;that&#160;a&#160;machine&#160;check exception&#160;was generated for the&#160;UCR&#160;<br/>error reported in&#160;this MC bank and system software&#160;needs to check the AR&#160;flag and the MCA error code fields in&#160;<br/>the&#160;IA32_MCi_STATUS&#160;register&#160;to identify the&#160;necessary recovery&#160;action&#160;for this error.&#160;When&#160;the S flag&#160;in the&#160;<br/>IA32_MCi_STATUS&#160;register is clear,&#160;this UCR error was not signaled via a machine&#160;check&#160;exception&#160;and instead&#160;<br/>was&#160;reported as a&#160;corrected machine check (CMC).&#160;System&#160;software is&#160;not required to&#160;take&#160;any&#160;recovery&#160;action&#160;<br/>when the&#160;S&#160;flag&#160;in the&#160;IA32_MCi_STATUS&#160;register is&#160;clear.&#160;</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:772px;left:93px;white-space:nowrap" class="ft05">AR (Action Required) flag, bit&#160;55&#160;- Indicates&#160;(when set) that MCA&#160;error code specific&#160;recovery&#160;action must be&#160;<br/>performed by system&#160;software at&#160;the time&#160;this error&#160;was signaled. This&#160;recovery&#160;action&#160;must be&#160;completed&#160;<br/>successfully before&#160;any&#160;additional&#160;work is&#160;scheduled&#160;for this&#160;processor.&#160;When&#160;the RIPV&#160;flag in the&#160;<br/>IA32_MCG_STATUS&#160;is&#160;clear,&#160;an alternative execution&#160;stream needs&#160;to be&#160;provided; when the&#160;MCA&#160;error code&#160;<br/>specific recovery specific recovery&#160;action cannot be successfully completed, system&#160;software&#160;must&#160;shut down&#160;<br/>the system. When&#160;the AR flag&#160;in the&#160;IA32_MCi_STATUS&#160;register is&#160;clear,&#160;system software&#160;may still take&#160;MCA&#160;<br/>error code specific recovery action&#160;but this&#160;is optional; system software&#160;can safely resume&#160;program execution&#160;<br/>at&#160;the instruction pointer saved on&#160;the&#160;stack from the&#160;machine&#160;check exception&#160;when&#160;the RIPV&#160;flag in&#160;the&#160;<br/>IA32_MCG_STATUS&#160;register is&#160;set.&#160;</p>
+<p style="position:absolute;top:927px;left:68px;white-space:nowrap" class="ft05">Both&#160;the S&#160;and&#160;the&#160;AR&#160;flags in the&#160;IA32_MCi_STATUS&#160;register&#160;are&#160;defined&#160;to&#160;be&#160;sticky&#160;bits,&#160;which&#160;mean that once&#160;<br/>set,&#160;the processor does not&#160;clear them. Only software&#160;and good power-on&#160;reset&#160;can clear the&#160;S&#160;and the&#160;AR-flags.&#160;<br/>Both&#160;the&#160;S&#160;and the AR flags&#160;are only set when the&#160;processor reports the&#160;UCR errors&#160;(MCG_CAP[24]&#160;is set).</p>
+<p style="position:absolute;top:1010px;left:68px;white-space:nowrap" class="ft02">15.6.3&#160;</p>
+<p style="position:absolute;top:1010px;left:148px;white-space:nowrap" class="ft02">UCR Error Classification</p>
+<p style="position:absolute;top:1039px;left:68px;white-space:nowrap" class="ft03">With the&#160;S&#160;and AR&#160;flag&#160;encoding&#160;in the&#160;IA32_MCi_STATUS&#160;register,&#160;UCR errors&#160;can be&#160;classified&#160;as:</p>
+</div>
+</body>
+</html>

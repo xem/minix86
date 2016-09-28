@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 625</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page625-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce625.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-51</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft05">An architecturally&#160;exposed mechanism to&#160;allow&#160;the execution&#160;environment (OS/VMM) to&#160;assign a&#160;COS to&#160;an&#160;<br/>executing&#160;software thread&#160;(i.e.&#160;associating&#160;the active&#160;CR3&#160;of&#160;a logical processor with the&#160;COS in&#160;<br/>IA32_PQR_ASSOC),&#160;</p>
+<p style="position:absolute;top:155px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:95px;white-space:nowrap" class="ft05">Implementation-dependent&#160;mechanisms&#160;to indicate which&#160;COS is&#160;associated with a&#160;memory access and&#160;to&#160;<br/>enforce&#160;the&#160;cache&#160;allocation on a&#160;per COS basis.</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft05">A capacity bitmask&#160;(CBM)&#160;provides&#160;a hint to&#160;the hardware&#160;indicating the&#160;cache space an&#160;application&#160;should be&#160;<br/>limited&#160;to as&#160;well&#160;as&#160;providing an&#160;indication of overlap and&#160;isolation in&#160;the CAT-capable cache&#160;from&#160;other applica-<br/>tions contending for the&#160;cache. The bitlength of&#160;the capacity&#160;mask&#160;available generally depends on&#160;the configuration&#160;<br/>of&#160;the cache&#160;and&#160;is specified&#160;in the&#160;enumeration process for CAT in&#160;CPUID (this&#160;may vary between models&#160;in a&#160;<br/>processor&#160;family as&#160;well).&#160;Similarly,&#160;other parameters&#160;such as&#160;the number&#160;of&#160;supported COS&#160;may vary for each&#160;<br/>resource type,&#160;and these details can&#160;be&#160;enumerated via CPUID.&#160;</p>
+<p style="position:absolute;top:856px;left:69px;white-space:nowrap" class="ft05">Sample&#160;cache capacity bitmasks&#160;for&#160;a bitlength&#160;of 8 are&#160;sh<a href="o_fe12b1e2a880e0ce-625.html">own in Figure 17-27. Please&#160;</a>note that&#160;all (and&#160;only)&#160;<br/>contiguous '1' combinations&#160;are allowed (e.g. FFFFH, 0FF0H, 003CH, etc.). Attempts&#160;to program a&#160;value&#160;without&#160;<br/>contiguous '1's (including zero)&#160;will&#160;result in&#160;a general&#160;protection fault (#GP(0)).&#160;It is&#160;generally expected&#160;that in&#160;<br/>way-based implementations, one capacity mask bit corresponds to&#160;some number of ways in cache, but the specific&#160;<br/>mapping is implementation-dependent. In all cases,&#160;a&#160;mask bit set to '1'&#160;specifies that a particular Class of Service&#160;<br/>can allocate into the&#160;cache&#160;subset represented&#160;by&#160;that bit.&#160;A&#160;value of '0'&#160;in&#160;a mask bit specifies that&#160;a Class of&#160;<br/>Service&#160;cannot allocate&#160;into the&#160;given cache&#160;subset. In&#160;general,&#160;allocating more&#160;cache to&#160;a given&#160;application&#160;is&#160;<br/>usually&#160;beneficial to&#160;its performance.&#160;<br/><a href="o_fe12b1e2a880e0ce-625.html">Figure&#160;17-27&#160;also&#160;</a>shows&#160;three examples of sets of Cache&#160;Capacity Bitmasks.&#160;For simplicity these&#160;are&#160;represented&#160;<br/>as 8-bit vectors,&#160;though&#160;this&#160;may vary depending on the&#160;implementation and how the mask is&#160;mapped to the&#160;avail-<br/>able&#160;cache&#160;capacity. The&#160;first example&#160;shows&#160;the default case&#160;where all&#160;4&#160;Classes of Service (the&#160;total number&#160;of&#160;<br/>COS&#160;are implementation-dependent)&#160;have&#160;full access to&#160;the cache. The second case&#160;shows&#160;an overlapped case,&#160;<br/>which would allow some&#160;lower-priority&#160;threads share&#160;cache&#160;space with the&#160;highest priority&#160;threads. The third&#160;case&#160;</p>
+<p style="position:absolute;top:810px;left:278px;white-space:nowrap" class="ft04">Figure&#160;17-27.&#160;&#160;Examples&#160;of&#160;Cache&#160;Capacity Bitmasks</p>
+<p style="position:absolute;top:364px;left:202px;white-space:nowrap" class="ft00">M7</p>
+<p style="position:absolute;top:364px;left:256px;white-space:nowrap" class="ft00">M6</p>
+<p style="position:absolute;top:364px;left:310px;white-space:nowrap" class="ft00">M5</p>
+<p style="position:absolute;top:364px;left:364px;white-space:nowrap" class="ft00">M4</p>
+<p style="position:absolute;top:364px;left:418px;white-space:nowrap" class="ft00">M3</p>
+<p style="position:absolute;top:364px;left:472px;white-space:nowrap" class="ft00">M2</p>
+<p style="position:absolute;top:364px;left:526px;white-space:nowrap" class="ft00">M1</p>
+<p style="position:absolute;top:364px;left:580px;white-space:nowrap" class="ft00">M0</p>
+<p style="position:absolute;top:387px;left:221px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:387px;left:275px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:387px;left:329px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:387px;left:383px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:387px;left:437px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:387px;left:491px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:387px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:387px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:221px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:275px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:329px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:383px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:437px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:491px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:409px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:221px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:275px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:329px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:383px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:437px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:491px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:432px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:221px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:275px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:329px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:383px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:437px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:491px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:454px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:389px;left:157px;white-space:nowrap" class="ft07">COS0<br/>COS1<br/>COS2<br/>COS3</p>
+<p style="position:absolute;top:391px;left:653px;white-space:nowrap" class="ft03">Default Bitmask</p>
+<p style="position:absolute;top:680px;left:202px;white-space:nowrap" class="ft00">M7</p>
+<p style="position:absolute;top:680px;left:256px;white-space:nowrap" class="ft00">M6</p>
+<p style="position:absolute;top:680px;left:310px;white-space:nowrap" class="ft00">M5</p>
+<p style="position:absolute;top:680px;left:364px;white-space:nowrap" class="ft00">M4</p>
+<p style="position:absolute;top:680px;left:418px;white-space:nowrap" class="ft00">M3</p>
+<p style="position:absolute;top:680px;left:472px;white-space:nowrap" class="ft00">M2</p>
+<p style="position:absolute;top:680px;left:526px;white-space:nowrap" class="ft00">M1</p>
+<p style="position:absolute;top:680px;left:580px;white-space:nowrap" class="ft00">M0</p>
+<p style="position:absolute;top:702px;left:221px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:702px;left:275px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:702px;left:329px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:702px;left:383px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:725px;left:437px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:725px;left:491px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:747px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:770px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:705px;left:157px;white-space:nowrap" class="ft07">COS0<br/>COS1<br/>COS2<br/>COS3</p>
+<p style="position:absolute;top:707px;left:653px;white-space:nowrap" class="ft03">Isolated Bitmask</p>
+<p style="position:absolute;top:522px;left:202px;white-space:nowrap" class="ft00">M7</p>
+<p style="position:absolute;top:522px;left:256px;white-space:nowrap" class="ft00">M6</p>
+<p style="position:absolute;top:522px;left:310px;white-space:nowrap" class="ft00">M5</p>
+<p style="position:absolute;top:522px;left:364px;white-space:nowrap" class="ft00">M4</p>
+<p style="position:absolute;top:522px;left:418px;white-space:nowrap" class="ft00">M3</p>
+<p style="position:absolute;top:522px;left:472px;white-space:nowrap" class="ft00">M2</p>
+<p style="position:absolute;top:522px;left:526px;white-space:nowrap" class="ft00">M1</p>
+<p style="position:absolute;top:522px;left:580px;white-space:nowrap" class="ft00">M0</p>
+<p style="position:absolute;top:544px;left:221px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:544px;left:275px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:544px;left:329px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:544px;left:383px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:544px;left:437px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:544px;left:491px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:544px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:544px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:567px;left:437px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:567px;left:491px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:567px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:567px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:589px;left:545px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:589px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:612px;left:599px;white-space:nowrap" class="ft00">A</p>
+<p style="position:absolute;top:547px;left:157px;white-space:nowrap" class="ft07">COS0<br/>COS1<br/>COS2<br/>COS3</p>
+<p style="position:absolute;top:549px;left:653px;white-space:nowrap" class="ft03">Overlapped Bitmask</p>
+</div>
+</body>
+</html>

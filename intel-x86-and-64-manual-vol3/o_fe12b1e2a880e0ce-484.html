@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 484</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page484-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce484.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">14-18&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">POWER AND THERMAL&#160;MANAGEMENT</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">14.5.5&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">MPERF and APERF Counters Under HDC</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft09">HDC&#160;operation&#160;can be thought&#160;of&#160;as an average effective frequency drop due to&#160;all or&#160;some of the&#160;Logical&#160;Proces-<br/>sors enter an idle&#160;state period.&#160;</p>
+<p style="position:absolute;top:385px;left:68px;white-space:nowrap" class="ft09">By&#160;default, the&#160;IA32_MPERF&#160;counter counts during forced&#160;idle periods&#160;as if&#160;the logical processor&#160;was&#160;active. The&#160;<br/>IA32_APERF&#160;counter does not count&#160;during forced&#160;idle state.&#160;This counting convention&#160;allows&#160;the OS&#160;to compute&#160;<br/>the average&#160;effective frequency&#160;of&#160;the Logical&#160;Processor&#160;between the&#160;last MWAIT&#160;exit&#160;and&#160;the&#160;next&#160;MWAIT&#160;entry&#160;<br/>(OS visible C0) by&#160;ΔACNT/ΔMCNT *&#160;TSC&#160;Frequency.</p>
+<p style="position:absolute;top:490px;left:68px;white-space:nowrap" class="ft04">14.6&#160;</p>
+<p style="position:absolute;top:490px;left:147px;white-space:nowrap" class="ft04">MWAIT EXTENSIONS FOR ADVANCED POWER MANAGEMENT</p>
+<p style="position:absolute;top:526px;left:68px;white-space:nowrap" class="ft03">IA-32&#160;processors may support a&#160;number&#160;of C-states</p>
+<p style="position:absolute;top:523px;left:413px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:526px;left:420px;white-space:nowrap" class="ft03">&#160;that reduce power&#160;consumption&#160;for inactive states. Intel Core&#160;</p>
+<p style="position:absolute;top:542px;left:68px;white-space:nowrap" class="ft09">Solo and Intel Core Duo processors support both deeper&#160;C-state and MWAIT&#160;extensions&#160;that can be used by OS to&#160;<br/>implement power&#160;management policy.<br/>Software should&#160;use CPUID&#160;to discover&#160;if&#160;a target processor&#160;supports&#160;the enumeration&#160;of MWAIT&#160;extensions.&#160;If&#160;<br/>CPUID.05H.ECX[Bit&#160;0]&#160;=&#160;1,&#160;the&#160;target&#160;processor supports&#160;MWAIT extensions and their&#160;enumer<a href="��">ation (see Chapter&#160;<br/>4, “Instruction&#160;Set Reference, M-U,” of&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual,&#160;Volume&#160;<br/>2B</i>).<br/></a>If CPUID.05H.ECX[Bit&#160;1]&#160;=&#160;1,&#160;the&#160;target processor supports using&#160;interrupts as&#160;break-events for MWAIT,&#160;even&#160;<br/>when&#160;interrupts&#160;are disabled.&#160;Use this feature to measure C-state&#160;residency&#160;as follows:</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:695px;left:93px;white-space:nowrap" class="ft09">Software&#160;can write&#160;to bit&#160;0&#160;in the&#160;MWAIT&#160;Extensions register&#160;(ECX) when issuing&#160;an MWAIT to enter into&#160;a&#160;<br/>processor-specific C-state&#160;or sub C-state.</p>
+<p style="position:absolute;top:733px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:734px;left:93px;white-space:nowrap" class="ft09">When&#160;a processor comes&#160;out&#160;of an inactive C-state&#160;or&#160;sub C-state,&#160;software&#160;can read a&#160;timestamp&#160;before&#160;an&#160;<br/>interrupt service routine&#160;(ISR)&#160;is potentially&#160;executed.&#160;</p>
+<p style="position:absolute;top:775px;left:68px;white-space:nowrap" class="ft09">CPUID.05H.EDX&#160;allows&#160;software to&#160;enumerate processor-specific C-states and&#160;sub&#160;C-states available for use&#160;with&#160;<br/>MWAIT extensions. IA-32 processors may support more than&#160;one&#160;C-state of&#160;a given C-state&#160;type.&#160;These&#160;are&#160;called&#160;<br/>sub C-states. Numerically higher&#160;C-state have&#160;higher power&#160;savings&#160;and latency (upon entering and exiting) than&#160;<br/>lower-numbered C-state.&#160;<br/>At&#160;CPL&#160;=&#160;0, system&#160;software can specify desired C-state and sub&#160;C-state&#160;by using the MWAIT&#160;hints register (EAX).&#160;<br/>Processors will not go to C-state and sub C-state deeper than what&#160;is&#160;specified by the&#160;hint register. If CPL&#160;&gt;&#160;0&#160;and&#160;<br/>if MONITOR/MWAIT is&#160;supported at&#160;CPL&#160;&gt;&#160;0, the&#160;processor will only enter C1-state&#160;(regardless&#160;of&#160;the C-state&#160;<br/>request in the&#160;hints register).&#160;<br/>Executing&#160;MWAIT generates an exception&#160;on processors&#160;operating at a&#160;privilege level where&#160;MONITOR/MWAIT are&#160;<br/>not supported.</p>
+<p style="position:absolute;top:339px;left:158px;white-space:nowrap" class="ft08">Figure&#160;14-19.&#160;&#160;Example&#160;of&#160;Effective&#160;Frequency Reduction&#160;and&#160;Forced&#160;Idle Period&#160;of&#160;HDC</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft03">1.&#160;The&#160;processor-specific C-states defined&#160;in&#160;MWAIT&#160;extensions can map to&#160;ACPI&#160;defined&#160;C-state types (C0,&#160;C1,&#160;C2, C3). The mapping&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft03">relationship&#160;depends on&#160;the definition&#160;of&#160;a&#160;C-state&#160;by processor implementation&#160;and&#160;is exposed&#160;to&#160;OSPM by&#160;the BIOS&#160;using the ACPI&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">defined _CST&#160;table.</p>
+<p style="position:absolute;top:197px;left:204px;white-space:nowrap" class="ft00">1600&#160;MHz:&#160;25% Utilization&#160;/75%&#160;Forced&#160;Idle</p>
+<p style="position:absolute;top:318px;left:218px;white-space:nowrap" class="ft00">Effective&#160;Frequency&#160;@&#160;100% Utilization:&#160;400&#160;MHz</p>
+</div>
+</body>
+</html>

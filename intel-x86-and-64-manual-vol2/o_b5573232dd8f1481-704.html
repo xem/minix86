@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 704</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page704-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481704.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:497px;white-space:nowrap" class="ft00">MINPD—Minimum of Packed Double-Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-24&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:123px;left:68px;white-space:nowrap" class="ft03">MIN(SRC1, SRC2)<br/>{</p>
+<p style="position:absolute;top:159px;left:88px;white-space:nowrap" class="ft02">IF&#160;((SRC1 =&#160;0.0)&#160;and (SRC2 =&#160;0.0))&#160;THEN&#160;DEST&#160;SRC2;</p>
+<p style="position:absolute;top:177px;left:115px;white-space:nowrap" class="ft03">ELSE IF&#160;(SRC1&#160;= SNaN) THEN DEST&#160;SRC2; FI;<br/>ELSE IF&#160;(SRC2&#160;= SNaN) THEN DEST&#160;SRC2; FI;<br/>ELSE IF&#160;(SRC1&#160;&lt; SRC2) THEN DEST&#160;SRC1;<br/>ELSE DEST&#160;SRC2;&#160;</p>
+<p style="position:absolute;top:249px;left:88px;white-space:nowrap" class="ft02">FI;&#160;</p>
+<p style="position:absolute;top:267px;left:68px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:303px;left:68px;white-space:nowrap" class="ft03">VMINPD (EVEX encoded version)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:357px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:393px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:411px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:429px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:447px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;MIN(SRC1[i+63:i],&#160;SRC2[63:0])</p>
+<p style="position:absolute;top:465px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:483px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;MIN(SRC1[i+63:i],&#160;SRC2[i+63:i])</p>
+<p style="position:absolute;top:501px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:519px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:537px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:537px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:555px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE &#160;DEST[i+63:i]&#160;&#160;0&#160;</p>
+<p style="position:absolute;top:573px;left:358px;white-space:nowrap" class="ft02">; zeroing-masking</p>
+<p style="position:absolute;top:591px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:609px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:627px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:681px;left:68px;white-space:nowrap" class="ft03">VMINPD (VEX.256 encoded version)<br/>DEST[63:0]&#160;MIN(SRC1[63:0],&#160;SRC2[63:0])<br/>DEST[127:64]&#160;MIN(SRC1[127:64], SRC2[127:64])<br/>DEST[191:128]&#160;MIN(SRC1[191:128],&#160;SRC2[191:128])<br/>DEST[255:192]&#160;MIN(SRC1[255:192],&#160;SRC2[255:192])</p>
+<p style="position:absolute;top:789px;left:68px;white-space:nowrap" class="ft03">VMINPD (VEX.128 encoded version)<br/>DEST[63:0]&#160;MIN(SRC1[63:0],&#160;SRC2[63:0])<br/>DEST[127:64]&#160;MIN(SRC1[127:64], SRC2[127:64])<br/>DEST[MAX_VL-1:128]&#160;0</p>
+<p style="position:absolute;top:879px;left:68px;white-space:nowrap" class="ft03">MINPD (128-bit Legacy&#160;SSE version)<br/>DEST[63:0]&#160;MIN(SRC1[63:0],&#160;SRC2[63:0])<br/>DEST[127:64]&#160;MIN(SRC1[127:64], SRC2[127:64])<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+</div>
+</body>
+</html>

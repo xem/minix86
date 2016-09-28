@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 457</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page457-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a457.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:776px;white-space:nowrap" class="ft00">Vol. 1&#160;E-15</p>
+<p style="position:absolute;top:47px;left:421px;white-space:nowrap" class="ft01">GUIDELINES FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION&#160;HANDLERS</p>
+<p style="position:absolute;top:908px;left:69px;white-space:nowrap" class="ft02">E.4.3 &#160;</p>
+<p style="position:absolute;top:908px;left:150px;white-space:nowrap" class="ft02">Example SIMD Floating-Point&#160;Emulation Implementation</p>
+<p style="position:absolute;top:939px;left:69px;white-space:nowrap" class="ft05">The sample&#160;code&#160;listed below&#160;may be&#160;considered&#160;as being&#160;part&#160;of a user-level&#160;floating-point exception filter for the&#160;<br/>SSE/SSE2/SSE3 numeric instructions.&#160;It is&#160;assumed&#160;that the&#160;filter function&#160;is invoked by a&#160;low-level exception&#160;<br/>handler (invoked&#160;for&#160;exception 19 when an&#160;unmasked floating-point exception&#160;occurs), and that it&#160;operates&#160;as&#160;<br/><a href="o_7281d5ea06a5b67a-445.html">explained in Section E.4.1,&#160;“Floating-Point&#160;Emulation.”&#160;</a>The&#160;sample&#160;code&#160;does&#160;the&#160;emulation only for&#160;the&#160;SSE&#160;<br/>instructions for addition, subtraction, multiplication, and&#160;division.&#160;For this,&#160;it uses C code and x87&#160;FPU operations.&#160;<br/>Operations&#160;corresponding&#160;to&#160;other SSE/SSE2/SSE3&#160;numeric instructions can be&#160;emulated&#160;similarly.&#160;The&#160;example&#160;<br/>assumes that&#160;the emulation function receives&#160;a pointer to&#160;a&#160;data&#160;structure specifying a&#160;number&#160;of input&#160;parame-<br/>ters: the operation that&#160;caused the&#160;exception,&#160;a set of&#160;sub-operands&#160;(unpacked,&#160;of type float), the rounding&#160;mode&#160;</p>
+<p style="position:absolute;top:105px;left:310px;white-space:nowrap" class="ft04">Table&#160;E-18. &#160;#P - Inexact Result&#160;(Precision)</p>
+<p style="position:absolute;top:146px;left:76px;white-space:nowrap" class="ft03">Instruction</p>
+<p style="position:absolute;top:146px;left:190px;white-space:nowrap" class="ft03">Condition</p>
+<p style="position:absolute;top:146px;left:351px;white-space:nowrap" class="ft03">Masked&#160;Response</p>
+<p style="position:absolute;top:146px;left:526px;white-space:nowrap" class="ft03">Unmasked Response and&#160;Exception Code</p>
+<p style="position:absolute;top:171px;left:76px;white-space:nowrap" class="ft03">ADDPS</p>
+<p style="position:absolute;top:187px;left:76px;white-space:nowrap" class="ft03">ADDPD</p>
+<p style="position:absolute;top:204px;left:76px;white-space:nowrap" class="ft03">ADDSUBPS</p>
+<p style="position:absolute;top:220px;left:76px;white-space:nowrap" class="ft03">ADDSUBPD</p>
+<p style="position:absolute;top:236px;left:76px;white-space:nowrap" class="ft03">HADDPS</p>
+<p style="position:absolute;top:253px;left:76px;white-space:nowrap" class="ft03">HADDPD</p>
+<p style="position:absolute;top:270px;left:76px;white-space:nowrap" class="ft03">SUBPS</p>
+<p style="position:absolute;top:286px;left:76px;white-space:nowrap" class="ft03">SUBPD</p>
+<p style="position:absolute;top:303px;left:76px;white-space:nowrap" class="ft03">HSUBPS</p>
+<p style="position:absolute;top:319px;left:76px;white-space:nowrap" class="ft03">HSUBPD</p>
+<p style="position:absolute;top:335px;left:76px;white-space:nowrap" class="ft03">MULPS</p>
+<p style="position:absolute;top:352px;left:76px;white-space:nowrap" class="ft03">MULPD</p>
+<p style="position:absolute;top:369px;left:76px;white-space:nowrap" class="ft03">DIVPS</p>
+<p style="position:absolute;top:385px;left:76px;white-space:nowrap" class="ft03">DIVPD</p>
+<p style="position:absolute;top:402px;left:76px;white-space:nowrap" class="ft03">SQRTPS</p>
+<p style="position:absolute;top:418px;left:76px;white-space:nowrap" class="ft03">SQRTPD</p>
+<p style="position:absolute;top:435px;left:76px;white-space:nowrap" class="ft03">CVTDQ2PS</p>
+<p style="position:absolute;top:451px;left:76px;white-space:nowrap" class="ft03">CVTPI2PS</p>
+<p style="position:absolute;top:468px;left:76px;white-space:nowrap" class="ft03">CVTPS2PI</p>
+<p style="position:absolute;top:484px;left:76px;white-space:nowrap" class="ft03">CVTPS2DQ</p>
+<p style="position:absolute;top:501px;left:76px;white-space:nowrap" class="ft03">CVTPD2PI</p>
+<p style="position:absolute;top:517px;left:76px;white-space:nowrap" class="ft03">CVTPD2DQ</p>
+<p style="position:absolute;top:534px;left:76px;white-space:nowrap" class="ft03">CVTPD2PS</p>
+<p style="position:absolute;top:550px;left:76px;white-space:nowrap" class="ft03">CVTTPS2PI</p>
+<p style="position:absolute;top:567px;left:76px;white-space:nowrap" class="ft03">CVTTPD2PI</p>
+<p style="position:absolute;top:583px;left:76px;white-space:nowrap" class="ft03">CVTTPD2DQ</p>
+<p style="position:absolute;top:600px;left:76px;white-space:nowrap" class="ft03">CVTTPS2DQ</p>
+<p style="position:absolute;top:616px;left:76px;white-space:nowrap" class="ft03">ADDSS</p>
+<p style="position:absolute;top:633px;left:76px;white-space:nowrap" class="ft03">ADDSD</p>
+<p style="position:absolute;top:649px;left:76px;white-space:nowrap" class="ft03">SUBSS</p>
+<p style="position:absolute;top:666px;left:76px;white-space:nowrap" class="ft03">SUBSD</p>
+<p style="position:absolute;top:682px;left:76px;white-space:nowrap" class="ft03">MULSS</p>
+<p style="position:absolute;top:699px;left:76px;white-space:nowrap" class="ft03">MULSD</p>
+<p style="position:absolute;top:715px;left:76px;white-space:nowrap" class="ft03">DIVSS</p>
+<p style="position:absolute;top:732px;left:76px;white-space:nowrap" class="ft03">DIVSD</p>
+<p style="position:absolute;top:748px;left:76px;white-space:nowrap" class="ft03">SQRTSS</p>
+<p style="position:absolute;top:765px;left:76px;white-space:nowrap" class="ft03">SQRTSD</p>
+<p style="position:absolute;top:781px;left:76px;white-space:nowrap" class="ft03">CVTSI2SS</p>
+<p style="position:absolute;top:798px;left:76px;white-space:nowrap" class="ft03">CVTSS2SI</p>
+<p style="position:absolute;top:814px;left:76px;white-space:nowrap" class="ft03">CVTSD2SI</p>
+<p style="position:absolute;top:831px;left:76px;white-space:nowrap" class="ft03">CVTSD2SS</p>
+<p style="position:absolute;top:847px;left:76px;white-space:nowrap" class="ft03">CVTTSS2SI</p>
+<p style="position:absolute;top:864px;left:76px;white-space:nowrap" class="ft03">CVTTSD2SI</p>
+<p style="position:absolute;top:171px;left:190px;white-space:nowrap" class="ft03">The result is not exactly&#160;</p>
+<p style="position:absolute;top:187px;left:190px;white-space:nowrap" class="ft03">representable in&#160;the&#160;</p>
+<p style="position:absolute;top:204px;left:190px;white-space:nowrap" class="ft03">destination format.</p>
+<p style="position:absolute;top:171px;left:351px;white-space:nowrap" class="ft03">res = Result rounded&#160;to&#160;the&#160;</p>
+<p style="position:absolute;top:187px;left:351px;white-space:nowrap" class="ft03">destination precision&#160;and&#160;</p>
+<p style="position:absolute;top:204px;left:351px;white-space:nowrap" class="ft03">using the&#160;bounded&#160;</p>
+<p style="position:absolute;top:220px;left:351px;white-space:nowrap" class="ft03">exponent,&#160;but only if&#160;no&#160;</p>
+<p style="position:absolute;top:236px;left:351px;white-space:nowrap" class="ft03">unmasked&#160;underflow or&#160;</p>
+<p style="position:absolute;top:253px;left:351px;white-space:nowrap" class="ft03">overflow&#160;conditions occur&#160;</p>
+<p style="position:absolute;top:270px;left:351px;white-space:nowrap" class="ft03">(this exception&#160;can occur in&#160;</p>
+<p style="position:absolute;top:286px;left:351px;white-space:nowrap" class="ft03">the&#160;presence of&#160;a&#160;masked&#160;</p>
+<p style="position:absolute;top:303px;left:351px;white-space:nowrap" class="ft03">underflow&#160;or&#160;overflow);&#160;#PE&#160;</p>
+<p style="position:absolute;top:319px;left:351px;white-space:nowrap" class="ft03">= 1.</p>
+<p style="position:absolute;top:171px;left:526px;white-space:nowrap" class="ft03">Only if&#160;no&#160;underflow/overflow&#160;condition&#160;occurred, or&#160;</p>
+<p style="position:absolute;top:187px;left:526px;white-space:nowrap" class="ft03">if&#160;the corresponding exceptions are&#160;masked:</p>
+<p style="position:absolute;top:204px;left:526px;white-space:nowrap" class="ft03">•&#160;Set&#160;#OE if masked&#160;overflow&#160;and&#160;set result as&#160;</p>
+<p style="position:absolute;top:218px;left:542px;white-space:nowrap" class="ft03">described above&#160;for masked&#160;overflow.&#160;</p>
+<p style="position:absolute;top:234px;left:526px;white-space:nowrap" class="ft03">•&#160;Set&#160;#UE&#160;if&#160;masked&#160;underflow and&#160;set result as&#160;</p>
+<p style="position:absolute;top:249px;left:542px;white-space:nowrap" class="ft03">described above&#160;for masked&#160;underflow.</p>
+<p style="position:absolute;top:263px;left:526px;white-space:nowrap" class="ft03">If neither underflow&#160;nor overflow, res&#160;equals&#160;the&#160;</p>
+<p style="position:absolute;top:280px;left:526px;white-space:nowrap" class="ft03">result&#160;rounded to&#160;the&#160;destination precision&#160;and&#160;using&#160;</p>
+<p style="position:absolute;top:297px;left:526px;white-space:nowrap" class="ft03">the bounded exponent&#160;set #PE&#160;= 1.</p>
+</div>
+</body>
+</html>

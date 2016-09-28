@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 104</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page104-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a104.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-20&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DATA&#160;TYPES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06"><i>Software Developer’s Manual, Volumes 3A&#160;&amp;&#160;3B,</i>&#160;list&#160;the floating-point&#160;exceptions that can&#160;be&#160;signaled for each&#160;<br/>floating-point instruction.</p>
+<p style="position:absolute;top:161px;left:68px;white-space:nowrap" class="ft04">4.9.1.1&#160;&#160;</p>
+<p style="position:absolute;top:161px;left:152px;white-space:nowrap" class="ft04">Invalid&#160;Operation Exception&#160;(#I)</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft06">The processor reports an invalid operation&#160;exception&#160;in response to&#160;one or&#160;more invalid&#160;arithmetic operands. If&#160;the&#160;<br/>invalid operation&#160;exception is masked, the processor sets&#160;the IE&#160;flag&#160;and returns an&#160;indefinite value or a QNaN<i>.&#160;</i>This&#160;<br/>value&#160;overwrites&#160;the&#160;destination register&#160;specified by the&#160;instruction.&#160;If&#160;the invalid operation exception&#160;is not&#160;<br/>masked, the&#160;IE flag&#160;is set,&#160;a software&#160;exception handler is&#160;invoked, and&#160;the&#160;operands remain&#160;unaltered.<br/>Se<a href="o_7281d5ea06a5b67a-100.html">e Section 4.8.3.6,&#160;“Using&#160;SNaNs and&#160;QNaNs in Applications,”&#160;</a>for&#160;information&#160;about the&#160;result returned when an&#160;<br/>exception&#160;is caused by an&#160;SNaN.<br/>The&#160;processor&#160;can detect a&#160;variety of invalid arithmetic&#160;operations that&#160;can be coded&#160;in&#160;a program.&#160;These opera-<br/>tions&#160;generally&#160;indicate&#160;a programming error,&#160;such&#160;as&#160;dividing&#160;∞&#160;by&#160;∞&#160;. See&#160;the following sections&#160;for&#160;information&#160;</p>
+<p style="position:absolute;top:337px;left:68px;white-space:nowrap" class="ft03">regarding the invalid-operation exception when detected&#160;while executing x87 FPU&#160;or&#160;SSE/SSE2/SSE3 instructions:</p>
+<p style="position:absolute;top:358px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:359px;left:93px;white-space:nowrap" class="ft03">x87&#160;<a href="o_7281d5ea06a5b67a-217.html">FPU; Section 8.5.1, “Invalid Operation Exception”</a></p>
+<p style="position:absolute;top:381px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:382px;left:93px;white-space:nowrap" class="ft03">SIMD floating-point&#160;except<a href="o_7281d5ea06a5b67a-268.html">ions; Section 11.5.2.1, “Invalid Operation Exception&#160;(#I)”</a></p>
+<p style="position:absolute;top:426px;left:68px;white-space:nowrap" class="ft04">4.9.1.2 &#160;</p>
+<p style="position:absolute;top:426px;left:152px;white-space:nowrap" class="ft04">Denormal&#160;Operand Exception (#D)</p>
+<p style="position:absolute;top:454px;left:68px;white-space:nowrap" class="ft06">The processor reports the&#160;denormal-operand exception&#160;if&#160;an&#160;arithmetic instruction attempts to operate on a&#160;<br/>denormal&#160;oper<a href="o_7281d5ea06a5b67a-98.html">and (see Section&#160;4.8.3.2,&#160;“Normalized&#160;and Denormalized Finite Numbers”). Whe</a>n&#160;the exception&#160;is&#160;<br/>masked, the&#160;processor sets&#160;the DE flag&#160;and proceeds&#160;with the&#160;instruction. Operating&#160;on denormal&#160;numbers will&#160;<br/>produce results&#160;at least as&#160;good&#160;as,&#160;and often better&#160;than,&#160;what&#160;can be obtained when&#160;denormal&#160;numbers are&#160;<br/>flushed&#160;to zero.&#160;Programmers&#160;can mask this exception&#160;so&#160;that&#160;a computation may&#160;proceed, then&#160;analyze&#160;any loss&#160;<br/>of&#160;accuracy when the&#160;final&#160;result&#160;is delivered.<br/>When a denormal-operand exception is not masked, the&#160;DE flag is set, a software exception handler is&#160;invoked, and&#160;<br/>the operands&#160;remain unaltered.&#160;When&#160;denormal operands&#160;have reduced&#160;significance&#160;due&#160;to loss of low-order&#160;bits,&#160;<br/>it may be&#160;advisable to&#160;not operate&#160;on&#160;them.&#160;Precluding&#160;denormal&#160;operands from computations can&#160;be&#160;accom-<br/>plished by an&#160;exception handler&#160;that responds&#160;to&#160;unmasked denormal-operand&#160;exceptions.<br/>See the&#160;following&#160;sections for information regarding&#160;the denormal-operand&#160;exception when detected while&#160;<br/>executing&#160;x87 FPU or SSE/SSE2/SSE3 instructions:</p>
+<p style="position:absolute;top:673px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:673px;left:93px;white-space:nowrap" class="ft03">x87&#160;<a href="o_7281d5ea06a5b67a-218.html">FPU; Section 8.5.2,&#160;“Denormal&#160;Operand&#160;Exception (#D)”</a></p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:696px;left:93px;white-space:nowrap" class="ft03">SIMD floating-point&#160;except<a href="o_7281d5ea06a5b67a-269.html">ions; Section 11.5.2.2, “Denormal-Operand&#160;Exception&#160;(#D)”</a></p>
+<p style="position:absolute;top:740px;left:68px;white-space:nowrap" class="ft04">4.9.1.3&#160;&#160;</p>
+<p style="position:absolute;top:740px;left:152px;white-space:nowrap" class="ft04">Divide-By-Zero&#160;Exception (#Z)</p>
+<p style="position:absolute;top:769px;left:68px;white-space:nowrap" class="ft06">The processor reports the&#160;floating-point divide-by-zero exception&#160;whenever an&#160;instruction&#160;attempts to&#160;divide&#160;a&#160;<br/>finite&#160;non-zero operand by 0.&#160;The&#160;masked response&#160;for the&#160;divide-by-zero exception is&#160;to set&#160;the ZE&#160;flag and&#160;return&#160;<br/>an infinity signed&#160;with the exclusive OR of the sign of&#160;the&#160;operands. If the divide-by-zero exception is not masked,&#160;<br/>the ZE flag&#160;is set,&#160;a software&#160;exception&#160;handler is&#160;invoked,&#160;and&#160;the&#160;operands&#160;remain unaltered.<br/>See the&#160;following&#160;sections for information regarding&#160;the&#160;divide-by-zero&#160;exception when detected&#160;while executing&#160;<br/>x87&#160;FPU&#160;or&#160;SSE/SSE2&#160;instructions:</p>
+<p style="position:absolute;top:880px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:881px;left:93px;white-space:nowrap" class="ft03">x87&#160;<a href="o_7281d5ea06a5b67a-219.html">FPU; Section 8.5.3, “Divide-By-Zero Exception&#160;(#Z)”</a></p>
+<p style="position:absolute;top:903px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:904px;left:93px;white-space:nowrap" class="ft03">SIMD floating-point&#160;except<a href="o_7281d5ea06a5b67a-269.html">ions; Section 11.5.2.3, “Divide-By-Zero Exception&#160;(#Z)”</a></p>
+<p style="position:absolute;top:948px;left:68px;white-space:nowrap" class="ft04">4.9.1.4&#160;&#160;</p>
+<p style="position:absolute;top:948px;left:152px;white-space:nowrap" class="ft04">Numeric Overflow&#160;Exception (#O)</p>
+<p style="position:absolute;top:976px;left:68px;white-space:nowrap" class="ft06">The processor reports a&#160;floating-point numeric overflow exception&#160;whenever&#160;the rounded result&#160;of&#160;an instruction&#160;<br/>exceeds&#160;the largest allowable&#160;finite&#160;value that&#160;will&#160;fit into&#160;the destination oper<a href="o_7281d5ea06a5b67a-105.html">and. Table 4-9 shows&#160;</a>the&#160;threshold&#160;<br/>range for&#160;numeric&#160;overflow for&#160;each of&#160;the floating-point formats;&#160;overflow&#160;occurs&#160;when&#160;a rounded result falls at&#160;or&#160;<br/>outside this&#160;threshold range.</p>
+</div>
+</body>
+</html>

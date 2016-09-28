@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1892</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1892-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1892.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-82&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:146px;left:312px;white-space:nowrap" class="ft02">Temp Variables in EEXIT&#160;Operational Flow</p>
+<p style="position:absolute;top:231px;left:68px;white-space:nowrap" class="ft03">TMP_MODE64&#160;&#160;((IA32_EFER.LMA = 1) &amp;&amp; (CS.L&#160;= 1));</p>
+<p style="position:absolute;top:267px;left:68px;white-space:nowrap" class="ft03">IF&#160;(TMP_MODE64 =&#160;1)</p>
+<p style="position:absolute;top:285px;left:88px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:303px;left:115px;white-space:nowrap" class="ft03">IF&#160;(RBX&#160;is&#160;not canonical)&#160;THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:321px;left:88px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:339px;left:115px;white-space:nowrap" class="ft03">IF (RBX &gt; CS limit)&#160;THEN #GP(0); FI;</p>
+<p style="position:absolute;top:357px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft04">TMP_RIP&#160;&#160;CRIP;<br/>RIP&#160;&#160;RBX;</p>
+<p style="position:absolute;top:447px;left:68px;white-space:nowrap" class="ft04">(* Return&#160;current AEP in&#160;RCX *)<br/>RCX&#160;&#160;CR_TCS_PA.AEP;</p>
+<p style="position:absolute;top:501px;left:68px;white-space:nowrap" class="ft04">(* Do the FS/GS swap *)<br/>FS.selector&#160;&#160;CR_SAVE_FS.selector;<br/>FS.base&#160;&#160;CR_SAVE_FS.base;<br/>FS.limit&#160;&#160;CR_SAVE_FS.limit;<br/>FS.access_rights&#160;&#160;CR_SAVE_FS.access_rights;<br/>GS.selector&#160;&#160;CR_SAVE_GS.selector;<br/>GS.base&#160;&#160;CR_SAVE_GS.base;<br/>GS.limit&#160;&#160;CR_SAVE_GS.limit;<br/>GS.access_rights&#160;&#160;CR_SAVE_GS.access_rights;</p>
+<p style="position:absolute;top:681px;left:68px;white-space:nowrap" class="ft04">(* Restore XCR0 if&#160;needed&#160;*)<br/>IF&#160;(CR4.OSXSAVE = 1)&#160;</p>
+<p style="position:absolute;top:717px;left:88px;white-space:nowrap" class="ft03">XCR0&#160;&#160;CR_SAVE__XCR0;</p>
+<p style="position:absolute;top:735px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:771px;left:68px;white-space:nowrap" class="ft03">Unsuppress_all_code_breakpoints_that_are_outside_ELRANGE;</p>
+<p style="position:absolute;top:807px;left:68px;white-space:nowrap" class="ft03">IF&#160;(CR_DBGOPTIN = 0)&#160;</p>
+<p style="position:absolute;top:825px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:843px;left:115px;white-space:nowrap" class="ft04">UnSuppress_all_code_breakpoints_that_overlap_with_ELRANGE;<br/>Restore suppressed breakpoint matches;<br/>RFLAGS.TF&#160;&#160;CR_SAVE_TF;<br/>UnSuppress_montior_trap_flag;<br/>UnSuppress_LBR_Generation;<br/>UnSuppress_performance monitoring_activity;<br/>Restore&#160;performance&#160;monitoring&#160;counter&#160;AnyThread demotion&#160;to MyThread&#160;in&#160;enclave back&#160;to AnyThread</p>
+<p style="position:absolute;top:969px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:1011px;left:68px;white-space:nowrap" class="ft03">IF&#160;RFLAGS.TF = 1</p>
+<p style="position:absolute;top:1029px;left:88px;white-space:nowrap" class="ft03">THEN&#160;Pend&#160;Single-Step #DB&#160;at the&#160;end of&#160;EEXIT;</p>
+<p style="position:absolute;top:1047px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:169px;left:75px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:169px;left:241px;white-space:nowrap" class="ft03">Type</p>
+<p style="position:absolute;top:169px;left:370px;white-space:nowrap" class="ft03">Size&#160;(Bits)</p>
+<p style="position:absolute;top:169px;left:451px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:193px;left:75px;white-space:nowrap" class="ft03">TMP_RIP</p>
+<p style="position:absolute;top:193px;left:241px;white-space:nowrap" class="ft03">Effective&#160;Address</p>
+<p style="position:absolute;top:193px;left:370px;white-space:nowrap" class="ft03">32/64</p>
+<p style="position:absolute;top:193px;left:451px;white-space:nowrap" class="ft03">Saved copy&#160;of&#160;CRIP&#160;for&#160;use when&#160;creating&#160;LBR.</p>
+</div>
+</body>
+</html>

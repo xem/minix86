@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 204</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page204-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481204.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:611px;white-space:nowrap" class="ft00">ARPL—Adjust RPL Field of Segment Selector</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-76&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">ARPL—Adjust RPL Field of&#160;Segment Selector</p>
+<p style="position:absolute;top:233px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:317px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:342px;left:68px;white-space:nowrap" class="ft06">Compares&#160;the&#160;RPL fields&#160;of two segment selectors.&#160;The&#160;first operand&#160;(the destination operand)&#160;contains&#160;one&#160;<br/>segment selector&#160;and&#160;the&#160;second&#160;operand&#160;(source operand)&#160;contains the&#160;other.&#160;(The RPL&#160;field is&#160;located in&#160;bits 0&#160;<br/>and&#160;1 of each&#160;operand.)&#160;If&#160;the&#160;RPL field of the&#160;destination&#160;operand&#160;is less than the&#160;RPL field of the&#160;source operand,&#160;<br/>the&#160;ZF flag&#160;is set and&#160;the RPL&#160;field of&#160;the destination&#160;operand is&#160;increased to&#160;match&#160;that of&#160;the&#160;source operand.&#160;<br/>Otherwise,&#160;the&#160;ZF flag&#160;is cleared and no change&#160;is made&#160;to the&#160;destination operand. (The destination operand can&#160;<br/>be&#160;a word&#160;register&#160;or a&#160;memory&#160;location;&#160;the source&#160;operand must&#160;be&#160;a word&#160;register.)<br/>The ARPL instruction is provided for use by operating-system procedures&#160;(however,&#160;it can also&#160;be&#160;used by applica-<br/>tions).&#160;It is&#160;generally used&#160;to adjust&#160;the RPL of&#160;a segment selector that has&#160;been&#160;passed to&#160;the operating&#160;system&#160;<br/>by an application program to&#160;match the&#160;privilege&#160;level&#160;of the&#160;application&#160;program. Here&#160;the segment selector&#160;<br/>passed to&#160;the operating&#160;system is&#160;placed&#160;in the&#160;destination&#160;operand&#160;and segment selector&#160;for&#160;the application&#160;<br/>program’s code segment is placed in the source operand.&#160;(The&#160;RPL field&#160;in the source operand represents the priv-<br/>ilege level of the&#160;application&#160;program.) Execution of the ARPL instruction then ensures&#160;that the RPL&#160;of&#160;the&#160;segment&#160;<br/>selector&#160;received&#160;by the&#160;operating system&#160;is&#160;no lower (does not have&#160;a higher&#160;privilege) than the privilege level of&#160;<br/>the application&#160;program&#160;(the&#160;segment selector for the&#160;application program’s&#160;code&#160;segment&#160;can be read from&#160;the&#160;<br/>stack following a procedure&#160;call).<br/>This instruction executes as&#160;described&#160;in compatibility&#160;mode&#160;and legacy&#160;mode.&#160;It is&#160;not&#160;encodable in 64-bit&#160;mode.&#160;<br/>Se<a href="��">e “Checking Caller Access Privileges” in Chapter&#160;3, “Protected-Mode Memory Management,”&#160;of the&#160;<i>Intel® 64&#160;and&#160;<br/>IA-32&#160;Architectures&#160;Software Developer’s Manual, Volume&#160;3A</i>, for more i</a>nformation about&#160;the use&#160;of&#160;this instruc-<br/>tion.</p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:726px;left:68px;white-space:nowrap" class="ft04">IF&#160;64-BIT MODE</p>
+<p style="position:absolute;top:742px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:759px;left:115px;white-space:nowrap" class="ft04">See&#160;MOVSXD;</p>
+<p style="position:absolute;top:775px;left:88px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:792px;left:115px;white-space:nowrap" class="ft04">IF DEST[RPL]&#160;&lt;&#160;SRC[RPL]</p>
+<p style="position:absolute;top:810px;left:142px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:828px;left:169px;white-space:nowrap" class="ft04">ZF&#160;←&#160;1;</p>
+<p style="position:absolute;top:845px;left:169px;white-space:nowrap" class="ft04">DEST[RPL]&#160;←&#160;SRC[RPL];</p>
+<p style="position:absolute;top:863px;left:142px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:881px;left:169px;white-space:nowrap" class="ft04">ZF&#160;←&#160;0;</p>
+<p style="position:absolute;top:899px;left:115px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:917px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:976px;left:68px;white-space:nowrap" class="ft06">The ZF flag is set to 1 if the RPL field of the destination&#160;operand is less than that of the source operand; otherwise,&#160;<br/>it&#160;is set to&#160;0.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64-bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">63&#160;/<i>r</i></p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">ARPL&#160;<i>r/m16,&#160;r16</i></p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft04">N. E.</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Adjust RPL of&#160;<i>r/m16</i>&#160;to not less&#160;than RPL&#160;of&#160;</p>
+<p style="position:absolute;top:177px;left:568px;white-space:nowrap" class="ft05"><i>r16.</i></p>
+<p style="position:absolute;top:256px;left:84px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:256px;left:187px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:256px;left:360px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:256px;left:537px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:256px;left:716px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:280px;left:93px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:280px;left:174px;white-space:nowrap" class="ft04">ModRM:r/m (w)</p>
+<p style="position:absolute;top:280px;left:350px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r)</p>
+<p style="position:absolute;top:280px;left:558px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:280px;left:737px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 994</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:7px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page994-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce994.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">20-18&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">8086&#160;EMULATION</p>
+<p style="position:absolute;top:505px;left:68px;white-space:nowrap" class="ft08">Redirecting&#160;software interrupts back&#160;to the&#160;8086 program potentially&#160;speeds&#160;up interrupt handling&#160;because&#160;a&#160;<br/>switch&#160;back&#160;and&#160;forth between virtual-8086&#160;mode&#160;and protected mode&#160;is not&#160;required. This latter&#160;interrupt-<br/>handling technique is&#160;particularly useful for 8086 operating&#160;systems (such as&#160;MS-DOS) that&#160;use the&#160;INT&#160;<i>n</i>&#160;instruc-<br/>tion&#160;to call&#160;operating system&#160;procedures.<br/>The CPUID instruction can be used to verify that the&#160;virtual mode&#160;extension is implemented on the processor.&#160;Bit 1&#160;<br/>of the feature&#160;flags register&#160;(EDX) indicates the&#160;availability of the&#160;virtual mode&#160;extension (see “CPUID—CPU&#160;Iden-<br/><a href="��">tification” in Chapter 3, “Instruction&#160;Set Reference, A-L”, of the&#160;<i>Intel® 64 and IA-32 Architectures Software Devel-<br/>oper’s&#160;Manual, Volume&#160;2A</i></a>).<br/>The following sections&#160;describe the six methods&#160;(or mechanisms) for handling software&#160;interrupts in&#160;virtual-8086&#160;<br/>mode.&#160;S<a href="o_fe12b1e2a880e0ce-991.html">ee Section 20.3.2,&#160;“Class 2—Maskable Hardware&#160;Interrupt&#160;Handling&#160;in&#160;Virtual-8086&#160;Mode&#160;Using the&#160;Virtual&#160;<br/>Interrupt&#160;Mechanism”, for a</a>&#160;description of the&#160;use&#160;of&#160;the VIF and&#160;VIP&#160;flags&#160;in the&#160;EFLAGS&#160;register&#160;for&#160;handling&#160;<br/>maskable hardware interrupts.</p>
+<p style="position:absolute;top:746px;left:68px;white-space:nowrap" class="ft04">20.3.3.1 &#160;&#160;Method 1: Software&#160;Interrupt Handling</p>
+<p style="position:absolute;top:775px;left:68px;white-space:nowrap" class="ft08">When&#160;the VME flag&#160;in control register&#160;CR4 is&#160;clear&#160;and&#160;the&#160;IOPL&#160;field&#160;is&#160;3,&#160;a&#160;Pentium or&#160;later&#160;IA-32&#160;processor&#160;<br/>handles&#160;software&#160;interrupts&#160;in the&#160;same manner as&#160;they&#160;are&#160;handled&#160;by an&#160;Intel386&#160;or Intel486&#160;processor.&#160;It&#160;<br/>executes&#160;an&#160;implicit call to the&#160;interrupt handler in the&#160;protected-mode IDT pointed to by the interrupt vector. See&#160;<br/><a href="o_fe12b1e2a880e0ce-988.html">Section 20.3.1,&#160;“Class 1—Hardware Interrupt&#160;and Exception&#160;Handling in Virtual-8086 Mode”,&#160;</a>for&#160;a complete&#160;<br/>description of this&#160;mechanism&#160;and its&#160;possible uses.</p>
+<p style="position:absolute;top:885px;left:68px;white-space:nowrap" class="ft04">20.3.3.2&#160;&#160;&#160;Methods&#160;2 and 3: Software&#160;Interrupt&#160;Handling</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft08">When a software&#160;interrupt occurs in&#160;virtual-8086 mode and&#160;the method 2 or 3 conditions are present,&#160;the&#160;processor&#160;<br/>generates&#160;a general-protection exception (#GP).&#160;Method 2&#160;is enabled&#160;when&#160;the VME flag&#160;is set to 0 and&#160;the IOPL&#160;<br/>value&#160;is&#160;less&#160;than&#160;3. Here the&#160;IOPL value is&#160;used&#160;to bypass&#160;the&#160;protected-mode interrupt handlers&#160;and&#160;cause any&#160;<br/>software interrupt&#160;that occurs&#160;in virtual-8086&#160;mode&#160;to be&#160;treated&#160;as a&#160;protected-mode&#160;general-protection excep-<br/>tion (#GP).&#160;The&#160;general-protection&#160;exception handler&#160;calls&#160;the virtual-8086 monitor,&#160;which can then&#160;emulate&#160;an&#160;<br/>8086-program&#160;interrupt handler&#160;or pass control back&#160;to&#160;the 8086&#160;program’s handler,&#160;as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-990.html">in Section&#160;<br/>20.3.1.2, “Handling an&#160;Interrupt or&#160;Exception&#160;With&#160;an&#160;8086 Program Interrupt or Exception Handler”.<br/></a>Method 3&#160;is&#160;enabled&#160;when the VME flag is set to 1, the IOPL value is less than 3,&#160;and&#160;the&#160;corresponding bit for the&#160;<br/>software interrupt in the&#160;software&#160;interrupt&#160;redirection bit&#160;map is&#160;set to&#160;1. Here, the processor performs&#160;the same&#160;</p>
+<p style="position:absolute;top:451px;left:254px;white-space:nowrap" class="ft05">Figure&#160;20-5. &#160;Software&#160;Interrupt&#160;Redirection Bit Map in TSS</p>
+<p style="position:absolute;top:353px;left:356px;white-space:nowrap" class="ft00">I/O Map Base</p>
+<p style="position:absolute;top:146px;left:422px;white-space:nowrap" class="ft00">Task-State&#160;Segment (TSS)</p>
+<p style="position:absolute;top:354px;left:699px;white-space:nowrap" class="ft06">64H</p>
+<p style="position:absolute;top:149px;left:294px;white-space:nowrap" class="ft07">31</p>
+<p style="position:absolute;top:149px;left:382px;white-space:nowrap" class="ft07">24&#160;23</p>
+<p style="position:absolute;top:152px;left:686px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:165px;left:297px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:165px;left:384px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:165px;left:371px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:165px;left:359px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:165px;left:346px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:165px;left:334px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:165px;left:322px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:165px;left:309px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:221px;left:432px;white-space:nowrap" class="ft00">I/O Permission Bit Map</p>
+<p style="position:absolute;top:423px;left:699px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:358px;left:177px;white-space:nowrap" class="ft08">I/O map&#160;<br/>base must&#160;<br/>not exceed&#160;<br/>DFFFH.</p>
+<p style="position:absolute;top:153px;left:177px;white-space:nowrap" class="ft09">Last byte&#160;of&#160;<br/>bit<br/>map must be</p>
+<p style="position:absolute;top:296px;left:365px;white-space:nowrap" class="ft00">Software Interrupt&#160;Redirection Bit Map (32 Bytes)</p>
+</div>
+</body>
+</html>

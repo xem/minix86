@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1217</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1217-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1217.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;31-7</p>
+<p style="position:absolute;top:47px;left:475px;white-space:nowrap" class="ft01">VIRTUAL-MACHINE&#160;MONITOR PROGRAMMING CONSIDERATIONS</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft06">addresses with&#160;that&#160;width. The term&#160;“guest-VMCS address” refers&#160;to the&#160;physical&#160;address of the new VMCS&#160;<br/>region&#160;for&#160;the following&#160;steps.</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft06">Initialize the&#160;version identifier&#160;in the&#160;VMCS&#160;(first 31&#160;bits) with the VMCS&#160;revision identifier reported&#160;by&#160;the&#160;VMX&#160;<br/>capability&#160;MSR IA32_VMX_BASIC.&#160;Clear bit&#160;31 of&#160;the&#160;first 4&#160;bytes of the&#160;VMCS region.</p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:178px;left:95px;white-space:nowrap" class="ft06">Execute the&#160;VMCLEAR instruction by supplying the&#160;guest-VMCS address. This&#160;will initialize&#160;the&#160;new VMCS&#160;<br/>region&#160;in memory and&#160;set the launch state&#160;of the&#160;VMCS&#160;to&#160;“clear”.&#160;This action&#160;also&#160;invalidates the&#160;working-<br/>VMCS&#160;pointer&#160;register to&#160;FFFFFFFF_FFFFFFFFH. Software should verify&#160;successful execution of VMCLEAR&#160;by&#160;<br/>checking if RFLAGS.CF&#160;=&#160;0&#160;and RFLAGS.ZF&#160;=&#160;0.</p>
+<p style="position:absolute;top:250px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:250px;left:95px;white-space:nowrap" class="ft06">Execute&#160;the&#160;VMPTRLD instruction by supplying the&#160;guest-VMCS address. This&#160;initializes&#160;the working-VMCS&#160;<br/>pointer&#160;with the&#160;new&#160;VMCS region’s&#160;physical address.</p>
+<p style="position:absolute;top:289px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:289px;left:95px;white-space:nowrap" class="ft06">Issue&#160;a sequence of VMWRITEs to&#160;initialize&#160;various&#160;host-state&#160;area&#160;fields in the&#160;working VMCS. The&#160;initialization&#160;<br/>sets&#160;up&#160;the context and entry-points to&#160;the VMM&#160;upon subsequent VM&#160;exits from the&#160;guest. Host-state fields&#160;<br/>include&#160;control registers&#160;(CR0, CR3 and CR4), selector fields for the segment registers (CS,&#160;SS,&#160;DS,&#160;ES, FS,&#160;GS&#160;<br/>and&#160;TR),&#160;and&#160;base-address fields&#160;(for FS,&#160;GS,&#160;TR,&#160;GDTR&#160;and IDTR; RSP,&#160;RIP&#160;and&#160;the MSRs&#160;that&#160;control fast&#160;<br/>system calls).&#160;<br/><a href="o_fe12b1e2a880e0ce-1119.html">Chapter 27 describes&#160;</a>the host-state consistency checking&#160;done&#160;by the&#160;processor&#160;for&#160;VM&#160;entries.&#160;The VMM&#160;is&#160;<br/>required&#160;to set&#160;up host-state that comply&#160;with these&#160;consistency checks.&#160;For&#160;example,&#160;VMX requires&#160;the&#160;host-<br/>area&#160;to have&#160;a task&#160;register (TR)&#160;selector with&#160;TI&#160;and RPL&#160;fields&#160;set to&#160;0 and pointing&#160;to a&#160;valid TSS.</p>
+<p style="position:absolute;top:433px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:433px;left:95px;white-space:nowrap" class="ft06">Use&#160;VMWRITEs to set up&#160;the various VM-exit&#160;control&#160;fields, VM-entry control fields,&#160;and&#160;VM-execution&#160;control&#160;<br/>fields&#160;in&#160;the&#160;VMCS.&#160;Care&#160;should&#160;be&#160;taken&#160;to&#160;make&#160;sure&#160;the settings of individual fields match&#160;the allowed 0 and&#160;<br/>1 settings for&#160;the respective&#160;controls as&#160;reported by&#160;the&#160;VMX capability&#160;MSRs&#160;(see<a href="��">&#160;Appendix&#160;A). An</a>y settings&#160;<br/>inconsistent with&#160;the&#160;settings&#160;reported&#160;by the&#160;capability MSRs will&#160;cause VM entries to&#160;fail.</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:505px;left:95px;white-space:nowrap" class="ft06">Use&#160;VMWRITE to initialize&#160;various&#160;guest-state area&#160;fields&#160;in&#160;the working VMCS. This&#160;sets&#160;up the context and&#160;<br/>entry-point for&#160;guest&#160;execution upon VM&#160;entry.<a href="o_fe12b1e2a880e0ce-1119.html">&#160;Chapter 27 des</a>cribes the&#160;guest-state loading and&#160;checking&#160;<br/>done by&#160;the processor for VM entries to&#160;protected and&#160;virtual-8086 guest execution.&#160;</p>
+<p style="position:absolute;top:560px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:561px;left:95px;white-space:nowrap" class="ft08">The&#160;VMM&#160;is&#160;required&#160;to set up&#160;guest-state that complies with these consistency checks:<br/>—&#160;If&#160;the VMM&#160;design requires&#160;the&#160;initial VM launch&#160;to&#160;cause&#160;guest&#160;software (typically&#160;the guest virtual BIOS)&#160;</p>
+<p style="position:absolute;top:601px;left:120px;white-space:nowrap" class="ft09">execution from&#160;the guest’s reset vector,&#160;it&#160;may&#160;need&#160;to initialize&#160;the guest execution&#160;state&#160;to reflect&#160;the&#160;<br/>state of a physical processor at power-on reset (de<a href="o_fe12b1e2a880e0ce-313.html">scribed in&#160;Chapter 9</a>,<a href="��">&#160;<i>Intel® 64 and&#160;IA-32&#160;Architectures&#160;<br/>Software&#160;Developer’s Manual, Volume&#160;3A</i></a>).&#160;</p>
+<p style="position:absolute;top:658px;left:94px;white-space:nowrap" class="ft02">—&#160;The VMM&#160;may need&#160;to initialize&#160;additional&#160;guest&#160;execution state&#160;that is&#160;not captured&#160;in&#160;the VMCS&#160;guest-</p>
+<p style="position:absolute;top:675px;left:120px;white-space:nowrap" class="ft09">state area by loading them&#160;directly on&#160;the respective&#160;processor registers. Examples include&#160;general&#160;<br/>purpose registers, the&#160;CR2 control register, debug&#160;registers, floating&#160;point registers and so forth. VMM&#160;may&#160;<br/>support lazy loading of FPU,&#160;MMX,&#160;SSE,&#160;and&#160;SSE2 states with CR0.TS&#160;=&#160;1&#160;(described in<a href="��">&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;<br/>Architectures&#160;Software&#160;Developer’s Manual, Volume&#160;3A</i>).</a></p>
+<p style="position:absolute;top:746px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:747px;left:95px;white-space:nowrap" class="ft06">Execute VMLAUNCH to&#160;launch&#160;the guest VM.&#160;If VMLAUNCH&#160;fails due&#160;to any&#160;consistency checks before guest-<br/>state&#160;loading, RFLAGS.CF&#160;or RFLAGS.ZF&#160;will be set and the&#160;VM-instruction error&#160;field (see<a href="o_fe12b1e2a880e0ce-1069.html">&#160;Section 24.9.5) will&#160;<br/></a>contain the&#160;error-code. If guest-state&#160;consistency&#160;checks fail&#160;upon&#160;guest-state&#160;loading,&#160;the processor loads&#160;<br/>state&#160;from&#160;the host-state&#160;area&#160;as if&#160;a VM&#160;exit&#160;had&#160;occurred (see<a href="o_fe12b1e2a880e0ce-1216.html">&#160;Section&#160;31.6)</a>.</p>
+<p style="position:absolute;top:820px;left:69px;white-space:nowrap" class="ft06">VMLAUNCH updates&#160;the controlling-VMCS pointer with the&#160;working-VMCS&#160;pointer and saves&#160;the&#160;old value&#160;of&#160;<br/>controlling-VMCS&#160;as&#160;the&#160;parent pointer.&#160;In&#160;addition, the&#160;launch&#160;state of&#160;the&#160;guest&#160;VMCS is&#160;changed&#160;to “launched”&#160;<br/>from “clear”.&#160;Any programmed exit conditions&#160;will cause&#160;the guest&#160;to VM&#160;exit to the&#160;VMM. The VMM should execute&#160;<br/>VMRESUME instruction&#160;for&#160;subsequent&#160;VM&#160;entries to&#160;guests&#160;in a “launched”&#160;state.</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft05">31.7&#160;</p>
+<p style="position:absolute;top:925px;left:148px;white-space:nowrap" class="ft05">HANDLING OF&#160;VM EXITS</p>
+<p style="position:absolute;top:961px;left:69px;white-space:nowrap" class="ft02">This section provides&#160;examples&#160;of software&#160;steps&#160;involved&#160;in a&#160;VMM’s handling&#160;of VM-exit conditions:</p>
+<p style="position:absolute;top:983px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:984px;left:95px;white-space:nowrap" class="ft06">Determine the&#160;exit reason&#160;through&#160;a VMREAD of the&#160;exit-reason field in&#160;the working-VMCS<a href="��">. Appendix&#160;C&#160;<br/></a>describes&#160;exit reasons&#160;and&#160;their encodings.</p>
+<p style="position:absolute;top:1022px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1023px;left:95px;white-space:nowrap" class="ft06">VMREAD&#160;the exit-qualification&#160;from the&#160;VMCS if the&#160;exit-reason&#160;field provides a&#160;valid qualification. The exit-<br/>qualification field provides additional&#160;details on&#160;the&#160;VM-exit condition. For example, in&#160;case&#160;of page&#160;faults,&#160;the&#160;<br/>exit-qualification&#160;field provides the&#160;guest&#160;linear&#160;address that caused&#160;the&#160;page fault.</p>
+</div>
+</body>
+</html>

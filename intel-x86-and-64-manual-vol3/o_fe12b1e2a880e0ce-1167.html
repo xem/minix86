@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1167</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1167-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1167.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;29-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 29</p>
+<p style="position:absolute;top:120px;left:299px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND VIRTUAL INTERRUPTS</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft08">The&#160;VMCS includes controls that enable the virtualization of interrupts and the Advanced&#160;Programmable&#160;Interrupt&#160;<br/>Controller (APIC).<br/>When&#160;these controls are&#160;used, the&#160;processor&#160;will&#160;emulate many accesses&#160;to&#160;the APIC,&#160;track the&#160;state of the&#160;virtual&#160;<br/>APIC, and&#160;deliver&#160;virtual&#160;interrupts —&#160;all in&#160;VMX non-root operation with out a&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:245px;left:653px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:271px;left:68px;white-space:nowrap" class="ft08">The processor tracks&#160;the state of the&#160;virtual&#160;APIC&#160;using a&#160;virtual-APIC&#160;page&#160;identified&#160;by&#160;the virtual-machine&#160;<br/><a href="o_fe12b1e2a880e0ce-1167.html">monitor (VMM). Section 29.1&#160;</a>discusses&#160;the virtual-APIC page and&#160;how the&#160;processor&#160;uses it&#160;to track&#160;the&#160;state&#160;of&#160;the&#160;<br/>virtual APIC.<br/>The&#160;following&#160;are&#160;the&#160;VM-execution&#160;controls relevant&#160;to APIC&#160;virtualization and virtual&#160;interrupts&#160;(s<a href="o_fe12b1e2a880e0ce-1054.html">ee Section 24.6&#160;<br/></a>for information&#160;about the&#160;locations of these controls):</p>
+<p style="position:absolute;top:367px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:367px;left:93px;white-space:nowrap" class="ft08"><b>Virtual-interrupt delivery.</b>&#160;This&#160;controls enables the&#160;evaluation&#160;and delivery&#160;of&#160;pending virtual interrupts&#160;<br/><a href="o_fe12b1e2a880e0ce-1169.html">(Section&#160;29.2).</a>&#160;It&#160;also enables the&#160;emulation of writes (memory-mapped&#160;or MSR-based,&#160;as enabled)&#160;to the&#160;<br/>APIC registers&#160;that control interrupt prioritization.</p>
+<p style="position:absolute;top:422px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:423px;left:93px;white-space:nowrap" class="ft08"><b>Use TPR shadow.</b>&#160;This control enables emulation of&#160;accesses to the APIC’s&#160;task-priority register (TPR) via CR8&#160;<br/><a href="o_fe12b1e2a880e0ce-1171.html">(Section 29.3)&#160;</a>and,&#160;if enabled, via&#160;the&#160;memory-mapped&#160;or&#160;MSR-based&#160;interfaces.</p>
+<p style="position:absolute;top:461px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:462px;left:93px;white-space:nowrap" class="ft08"><b>Virtualize APIC accesses.</b>&#160;This&#160;control enables virtualization&#160;of memory-mapped&#160;accesses to&#160;the APIC&#160;<br/><a href="o_fe12b1e2a880e0ce-1171.html">(Section&#160;29.4) b</a>y&#160;causing&#160;VM&#160;exits on accesses&#160;to&#160;a&#160;VMM-specified APIC-access page. Some&#160;of the&#160;other&#160;<br/>controls,&#160;if set, may cause&#160;some of these accesses&#160;to&#160;be emulated&#160;rather&#160;than&#160;causing&#160;VM&#160;exits.</p>
+<p style="position:absolute;top:517px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:517px;left:93px;white-space:nowrap" class="ft08"><b>Virtualize x2APIC mode.</b>&#160;This control enables&#160;virtualization of MSR-based accesses to&#160;<a href="o_fe12b1e2a880e0ce-1178.html">the APIC (Section&#160;<br/>29.5).</a></p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:556px;left:93px;white-space:nowrap" class="ft08"><b>APIC-register virtualization.</b>&#160;This control allows memory-mapped and&#160;MSR-based&#160;reads&#160;of most APIC&#160;<br/>registers (as enabled) by satisfying them from&#160;the&#160;virtual-APIC page.&#160;It directs&#160;memory-mapped writes to the&#160;<br/>APIC-access&#160;page to&#160;the virtual-APIC page, following&#160;them by VM&#160;exits for VMM&#160;emulation.</p>
+<p style="position:absolute;top:611px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:612px;left:93px;white-space:nowrap" class="ft08"><b>Process posted interrupts.</b>&#160;This control allows software&#160;to post&#160;virtual&#160;interrupts in&#160;a data&#160;structure&#160;and send&#160;<br/>a notification to another&#160;logical&#160;processor;&#160;upon receipt&#160;of&#160;the notification,&#160;the target processor will&#160;process&#160;the&#160;<br/>posted&#160;interrupts by copying&#160;them into&#160;the virtual-APIC page&#160;<a href="o_fe12b1e2a880e0ce-1179.html">(Section&#160;29.6).</a></p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft08">“Virtualize APIC accesses”, “virtualize x2APIC mode”,&#160;“virtual-interrupt&#160;delivery”, and “APIC-register&#160;virtualization”&#160;<br/>are&#160;all secondary&#160;processor-based VM-execution&#160;controls. If bit&#160;31&#160;of&#160;the primary&#160;processor-based&#160;VM-execution&#160;<br/>controls&#160;is 0, the&#160;processor&#160;operates as&#160;if these&#160;controls were&#160;all 0.&#160;See<a href="o_fe12b1e2a880e0ce-1055.html">&#160;Section 24.6.2.</a></p>
+<p style="position:absolute;top:757px;left:68px;white-space:nowrap" class="ft06">29.1 VIRTUAL&#160;</p>
+<p style="position:absolute;top:757px;left:235px;white-space:nowrap" class="ft06">APIC&#160;</p>
+<p style="position:absolute;top:757px;left:284px;white-space:nowrap" class="ft06">STATE</p>
+<p style="position:absolute;top:793px;left:68px;white-space:nowrap" class="ft08">The&#160;<b>virtual-APIC page</b>&#160;is&#160;a 4-KByte region of memory that the&#160;processor uses&#160;to virtualize&#160;certain&#160;accesses to&#160;<br/>APIC&#160;registers and&#160;to manage virtual interrupts.&#160;The&#160;physical&#160;address of the virtual-APIC page&#160;is the&#160;<b>virtual-APIC&#160;<br/>address</b>,&#160;a 64-bit&#160;VM-execution control field in the&#160;VM<a href="o_fe12b1e2a880e0ce-1059.html">CS (see Section 24.6.8).<br/></a>Depending on&#160;the&#160;settings of certain VM-execution controls, the&#160;processor&#160;may virtualize&#160;certain fields on the&#160;<br/>virtual-APIC page&#160;with functionality analogous&#160;to that performed by&#160;the&#160;local&#160;<a href="o_fe12b1e2a880e0ce-1167.html">APIC. Section 29.1.1&#160;</a>identifies&#160;and&#160;<br/>defines these fields.<a href="o_fe12b1e2a880e0ce-1168.html">&#160;Section 29.1.2,&#160;Section 29.1.3</a>,<a href="o_fe12b1e2a880e0ce-1169.html">&#160;Section 29.1.4, and Section 29.1.5 detail th</a>e actions taken&#160;to&#160;<br/>virtualize&#160;updates to&#160;some of&#160;these fields.</p>
+<p style="position:absolute;top:950px;left:68px;white-space:nowrap" class="ft07">29.1.1&#160;</p>
+<p style="position:absolute;top:950px;left:148px;white-space:nowrap" class="ft07">Virtualized APIC Registers</p>
+<p style="position:absolute;top:981px;left:68px;white-space:nowrap" class="ft08">Depending on&#160;the&#160;setting&#160;of certain VM-execution controls, a&#160;logical processor may virtualize certain&#160;accesses to&#160;<br/>APIC registers&#160;using the&#160;following fields on&#160;the&#160;virtual-APIC page:</p>
+<p style="position:absolute;top:1019px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1020px;left:93px;white-space:nowrap" class="ft05"><b>Virtual task-priority register&#160;(VTPR)</b>: the&#160;32-bit field&#160;located at&#160;offset&#160;080H&#160;on&#160;the&#160;virtual-APIC page.</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft02">1.&#160;In most&#160;cases, it is&#160;not necessary for&#160;a virtual-machine monitor&#160;(VMM)&#160;to&#160;inject virtual interrupts as part&#160;of&#160;VM&#160;entry.</p>
+</div>
+</body>
+</html>

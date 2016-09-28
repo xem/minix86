@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1709</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1709-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811709.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPCOMPRESSD—Store Sparse&#160;Packed Doubleword&#160;Integer Values&#160;into Dense Memory/Register</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-323</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">VPCOMPRESSD&#160;(EVEX&#160;encoded versions) reg-reg form<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>SIZE&#160;32<br/>k&#160;&#160;0<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:190px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no controlmask*</p>
+<p style="position:absolute;top:226px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:244px;left:143px;white-space:nowrap" class="ft03">DEST[k+SIZE-1:k]&#160;SRC[i+31:i]<br/>k&#160;&#160;k +&#160;SIZE</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft04">ENDFOR<br/>IF *merging-masking*&#160;</p>
+<p style="position:absolute;top:337px;left:123px;white-space:nowrap" class="ft05">THEN&#160;*DEST[VL-1:k] remains&#160;unchanged*<br/>ELSE&#160;DEST[VL-1:k]&#160;</p>
+<p style="position:absolute;top:358px;left:244px;white-space:nowrap" class="ft02">←&#160;0</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft04">FI<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:430px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:453px;left:69px;white-space:nowrap" class="ft03">VPCOMPRESSD __m512i _mm512_mask_compress_epi32(__m512i s, __mmask16 c, __m512i a);<br/>VPCOMPRESSD __m512i _mm512_maskz_compress_epi32(&#160;__mmask16&#160;c, __m512i a);<br/>VPCOMPRESSD void _mm512_mask_compressstoreu_epi32(void * a, __mmask16&#160;c, __m512i s);<br/>VPCOMPRESSD __m256i _mm256_mask_compress_epi32(__m256i s, __mmask8 c, __m256i&#160;a);<br/>VPCOMPRESSD __m256i _mm256_maskz_compress_epi32(&#160;__mmask8 c, __m256i a);<br/>VPCOMPRESSD void _mm256_mask_compressstoreu_epi32(void * a, __mmask8&#160;c, __m256i s);<br/>VPCOMPRESSD __m128i _mm_mask_compress_epi32(__m128i s, __mmask8&#160;c, __m128i&#160;a);<br/>VPCOMPRESSD __m128i _mm_maskz_compress_epi32(&#160;__mmask8 c, __m128i a);<br/>VPCOMPRESSD void _mm_mask_compressstoreu_epi32(void * a, __mmask8 c, __m128i s);</p>
+<p style="position:absolute;top:631px;left:69px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:654px;left:69px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:688px;left:69px;white-space:nowrap" class="ft01">Other Exceptions</p>
+<p style="position:absolute;top:711px;left:69px;white-space:nowrap" class="ft02">EVEX-encoded&#160;instruction,&#160;see Exceptions Type&#160;E4.nb.</p>
+</div>
+</body>
+</html>

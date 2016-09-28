@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1890</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1890-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811890.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:522px;white-space:nowrap" class="ft00">VSCALEFSD—Scale Scalar Float64 Values With Float64 Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-504&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VSCALEFSD—Scale Scalar Float64 Values With Float64 Values</p>
+<p style="position:absolute;top:262px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:346px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:369px;left:68px;white-space:nowrap" class="ft08">Performs a&#160;floating-point scale of the&#160;packed double-precision&#160;floating-point value in&#160;the first&#160;source operand&#160;by&#160;<br/>multiplying&#160;it by 2 power&#160;of&#160;the double-precision&#160;floating-point value in&#160;second&#160;source operand.<br/>The equation&#160;of this operation&#160;is given by:<br/>xmm1 :=&#160;xmm2*2</p>
+<p style="position:absolute;top:428px;left:197px;white-space:nowrap" class="ft05">floor(xmm3)</p>
+<p style="position:absolute;top:431px;left:266px;white-space:nowrap" class="ft04">.</p>
+<p style="position:absolute;top:451px;left:68px;white-space:nowrap" class="ft07">Floor(xmm3) means maximum&#160;integer value&#160;≤&#160;xmm3.<br/>If the&#160;result cannot be&#160;represented in&#160;double&#160;precision,&#160;then&#160;the&#160;proper overflow response (for&#160;positive&#160;scaling&#160;<br/>operand), or&#160;the proper&#160;underflow response&#160;(for&#160;negative&#160;scaling&#160;operand) is&#160;issued.&#160;The overflow and underflow&#160;<br/>responses&#160;are dependent on&#160;the&#160;rounding mode (for IEEE-compliant rounding), as&#160;well as&#160;on&#160;other settings in&#160;<br/>MXCSR&#160;(exception&#160;mask&#160;bits, FTZ bit), and on the&#160;SAE bit.<br/>EVEX encoded version: The first source&#160;operand&#160;is an XMM&#160;register. The second source operand is an&#160;XMM register&#160;<br/>or a&#160;memory location. The destination operand is&#160;an&#160;XMM&#160;register conditionally updated with&#160;writemask&#160;k1.<br/>Handling&#160;of special-case&#160;input values&#160;are&#160;listed&#160;<a href="o_b5573232dd8f1481-1887.html">in Table&#160;5-31</a>&#160;and&#160;<a href="o_b5573232dd8f1481-1888.html">Table&#160;5-32</a>.</p>
+<p style="position:absolute;top:618px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:641px;left:68px;white-space:nowrap" class="ft09">SCALE(SRC1,&#160;SRC2)<br/>{</p>
+<p style="position:absolute;top:677px;left:88px;white-space:nowrap" class="ft04">; Check for&#160;denormal operands</p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft09">TMP_SRC2&#160;&#160;SRC2<br/>TMP_SRC1&#160;&#160;SRC1<br/>IF (SRC2 is denormal&#160;AND&#160;MXCSR.DAZ) THEN&#160;TMP_SRC2=0<br/>IF (SRC1 is denormal&#160;AND&#160;MXCSR.DAZ) THEN&#160;TMP_SRC1=0</p>
+<p style="position:absolute;top:767px;left:88px;white-space:nowrap" class="ft09">/* SRC2 is&#160;a&#160;64 bits floating-point value */<br/>DEST[63:0]&#160;&#160;TMP_SRC1[63:0] * POW(2, Floor(TMP_SRC2[63:0]))</p>
+<p style="position:absolute;top:803px;left:68px;white-space:nowrap" class="ft04">}</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:291px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:137px;left:291px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:336px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:336px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:152px;left:336px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:408px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:408px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:408px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:485px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.LIG.66.0F38.W1 2D /r&#160;</p>
+<p style="position:absolute;top:172px;left:291px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:172px;left:336px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:408px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:172px;left:485px;white-space:nowrap" class="ft04">Scale the scalar double-precision floating-point&#160;values in&#160;</p>
+<p style="position:absolute;top:188px;left:485px;white-space:nowrap" class="ft04">xmm2 using the value from&#160;xmm3/m64. Under writemask&#160;</p>
+<p style="position:absolute;top:205px;left:485px;white-space:nowrap" class="ft04">k1.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft04">VSCALEFSD xmm1 {k1}{z}, xmm2,&#160;</p>
+<p style="position:absolute;top:208px;left:77px;white-space:nowrap" class="ft04">xmm3/m64{er}</p>
+<p style="position:absolute;top:285px;left:105px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:285px;left:228px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:285px;left:394px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:285px;left:561px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:285px;left:724px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:308px;left:111px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:308px;left:216px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:308px;left:385px;white-space:nowrap" class="ft04">EVEX.vvvv&#160;(r)</p>
+<p style="position:absolute;top:308px;left:550px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:308px;left:746px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

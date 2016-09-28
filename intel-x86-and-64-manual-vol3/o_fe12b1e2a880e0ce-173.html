@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 173</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page173-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce173.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;5-21</p>
+<p style="position:absolute;top:47px;left:763px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">SYSENTER&#160;is&#160;intended for use&#160;by&#160;user code running at&#160;privilege&#160;level 3 to&#160;access operating&#160;system or&#160;executive&#160;<br/>procedures running&#160;at&#160;privilege level&#160;0.&#160;SYSEXIT is&#160;intended for&#160;use by&#160;privilege&#160;level&#160;0 operating&#160;system or exec-<br/>utive procedures for fast returns to privilege level 3&#160;user&#160;code. SYSENTER can be&#160;executed from privilege levels 3,&#160;<br/>2,&#160;1,&#160;or&#160;0; SYSEXIT can&#160;only&#160;be&#160;executed&#160;from privilege&#160;level&#160;0.<br/>The SYSENTER and SYSEXIT instructions are companion instructions, but they do not constitute a call/return&#160;pair.&#160;<br/>This&#160;is&#160;because&#160;SYSENTER does not save&#160;any&#160;state&#160;information for use&#160;by&#160;SYSEXIT on&#160;a&#160;return.<br/>The&#160;target&#160;instruction&#160;and stack&#160;pointer for&#160;these instructions are&#160;not specified through instruction operands.&#160;<br/>Instead,&#160;they&#160;are specified&#160;through parameters&#160;entered&#160;in MSRs&#160;and general-purpose&#160;registers.&#160;<br/>For&#160;SYSENTER, target&#160;fields are generated using&#160;the following&#160;sources:</p>
+<p style="position:absolute;top:277px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:277px;left:95px;white-space:nowrap" class="ft04"><b>Target code segment</b>&#160;— Reads&#160;this from IA32_SYSENTER_CS.</p>
+<p style="position:absolute;top:299px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:300px;left:95px;white-space:nowrap" class="ft04"><b>Target&#160;instruction</b>&#160;— Reads this from IA32_SYSENTER_EIP.</p>
+<p style="position:absolute;top:322px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:322px;left:95px;white-space:nowrap" class="ft04"><b>Stack segment</b>&#160;—&#160;Computed by adding&#160;8 to&#160;the value&#160;in&#160;IA32_SYSENTER_CS.</p>
+<p style="position:absolute;top:344px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:345px;left:95px;white-space:nowrap" class="ft04"><b>Stack pointer</b>&#160;—&#160;Reads this&#160;from the&#160;IA32_SYSENTER_ESP.</p>
+<p style="position:absolute;top:369px;left:69px;white-space:nowrap" class="ft02">For SYSEXIT,&#160;target&#160;fields&#160;are generated using&#160;the following sources:</p>
+<p style="position:absolute;top:391px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:391px;left:95px;white-space:nowrap" class="ft04"><b>Target code segment&#160;</b>— Computed&#160;by adding 16 to&#160;the value&#160;in&#160;the&#160;IA32_SYSENTER_CS.</p>
+<p style="position:absolute;top:413px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:414px;left:95px;white-space:nowrap" class="ft04"><b>Target&#160;instruction</b>&#160;—&#160;Reads&#160;this&#160;from&#160;EDX.</p>
+<p style="position:absolute;top:436px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:436px;left:95px;white-space:nowrap" class="ft04"><b>Stack segment&#160;</b>—&#160;Computed&#160;by adding&#160;24&#160;to the&#160;value&#160;in IA32_SYSENTER_CS.</p>
+<p style="position:absolute;top:458px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:459px;left:95px;white-space:nowrap" class="ft04"><b>Stack pointer</b>&#160;—&#160;Reads this&#160;from&#160;ECX.</p>
+<p style="position:absolute;top:483px;left:69px;white-space:nowrap" class="ft06">The SYSENTER and SYSEXIT instructions preform&#160;“fast”&#160;calls&#160;and returns&#160;because&#160;they force&#160;the processor into a&#160;<br/>predefined&#160;privilege&#160;level 0&#160;state&#160;when&#160;SYSENTER&#160;is executed&#160;and into&#160;a predefined&#160;privilege level&#160;3 state when&#160;<br/>SYSEXIT&#160;is executed. By forcing&#160;predefined&#160;and consistent&#160;processor states,&#160;the number&#160;of privilege&#160;checks&#160;ordi-<br/>narily required to perform a&#160;far call to another privilege levels are greatly&#160;reduced.&#160;Also,&#160;by&#160;predefining the target&#160;<br/>context state&#160;in MSRs&#160;and&#160;general-purpose registers&#160;eliminates&#160;all memory accesses except&#160;when&#160;fetching&#160;the&#160;<br/>target code.<br/>Any additional state that needs&#160;to be saved to&#160;allow&#160;a return to&#160;the&#160;calling&#160;procedure must be saved&#160;explicitly by&#160;<br/>the&#160;calling&#160;procedure or be predefined through programming conventions.</p>
+<p style="position:absolute;top:650px;left:69px;white-space:nowrap" class="ft05">5.8.7.1&#160;&#160;</p>
+<p style="position:absolute;top:650px;left:153px;white-space:nowrap" class="ft05">SYSENTER and&#160;SYSEXIT Instructions&#160;in IA-32e Mode</p>
+<p style="position:absolute;top:679px;left:69px;white-space:nowrap" class="ft07">For Intel&#160;64&#160;processors,&#160;the SYSENTER&#160;and SYSEXIT instructions&#160;are enhanced to&#160;allow&#160;fast system&#160;calls from user&#160;<br/>code&#160;running at privilege&#160;level 3 (in compatibility mode or&#160;64-bit mode) to 64-bit executive procedures running at&#160;<br/>privilege&#160;level 0.&#160;IA32_SYSENTER_EIP&#160;MSR and IA32_SYSENTER_ESP MSR are&#160;expanded to hold&#160;64-bit addresses.&#160;<br/>If IA-32e&#160;mode&#160;is inactive,&#160;only the lower 32-bit addresses stored&#160;in&#160;these MSRs are&#160;used.&#160;The WRMSR&#160;instruction&#160;<br/>ensures that&#160;the addresses stored in&#160;these MSRs&#160;are canonical. Note&#160;that,&#160;in 64-bit&#160;mode,&#160;IA32_SYSENTER_CS&#160;<br/>must not&#160;contain&#160;a NULL selector.&#160;<br/>When SYSENTER&#160;transfers control, the&#160;following fields are generated and&#160;bits&#160;set:</p>
+<p style="position:absolute;top:807px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:808px;left:95px;white-space:nowrap" class="ft04"><b>Target code segment&#160;</b>—&#160;Reads&#160;non-NULL&#160;selector from IA32_SYSENTER_CS.</p>
+<p style="position:absolute;top:829px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:830px;left:95px;white-space:nowrap" class="ft04"><b>New CS attributes</b>&#160;—&#160;CS base = 0,&#160;CS&#160;limit =&#160;FFFFFFFFH.</p>
+<p style="position:absolute;top:852px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:853px;left:95px;white-space:nowrap" class="ft04"><b>Target&#160;instruction</b>&#160;— Reads 64-bit canonical&#160;address from IA32_SYSENTER_EIP.</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:875px;left:95px;white-space:nowrap" class="ft04"><b>Stack segment</b>&#160;—&#160;Computed by adding&#160;8 to&#160;the value&#160;from&#160;IA32_SYSENTER_CS.</p>
+<p style="position:absolute;top:897px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:898px;left:95px;white-space:nowrap" class="ft04"><b>Stack pointer</b>&#160;—&#160;Reads 64-bit&#160;canonical&#160;address from IA32_SYSENTER_ESP.</p>
+<p style="position:absolute;top:919px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:920px;left:95px;white-space:nowrap" class="ft04"><b>New SS attributes</b>&#160;—&#160;SS&#160;base = 0,&#160;SS&#160;limit&#160;=&#160;FFFFFFFFH.</p>
+<p style="position:absolute;top:944px;left:69px;white-space:nowrap" class="ft06">When the&#160;SYSEXIT instruction transfers&#160;control&#160;to 64-bit&#160;mode user code using&#160;REX.W,&#160;the&#160;following&#160;fields&#160;are&#160;<br/>generated&#160;and bits set:</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:983px;left:95px;white-space:nowrap" class="ft04"><b>Target code segment</b>&#160;— Computed&#160;by&#160;adding&#160;32&#160;to&#160;the&#160;value in&#160;IA32_SYSENTER_CS.</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1006px;left:95px;white-space:nowrap" class="ft04"><b>New CS attributes</b>&#160;—&#160;L-bit = 1&#160;(go&#160;to 64-bit&#160;mode).</p>
+<p style="position:absolute;top:1027px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1028px;left:95px;white-space:nowrap" class="ft04"><b>Target&#160;instruction</b>&#160;— Reads 64-bit canonical&#160;address in RDX.</p>
+<p style="position:absolute;top:1050px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1051px;left:95px;white-space:nowrap" class="ft04"><b>Stack segment</b>&#160;— Computed&#160;by&#160;adding&#160;40&#160;to&#160;the&#160;value of&#160;IA32_SYSENTER_CS.</p>
+</div>
+</body>
+</html>

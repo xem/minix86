@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 74</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:9px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page74-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce074.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">2-12&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;ARCHITECTURE&#160;OVERVIEW</p>
+<p style="position:absolute;top:373px;left:68px;white-space:nowrap" class="ft02">2.4.1&#160;</p>
+<p style="position:absolute;top:373px;left:148px;white-space:nowrap" class="ft02">Global Descriptor Table Register (GDTR)</p>
+<p style="position:absolute;top:403px;left:68px;white-space:nowrap" class="ft07">The GDTR register holds the base&#160;address (32&#160;bits in protected&#160;mode; 64 bits in IA-32e&#160;mode) and&#160;the&#160;16-bit table&#160;<br/>limit&#160;for&#160;the GDT.&#160;The base address&#160;specifies the&#160;linear address of byte&#160;0 of&#160;the GDT;&#160;the&#160;table&#160;limit specifies&#160;the&#160;<br/>number of bytes&#160;in the&#160;table.&#160;<br/>The&#160;LGDT&#160;and SGDT&#160;instructions load and&#160;store the&#160;GDTR&#160;register, respectively.&#160;On&#160;power up&#160;or reset of the&#160;<br/>processor,&#160;the&#160;base address is&#160;set to the default value of&#160;0 and the limit is set to 0FFFFH. A new base address must&#160;<br/>be&#160;loaded into&#160;the GDTR&#160;as part of the&#160;processor&#160;initialization&#160;process for protected-mode&#160;operation.&#160;<br/>See&#160;<a href="o_fe12b1e2a880e0ce-102.html">also: Section 3.5.1,&#160;“Segment Descriptor&#160;Tables.”</a></p>
+<p style="position:absolute;top:568px;left:68px;white-space:nowrap" class="ft02">2.4.2&#160;</p>
+<p style="position:absolute;top:568px;left:148px;white-space:nowrap" class="ft02">Local Descriptor Table Register (LDTR)</p>
+<p style="position:absolute;top:598px;left:68px;white-space:nowrap" class="ft06">The LDTR register&#160;holds the&#160;16-bit segment selector,&#160;base&#160;address (32 bits in protected mode;&#160;64&#160;bits&#160;in&#160;IA-32e&#160;<br/>mode), segment limit, and&#160;descriptor attributes&#160;for the&#160;LDT.&#160;The&#160;base&#160;address specifies&#160;the linear&#160;address of byte&#160;<br/>0&#160;of&#160;the LDT segment; the&#160;segment&#160;limit specifies the&#160;number of&#160;bytes in the&#160;segment.&#160;See&#160;also:&#160;<a href="o_fe12b1e2a880e0ce-102.html">Section&#160;3.5.1,&#160;<br/>“Segment Descriptor&#160;Tables.”<br/></a>The&#160;LLDT&#160;and&#160;SLDT&#160;instructions load&#160;and&#160;store the&#160;segment selector part&#160;of the&#160;LDTR&#160;register, respectively.&#160;The&#160;<br/>segment&#160;that contains the&#160;LDT must have&#160;a segment descriptor&#160;in the&#160;GDT.&#160;When&#160;the&#160;LLDT instruction loads&#160;a&#160;<br/>segment selector&#160;in&#160;the LDTR: the base address, limit, and descriptor&#160;attributes&#160;from the&#160;LDT descriptor are auto-<br/>matically loaded&#160;in&#160;the LDTR.&#160;<br/>When a task switch occurs, the LDTR is automatically loaded with the segment&#160;selector and descriptor for the LDT&#160;<br/>for&#160;the new&#160;task. The contents&#160;of&#160;the LDTR are not automatically&#160;saved prior&#160;to writing the&#160;new LDT information&#160;<br/>into the&#160;register.<br/>On&#160;power up or&#160;reset of the processor,&#160;the segment&#160;selector and base address are set to&#160;the default value of 0 and&#160;<br/>the limit&#160;is set to&#160;0FFFFH.</p>
+<p style="position:absolute;top:869px;left:68px;white-space:nowrap" class="ft02">2.4.3&#160;</p>
+<p style="position:absolute;top:869px;left:148px;white-space:nowrap" class="ft02">IDTR Interrupt&#160;Descriptor Table Register</p>
+<p style="position:absolute;top:900px;left:68px;white-space:nowrap" class="ft07">The&#160;IDTR&#160;register holds the base address&#160;(32 bits in protected&#160;mode; 64&#160;bits in IA-32e&#160;mode) and 16-bit&#160;table&#160;limit&#160;<br/>for the IDT.&#160;The base&#160;address specifies the&#160;linear&#160;address of&#160;byte 0 of the IDT;&#160;the table&#160;limit specifies&#160;the&#160;number&#160;<br/>of&#160;bytes in the&#160;table.&#160;The&#160;LIDT&#160;and&#160;SIDT&#160;instructions load and store the IDTR&#160;register, respectively. On&#160;power up&#160;or&#160;<br/>reset&#160;of the&#160;processor,&#160;the base address&#160;is set to&#160;the default&#160;value of 0&#160;and&#160;the limit&#160;is set to 0FFFFH.&#160;The&#160;base&#160;<br/>address and&#160;limit in&#160;the&#160;register&#160;can&#160;then be changed as&#160;part&#160;of&#160;the processor initialization process.&#160;<br/>See also:&#160;<a href="o_fe12b1e2a880e0ce-195.html">Section&#160;6.10,&#160;“Interrupt&#160;Descriptor Table&#160;(IDT).”</a></p>
+<p style="position:absolute;top:329px;left:305px;white-space:nowrap" class="ft04">Figure&#160;2-6. &#160;Memory Management&#160;Registers</p>
+<p style="position:absolute;top:149px;left:550px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:149px;left:230px;white-space:nowrap" class="ft00">47(79)</p>
+<p style="position:absolute;top:170px;left:183px;white-space:nowrap" class="ft00">GDTR</p>
+<p style="position:absolute;top:189px;left:189px;white-space:nowrap" class="ft00">IDTR</p>
+<p style="position:absolute;top:135px;left:315px;white-space:nowrap" class="ft05"><b>System&#160;Table Registers</b></p>
+<p style="position:absolute;top:169px;left:257px;white-space:nowrap" class="ft00">32(64)-bit Linear&#160;Base Address</p>
+<p style="position:absolute;top:170px;left:460px;white-space:nowrap" class="ft00">16-Bit Table Limit</p>
+<p style="position:absolute;top:149px;left:457px;white-space:nowrap" class="ft00">15</p>
+<p style="position:absolute;top:149px;left:441px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:190px;left:257px;white-space:nowrap" class="ft00">32(64)-bit Linear&#160;Base Address</p>
+<p style="position:absolute;top:247px;left:309px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:258px;left:193px;white-space:nowrap" class="ft00">Task</p>
+<p style="position:absolute;top:286px;left:187px;white-space:nowrap" class="ft00">LDTR</p>
+<p style="position:absolute;top:221px;left:226px;white-space:nowrap" class="ft05"><b>System&#160;Segment</b></p>
+<p style="position:absolute;top:265px;left:248px;white-space:nowrap" class="ft00">Seg. Sel.</p>
+<p style="position:absolute;top:244px;left:225px;white-space:nowrap" class="ft00">15</p>
+<p style="position:absolute;top:286px;left:248px;white-space:nowrap" class="ft00">Seg. Sel.</p>
+<p style="position:absolute;top:221px;left:340px;white-space:nowrap" class="ft05"><b>Segment&#160;Descriptor Registers (Automatically&#160;Loaded)</b></p>
+<p style="position:absolute;top:266px;left:364px;white-space:nowrap" class="ft00">32(64)-bit&#160;Linear Base Address</p>
+<p style="position:absolute;top:266px;left:565px;white-space:nowrap" class="ft00">Segment Limit</p>
+<p style="position:absolute;top:245px;left:655px;white-space:nowrap" class="ft00">Attributes</p>
+<p style="position:absolute;top:233px;left:246px;white-space:nowrap" class="ft05"><b>Registers</b></p>
+<p style="position:absolute;top:286px;left:364px;white-space:nowrap" class="ft00">32(64)-bit&#160;Linear Base Address</p>
+<p style="position:absolute;top:286px;left:564px;white-space:nowrap" class="ft00">Segment Limit</p>
+<p style="position:absolute;top:271px;left:174px;white-space:nowrap" class="ft00">Register</p>
+<p style="position:absolute;top:189px;left:461px;white-space:nowrap" class="ft00">16-Bit Table Limit</p>
+</div>
+</body>
+</html>

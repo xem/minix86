@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 995</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page995-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce995.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;20-19</p>
+<p style="position:absolute;top:47px;left:734px;white-space:nowrap" class="ft01">8086 EMULATION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">operation as it does for method 2&#160;software interrupt handling. If the corresponding&#160;bit for&#160;the&#160;software interrupt&#160;in&#160;<br/>the&#160;software interrupt redirection bit map&#160;is set&#160;to 0,&#160;the interrupt&#160;is handled&#160;using method&#160;<a href="o_fe12b1e2a880e0ce-995.html">6 (see Section&#160;<br/>20.3.3.5,&#160;“Method 6:&#160;Software&#160;Interrupt Handling”).</a></p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft03">20.3.3.3 &#160;&#160;Method 4: Software&#160;Interrupt Handling</p>
+<p style="position:absolute;top:206px;left:69px;white-space:nowrap" class="ft05">Method&#160;4 handling is&#160;enabled when&#160;the&#160;VME flag is set to&#160;1,&#160;the IOPL&#160;value is 3, and the bit for the interrupt&#160;vector&#160;<br/>in the&#160;redirection bit&#160;map&#160;is set to&#160;1.&#160;Method 4 software&#160;interrupt handling&#160;allows&#160;method&#160;1 style handling when the&#160;<br/>virtual&#160;mode&#160;extension&#160;is enabled; that is, the&#160;interrupt&#160;is&#160;directed&#160;to&#160;a protected-mode hand<a href="o_fe12b1e2a880e0ce-994.html">ler (see Section&#160;<br/>20.3.3.1,&#160;“Method 1:&#160;Software&#160;Interrupt Handling”).</a></p>
+<p style="position:absolute;top:300px;left:69px;white-space:nowrap" class="ft03">20.3.3.4 &#160;&#160;Method 5: Software&#160;Interrupt Handling</p>
+<p style="position:absolute;top:328px;left:69px;white-space:nowrap" class="ft07">Method&#160;5&#160;software&#160;interrupt&#160;handling provides a&#160;streamlined&#160;method of redirecting&#160;software interrupts&#160;(invoked&#160;<br/>with the&#160;INT&#160;<i>n</i>&#160;instruction) that&#160;occur in virtual 8086&#160;mode&#160;back&#160;to the&#160;8086 program’s&#160;interrupt vector table and&#160;<br/>its interrupt handlers. Method&#160;5&#160;handling&#160;is enabled when the VME flag is&#160;set&#160;to 1,&#160;the&#160;IOPL&#160;value&#160;is 3,&#160;and&#160;the bit&#160;<br/>for the interrupt vector in&#160;the redirection&#160;bit&#160;map is set to&#160;0. The processor performs the&#160;following&#160;actions to&#160;make&#160;<br/>an&#160;implicit call&#160;to the&#160;selected&#160;8086 program interrupt handler:<br/>1.&#160;Pushes&#160;the low-order 16 bits of the EFLAGS&#160;register onto the&#160;stack.<br/>2.&#160;Pushes the current&#160;values of the CS&#160;and EIP registers&#160;onto the&#160;current&#160;stack. (Only the 16 least-significant bits&#160;</p>
+<p style="position:absolute;top:459px;left:95px;white-space:nowrap" class="ft02">of the&#160;EIP register&#160;are pushed&#160;and no stack&#160;switch&#160;occurs.)</p>
+<p style="position:absolute;top:483px;left:69px;white-space:nowrap" class="ft07">3.&#160;Clears the&#160;IF&#160;flag&#160;in&#160;the&#160;EFLAGS&#160;register to&#160;disable&#160;interrupts.<br/>4.&#160;Clears the&#160;TF&#160;flag,&#160;in the&#160;EFLAGS&#160;register.<br/>5.&#160;Locates the&#160;8086 program&#160;interrupt&#160;vector table at&#160;linear&#160;address&#160;0&#160;for&#160;the 8086-mode&#160;task.<br/>6.&#160;Loads the&#160;CS&#160;and&#160;EIP&#160;registers&#160;with&#160;values&#160;from the&#160;interrupt vector table entry&#160;pointed&#160;to by the interrupt&#160;</p>
+<p style="position:absolute;top:571px;left:95px;white-space:nowrap" class="ft05">vector number.&#160;Only&#160;the 16 low-order bits of the&#160;EIP are&#160;loaded&#160;and&#160;the&#160;16&#160;high-order&#160;bits are&#160;set&#160;to 0.&#160;The&#160;<br/>interrupt&#160;vector&#160;table&#160;is&#160;assumed to&#160;be&#160;at linear&#160;address 0&#160;of the&#160;current virtual-8086 task.</p>
+<p style="position:absolute;top:612px;left:69px;white-space:nowrap" class="ft05">7.&#160;Begins executing the&#160;selected&#160;interrupt handler.<br/>An IRET instruction&#160;at the end of&#160;the handler procedure reverses these steps to return program&#160;control to the inter-<br/>rupted&#160;8086&#160;program.<br/>Note&#160;that&#160;with&#160;method 5 handling, a&#160;mode switch from&#160;virtual-8086 mode&#160;to&#160;protected&#160;mode&#160;does&#160;not occur.&#160;The&#160;<br/>processor&#160;remains in virtual-8086&#160;mode throughout&#160;the interrupt-handling operation.<br/>The method&#160;5 handling actions&#160;are virtually&#160;identical to&#160;the&#160;actions&#160;the&#160;processor takes when handling software&#160;<br/>interrupts&#160;in&#160;real-address mode.&#160;The&#160;benefit of using&#160;method 5 handling&#160;to access the&#160;8086 program handlers is&#160;<br/>that&#160;it avoids the&#160;overhead of&#160;methods&#160;2&#160;and 3&#160;handling,&#160;which&#160;requires&#160;first going to&#160;the virtual-8086 monitor,&#160;<br/>then to the 8086 program&#160;handler,&#160;then&#160;back again to the&#160;virtual-8086&#160;monitor,&#160;before returning to the interrupted&#160;<br/>8086 program (see<a href="o_fe12b1e2a880e0ce-990.html">&#160;Section 20.3.1.2,&#160;“Handling&#160;an&#160;Interrupt&#160;or&#160;Exception&#160;With an 8086&#160;Program Interrupt&#160;or&#160;<br/>Exception Handler”).&#160;</a></p>
+<p style="position:absolute;top:834px;left:433px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:859px;left:122px;white-space:nowrap" class="ft05">Methods 1&#160;and&#160;4 handling&#160;can handle&#160;a&#160;software&#160;interrupt&#160;in a&#160;virtual-8086&#160;task with&#160;a regular&#160;<br/>protected-mode&#160;handler,&#160;but this&#160;approach requires&#160;all&#160;virtual-8086&#160;tasks to use&#160;the same&#160;software&#160;<br/>interrupt&#160;handlers, which generally does not give&#160;sufficient latitude to the&#160;programs&#160;running in&#160;the&#160;<br/>virtual-8086 tasks, particularly&#160;MS-DOS&#160;programs.</p>
+<p style="position:absolute;top:953px;left:69px;white-space:nowrap" class="ft03">20.3.3.5 &#160;&#160;Method 6: Software&#160;Interrupt Handling</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft05">Method 6 handling is enabled when the&#160;VME flag&#160;is set to 1,&#160;the IOPL value is less than&#160;3, and the&#160;bit&#160;for the inter-<br/>rupt or&#160;exception vector in&#160;the redirection&#160;bit&#160;map&#160;is set&#160;to 0. With method&#160;6&#160;interrupt&#160;handling, software&#160;interrupts&#160;<br/>are&#160;handled&#160;in&#160;the same&#160;manner&#160;as&#160;was described&#160;for method&#160;5&#160;handling (see&#160;<a href="o_fe12b1e2a880e0ce-995.html">Section&#160;20.3.3.4,&#160;“Method 5:&#160;Soft-<br/>ware Interrupt&#160;Handling”).</a></p>
+</div>
+</body>
+</html>

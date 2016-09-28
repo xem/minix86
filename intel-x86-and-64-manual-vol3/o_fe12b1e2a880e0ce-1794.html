@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1794</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1794-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1794.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">39-6&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">The values&#160;of the&#160;Measurement&#160;Registers are&#160;included&#160;in attestations to&#160;identify the enclave to remote parties. The&#160;<br/>MRs&#160;are also&#160;included in most&#160;keys,&#160;binding&#160;keys&#160;to enclaves&#160;with specific&#160;MRs.&#160;</p>
+<p style="position:absolute;top:161px;left:68px;white-space:nowrap" class="ft03">39.4.1.1 &#160;&#160;MRENCLAVE</p>
+<p style="position:absolute;top:188px;left:68px;white-space:nowrap" class="ft08">MRENCLAVE is&#160;a unique 256 bit&#160;value&#160;that identifies&#160;the&#160;code&#160;and data&#160;that&#160;was loaded into the enclave during the&#160;<br/>initial launch. It is&#160;computed as&#160;a SHA256&#160;hash that is&#160;initialized by&#160;the&#160;ECREATE&#160;leaf&#160;function. EADD and EEXTEND&#160;<br/>leaf functions record information about&#160;each&#160;page and the&#160;content&#160;of those&#160;pages. The EINIT leaf&#160;function&#160;finalizes&#160;<br/>the&#160;hash, which&#160;is stored&#160;in&#160;SECS.MRENCLAVE. Any tampering&#160;with the&#160;build&#160;process,&#160;contents&#160;of&#160;a page,&#160;page&#160;<br/>permissions, etc&#160;will&#160;result&#160;in a different MRENCLAVE&#160;value.&#160;<br/><a href="o_fe12b1e2a880e0ce-1794.html">Figure&#160;39-2 ill</a>ustrates&#160;a simplified flow&#160;of&#160;changes&#160;to the&#160;MRENCLAVE register&#160;when&#160;building&#160;an enclave:</p>
+<p style="position:absolute;top:298px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:299px;left:93px;white-space:nowrap" class="ft02">Enclave&#160;creation with ECREATE.</p>
+<p style="position:absolute;top:321px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:322px;left:93px;white-space:nowrap" class="ft02">Copying a&#160;non-enclave&#160;source&#160;page&#160;into the&#160;EPC&#160;of an un-initialized&#160;enclave&#160;with&#160;EADD.</p>
+<p style="position:absolute;top:343px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:344px;left:93px;white-space:nowrap" class="ft02">Updating&#160;twice&#160;of&#160;the MRENCLAVE after&#160;modifying&#160;the enclave’s&#160;page&#160;content,&#160;i.e.&#160;EEXTEND&#160;twice.</p>
+<p style="position:absolute;top:366px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:367px;left:93px;white-space:nowrap" class="ft02">Finalizing&#160;the&#160;enclave build with EINIT.</p>
+<p style="position:absolute;top:389px;left:68px;white-space:nowrap" class="ft02">Details on specific values&#160;inserted in the&#160;hash are available in the&#160;individual&#160;instruction&#160;definitions.</p>
+<p style="position:absolute;top:897px;left:68px;white-space:nowrap" class="ft03">39.4.1.2 &#160;&#160;MRSIGNER</p>
+<p style="position:absolute;top:924px;left:68px;white-space:nowrap" class="ft07">Each enclave&#160;is signed using&#160;a 3072 bit&#160;RSA&#160;key.&#160;The&#160;signature&#160;is stored in&#160;the SIGSTRUCT.&#160;In the SIGSTRUCT,&#160;the&#160;<br/>enclave's signer&#160;also&#160;assigns a&#160;product&#160;ID&#160;(ISVPRODID)&#160;and a&#160;security&#160;version (ISVSVN)&#160;to the&#160;enclave.&#160;<br/>MRSIGNER is&#160;the SHA-256 hash&#160;of&#160;the&#160;signer's public&#160;key.<br/>In&#160;attestation,&#160;MRSIGNER&#160;can&#160;be&#160;used&#160;to&#160;allow&#160;software&#160;to&#160;approve of an enclave based&#160;on the author rather than&#160;<br/>maintaining a&#160;list of MRENCLAVEs.&#160;It is&#160;used in key derivation&#160;to allow software&#160;to&#160;create a&#160;lineage&#160;of&#160;an applica-<br/>tion.&#160;By&#160;signing multiple&#160;enclaves with the&#160;same key,&#160;the&#160;enclaves&#160;will share&#160;the&#160;same&#160;keys&#160;and data.&#160;Combined&#160;<br/>with security&#160;version numbering, the&#160;author can release multiple&#160;versions&#160;of&#160;an application which can access keys&#160;<br/>for previous&#160;versions, but not future versions of that&#160;application.</p>
+<p style="position:absolute;top:844px;left:259px;white-space:nowrap" class="ft05">Figure&#160;39-2.&#160;&#160;Measurement Flow&#160;of&#160;Enclave&#160;Build&#160;Process</p>
+<p style="position:absolute;top:640px;left:123px;white-space:nowrap" class="ft02">SHA_INIT</p>
+<p style="position:absolute;top:729px;left:110px;white-space:nowrap" class="ft06">MRENCLAVE</p>
+<p style="position:absolute;top:639px;left:239px;white-space:nowrap" class="ft02">SHA_UPDATE</p>
+<p style="position:absolute;top:729px;left:238px;white-space:nowrap" class="ft06">MRENCLAVE</p>
+<p style="position:absolute;top:639px;left:387px;white-space:nowrap" class="ft02">SHA_UPDATE</p>
+<p style="position:absolute;top:729px;left:386px;white-space:nowrap" class="ft06">MRENCLAVE</p>
+<p style="position:absolute;top:639px;left:547px;white-space:nowrap" class="ft02">SHA_UPDATE</p>
+<p style="position:absolute;top:729px;left:546px;white-space:nowrap" class="ft06">MRENCLAVE</p>
+<p style="position:absolute;top:640px;left:694px;white-space:nowrap" class="ft02">SHA_FINAL</p>
+<p style="position:absolute;top:729px;left:681px;white-space:nowrap" class="ft06">MRENCLAVE</p>
+<p style="position:absolute;top:526px;left:254px;white-space:nowrap" class="ft09">Page<br/>Metadata</p>
+<p style="position:absolute;top:526px;left:364px;white-space:nowrap" class="ft09">Data<br/>Chunk&#160;1</p>
+<p style="position:absolute;top:526px;left:525px;white-space:nowrap" class="ft09">Data<br/>Chunk 2</p>
+<p style="position:absolute;top:526px;left:442px;white-space:nowrap" class="ft09">Chunk 1<br/>Metadata</p>
+<p style="position:absolute;top:526px;left:604px;white-space:nowrap" class="ft09">Chunk 2<br/>Metadata</p>
+<p style="position:absolute;top:783px;left:114px;white-space:nowrap" class="ft00">ECREATE</p>
+<p style="position:absolute;top:783px;left:256px;white-space:nowrap" class="ft00">EADD</p>
+<p style="position:absolute;top:783px;left:403px;white-space:nowrap" class="ft00">EEXTEND</p>
+<p style="position:absolute;top:783px;left:557px;white-space:nowrap" class="ft00">EEXTEND</p>
+<p style="position:absolute;top:783px;left:706px;white-space:nowrap" class="ft00">EINIT</p>
+</div>
+</body>
+</html>

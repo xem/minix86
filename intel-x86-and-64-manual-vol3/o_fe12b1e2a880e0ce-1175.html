@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1175</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1175-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1175.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;29-9</p>
+<p style="position:absolute;top:47px;left:549px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND VIRTUAL&#160;INTERRUPTS</p>
+<p style="position:absolute;top:100px;left:94px;white-space:nowrap" class="ft08">If all of the items above are true, the&#160;processor performs&#160;self-IPI virtualization using the 8-bit vector in byte&#160;0<br/>of VICR_L<a href="o_fe12b1e2a880e0ce-1169.html">O (Section 29.1.5).<br/></a>If the “virtual-interrupt delivery” VM-execution control is 0,&#160;or if any of the&#160;items above&#160;are false, the<br/>processor&#160;causes&#160;an APIC-write&#160;VM&#160;exit<a href="o_fe12b1e2a880e0ce-1175.html">&#160;(Section&#160;29.4.3.3)</a>.</p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:178px;left:95px;white-space:nowrap" class="ft08">310H–313H (interrupt&#160;command&#160;—&#160;high). The processor clears bytes 2:0&#160;of VICR_HI.&#160;No other&#160;virtualization or&#160;<br/>VM&#160;exit occurs.</p>
+<p style="position:absolute;top:217px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:217px;left:95px;white-space:nowrap" class="ft02">Any&#160;other page offset. The&#160;processor&#160;causes&#160;an APIC-write VM&#160;ex<a href="o_fe12b1e2a880e0ce-1175.html">it (Section 29.4.3.3</a>).</p>
+<p style="position:absolute;top:241px;left:69px;white-space:nowrap" class="ft08">APIC-write emulation&#160;takes&#160;priority&#160;over&#160;system-management&#160;interrupts (SMIs), INIT signals, and lower priority&#160;<br/>events. APIC-write&#160;emulation&#160;is not&#160;blocked if&#160;RFLAGS.IF = 0&#160;or by&#160;the&#160;MOV&#160;SS,&#160;POP&#160;SS,&#160;or STI instructions.<br/>If an operation causes a&#160;fault&#160;after a&#160;write access&#160;to the&#160;APIC-access page&#160;and before APIC-write&#160;emulation,&#160;and&#160;<br/>that fault is delivered without a VM exit, APIC-write emulation occurs after the fault is delivered and before the fault&#160;<br/>handler&#160;can&#160;execute.&#160;If&#160;an operation causes&#160;a VM&#160;exit&#160;(perhaps&#160;due&#160;to a&#160;fault) after&#160;a write access to&#160;the APIC-<br/>access&#160;page and&#160;before&#160;APIC-write emulation, the&#160;APIC-write&#160;emulation does not&#160;occur.</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft04">29.4.3.3 &#160;&#160;APIC-Write VM&#160;Exits</p>
+<p style="position:absolute;top:404px;left:69px;white-space:nowrap" class="ft08">In certain cases,&#160;VMM software must be invoked to complete the&#160;virtualization of a write&#160;access to&#160;the APIC-access&#160;<br/>page.&#160;In this&#160;case, APIC-write&#160;emulation causes&#160;an&#160;<b>APIC-write&#160;VM&#160;exit</b><a href="o_fe12b1e2a880e0ce-1174.html">. (Section 29.4.3.2&#160;</a>details&#160;the&#160;cases&#160;that&#160;<br/>causes&#160;APIC-write VM&#160;exits.)<br/>APIC-write VM&#160;exits are invoked by&#160;APIC-write emulation,&#160;and APIC-write emulation&#160;occurs after an&#160;operation that&#160;<br/>performs a&#160;write&#160;access&#160;to the&#160;APIC-access page. Because&#160;of&#160;this, every APIC-write&#160;VM&#160;exit&#160;is trap-like: it&#160;occurs&#160;<br/>after&#160;completion&#160;of&#160;the operation containing&#160;the write access that&#160;caused&#160;the VM&#160;exit (for example,&#160;the value&#160;of&#160;<br/>CS:RIP&#160;saved&#160;in the&#160;guest-state area&#160;of the VMCS references&#160;the next instruction).<br/>The basic exit reason for an&#160;APIC-write&#160;VM&#160;exit is&#160;“APIC write.”&#160;The&#160;exit qualification is the&#160;page offset&#160;of the write&#160;<br/>access&#160;that led to&#160;the&#160;VM exit.<br/>As note<a href="o_fe12b1e2a880e0ce-1178.html">d in Section 29.5,&#160;</a>execution of&#160;WRMSR with&#160;ECX&#160;=&#160;83FH (self-IPI MSR)&#160;can&#160;lead to&#160;an&#160;APIC-write VM&#160;exit&#160;<br/>if the “virtual-interrupt delivery”&#160;VM-execution&#160;control&#160;is 1.&#160;The exit&#160;qualification for such an APIC-write&#160;VM&#160;exit&#160;is&#160;<br/>3F0H.</p>
+<p style="position:absolute;top:659px;left:69px;white-space:nowrap" class="ft06">29.4.4 Instruction-Specific&#160;</p>
+<p style="position:absolute;top:659px;left:310px;white-space:nowrap" class="ft06">Considerations</p>
+<p style="position:absolute;top:689px;left:69px;white-space:nowrap" class="ft08">Certain&#160;instructions that use&#160;linear&#160;address may&#160;cause page&#160;faults&#160;even though they&#160;do&#160;not use those&#160;addresses to&#160;<br/>access memory.&#160;The APIC-virtualization&#160;features&#160;may affect&#160;these instructions as&#160;well:</p>
+<p style="position:absolute;top:727px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:728px;left:95px;white-space:nowrap" class="ft08"><b>CLFLUSH, CLFLUSHOPT.</b>&#160;With&#160;regard to&#160;faulting,&#160;the processor&#160;operates as&#160;if each of these instructions reads&#160;<br/>from the linear&#160;address in&#160;its source&#160;operand.&#160;If&#160;that&#160;address translates to one on the&#160;APIC-access&#160;page,&#160;the&#160;<br/>instruction&#160;may cause an APIC-access&#160;VM&#160;exit. If it&#160;does&#160;not,&#160;it will flush the&#160;corresponding cache&#160;line on&#160;the&#160;<br/>virtual-APIC page&#160;instead of&#160;the&#160;APIC-access page.</p>
+<p style="position:absolute;top:799px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:800px;left:95px;white-space:nowrap" class="ft08"><b>ENTER.</b>&#160;With&#160;regard to&#160;faulting, the processor operates&#160;if&#160;ENTER writes to&#160;the byte&#160;referenced by the final&#160;<br/>value of the stack&#160;pointer (even though it does not if its&#160;size&#160;operand is&#160;non-zero). If that value translates to an&#160;<br/>address on the&#160;APIC-access page, the&#160;instruction&#160;may&#160;cause&#160;an APIC-access&#160;VM&#160;exit. If it&#160;does&#160;not,&#160;it will&#160;cause&#160;<br/>the APIC-write&#160;emulation appropriate&#160;to the&#160;address’s page&#160;offset.</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:872px;left:95px;white-space:nowrap" class="ft08"><b>MASKMOVQ and&#160;MAKSMOVDQU.</b>&#160;Even if the&#160;instruction’s mask is&#160;zero, the&#160;processor may&#160;operate with&#160;<br/>regard&#160;to&#160;faulting&#160;as&#160;if&#160;MASKMOVQ&#160;or&#160;MASKMOVDQU&#160;writes&#160;to&#160;memory&#160;(the&#160;behavior&#160;is&#160;implementation-<br/>specific). In&#160;such&#160;a situation,&#160;an APIC-access&#160;VM&#160;exit may occur.</p>
+<p style="position:absolute;top:927px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:928px;left:95px;white-space:nowrap" class="ft08"><b>MONITOR.</b>&#160;With&#160;regard to faulting, the processor operates as if&#160;MONITOR reads&#160;from&#160;the&#160;effective address in&#160;<br/>RAX.&#160;If the&#160;resulting linear address&#160;translates&#160;to&#160;one on&#160;the APIC-access&#160;page, the instruction may&#160;cause an&#160;<br/>APIC-access VM&#160;exit.</p>
+<p style="position:absolute;top:958px;left:236px;white-space:nowrap" class="ft07">8</p>
+<p style="position:absolute;top:961px;left:243px;white-space:nowrap" class="ft02">&#160;If it&#160;does&#160;not,&#160;it will monitor&#160;the corresponding&#160;address on the virtual-APIC page&#160;instead&#160;</p>
+<p style="position:absolute;top:977px;left:95px;white-space:nowrap" class="ft02">of the&#160;APIC-access page.</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft02">8.&#160;This chapter&#160;uses&#160;the notation&#160;RAX,&#160;RIP,&#160;RSP,&#160;RFLAGS,&#160;etc.&#160;for processor registers&#160;because most&#160;processors that&#160;support VMX oper-</p>
+<p style="position:absolute;top:1038px;left:91px;white-space:nowrap" class="ft02">ation&#160;also&#160;support Intel 64&#160;architecture.&#160;For IA-32&#160;processors, this notation refers&#160;to&#160;the 32-bit forms of&#160;those registers (EAX,&#160;EIP,&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">ESP,&#160;EFLAGS,&#160;etc.).&#160;In&#160;a&#160;few&#160;places, notation&#160;such as EAX is used to&#160;refer specifically&#160;to&#160;lower 32 bits of&#160;the indicated register.</p>
+</div>
+</body>
+</html>

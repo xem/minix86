@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 199</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:9px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page199-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce199.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;6-13</p>
+<p style="position:absolute;top:47px;left:609px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND&#160;EXCEPTION HANDLING</p>
+<p style="position:absolute;top:596px;left:69px;white-space:nowrap" class="ft08">To&#160;return from an&#160;exception-&#160;or interrupt-handler procedure, the&#160;handler&#160;must&#160;use the IRET&#160;(or IRETD) instruction.&#160;<br/>The IRET&#160;instruction&#160;is similar&#160;to the&#160;RET instruction except&#160;that it&#160;restores&#160;the saved flags into the&#160;EFLAGS&#160;<br/>register.&#160;The IOPL field of&#160;the EFLAGS register&#160;is restored&#160;only&#160;if&#160;the CPL is&#160;0. The IF&#160;flag&#160;is changed only&#160;if the&#160;CPL&#160;<br/>is less than&#160;or equal to&#160;the IOPL. S<a href="��">ee Chapter&#160;3, “Instruction Set&#160;Reference, A-L,” o</a>f&#160;the&#160;<a href="��"><i>Intel® 64&#160;and IA-32&#160;Archi-<br/>tectures&#160;Software&#160;Developer’s Manual, Volume&#160;2A</i>, for a</a>&#160;description of the&#160;complete operation performed by the&#160;<br/>IRET instruction.<br/>If a stack switch occurred when calling&#160;the handler procedure, the IRET instruction switches&#160;back to the interrupted&#160;<br/>procedure’s&#160;stack on&#160;the&#160;return.</p>
+<p style="position:absolute;top:763px;left:69px;white-space:nowrap" class="ft04">6.12.1.1 &#160;&#160;Protection of&#160;Exception- and Interrupt-Handler Procedures</p>
+<p style="position:absolute;top:792px;left:69px;white-space:nowrap" class="ft08">The privilege-level&#160;protection for exception-&#160;and interrupt-handler&#160;procedures&#160;is similar&#160;to that&#160;used for&#160;ordinary&#160;<br/>procedure&#160;calls&#160;when&#160;called&#160;through a&#160;call gate (see<a href="o_fe12b1e2a880e0ce-167.html">&#160;Section 5.8.4, “Accessing&#160;a&#160;Code Segment&#160;Through a&#160;Call&#160;<br/>Gate”). The processor does not&#160;</a>permit transfer&#160;of execution&#160;to an&#160;exception-&#160;or interrupt-handler procedure in&#160;a&#160;<br/>less&#160;privileged code segment (numerically&#160;greater privilege&#160;level) than the&#160;CPL.&#160;<br/>An attempt&#160;to violate&#160;this rule&#160;results in&#160;a general-protection exception&#160;(#GP). The protection mechanism for&#160;<br/>exception-&#160;and interrupt-handler procedures&#160;is&#160;different in&#160;the following ways:</p>
+<p style="position:absolute;top:904px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:905px;left:95px;white-space:nowrap" class="ft08">Because&#160;interrupt and&#160;exception vectors&#160;have&#160;no RPL, the&#160;RPL&#160;is not checked on implicit calls to&#160;exception&#160;and&#160;<br/>interrupt handlers.</p>
+<p style="position:absolute;top:943px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:944px;left:95px;white-space:nowrap" class="ft08">The&#160;processor checks the DPL of the interrupt&#160;or trap&#160;gate&#160;only if an exception or interrupt is generated with an&#160;<br/>INT&#160;<i>n</i>, INT 3, or&#160;INTO&#160;instruction. Here, the&#160;CPL&#160;must&#160;be&#160;less than or&#160;equal&#160;to the&#160;DPL of&#160;the gate.&#160;This&#160;<br/>restriction&#160;prevents application programs or&#160;procedures&#160;running at&#160;privilege level&#160;3 from using&#160;a software&#160;<br/>interrupt to access critical&#160;exception handlers,&#160;such as&#160;the&#160;page-fault handler,&#160;providing that&#160;those handlers are&#160;<br/>placed&#160;in&#160;more privileged code&#160;segments (numerically&#160;lower&#160;privilege level). For hardware-generated&#160;<br/>interrupts&#160;and&#160;processor-detected&#160;exceptions, the&#160;processor ignores&#160;the DPL of interrupt and&#160;trap&#160;gates.</p>
+<p style="position:absolute;top:550px;left:173px;white-space:nowrap" class="ft06">Figure&#160;6-4. &#160;Stack Usage on Transfers&#160;to&#160;Interrupt&#160;and&#160;Exception-Handling&#160;Routines</p>
+<p style="position:absolute;top:461px;left:583px;white-space:nowrap" class="ft00">&#160;CS</p>
+<p style="position:absolute;top:265px;left:294px;white-space:nowrap" class="ft00">Error&#160;Code</p>
+<p style="position:absolute;top:218px;left:299px;white-space:nowrap" class="ft00">EFLAGS</p>
+<p style="position:absolute;top:234px;left:314px;white-space:nowrap" class="ft00">CS</p>
+<p style="position:absolute;top:249px;left:310px;white-space:nowrap" class="ft00">&#160;EIP</p>
+<p style="position:absolute;top:266px;left:412px;white-space:nowrap" class="ft012">ESP&#160;After<br/>Transfer to Handler</p>
+<p style="position:absolute;top:493px;left:569px;white-space:nowrap" class="ft00">Error&#160;Code</p>
+<p style="position:absolute;top:398px;left:412px;white-space:nowrap" class="ft012">ESP Before<br/>Transfer&#160;to Handler</p>
+<p style="position:absolute;top:445px;left:568px;white-space:nowrap" class="ft00">&#160;EFLAGS</p>
+<p style="position:absolute;top:477px;left:582px;white-space:nowrap" class="ft00">&#160;EIP</p>
+<p style="position:absolute;top:414px;left:583px;white-space:nowrap" class="ft00">&#160;SS</p>
+<p style="position:absolute;top:430px;left:580px;white-space:nowrap" class="ft00">&#160;ESP</p>
+<p style="position:absolute;top:123px;left:409px;white-space:nowrap" class="ft07"><b>Stack Usage with&#160;No</b></p>
+<p style="position:absolute;top:136px;left:402px;white-space:nowrap" class="ft07"><b>Privilege-Level Change</b></p>
+<p style="position:absolute;top:325px;left:416px;white-space:nowrap" class="ft07"><b>Stack Usage with</b></p>
+<p style="position:absolute;top:338px;left:399px;white-space:nowrap" class="ft07"><b>Privilege-Level Change</b></p>
+<p style="position:absolute;top:358px;left:258px;white-space:nowrap" class="ft00">Interrupted&#160;Procedure’s&#160;</p>
+<p style="position:absolute;top:151px;left:259px;white-space:nowrap" class="ft00">Interrupted Procedure’s</p>
+<p style="position:absolute;top:164px;left:268px;white-space:nowrap" class="ft00">and Handler’s&#160;Stack</p>
+<p style="position:absolute;top:364px;left:556px;white-space:nowrap" class="ft00">Handler’s&#160;Stack</p>
+<p style="position:absolute;top:492px;left:455px;white-space:nowrap" class="ft00">ESP After</p>
+<p style="position:absolute;top:505px;left:404px;white-space:nowrap" class="ft00">Transfer to&#160;Handler</p>
+<p style="position:absolute;top:215px;left:414px;white-space:nowrap" class="ft00">Transfer&#160;to Handler</p>
+<p style="position:absolute;top:202px;left:415px;white-space:nowrap" class="ft00">ESP Before</p>
+<p style="position:absolute;top:372px;left:307px;white-space:nowrap" class="ft00">Stack</p>
+</div>
+</body>
+</html>

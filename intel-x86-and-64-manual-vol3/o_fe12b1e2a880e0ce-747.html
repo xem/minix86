@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 747</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page747-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce747.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:754px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-111</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:521px;left:69px;white-space:nowrap" class="ft02">18.21.1&#160;&#160;Overview of&#160;Performance Monitoring with L3/Caching Bus Controller&#160;</p>
+<p style="position:absolute;top:551px;left:69px;white-space:nowrap" class="ft08">The&#160;facility&#160;for monitoring&#160;events consists&#160;of&#160;a set of dedicated model-specific&#160;registers (MSRs). There&#160;are&#160;eight&#160;<br/>event&#160;select/counting MSRs that&#160;are dedicated to&#160;counting events associated&#160;with&#160;specified microarchitectural&#160;<br/>conditions. Programming of&#160;these&#160;MSRs requires&#160;using RDMSR/WRMSR&#160;instructions with 64-bit&#160;values.&#160;In&#160;addition,&#160;<br/>an&#160;MSR MSR_EMON_L3_GL_CTL provides&#160;simplified&#160;interface to&#160;control freezing, resetting, re-enabling operation&#160;<br/>of any&#160;combination of these event select/counting MSRs.&#160;<br/>The eight MSRs dedicated to count occurrences&#160;of specific&#160;conditions are further divided&#160;to&#160;count&#160;three sub-classes&#160;<br/>of microarchitectural conditions:</p>
+<p style="position:absolute;top:680px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:680px;left:95px;white-space:nowrap" class="ft08">Two&#160;MSRs&#160;(MSR_EMON_L3_CTR_CTL0 and&#160;MSR_EMON_L3_CTR_CTL1)&#160;are dedicated to&#160;counting&#160;GBSQ&#160;<br/>events. Up&#160;to two GBSQ&#160;events can&#160;be&#160;programmed and counted&#160;simultaneously.&#160;</p>
+<p style="position:absolute;top:719px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:719px;left:95px;white-space:nowrap" class="ft08">Two&#160;MSRs&#160;(MSR_EMON_L3_CTR_CTL2 and&#160;MSR_EMON_L3_CTR_CTL3)&#160;are dedicated to&#160;counting&#160;GSNPQ&#160;<br/>events. Up&#160;to two GBSQ&#160;events can&#160;be&#160;programmed and counted&#160;simultaneously.&#160;</p>
+<p style="position:absolute;top:758px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:758px;left:95px;white-space:nowrap" class="ft08">Four&#160;MSRs (MSR_EMON_L3_CTR_CTL4,&#160;MSR_EMON_L3_CTR_CTL5,&#160;MSR_EMON_L3_CTR_CTL6,&#160;and&#160;<br/>MSR_EMON_L3_CTR_CTL7)&#160;are dedicated to&#160;counting&#160;external&#160;bus operations.</p>
+<p style="position:absolute;top:799px;left:69px;white-space:nowrap" class="ft03">The&#160;bit fields in&#160;each of eight MSRs&#160;share&#160;the following common&#160;characteristics:</p>
+<p style="position:absolute;top:821px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:821px;left:95px;white-space:nowrap" class="ft08">Bits&#160;63:32 is&#160;the event control&#160;field&#160;that&#160;includes&#160;an&#160;event mask and&#160;other bit&#160;fields&#160;that control counter&#160;<br/>operation. The event mask field specifies details&#160;of&#160;the&#160;microarchitectural condition,&#160;and its&#160;definition differs&#160;<br/>across GBSQ, GSNPQ,&#160;FSB.&#160;</p>
+<p style="position:absolute;top:876px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:877px;left:95px;white-space:nowrap" class="ft08">Bits 31:0&#160;is the&#160;event count field.&#160;If&#160;the specified&#160;condition is&#160;met during each&#160;relevant clock&#160;domain&#160;of the&#160;<br/>event logic,&#160;the matched condition signals the&#160;counter logic&#160;to increment&#160;the associated&#160;event&#160;count field. The&#160;<br/>lower&#160;32-bits of these 8&#160;MSRs at&#160;addresses&#160;107CC through&#160;107D3&#160;are treated&#160;as 32&#160;bit performance&#160;counter&#160;<br/>registers.&#160;</p>
+<p style="position:absolute;top:950px;left:69px;white-space:nowrap" class="ft08">In Dual-Core&#160;Intel Xeon processor 7100&#160;series,&#160;the&#160;uncore&#160;performance&#160;counters can be accessed using&#160;RDPMC&#160;<br/>instruction&#160;with&#160;the index starting from&#160;18 through 25.&#160;The EDX register&#160;returns zero when reading these 8 PMCs.&#160;<br/>In&#160;Intel Xeon processor 7400&#160;series, RDPMC with&#160;ECX&#160;between 2&#160;and 9&#160;can&#160;be&#160;used&#160;to&#160;access&#160;the eight uncore&#160;<br/>performance counter/control registers.&#160;</p>
+<p style="position:absolute;top:477px;left:233px;white-space:nowrap" class="ft05">Figure&#160;18-56. &#160;Block Diagram of&#160;Intel Xeon&#160;Processor 7100&#160;Series</p>
+<p style="position:absolute;top:329px;left:288px;white-space:nowrap" class="ft03">SDI interface</p>
+<p style="position:absolute;top:372px;left:283px;white-space:nowrap" class="ft03">Processor core</p>
+<p style="position:absolute;top:330px;left:446px;white-space:nowrap" class="ft03">SDI interface</p>
+<p style="position:absolute;top:373px;left:441px;white-space:nowrap" class="ft03">Processor core</p>
+<p style="position:absolute;top:216px;left:495px;white-space:nowrap" class="ft03">L3</p>
+<p style="position:absolute;top:197px;left:320px;white-space:nowrap" class="ft03">GBSQ, GSNPQ,</p>
+<p style="position:absolute;top:213px;left:320px;white-space:nowrap" class="ft03">GINTQ,&#160;...</p>
+<p style="position:absolute;top:137px;left:366px;white-space:nowrap" class="ft03">FSB</p>
+<p style="position:absolute;top:272px;left:409px;white-space:nowrap" class="ft03">SDI</p>
+<p style="position:absolute;top:415px;left:347px;white-space:nowrap" class="ft03">Logica</p>
+<p style="position:absolute;top:411px;left:380px;white-space:nowrap" class="ft06">l</p>
+<p style="position:absolute;top:428px;left:340px;white-space:nowrap" class="ft07">processor</p>
+<p style="position:absolute;top:414px;left:284px;white-space:nowrap" class="ft03">Logica</p>
+<p style="position:absolute;top:410px;left:317px;white-space:nowrap" class="ft06">l</p>
+<p style="position:absolute;top:427px;left:277px;white-space:nowrap" class="ft07">processor</p>
+<p style="position:absolute;top:415px;left:504px;white-space:nowrap" class="ft03">Logica</p>
+<p style="position:absolute;top:411px;left:537px;white-space:nowrap" class="ft06">l</p>
+<p style="position:absolute;top:428px;left:497px;white-space:nowrap" class="ft07">processor</p>
+<p style="position:absolute;top:414px;left:441px;white-space:nowrap" class="ft03">Logica</p>
+<p style="position:absolute;top:410px;left:474px;white-space:nowrap" class="ft06">l</p>
+<p style="position:absolute;top:427px;left:434px;white-space:nowrap" class="ft07">processor</p>
+</div>
+</body>
+</html>

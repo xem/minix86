@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1146</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:18px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1146-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1146.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">27-28&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;EXITS</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">27.5.3&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Loading Host&#160;RIP,&#160;RSP,&#160;and RFLAGS</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft09">RIP&#160;and&#160;RSP&#160;are&#160;loaded&#160;from the&#160;RIP&#160;field&#160;and&#160;the&#160;RSP&#160;field,&#160;respectively.&#160;RFLAGS&#160;is&#160;cleared,&#160;except&#160;bit&#160;1,&#160;which is&#160;<br/>always&#160;set.</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft02">27.5.4&#160;</p>
+<p style="position:absolute;top:196px;left:148px;white-space:nowrap" class="ft02">Checking and Loading Host&#160;</p>
+<p style="position:absolute;top:197px;left:371px;white-space:nowrap" class="ft04">Page-Directory-Pointer-Table Entries</p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft09">If&#160;CR0.PG&#160;=&#160;1,&#160;CR4.PAE&#160;=&#160;1,&#160;and IA32_EFER.LMA&#160;=&#160;0,&#160;the logical processor uses&#160;<b>PAE paging</b>.&#160;See<a href="o_fe12b1e2a880e0ce-117.html">&#160;Section&#160;4.4&#160;</a>of&#160;<br/><a href="��">the&#160;<i>Intel® 64 and IA-32 Architectures&#160;Software Developer’s Manual, Volume 3A</i></a>.</p>
+<p style="position:absolute;top:240px;left:604px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:243px;left:611px;white-space:nowrap" class="ft03">&#160;When&#160;in PAE paging is in use, the&#160;</p>
+<p style="position:absolute;top:259px;left:68px;white-space:nowrap" class="ft09">physical address&#160;in CR3&#160;references&#160;a table of&#160;<b>page-directory-pointer-table entries</b>&#160;(PDPTEs). A MOV to&#160;CR3&#160;<br/>when&#160;PAE paging is&#160;in use&#160;checks the&#160;validity of&#160;the&#160;PDPTEs&#160;and,&#160;if they are&#160;valid, loads&#160;them into&#160;the&#160;processor&#160;<br/>(into internal, non-architectural registers).<br/>A VM&#160;exit is to&#160;a VMM&#160;that uses PAE paging&#160;if (1)&#160;bit&#160;5 (corresponding&#160;to CR4.PAE) is&#160;set&#160;in the&#160;CR4 field in&#160;the host-<br/>state area of&#160;the VMCS; and&#160;(2)&#160;the&#160;“host address-space size”&#160;VM-exit&#160;control is&#160;0.&#160;Such&#160;a VM&#160;exit may check&#160;the&#160;<br/>validity of&#160;the&#160;PDPTEs&#160;referenced&#160;by the&#160;CR3 field&#160;in the&#160;host-state&#160;area of&#160;the VMCS. Such&#160;a VM&#160;exit must check&#160;<br/>their validity if either&#160;(1)&#160;PAE paging&#160;was not&#160;in&#160;use before&#160;the VM&#160;exit;&#160;or (2)&#160;the&#160;value of CR3&#160;is&#160;changing&#160;as&#160;a&#160;<br/>result of&#160;the&#160;VM&#160;exit.&#160;A&#160;VM&#160;exit to&#160;a VMM&#160;that does&#160;not&#160;use PAE paging&#160;must&#160;not check the&#160;validity of&#160;the PDPTEs.<br/>A&#160;VM&#160;exit&#160;that checks&#160;the validity&#160;of&#160;the&#160;PDPTEs&#160;uses&#160;the same&#160;checks&#160;that are used&#160;when&#160;CR3&#160;is&#160;loaded&#160;with&#160;<br/>MOV&#160;to CR3&#160;when&#160;PAE&#160;paging&#160;is&#160;in&#160;use.&#160;If&#160;MOV&#160;to&#160;CR3&#160;would&#160;cause a&#160;general-protection&#160;exception due&#160;to the&#160;<br/>PDPTEs&#160;that would be loaded&#160;(e.g.,&#160;because a&#160;reserved&#160;bit&#160;is set), a&#160;VMX&#160;abort occurs (see<a href="o_fe12b1e2a880e0ce-1147.html">&#160;Section&#160;27.7).</a>&#160;If a&#160;<br/>VM&#160;exit&#160;to a&#160;VMM that uses PAE does not&#160;cause a&#160;VMX&#160;abort, the&#160;PDPTEs are&#160;loaded into&#160;the processor as&#160;would&#160;<br/>MOV&#160;to CR3,&#160;using&#160;the value&#160;of&#160;CR3&#160;being load&#160;by the&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:523px;left:68px;white-space:nowrap" class="ft02">27.5.5&#160;</p>
+<p style="position:absolute;top:523px;left:148px;white-space:nowrap" class="ft02">Updating Non-Register State</p>
+<p style="position:absolute;top:553px;left:68px;white-space:nowrap" class="ft03">VM&#160;exits affect&#160;the non-register state&#160;of a&#160;logical&#160;processor&#160;as&#160;follows:</p>
+<p style="position:absolute;top:575px;left:68px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:576px;left:93px;white-space:nowrap" class="ft03">A&#160;logical&#160;processor&#160;is always in&#160;the active&#160;state after&#160;a VM&#160;exit.</p>
+<p style="position:absolute;top:598px;left:68px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:598px;left:93px;white-space:nowrap" class="ft010">Event&#160;blocking is&#160;affected&#160;as follows:<br/>—&#160;There&#160;is no blocking by STI or&#160;by&#160;MOV&#160;SS after a&#160;VM&#160;exit.<br/>—&#160;VM&#160;exits caused directly by non-maskable interrupts&#160;(NMIs) cause blocking by NMI<a href="o_fe12b1e2a880e0ce-1052.html">&#160;(see Table&#160;24-3).</a>&#160;Other&#160;</p>
+<p style="position:absolute;top:663px;left:119px;white-space:nowrap" class="ft09">VM&#160;exits do&#160;not&#160;affect blocking&#160;by NMI. (See<a href="o_fe12b1e2a880e0ce-1119.html">&#160;Section&#160;27.1&#160;</a>for&#160;the case in&#160;which&#160;an&#160;NMI causes a&#160;VM&#160;exit&#160;<br/>indirectly.)</p>
+<p style="position:absolute;top:701px;left:68px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:702px;left:93px;white-space:nowrap" class="ft03">There&#160;are no pending&#160;debug exceptions&#160;after a VM&#160;exit.</p>
+<p style="position:absolute;top:726px;left:68px;white-space:nowrap" class="ft09"><a href="o_fe12b1e2a880e0ce-1161.html">Section&#160;28.3 de</a>scribes how the VMX architecture controls&#160;how a logical processor manages information in the TLBs&#160;<br/>and&#160;paging-structure caches.&#160;The following items detail how VM&#160;exits invalidate cached&#160;mappings:</p>
+<p style="position:absolute;top:764px;left:68px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:765px;left:93px;white-space:nowrap" class="ft09">If the “enable VPID” VM-execution control is 0, the logical processor invalidates linear mappings and&#160;combined&#160;<br/>mappings&#160;associated with VPID 0000H (for&#160;all PCIDs);&#160;combined&#160;mappings for VPID 0000H are invalidated&#160;for&#160;<br/>all EP4TA&#160;values (EP4TA&#160;is the&#160;value of bits&#160;51:12 of EPTP).</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:820px;left:93px;white-space:nowrap" class="ft09">VM&#160;exits are&#160;not required&#160;to invalidate any&#160;guest-physical mappings,&#160;nor are&#160;they required&#160;to&#160;invalidate&#160;any&#160;<br/>linear&#160;mappings&#160;or combined mappings if&#160;the&#160;“enable VPID”&#160;VM-execution control is&#160;1.&#160;</p>
+<p style="position:absolute;top:887px;left:68px;white-space:nowrap" class="ft02">27.5.6&#160;</p>
+<p style="position:absolute;top:887px;left:148px;white-space:nowrap" class="ft02">Clearing Address-Range Monitoring</p>
+<p style="position:absolute;top:918px;left:68px;white-space:nowrap" class="ft011">The Intel&#160;64&#160;and&#160;IA-32 architectures allow software&#160;to&#160;monitor&#160;a specified&#160;address range using&#160;the MONITOR&#160;and&#160;<br/>MWAIT instructions. See&#160;<a href="o_fe12b1e2a880e0ce-303.html">Section&#160;8.10.4 in&#160;</a><a href="��">the&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;Architectures Software&#160;Developer’s&#160;Manual,&#160;<br/>Volume 3A</i></a>.&#160;VM&#160;exits&#160;clear any&#160;address-range&#160;monitoring that may be in&#160;effect.</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft03">1.&#160;On processors&#160;that&#160;support Intel 64&#160;architecture, the physical-address extension may support&#160;more&#160;than&#160;36&#160;physical-address&#160;bits.&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft03">Software&#160;can determine a&#160;processor’s&#160;physical-address&#160;width&#160;by executing&#160;CPUID with&#160;80000008H&#160;in&#160;EAX.&#160;The physical-address&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">width is&#160;returned&#160;in&#160;bits&#160;7:0 of&#160;EAX.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 350</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page350-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce350.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-38&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">9.11.8.1 &#160;&#160;Responsibilities&#160;of&#160;the BIOS</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft05">If a BIOS&#160;passes the presence&#160;test&#160;(INT&#160;15H,&#160;AX = 0D042H,&#160;BL = 0H), it must&#160;implement all of the sub-functions&#160;<br/>defined in&#160;the&#160;INT 15H, AX = 0D042H specification.&#160;There are no&#160;optional&#160;functions. BIOS&#160;must&#160;load&#160;the appropriate&#160;<br/>update&#160;for each processor during system initialization.<br/>A Header&#160;Version of an update&#160;block&#160;containing&#160;the value&#160;0FFFFFFFFH indicates&#160;that the update block&#160;is unused and&#160;<br/>available for storing&#160;a new update.<br/>The BIOS&#160;is responsible&#160;for&#160;providing&#160;a region of non-volatile storage&#160;(NVRAM)&#160;for&#160;each potential processor step-<br/>ping within a&#160;system. This&#160;storage unit&#160;consists&#160;of one&#160;or more&#160;update&#160;blocks.&#160;An&#160;update&#160;block is&#160;a&#160;contiguous&#160;<br/>2048-byte block&#160;of memory.&#160;The BIOS&#160;for a&#160;single&#160;processor&#160;system need&#160;only provide&#160;update&#160;blocks to&#160;store one&#160;<br/>microcode&#160;update. If&#160;the&#160;BIOS&#160;for&#160;a multiple&#160;processor system is&#160;intended&#160;to&#160;support&#160;mixed processor steppings,&#160;<br/>then&#160;the BIOS needs&#160;to provide enough&#160;update blocks&#160;to&#160;store each&#160;unique microcode update&#160;or for each processor&#160;<br/>socket&#160;on the&#160;OEM’s system board.&#160;<br/>The&#160;BIOS&#160;is&#160;responsible for managing&#160;the&#160;NVRAM update&#160;blocks.&#160;This includes&#160;garbage&#160;collection, such as&#160;<br/>removing&#160;microcode updates that exist in NVRAM for which&#160;a corresponding processor does&#160;not exist in the system.&#160;<br/>This specification only provides&#160;the&#160;mechanism&#160;for&#160;ensuring&#160;security,&#160;the uniqueness of an entry,&#160;and&#160;that stale&#160;<br/>entries are&#160;not loaded. The&#160;actual update&#160;block management is&#160;implementation specific on&#160;a per-BIOS&#160;basis.&#160;<br/>As&#160;an&#160;example,&#160;the BIOS&#160;may&#160;use update&#160;blocks&#160;sequentially in ascending order with CPU signatures sorted&#160;versus&#160;<br/>the first&#160;available block. In&#160;addition, garbage&#160;collection&#160;may be implemented&#160;as a&#160;setup&#160;option to&#160;clear all NVRAM&#160;<br/>slots or&#160;as BIOS&#160;code&#160;that searches&#160;and&#160;eliminates&#160;unused entries during&#160;boot.</p>
+<p style="position:absolute;top:472px;left:428px;white-space:nowrap" class="ft02">NOTES</p>
+<p style="position:absolute;top:498px;left:120px;white-space:nowrap" class="ft05">For IA-32&#160;processors starting&#160;with&#160;family&#160;0FH and&#160;model&#160;03H and&#160;Intel 64 processors,&#160;the&#160;<br/>microcode&#160;update may be&#160;as large as&#160;16 KBytes. Thus, BIOS must&#160;allocate&#160;8 update blocks for&#160;each&#160;<br/>microcode&#160;update. In&#160;a MP system, a common microcode update&#160;may be sufficient for each socket&#160;<br/>in the&#160;system.&#160;<br/>For IA-32&#160;processors&#160;earlier&#160;than&#160;family 0FH and model&#160;03H,&#160;the microcode&#160;update is&#160;2 KBytes.&#160;An&#160;<br/>MP-capable&#160;BIOS&#160;that&#160;supports&#160;multiple steppings&#160;must&#160;allocate a&#160;block for each&#160;socket&#160;in&#160;the&#160;<br/>system.<br/>A single-processor BIOS that supports variable-sized&#160;microcode&#160;update&#160;and&#160;fixed-sized&#160;microcode&#160;<br/>update must&#160;allocate one&#160;16-KByte region and&#160;a second&#160;region of at&#160;least&#160;2 KBytes.</p>
+<p style="position:absolute;top:663px;left:68px;white-space:nowrap" class="ft05"><a href="o_fe12b1e2a880e0ce-350.html">The following algorithm (Example&#160;9-11) describ</a>es&#160;the&#160;steps&#160;performed during BIOS&#160;initialization used&#160;to&#160;load the&#160;<br/>updates into the&#160;processor(s).&#160;The algorithm&#160;assumes:</p>
+<p style="position:absolute;top:701px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:702px;left:93px;white-space:nowrap" class="ft05">The&#160;BIOS ensures&#160;that no update&#160;contained within NVRAM&#160;has&#160;a header&#160;version or loader version that does not&#160;<br/>match&#160;one currently supported&#160;by the&#160;BIOS.</p>
+<p style="position:absolute;top:740px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:741px;left:93px;white-space:nowrap" class="ft03">The&#160;update contains a&#160;correct&#160;checksum.</p>
+<p style="position:absolute;top:763px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:763px;left:93px;white-space:nowrap" class="ft03">The&#160;BIOS&#160;ensures that&#160;(at most) one&#160;update&#160;exists&#160;for&#160;each processor stepping.</p>
+<p style="position:absolute;top:785px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:786px;left:93px;white-space:nowrap" class="ft03">Older update revisions&#160;are not&#160;allowed to&#160;overwrite more&#160;recent&#160;ones.</p>
+<p style="position:absolute;top:810px;left:68px;white-space:nowrap" class="ft05">These&#160;requirements are&#160;checked&#160;by the&#160;BIOS&#160;during the&#160;execution of&#160;the write update&#160;function of this&#160;interface.&#160;<br/>The BIOS sequentially scans&#160;through all of&#160;the update&#160;blocks in&#160;NVRAM starting&#160;with index&#160;0.&#160;The BIOS scans&#160;until&#160;<br/>it finds&#160;an update where&#160;the processor fields&#160;in the&#160;header&#160;match the&#160;processor&#160;signature&#160;(extended&#160;family,&#160;<br/>extended&#160;model,&#160;type,&#160;family,&#160;model,&#160;and stepping) as&#160;well&#160;as the platform bits of the&#160;current processor.</p>
+<p style="position:absolute;top:900px;left:68px;white-space:nowrap" class="ft01">Example 9-11. &#160;Pseudo Code, Checks&#160;Required Prior to&#160;Loading an&#160;Update</p>
+<p style="position:absolute;top:930px;left:68px;white-space:nowrap" class="ft03">For&#160;each processor in&#160;the system</p>
+<p style="position:absolute;top:946px;left:68px;white-space:nowrap" class="ft03">{</p>
+<p style="position:absolute;top:963px;left:95px;white-space:nowrap" class="ft03">Determine the Processor Signature via CPUID&#160;function&#160;1;</p>
+<p style="position:absolute;top:979px;left:95px;white-space:nowrap" class="ft03">Determine the Platform Bits&#160;</p>
+<p style="position:absolute;top:975px;left:321px;white-space:nowrap" class="ft03">←&#160;1 &lt;&lt; IA32_PLATFORM_ID[52:50];</p>
+<p style="position:absolute;top:1012px;left:95px;white-space:nowrap" class="ft03">For&#160;(I&#160;</p>
+<p style="position:absolute;top:1008px;left:151px;white-space:nowrap" class="ft03">←&#160;UpdateBlock&#160;0, I &lt;&#160;NumOfBlocks; I++)</p>
+<p style="position:absolute;top:1029px;left:95px;white-space:nowrap" class="ft03">{</p>
+<p style="position:absolute;top:1045px;left:122px;white-space:nowrap" class="ft03">If (Update.Header_Version =&#160;00000001H)</p>
+<p style="position:absolute;top:1062px;left:122px;white-space:nowrap" class="ft03">{</p>
+</div>
+</body>
+</html>

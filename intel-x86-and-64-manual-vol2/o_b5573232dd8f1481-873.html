@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 873</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page873-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481873.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PACKSSWB/PACKSSDW—Pack with Signed&#160;Saturation</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-193</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft04">TMP_DEST[447:432]&#160;&#160;SaturateSignedDwordToSignedWord (SRC1[511:480]);<br/>TMP_DEST[463:448]&#160;&#160;SaturateSignedDwordToSignedWord (TMP_SRC2[415:384]);<br/>TMP_DEST[479:464]&#160;&#160;SaturateSignedDwordToSignedWord (TMP_SRC2[447:416]);<br/>TMP_DEST[495:480]&#160;&#160;SaturateSignedDwordToSignedWord (TMP_SRC2[479:448]);<br/>TMP_DEST[511:496]&#160;&#160;SaturateSignedDwordToSignedWord (TMP_SRC2[511:480]);</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft04">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:226px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:262px;left:116px;white-space:nowrap" class="ft04">THEN DEST[i+15:i]&#160;&#160;TMP_DEST[i+15:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:298px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:298px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:316px;left:170px;white-space:nowrap" class="ft04">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:334px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:352px;left:197px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0</p>
+<p style="position:absolute;top:370px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft04">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:458px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalents</p>
+<p style="position:absolute;top:481px;left:69px;white-space:nowrap" class="ft02">VPACKSSDW__m512i&#160;_mm512_packs_epi32(__m512i m1, __m512i&#160;m2)</p>
+<p style="position:absolute;top:480px;left:484px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft02">VPACKSSDW__m512i&#160;_mm512_mask_packs_epi32(__m512i s, __mmask32 k, __m512i&#160;m1, __m512i&#160;m2)</p>
+<p style="position:absolute;top:498px;left:672px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:517px;left:69px;white-space:nowrap" class="ft02">VPACKSSDW__m512i _mm512_maskz_packs_epi32( __mmask32&#160;k, __m512i m1, __m512i&#160;m2)</p>
+<p style="position:absolute;top:516px;left:615px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:535px;left:69px;white-space:nowrap" class="ft02">VPACKSSDW__m256i&#160;_mm256_mask_packs_epi32( __m256i s, __mmask16 k, __m256i&#160;m1, __m256i&#160;m2)</p>
+<p style="position:absolute;top:534px;left:675px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:553px;left:69px;white-space:nowrap" class="ft02">VPACKSSDW__m256i _mm256_maskz_packs_epi32( __mmask16&#160;k, __m256i m1, __m256i&#160;m2)</p>
+<p style="position:absolute;top:552px;left:615px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:571px;left:69px;white-space:nowrap" class="ft02">VPACKSSDW__m128i&#160;_mm_mask_packs_epi32( __m128i&#160;s, __mmask8&#160;k, __m128i m1, __m128i&#160;m2)</p>
+<p style="position:absolute;top:570px;left:643px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:589px;left:69px;white-space:nowrap" class="ft02">VPACKSSDW__m128i&#160;_mm_maskz_packs_epi32(&#160;__mmask8 k, __m128i m1, __m128i m2)</p>
+<p style="position:absolute;top:588px;left:584px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:607px;left:69px;white-space:nowrap" class="ft02">VPACKSSWB__m512i _mm512_packs_epi16(__m512i m1, __m512i m2)</p>
+<p style="position:absolute;top:606px;left:484px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:625px;left:69px;white-space:nowrap" class="ft02">VPACKSSWB__m512i _mm512_mask_packs_epi16(__m512i s, __mmask32&#160;k, __m512i m1, __m512i m2)</p>
+<p style="position:absolute;top:624px;left:671px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:643px;left:69px;white-space:nowrap" class="ft02">VPACKSSWB__m512i _mm512_maskz_packs_epi16( __mmask32 k, __m512i m1, __m512i m2)</p>
+<p style="position:absolute;top:642px;left:615px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:661px;left:69px;white-space:nowrap" class="ft02">VPACKSSWB__m256i _mm256_mask_packs_epi16(&#160;__m256i s, __mmask16&#160;k, __m256i m1, __m256i m2)</p>
+<p style="position:absolute;top:660px;left:675px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:679px;left:69px;white-space:nowrap" class="ft02">VPACKSSWB__m256i _mm256_maskz_packs_epi16( __mmask16 k, __m256i m1, __m256i m2)</p>
+<p style="position:absolute;top:678px;left:615px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:697px;left:69px;white-space:nowrap" class="ft02">VPACKSSWB__m128i _mm_mask_packs_epi16( __m128i s, __mmask8 k, __m128i&#160;m1, __m128i m2)</p>
+<p style="position:absolute;top:696px;left:643px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:715px;left:69px;white-space:nowrap" class="ft02">VPACKSSWB__m128i _mm_maskz_packs_epi16(&#160;__mmask8&#160;k, __m128i m1, __m128i m2)</p>
+<p style="position:absolute;top:714px;left:583px;white-space:nowrap" class="ft03">;</p>
+<p style="position:absolute;top:733px;left:69px;white-space:nowrap" class="ft04">PACKSSWB __m128i&#160;_mm_packs_epi16(__m128i m1, __m128i&#160;m2)<br/>PACKSSDW&#160;__m128i&#160;_mm_packs_epi32(__m128i m1, __m128i m2)<br/>VPACKSSWB __m256i _mm256_packs_epi16(__m256i m1, __m256i m2)<br/>VPACKSSDW __m256i _mm256_packs_epi32(__m256i m1, __m256i m2)</p>
+<p style="position:absolute;top:822px;left:69px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:844px;left:69px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:879px;left:69px;white-space:nowrap" class="ft01">Other Exceptions</p>
+<p style="position:absolute;top:901px;left:69px;white-space:nowrap" class="ft05">Non-EVEX-encoded&#160;instruction, see Exceptions Type 4.<br/>EVEX-encoded&#160;VPACKSSDW,&#160;see&#160;Exceptions&#160;Type&#160;E4NF.<br/>EVEX-encoded VPACKSSWB, see Exceptions&#160;Type E4NF.nb.</p>
+</div>
+</body>
+</html>

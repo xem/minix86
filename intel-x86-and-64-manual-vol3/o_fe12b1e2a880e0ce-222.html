@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 222</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page222-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce222.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-36&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND EXCEPTION&#160;HANDLING</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">Interrupt&#160;12—Stack Fault Exception (#SS)</p>
+<p style="position:absolute;top:146px;left:68px;white-space:nowrap" class="ft03">Exception&#160;Class</p>
+<p style="position:absolute;top:144px;left:206px;white-space:nowrap" class="ft04">Fault.</p>
+<p style="position:absolute;top:185px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:211px;left:68px;white-space:nowrap" class="ft05">Indicates&#160;that one&#160;of&#160;the following stack&#160;related conditions was detected:</p>
+<p style="position:absolute;top:233px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:234px;left:93px;white-space:nowrap" class="ft07">A limit&#160;violation&#160;is detected during an&#160;operation that refers to&#160;the SS&#160;register.&#160;Operations&#160;that can&#160;cause a&#160;limit&#160;<br/>violation include stack-oriented&#160;instructions such as POP,&#160;PUSH, CALL, RET,&#160;IRET, ENTER, and LEAVE, as&#160;well&#160;as&#160;<br/>other memory&#160;references which&#160;implicitly or&#160;explicitly&#160;use&#160;the SS&#160;register (for example,&#160;MOV&#160;AX,&#160;[BP+6]&#160;or&#160;<br/>MOV AX, SS:[EAX+6]).&#160;The ENTER instruction generates&#160;this&#160;exception when&#160;there is&#160;not&#160;enough stack space&#160;<br/>for allocating local&#160;variables.</p>
+<p style="position:absolute;top:322px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:322px;left:93px;white-space:nowrap" class="ft07">A not-present stack segment is&#160;detected&#160;when&#160;attempting&#160;to&#160;load&#160;the SS&#160;register.&#160;This violation can&#160;occur&#160;<br/>during the execution&#160;of&#160;a task switch,&#160;a CALL&#160;instruction&#160;to&#160;a different&#160;privilege&#160;level, a&#160;return to a&#160;different&#160;<br/>privilege level, an LSS&#160;instruction, or&#160;a&#160;MOV or&#160;POP instruction to&#160;the SS&#160;register.</p>
+<p style="position:absolute;top:377px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:378px;left:93px;white-space:nowrap" class="ft07">A canonical violation is&#160;detected&#160;in 64-bit&#160;mode during&#160;an&#160;operation that reference memory using&#160;the stack&#160;<br/>pointer register containing&#160;a non-canonical memory&#160;address.</p>
+<p style="position:absolute;top:418px;left:68px;white-space:nowrap" class="ft07">Recovery&#160;from&#160;this&#160;fault is&#160;possible by either extending the&#160;limit of the&#160;stack segment (in the&#160;case&#160;of&#160;a limit&#160;viola-<br/>tion) or loading the missing&#160;stack&#160;segment&#160;into memory&#160;(in&#160;the case of&#160;a&#160;not-present&#160;violation.&#160;<br/>In the&#160;case&#160;of&#160;a canonical violation that&#160;was caused&#160;intentionally by&#160;software,&#160;recovery is&#160;possible by&#160;loading&#160;the&#160;<br/>correct canonical value&#160;into&#160;RSP.&#160;Otherwise, a canonical violation of the&#160;address in RSP likely&#160;reflects some&#160;register&#160;<br/>corruption in the software.</p>
+<p style="position:absolute;top:529px;left:68px;white-space:nowrap" class="ft03">Exception&#160;Error&#160;Code</p>
+<p style="position:absolute;top:555px;left:68px;white-space:nowrap" class="ft07">If the&#160;exception&#160;is caused by a not-present stack segment or&#160;by overflow of&#160;the new stack during&#160;an inter-privilege-<br/>level call, the&#160;error&#160;code&#160;contains&#160;a segment selector for&#160;the segment that&#160;caused&#160;the exception. Here, the&#160;excep-<br/>tion handler&#160;can test&#160;the&#160;present&#160;flag in&#160;the segment descriptor pointed to&#160;by&#160;the segment selector&#160;to&#160;determine&#160;<br/>the cause&#160;of&#160;the&#160;exception. For a normal limit violation (on&#160;a stack segment&#160;already in use)&#160;the error code is set&#160;to&#160;<br/>0.</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft03">Saved Instruction&#160;Pointer</p>
+<p style="position:absolute;top:684px;left:68px;white-space:nowrap" class="ft07">The saved contents&#160;of&#160;CS and EIP&#160;registers generally point to&#160;the instruction that&#160;generated&#160;the exception.&#160;<br/>However,&#160;when&#160;the exception&#160;results from&#160;attempting to&#160;load a not-present stack&#160;segment&#160;during a&#160;task switch,&#160;<br/>the CS&#160;and&#160;EIP registers point to the first instruction of the new task.</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft03">Program State&#160;Change</p>
+<p style="position:absolute;top:780px;left:68px;white-space:nowrap" class="ft07">A program-state&#160;change does not&#160;generally accompany a stack-fault exception, because&#160;the instruction&#160;that&#160;gener-<br/>ated the&#160;fault is not executed. Here, the instruction can&#160;be restarted after the exception handler has corrected the&#160;<br/>stack fault condition.<br/>If&#160;a stack fault occurs&#160;during&#160;a&#160;task switch,&#160;it occurs&#160;after&#160;the&#160;commit-to-new<a href="o_fe12b1e2a880e0ce-247.html">-task point (see Section 7.3,&#160;“Task&#160;<br/>Switching”).&#160;</a>Here,&#160;the processor loads all&#160;the state information&#160;from&#160;the&#160;new&#160;TSS (without&#160;performing any&#160;addi-<br/>tional limit, present, or type&#160;checks)&#160;before it generates&#160;the exception. The stack fault handler should thus not rely&#160;<br/>on being able to&#160;use the&#160;segment&#160;selectors found in the&#160;CS,&#160;SS, DS, ES, FS, and&#160;GS&#160;registers without&#160;causing&#160;<br/>another&#160;exception.&#160;The&#160;exception&#160;handler&#160;should check all segment&#160;registers before trying&#160;to resume&#160;the new&#160;<br/>task; otherwise,&#160;general protection faults&#160;may&#160;result later&#160;under conditions&#160;that&#160;are more&#160;difficult&#160;to diagnose.&#160;(See&#160;<br/>the Program State&#160;Change&#160;descrip<a href="o_fe12b1e2a880e0ce-217.html">tion for “Interrupt&#160;10—Invalid TSS Exception (#TS)” in this chapter for additional&#160;<br/></a>information on&#160;how to&#160;handle this&#160;situation.)&#160;</p>
+</div>
+</body>
+</html>

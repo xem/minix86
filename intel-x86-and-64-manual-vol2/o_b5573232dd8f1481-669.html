@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 669</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:14px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page669-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481669.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">LOOP/LOOPcc—Loop According to ECX Counter</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-541</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">LOOP/LOOP<i>cc</i>—Loop According to&#160;ECX Counter</p>
+<p style="position:absolute;top:295px;left:354px;white-space:nowrap" class="ft04">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:379px;left:69px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:403px;left:69px;white-space:nowrap" class="ft08">Performs&#160;a loop operation using&#160;the&#160;RCX,&#160;ECX&#160;or CX&#160;register as a&#160;counter (depending on whether&#160;address size is&#160;64&#160;<br/>bits, 32&#160;bits, or 16 bits). Note that the LOOP instruction&#160;ignores&#160;REX.W;&#160;but 64-bit address size&#160;can be over-ridden&#160;<br/>using a&#160;67H prefix.<br/>Each&#160;time&#160;the&#160;LOOP&#160;instruction is&#160;executed,&#160;the count register is decremented,&#160;then checked for 0. If the count is&#160;<br/>0, the&#160;loop is&#160;terminated&#160;and program execution continues&#160;with&#160;the instruction following the&#160;LOOP instruction.&#160;If&#160;<br/>the count is&#160;not zero,&#160;a near&#160;jump&#160;is performed to&#160;the&#160;destination (target) operand, which&#160;is presumably the&#160;<br/>instruction&#160;at the&#160;beginning of the&#160;loop.<br/>The target instruction is&#160;specified with a&#160;relative&#160;offset (a&#160;signed offset relative&#160;to the&#160;current value of&#160;the instruc-<br/>tion pointer&#160;in the&#160;IP/EIP/RIP register). This&#160;offset&#160;is&#160;generally&#160;specified as&#160;a label in&#160;assembly code, but&#160;at the&#160;<br/>machine&#160;code&#160;level, it&#160;is encoded&#160;as a&#160;signed, 8-bit immediate value, which is&#160;added to&#160;the instruction pointer.&#160;<br/>Offsets&#160;of –128&#160;to&#160;+127 are&#160;allowed with this&#160;instruction.<br/>Some forms of the loop instruction (LOOP<i>cc</i>) also accept the ZF flag as a condition for terminating the loop before&#160;<br/>the count reaches zero.&#160;With these&#160;forms of the&#160;instruction, a&#160;condition code&#160;(<i>cc</i>)&#160;is associated&#160;with each instruc-<br/>tion&#160;to indicate&#160;the&#160;condition being&#160;tested for.&#160;Here, the LOOP<i>cc</i>&#160;instruction&#160;itself does&#160;not affect&#160;the&#160;state&#160;of the ZF&#160;<br/>flag; the&#160;ZF flag&#160;is changed by&#160;other instructions in the&#160;loop.</p>
+<p style="position:absolute;top:691px;left:69px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:721px;left:69px;white-space:nowrap" class="ft05">IF&#160;(AddressSize&#160;</p>
+<p style="position:absolute;top:719px;left:159px;white-space:nowrap" class="ft07">=</p>
+<p style="position:absolute;top:721px;left:169px;white-space:nowrap" class="ft05">&#160;32)</p>
+<p style="position:absolute;top:738px;left:89px;white-space:nowrap" class="ft05">THEN Count is&#160;ECX;</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft05">ELSE IF&#160;(AddressSize = 64)</p>
+<p style="position:absolute;top:771px;left:89px;white-space:nowrap" class="ft05">Count is&#160;RCX;</p>
+<p style="position:absolute;top:789px;left:69px;white-space:nowrap" class="ft011">ELSE&#160;Count is&#160;CX;&#160;<br/>FI;</p>
+<p style="position:absolute;top:837px;left:69px;white-space:nowrap" class="ft05">Count&#160;←&#160;Count – 1;</p>
+<p style="position:absolute;top:867px;left:69px;white-space:nowrap" class="ft05">IF&#160;Instruction is not LOOP</p>
+<p style="position:absolute;top:885px;left:89px;white-space:nowrap" class="ft05">THEN</p>
+<p style="position:absolute;top:903px;left:116px;white-space:nowrap" class="ft05">IF (Instruction&#160;←&#160;LOOPE)&#160;or&#160;(Instruction&#160;←&#160;LOOPZ)</p>
+<p style="position:absolute;top:921px;left:143px;white-space:nowrap" class="ft05">THEN IF (ZF&#160;</p>
+<p style="position:absolute;top:919px;left:215px;white-space:nowrap" class="ft07">=</p>
+<p style="position:absolute;top:921px;left:224px;white-space:nowrap" class="ft05">&#160;1) and (Count</p>
+<p style="position:absolute;top:917px;left:304px;white-space:nowrap" class="ft07">&#160;≠</p>
+<p style="position:absolute;top:921px;left:317px;white-space:nowrap" class="ft05">&#160;0)</p>
+<p style="position:absolute;top:939px;left:197px;white-space:nowrap" class="ft05">THEN&#160;BranchCond&#160;←&#160;1;</p>
+<p style="position:absolute;top:957px;left:197px;white-space:nowrap" class="ft05">ELSE BranchCond&#160;←&#160;0;</p>
+<p style="position:absolute;top:975px;left:170px;white-space:nowrap" class="ft05">FI;</p>
+<p style="position:absolute;top:993px;left:143px;white-space:nowrap" class="ft05">ELSE (Instruction&#160;</p>
+<p style="position:absolute;top:991px;left:243px;white-space:nowrap" class="ft07">=</p>
+<p style="position:absolute;top:993px;left:252px;white-space:nowrap" class="ft05">&#160;LOOPNE) or (Instruction&#160;</p>
+<p style="position:absolute;top:991px;left:394px;white-space:nowrap" class="ft07">=</p>
+<p style="position:absolute;top:993px;left:403px;white-space:nowrap" class="ft05">&#160;LOOPNZ)</p>
+<p style="position:absolute;top:1011px;left:170px;white-space:nowrap" class="ft05">IF (ZF&#160;</p>
+<p style="position:absolute;top:1009px;left:206px;white-space:nowrap" class="ft07">=</p>
+<p style="position:absolute;top:1011px;left:215px;white-space:nowrap" class="ft05">&#160;0 ) and (Count&#160;</p>
+<p style="position:absolute;top:1009px;left:302px;white-space:nowrap" class="ft07">≠</p>
+<p style="position:absolute;top:1011px;left:311px;white-space:nowrap" class="ft05">&#160;0)</p>
+<p style="position:absolute;top:1029px;left:197px;white-space:nowrap" class="ft05">THEN&#160;BranchCond&#160;←&#160;1;</p>
+<p style="position:absolute;top:1047px;left:197px;white-space:nowrap" class="ft05">ELSE BranchCond&#160;←&#160;0;</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft05">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft05">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft05">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft05">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft05">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft05">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft05">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft05">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft05">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft05">E2&#160;<i>cb</i></p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft05">LOOP&#160;<i>rel8</i></p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft05">D</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft05">Decrement&#160;&#160;count; jump short if count&#160;≠&#160;0.</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft05">E1&#160;<i>cb</i></p>
+<p style="position:absolute;top:182px;left:221px;white-space:nowrap" class="ft05">LOOPE&#160;<i>rel8</i></p>
+<p style="position:absolute;top:182px;left:389px;white-space:nowrap" class="ft05">D</p>
+<p style="position:absolute;top:182px;left:426px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:182px;left:498px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:182px;left:568px;white-space:nowrap" class="ft05">Decrement&#160;&#160;count; jump short if count&#160;≠&#160;0 and&#160;</p>
+<p style="position:absolute;top:199px;left:568px;white-space:nowrap" class="ft05">ZF = 1.</p>
+<p style="position:absolute;top:222px;left:73px;white-space:nowrap" class="ft05">E0&#160;<i>cb</i></p>
+<p style="position:absolute;top:222px;left:221px;white-space:nowrap" class="ft05">LOOPNE&#160;<i>rel8</i></p>
+<p style="position:absolute;top:222px;left:389px;white-space:nowrap" class="ft05">D</p>
+<p style="position:absolute;top:222px;left:426px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:222px;left:498px;white-space:nowrap" class="ft05">Valid</p>
+<p style="position:absolute;top:222px;left:568px;white-space:nowrap" class="ft05">Decrement&#160;&#160;count; jump short if count&#160;≠&#160;0 and&#160;</p>
+<p style="position:absolute;top:238px;left:568px;white-space:nowrap" class="ft05">ZF = 0.</p>
+<p style="position:absolute;top:317px;left:86px;white-space:nowrap" class="ft05">Op/En</p>
+<p style="position:absolute;top:317px;left:194px;white-space:nowrap" class="ft05">Operand&#160;1</p>
+<p style="position:absolute;top:317px;left:370px;white-space:nowrap" class="ft05">Operand&#160;2</p>
+<p style="position:absolute;top:317px;left:542px;white-space:nowrap" class="ft05">Operand&#160;3</p>
+<p style="position:absolute;top:317px;left:715px;white-space:nowrap" class="ft05">Operand&#160;4</p>
+<p style="position:absolute;top:342px;left:99px;white-space:nowrap" class="ft05">D</p>
+<p style="position:absolute;top:342px;left:205px;white-space:nowrap" class="ft05">Offset</p>
+<p style="position:absolute;top:342px;left:391px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:342px;left:563px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:342px;left:736px;white-space:nowrap" class="ft05">NA</p>
+</div>
+</body>
+</html>

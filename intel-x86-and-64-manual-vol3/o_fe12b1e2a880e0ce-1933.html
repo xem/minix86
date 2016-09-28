@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1933</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1933-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1933.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;43-1</p>
+<p style="position:absolute;top:47px;left:614px;white-space:nowrap" class="ft01">ENCLAVE CODE&#160;DEBUG AND PROFILING</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft02">CHAPTER 43</p>
+<p style="position:absolute;top:120px;left:417px;white-space:nowrap" class="ft02">ENCLAVE CODE DEBUG AND PROFILING</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft03">Intel</p>
+<p style="position:absolute;top:188px;left:100px;white-space:nowrap" class="ft04">®</p>
+<p style="position:absolute;top:190px;left:111px;white-space:nowrap" class="ft03">&#160;SGX is architected to&#160;provide protection for production&#160;enclaves and permit enclave code&#160;developers to use&#160;</p>
+<p style="position:absolute;top:207px;left:69px;white-space:nowrap" class="ft08">an SGX-aware&#160;debugger to effectively debug&#160;a non-production enclave (debug&#160;enclave). Intel SGX&#160;also allows a&#160;<br/>non-SGX-aware debugger to&#160;debug non-enclave&#160;portions&#160;of&#160;the application without&#160;getting confused&#160;by&#160;enclave&#160;<br/>instructions.</p>
+<p style="position:absolute;top:295px;left:69px;white-space:nowrap" class="ft05">43.1&#160;</p>
+<p style="position:absolute;top:295px;left:148px;white-space:nowrap" class="ft05">CONFIGURATION AND CONTROLS</p>
+<p style="position:absolute;top:358px;left:69px;white-space:nowrap" class="ft06">43.1.1&#160;</p>
+<p style="position:absolute;top:358px;left:149px;white-space:nowrap" class="ft06">Debug Enclave vs. Production Enclave</p>
+<p style="position:absolute;top:387px;left:69px;white-space:nowrap" class="ft08">The&#160;SECS&#160;of each&#160;enclave provides&#160;a&#160;bit,&#160;SECS.ATTRIBUTES.DEBUG, indicating whether the enclave is&#160;a debug&#160;<br/>enclave&#160;(if set)&#160;or a&#160;production enclave (if&#160;0).&#160;If this&#160;bit is&#160;set, software&#160;outside&#160;the enclave can&#160;use&#160;<br/>EDBGRD/EDBGWR to&#160;access the&#160;EPC memory&#160;of the&#160;enclave.&#160;The&#160;value of DEBUG&#160;is not included&#160;in&#160;the measure-<br/>ment&#160;of&#160;the enclave and therefore&#160;doesn't&#160;require an alternate SIGSTRUCT&#160;to be generated to&#160;debug the&#160;enclave.<br/>The ATTRIBUTES&#160;field&#160;in&#160;the SECS is&#160;reported in the enclave's&#160;attestation, and&#160;is included in&#160;the key&#160;derivation.&#160;<br/>Enclave secrets that&#160;were protected&#160;by the&#160;enclave&#160;using Intel&#160;SGX keys when it&#160;ran as&#160;a production&#160;enclave&#160;will&#160;<br/>not&#160;be&#160;accessible by the&#160;debug enclave.&#160;A&#160;debugger needs&#160;to be&#160;aware that&#160;special&#160;debug content&#160;might be&#160;<br/>required&#160;for a&#160;debug enclave to&#160;run&#160;in a&#160;meaningful&#160;way.&#160;<br/>EPC memory&#160;belonging to a debug enclave can be accessed via the EDBGRD/EDBGWR&#160;leaf functions&#160;<a href="o_fe12b1e2a880e0ce-1874.html">(see Section&#160;<br/>41.4),</a>&#160;while that&#160;belonging&#160;to a&#160;non-debug&#160;enclave&#160;cannot be&#160;accessed&#160;by&#160;these&#160;leaf functions.</p>
+<p style="position:absolute;top:598px;left:69px;white-space:nowrap" class="ft06">43.1.2 Tool-Chain&#160;</p>
+<p style="position:absolute;top:598px;left:238px;white-space:nowrap" class="ft06">Opt-in</p>
+<p style="position:absolute;top:627px;left:69px;white-space:nowrap" class="ft08">The TCS.FLAGS.DBGOPTIN&#160;bit controls interactions&#160;of&#160;certain debug and profiling features&#160;with enclaves,&#160;including&#160;<br/>code/data&#160;breakpoints, TF,&#160;RF, monitor&#160;trap flag, BTF,&#160;LBRs,&#160;BTM,&#160;BTS,&#160;Intel&#160;Processor&#160;Trace,&#160;and&#160;performance&#160;<br/>monitoring. This bit is forced to zero&#160;when EPC pages are added via&#160;EADD. A&#160;debugger can set this&#160;bit via EDBGWR&#160;<br/>to&#160;the TCS of a&#160;debug enclave.<br/>An enclave&#160;entry through a TCS with the TCS.FLAGS.DBGOPTIN set to 0 is called an&#160;<b>opt-out entry</b>. Conversely, an&#160;<br/>enclave&#160;entry through a&#160;TCS with TCS.FLAGS.DBGOPTIN&#160;set to&#160;1&#160;is called an&#160;<b>opt-in&#160;entry</b>.</p>
+<p style="position:absolute;top:771px;left:69px;white-space:nowrap" class="ft05">43.2 SINGLE&#160;</p>
+<p style="position:absolute;top:771px;left:220px;white-space:nowrap" class="ft05">STEP&#160;</p>
+<p style="position:absolute;top:771px;left:273px;white-space:nowrap" class="ft05">DEBUG</p>
+<p style="position:absolute;top:833px;left:69px;white-space:nowrap" class="ft06">43.2.1&#160;</p>
+<p style="position:absolute;top:833px;left:149px;white-space:nowrap" class="ft06">Single Stepping ENCLS Instruction Leafs</p>
+<p style="position:absolute;top:862px;left:69px;white-space:nowrap" class="ft08">If&#160;the RFLAGS.TF bit is set at&#160;the beginning&#160;of ENCLS,&#160;then&#160;a single-step debug&#160;exception is pending&#160;as a trap-class&#160;<br/>exception on the&#160;instruction boundary immediately after the&#160;ENCLS&#160;instruction. Additionally, if the&#160;instruction&#160;is&#160;<br/>executed in VMX non-root operation and&#160;the “monitor trap&#160;flag”&#160;VM-execution&#160;control is&#160;1,&#160;an MTF VM exit&#160;is&#160;<br/>pending on the&#160;instruction boundary immediately after&#160;the&#160;instruction if the&#160;instruction&#160;does&#160;not fault.</p>
+<p style="position:absolute;top:962px;left:69px;white-space:nowrap" class="ft06">43.2.2&#160;</p>
+<p style="position:absolute;top:962px;left:149px;white-space:nowrap" class="ft06">Single Stepping ENCLU Instruction Leafs</p>
+<p style="position:absolute;top:991px;left:69px;white-space:nowrap" class="ft08">The interactions&#160;of the&#160;unprivileged Intel&#160;SGX instruction ENCLU are&#160;leaf dependent.<br/>An enclave&#160;entry via EENTER/ERESUME leaf&#160;functions of the ENCLU,&#160;in certain cases, may mask&#160;the&#160;RFLAGS.TF&#160;bit,&#160;<br/>and mask the setting of the&#160;“monitor trap&#160;flag” VM-execution control.&#160;In such&#160;situations, an&#160;exit&#160;from the&#160;enclave,&#160;<br/>either via the EEXIT leaf&#160;function&#160;or&#160;via an&#160;AEX&#160;unmasks&#160;the RFLAGS.TF&#160;bit&#160;and&#160;the “monitor trap flag”&#160;VM-execu-</p>
+</div>
+</body>
+</html>

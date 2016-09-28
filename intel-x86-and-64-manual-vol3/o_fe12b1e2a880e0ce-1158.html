@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1158</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1158-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1158.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">28-10&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX SUPPORT&#160;FOR&#160;ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">28.2.3.3 &#160;&#160;Prioritization of&#160;EPT&#160;Misconfigurations and EPT Violations</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft06">The translation&#160;of&#160;a linear&#160;address to&#160;a physical address&#160;requires one&#160;or more&#160;translations of guest-physical&#160;<br/>addresses using&#160;<a href="o_fe12b1e2a880e0ce-1149.html">EPT (see Section&#160;28.2.1).&#160;</a>This section&#160;specifies the&#160;relative&#160;priority&#160;of&#160;EPT-induced VM&#160;exits with&#160;<br/>respect to each&#160;other and to other events&#160;that may be encountered&#160;when&#160;accessing&#160;memory using&#160;a linear address.<br/>For&#160;an access&#160;to a&#160;guest-physical address, determination of whether an&#160;EPT misconfiguration&#160;or&#160;an EPT&#160;violation&#160;<br/>occurs is&#160;based on an&#160;iterative process:</p>
+<p style="position:absolute;top:198px;left:334px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:225px;left:68px;white-space:nowrap" class="ft03">1.&#160;An&#160;EPT paging-structure entry&#160;is read (initially, this&#160;is an&#160;EPT PML4&#160;entry):</p>
+<p style="position:absolute;top:249px;left:93px;white-space:nowrap" class="ft08">a.&#160;If&#160;the entry&#160;is not present&#160;(bits&#160;2:0&#160;are all&#160;0),&#160;an&#160;EPT violation occurs.<br/>b.&#160;If the&#160;entry is&#160;present&#160;but its&#160;contents are not config<a href="o_fe12b1e2a880e0ce-1155.html">ured properly (see Section 28.2.3.1)</a>, an EPT miscon-</p>
+<p style="position:absolute;top:289px;left:119px;white-space:nowrap" class="ft03">figuration occurs.</p>
+<p style="position:absolute;top:313px;left:93px;white-space:nowrap" class="ft03">c.&#160;If the&#160;entry is&#160;present&#160;and its&#160;contents are configured&#160;properly,&#160;operation depends&#160;on whether the&#160;entry&#160;</p>
+<p style="position:absolute;top:330px;left:119px;white-space:nowrap" class="ft08">references&#160;another EPT&#160;paging structure (whether&#160;it&#160;is an&#160;EPT PDE with bit&#160;7&#160;set&#160;to 1&#160;or an&#160;EPT PTE):<br/>i)&#160;If the&#160;entry&#160;does&#160;reference another EPT paging structure, an&#160;entry&#160;from&#160;that structure is&#160;accessed;&#160;</p>
+<p style="position:absolute;top:370px;left:144px;white-space:nowrap" class="ft03">step&#160;<a href="o_fe12b1e2a880e0ce-1158.html">1</a>&#160;is&#160;executed&#160;for that other&#160;entry.</p>
+<p style="position:absolute;top:394px;left:119px;white-space:nowrap" class="ft03">ii)&#160;Otherwise,&#160;the entry&#160;is used to produce&#160;the ultimate&#160;physical address&#160;(the translation&#160;of&#160;the original&#160;</p>
+<p style="position:absolute;top:411px;left:144px;white-space:nowrap" class="ft03">guest-physical&#160;address); step&#160;<a href="o_fe12b1e2a880e0ce-1158.html">2</a>&#160;is&#160;executed.</p>
+<p style="position:absolute;top:435px;left:68px;white-space:nowrap" class="ft03">2.&#160;Once the&#160;ultimate physical address&#160;is determined, the&#160;privileges determined&#160;by&#160;the&#160;EPT&#160;paging-structure&#160;</p>
+<p style="position:absolute;top:451px;left:93px;white-space:nowrap" class="ft07">entries are&#160;evaluated:<br/>a.&#160;If the access to&#160;the guest-physical address is not allowed by&#160;these privileges (s<a href="o_fe12b1e2a880e0ce-1156.html">ee Section 28.2.3.2</a>), an EPT&#160;</p>
+<p style="position:absolute;top:492px;left:119px;white-space:nowrap" class="ft03">violation&#160;occurs.</p>
+<p style="position:absolute;top:516px;left:93px;white-space:nowrap" class="ft03">b.&#160;If&#160;the access to&#160;the guest-physical&#160;address is&#160;allowed by&#160;these privileges, memory is&#160;accessed using&#160;the&#160;</p>
+<p style="position:absolute;top:532px;left:119px;white-space:nowrap" class="ft03">ultimate physical&#160;address.</p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft07">If CR0.PG&#160;= 1, the translation of a linear address is also&#160;an&#160;iterative&#160;process, with&#160;the&#160;processor first accessing&#160;an&#160;<br/>entry&#160;in the guest paging structure&#160;referenced by the&#160;guest-physical&#160;address in CR3&#160;(or,&#160;if PAE&#160;paging is in&#160;use,&#160;the&#160;<br/>guest-physical address&#160;in the&#160;appropriate PDPTE&#160;register),&#160;then accessing an&#160;entry&#160;in another guest paging&#160;struc-<br/>ture&#160;referenced by the guest-physical&#160;address&#160;in&#160;the&#160;first guest paging-structure entry,&#160;etc.&#160;Each&#160;guest-physical&#160;<br/>address is itself translated using&#160;EPT and may cause an EPT-induced VM&#160;exit. The&#160;following items detail how page&#160;<br/>faults&#160;and&#160;EPT-induced VM&#160;exits are&#160;recognized during&#160;this iterative&#160;process:<br/>1.&#160;An&#160;attempt is&#160;made&#160;to access a&#160;guest&#160;paging-structure&#160;entry with a&#160;guest-physical address&#160;(initially,&#160;the&#160;</p>
+<p style="position:absolute;top:679px;left:93px;white-space:nowrap" class="ft07">address&#160;in CR3 or&#160;PDPTE register).<br/>a.&#160;If&#160;the access fails&#160;because&#160;of an EPT misconfiguration&#160;or an&#160;EPT violation (see above),&#160;an EPT-induced&#160;</p>
+<p style="position:absolute;top:720px;left:119px;white-space:nowrap" class="ft03">VM&#160;exit occurs.</p>
+<p style="position:absolute;top:744px;left:93px;white-space:nowrap" class="ft03">b.&#160;If&#160;the access does not&#160;cause&#160;an&#160;EPT-induced VM&#160;exit, bit&#160;0&#160;(the&#160;present flag)&#160;of&#160;the entry&#160;is consulted:</p>
+<p style="position:absolute;top:768px;left:119px;white-space:nowrap" class="ft08">i)&#160;If the&#160;present&#160;flag is&#160;0&#160;or any&#160;reserved bit is&#160;set, a&#160;page fault occurs.<br/>ii)&#160;If the&#160;present&#160;flag is&#160;1,&#160;no reserved&#160;bit is&#160;set, operation depends on whether the entry references&#160;</p>
+<p style="position:absolute;top:808px;left:144px;white-space:nowrap" class="ft03">another guest paging structure&#160;(whether it&#160;is a&#160;guest&#160;PDE with PS&#160;=&#160;1 or&#160;a guest PTE):</p>
+<p style="position:absolute;top:834px;left:144px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:832px;left:170px;white-space:nowrap" class="ft06">If the entry does reference another&#160;guest&#160;paging&#160;structure, an&#160;entry&#160;from&#160;that structure is&#160;<br/>accessed; step&#160;<a href="o_fe12b1e2a880e0ce-1158.html">1 is&#160;</a>executed&#160;for that&#160;other entry.</p>
+<p style="position:absolute;top:874px;left:144px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:873px;left:170px;white-space:nowrap" class="ft06">Otherwise,&#160;the entry is used to produce the ultimate guest-physical address (the translation of the&#160;<br/>original linear address); step&#160;<a href="o_fe12b1e2a880e0ce-1158.html">2&#160;</a>is executed.</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft03">2.&#160;Once the&#160;ultimate guest-physical&#160;address is&#160;determined,&#160;the privileges&#160;determined by&#160;the guest paging-</p>
+<p style="position:absolute;top:930px;left:93px;white-space:nowrap" class="ft08">structure entries are&#160;evaluated:<br/>a.&#160;If&#160;the access to&#160;the linear&#160;address is&#160;not allowed&#160;by&#160;these&#160;privileges (e.g.,&#160;it&#160;was&#160;a write to&#160;a read-only&#160;</p>
+<p style="position:absolute;top:970px;left:119px;white-space:nowrap" class="ft03">page),&#160;a&#160;page&#160;fault occurs.</p>
+<p style="position:absolute;top:994px;left:93px;white-space:nowrap" class="ft03">b.&#160;If the&#160;access to the&#160;linear address is allowed by these privileges, an attempt&#160;is made to access memory&#160;at&#160;</p>
+<p style="position:absolute;top:1011px;left:119px;white-space:nowrap" class="ft03">the ultimate&#160;guest-physical address:</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft03">1.&#160;This is a&#160;simplification&#160;of&#160;the more&#160;detailed&#160;description&#160;given&#160;in<a href="o_fe12b1e2a880e0ce-1151.html">&#160;Section&#160;28.2.2</a>.</p>
+</div>
+</body>
+</html>

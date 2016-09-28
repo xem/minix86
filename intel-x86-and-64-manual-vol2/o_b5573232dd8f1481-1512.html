@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1512</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1512-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811512.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:238px;white-space:nowrap" class="ft00">VFMADD132PS/VFMADD213PS/VFMADD231PS—Fused Multiply-Add of&#160;Packed Single-Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-126&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:118px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:136px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft03">VFMADD132PS&#160;DEST,&#160;SRC2,&#160;SRC3 (EVEX&#160;encoded&#160;version,&#160;when&#160;src3 operand is&#160;a memory source)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:262px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:298px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:316px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1)&#160;</p>
+<p style="position:absolute;top:334px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:352px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;</p>
+<p style="position:absolute;top:370px;left:142px;white-space:nowrap" class="ft02">RoundFPControl_MXCSR(DEST[i+31:i]*SRC3[31:0] + SRC2[i+31:i])</p>
+<p style="position:absolute;top:388px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:406px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;</p>
+<p style="position:absolute;top:424px;left:142px;white-space:nowrap" class="ft03">RoundFPControl_MXCSR(DEST[i+31:i]*SRC3[i+31:i] + SRC2[i+31:i])<br/>FI;</p>
+<p style="position:absolute;top:460px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:478px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:478px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:496px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:514px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:532px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:550px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:568px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:586px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft03">VFMADD213PS&#160;DEST,&#160;SRC2,&#160;SRC3 (EVEX&#160;encoded&#160;version, when src3&#160;operand&#160;is a&#160;register)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>IF&#160;(VL =&#160;512)&#160;AND (EVEX.b&#160;= 1)</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:712px;left:115px;white-space:nowrap" class="ft02">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:730px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:748px;left:115px;white-space:nowrap" class="ft02">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:766px;left:68px;white-space:nowrap" class="ft03">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:802px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:838px;left:115px;white-space:nowrap" class="ft02">THEN DEST[i+31:i]&#160;&#160;</p>
+<p style="position:absolute;top:856px;left:142px;white-space:nowrap" class="ft02">RoundFPControl(SRC2[i+31:i]*DEST[i+31:i] + SRC3[i+31:i])</p>
+<p style="position:absolute;top:874px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:892px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:892px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:910px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:928px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:946px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:964px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:982px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

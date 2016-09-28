@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 343</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page343-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a343.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;14-15</p>
+<p style="position:absolute;top:47px;left:591px;white-space:nowrap" class="ft01">PROGRAMMING WITH&#160;AVX,&#160;FMA AND AVX2</p>
+<p style="position:absolute;top:253px;left:69px;white-space:nowrap" class="ft08">Description&#160;of&#160;Column&#160;“Reason not promoted?”<br/><b>MMX</b>: Instructions referencing MMX&#160;registers do not support VEX<br/><b>Scalar:&#160;</b>Scalar instructions are not promoted to&#160;256-bit<br/><b>VI:</b>&#160;“Vector Integer”&#160;instructions&#160;are not promoted to&#160;256-bit<br/><b>Note 1</b>: MOVLPD/PS&#160;and MOVHPD/PS are not promoted&#160;to&#160;256-bit. The equivalent functionality&#160;are&#160;provided&#160;by&#160;<br/>VINSERTF128&#160;and&#160;VEXTRACTF128&#160;instructions as&#160;the&#160;existing&#160;instructions have&#160;no natural&#160;256b extension<br/><b>Note 3</b>: It&#160;is&#160;expected&#160;that&#160;using&#160;128-bit&#160;INSERTPS&#160;followed by&#160;a VINSERTF128 would be&#160;better&#160;than&#160;promoting&#160;<br/>INSERTPS&#160;to&#160;256-bit (for example).</p>
+<p style="position:absolute;top:454px;left:69px;white-space:nowrap" class="ft04">14.3&#160;</p>
+<p style="position:absolute;top:454px;left:148px;white-space:nowrap" class="ft04">DETECTION OF&#160;AVX INSTRUCTIONS</p>
+<p style="position:absolute;top:489px;left:69px;white-space:nowrap" class="ft07">Intel AVX&#160;instructions operate&#160;on&#160;the 256-bit YMM register&#160;state. Application&#160;detection of new instruction exten-<br/>sions&#160;operating on&#160;the&#160;YMM state&#160;follows&#160;the general&#160;procedural flow&#160;<a href="o_7281d5ea06a5b67a-343.html">in Figure 14-2.<br/></a>Prior&#160;to using&#160;AVX, the&#160;application must identify&#160;that&#160;the&#160;operating&#160;system&#160;supports&#160;the XGETBV instruction,&#160;the&#160;<br/>YMM&#160;register state,&#160;in addition to processor’s&#160;support&#160;for YMM state management&#160;using XSAVE/XRSTOR&#160;and AVX&#160;<br/>instructions. The&#160;following simplified sequence accomplishes both&#160;and&#160;is strongly recommended.<br/>1)&#160;Detect CPUID.1:ECX.OSXSAVE[bit&#160;27]&#160;=&#160;1&#160;(XGETBV&#160;enabled&#160;for application use</p>
+<p style="position:absolute;top:581px;left:627px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:583px;left:634px;white-space:nowrap" class="ft02">)</p>
+<p style="position:absolute;top:606px;left:69px;white-space:nowrap" class="ft07">2)&#160;Issue&#160;XGETBV&#160;and verify that&#160;XCR0[2:1] = ‘11b’&#160;(XMM&#160;state&#160;and YMM state are enabled&#160;by&#160;OS).<br/>3) detect CPUID.1:ECX.AVX[bit&#160;28]&#160;=&#160;1 (AVX&#160;instructions supported).<br/>(Step 3 can be done in&#160;any order relative to&#160;1&#160;and 2)</p>
+<p style="position:absolute;top:171px;left:75px;white-space:nowrap" class="ft02">no</p>
+<p style="position:absolute;top:171px;left:182px;white-space:nowrap" class="ft02">yes</p>
+<p style="position:absolute;top:171px;left:295px;white-space:nowrap" class="ft02">PBLENDVB,&#160;PBLENDW</p>
+<p style="position:absolute;top:171px;left:654px;white-space:nowrap" class="ft02">VI</p>
+<p style="position:absolute;top:195px;left:75px;white-space:nowrap" class="ft02">no</p>
+<p style="position:absolute;top:195px;left:182px;white-space:nowrap" class="ft02">yes</p>
+<p style="position:absolute;top:195px;left:295px;white-space:nowrap" class="ft02">PEXTRW,&#160;PEXTRB,&#160;PEXTRD, PEXTRQ</p>
+<p style="position:absolute;top:195px;left:654px;white-space:nowrap" class="ft02">VI</p>
+<p style="position:absolute;top:218px;left:75px;white-space:nowrap" class="ft02">no</p>
+<p style="position:absolute;top:218px;left:182px;white-space:nowrap" class="ft02">yes</p>
+<p style="position:absolute;top:218px;left:295px;white-space:nowrap" class="ft02">PINSRB,&#160;PINSRD,&#160;PINSRQ</p>
+<p style="position:absolute;top:218px;left:654px;white-space:nowrap" class="ft02">VI</p>
+<p style="position:absolute;top:1026px;left:69px;white-space:nowrap" class="ft02">1.&#160;If CPUID.01H:ECX.OSXSAVE reports&#160;1, it&#160;also&#160;indirectly implies&#160;the processor supports XSAVE, XRSTOR, XGETBV, processor&#160;</p>
+<p style="position:absolute;top:1043px;left:91px;white-space:nowrap" class="ft08">extended state bit&#160;vector&#160;XCR0. Thus an application may&#160;streamline the&#160;checking&#160;of CPUID feature flags&#160;for XSAVE and OSXSAVE.&#160;<br/>XSETBV&#160;is&#160;a privileged instruction.</p>
+<p style="position:absolute;top:961px;left:218px;white-space:nowrap" class="ft06">Figure&#160;14-2.&#160;&#160;General&#160;Procedural Flow&#160;of&#160;Application Detection&#160;of&#160;AVX</p>
+<p style="position:absolute;top:100px;left:168px;white-space:nowrap" class="ft06">Table&#160;14-7. &#160;Promotion of&#160;Legacy SIMD ISA&#160;to&#160;128-bit Non-Arithmetic&#160;AVX instruction</p>
+<p style="position:absolute;top:127px;left:96px;white-space:nowrap" class="ft02">VEX.256&#160;</p>
+<p style="position:absolute;top:144px;left:95px;white-space:nowrap" class="ft02">Encoding</p>
+<p style="position:absolute;top:127px;left:206px;white-space:nowrap" class="ft02">VEX.128&#160;</p>
+<p style="position:absolute;top:144px;left:205px;white-space:nowrap" class="ft02">Encoding</p>
+<p style="position:absolute;top:135px;left:435px;white-space:nowrap" class="ft02">Instruction</p>
+<p style="position:absolute;top:135px;left:676px;white-space:nowrap" class="ft02">Reason Not&#160;Promoted</p>
+<p style="position:absolute;top:843px;left:343px;white-space:nowrap" class="ft05">Implied&#160;HW support for</p>
+<p style="position:absolute;top:900px;left:269px;white-space:nowrap" class="ft00">Check enabled state in</p>
+<p style="position:absolute;top:922px;left:265px;white-space:nowrap" class="ft00">XCR0 via XGETBV</p>
+<p style="position:absolute;top:904px;left:493px;white-space:nowrap" class="ft00">Check feature flag&#160;</p>
+<p style="position:absolute;top:917px;left:507px;white-space:nowrap" class="ft00">for Instruction&#160;set</p>
+<p style="position:absolute;top:751px;left:255px;white-space:nowrap" class="ft00">Check feature&#160;flag</p>
+<p style="position:absolute;top:772px;left:255px;white-space:nowrap" class="ft00">CPUID.1H:ECX.OSXSAVE = 1?&#160;</p>
+<p style="position:absolute;top:811px;left:324px;white-space:nowrap" class="ft05">OS provides processor</p>
+<p style="position:absolute;top:825px;left:341px;white-space:nowrap" class="ft05">extended state management</p>
+<p style="position:absolute;top:917px;left:421px;white-space:nowrap" class="ft00">State</p>
+<p style="position:absolute;top:918px;left:647px;white-space:nowrap" class="ft00">ok to use</p>
+<p style="position:absolute;top:860px;left:343px;white-space:nowrap" class="ft05">XSAVE, XRSTOR, XGETBV, XCR0</p>
+<p style="position:absolute;top:931px;left:421px;white-space:nowrap" class="ft00">enabled</p>
+<p style="position:absolute;top:931px;left:647px;white-space:nowrap" class="ft00">Instructions</p>
+<p style="position:absolute;top:815px;left:288px;white-space:nowrap" class="ft05">Yes&#160;</p>
+</div>
+</body>
+</html>

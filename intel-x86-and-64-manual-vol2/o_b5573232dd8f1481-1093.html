@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1093</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1093-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811093.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PSHUFB&#160;—&#160;Packed&#160;Shuffle&#160;Bytes</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-413</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">VEX.256 encoded&#160;version:&#160;Bits&#160;(255:128) of the&#160;destination&#160;YMM&#160;register&#160;stores&#160;the 16-byte shuffle result&#160;of the&#160;<br/>upper 16 bytes&#160;of the&#160;first&#160;source operand, using&#160;the upper 16-bytes&#160;of the&#160;second&#160;source&#160;operand&#160;as control&#160;<br/>mask.&#160;The&#160;value of&#160;each index&#160;is for the&#160;high 128-bit lane&#160;is&#160;the least significant&#160;4 bits of the&#160;respective&#160;shuffle&#160;<br/>control&#160;byte.&#160;The index&#160;value selects a&#160;source data element within&#160;each&#160;128-bit lane.<br/>EVEX&#160;encoded version:&#160;The second&#160;source operand&#160;is an&#160;ZMM/YMM/XMM&#160;register&#160;or an 512/256/128-bit&#160;memory&#160;<br/>location. The&#160;first source&#160;operand and destination operands are&#160;ZMM/YMM/XMM registers. The&#160;destination is condi-<br/>tionally&#160;updated with writemask k1.<br/>EVEX&#160;and VEX encoded&#160;version:&#160;Four/two in-lane 128-bit shuffles.</p>
+<p style="position:absolute;top:264px;left:69px;white-space:nowrap" class="ft03">Operation&#160;</p>
+<p style="position:absolute;top:290px;left:69px;white-space:nowrap" class="ft06">PSHUFB (with&#160;64 bit operands)<br/>TEMP&#160;←&#160;DEST</p>
+<p style="position:absolute;top:326px;left:69px;white-space:nowrap" class="ft02">for i&#160;= 0&#160;to&#160;7 {&#160;</p>
+<p style="position:absolute;top:344px;left:89px;white-space:nowrap" class="ft02">if&#160;(SRC[(i * 8)+7] =&#160;1 ) then</p>
+<p style="position:absolute;top:362px;left:116px;white-space:nowrap" class="ft02">DEST[(i*8)+7...(i*8)+0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:381px;left:89px;white-space:nowrap" class="ft02">else&#160;</p>
+<p style="position:absolute;top:399px;left:116px;white-space:nowrap" class="ft02">index[2..0]&#160;←&#160;SRC[(i*8)+2 .. (i*8)+0];</p>
+<p style="position:absolute;top:417px;left:116px;white-space:nowrap" class="ft02">DEST[(i*8)+7...(i*8)+0]&#160;←&#160;TEMP[(index*8+7)..(index*8+0)];</p>
+<p style="position:absolute;top:435px;left:89px;white-space:nowrap" class="ft02">endif;</p>
+<p style="position:absolute;top:453px;left:69px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:483px;left:69px;white-space:nowrap" class="ft06">PSHUFB&#160;(with 128&#160;bit&#160;operands)<br/>TEMP&#160;←&#160;DEST</p>
+<p style="position:absolute;top:519px;left:69px;white-space:nowrap" class="ft02">for i&#160;= 0&#160;to&#160;15&#160;{&#160;</p>
+<p style="position:absolute;top:537px;left:89px;white-space:nowrap" class="ft02">if&#160;(SRC[(i * 8)+7] =&#160;1 ) then</p>
+<p style="position:absolute;top:555px;left:116px;white-space:nowrap" class="ft02">DEST[(i*8)+7..(i*8)+0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:573px;left:89px;white-space:nowrap" class="ft02">&#160;else&#160;</p>
+<p style="position:absolute;top:589px;left:116px;white-space:nowrap" class="ft02">index[3..0]&#160;←&#160;SRC[(i*8)+3 .. (i*8)+0];</p>
+<p style="position:absolute;top:606px;left:116px;white-space:nowrap" class="ft02">DEST[(i*8)+7..(i*8)+0]&#160;←&#160;TEMP[(index*8+7)..(index*8+0)];</p>
+<p style="position:absolute;top:624px;left:89px;white-space:nowrap" class="ft02">endif</p>
+<p style="position:absolute;top:642px;left:69px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:678px;left:69px;white-space:nowrap" class="ft06">VPSHUFB&#160;(VEX.128 encoded&#160;version)<br/>for i&#160;= 0&#160;to&#160;15&#160;{</p>
+<p style="position:absolute;top:714px;left:89px;white-space:nowrap" class="ft02">if&#160;(SRC2[(i&#160;* 8)+7] = 1) then</p>
+<p style="position:absolute;top:732px;left:116px;white-space:nowrap" class="ft06">DEST[(i*8)+7..(i*8)+0]&#160;&#160;0;<br/>else<br/>index[3..0]&#160;&#160;SRC2[(i*8)+3 ..&#160;(i*8)+0];<br/>DEST[(i*8)+7..(i*8)+0]&#160;&#160;SRC1[(index*8+7)..(index*8+0)];</p>
+<p style="position:absolute;top:804px;left:89px;white-space:nowrap" class="ft02">endif</p>
+<p style="position:absolute;top:822px;left:69px;white-space:nowrap" class="ft06">}<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:870px;left:69px;white-space:nowrap" class="ft06">VPSHUFB&#160;(VEX.256 encoded&#160;version)<br/>for i&#160;= 0&#160;to&#160;15&#160;{</p>
+<p style="position:absolute;top:906px;left:89px;white-space:nowrap" class="ft02">if&#160;(SRC2[(i&#160;* 8)+7] == 1 ) then</p>
+<p style="position:absolute;top:924px;left:116px;white-space:nowrap" class="ft06">DEST[(i*8)+7..(i*8)+0]&#160;&#160;0;<br/>else<br/>index[3..0]&#160;&#160;SRC2[(i*8)+3 ..&#160;(i*8)+0];<br/>DEST[(i*8)+7..(i*8)+0]&#160;&#160;SRC1[(index*8+7)..(index*8+0)];</p>
+<p style="position:absolute;top:996px;left:89px;white-space:nowrap" class="ft06">endif<br/>if&#160;(SRC2[128 + (i&#160;* 8)+7] == 1 ) then</p>
+<p style="position:absolute;top:1032px;left:116px;white-space:nowrap" class="ft06">DEST[128&#160;+ (i*8)+7..(i*8)+0]&#160;&#160;0;<br/>else</p>
+</div>
+</body>
+</html>

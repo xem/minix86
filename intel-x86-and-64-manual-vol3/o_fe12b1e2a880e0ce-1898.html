@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1898</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1898-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1898.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-88&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft03">//Determine&#160;values key is based on<br/>TMP_KEYDEPENDENCIES.KEYNAME&#160;&#160;REPORT_KEY;<br/>TMP_KEYDEPENDENCIES.ISVPRODID&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.ISVSVN&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.OWNEREPOCH&#160;&#160;CSR_SEOWNEREPOCH;<br/>TMP_KEYDEPENDENCIES.ATTRIBUTES&#160;&#160;TMP_CURRENTSECS.ATTRIBUTES;<br/>TMP_KEYDEPENDENCIES.ATTRIBUTESMASK&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.MRENCLAVE&#160;&#160;TMP_CURRENTSECS.MRENCLAVE;<br/>TMP_KEYDEPENDENCIES.MRSIGNER&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.KEYID&#160;&#160;DS:RBX.KEYID;<br/>TMP_KEYDEPENDENCIES.SEAL_KEY_FUSES&#160;&#160;CR_SEAL_FUSES;<br/>TMP_KEYDEPENDENCIES.CPUSVN&#160;&#160;CR_CPUSVN;<br/>TMP_KEYDEPENDENCIES.PADDING&#160;&#160;HARDCODED_PKCS1_5_PADDING;<br/>TMP_KEYDEPENDENCIES.MISCSELECT&#160;&#160;TMP_CURRENTSECS.MISCSELECT;<br/>TMP_KEYDEPENDENCIES.MISCMASK&#160;&#160;0;<br/>BREAK;</p>
+<p style="position:absolute;top:388px;left:88px;white-space:nowrap" class="ft02">EINITTOKEN_KEY:</p>
+<p style="position:absolute;top:406px;left:115px;white-space:nowrap" class="ft03">(*&#160;Check&#160;ENCLAVE&#160;has&#160;LAUNCH&#160;capability *)<br/>IF (TMP_CURRENTSECS.ATTRIBUTES.LAUNCHKEY =&#160;0)</p>
+<p style="position:absolute;top:442px;left:142px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:460px;left:169px;white-space:nowrap" class="ft03">RFLAGS.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_ATTRIBUTE;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:514px;left:115px;white-space:nowrap" class="ft03">FI;<br/>IF (DS:RBX.CPUSVN&#160;is&#160;beyond current CPU configuration)</p>
+<p style="position:absolute;top:550px;left:142px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:568px;left:169px;white-space:nowrap" class="ft03">RFLAGS.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_CPUSVN;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:622px;left:115px;white-space:nowrap" class="ft03">FI;<br/>IF (DS:RBX.ISVSVN&#160;&gt; TMP_CURRENTSECS.ISVSVN)</p>
+<p style="position:absolute;top:658px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:676px;left:169px;white-space:nowrap" class="ft03">RFLAGS.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_ISVSVN;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:730px;left:115px;white-space:nowrap" class="ft03">FI;<br/>(*&#160;Determine values key is based&#160;on&#160;*)<br/>TMP_KEYDEPENDENCIES.KEYNAME&#160;&#160;EINITTOKEN_KEY;<br/>TMP_KEYDEPENDENCIES.ISVPRODID&#160;&#160;TMP_CURRENTSECS.ISVPRODID<br/>TMP_KEYDEPENDENCIES.ISVSVN&#160;&#160;DS:RBX.ISVSVN;<br/>TMP_KEYDEPENDENCIES.OWNEREPOCH&#160;&#160;CSR_SEOWNEREPOCH;<br/>TMP_KEYDEPENDENCIES.ATTRIBUTES&#160;&#160;TMP_ATTRIBUTES;<br/>TMP_KEYDEPENDENCIES.ATTRIBUTESMASK&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.MRENCLAVE&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.MRSIGNER&#160;&#160;TMP_CURRENTSECS.MRSIGNER;<br/>TMP_KEYDEPENDENCIES.KEYID&#160;&#160;DS:RBX.KEYID;&#160;<br/>TMP_KEYDEPENDENCIES.SEAL_KEY_FUSES&#160;&#160;CR_SEAL_FUSES;<br/>TMP_KEYDEPENDENCIES.CPUSVN&#160;&#160;DS:RBX.CPUSVN;<br/>TMP_KEYDEPENDENCIES.PADDING&#160;&#160;TMP_CURRENTSECS.PADDING;<br/>TMP_KEYDEPENDENCIES.MISCSELECT&#160;&#160;TMP_MISCSELECT;<br/>TMP_KEYDEPENDENCIES.MISCMASK&#160;&#160;0;<br/>BREAK;</p>
+<p style="position:absolute;top:1036px;left:88px;white-space:nowrap" class="ft03">PROVISION_KEY:&#160;<br/>(*&#160;Check&#160;ENCLAVE&#160;has&#160;PROVISIONING&#160;capability *)</p>
+</div>
+</body>
+</html>

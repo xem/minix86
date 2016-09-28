@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1115</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1115-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1115.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;26-23</p>
+<p style="position:absolute;top:47px;left:766px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:100px;left:94px;white-space:nowrap" class="ft02">—&#160;If&#160;the&#160;logical processor is&#160;blocking&#160;such&#160;exceptions&#160;(due&#160;to blocking&#160;by&#160;MOV&#160;SS),&#160;the&#160;pending&#160;debug&#160;</p>
+<p style="position:absolute;top:117px;left:120px;white-space:nowrap" class="ft02">exceptions are held pending or&#160;lost as&#160;would&#160;normally&#160;be&#160;the case.</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft07">If the VM&#160;entry is vectoring (with interruption type software&#160;interrupt or software&#160;exception and with blocking&#160;<br/>by MOV&#160;SS),&#160;the following items&#160;apply:<br/>—&#160;For injection of a&#160;software interrupt or of&#160;a software&#160;exception&#160;with&#160;vector&#160;3&#160;(#BP)&#160;or vector&#160;4 (#OF),&#160;the&#160;</p>
+<p style="position:absolute;top:196px;left:120px;white-space:nowrap" class="ft06">pending debug&#160;exceptions are treated as&#160;they&#160;would had&#160;they&#160;been&#160;encountered normally in guest&#160;<br/>execution if the&#160;corresponding&#160;instruction&#160;(INT3&#160;or&#160;INTO) were executed&#160;after a&#160;MOV&#160;SS&#160;that encountered&#160;<br/>a debug&#160;trap.</p>
+<p style="position:absolute;top:253px;left:95px;white-space:nowrap" class="ft02">—&#160;For injection of a&#160;software exception&#160;with&#160;a vector other&#160;than&#160;3 and 4, the&#160;pending debug&#160;exceptions may&#160;</p>
+<p style="position:absolute;top:270px;left:120px;white-space:nowrap" class="ft02">be&#160;lost&#160;or they&#160;may be delivered&#160;after injection (see&#160;below).</p>
+<p style="position:absolute;top:294px;left:69px;white-space:nowrap" class="ft06">If&#160;there are no&#160;valid pending&#160;debug exceptions (as&#160;defined&#160;above),&#160;no&#160;pending&#160;debug&#160;exceptions are&#160;delivered&#160;after&#160;<br/>VM&#160;entry.<br/>If a&#160;pending&#160;debug exception&#160;is delivered&#160;after VM&#160;entry,&#160;it&#160;has&#160;the priority&#160;of&#160;“traps on&#160;the&#160;previous instruction”&#160;<br/><a href="o_fe12b1e2a880e0ce-194.html">(see Section 6.9&#160;</a>in the&#160;<a href="��"><i>Intel®&#160;64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume&#160;3A</i>). Thus, INIT&#160;<br/></a>signals and&#160;system-management interrupts&#160;(SMIs) take&#160;priority&#160;of such&#160;an&#160;exception,&#160;as do VM&#160;exits induced by&#160;<br/>the TPR threshold&#160;(see<a href="o_fe12b1e2a880e0ce-1116.html">&#160;Section 26.6.7</a>)&#160;and&#160;pending&#160;MTF&#160;VM&#160;<a href="o_fe12b1e2a880e0ce-1116.html">exits (see Section 26.6.8</a>.&#160;The&#160;exception takes priority&#160;<br/>over any&#160;pending non-maskable interrupt (NMI) or external&#160;interrupt and&#160;also over VM&#160;exits due to the 1-settings&#160;<br/>of the&#160;“interrupt-window exiting”&#160;and “NMI-window&#160;exiting” VM-execution controls.<br/>A&#160;pending&#160;debug&#160;exception delivered&#160;after&#160;VM&#160;entry causes&#160;a VM&#160;exit if the&#160;bit&#160;1&#160;(#DB) is&#160;1 in&#160;the exception&#160;<br/>bitmap. If&#160;it does not cause&#160;a VM&#160;exit,&#160;it updates&#160;DR6 normally.</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft05">26.6.4 VMX-Preemption&#160;</p>
+<p style="position:absolute;top:508px;left:290px;white-space:nowrap" class="ft05">Timer</p>
+<p style="position:absolute;top:538px;left:69px;white-space:nowrap" class="ft06">If the “activate VMX-preemption timer”&#160;VM-execution control is 1, VM&#160;entry starts the VMX-preemption timer with&#160;<br/>the unsigned value&#160;in&#160;the VMX-preemption timer-value field.<br/>It is&#160;possible for the&#160;VMX-preemption&#160;timer to&#160;expire&#160;during VM&#160;entry&#160;(e.g.,&#160;if the&#160;value&#160;in the&#160;VMX-preemption&#160;<br/>timer-value field is zero). If this happens (and if&#160;the&#160;VM&#160;entry&#160;was not to&#160;the&#160;wait-for-SIPI state), a&#160;VM exit occurs&#160;<br/>with&#160;its normal priority&#160;after any&#160;event injection and&#160;before execution&#160;of&#160;any instruction following VM entry.&#160;For&#160;<br/>example,&#160;any pending&#160;debug exceptions&#160;established by VM&#160;en<a href="o_fe12b1e2a880e0ce-1114.html">try (see Section 26.6.3</a>)&#160;take&#160;priority over a&#160;timer-<br/>induced VM&#160;exit. (The timer-induced&#160;VM&#160;exit&#160;will occur after delivery&#160;of&#160;the debug exception, unless&#160;that exception&#160;<br/>or its&#160;delivery causes&#160;a different&#160;VM&#160;exit.)<br/>Se<a href="o_fe12b1e2a880e0ce-1085.html">e Section 25.5.1&#160;</a>for details of the&#160;operation of the&#160;VMX-preemption timer&#160;in VMX non-root operation,&#160;including&#160;<br/>the blocking and&#160;priority&#160;of the VM&#160;exits&#160;that it&#160;causes.</p>
+<p style="position:absolute;top:752px;left:69px;white-space:nowrap" class="ft05">26.6.5 Interrupt-Window&#160;</p>
+<p style="position:absolute;top:752px;left:297px;white-space:nowrap" class="ft05">Exiting&#160;</p>
+<p style="position:absolute;top:752px;left:358px;white-space:nowrap" class="ft05">and Virtual-Interrupt Delivery</p>
+<p style="position:absolute;top:783px;left:69px;white-space:nowrap" class="ft07">If “interrupt-window exiting”&#160;VM-execution&#160;control is&#160;1,&#160;an open&#160;interrupt&#160;window may cause&#160;a VM&#160;exit immedi-<br/>ately after VM&#160;<a href="o_fe12b1e2a880e0ce-1079.html">entry (see Section 25.2 for&#160;</a>details).&#160;If the “interrupt-window exiting” VM-execution&#160;control is 0 but&#160;<br/>the “virtual-interrupt delivery”&#160;VM-execution&#160;control is&#160;1,&#160;a virtual interrupt may&#160;be&#160;delivered immediately&#160;after&#160;<br/>VM&#160;entry&#160;(s<a href="o_fe12b1e2a880e0ce-1109.html">ee Section 26.3.2.5&#160;</a><a href="o_fe12b1e2a880e0ce-1169.html">and Section 29.2.1).<br/></a>The&#160;following items detail the&#160;treatment of&#160;these&#160;events:</p>
+<p style="position:absolute;top:878px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:879px;left:95px;white-space:nowrap" class="ft02">These&#160;events&#160;occur after&#160;any&#160;event injection&#160;specified&#160;for VM&#160;entry.</p>
+<p style="position:absolute;top:901px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:901px;left:95px;white-space:nowrap" class="ft06">Non-maskable interrupts (NMIs) and higher priority&#160;events&#160;take&#160;priority&#160;over these&#160;events.&#160;These events take&#160;<br/>priority over external&#160;interrupts&#160;and lower priority&#160;events.&#160;</p>
+<p style="position:absolute;top:940px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:940px;left:95px;white-space:nowrap" class="ft06">These&#160;events&#160;wake&#160;the logical processor&#160;if&#160;it&#160;just&#160;entered&#160;the&#160;HLT&#160;state&#160;because&#160;of a VM&#160;entry (see<a href="o_fe12b1e2a880e0ce-1114.html">&#160;Section&#160;<br/>26.6.2).&#160;</a>They&#160;do&#160;not occur&#160;if&#160;the logical processor just&#160;entered&#160;the&#160;shutdown state or the wait-for-SIPI&#160;state.</p>
+<p style="position:absolute;top:1007px;left:69px;white-space:nowrap" class="ft05">26.6.6 NMI-Window&#160;</p>
+<p style="position:absolute;top:1007px;left:255px;white-space:nowrap" class="ft05">Exiting</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft06">The “NMI-window exiting”&#160;VM-execution&#160;control may&#160;cause a VM&#160;exit to&#160;occur immediately&#160;after VM&#160;entry&#160;(see&#160;<br/><a href="o_fe12b1e2a880e0ce-1079.html">Section 25.2 for details).</a></p>
+</div>
+</body>
+</html>

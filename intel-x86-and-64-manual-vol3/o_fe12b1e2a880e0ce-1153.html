@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1153</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1153-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1153.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;28-5</p>
+<p style="position:absolute;top:47px;left:581px;white-space:nowrap" class="ft01">VMX SUPPORT&#160;FOR ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:508px;left:94px;white-space:nowrap" class="ft07">An&#160;EPT&#160;page-directory comprises&#160;512&#160;64-bit&#160;entries (PDEs).&#160;An EPT PDE is selected using the physical&#160;address&#160;<br/>defined as&#160;follows:<br/>—&#160;Bits&#160;63:52 are&#160;all 0.<br/>—&#160;Bits&#160;51:12&#160;are from the&#160;EPT PDPTE.<br/>—&#160;Bits&#160;11:3 are&#160;bits&#160;29:21&#160;of&#160;the guest-physical&#160;address.<br/>—&#160;Bits&#160;2:0&#160;are&#160;all 0.</p>
+<p style="position:absolute;top:644px;left:69px;white-space:nowrap" class="ft06">Because&#160;an&#160;EPT PDE&#160;is&#160;identified&#160;using bits&#160;47:21 of the&#160;guest-physical address, it&#160;controls access&#160;to a&#160;2-MByte&#160;<br/>region&#160;of&#160;the guest-physical-address space.&#160;Use of&#160;the&#160;EPT PDE depends on&#160;the&#160;value of bit&#160;7&#160;in&#160;that&#160;entry:</p>
+<p style="position:absolute;top:682px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:683px;left:95px;white-space:nowrap" class="ft09">If bit&#160;7&#160;of the&#160;EPT&#160;PDE&#160;is 1,&#160;the&#160;EPT&#160;PDE&#160;maps&#160;a&#160;2-MByte page.&#160;The&#160;final physical address&#160;is computed&#160;as&#160;<br/>follows:<br/>—&#160;Bits&#160;63:52 are&#160;all 0.<br/>—&#160;Bits&#160;51:21&#160;are from the&#160;EPT PDE.<br/>—&#160;Bits&#160;20:0 are&#160;from&#160;the original guest-physical&#160;address.<br/>The format&#160;of&#160;an EPT PDE&#160;that maps&#160;a 2-MByte page&#160;is&#160;given in<a href="o_fe12b1e2a880e0ce-1154.html">&#160;Table&#160;28-4.</a></p>
+<p style="position:absolute;top:816px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:817px;left:95px;white-space:nowrap" class="ft07">If bit&#160;7&#160;of the&#160;EPT&#160;PDE&#160;is 0, a&#160;4-KByte&#160;naturally aligned EPT&#160;page table is&#160;located at&#160;the physical address&#160;<br/>specified&#160;in bits&#160;51:12&#160;of&#160;the EPT&#160;PDE.&#160;The&#160;format&#160;of&#160;an&#160;EPT PDE that references an EPT page table&#160;is&#160;given in&#160;<br/><a href="o_fe12b1e2a880e0ce-1155.html">Table&#160;28-5.<br/></a>An&#160;EPT page table&#160;comprises&#160;512 64-bit entries (PTEs).&#160;An&#160;EPT&#160;PTE&#160;is selected using a physical address defined&#160;<br/>as follows:<br/>—&#160;Bits&#160;63:52 are&#160;all 0.<br/>—&#160;Bits&#160;51:12&#160;are from the&#160;EPT PDE.<br/>—&#160;Bits&#160;11:3 are&#160;bits&#160;20:12&#160;of&#160;the guest-physical&#160;address.<br/>—&#160;Bits&#160;2:0&#160;are&#160;all 0.</p>
+<p style="position:absolute;top:1006px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1007px;left:95px;white-space:nowrap" class="ft07">Because an&#160;EPT PTE is&#160;identified using&#160;bits&#160;47:12 of&#160;the&#160;guest-physical address,&#160;every EPT&#160;PTE&#160;maps a&#160;4-KByte&#160;<br/>page. The&#160;final physical&#160;address is&#160;computed&#160;as follows:<br/>—&#160;Bits&#160;63:52 are&#160;all 0.</p>
+<p style="position:absolute;top:100px;left:71px;white-space:nowrap" class="ft04">Table 28-3.&#160;&#160;Format of&#160;an&#160;EPT Page-Directory-Pointer-Table&#160;Entry (PDPTE)&#160;that&#160;References&#160;an&#160;EPT&#160;Page Directory</p>
+<p style="position:absolute;top:133px;left:79px;white-space:nowrap" class="ft02">Bit&#160;</p>
+<p style="position:absolute;top:148px;left:79px;white-space:nowrap" class="ft02">Position(s)</p>
+<p style="position:absolute;top:133px;left:166px;white-space:nowrap" class="ft02">Contents</p>
+<p style="position:absolute;top:177px;left:79px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:177px;left:166px;white-space:nowrap" class="ft02">Read&#160;access; indicates whether reads&#160;are allowed from&#160;the&#160;1-GByte region&#160;controlled by&#160;this&#160;entry</p>
+<p style="position:absolute;top:205px;left:79px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:205px;left:166px;white-space:nowrap" class="ft02">Write&#160;access; indicates whether writes are allowed to&#160;the&#160;1-GByte region&#160;controlled by&#160;this&#160;entry</p>
+<p style="position:absolute;top:234px;left:79px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:234px;left:166px;white-space:nowrap" class="ft02">Execute access; indicates whether instruction fetches are&#160;allowed&#160;from&#160;the 1-GByte&#160;region&#160;controlled&#160;by&#160;this&#160;entry</p>
+<p style="position:absolute;top:262px;left:79px;white-space:nowrap" class="ft02">7:3</p>
+<p style="position:absolute;top:262px;left:166px;white-space:nowrap" class="ft02">Reserved&#160;(must be&#160;0)</p>
+<p style="position:absolute;top:290px;left:79px;white-space:nowrap" class="ft02">8</p>
+<p style="position:absolute;top:290px;left:166px;white-space:nowrap" class="ft02">If bit&#160;6&#160;of&#160;EPTP is 1, accessed flag for EPT; indicates&#160;whether software&#160;has accessed&#160;the 1-GByte&#160;region&#160;controlled&#160;</p>
+<p style="position:absolute;top:307px;left:166px;white-space:nowrap" class="ft02">by&#160;this&#160;entry&#160;(see<a href="o_fe12b1e2a880e0ce-1159.html">&#160;Section&#160;28.2.4)</a>. Ignored if bit&#160;6&#160;of&#160;EPTP is 0</p>
+<p style="position:absolute;top:335px;left:79px;white-space:nowrap" class="ft02">11:9</p>
+<p style="position:absolute;top:335px;left:166px;white-space:nowrap" class="ft02">Ignored</p>
+<p style="position:absolute;top:364px;left:79px;white-space:nowrap" class="ft02">(N–1):12</p>
+<p style="position:absolute;top:364px;left:166px;white-space:nowrap" class="ft02">Physical address of&#160;4-KByte&#160;aligned EPT page&#160;directory referenced&#160;by this entry</p>
+<p style="position:absolute;top:361px;left:622px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:393px;left:79px;white-space:nowrap" class="ft02">51:N</p>
+<p style="position:absolute;top:393px;left:166px;white-space:nowrap" class="ft02">Reserved&#160;(must be&#160;0)</p>
+<p style="position:absolute;top:421px;left:79px;white-space:nowrap" class="ft02">63:52</p>
+<p style="position:absolute;top:421px;left:166px;white-space:nowrap" class="ft02">Ignored</p>
+<p style="position:absolute;top:451px;left:71px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:470px;left:70px;white-space:nowrap" class="ft02">1.&#160;N is&#160;the&#160;physical-address&#160;width supported&#160;by the&#160;logical processor.</p>
+</div>
+</body>
+</html>

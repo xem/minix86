@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1749</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1749-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811749.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPEXPANDQ—Load Sparse&#160;Packed Quadword Integer Values from Dense Memory&#160;/ Register</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-363</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VPEXPANDQ—Load Sparse Packed Quadword&#160;Integer Values from Dense Memory / Register</p>
+<p style="position:absolute;top:356px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:441px;left:69px;white-space:nowrap" class="ft01">Description&#160;</p>
+<p style="position:absolute;top:463px;left:69px;white-space:nowrap" class="ft05">Expand&#160;(load)&#160;up&#160;to&#160;8&#160;quadword&#160;integer&#160;values&#160;from&#160;the&#160;source&#160;operand&#160;(the&#160;second&#160;operand)&#160;to&#160;sparse&#160;elements&#160;<br/>in&#160;the destination operand (the first operand), selected&#160;by the&#160;writemask&#160;k1. The destination operand&#160;is a&#160;ZMM&#160;<br/>register, the&#160;source&#160;operand&#160;can be a&#160;ZMM register&#160;or memory location.<br/>The input&#160;vector&#160;starts from the&#160;lowest&#160;element&#160;in the&#160;source operand. The opmask register&#160;k1 selects the&#160;desti-<br/>nation elements (a&#160;partial&#160;vector&#160;or sparse elements if&#160;less&#160;than 8&#160;elements)&#160;to be&#160;replaced&#160;by the&#160;ascending&#160;<br/>elements&#160;in the&#160;input vector.&#160;Destination elements not&#160;selected&#160;by&#160;the&#160;writemask&#160;k1 are&#160;either&#160;unmodified or&#160;<br/>zeroed, depending on EVEX.z.<br/>Note: EVEX.vvvv is&#160;reserved&#160;and must be&#160;1111b&#160;otherwise&#160;instructions will #UD.<br/>Note that&#160;the&#160;compressed displacement assumes&#160;a pre-scaling (N) corresponding to the size of one single element&#160;<br/>instead of the&#160;size&#160;of&#160;the full vector.</p>
+<p style="position:absolute;top:664px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:687px;left:69px;white-space:nowrap" class="ft07">VPEXPANDQ (EVEX&#160;encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>k&#160;&#160;0<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:759px;left:89px;white-space:nowrap" class="ft07">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:795px;left:116px;white-space:nowrap" class="ft04">THEN&#160;</p>
+<p style="position:absolute;top:813px;left:143px;white-space:nowrap" class="ft07">DEST[i+63:i]&#160;&#160;SRC[k+63:k];<br/>k&#160;&#160;k +&#160;64</p>
+<p style="position:absolute;top:849px;left:116px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:867px;left:143px;white-space:nowrap" class="ft04">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:867px;left:359px;white-space:nowrap" class="ft04">;&#160;merging-masking</p>
+<p style="position:absolute;top:885px;left:170px;white-space:nowrap" class="ft07">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:903px;left:365px;white-space:nowrap" class="ft04">zeroing-masking</p>
+<p style="position:absolute;top:921px;left:197px;white-space:nowrap" class="ft04">THEN DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:939px;left:143px;white-space:nowrap" class="ft04">FI</p>
+<p style="position:absolute;top:957px;left:89px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:975px;left:69px;white-space:nowrap" class="ft07">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;0</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:339px;white-space:nowrap" class="ft04">Op/</p>
+<p style="position:absolute;top:137px;left:339px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:383px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:383px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:152px;left:383px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:456px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:456px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:456px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:538px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:78px;white-space:nowrap" class="ft04">EVEX.128.66.0F38.W1&#160;89 /r</p>
+<p style="position:absolute;top:172px;left:339px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:172px;left:383px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:456px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:172px;left:539px;white-space:nowrap" class="ft04">Expand packed&#160;quad-word integer values from&#160;</p>
+<p style="position:absolute;top:188px;left:538px;white-space:nowrap" class="ft04">xmm2/m128&#160;to&#160;xmm1&#160;using writemask k1.</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">VPEXPANDQ xmm1&#160;{k1}{z}, xmm2/m128</p>
+<p style="position:absolute;top:191px;left:456px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:227px;left:78px;white-space:nowrap" class="ft04">EVEX.256.66.0F38.W1&#160;89 /r</p>
+<p style="position:absolute;top:227px;left:339px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:227px;left:383px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:227px;left:456px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:227px;left:539px;white-space:nowrap" class="ft04">Expand packed&#160;quad-word integer values from&#160;</p>
+<p style="position:absolute;top:244px;left:538px;white-space:nowrap" class="ft04">ymm2/m256 to&#160;ymm1&#160;using&#160;writemask k1.</p>
+<p style="position:absolute;top:247px;left:78px;white-space:nowrap" class="ft04">VPEXPANDQ ymm1 {k1}{z}, ymm2/m256</p>
+<p style="position:absolute;top:247px;left:456px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:283px;left:78px;white-space:nowrap" class="ft04">EVEX.512.66.0F38.W1&#160;89 /r</p>
+<p style="position:absolute;top:283px;left:339px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:283px;left:383px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:283px;left:456px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:283px;left:539px;white-space:nowrap" class="ft04">Expand packed&#160;quad-word integer values from&#160;</p>
+<p style="position:absolute;top:299px;left:538px;white-space:nowrap" class="ft04">zmm2/m512 to&#160;zmm1&#160;using&#160;writemask k1.</p>
+<p style="position:absolute;top:303px;left:78px;white-space:nowrap" class="ft04">VPEXPANDQ zmm1 {k1}{z},&#160;zmm2/m512</p>
+<p style="position:absolute;top:379px;left:106px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:379px;left:223px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:379px;left:384px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:379px;left:547px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:379px;left:717px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:403px;left:111px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:403px;left:210px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:403px;left:373px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:403px;left:568px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:403px;left:738px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

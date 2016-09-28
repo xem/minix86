@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 153</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page153-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a153.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:782px;white-space:nowrap" class="ft00">Vol. 1&#160;6-9</p>
+<p style="position:absolute;top:47px;left:541px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08"><a href="��">See Chapter 5, “Protection,” in the&#160;</a><i>Intel® 64&#160;and IA-32 Architectures Software&#160;Developer’s&#160;Manual, Volume 3A,</i>&#160;for&#160;<br/>detailed&#160;information on calls&#160;to privileged levels&#160;and the&#160;call gate&#160;descriptor.</p>
+<p style="position:absolute;top:167px;left:69px;white-space:nowrap" class="ft04">6.3.7&#160;</p>
+<p style="position:absolute;top:167px;left:149px;white-space:nowrap" class="ft04">Branch Functions in 64-Bit Mode</p>
+<p style="position:absolute;top:198px;left:69px;white-space:nowrap" class="ft08">The&#160;64-bit extensions expand branching&#160;mechanisms to&#160;accommodate branches in&#160;64-bit linear-address&#160;space.&#160;<br/>These are:</p>
+<p style="position:absolute;top:236px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:237px;left:95px;white-space:nowrap" class="ft02">Near-branch&#160;semantics are&#160;redefined in&#160;64-bit mode</p>
+<p style="position:absolute;top:259px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:259px;left:95px;white-space:nowrap" class="ft02">In 64-bit&#160;mode&#160;and compatibility mode, 64-bit&#160;call-gate&#160;descriptors&#160;for&#160;far&#160;calls are&#160;available</p>
+<p style="position:absolute;top:283px;left:69px;white-space:nowrap" class="ft09">In 64-bit mode,&#160;the operand size&#160;for all&#160;near branches (CALL, RET,&#160;JCC, JCXZ, JMP,&#160;and&#160;LOOP) is&#160;forced&#160;to 64&#160;bits.&#160;<br/>These&#160;instructions update the&#160;64-bit RIP&#160;without the&#160;need&#160;for a&#160;REX operand-size&#160;prefix.&#160;<br/>The following&#160;aspects of near&#160;branches&#160;are&#160;controlled&#160;by the&#160;effective&#160;operand size:</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:346px;left:95px;white-space:nowrap" class="ft02">Truncation of the&#160;size of&#160;the instruction pointer</p>
+<p style="position:absolute;top:368px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:369px;left:95px;white-space:nowrap" class="ft02">Size&#160;of a&#160;stack pop or push, due to&#160;a CALL&#160;or&#160;RET</p>
+<p style="position:absolute;top:391px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:391px;left:95px;white-space:nowrap" class="ft02">Size&#160;of a&#160;stack-pointer increment or&#160;decrement,&#160;due to&#160;a CALL&#160;or RET</p>
+<p style="position:absolute;top:413px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:414px;left:95px;white-space:nowrap" class="ft02">Indirect-branch operand&#160;size</p>
+<p style="position:absolute;top:438px;left:69px;white-space:nowrap" class="ft011">In 64-bit&#160;mode,&#160;all of the&#160;above actions&#160;are forced&#160;to&#160;64&#160;bits regardless of operand&#160;size prefixes (operand&#160;size&#160;<br/>prefixes are&#160;silently ignored).&#160;However,&#160;the&#160;displacement&#160;field for relative&#160;branches is still limited to 32&#160;bits and the&#160;<br/>address size&#160;for&#160;near branches&#160;is not forced in 64-bit&#160;mode.&#160;<br/>Address sizes&#160;affect the&#160;size of RCX used for JCXZ&#160;and LOOP; they&#160;also impact&#160;the address&#160;calculation for memory&#160;<br/>indirect&#160;branches.&#160;Such addresses are&#160;64&#160;bits by&#160;default;&#160;but&#160;they can&#160;be overridden&#160;to 32 bits&#160;by&#160;an address size&#160;<br/>prefix.<br/>Software typically uses far branches&#160;to change&#160;privilege&#160;levels.&#160;The legacy IA-32&#160;architecture provides&#160;the call-gate&#160;<br/>mechanism to allow software to branch from one privilege level to another,&#160;although call&#160;gates can also be used&#160;for&#160;<br/>branches&#160;that do not change&#160;privilege levels. When call&#160;gates&#160;are used,&#160;the&#160;selector&#160;portion of the direct or indirect&#160;<br/>pointer&#160;references&#160;a gate descriptor&#160;(the offset in&#160;the instruction&#160;is ignored). The&#160;offset to&#160;the destination’s code&#160;<br/>segment&#160;is taken from&#160;the call-gate&#160;descriptor.&#160;<br/>64-bit mode&#160;redefines the&#160;type&#160;value&#160;of a&#160;32-bit call-gate&#160;descriptor type to&#160;a 64-bit call gate descriptor&#160;and&#160;<br/>expands the&#160;size of&#160;the 64-bit descriptor&#160;to hold&#160;a 64-bit&#160;offset. The 64-bit&#160;mode call-gate&#160;descriptor allows far&#160;<br/>branches&#160;that reference any&#160;location&#160;in the&#160;supported linear-address space.&#160;These&#160;call gates also&#160;hold the&#160;target&#160;<br/>code selector&#160;(CS), allowing&#160;changes to&#160;privilege level&#160;and default size&#160;as a&#160;result of the&#160;gate transition.<br/>Because immediates&#160;are generally specified&#160;up&#160;to 32&#160;bits,&#160;the&#160;only&#160;way&#160;to specify a&#160;full&#160;64-bit absolute&#160;RIP in 64-<br/>bit&#160;mode&#160;is&#160;with&#160;an indirect branch.&#160;For this&#160;reason,&#160;direct&#160;far branches&#160;are&#160;eliminated&#160;from&#160;the instruction set in&#160;<br/>64-bit mode.<br/>64-bit mode&#160;also expands the&#160;semantics of&#160;the&#160;SYSENTER and SYSEXIT instructions so&#160;that the&#160;instructions&#160;<br/>operate within a&#160;64-bit memory&#160;space.&#160;The mode&#160;also&#160;introduces two new instructions: SYSCALL&#160;and SYSRET&#160;<br/>(which are&#160;valid only in 64-bit&#160;mode).&#160;For details, see<a href="��">&#160;“SYSENTER—Fast System&#160;Call,” “SYSEXIT—Fast Return&#160;from&#160;<br/>Fast&#160;System Call,” “SYSCALL—Fast System&#160;Call,”&#160;and “SYSRET—Return From&#160;Fast&#160;System Call” in&#160;Chapter 4,&#160;<br/>“Instruction Set&#160;Reference,&#160;M-U,” of the&#160;</a><i>Intel® 64&#160;and IA-32&#160;Architectures&#160;Software&#160;Developer’s Manual,&#160;Volume&#160;<br/>2B.</i></p>
+<p style="position:absolute;top:910px;left:69px;white-space:nowrap" class="ft06">6.4&#160;</p>
+<p style="position:absolute;top:910px;left:148px;white-space:nowrap" class="ft06">INTERRUPTS AND EXCEPTIONS</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft02">The processor provides two mechanisms for interrupting program execution, interrupts&#160;and&#160;exceptions:</p>
+<p style="position:absolute;top:968px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:969px;left:95px;white-space:nowrap" class="ft02">An&#160;<b>interrupt&#160;</b>is&#160;an asynchronous event&#160;that&#160;is&#160;typically triggered by an&#160;I/O device.</p>
+<p style="position:absolute;top:991px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:991px;left:95px;white-space:nowrap" class="ft08">An&#160;<b>exception</b>&#160;is a&#160;synchronous event that&#160;is generated when&#160;the&#160;processor&#160;detects one&#160;or more&#160;predefined&#160;<br/>conditions while executing an&#160;instruction. The&#160;IA-32&#160;architecture&#160;specifies three classes of exceptions:&#160;faults,&#160;<br/>traps, and&#160;aborts.&#160;</p>
+</div>
+</body>
+</html>

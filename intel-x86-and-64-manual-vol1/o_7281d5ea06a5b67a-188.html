@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 188</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page188-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a188.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">7-24&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH GENERAL-PURPOSE INSTRUCTIONS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">The UD2 (undefined)&#160;instruction&#160;generates&#160;an invalid opcode&#160;exception. Intel&#160;reserves&#160;the opcode for&#160;this&#160;instruc-<br/>tion&#160;for&#160;this function. The instruction is&#160;provided&#160;to allow software&#160;to test an invalid opcode&#160;exception&#160;handler.</p>
+<p style="position:absolute;top:167px;left:68px;white-space:nowrap" class="ft03">7.3.17&#160;</p>
+<p style="position:absolute;top:167px;left:148px;white-space:nowrap" class="ft03">Random Number Generator Instructions</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft05">The instructions for generating&#160;random&#160;numbers to&#160;comply with NIST&#160;SP800-90A,&#160;SP800-90B,&#160;and&#160;SP800-90C&#160;<br/>standards are described in&#160;this&#160;section.</p>
+<p style="position:absolute;top:257px;left:68px;white-space:nowrap" class="ft04">7.3.17.1&#160;&#160;&#160;RDRAND</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft05">The RDRAND instruction&#160;returns&#160;a random&#160;number.&#160;All&#160;Intel processors that&#160;support the&#160;RDRAND instruction indi-<br/>cate the&#160;availability of the&#160;RDRAND instruction&#160;via&#160;reporting CPUID.01H:ECX.RDRAND[bit&#160;30] =&#160;1.<br/>RDRAND returns random&#160;numbers that&#160;are supplied by a&#160;cryptographically secure,&#160;deterministic&#160;random bit gener-<br/>ator&#160;DRBG.&#160;The&#160;DRBG is&#160;designed&#160;to&#160;meet&#160;the&#160;NIST&#160;SP&#160;800-90A&#160;standard.&#160;The DRBG is re-seeded frequently from&#160;<br/>an on-chip&#160;non-deterministic entropy source to guarantee&#160;data returned&#160;by&#160;RDRAND is&#160;statistically&#160;uniform,&#160;non-<br/>periodic and&#160;non-deterministic.<br/>In order for the&#160;hardware&#160;design to meet its&#160;security&#160;goals,&#160;the random number generator&#160;continuously tests itself&#160;<br/>and&#160;the&#160;random data&#160;it&#160;is generating. Runtime failures in&#160;the&#160;random number&#160;generator circuitry or&#160;statistically&#160;<br/>anomalous&#160;data occurring&#160;by&#160;chance will be detected&#160;by the&#160;self test hardware&#160;and&#160;flag the&#160;resulting data as&#160;being&#160;<br/>bad. In&#160;such extremely rare cases,&#160;the RDRAND&#160;instruction&#160;will&#160;return no data instead of bad data.<br/>Under heavy load, with&#160;multiple&#160;cores&#160;executing RDRAND in&#160;parallel, it is&#160;possible, though unlikely,&#160;for the demand&#160;<br/>of random numbers&#160;by&#160;software processes/threads to&#160;exceed the&#160;rate&#160;at which the&#160;random&#160;number&#160;generator&#160;<br/>hardware can&#160;supply them. This&#160;will&#160;lead to&#160;the&#160;RDRAND&#160;instruction&#160;returning no data&#160;transitorily. The&#160;RDRAND&#160;<br/>instruction&#160;indicates&#160;the&#160;occurrence&#160;of this&#160;rare situation&#160;by&#160;clearing&#160;the CF flag.<br/>The RDRAND instruction&#160;returns&#160;with&#160;the carry flag&#160;set&#160;(CF&#160;= 1) to indicate&#160;valid data&#160;is returned.&#160;It is&#160;recom-<br/>mended that software&#160;using the&#160;RDRAND instruction to&#160;get&#160;random numbers&#160;retry for a&#160;limited&#160;number&#160;of itera-<br/>tions while RDRAND returns&#160;CF=0&#160;and complete&#160;when valid&#160;data&#160;is returned,&#160;indicated with CF=1.&#160;This will deal&#160;<br/>with&#160;transitory underflows. A retry&#160;limit should&#160;be&#160;employed to&#160;prevent a&#160;hard failure&#160;in&#160;the RNG (expected&#160;to be&#160;<br/>extremely rare) leading&#160;to a busy&#160;loop in&#160;software.<br/>The&#160;intrinsic&#160;primitive&#160;for RDRAND&#160;is&#160;defined to&#160;address&#160;software’s&#160;need for the&#160;common cases (CF = 1)&#160;and&#160;the&#160;<br/>rare situations&#160;(CF&#160;= 0).&#160;The intrinsic primitive returns&#160;a&#160;value that reflects the&#160;value&#160;of&#160;the carry flag&#160;returned by&#160;<br/>the underlying RDRAND&#160;instruction.&#160;The&#160;example below illustrates the recommended usage of an RDRAND intrinsic&#160;<br/>in a utility function, a loop to fetch a&#160;64 bit random value&#160;with a&#160;retry&#160;count limit of 10. A C implementation might&#160;<br/>be written&#160;as follows:</p>
+<p style="position:absolute;top:740px;left:68px;white-space:nowrap" class="ft08">----------------------------------------------------------------------------------------<br/>#define SUCCESS&#160;1<br/>#define&#160;RETRY_LIMIT_EXCEEDED&#160;0<br/>#define RETRY_LIMIT 10</p>
+<p style="position:absolute;top:836px;left:68px;white-space:nowrap" class="ft08">int get_random_64( unsigned __int&#160;64 * arand)<br/>{int i&#160;;&#160;</p>
+<p style="position:absolute;top:872px;left:88px;white-space:nowrap" class="ft02">for (&#160;i&#160;=&#160;0;&#160;i&#160;&lt;&#160;RETRY_LIMIT;&#160;i&#160;++)&#160;{</p>
+<p style="position:absolute;top:890px;left:115px;white-space:nowrap" class="ft02">if(_rdrand64_step(arand)&#160;) return SUCCESS;</p>
+<p style="position:absolute;top:908px;left:88px;white-space:nowrap" class="ft08">}<br/>return RETRY_LIMIT_EXCEEDED;</p>
+<p style="position:absolute;top:944px;left:68px;white-space:nowrap" class="ft09">}<br/>-------------------------------------------------------------------------------</p>
+<p style="position:absolute;top:1006px;left:68px;white-space:nowrap" class="ft04">7.3.17.2&#160;&#160;&#160;RDSEED</p>
+<p style="position:absolute;top:1033px;left:68px;white-space:nowrap" class="ft05">The&#160;RDSEED instruction returns a&#160;random number.&#160;All Intel&#160;processors&#160;that support the&#160;RDSEED instruction indi-<br/>cate the availability of the RDSEED instruction via reporting CPUID.(EAX=07H, ECX=0H):EBX.RDSEED[bit&#160;18] = 1.</p>
+</div>
+</body>
+</html>

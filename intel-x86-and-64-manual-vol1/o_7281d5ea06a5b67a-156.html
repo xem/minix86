@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 156</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page156-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a156.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-12&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:596px;left:68px;white-space:nowrap" class="ft05">If&#160;a stack switch&#160;does occur,&#160;the processor does the&#160;following:<br/>1.&#160;Temporarily saves (internally) the&#160;current contents&#160;of&#160;the&#160;SS,&#160;ESP,&#160;EFLAGS, CS,&#160;and EIP&#160;registers.<br/>2.&#160;Loads&#160;the&#160;segment selector&#160;and stack pointer for the&#160;new stack&#160;(that is, the&#160;stack for the&#160;privilege&#160;level&#160;being&#160;</p>
+<p style="position:absolute;top:661px;left:93px;white-space:nowrap" class="ft02">called) from the&#160;TSS&#160;into the&#160;SS&#160;and ESP registers and switches to&#160;the new stack.</p>
+<p style="position:absolute;top:685px;left:68px;white-space:nowrap" class="ft02">3.&#160;Pushes&#160;the temporarily&#160;saved SS,&#160;ESP,&#160;EFLAGS, CS,&#160;and&#160;EIP&#160;values for the&#160;interrupted procedure’s&#160;stack onto&#160;</p>
+<p style="position:absolute;top:701px;left:93px;white-space:nowrap" class="ft02">the new stack.</p>
+<p style="position:absolute;top:725px;left:68px;white-space:nowrap" class="ft04">4.&#160;Pushes&#160;an error&#160;code&#160;on the&#160;new&#160;stack (if appropriate).<br/>5.&#160;Loads the segment selector for the&#160;new code segment and the new instruction pointer (from the interrupt gate&#160;</p>
+<p style="position:absolute;top:766px;left:93px;white-space:nowrap" class="ft02">or trap gate) into&#160;the CS&#160;and EIP&#160;registers,&#160;respectively.</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft04">6.&#160;If the call&#160;is through an&#160;interrupt gate, clears&#160;the IF&#160;flag&#160;in&#160;the&#160;EFLAGS register.<br/>7.&#160;Begins&#160;execution of&#160;the&#160;handler&#160;procedure at&#160;the new privilege&#160;level.<br/>A return from an interrupt or exception handler is initiated&#160;with the&#160;IRET instruction. The&#160;IRET&#160;instruction&#160;is&#160;similar&#160;<br/>to the far RET instruction, except that it also restores&#160;the contents of the EFLAGS register for the interrupted proce-<br/>dure.&#160;When executing a&#160;return from&#160;an interrupt&#160;or exception&#160;handler from the&#160;same privilege&#160;level as&#160;the inter-<br/>rupted&#160;procedure, the processor&#160;performs these actions:<br/>1.&#160;Restores&#160;the CS&#160;and EIP&#160;registers to&#160;their values&#160;prior to&#160;the interrupt&#160;or exception.<br/>2.&#160;Restores&#160;the EFLAGS&#160;register.<br/>3.&#160;Increments the&#160;stack pointer&#160;appropriately.<br/>4.&#160;Resumes&#160;execution of&#160;the interrupted procedure.<br/>When executing a return from an interrupt or exception handler from&#160;a different privilege&#160;level than the interrupted&#160;<br/>procedure,&#160;the&#160;processor&#160;performs these actions:<br/>1.&#160;Performs&#160;a privilege check.</p>
+<p style="position:absolute;top:550px;left:172px;white-space:nowrap" class="ft03">Figure&#160;6-5.&#160;&#160;Stack Usage&#160;on&#160;Transfers to&#160;Interrupt and&#160;Exception Handling&#160;Routines</p>
+<p style="position:absolute;top:457px;left:582px;white-space:nowrap" class="ft00">&#160;CS</p>
+<p style="position:absolute;top:261px;left:293px;white-space:nowrap" class="ft00">Error Code</p>
+<p style="position:absolute;top:215px;left:299px;white-space:nowrap" class="ft00">EFLAGS</p>
+<p style="position:absolute;top:230px;left:313px;white-space:nowrap" class="ft00">CS</p>
+<p style="position:absolute;top:245px;left:309px;white-space:nowrap" class="ft00">&#160;EIP</p>
+<p style="position:absolute;top:262px;left:411px;white-space:nowrap" class="ft00">ESP&#160;After</p>
+<p style="position:absolute;top:274px;left:411px;white-space:nowrap" class="ft00">Transfer&#160;to&#160;Handler</p>
+<p style="position:absolute;top:489px;left:568px;white-space:nowrap" class="ft00">Error Code</p>
+<p style="position:absolute;top:394px;left:411px;white-space:nowrap" class="ft00">ESP Before</p>
+<p style="position:absolute;top:407px;left:411px;white-space:nowrap" class="ft00">Transfer&#160;to&#160;Handler</p>
+<p style="position:absolute;top:441px;left:567px;white-space:nowrap" class="ft00">&#160;EFLAGS</p>
+<p style="position:absolute;top:473px;left:582px;white-space:nowrap" class="ft00">&#160;EIP</p>
+<p style="position:absolute;top:410px;left:583px;white-space:nowrap" class="ft00">&#160;SS</p>
+<p style="position:absolute;top:426px;left:579px;white-space:nowrap" class="ft00">&#160;ESP</p>
+<p style="position:absolute;top:120px;left:411px;white-space:nowrap" class="ft00">Stack&#160;Usage with No</p>
+<p style="position:absolute;top:133px;left:406px;white-space:nowrap" class="ft00">Privilege-Level&#160;Change</p>
+<p style="position:absolute;top:322px;left:417px;white-space:nowrap" class="ft00">Stack Usage&#160;with</p>
+<p style="position:absolute;top:335px;left:403px;white-space:nowrap" class="ft00">Privilege-Level Change</p>
+<p style="position:absolute;top:354px;left:260px;white-space:nowrap" class="ft00">Interrupted Procedure’s&#160;</p>
+<p style="position:absolute;top:147px;left:261px;white-space:nowrap" class="ft00">Interrupted Procedure’s</p>
+<p style="position:absolute;top:160px;left:272px;white-space:nowrap" class="ft00">and Handler’s Stack</p>
+<p style="position:absolute;top:360px;left:559px;white-space:nowrap" class="ft00">Handler’s Stack</p>
+<p style="position:absolute;top:488px;left:457px;white-space:nowrap" class="ft00">ESP After</p>
+<p style="position:absolute;top:501px;left:407px;white-space:nowrap" class="ft00">Transfer&#160;to&#160;Handler</p>
+<p style="position:absolute;top:211px;left:413px;white-space:nowrap" class="ft00">Transfer&#160;to&#160;Handler</p>
+<p style="position:absolute;top:199px;left:414px;white-space:nowrap" class="ft00">ESP Before</p>
+<p style="position:absolute;top:368px;left:307px;white-space:nowrap" class="ft00">Stack</p>
+</div>
+</body>
+</html>

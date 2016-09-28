@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 656</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page656-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481656.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:731px;white-space:nowrap" class="ft00">LFENCE—Load Fence</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-528&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">LFENCE—Load Fence</p>
+<p style="position:absolute;top:217px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:300px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft06">Performs&#160;a serializing&#160;operation on all&#160;load-from-memory&#160;instructions that&#160;were&#160;issued prior&#160;the LFENCE instruc-<br/>tion.&#160;Specifically, LFENCE does not&#160;execute&#160;until&#160;all&#160;prior instructions have&#160;completed locally,&#160;and&#160;no later&#160;instruc-<br/>tion begins execution until LFENCE completes.&#160;In particular, an instruction&#160;that&#160;loads&#160;from memory and&#160;that&#160;<br/>precedes an&#160;LFENCE&#160;receives data from memory&#160;prior&#160;to&#160;completion of the&#160;LFENCE. (An&#160;LFENCE&#160;that follows&#160;an&#160;<br/>instruction&#160;that stores&#160;to memory might&#160;complete&#160;<b>before</b>&#160;the data being&#160;stored&#160;have&#160;become globally visible.)&#160;<br/>Instructions following&#160;an LFENCE may be&#160;fetched from&#160;memory before the LFENCE, but they&#160;will not execute&#160;until&#160;<br/>the LFENCE completes.&#160;<br/>Weakly ordered&#160;memory&#160;types&#160;can be used&#160;to achieve&#160;higher processor performance&#160;through such techniques as&#160;<br/>out-of-order&#160;issue and&#160;speculative&#160;reads.&#160;The&#160;degree&#160;to&#160;which&#160;a consumer of data recognizes or&#160;knows&#160;that the&#160;<br/>data&#160;is weakly&#160;ordered varies&#160;among applications and may be unknown to&#160;the producer of this&#160;data. The&#160;LFENCE&#160;<br/>instruction&#160;provides a&#160;performance-efficient way of&#160;ensuring&#160;load ordering between routines&#160;that produce weakly-<br/>ordered results and&#160;routines&#160;that consume&#160;that&#160;data.<br/>Processors are&#160;free&#160;to fetch and cache data speculatively&#160;from regions of system memory that use the WB, WC, and&#160;<br/>WT memory types. This speculative fetching can occur at any time&#160;and is not tied to instruction execution. Thus, it&#160;<br/>is not&#160;ordered with respect to&#160;executions of&#160;the LFENCE&#160;instruction; data&#160;can be brought into the&#160;caches&#160;specula-<br/>tively just before,&#160;during,&#160;or after&#160;the execution&#160;of&#160;an LFENCE&#160;instruction.<br/>This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.<br/>Specification of the&#160;instruction's opcode&#160;above&#160;indicates&#160;a ModR/M&#160;byte&#160;of E8. For this instruction, the&#160;processor&#160;<br/>ignores the r/m field of&#160;the ModR/M byte. Thus, LFENCE is&#160;encoded&#160;by any&#160;opcode of&#160;the form 0F AE Ex,&#160;where x is&#160;<br/>in&#160;the range 8-F.</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:733px;left:68px;white-space:nowrap" class="ft04">Wait_On_Following_Instructions_Until(preceding_instructions_complete);</p>
+<p style="position:absolute;top:767px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:793px;left:68px;white-space:nowrap" class="ft04">void _mm_lfence(void)</p>
+<p style="position:absolute;top:824px;left:68px;white-space:nowrap" class="ft03">Exceptions (All Modes of&#160;Operation)</p>
+<p style="position:absolute;top:847px;left:68px;white-space:nowrap" class="ft04">#UD&#160;</p>
+<p style="position:absolute;top:847px;left:206px;white-space:nowrap" class="ft09">If&#160;CPUID.01H:EDX.SSE2[bit 26] = 0.<br/>If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:123px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:425px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F&#160;AE E8</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">LFENCE</p>
+<p style="position:absolute;top:160px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Serializes&#160;load&#160;operations.</p>
+<p style="position:absolute;top:240px;left:86px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:240px;left:193px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:240px;left:363px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:240px;left:538px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:240px;left:716px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:263px;left:95px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:263px;left:214px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:384px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:559px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:737px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

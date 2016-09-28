@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1239</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1239-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811239.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">RET—Return from Procedure</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-559</p>
+<p style="position:absolute;top:100px;left:170px;white-space:nowrap" class="ft02">ESP&#160;←&#160;ESP&#160;+&#160;SRC;</p>
+<p style="position:absolute;top:118px;left:143px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:136px;left:170px;white-space:nowrap" class="ft02">IF StackAddressSize&#160;= 16</p>
+<p style="position:absolute;top:154px;left:197px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:172px;left:224px;white-space:nowrap" class="ft02">SP&#160;←&#160;SP&#160;+&#160;SRC;</p>
+<p style="position:absolute;top:190px;left:197px;white-space:nowrap" class="ft02">ELSE (* StackAddressSize&#160;</p>
+<p style="position:absolute;top:190px;left:346px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:191px;left:354px;white-space:nowrap" class="ft02">&#160;64&#160;*)</p>
+<p style="position:absolute;top:208px;left:224px;white-space:nowrap" class="ft02">RSP&#160;←&#160;RSP&#160;+&#160;SRC;</p>
+<p style="position:absolute;top:226px;left:170px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:244px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft04">IA-32E-MODE-RETURN-TO-OUTER-PRIVILEGE-LEVEL:<br/>IF&#160;top (16&#160;+&#160;SRC) bytes of&#160;stack are&#160;not within stack limits&#160;(OperandSize&#160;</p>
+<p style="position:absolute;top:316px;left:482px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:317px;left:490px;white-space:nowrap" class="ft02">&#160;32)&#160;</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft02">or&#160;top (8&#160;+&#160;SRC) bytes of&#160;stack&#160;are&#160;not within&#160;stack&#160;limits (OperandSize&#160;</p>
+<p style="position:absolute;top:334px;left:476px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:335px;left:484px;white-space:nowrap" class="ft02">&#160;16)</p>
+<p style="position:absolute;top:352px;left:89px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft02">IF&#160;top (16&#160;+&#160;SRC) bytes of&#160;stack&#160;are&#160;not in&#160;canonical address space&#160;(OperandSize&#160;</p>
+<p style="position:absolute;top:370px;left:529px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:370px;left:541px;white-space:nowrap" class="ft02">32)&#160;</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft02">or&#160;top (8&#160;+&#160;SRC) bytes of&#160;stack are not in canonical address space (OperandSize&#160;</p>
+<p style="position:absolute;top:388px;left:523px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:388px;left:535px;white-space:nowrap" class="ft02">16)</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft02">or&#160;top (32&#160;+ SRC) bytes of&#160;stack are&#160;not in&#160;canonical address space&#160;(OperandSize&#160;= 64)</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft04">Read return stack segment selector;<br/>IF&#160;stack segment selector is NULL</p>
+<p style="position:absolute;top:478px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:496px;left:116px;white-space:nowrap" class="ft02">IF&#160;new&#160;CS&#160;descriptor&#160;L-bit = 0&#160;</p>
+<p style="position:absolute;top:514px;left:143px;white-space:nowrap" class="ft02">THEN #GP(selector);</p>
+<p style="position:absolute;top:532px;left:116px;white-space:nowrap" class="ft02">IF stack segment selector RPL = 3</p>
+<p style="position:absolute;top:550px;left:143px;white-space:nowrap" class="ft02">THEN #GP(selector);</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft04">FI;<br/>IF&#160;return&#160;stack segment&#160;descriptor&#160;is&#160;not&#160;within descriptor table limits</p>
+<p style="position:absolute;top:604px;left:116px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft02">IF&#160;return&#160;stack segment&#160;descriptor&#160;is&#160;in&#160;non-canonical address space</p>
+<p style="position:absolute;top:640px;left:116px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft04">Read&#160;segment descriptor pointed to&#160;by return&#160;segment selector;<br/>IF&#160;stack segment selector RPL&#160;</p>
+<p style="position:absolute;top:676px;left:244px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:676px;left:256px;white-space:nowrap" class="ft02">RPL&#160;of&#160;the return&#160;code&#160;segment selector</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft04">or&#160;stack&#160;segment is not&#160;a writable&#160;data segment<br/>or&#160;stack segment&#160;descriptor&#160;DPL&#160;</p>
+<p style="position:absolute;top:712px;left:258px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:712px;left:270px;white-space:nowrap" class="ft02">RPL of the return code&#160;segment selector</p>
+<p style="position:absolute;top:730px;left:89px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft02">IF&#160;stack segment not present&#160;</p>
+<p style="position:absolute;top:766px;left:89px;white-space:nowrap" class="ft02">THEN #SS(StackSegmentSelector); FI;</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft02">IF&#160;the return&#160;instruction pointer&#160;is not within the return&#160;code segment limit&#160;</p>
+<p style="position:absolute;top:802px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI:</p>
+<p style="position:absolute;top:820px;left:69px;white-space:nowrap" class="ft02">IF&#160;the return&#160;instruction pointer&#160;is not within&#160;canonical address space&#160;</p>
+<p style="position:absolute;top:838px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:856px;left:69px;white-space:nowrap" class="ft02">CPL&#160;←&#160;ReturnCodeSegmentSelector(RPL);</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:874px;left:158px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:875px;left:166px;white-space:nowrap" class="ft02">&#160;32</p>
+<p style="position:absolute;top:892px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:910px;left:116px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:928px;left:116px;white-space:nowrap" class="ft02">CS&#160;←&#160;Pop(); (* 32-bit pop, high-order 16 bits discarded, segment descriptor&#160;loaded&#160;*)</p>
+<p style="position:absolute;top:946px;left:116px;white-space:nowrap" class="ft02">CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:964px;left:116px;white-space:nowrap" class="ft02">IF instruction has immediate operand</p>
+<p style="position:absolute;top:982px;left:143px;white-space:nowrap" class="ft02">THEN&#160;(* Release&#160;parameters from&#160;called procedure’s stack *)</p>
+<p style="position:absolute;top:1000px;left:170px;white-space:nowrap" class="ft02">IF StackAddressSize</p>
+<p style="position:absolute;top:999px;left:285px;white-space:nowrap" class="ft03">&#160;=</p>
+<p style="position:absolute;top:1001px;left:297px;white-space:nowrap" class="ft02">&#160;32</p>
+<p style="position:absolute;top:1018px;left:197px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:1036px;left:224px;white-space:nowrap" class="ft02">ESP&#160;←&#160;ESP&#160;+&#160;SRC;</p>
+<p style="position:absolute;top:1054px;left:197px;white-space:nowrap" class="ft02">ELSE</p>
+</div>
+</body>
+</html>

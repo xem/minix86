@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 152</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:9px;font-family:Times;color:#000000;}
+	.ft06{font-size:9px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page152-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a152.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-8&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:596px;left:68px;white-space:nowrap" class="ft02">3.&#160;Loads&#160;the&#160;segment selector&#160;and stack pointer for the&#160;new stack&#160;(that is, the&#160;stack for the&#160;privilege&#160;level&#160;being&#160;</p>
+<p style="position:absolute;top:612px;left:93px;white-space:nowrap" class="ft02">called) from the&#160;TSS&#160;into the&#160;SS&#160;and ESP registers and switches to&#160;the new stack.</p>
+<p style="position:absolute;top:636px;left:68px;white-space:nowrap" class="ft07">4.&#160;Pushes&#160;the temporarily&#160;saved SS&#160;and ESP values&#160;for&#160;the calling procedure’s&#160;stack onto the&#160;new&#160;stack.<br/>5.&#160;Copies the&#160;parameters from&#160;the&#160;calling&#160;procedure’s stack to&#160;the new&#160;stack. A value&#160;in&#160;the call gate descriptor&#160;</p>
+<p style="position:absolute;top:677px;left:93px;white-space:nowrap" class="ft02">determines how many&#160;parameters&#160;to copy to&#160;the new stack.</p>
+<p style="position:absolute;top:700px;left:68px;white-space:nowrap" class="ft08">6.&#160;Pushes&#160;the&#160;temporarily saved&#160;CS and&#160;EIP values&#160;for&#160;the&#160;calling procedure to&#160;the new stack.<br/>7.&#160;Loads&#160;the&#160;segment selector&#160;for&#160;the new code segment and the&#160;new instruction pointer&#160;from&#160;the call&#160;gate&#160;into&#160;</p>
+<p style="position:absolute;top:741px;left:93px;white-space:nowrap" class="ft02">the&#160;CS&#160;and&#160;EIP registers,&#160;respectively.</p>
+<p style="position:absolute;top:765px;left:68px;white-space:nowrap" class="ft08">8.&#160;Begins execution&#160;of the&#160;called&#160;procedure at&#160;the new privilege&#160;level.<br/>When executing a&#160;return from the&#160;privileged procedure,&#160;the&#160;processor&#160;performs these&#160;actions:<br/>1.&#160;Performs&#160;a privilege check.<br/>2.&#160;Restores the&#160;CS and&#160;EIP registers&#160;to their&#160;values prior&#160;to the&#160;call.<br/>3.&#160;If&#160;the&#160;RET instruction has an&#160;optional&#160;<i>n</i>&#160;argument, increments&#160;the stack pointer by the number of&#160;bytes&#160;</p>
+<p style="position:absolute;top:878px;left:93px;white-space:nowrap" class="ft09">specified with the&#160;<i>n</i>&#160;operand&#160;to release parameters&#160;from the&#160;stack.&#160;If&#160;the call gate descriptor specifies&#160;that one&#160;<br/>or&#160;more&#160;parameters be copied&#160;from&#160;one stack to&#160;the other,&#160;a&#160;RET&#160;<i>n</i>&#160;instruction must be&#160;used&#160;to&#160;release&#160;the&#160;<br/>parameters from both&#160;stacks.&#160;Here, the&#160;<i>n</i>&#160;operand&#160;specifies the&#160;number of&#160;bytes occupied&#160;on each&#160;stack by the&#160;<br/>parameters. On a&#160;return,&#160;the processor increments&#160;ESP&#160;by&#160;<i>n</i>&#160;for each&#160;stack to step&#160;over (effectively remove)&#160;<br/>these parameters&#160;from the&#160;stacks.</p>
+<p style="position:absolute;top:968px;left:68px;white-space:nowrap" class="ft02">4.&#160;Restores&#160;the SS&#160;and&#160;ESP&#160;registers&#160;to their&#160;values prior&#160;to the&#160;call, which&#160;causes&#160;a switch back&#160;to&#160;the stack&#160;of&#160;</p>
+<p style="position:absolute;top:984px;left:93px;white-space:nowrap" class="ft02">the calling procedure.</p>
+<p style="position:absolute;top:1008px;left:68px;white-space:nowrap" class="ft02">5.&#160;If&#160;the&#160;RET instruction has an&#160;optional&#160;<i>n</i>&#160;argument, increments&#160;the stack pointer by the number of&#160;bytes&#160;</p>
+<p style="position:absolute;top:1024px;left:93px;white-space:nowrap" class="ft02">specified with the&#160;<i>n</i>&#160;operand to&#160;release parameters&#160;from the stack (see explanation&#160;in step 3).</p>
+<p style="position:absolute;top:1049px;left:68px;white-space:nowrap" class="ft02">6.&#160;Resumes execution&#160;of the&#160;calling procedure.</p>
+<p style="position:absolute;top:550px;left:240px;white-space:nowrap" class="ft04">Figure&#160;6-4. &#160;Stack Switch on a Call to&#160;a Different Privilege&#160;Level</p>
+<p style="position:absolute;top:210px;left:293px;white-space:nowrap" class="ft010">Param 1<br/>Param 2</p>
+<p style="position:absolute;top:241px;left:389px;white-space:nowrap" class="ft00">ESP Before Call</p>
+<p style="position:absolute;top:134px;left:293px;white-space:nowrap" class="ft05"><b>Stack for</b></p>
+<p style="position:absolute;top:146px;left:267px;white-space:nowrap" class="ft05"><b>Calling Procedure</b></p>
+<p style="position:absolute;top:274px;left:436px;white-space:nowrap" class="ft00">ESP After Call</p>
+<p style="position:absolute;top:135px;left:563px;white-space:nowrap" class="ft05"><b>Stack for</b></p>
+<p style="position:absolute;top:147px;left:539px;white-space:nowrap" class="ft05"><b>Called Procedure</b></p>
+<p style="position:absolute;top:180px;left:561px;white-space:nowrap" class="ft00">Calling SS</p>
+<p style="position:absolute;top:197px;left:557px;white-space:nowrap" class="ft00">Calling ESP</p>
+<p style="position:absolute;top:258px;left:561px;white-space:nowrap" class="ft00">Calling CS</p>
+<p style="position:absolute;top:211px;left:567px;white-space:nowrap" class="ft010">Param 1<br/>Param 2</p>
+<p style="position:absolute;top:274px;left:560px;white-space:nowrap" class="ft00">Calling EIP</p>
+<p style="position:absolute;top:218px;left:182px;white-space:nowrap" class="ft011">Stack Frame<br/>Before Call</p>
+<p style="position:absolute;top:224px;left:655px;white-space:nowrap" class="ft011">Stack Frame<br/>After Call</p>
+<p style="position:absolute;top:242px;left:293px;white-space:nowrap" class="ft00">Param 3</p>
+<p style="position:absolute;top:242px;left:567px;white-space:nowrap" class="ft00">Param 3</p>
+<p style="position:absolute;top:361px;left:390px;white-space:nowrap" class="ft00">ESP After Return</p>
+<p style="position:absolute;top:440px;left:410px;white-space:nowrap" class="ft00">ESP Before&#160;Return</p>
+<p style="position:absolute;top:346px;left:561px;white-space:nowrap" class="ft00">Calling SS</p>
+<p style="position:absolute;top:363px;left:557px;white-space:nowrap" class="ft00">Calling ESP</p>
+<p style="position:absolute;top:425px;left:561px;white-space:nowrap" class="ft00">Calling CS</p>
+<p style="position:absolute;top:377px;left:567px;white-space:nowrap" class="ft010">Param 1<br/>Param 2</p>
+<p style="position:absolute;top:441px;left:560px;white-space:nowrap" class="ft00">Calling EIP</p>
+<p style="position:absolute;top:409px;left:567px;white-space:nowrap" class="ft00">Param 3</p>
+<p style="position:absolute;top:377px;left:295px;white-space:nowrap" class="ft012">Param 1<br/>Param 2<br/>Param 3</p>
+<p style="position:absolute;top:487px;left:352px;white-space:nowrap" class="ft00">Note: On a return,&#160;parameters are</p>
+<p style="position:absolute;top:501px;left:384px;white-space:nowrap" class="ft011">released on both stacks based&#160;on the<br/>optional&#160;<i>n&#160;</i>operand in&#160;the RET&#160;<i>n</i>&#160;instruction.</p>
+</div>
+</body>
+</html>

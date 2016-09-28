@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 955</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page955-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481955.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PEXTRB/PEXTRD/PEXTRQ — Extract Byte/Dword/Qword</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-275</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">Note: In VEX.128&#160;encoded versions,&#160;VEX.vvvv&#160;is reserved&#160;and&#160;must&#160;be&#160;1111b,&#160;VEX.L&#160;must be&#160;0,&#160;otherwise&#160;the&#160;<br/>instruction&#160;will #UD.&#160;In EVEX.128 encoded&#160;versions, EVEX.vvvv&#160;is reserved&#160;and&#160;must be&#160;1111b,&#160;EVEX.L”L&#160;must be&#160;<br/>0, otherwise the&#160;instruction will #UD.&#160;If the&#160;destination&#160;operand is&#160;a register,&#160;the default operand&#160;size&#160;in 64-bit&#160;<br/>mode&#160;for VPEXTRB/VPEXTRD&#160;is 64 bits,&#160;the bits above the&#160;least significant&#160;byte/word/dword&#160;data are filled with&#160;<br/>zeros.&#160;Attempt&#160;to execute VPEXTRQ&#160;in non-64-bit mode&#160;will&#160;cause&#160;#UD.</p>
+<p style="position:absolute;top:203px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:229px;left:69px;white-space:nowrap" class="ft02">CASE&#160;of</p>
+<p style="position:absolute;top:247px;left:89px;white-space:nowrap" class="ft02">PEXTRB:&#160;SEL&#160;&#160;COUNT[3:0];</p>
+<p style="position:absolute;top:265px;left:143px;white-space:nowrap" class="ft05">TEMP&#160;&#160;(Src &gt;&gt;&#160;SEL*8)&#160;AND&#160;FFH;<br/>IF (DEST = Mem8)</p>
+<p style="position:absolute;top:301px;left:170px;white-space:nowrap" class="ft05">THEN<br/>Mem8&#160;&#160;TEMP[7:0];</p>
+<p style="position:absolute;top:337px;left:143px;white-space:nowrap" class="ft02">ELSE IF&#160;(64-Bit Mode&#160;and 64-bit&#160;register selected)</p>
+<p style="position:absolute;top:355px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:373px;left:197px;white-space:nowrap" class="ft02">R64[7:0]&#160;&#160;TEMP[7:0];</p>
+<p style="position:absolute;top:390px;left:197px;white-space:nowrap" class="ft02">r64[63:8]&#160;←&#160;ZERO_FILL;&#160;};</p>
+<p style="position:absolute;top:408px;left:143px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:426px;left:197px;white-space:nowrap" class="ft02">R32[7:0]&#160;&#160;TEMP[7:0];</p>
+<p style="position:absolute;top:442px;left:197px;white-space:nowrap" class="ft02">r32[31:8]&#160;←&#160;ZERO_FILL;&#160;};</p>
+<p style="position:absolute;top:460px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:478px;left:89px;white-space:nowrap" class="ft02">PEXTRD:SEL&#160;&#160;COUNT[1:0];</p>
+<p style="position:absolute;top:496px;left:143px;white-space:nowrap" class="ft05">TEMP&#160;&#160;(Src &gt;&gt;&#160;SEL*32) AND FFFF_FFFFH;<br/>DEST&#160;&#160;TEMP;</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft02">PEXTRQ:&#160;SEL&#160;&#160;COUNT[0];</p>
+<p style="position:absolute;top:550px;left:143px;white-space:nowrap" class="ft05">TEMP&#160;&#160;(Src &gt;&gt;&#160;SEL*64);<br/>DEST&#160;&#160;TEMP;</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft02">EASC:</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft05">VPEXTRTD/VPEXTRQ<br/>IF&#160;(64-Bit Mode&#160;and 64-bit&#160;dest operand)<br/>THEN</p>
+<p style="position:absolute;top:676px;left:89px;white-space:nowrap" class="ft05">Src_Offset&#160;&#160;Imm8[0]<br/>r64/m64&#160;(Src &gt;&gt;&#160;Src_Offset * 64)</p>
+<p style="position:absolute;top:712px;left:69px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:730px;left:89px;white-space:nowrap" class="ft05">Src_Offset&#160;&#160;Imm8[1:0]<br/>r32/m32&#160;&#160;((Src &gt;&gt;&#160;Src_Offset&#160;*32)&#160;AND 0FFFFFFFFh);</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft05">VPEXTRB (&#160;dest=m8)<br/>SRC_Offset&#160;&#160;Imm8[3:0]<br/>Mem8&#160;&#160;(Src &gt;&gt;&#160;Src_Offset*8)</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft05">VPEXTRB (&#160;dest=reg)<br/>IF&#160;(64-Bit Mode&#160;)<br/>THEN</p>
+<p style="position:absolute;top:928px;left:89px;white-space:nowrap" class="ft05">SRC_Offset&#160;&#160;Imm8[3:0]&#160;<br/>DEST[7:0]&#160;&#160;((Src &gt;&gt; Src_Offset*8) AND 0FFh)<br/>DEST[63:8]&#160;ZERO_FILL;</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:1000px;left:89px;white-space:nowrap" class="ft05">SRC_Offset&#160;. Imm8[3:0];<br/>DEST[7:0]&#160;&#160;((Src &gt;&gt; Src_Offset*8) AND 0FFh);<br/>DEST[31:8]&#160;ZERO_FILL;</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">FI</p>
+</div>
+</body>
+</html>

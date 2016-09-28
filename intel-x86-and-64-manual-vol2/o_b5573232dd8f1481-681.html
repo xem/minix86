@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 681</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page681-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481681.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-1</p>
+<p style="position:absolute;top:96px;left:714px;white-space:nowrap" class="ft01">CHAPTER 4</p>
+<p style="position:absolute;top:120px;left:457px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft02">4.1&#160;</p>
+<p style="position:absolute;top:196px;left:147px;white-space:nowrap" class="ft02">IMM8 CONTROL BYTE OPERATION&#160;FOR PCMPESTRI / PCMPESTRM /&#160;</p>
+<p style="position:absolute;top:222px;left:146px;white-space:nowrap" class="ft02">PCMPISTRI / PCMPISTRM</p>
+<p style="position:absolute;top:256px;left:68px;white-space:nowrap" class="ft07">The notations introduced in&#160;this&#160;section&#160;are referenced&#160;in the&#160;reference&#160;pages of PCMPESTRI,&#160;PCMPESTRM,&#160;PCMP-<br/>ISTRI,&#160;PCMPISTRM. The operation of the immediate&#160;control&#160;byte&#160;is common&#160;to these four string&#160;text processing&#160;<br/>instructions of SSE4.2. This section&#160;describes&#160;the&#160;common&#160;operations.&#160;</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft04">4.1.1 General&#160;</p>
+<p style="position:absolute;top:340px;left:215px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft08">The&#160;operation of PCMPESTRI,&#160;PCMPESTRM,&#160;PCMPISTRI,&#160;PCMPISTRM is&#160;defined by the&#160;combination&#160;of the&#160;respec-<br/>tive opcode&#160;and the&#160;interpretation&#160;of an immediate control&#160;byte that&#160;is part of the&#160;instruction&#160;encoding.<br/>The&#160;opcode&#160;controls the&#160;relationship of&#160;input bytes/words&#160;to each other (determines whether the inputs terminated&#160;<br/>strings or whether&#160;lengths are&#160;expressed&#160;explicitly) as&#160;well as&#160;the desired output (index or mask).<br/>The Imm8 Control Byte for PCMPESTRM/PCMPESTRI/PCMPISTRM/PCMPISTRI encodes&#160;a significant amount of&#160;<br/>programmable&#160;control over&#160;the&#160;functionality of&#160;those&#160;instructions.&#160;&#160;Some functionality is unique to&#160;each instruction&#160;<br/>while some&#160;is common across&#160;some&#160;or all of the&#160;four&#160;instructions. This&#160;section describes&#160;functionality which&#160;is&#160;<br/>common across the&#160;four&#160;instructions.<br/>The arithmetic flags (ZF,&#160;CF, SF, OF, AF, PF) are set as a result of these instructions. However,&#160;the meanings of&#160;the&#160;<br/>flags have&#160;been&#160;overloaded from&#160;their&#160;typical meanings&#160;in&#160;order&#160;to provide additional information&#160;regarding the&#160;<br/>relationships of the&#160;two&#160;inputs.<br/>PCMPxSTRx&#160;instructions perform arithmetic&#160;comparisons between all&#160;possible pairs of bytes&#160;or words,&#160;one from&#160;<br/>each&#160;packed&#160;input&#160;source operand. The&#160;boolean&#160;results&#160;of those&#160;comparisons are then&#160;aggregated&#160;in order to&#160;<br/>produce meaningful&#160;results. &#160;The Imm8 Control Byte is used&#160;to affect the interpretation&#160;of individual input elements&#160;<br/>as well&#160;as control the&#160;arithmetic comparisons used&#160;and&#160;the specific aggregation scheme.&#160;<br/>Specifically,&#160;the Imm8&#160;Control Byte consists&#160;of&#160;bit fields that&#160;control&#160;the following&#160;attributes:</p>
+<p style="position:absolute;top:677px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:678px;left:93px;white-space:nowrap" class="ft06"><b>Source&#160;data&#160;format</b>&#160;<b>—</b>&#160;Byte/word&#160;data&#160;element&#160;granularity,&#160;signed&#160;or&#160;unsigned&#160;elements</p>
+<p style="position:absolute;top:700px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:700px;left:93px;white-space:nowrap" class="ft07"><b>Aggregation operation —&#160;</b>Encodes the&#160;mode&#160;of&#160;per-element&#160;comparison operation and&#160;the aggregation of&#160;<br/>per-element comparisons&#160;into&#160;an intermediate result</p>
+<p style="position:absolute;top:739px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:739px;left:93px;white-space:nowrap" class="ft06"><b>Polarity&#160;—&#160;</b>Specifies intermediate&#160;processing&#160;to be performed on&#160;the intermediate&#160;result</p>
+<p style="position:absolute;top:761px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:762px;left:93px;white-space:nowrap" class="ft07"><b>Output&#160;selection —&#160;</b>Specifies final operation to&#160;produce&#160;the output (depending on index or mask) from the&#160;<br/>intermediate result</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 428</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page428-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce428.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">11-16&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MEMORY&#160;CACHE CONTROL</p>
+<p style="position:absolute;top:449px;left:68px;white-space:nowrap" class="ft02">11.5.2.3 &#160;&#160;Writing Values Across&#160;Pages with&#160;Different Memory Types</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft08">If two adjoining pages&#160;in memory&#160;have&#160;different memory&#160;types,&#160;and a&#160;word or longer operand&#160;is written to&#160;a&#160;<br/>memory&#160;location that crosses the&#160;page&#160;boundary between&#160;those two&#160;pages,&#160;the operand&#160;might be written to&#160;<br/>memory&#160;twice.&#160;This action does not&#160;present&#160;a problem for writes&#160;to actual memory; however,&#160;if a&#160;device&#160;is mapped&#160;<br/>the memory space assigned&#160;to the&#160;pages,&#160;the device might&#160;malfunction.</p>
+<p style="position:absolute;top:578px;left:68px;white-space:nowrap" class="ft04">11.5.3 Preventing&#160;</p>
+<p style="position:absolute;top:578px;left:241px;white-space:nowrap" class="ft04">Caching</p>
+<p style="position:absolute;top:608px;left:68px;white-space:nowrap" class="ft09">To&#160;disable&#160;the&#160;L1, L2, and&#160;L3&#160;caches after&#160;they have&#160;been enabled&#160;and have&#160;received&#160;cache fills, perform the&#160;<br/>following steps:<br/>1.&#160;Enter the no-fill cache mode.&#160;(Set the CD&#160;flag&#160;in&#160;control&#160;register CR0 to&#160;1&#160;and&#160;the NW flag to 0.<br/>2.&#160;Flush all&#160;caches using&#160;the WBINVD&#160;instruction.<br/>3.&#160;Disable&#160;the MTRRs&#160;and set the&#160;default memory type to&#160;uncached&#160;or&#160;set all MTRRs for the&#160;uncached&#160;memory&#160;</p>
+<p style="position:absolute;top:713px;left:93px;white-space:nowrap" class="ft08">type&#160;(see&#160;the&#160;discussion of&#160;the&#160;discussion&#160;of&#160;the&#160;TYPE field&#160;and&#160;the E flag<a href="o_fe12b1e2a880e0ce-434.html">&#160;in Section 11.11.2.1,&#160;<br/>‚ÄúIA32_MTRR_DEF_TYPE&#160;MSR‚Äù</a>).</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft08">The&#160;caches&#160;must&#160;be&#160;flushed&#160;(step&#160;2)&#160;after&#160;the&#160;CD&#160;flag&#160;is&#160;set to insure system memory coherency.&#160;If the caches are&#160;<br/>not flushed, cache&#160;hits on reads will&#160;still occur and data&#160;will be&#160;read from valid&#160;cache lines.<br/>The&#160;intent of the&#160;three&#160;separate steps&#160;listed&#160;above&#160;address three distinct requirements: (i)&#160;discontinue new data&#160;<br/>replacing existing data in the cache&#160;(ii) ensure data already in the&#160;cache are&#160;evicted to memory,&#160;(iii) ensure subse-<br/>quent memory&#160;references observe&#160;UC memory type semantics.&#160;Different processor implementation of caching&#160;<br/>control hardware&#160;may&#160;allow&#160;some&#160;variation of software&#160;implementation of these three requirements.&#160;See note&#160;<br/>below.</p>
+<p style="position:absolute;top:895px;left:428px;white-space:nowrap" class="ft02">NOTES</p>
+<p style="position:absolute;top:920px;left:120px;white-space:nowrap" class="ft08">Setting&#160;the&#160;CD&#160;flag in control&#160;register&#160;CR0 modifies&#160;the processor‚Äôs&#160;caching behaviour&#160;as indicated&#160;<br/>in&#160;<a href="o_fe12b1e2a880e0ce-424.html">Table 11-5, but&#160;</a>setting&#160;the CD&#160;flag alone&#160;may&#160;not&#160;be&#160;sufficient across&#160;all processor families&#160;to&#160;<br/>force&#160;the effective memory type for all&#160;physical&#160;memory&#160;to&#160;be&#160;UC nor does it&#160;force strict&#160;memory&#160;<br/>ordering, due to&#160;hardware&#160;implementation variations across&#160;different processor families. To&#160;force&#160;<br/>the&#160;UC&#160;memory&#160;type and strict memory ordering on all of physical memory, it is&#160;sufficient&#160;to either&#160;<br/>program&#160;the MTRRs&#160;for&#160;all physical&#160;memory&#160;to&#160;be&#160;UC&#160;memory&#160;type&#160;or&#160;disable&#160;all MTRRs.<br/>For&#160;the Pentium 4&#160;and Intel Xeon&#160;processors, after&#160;the sequence&#160;of&#160;steps given&#160;above&#160;has&#160;been&#160;<br/>executed,&#160;the&#160;cache lines&#160;containing the&#160;code&#160;between&#160;the end&#160;of the&#160;WBINVD&#160;instruction and&#160;<br/>before&#160;the&#160;MTRRS&#160;have&#160;actually&#160;been&#160;disabled&#160;may be&#160;retained&#160;in&#160;the&#160;cache&#160;hierarchy.&#160;Here, to&#160;</p>
+<p style="position:absolute;top:144px;left:195px;white-space:nowrap" class="ft03">WP</p>
+<p style="position:absolute;top:144px;left:451px;white-space:nowrap" class="ft03">UC</p>
+<p style="position:absolute;top:144px;left:696px;white-space:nowrap" class="ft03">UC</p>
+<p style="position:absolute;top:141px;left:712px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:166px;left:449px;white-space:nowrap" class="ft03">UC-</p>
+<p style="position:absolute;top:166px;left:695px;white-space:nowrap" class="ft03">WC</p>
+<p style="position:absolute;top:163px;left:713px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:189px;left:450px;white-space:nowrap" class="ft03">WC</p>
+<p style="position:absolute;top:189px;left:698px;white-space:nowrap" class="ft03">WC</p>
+<p style="position:absolute;top:211px;left:450px;white-space:nowrap" class="ft03">WT</p>
+<p style="position:absolute;top:211px;left:695px;white-space:nowrap" class="ft03">WT</p>
+<p style="position:absolute;top:208px;left:714px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:234px;left:450px;white-space:nowrap" class="ft03">WB</p>
+<p style="position:absolute;top:234px;left:698px;white-space:nowrap" class="ft03">WP</p>
+<p style="position:absolute;top:256px;left:450px;white-space:nowrap" class="ft03">WP</p>
+<p style="position:absolute;top:256px;left:698px;white-space:nowrap" class="ft03">WP</p>
+<p style="position:absolute;top:279px;left:76px;white-space:nowrap" class="ft01">NOTES:&#160;</p>
+<p style="position:absolute;top:298px;left:76px;white-space:nowrap" class="ft03">1.&#160;The UC&#160;attribute&#160;comes from&#160;the MTRRs and the processors are not required&#160;to&#160;snoop&#160;their caches since&#160;the&#160;data could&#160;never have&#160;</p>
+<p style="position:absolute;top:315px;left:90px;white-space:nowrap" class="ft03">been&#160;cached. This&#160;attribute is&#160;preferred for performance&#160;reasons.</p>
+<p style="position:absolute;top:334px;left:76px;white-space:nowrap" class="ft03">2.&#160;The&#160;UC&#160;attribute&#160;came&#160;from&#160;the page-table&#160;or&#160;page-directory&#160;entry and&#160;processors&#160;are&#160;required&#160;to&#160;check&#160;their&#160;caches&#160;because&#160;the&#160;</p>
+<p style="position:absolute;top:351px;left:90px;white-space:nowrap" class="ft03">data may be&#160;cached&#160;due to&#160;page&#160;aliasing, which is&#160;not recommended.</p>
+<p style="position:absolute;top:370px;left:76px;white-space:nowrap" class="ft03">3.&#160;These combinations were&#160;specified&#160;as ‚Äúundefined‚Äù in&#160;previous&#160;editions of&#160;th<a href="˛ˇ">e&#160;<i>Intel¬Æ&#160;64 and IA-32&#160;Architectures&#160;Software&#160;Devel-</i></a></p>
+<p style="position:absolute;top:387px;left:90px;white-space:nowrap" class="ft06"><a href="˛ˇ"><i>oper‚Äôs Manual</i>.</a>&#160;However,&#160;all processors&#160;that&#160;support both&#160;the&#160;PAT&#160;and the MTRRs&#160;determine the effective page-level memory&#160;</p>
+<p style="position:absolute;top:403px;left:90px;white-space:nowrap" class="ft03">types for&#160;these combinations as given.</p>
+<p style="position:absolute;top:100px;left:88px;white-space:nowrap" class="ft07">Table&#160;11-7. &#160;Effective&#160;Page-Level Memory&#160;Types for&#160;Pentium III and More&#160;Recent&#160;Processor Families&#160;&#160;(Contd.)</p>
+<p style="position:absolute;top:121px;left:144px;white-space:nowrap" class="ft03">MTRR&#160;Memory Type</p>
+<p style="position:absolute;top:121px;left:411px;white-space:nowrap" class="ft03">PAT&#160;Entry Value</p>
+<p style="position:absolute;top:121px;left:637px;white-space:nowrap" class="ft03">Effective&#160;Memory&#160;Type</p>
+</div>
+</body>
+</html>

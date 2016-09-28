@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 986</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page986-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481986.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:451px;white-space:nowrap" class="ft00">PMAXSB/PMAXSW/PMAXSD/PMAXSQ—Maximum of&#160;Packed Signed Integers</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-306&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">VEX.256 encoded&#160;version:&#160;The&#160;second source&#160;operand can&#160;be an&#160;YMM&#160;register or a&#160;256-bit&#160;memory location. The&#160;<br/>first source&#160;and destination operands&#160;are YMM registers.&#160;Bits&#160;(MAX_VL-1:256) of the&#160;corresponding&#160;destination&#160;<br/>register are&#160;zeroed.<br/>EVEX encoded&#160;VPMAXSD/Q: The&#160;first source&#160;operand is&#160;a&#160;ZMM/YMM/XMM register;&#160;The second&#160;source&#160;operand is&#160;<br/>a ZMM/YMM/XMM&#160;register,&#160;a&#160;512/256/128-bit memory location or&#160;a 512/256/128-bit vector broadcasted&#160;from a&#160;<br/>32/64-bit&#160;memory&#160;location. The destination operand&#160;is conditionally updated&#160;based on writemask k1.<br/>EVEX&#160;encoded VPMAXSB/W:&#160;The&#160;first source&#160;operand is&#160;a ZMM/YMM/XMM&#160;register; The&#160;second&#160;source operand&#160;is&#160;<br/>a ZMM/YMM/XMM&#160;register,&#160;a&#160;512/256/128-bit memory location. The destination operand is&#160;conditionally updated&#160;<br/>based on writemask k1.</p>
+<p style="position:absolute;top:279px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:303px;left:68px;white-space:nowrap" class="ft02">PMAXSW (64-bit&#160;operands)</p>
+<p style="position:absolute;top:321px;left:88px;white-space:nowrap" class="ft02">IF DEST[15:0]&#160;&gt;&#160;SRC[15:0]) THEN</p>
+<p style="position:absolute;top:339px;left:115px;white-space:nowrap" class="ft02">DEST[15:0]&#160;←&#160;DEST[15:0];</p>
+<p style="position:absolute;top:357px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:375px;left:115px;white-space:nowrap" class="ft02">DEST[15:0]&#160;←&#160;SRC[15:0]; FI;</p>
+<p style="position:absolute;top:393px;left:88px;white-space:nowrap" class="ft05">(* Repeat operation for 2nd and&#160;3rd words in source and destination operands *)<br/>IF DEST[63:48]&#160;&gt;&#160;SRC[63:48]) THEN</p>
+<p style="position:absolute;top:429px;left:115px;white-space:nowrap" class="ft02">DEST[63:48]&#160;←&#160;DEST[63:48];</p>
+<p style="position:absolute;top:447px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:465px;left:115px;white-space:nowrap" class="ft02">DEST[63:48]&#160;←&#160;SRC[63:48]; FI;</p>
+<p style="position:absolute;top:501px;left:68px;white-space:nowrap" class="ft02">PMAXSB&#160;(128-bit Legacy&#160;SSE&#160;version)</p>
+<p style="position:absolute;top:519px;left:88px;white-space:nowrap" class="ft02">IF DEST[7:0] &gt;SRC[7:0] THEN</p>
+<p style="position:absolute;top:537px;left:115px;white-space:nowrap" class="ft02">DEST[7:0]&#160;DEST[7:0];</p>
+<p style="position:absolute;top:555px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:573px;left:115px;white-space:nowrap" class="ft02">DEST[7:0]&#160;SRC[7:0]; FI;</p>
+<p style="position:absolute;top:591px;left:88px;white-space:nowrap" class="ft05">(*&#160;Repeat&#160;operation&#160;for 2nd&#160;through 15th bytes in&#160;source and&#160;destination operands&#160;*)<br/>IF DEST[127:120] &gt;SRC[127:120] THEN</p>
+<p style="position:absolute;top:627px;left:115px;white-space:nowrap" class="ft02">DEST[127:120]&#160;DEST[127:120];</p>
+<p style="position:absolute;top:645px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:663px;left:115px;white-space:nowrap" class="ft02">DEST[127:120]&#160;SRC[127:120]; FI;</p>
+<p style="position:absolute;top:681px;left:68px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:717px;left:68px;white-space:nowrap" class="ft02">VPMAXSB (VEX.128&#160;encoded version)</p>
+<p style="position:absolute;top:735px;left:88px;white-space:nowrap" class="ft02">IF SRC1[7:0] &gt;SRC2[7:0] THEN</p>
+<p style="position:absolute;top:753px;left:115px;white-space:nowrap" class="ft02">DEST[7:0]&#160;SRC1[7:0];</p>
+<p style="position:absolute;top:771px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:789px;left:115px;white-space:nowrap" class="ft02">DEST[7:0]&#160;SRC2[7:0]; FI;</p>
+<p style="position:absolute;top:807px;left:88px;white-space:nowrap" class="ft05">(*&#160;Repeat&#160;operation&#160;for 2nd&#160;through 15th bytes in&#160;source and&#160;destination operands&#160;*)<br/>IF SRC1[127:120] &gt;SRC2[127:120] THEN</p>
+<p style="position:absolute;top:843px;left:115px;white-space:nowrap" class="ft02">DEST[127:120]&#160;SRC1[127:120];</p>
+<p style="position:absolute;top:861px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:879px;left:115px;white-space:nowrap" class="ft02">DEST[127:120]&#160;SRC2[127:120]; FI;</p>
+<p style="position:absolute;top:897px;left:68px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128]&#160;0</p>
+<p style="position:absolute;top:933px;left:68px;white-space:nowrap" class="ft02">VPMAXSB (VEX.256&#160;encoded version)</p>
+<p style="position:absolute;top:951px;left:88px;white-space:nowrap" class="ft02">IF SRC1[7:0] &gt;SRC2[7:0] THEN</p>
+<p style="position:absolute;top:969px;left:115px;white-space:nowrap" class="ft02">DEST[7:0]&#160;SRC1[7:0];</p>
+<p style="position:absolute;top:987px;left:88px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:1005px;left:115px;white-space:nowrap" class="ft02">DEST[7:0]&#160;SRC2[7:0]; FI;</p>
+<p style="position:absolute;top:1023px;left:88px;white-space:nowrap" class="ft05">(* Repeat operation for 2nd through&#160;31st bytes&#160;in source&#160;and destination&#160;operands&#160;*)<br/>IF SRC1[255:248] &gt;SRC2[255:248] THEN</p>
+<p style="position:absolute;top:1059px;left:115px;white-space:nowrap" class="ft02">DEST[255:248]&#160;SRC1[255:248];</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 590</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page590-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481590.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:605px;white-space:nowrap" class="ft00">INT n/INTO/INT 3—Call&#160;to Interrupt Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-462&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:142px;white-space:nowrap" class="ft02">CS:EIP&#160;←&#160;Gate(CS:EIP); (* Segment descriptor&#160;information also loaded *)</p>
+<p style="position:absolute;top:118px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:136px;left:142px;white-space:nowrap" class="ft02">IF IDT gate 16-bit</p>
+<p style="position:absolute;top:154px;left:169px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:172px;left:196px;white-space:nowrap" class="ft02">CS:IP&#160;←&#160;Gate(CS:IP);&#160;</p>
+<p style="position:absolute;top:190px;left:196px;white-space:nowrap" class="ft02">(* Segment descriptor&#160;information also&#160;loaded&#160;*)</p>
+<p style="position:absolute;top:208px;left:169px;white-space:nowrap" class="ft02">ELSE (* 64-bit IDT gate *)</p>
+<p style="position:absolute;top:226px;left:196px;white-space:nowrap" class="ft02">CS:RIP&#160;←&#160;Gate(CS:RIP);&#160;</p>
+<p style="position:absolute;top:244px;left:196px;white-space:nowrap" class="ft02">(* Segment descriptor&#160;information also&#160;loaded&#160;*)</p>
+<p style="position:absolute;top:262px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:280px;left:88px;white-space:nowrap" class="ft03">FI;<br/>IF IDT gate is&#160;32-bit</p>
+<p style="position:absolute;top:316px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:334px;left:169px;white-space:nowrap" class="ft03">Push(far&#160;pointer&#160;to&#160;old stack);&#160;<br/>(*&#160;Old&#160;SS&#160;and ESP, 3&#160;words&#160;padded&#160;to&#160;4&#160;*)<br/>Push(EFLAGS);<br/>Push(far&#160;pointer to&#160;return&#160;instruction);&#160;<br/>(* Old CS&#160;and&#160;EIP, 3&#160;words&#160;padded to&#160;4 *)<br/>Push(ErrorCode); (* If needed, 4 bytes *)</p>
+<p style="position:absolute;top:442px;left:142px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:460px;left:169px;white-space:nowrap" class="ft02">IF IDT gate 16-bit</p>
+<p style="position:absolute;top:478px;left:196px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:496px;left:223px;white-space:nowrap" class="ft03">Push(far pointer to&#160;old stack);&#160;<br/>(* Old SS and SP, 2 words *)<br/>Push(EFLAGS(15-0]);<br/>Push(far&#160;pointer to&#160;return&#160;instruction);&#160;<br/>(* Old CS and IP, 2 words *)<br/>Push(ErrorCode); (*&#160;If needed, 2 bytes *)</p>
+<p style="position:absolute;top:604px;left:196px;white-space:nowrap" class="ft02">ELSE (* 64-bit IDT gate *)</p>
+<p style="position:absolute;top:622px;left:223px;white-space:nowrap" class="ft03">Push(far pointer to&#160;old stack);&#160;<br/>(* Old SS and SP, each an 8-byte&#160;push *)<br/>Push(RFLAGS); (* 8-byte&#160;push *)<br/>Push(far&#160;pointer to&#160;return&#160;instruction);&#160;<br/>(* Old CS and RIP, each&#160;an&#160;8-byte&#160;push&#160;*)<br/>Push(ErrorCode); (*&#160;If needed, 8-bytes *)</p>
+<p style="position:absolute;top:730px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:748px;left:88px;white-space:nowrap" class="ft03">FI;<br/>CPL&#160;←&#160;new&#160;code-segment DPL;</p>
+<p style="position:absolute;top:784px;left:88px;white-space:nowrap" class="ft02">CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:802px;left:88px;white-space:nowrap" class="ft02">IF IDT gate is&#160;interrupt gate</p>
+<p style="position:absolute;top:820px;left:115px;white-space:nowrap" class="ft02">THEN&#160;IF&#160;←&#160;0 (* Interrupt flag set&#160;to 0,&#160;interrupts disabled&#160;*); FI;</p>
+<p style="position:absolute;top:838px;left:88px;white-space:nowrap" class="ft02">TF&#160;←&#160;0;</p>
+<p style="position:absolute;top:856px;left:88px;white-space:nowrap" class="ft02">VM&#160;←&#160;0;</p>
+<p style="position:absolute;top:874px;left:88px;white-space:nowrap" class="ft02">RF&#160;←&#160;0;</p>
+<p style="position:absolute;top:892px;left:88px;white-space:nowrap" class="ft02">NT&#160;←&#160;0;</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft03">END;<br/>INTERRUPT-FROM-VIRTUAL-8086-MODE:</p>
+<p style="position:absolute;top:946px;left:88px;white-space:nowrap" class="ft03">(*&#160;Identify stack-segment selector&#160;for&#160;privilege level 0&#160;in&#160;current TSS *)<br/>IF current&#160;TSS&#160;is 32-bit</p>
+<p style="position:absolute;top:982px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:1000px;left:142px;white-space:nowrap" class="ft02">IF TSS limit &lt; 9</p>
+<p style="position:absolute;top:1018px;left:169px;white-space:nowrap" class="ft03">THEN #TS(error_code(current&#160;TSS&#160;selector,0,EXT)); FI;<br/>(* idt operand to&#160;error_code&#160;is&#160;0 because selector&#160;is&#160;used&#160;*)</p>
+<p style="position:absolute;top:1054px;left:142px;white-space:nowrap" class="ft02">NewSS&#160;←&#160;2 bytes loaded from (current TSS&#160;base&#160;+ 8);</p>
+</div>
+</body>
+</html>

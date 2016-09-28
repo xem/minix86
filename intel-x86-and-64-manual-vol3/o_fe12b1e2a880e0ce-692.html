@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 692</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page692-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce692.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-56&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft06">programmed latency threshold specified&#160;separately&#160;in&#160;a MSR.&#160;Stores are&#160;ignored when this&#160;event&#160;is&#160;<br/>programmed.&#160;The CMASK or INV fields&#160;of&#160;the&#160;IA32_PerfEvtSelX&#160;register&#160;used for counting load latency must be&#160;<br/>0.&#160;Writing other&#160;values will result&#160;in&#160;undefined behavior.&#160;</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft06">The&#160;MSR_PEBS_LD_LAT_THRESHOLD MSR&#160;is programmed&#160;with&#160;the desired latency&#160;threshold in&#160;core clock&#160;<br/>cycles.&#160;Loads with latencies greater than&#160;this&#160;value are&#160;eligible for counting&#160;and latency&#160;data&#160;reporting. The&#160;<br/>minimum&#160;value&#160;that may be programmed in&#160;this register&#160;is&#160;3 (the&#160;minimum detectable load latency&#160;is 4&#160;core&#160;<br/>clock cycles).</p>
+<p style="position:absolute;top:227px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:228px;left:93px;white-space:nowrap" class="ft06">The&#160;PEBS enable bit in&#160;the IA32_PEBS_ENABLE&#160;register&#160;is set for the&#160;corresponding IA32_PMCx&#160;counter&#160;<br/>register. This&#160;means that&#160;both the&#160;PEBS_EN_CTRX and&#160;LL_EN_CTRX&#160;bits must&#160;be&#160;set for the counter(s) of&#160;<br/>interest. For example,&#160;to enable&#160;load&#160;latency on counter&#160;IA32_PMC0,&#160;the&#160;IA32_PEBS_ENABLE&#160;register must&#160;be&#160;<br/>programmed&#160;with the&#160;64-bit value&#160;00000001.00000001H.</p>
+<p style="position:absolute;top:299px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:300px;left:93px;white-space:nowrap" class="ft02">When&#160;Load&#160;latency event is&#160;enabled,&#160;no other&#160;PEBS&#160;event can&#160;be&#160;configured with other&#160;counters.</p>
+<p style="position:absolute;top:324px;left:68px;white-space:nowrap" class="ft06">When the&#160;load-latency facility&#160;is enabled,&#160;load operations are&#160;randomly selected&#160;by hardware and&#160;tagged to&#160;carry&#160;<br/>information related&#160;to data source&#160;locality and&#160;latency.&#160;Latency and data&#160;source information of tagged&#160;loads&#160;are&#160;<br/>updated internally. The MEM_TRANS_RETIRED event for&#160;load latency counts only tagged retired&#160;loads.&#160;If a&#160;load&#160;is&#160;<br/>cancelled it will not be counted and the internal state&#160;of the&#160;load latency facility will not be updated. In this case&#160;the&#160;<br/>hardware will tag the&#160;next available&#160;load.<br/>When a&#160;PEBS&#160;assist occurs, the&#160;last update of&#160;latency&#160;and&#160;data source&#160;information are&#160;captured&#160;by&#160;the&#160;assist&#160;and&#160;<br/>written as&#160;part&#160;of the PEBS record.&#160;The PEBS sample&#160;after value (SAV),&#160;specified&#160;in PEBS CounterX Reset, operates&#160;<br/>orthogonally to&#160;the tagging&#160;mechanism. Loads are randomly&#160;tagged to&#160;collect latency&#160;data. The SAV controls the&#160;<br/>number of tagged loads with&#160;latency information that will be&#160;written into&#160;the&#160;PEBS&#160;record field by&#160;the PEBS assists.&#160;<br/>The load latency data written&#160;to the PEBS&#160;record will&#160;be for the last tagged load operation which retired just before&#160;<br/>the PEBS assist&#160;was invoked.<br/>The physical layout of the PEBS records&#160;is the same&#160;as&#160;<a href="o_fe12b1e2a880e0ce-673.html">shown in Table&#160;18-23</a>.&#160;The&#160;specificity&#160;of Data Source&#160;entry&#160;<br/>at&#160;offset A0H&#160;has been enhanced to&#160;report three piece&#160;of&#160;information.&#160;</p>
+<p style="position:absolute;top:778px;left:68px;white-space:nowrap" class="ft02">The&#160;layout of MSR_PEBS_LD_LAT_THRESHOLD&#160;is&#160;the&#160;same&#160;as&#160;<a href="o_fe12b1e2a880e0ce-676.html">shown in&#160;Figure&#160;18-23</a>.</p>
+<p style="position:absolute;top:823px;left:68px;white-space:nowrap" class="ft04">18.9.4.3 &#160;&#160;Precise Store Facility</p>
+<p style="position:absolute;top:851px;left:68px;white-space:nowrap" class="ft06">Processors based&#160;on Intel&#160;microarchitecture code name&#160;Sandy&#160;Bridge&#160;offer a&#160;precise&#160;store capability that&#160;comple-<br/>ments&#160;the load latency facility.&#160;It&#160;provides&#160;a means&#160;to&#160;profile store&#160;memory&#160;references&#160;in the&#160;system.<br/>Precise stores&#160;leverage the&#160;PEBS&#160;facility and provide&#160;additional information&#160;about sampled stores.&#160;Having precise&#160;<br/>memory reference events&#160;with linear address information&#160;for both loads and stores can help programmers improve&#160;<br/>data structure&#160;layout,&#160;eliminate remote node&#160;references, and&#160;identify cache-line&#160;conflicts in&#160;NUMA&#160;systems.<br/>Only IA32_PMC3&#160;can be used&#160;to capture precise&#160;store&#160;information. After enabling this facility,&#160;counter&#160;overflows will&#160;<br/>initiate the generation of PEBS records as previously described in PEBS. Upon counter overflow hardware captures&#160;<br/>the linear address&#160;and other status information of the next store&#160;that&#160;retires. This information is&#160;then written&#160;to&#160;the&#160;<br/>PEBS record.<br/>To&#160;enable&#160;the precise store facility,&#160;software&#160;must complete&#160;the following steps. Please&#160;note&#160;that&#160;the&#160;precise&#160;store&#160;<br/>facility relies on the PEBS facility,&#160;so the PEBS configuration requirements&#160;must&#160;be&#160;completed&#160;before attempting to&#160;<br/>capture precise&#160;store information.</p>
+<p style="position:absolute;top:578px;left:231px;white-space:nowrap" class="ft05">Table 18-33.&#160;&#160;Layout&#160;of&#160;Data&#160;Source&#160;Field&#160;of&#160;Load&#160;Latency Record</p>
+<p style="position:absolute;top:603px;left:75px;white-space:nowrap" class="ft02">Field Position&#160;</p>
+<p style="position:absolute;top:603px;left:263px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:627px;left:75px;white-space:nowrap" class="ft02">Source</p>
+<p style="position:absolute;top:627px;left:177px;white-space:nowrap" class="ft02">3:0</p>
+<p style="position:absolute;top:627px;left:263px;white-space:nowrap" class="ft02">See&#160;<a href="o_fe12b1e2a880e0ce-676.html">Table&#160;18-24</a></p>
+<p style="position:absolute;top:651px;left:75px;white-space:nowrap" class="ft02">STLB_MISS</p>
+<p style="position:absolute;top:651px;left:177px;white-space:nowrap" class="ft02">4</p>
+<p style="position:absolute;top:651px;left:263px;white-space:nowrap" class="ft09">0: The&#160;load&#160;did not miss&#160;the&#160;STLB&#160;(hit&#160;the DTLB&#160;or STLB).<br/>1:&#160;The load&#160;missed&#160;the STLB.</p>
+<p style="position:absolute;top:696px;left:75px;white-space:nowrap" class="ft02">Lock</p>
+<p style="position:absolute;top:696px;left:177px;white-space:nowrap" class="ft02">5</p>
+<p style="position:absolute;top:696px;left:263px;white-space:nowrap" class="ft09">0: The&#160;load&#160;was not part&#160;of&#160;a locked&#160;transaction.<br/>1: The load was&#160;part of&#160;a locked transaction.</p>
+<p style="position:absolute;top:741px;left:75px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:741px;left:177px;white-space:nowrap" class="ft02">63:6</p>
+<p style="position:absolute;top:741px;left:263px;white-space:nowrap" class="ft02">Reserved</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 71</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page71-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481071.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 2A&#160;2-11</p>
+<p style="position:absolute;top:47px;left:706px;white-space:nowrap" class="ft01">INSTRUCTION FORMAT</p>
+<p style="position:absolute;top:517px;left:69px;white-space:nowrap" class="ft02">2.2.1.3 &#160;</p>
+<p style="position:absolute;top:517px;left:153px;white-space:nowrap" class="ft02">Displacement&#160;</p>
+<p style="position:absolute;top:542px;left:69px;white-space:nowrap" class="ft06">Addressing&#160;in 64-bit&#160;mode&#160;uses&#160;existing&#160;32-bit ModR/M and&#160;SIB&#160;encodings.&#160;The ModR/M&#160;and&#160;SIB displacement&#160;<br/>sizes do&#160;not change.&#160;They remain 8&#160;bits&#160;or 32&#160;bits and&#160;are&#160;sign-extended&#160;to&#160;64&#160;bits.</p>
+<p style="position:absolute;top:603px;left:69px;white-space:nowrap" class="ft02">2.2.1.4&#160;&#160;</p>
+<p style="position:absolute;top:603px;left:153px;white-space:nowrap" class="ft02">Direct Memory-Offset MOVs</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft06">In 64-bit&#160;mode,&#160;direct&#160;memory-offset forms of the MOV&#160;instruction are&#160;extended&#160;to&#160;specify a&#160;64-bit immediate&#160;<br/>absolute address. This&#160;address is&#160;called a&#160;moffset. No&#160;prefix is&#160;needed&#160;to specify&#160;this 64-bit memory offset. For&#160;<br/>these MOV instructions, the size of&#160;the&#160;memory offset&#160;follows the address-size default (64 bits in 64-bit mode). See&#160;<br/><a href="o_b5573232dd8f1481-71.html">Table&#160;2-6.</a></p>
+<p style="position:absolute;top:866px;left:69px;white-space:nowrap" class="ft02">2.2.1.5 &#160;</p>
+<p style="position:absolute;top:866px;left:153px;white-space:nowrap" class="ft02">Immediates&#160;</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft07">In 64-bit&#160;mode,&#160;the typical&#160;size of&#160;immediate&#160;operands&#160;remains 32&#160;bits. When&#160;the&#160;operand&#160;size&#160;is&#160;64&#160;bits,&#160;the&#160;<br/>processor sign-extends all&#160;immediates&#160;to&#160;64 bits prior&#160;to their&#160;use.&#160;<br/>Support for 64-bit&#160;immediate&#160;operands&#160;is accomplished by&#160;expanding&#160;the semantics of the&#160;existing move (MOV&#160;<br/>reg, imm16/32) instructions. These&#160;instructions (opcodes&#160;B8H&#160;– BFH) move&#160;16-bits&#160;or 32-bits of&#160;immediate&#160;data&#160;<br/>(depending&#160;on the&#160;effective&#160;operand&#160;size)&#160;into a&#160;GPR.&#160;When&#160;the&#160;effective operand size&#160;is 64 bits,&#160;these&#160;instructions&#160;<br/>can&#160;be used to load an&#160;immediate into&#160;a GPR.&#160;A REX prefix&#160;is needed to override&#160;the 32-bit&#160;default&#160;operand size to&#160;<br/>a&#160;64-bit operand size.&#160;<br/>For example:</p>
+<p style="position:absolute;top:1046px;left:86px;white-space:nowrap" class="ft03">48&#160;B8&#160;8877665544332211&#160;MOV&#160;RAX,1122334455667788H</p>
+<p style="position:absolute;top:100px;left:307px;white-space:nowrap" class="ft04">Table&#160;2-5.&#160;&#160;Special Cases of&#160;REX Encodings&#160;</p>
+<p style="position:absolute;top:121px;left:73px;white-space:nowrap" class="ft03">ModR/M&#160;or&#160;</p>
+<p style="position:absolute;top:137px;left:73px;white-space:nowrap" class="ft03">SIB&#160;</p>
+<p style="position:absolute;top:121px;left:164px;white-space:nowrap" class="ft03">Sub-field</p>
+<p style="position:absolute;top:137px;left:164px;white-space:nowrap" class="ft03">Encodings</p>
+<p style="position:absolute;top:121px;left:256px;white-space:nowrap" class="ft03">Compatibility Mode&#160;</p>
+<p style="position:absolute;top:137px;left:256px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:121px;left:388px;white-space:nowrap" class="ft03">Compatibility Mode&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft03">Implications</p>
+<p style="position:absolute;top:137px;left:525px;white-space:nowrap" class="ft03">Additional Implications</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft03">ModR/M&#160;Byte&#160;mod&#160;</p>
+<p style="position:absolute;top:162px;left:191px;white-space:nowrap" class="ft05">≠</p>
+<p style="position:absolute;top:160px;left:200px;white-space:nowrap" class="ft03">&#160;11</p>
+<p style="position:absolute;top:160px;left:256px;white-space:nowrap" class="ft03">SIB byte&#160;present.</p>
+<p style="position:absolute;top:160px;left:388px;white-space:nowrap" class="ft03">SIB&#160;byte required for&#160;</p>
+<p style="position:absolute;top:177px;left:388px;white-space:nowrap" class="ft03">ESP-based addressing.</p>
+<p style="position:absolute;top:160px;left:525px;white-space:nowrap" class="ft03">REX prefix&#160;adds a&#160;fourth&#160;bit (b) which is&#160;not decoded&#160;</p>
+<p style="position:absolute;top:177px;left:525px;white-space:nowrap" class="ft07">(don't care).<br/>SIB&#160;byte&#160;also&#160;required&#160;for R12-based addressing.</p>
+<p style="position:absolute;top:182px;left:164px;white-space:nowrap" class="ft03">r/m =&#160;</p>
+<p style="position:absolute;top:199px;left:164px;white-space:nowrap" class="ft03">b*100(ESP)</p>
+<p style="position:absolute;top:222px;left:73px;white-space:nowrap" class="ft03">ModR/M&#160;Byte&#160;mod&#160;= 0</p>
+<p style="position:absolute;top:222px;left:255px;white-space:nowrap" class="ft03">Base&#160;register not&#160;</p>
+<p style="position:absolute;top:238px;left:256px;white-space:nowrap" class="ft03">used.</p>
+<p style="position:absolute;top:222px;left:388px;white-space:nowrap" class="ft03">EBP without a&#160;</p>
+<p style="position:absolute;top:238px;left:388px;white-space:nowrap" class="ft03">displacement&#160;must&#160;be&#160;</p>
+<p style="position:absolute;top:254px;left:388px;white-space:nowrap" class="ft08">done&#160;using&#160;<br/>mod&#160;= 01&#160;with&#160;</p>
+<p style="position:absolute;top:292px;left:388px;white-space:nowrap" class="ft03">displacement&#160;of&#160;0.</p>
+<p style="position:absolute;top:222px;left:525px;white-space:nowrap" class="ft03">REX prefix&#160;adds a&#160;fourth&#160;bit (b) which is&#160;not decoded&#160;</p>
+<p style="position:absolute;top:238px;left:525px;white-space:nowrap" class="ft07">(don't care).<br/>Using RBP or&#160;R13 without displacement&#160;must&#160;be&#160;done&#160;</p>
+<p style="position:absolute;top:276px;left:525px;white-space:nowrap" class="ft03">using mod&#160;= 01&#160;with a&#160;displacement&#160;of&#160;0.</p>
+<p style="position:absolute;top:244px;left:164px;white-space:nowrap" class="ft03">r/m =&#160;</p>
+<p style="position:absolute;top:261px;left:164px;white-space:nowrap" class="ft03">b*101(EBP)</p>
+<p style="position:absolute;top:315px;left:73px;white-space:nowrap" class="ft03">SIB&#160;Byte</p>
+<p style="position:absolute;top:315px;left:163px;white-space:nowrap" class="ft03">index =&#160;</p>
+<p style="position:absolute;top:331px;left:164px;white-space:nowrap" class="ft03">0100(ESP)</p>
+<p style="position:absolute;top:315px;left:256px;white-space:nowrap" class="ft03">Index register not&#160;</p>
+<p style="position:absolute;top:331px;left:256px;white-space:nowrap" class="ft03">used.</p>
+<p style="position:absolute;top:315px;left:388px;white-space:nowrap" class="ft03">ESP cannot&#160;be&#160;used&#160;as&#160;</p>
+<p style="position:absolute;top:331px;left:388px;white-space:nowrap" class="ft03">an&#160;index&#160;register.</p>
+<p style="position:absolute;top:315px;left:525px;white-space:nowrap" class="ft07">REX prefix&#160;adds a&#160;fourth&#160;bit (b) which is&#160;decoded.<br/>There&#160;are no&#160;additional&#160;implications.&#160;The expanded&#160;</p>
+<p style="position:absolute;top:352px;left:525px;white-space:nowrap" class="ft03">index field allows&#160;distinguishing RSP from&#160;R12,&#160;</p>
+<p style="position:absolute;top:369px;left:525px;white-space:nowrap" class="ft03">therefore R12&#160;can&#160;be&#160;used&#160;as&#160;an&#160;index.</p>
+<p style="position:absolute;top:391px;left:73px;white-space:nowrap" class="ft03">SIB&#160;Byte</p>
+<p style="position:absolute;top:391px;left:163px;white-space:nowrap" class="ft03">base&#160;=&#160;</p>
+<p style="position:absolute;top:408px;left:164px;white-space:nowrap" class="ft03">0101(EBP)</p>
+<p style="position:absolute;top:391px;left:256px;white-space:nowrap" class="ft03">Base&#160;register&#160;is&#160;</p>
+<p style="position:absolute;top:408px;left:256px;white-space:nowrap" class="ft03">unused&#160;if&#160;mod&#160;= 0.</p>
+<p style="position:absolute;top:391px;left:388px;white-space:nowrap" class="ft03">Base register&#160;depends&#160;</p>
+<p style="position:absolute;top:408px;left:388px;white-space:nowrap" class="ft03">on mod encoding.</p>
+<p style="position:absolute;top:391px;left:525px;white-space:nowrap" class="ft08">REX prefix&#160;adds a&#160;fourth&#160;bit (b) which is&#160;not decoded.<br/>This&#160;requires explicit&#160;displacement&#160;to&#160;be&#160;used&#160;with&#160;</p>
+<p style="position:absolute;top:429px;left:525px;white-space:nowrap" class="ft03">EBP/RBP or&#160;R13.</p>
+<p style="position:absolute;top:451px;left:73px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:471px;left:73px;white-space:nowrap" class="ft03">*&#160;Don’t care&#160;about value of&#160;REX.B</p>
+<p style="position:absolute;top:709px;left:297px;white-space:nowrap" class="ft04">Table 2-6. &#160;Direct&#160;Memory Offset&#160;Form of&#160;MOV</p>
+<p style="position:absolute;top:732px;left:76px;white-space:nowrap" class="ft03">Opcode</p>
+<p style="position:absolute;top:732px;left:274px;white-space:nowrap" class="ft03">Instruction</p>
+<p style="position:absolute;top:755px;left:76px;white-space:nowrap" class="ft03">A0</p>
+<p style="position:absolute;top:755px;left:274px;white-space:nowrap" class="ft03">MOV&#160;AL,&#160;moffset</p>
+<p style="position:absolute;top:780px;left:76px;white-space:nowrap" class="ft03">A1</p>
+<p style="position:absolute;top:780px;left:274px;white-space:nowrap" class="ft03">MOV&#160;EAX,&#160;moffset</p>
+<p style="position:absolute;top:804px;left:76px;white-space:nowrap" class="ft03">A2</p>
+<p style="position:absolute;top:804px;left:274px;white-space:nowrap" class="ft03">MOV&#160;moffset,&#160;AL</p>
+<p style="position:absolute;top:827px;left:76px;white-space:nowrap" class="ft03">A3</p>
+<p style="position:absolute;top:827px;left:274px;white-space:nowrap" class="ft03">MOV&#160;moffset,&#160;EAX</p>
+</div>
+</body>
+</html>

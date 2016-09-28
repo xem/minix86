@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 180</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page180-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481180.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:521px;white-space:nowrap" class="ft00">AESDECLAST—Perform Last Round of an&#160;AES Decryption Flow</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-52&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">AESDECLAST—Perform Last&#160;Round of&#160;an AES Decryption Flow</p>
+<p style="position:absolute;top:386px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:494px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:517px;left:68px;white-space:nowrap" class="ft05">This instruction&#160;performs&#160;the&#160;last round of&#160;the&#160;AES decryption flow&#160;using the&#160;Equivalent Inverse&#160;Cipher, with the&#160;<br/>round&#160;key from the second source&#160;operand,&#160;operating on&#160;a&#160;128-bit data (state) from the&#160;first source&#160;operand,&#160;and&#160;<br/>store the&#160;result in&#160;the destination&#160;operand.&#160;<br/>128-bit Legacy SSE&#160;version:&#160;The first&#160;source operand&#160;and&#160;the destination operand&#160;are the&#160;same and must be an&#160;<br/>XMM register. The&#160;second&#160;source operand&#160;can be&#160;an XMM&#160;register&#160;or a&#160;128-bit&#160;memory location. Bits (VLMAX-<br/>1:128) of&#160;the&#160;corresponding YMM destination register&#160;remain unchanged.<br/>VEX.128&#160;encoded version: The first source&#160;operand and&#160;the destination operand&#160;are XMM registers.&#160;The&#160;second&#160;<br/>source operand&#160;can be an XMM register or&#160;a&#160;128-bit memory location. Bits (VLMAX-1:128) of the destination YMM&#160;<br/>register are&#160;zeroed.</p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft07">AESDECLAST&#160;<br/>STATE&#160;←&#160;SRC1;</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft04">RoundKey&#160;←&#160;SRC2;</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft04">STATE&#160;←&#160;InvShiftRows( STATE );</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft04">STATE&#160;←&#160;InvSubBytes( STATE&#160;);</p>
+<p style="position:absolute;top:808px;left:68px;white-space:nowrap" class="ft04">DEST[127:0]&#160;←&#160;STATE XOR RoundKey;</p>
+<p style="position:absolute;top:826px;left:68px;white-space:nowrap" class="ft04">DEST[VLMAX-1:128] (Unmodified)</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft07">VAESDECLAST&#160;<br/>STATE&#160;←&#160;SRC1;</p>
+<p style="position:absolute;top:898px;left:68px;white-space:nowrap" class="ft04">RoundKey&#160;←&#160;SRC2;</p>
+<p style="position:absolute;top:916px;left:68px;white-space:nowrap" class="ft04">STATE&#160;←&#160;InvShiftRows( STATE&#160;);</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft04">STATE&#160;←&#160;InvSubBytes( STATE&#160;);</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft04">DEST[127:0]&#160;←&#160;STATE XOR RoundKey;</p>
+<p style="position:absolute;top:970px;left:68px;white-space:nowrap" class="ft04">DEST[VLMAX-1:128]&#160;←&#160;0</p>
+<p style="position:absolute;top:1004px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:1035px;left:68px;white-space:nowrap" class="ft04">(V)AESDECLAST:</p>
+<p style="position:absolute;top:1035px;left:188px;white-space:nowrap" class="ft04">__m128i _mm_aesdeclast&#160;(__m128i, __m128i)</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:73px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:425px;white-space:nowrap" class="ft04">64/32-bit&#160;</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:497px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:497px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:497px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:73px;white-space:nowrap" class="ft04">66 0F&#160;38&#160;DF /r</p>
+<p style="position:absolute;top:191px;left:73px;white-space:nowrap" class="ft04">AESDECLAST&#160;xmm1, xmm2/m128</p>
+<p style="position:absolute;top:175px;left:388px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:425px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:497px;white-space:nowrap" class="ft04">AES</p>
+<p style="position:absolute;top:175px;left:568px;white-space:nowrap" class="ft04">Perform&#160;the&#160;last&#160;round of&#160;an&#160;AES&#160;decryption&#160;</p>
+<p style="position:absolute;top:191px;left:568px;white-space:nowrap" class="ft04">flow,&#160;using&#160;the Equivalent&#160;Inverse Cipher,&#160;</p>
+<p style="position:absolute;top:208px;left:568px;white-space:nowrap" class="ft04">operating on a 128-bit data (state) from&#160;</p>
+<p style="position:absolute;top:225px;left:568px;white-space:nowrap" class="ft04">xmm1&#160;with&#160;a 128-bit round&#160;key&#160;from&#160;</p>
+<p style="position:absolute;top:241px;left:568px;white-space:nowrap" class="ft04">xmm2/m128.</p>
+<p style="position:absolute;top:263px;left:73px;white-space:nowrap" class="ft04">VEX.NDS.128.66.0F38.WIG DF /r</p>
+<p style="position:absolute;top:280px;left:73px;white-space:nowrap" class="ft04">VAESDECLAST xmm1, xmm2, xmm3/m128</p>
+<p style="position:absolute;top:263px;left:388px;white-space:nowrap" class="ft04">RVM&#160;V/V</p>
+<p style="position:absolute;top:263px;left:497px;white-space:nowrap" class="ft04">Both&#160;AES&#160;</p>
+<p style="position:absolute;top:280px;left:497px;white-space:nowrap" class="ft04">and</p>
+<p style="position:absolute;top:297px;left:497px;white-space:nowrap" class="ft04">AVX&#160;flags</p>
+<p style="position:absolute;top:263px;left:568px;white-space:nowrap" class="ft04">Perform&#160;the&#160;last&#160;round of&#160;an&#160;AES&#160;decryption&#160;</p>
+<p style="position:absolute;top:280px;left:568px;white-space:nowrap" class="ft04">flow,&#160;using&#160;the Equivalent&#160;Inverse Cipher,&#160;</p>
+<p style="position:absolute;top:297px;left:568px;white-space:nowrap" class="ft04">operating on a 128-bit data (state) from&#160;</p>
+<p style="position:absolute;top:313px;left:568px;white-space:nowrap" class="ft04">xmm2&#160;with&#160;a 128-bit round&#160;key&#160;from&#160;</p>
+<p style="position:absolute;top:330px;left:568px;white-space:nowrap" class="ft04">xmm3/m128;&#160;store&#160;the&#160;result in&#160;xmm1.</p>
+<p style="position:absolute;top:409px;left:83px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:409px;left:189px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:409px;left:364px;white-space:nowrap" class="ft04">Operand2</p>
+<p style="position:absolute;top:409px;left:538px;white-space:nowrap" class="ft04">Operand3</p>
+<p style="position:absolute;top:409px;left:716px;white-space:nowrap" class="ft04">Operand4</p>
+<p style="position:absolute;top:433px;left:91px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:433px;left:171px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r, w)</p>
+<p style="position:absolute;top:433px;left:352px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:433px;left:557px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:433px;left:736px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:457px;left:87px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:457px;left:176px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:457px;left:357px;white-space:nowrap" class="ft04">VEX.vvvv&#160;(r)</p>
+<p style="position:absolute;top:457px;left:526px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:457px;left:735px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 649</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page649-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481649.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">LDS/LES/LFS/LGS/LSS—Load Far Pointer</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-521</p>
+<p style="position:absolute;top:100px;left:170px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:118px;left:143px;white-space:nowrap" class="ft02">ELSE IF&#160;Segment selector&#160;index&#160;is&#160;not within descriptor&#160;table limits</p>
+<p style="position:absolute;top:136px;left:197px;white-space:nowrap" class="ft02">or segment selector RPL&#160;</p>
+<p style="position:absolute;top:134px;left:341px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:136px;left:354px;white-space:nowrap" class="ft02">CPL</p>
+<p style="position:absolute;top:154px;left:197px;white-space:nowrap" class="ft04">or access rights indicate&#160;nonwritable&#160;data&#160;segment<br/>or DPL</p>
+<p style="position:absolute;top:169px;left:235px;white-space:nowrap" class="ft03">&#160;≠</p>
+<p style="position:absolute;top:172px;left:248px;white-space:nowrap" class="ft02">&#160;CPL</p>
+<p style="position:absolute;top:190px;left:170px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:208px;left:143px;white-space:nowrap" class="ft02">ELSE IF&#160;Segment marked&#160;not present</p>
+<p style="position:absolute;top:226px;left:170px;white-space:nowrap" class="ft02">THEN #SS(selector); FI;</p>
+<p style="position:absolute;top:244px;left:143px;white-space:nowrap" class="ft04">FI;<br/>SS&#160;←&#160;SegmentSelector(SRC);</p>
+<p style="position:absolute;top:280px;left:143px;white-space:nowrap" class="ft02">SS&#160;←&#160;SegmentDescriptor([SRC]);</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">ELSE IF attempt to load DS, or ES&#160;</p>
+<p style="position:absolute;top:316px;left:116px;white-space:nowrap" class="ft02">THEN&#160;#UD;</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft02">ELSE IF&#160;FS, or GS&#160;is&#160;loaded&#160;with non-NULL&#160;segment selector</p>
+<p style="position:absolute;top:352px;left:116px;white-space:nowrap" class="ft02">THEN IF Segment selector index is&#160;not within&#160;descriptor table limits</p>
+<p style="position:absolute;top:370px;left:143px;white-space:nowrap" class="ft04">or access rights indicate&#160;segment neither data nor&#160;readable code&#160;segment<br/>or segment is data&#160;or nonconforming-code&#160;segment&#160;<br/>and ( RPL &gt; DPL or CPL&#160;&gt;&#160;DPL)</p>
+<p style="position:absolute;top:424px;left:170px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:442px;left:143px;white-space:nowrap" class="ft02">ELSE IF&#160;Segment marked&#160;not present</p>
+<p style="position:absolute;top:460px;left:170px;white-space:nowrap" class="ft02">THEN #NP(selector); FI;</p>
+<p style="position:absolute;top:478px;left:143px;white-space:nowrap" class="ft04">FI;<br/>SegmentRegister&#160;←&#160;SegmentSelector(SRC)&#160;;</p>
+<p style="position:absolute;top:514px;left:143px;white-space:nowrap" class="ft02">SegmentRegister&#160;←&#160;SegmentDescriptor([SRC]);</p>
+<p style="position:absolute;top:532px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:550px;left:89px;white-space:nowrap" class="ft02">ELSE IF&#160;FS, or GS&#160;is&#160;loaded with a NULL selector:</p>
+<p style="position:absolute;top:568px;left:116px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:586px;left:143px;white-space:nowrap" class="ft02">SegmentRegister&#160;←&#160;NULLSelector;</p>
+<p style="position:absolute;top:604px;left:143px;white-space:nowrap" class="ft02">SegmentRegister(DescriptorValidBit)&#160;←&#160;0; FI; (* Hidden flag;&#160;</p>
+<p style="position:absolute;top:620px;left:170px;white-space:nowrap" class="ft02">not accessible&#160;by software *)</p>
+<p style="position:absolute;top:638px;left:89px;white-space:nowrap" class="ft04">FI;<br/>DEST&#160;←&#160;Offset(SRC);</p>
+<p style="position:absolute;top:687px;left:69px;white-space:nowrap" class="ft02">PREOTECTED MODE OR&#160;COMPATIBILITY MODE;</p>
+<p style="position:absolute;top:705px;left:89px;white-space:nowrap" class="ft02">IF SS is&#160;loaded&#160;</p>
+<p style="position:absolute;top:723px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:741px;left:143px;white-space:nowrap" class="ft02">IF SegementSelector&#160;</p>
+<p style="position:absolute;top:739px;left:265px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:741px;left:274px;white-space:nowrap" class="ft02">&#160;NULL&#160;</p>
+<p style="position:absolute;top:759px;left:170px;white-space:nowrap" class="ft02">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:777px;left:143px;white-space:nowrap" class="ft02">ELSE IF&#160;Segment selector&#160;index&#160;is&#160;not within descriptor&#160;table limits</p>
+<p style="position:absolute;top:795px;left:197px;white-space:nowrap" class="ft02">or segment selector RPL&#160;</p>
+<p style="position:absolute;top:793px;left:341px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:795px;left:354px;white-space:nowrap" class="ft02">CPL</p>
+<p style="position:absolute;top:813px;left:197px;white-space:nowrap" class="ft04">or access rights indicate&#160;nonwritable&#160;data&#160;segment<br/>or DPL</p>
+<p style="position:absolute;top:827px;left:235px;white-space:nowrap" class="ft03">&#160;≠</p>
+<p style="position:absolute;top:831px;left:248px;white-space:nowrap" class="ft02">&#160;CPL</p>
+<p style="position:absolute;top:849px;left:170px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+<p style="position:absolute;top:867px;left:143px;white-space:nowrap" class="ft02">ELSE IF&#160;Segment marked&#160;not present</p>
+<p style="position:absolute;top:885px;left:170px;white-space:nowrap" class="ft02">THEN #SS(selector); FI;</p>
+<p style="position:absolute;top:903px;left:143px;white-space:nowrap" class="ft04">FI;<br/>SS&#160;←&#160;SegmentSelector(SRC);</p>
+<p style="position:absolute;top:939px;left:143px;white-space:nowrap" class="ft02">SS&#160;←&#160;SegmentDescriptor([SRC]);</p>
+<p style="position:absolute;top:957px;left:89px;white-space:nowrap" class="ft02">ELSE IF&#160;DS, ES, FS, or GS is&#160;loaded&#160;with non-NULL segment selector</p>
+<p style="position:absolute;top:975px;left:116px;white-space:nowrap" class="ft02">THEN IF Segment selector index is&#160;not within&#160;descriptor table limits</p>
+<p style="position:absolute;top:993px;left:143px;white-space:nowrap" class="ft04">or access rights indicate&#160;segment neither data nor&#160;readable code&#160;segment<br/>or segment is data&#160;or nonconforming-code&#160;segment&#160;<br/>and (RPL &gt; DPL or CPL&#160;&gt;&#160;DPL)&#160;</p>
+<p style="position:absolute;top:1047px;left:170px;white-space:nowrap" class="ft02">THEN #GP(selector); FI;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,989 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Document Outline</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="o_b5573232dd8f1481-53.html">Chapter 1 About This Manual</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-53.html">1.1 Intel® 64 and IA-32 Processors Covered in this Manual</a></li>
+<li><a href="o_b5573232dd8f1481-55.html">1.2 Overview of Volume 2A, 2B, 2C and 2D: Instruction Set Reference</a></li>
+<li><a href="o_b5573232dd8f1481-56.html">1.3 Notational Conventions</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-56.html">1.3.1 Bit and Byte Order</a></li>
+<li><a href="o_b5573232dd8f1481-57.html">1.3.2 Reserved Bits and Software Compatibility</a></li>
+<li><a href="o_b5573232dd8f1481-57.html">1.3.3 Instruction Operands</a></li>
+<li><a href="o_b5573232dd8f1481-57.html">1.3.4 Hexadecimal and Binary Numbers</a></li>
+<li><a href="o_b5573232dd8f1481-58.html">1.3.5 Segmented Addressing</a></li>
+<li><a href="o_b5573232dd8f1481-58.html">1.3.6 Exceptions</a></li>
+<li><a href="o_b5573232dd8f1481-58.html">1.3.7 A New Syntax for CPUID, CR, and MSR Values</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-59.html">1.4 Related Literature</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-61.html">Chapter 2 Instruction Format</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-61.html">2.1 Instruction Format for Protected Mode, real-address Mode, and virtual-8086 mode</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-61.html">2.1.1 Instruction Prefixes</a></li>
+<li><a href="o_b5573232dd8f1481-63.html">2.1.2 Opcodes</a></li>
+<li><a href="o_b5573232dd8f1481-63.html">2.1.3 ModR/M and SIB Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-63.html">2.1.4 Displacement and Immediate Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-64.html">2.1.5 Addressing-Mode Encoding of ModR/M and SIB Bytes</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-67.html">2.2 IA-32e Mode</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-68.html">2.2.1 REX Prefixes</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-68.html">2.2.1.1 Encoding</a></li>
+<li><a href="o_b5573232dd8f1481-68.html">2.2.1.2 More on REX Prefix Fields</a></li>
+<li><a href="o_b5573232dd8f1481-71.html">2.2.1.3 Displacement</a></li>
+<li><a href="o_b5573232dd8f1481-71.html">2.2.1.4 Direct Memory-Offset MOVs</a></li>
+<li><a href="o_b5573232dd8f1481-71.html">2.2.1.5 Immediates</a></li>
+<li><a href="o_b5573232dd8f1481-72.html">2.2.1.6 RIP-Relative Addressing</a></li>
+<li><a href="o_b5573232dd8f1481-72.html">2.2.1.7 Default 64-Bit Operand Size</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-72.html">2.2.2 Additional Encodings for Control and Debug Registers</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-73.html">2.3 Intel® Advanced Vector Extensions (Intel® AVX)</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-73.html">2.3.1 Instruction Format</a></li>
+<li><a href="o_b5573232dd8f1481-73.html">2.3.2 VEX and the LOCK prefix</a></li>
+<li><a href="o_b5573232dd8f1481-73.html">2.3.3 VEX and the 66H, F2H, and F3H prefixes</a></li>
+<li><a href="o_b5573232dd8f1481-73.html">2.3.4 VEX and the REX prefix</a></li>
+<li><a href="o_b5573232dd8f1481-74.html">2.3.5 The VEX Prefix</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-75.html">2.3.5.1 VEX Byte 0, bits[7:0]</a></li>
+<li><a href="o_b5573232dd8f1481-75.html">2.3.5.2 VEX Byte 1, bit [7] - ‘R’</a></li>
+<li><a href="o_b5573232dd8f1481-76.html">2.3.5.3 3-byte VEX byte 1, bit[6] - ‘X’</a></li>
+<li><a href="o_b5573232dd8f1481-76.html">2.3.5.4 3-byte VEX byte 1, bit[5] - ‘B’</a></li>
+<li><a href="o_b5573232dd8f1481-76.html">2.3.5.5 3-byte VEX byte 2, bit[7] - ‘W’</a></li>
+<li><a href="o_b5573232dd8f1481-76.html">2.3.5.6 2-byte VEX Byte 1, bits[6:3] and 3-byte VEX Byte 2, bits [6:3]- ‘vvvv’ the Source or Dest Register Specifier</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-77.html">2.3.6 Instruction Operand Encoding and VEX.vvvv, ModR/M</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-78.html">2.3.6.1 3-byte VEX byte 1, bits[4:0] - “m-mmmm”</a></li>
+<li><a href="o_b5573232dd8f1481-78.html">2.3.6.2 2-byte VEX byte 1, bit[2], and 3-byte VEX byte 2, bit [2]- “L”</a></li>
+<li><a href="o_b5573232dd8f1481-78.html">2.3.6.3 2-byte VEX byte 1, bits[1:0], and 3-byte VEX byte 2, bits [1:0]- “pp”</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-79.html">2.3.7 The Opcode Byte</a></li>
+<li><a href="o_b5573232dd8f1481-79.html">2.3.8 The MODRM, SIB, and Displacement Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-79.html">2.3.9 The Third Source Operand (Immediate Byte)</a></li>
+<li><a href="o_b5573232dd8f1481-79.html">2.3.10 AVX Instructions and the Upper 128-bits of YMM registers</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-79.html">2.3.10.1 Vector Length Transition and Programming Considerations</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-80.html">2.3.11 AVX Instruction Length</a></li>
+<li><a href="o_b5573232dd8f1481-80.html">2.3.12 Vector SIB (VSIB) Memory Addressing</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-81.html">2.3.12.1 64-bit Mode VSIB Memory Addressing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-81.html">2.4 AVX and SSE Instruction Exception Specification</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-86.html">2.4.1 Exceptions Type 1 (Aligned memory reference)</a></li>
+<li><a href="o_b5573232dd8f1481-87.html">2.4.2 Exceptions Type 2 (&gt;=16 Byte Memory Reference, Unaligned)</a></li>
+<li><a href="o_b5573232dd8f1481-88.html">2.4.3 Exceptions Type 3 (&lt;16 Byte memory argument)</a></li>
+<li><a href="o_b5573232dd8f1481-89.html">2.4.4 Exceptions Type 4 (&gt;=16 Byte mem arg no alignment, no floating-point exceptions)</a></li>
+<li><a href="o_b5573232dd8f1481-90.html">2.4.5 Exceptions Type 5 (&lt;16 Byte mem arg and no FP exceptions)</a></li>
+<li><a href="o_b5573232dd8f1481-91.html">2.4.6 Exceptions Type 6 (VEX-Encoded Instructions Without Legacy SSE Analogues)</a></li>
+<li><a href="o_b5573232dd8f1481-92.html">2.4.7 Exceptions Type 7 (No FP exceptions, no memory arg)</a></li>
+<li><a href="o_b5573232dd8f1481-92.html">2.4.8 Exceptions Type 8 (AVX and no memory argument)</a></li>
+<li><a href="o_b5573232dd8f1481-93.html">2.4.9 Exception Type 11 (VEX-only, mem arg no AC, floating-point exceptions)</a></li>
+<li><a href="o_b5573232dd8f1481-94.html">2.4.10 Exception Type 12 (VEX-only, VSIB mem arg, no AC, no floating-point exceptions)</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-94.html">2.5 VEX Encoding Support for GPR Instructions</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-95.html">2.5.1 Exception Conditions for VEX-Encoded GPR Instructions</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-95.html">2.6 Intel® AVX-512 Encoding</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-96.html">2.6.1 Instruction Format and EVEX</a></li>
+<li><a href="o_b5573232dd8f1481-98.html">2.6.2 Register Specifier Encoding and EVEX</a></li>
+<li><a href="o_b5573232dd8f1481-98.html">2.6.3 Opmask Register Encoding</a></li>
+<li><a href="o_b5573232dd8f1481-99.html">2.6.4 Masking Support in EVEX</a></li>
+<li><a href="o_b5573232dd8f1481-99.html">2.6.5 Compressed Displacement (disp8*N) Support in EVEX</a></li>
+<li><a href="o_b5573232dd8f1481-101.html">2.6.6 EVEX Encoding of Broadcast/Rounding/SAE Support</a></li>
+<li><a href="o_b5573232dd8f1481-101.html">2.6.7 Embedded Broadcast Support in EVEX</a></li>
+<li><a href="o_b5573232dd8f1481-101.html">2.6.8 Static Rounding Support in EVEX</a></li>
+<li><a href="o_b5573232dd8f1481-101.html">2.6.9 SAE Support in EVEX</a></li>
+<li><a href="o_b5573232dd8f1481-101.html">2.6.10 Vector Length Orthogonality</a></li>
+<li><a href="o_b5573232dd8f1481-102.html">2.6.11 #UD Equations for EVEX</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-102.html">2.6.11.1 State Dependent #UD</a></li>
+<li><a href="o_b5573232dd8f1481-102.html">2.6.11.2 Opcode Independent #UD</a></li>
+<li><a href="o_b5573232dd8f1481-103.html">2.6.11.3 Opcode Dependent #UD</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-104.html">2.6.12 Device Not Available</a></li>
+<li><a href="o_b5573232dd8f1481-104.html">2.6.13 Scalar Instructions</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-104.html">2.7 Exception Classifications of EVEX-Encoded instructions</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-108.html">2.7.1 Exceptions Type E1 and E1NF of EVEX-Encoded Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-110.html">2.7.2 Exceptions Type E2 of EVEX-Encoded Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-111.html">2.7.3 Exceptions Type E3 and E3NF of EVEX-Encoded Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-113.html">2.7.4 Exceptions Type E4 and E4NF of EVEX-Encoded Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-115.html">2.7.5 Exceptions Type E5 and E5NF</a></li>
+<li><a href="o_b5573232dd8f1481-117.html">2.7.6 Exceptions Type E6 and E6NF</a></li>
+<li><a href="o_b5573232dd8f1481-119.html">2.7.7 Exceptions Type E7NM</a></li>
+<li><a href="o_b5573232dd8f1481-120.html">2.7.8 Exceptions Type E9 and E9NF</a></li>
+<li><a href="o_b5573232dd8f1481-122.html">2.7.9 Exceptions Type E10</a></li>
+<li><a href="o_b5573232dd8f1481-124.html">2.7.10 Exception Type E11 (EVEX-only, mem arg no AC, floating-point exceptions)</a></li>
+<li><a href="o_b5573232dd8f1481-125.html">2.7.11 Exception Type E12 and E12NP (VSIB mem arg, no AC, no floating-point exceptions)</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-127.html">2.8 Exception Classifications of Opmask instructions</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-129.html">Chapter 3 Instruction Set Reference, A-L</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-129.html">3.1 Interpreting the Instruction Reference Pages</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-129.html">3.1.1 Instruction Format</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-130.html">3.1.1.1 Opcode Column in the Instruction Summary Table (Instructions without VEX Prefix)</a></li>
+<li><a href="o_b5573232dd8f1481-131.html">3.1.1.2 Opcode Column in the Instruction Summary Table (Instructions with VEX prefix)</a></li>
+<li><a href="o_b5573232dd8f1481-133.html">3.1.1.3 Instruction Column in the Opcode Summary Table</a></li>
+<li><a href="o_b5573232dd8f1481-136.html">3.1.1.4 Operand Encoding Column in the Instruction Summary Table</a></li>
+<li><a href="o_b5573232dd8f1481-136.html">3.1.1.5 64/32-bit Mode Column in the Instruction Summary Table</a></li>
+<li><a href="o_b5573232dd8f1481-137.html">3.1.1.6 CPUID Support Column in the Instruction Summary Table</a></li>
+<li><a href="o_b5573232dd8f1481-137.html">3.1.1.7 Description Column in the Instruction Summary Table</a></li>
+<li><a href="o_b5573232dd8f1481-137.html">3.1.1.8 Description Section</a></li>
+<li><a href="o_b5573232dd8f1481-137.html">3.1.1.9 Operation Section</a></li>
+<li><a href="o_b5573232dd8f1481-140.html">3.1.1.10 Intel® C/C++ Compiler Intrinsics Equivalents Section</a></li>
+<li><a href="o_b5573232dd8f1481-142.html">3.1.1.11 Flags Affected Section</a></li>
+<li><a href="o_b5573232dd8f1481-142.html">3.1.1.12 FPU Flags Affected Section</a></li>
+<li><a href="o_b5573232dd8f1481-142.html">3.1.1.13 Protected Mode Exceptions Section</a></li>
+<li><a href="o_b5573232dd8f1481-143.html">3.1.1.14 Real-Address Mode Exceptions Section</a></li>
+<li><a href="o_b5573232dd8f1481-143.html">3.1.1.15 Virtual-8086 Mode Exceptions Section</a></li>
+<li><a href="o_b5573232dd8f1481-144.html">3.1.1.16 Floating-Point Exceptions Section</a></li>
+<li><a href="o_b5573232dd8f1481-144.html">3.1.1.17 SIMD Floating-Point Exceptions Section</a></li>
+<li><a href="o_b5573232dd8f1481-144.html">3.1.1.18 Compatibility Mode Exceptions Section</a></li>
+<li><a href="o_b5573232dd8f1481-144.html">3.1.1.19 64-Bit Mode Exceptions Section</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-145.html">3.2 Instructions (A-L)</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-146.html">AAA—ASCII Adjust After Addition</a></li>
+<li><a href="o_b5573232dd8f1481-148.html">AAD—ASCII Adjust AX Before Division</a></li>
+<li><a href="o_b5573232dd8f1481-150.html">AAM—ASCII Adjust AX After Multiply</a></li>
+<li><a href="o_b5573232dd8f1481-152.html">AAS—ASCII Adjust AL After Subtraction</a></li>
+<li><a href="o_b5573232dd8f1481-154.html">ADC—Add with Carry</a></li>
+<li><a href="o_b5573232dd8f1481-157.html">ADCX — Unsigned Integer Addition of Two Operands with Carry Flag</a></li>
+<li><a href="o_b5573232dd8f1481-159.html">ADD—Add</a></li>
+<li><a href="o_b5573232dd8f1481-161.html">ADDPD—Add Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-164.html">ADDPS—Add Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-167.html">ADDSD—Add Scalar Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-169.html">ADDSS—Add Scalar Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-171.html">ADDSUBPD—Packed Double-FP Add/Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-173.html">ADDSUBPS—Packed Single-FP Add/Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-176.html">ADOX — Unsigned Integer Addition of Two Operands with Overflow Flag</a></li>
+<li><a href="o_b5573232dd8f1481-178.html">AESDEC—Perform One Round of an AES Decryption Flow</a></li>
+<li><a href="o_b5573232dd8f1481-180.html">AESDECLAST—Perform Last Round of an AES Decryption Flow</a></li>
+<li><a href="o_b5573232dd8f1481-182.html">AESENC—Perform One Round of an AES Encryption Flow</a></li>
+<li><a href="o_b5573232dd8f1481-184.html">AESENCLAST—Perform Last Round of an AES Encryption Flow</a></li>
+<li><a href="o_b5573232dd8f1481-186.html">AESIMC—Perform the AES InvMixColumn Transformation</a></li>
+<li><a href="o_b5573232dd8f1481-187.html">AESKEYGENASSIST—AES Round Key Generation Assist</a></li>
+<li><a href="o_b5573232dd8f1481-189.html">AND—Logical AND</a></li>
+<li><a href="o_b5573232dd8f1481-191.html">ANDN — Logical AND NOT</a></li>
+<li><a href="o_b5573232dd8f1481-192.html">ANDPD—Bitwise Logical AND of Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-195.html">ANDPS—Bitwise Logical AND of Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-198.html">ANDNPD—Bitwise Logical AND NOT of Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-201.html">ANDNPS—Bitwise Logical AND NOT of Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-204.html">ARPL—Adjust RPL Field of Segment Selector</a></li>
+<li><a href="o_b5573232dd8f1481-206.html">BLENDPD — Blend Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-208.html">BEXTR — Bit Field Extract</a></li>
+<li><a href="o_b5573232dd8f1481-209.html">BLENDPS — Blend Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-211.html">BLENDVPD — Variable Blend Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-213.html">BLENDVPS — Variable Blend Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-216.html">BLSI — Extract Lowest Set Isolated Bit</a></li>
+<li><a href="o_b5573232dd8f1481-217.html">BLSMSK — Get Mask Up to Lowest Set Bit</a></li>
+<li><a href="o_b5573232dd8f1481-218.html">BLSR — Reset Lowest Set Bit</a></li>
+<li><a href="o_b5573232dd8f1481-219.html">BNDCL—Check Lower Bound</a></li>
+<li><a href="o_b5573232dd8f1481-221.html">BNDCU/BNDCN—Check Upper Bound</a></li>
+<li><a href="o_b5573232dd8f1481-223.html">BNDLDX—Load Extended Bounds Using Address Translation</a></li>
+<li><a href="o_b5573232dd8f1481-226.html">BNDMK—Make Bounds</a></li>
+<li><a href="o_b5573232dd8f1481-228.html">BNDMOV—Move Bounds</a></li>
+<li><a href="o_b5573232dd8f1481-231.html">BNDSTX—Store Extended Bounds Using Address Translation</a></li>
+<li><a href="o_b5573232dd8f1481-234.html">BOUND—Check Array Index Against Bounds</a></li>
+<li><a href="o_b5573232dd8f1481-236.html">BSF—Bit Scan Forward</a></li>
+<li><a href="o_b5573232dd8f1481-238.html">BSR—Bit Scan Reverse</a></li>
+<li><a href="o_b5573232dd8f1481-240.html">BSWAP—Byte Swap</a></li>
+<li><a href="o_b5573232dd8f1481-241.html">BT—Bit Test</a></li>
+<li><a href="o_b5573232dd8f1481-243.html">BTC—Bit Test and Complement</a></li>
+<li><a href="o_b5573232dd8f1481-245.html">BTR—Bit Test and Reset</a></li>
+<li><a href="o_b5573232dd8f1481-247.html">BTS—Bit Test and Set</a></li>
+<li><a href="o_b5573232dd8f1481-249.html">BZHI — Zero High Bits Starting with Specified Bit Position</a></li>
+<li><a href="o_b5573232dd8f1481-251.html">CALL—Call Procedure</a></li>
+<li><a href="o_b5573232dd8f1481-264.html">CBW/CWDE/CDQE—Convert Byte to Word/Convert Word to Doubleword/Convert Doubleword to Quadword</a></li>
+<li><a href="o_b5573232dd8f1481-265.html">CLAC—Clear AC Flag in EFLAGS Register</a></li>
+<li><a href="o_b5573232dd8f1481-266.html">CLC—Clear Carry Flag</a></li>
+<li><a href="o_b5573232dd8f1481-267.html">CLD—Clear Direction Flag</a></li>
+<li><a href="o_b5573232dd8f1481-268.html">CLFLUSH—Flush Cache Line</a></li>
+<li><a href="o_b5573232dd8f1481-270.html">CLFLUSHOPT—Flush Cache Line Optimized</a></li>
+<li><a href="o_b5573232dd8f1481-272.html">CLI — Clear Interrupt Flag</a></li>
+<li><a href="o_b5573232dd8f1481-274.html">CLTS—Clear Task-Switched Flag in CR0</a></li>
+<li><a href="o_b5573232dd8f1481-275.html">CMC—Complement Carry Flag</a></li>
+<li><a href="o_b5573232dd8f1481-276.html">CMOVcc—Conditional Move</a></li>
+<li><a href="o_b5573232dd8f1481-280.html">CMP—Compare Two Operands</a></li>
+<li><a href="o_b5573232dd8f1481-282.html">CMPPD—Compare Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-289.html">CMPPS—Compare Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-296.html">CMPS/CMPSB/CMPSW/CMPSD/CMPSQ—Compare String Operands</a></li>
+<li><a href="o_b5573232dd8f1481-300.html">CMPSD—Compare Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-304.html">CMPSS—Compare Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-308.html">CMPXCHG—Compare and Exchange</a></li>
+<li><a href="o_b5573232dd8f1481-310.html">CMPXCHG8B/CMPXCHG16B—Compare and Exchange Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-313.html">COMISD—Compare Scalar Ordered Double-Precision Floating-Point Values and Set EFLAGS</a></li>
+<li><a href="o_b5573232dd8f1481-315.html">COMISS—Compare Scalar Ordered Single-Precision Floating-Point Values and Set EFLAGS</a></li>
+<li><a href="o_b5573232dd8f1481-317.html">CPUID—CPU Identification</a></li>
+<li><a href="o_b5573232dd8f1481-352.html">CRC32 — Accumulate CRC32 Value</a></li>
+<li><a href="o_b5573232dd8f1481-355.html">CVTDQ2PD—Convert Packed Doubleword Integers to Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-359.html">CVTDQ2PS—Convert Packed Doubleword Integers to Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-362.html">CVTPD2DQ—Convert Packed Double-Precision Floating-Point Values to Packed Doubleword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-366.html">CVTPD2PI—Convert Packed Double-Precision FP Values to Packed Dword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-367.html">CVTPD2PS—Convert Packed Double-Precision Floating-Point Values to Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-371.html">CVTPI2PD—Convert Packed Dword Integers to Packed Double-Precision FP Values</a></li>
+<li><a href="o_b5573232dd8f1481-372.html">CVTPI2PS—Convert Packed Dword Integers to Packed Single-Precision FP Values</a></li>
+<li><a href="o_b5573232dd8f1481-373.html">CVTPS2DQ—Convert Packed Single-Precision Floating-Point Values to Packed Signed Doubleword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-376.html">CVTPS2PD—Convert Packed Single-Precision Floating-Point Values to Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-379.html">CVTPS2PI—Convert Packed Single-Precision FP Values to Packed Dword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-380.html">CVTSD2SI—Convert Scalar Double-Precision Floating-Point Value to Doubleword Integer</a></li>
+<li><a href="o_b5573232dd8f1481-382.html">CVTSD2SS—Convert Scalar Double-Precision Floating-Point Value to Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-384.html">CVTSI2SD—Convert Doubleword Integer to Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-386.html">CVTSI2SS—Convert Doubleword Integer to Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-388.html">CVTSS2SD—Convert Scalar Single-Precision Floating-Point Value to Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-390.html">CVTSS2SI—Convert Scalar Single-Precision Floating-Point Value to Doubleword Integer</a></li>
+<li><a href="o_b5573232dd8f1481-392.html">CVTTPD2DQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Doubleword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-396.html">CVTTPD2PI—Convert with Truncation Packed Double-Precision FP Values to Packed Dword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-397.html">CVTTPS2DQ—Convert with Truncation Packed Single-Precision Floating-Point Values to Packed Signed Doubleword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-400.html">CVTTPS2PI—Convert with Truncation Packed Single-Precision FP Values to Packed Dword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-401.html">CVTTSD2SI—Convert with Truncation Scalar Double-Precision Floating-Point Value to Signed Integer</a></li>
+<li><a href="o_b5573232dd8f1481-403.html">CVTTSS2SI—Convert with Truncation Scalar Single-Precision Floating-Point Value to Integer</a></li>
+<li><a href="o_b5573232dd8f1481-405.html">CWD/CDQ/CQO—Convert Word to Doubleword/Convert Doubleword to Quadword</a></li>
+<li><a href="o_b5573232dd8f1481-406.html">DAA—Decimal Adjust AL after Addition</a></li>
+<li><a href="o_b5573232dd8f1481-408.html">DAS—Decimal Adjust AL after Subtraction</a></li>
+<li><a href="o_b5573232dd8f1481-410.html">DEC—Decrement by 1</a></li>
+<li><a href="o_b5573232dd8f1481-412.html">DIV—Unsigned Divide</a></li>
+<li><a href="o_b5573232dd8f1481-415.html">DIVPD—Divide Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-418.html">DIVPS—Divide Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-421.html">DIVSD—Divide Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-423.html">DIVSS—Divide Scalar Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-425.html">DPPD — Dot Product of Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-427.html">DPPS — Dot Product of Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-430.html">EMMS—Empty MMX Technology State</a></li>
+<li><a href="o_b5573232dd8f1481-431.html">ENTER—Make Stack Frame for Procedure Parameters</a></li>
+<li><a href="o_b5573232dd8f1481-434.html">EXTRACTPS—Extract Packed Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-436.html">F2XM1—Compute 2x–1</a></li>
+<li><a href="o_b5573232dd8f1481-438.html">FABS—Absolute Value</a></li>
+<li><a href="o_b5573232dd8f1481-439.html">FADD/FADDP/FIADD—Add</a></li>
+<li><a href="o_b5573232dd8f1481-442.html">FBLD—Load Binary Coded Decimal</a></li>
+<li><a href="o_b5573232dd8f1481-444.html">FBSTP—Store BCD Integer and Pop</a></li>
+<li><a href="o_b5573232dd8f1481-446.html">FCHS—Change Sign</a></li>
+<li><a href="o_b5573232dd8f1481-448.html">FCLEX/FNCLEX—Clear Exceptions</a></li>
+<li><a href="o_b5573232dd8f1481-450.html">FCMOVcc—Floating-Point Conditional Move</a></li>
+<li><a href="o_b5573232dd8f1481-452.html">FCOM/FCOMP/FCOMPP—Compare Floating Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-455.html">FCOMI/FCOMIP/ FUCOMI/FUCOMIP—Compare Floating Point Values and Set EFLAGS</a></li>
+<li><a href="o_b5573232dd8f1481-458.html">FCOS— Cosine</a></li>
+<li><a href="o_b5573232dd8f1481-460.html">FDECSTP—Decrement Stack-Top Pointer</a></li>
+<li><a href="o_b5573232dd8f1481-461.html">FDIV/FDIVP/FIDIV—Divide</a></li>
+<li><a href="o_b5573232dd8f1481-464.html">FDIVR/FDIVRP/FIDIVR—Reverse Divide</a></li>
+<li><a href="o_b5573232dd8f1481-467.html">FFREE—Free Floating-Point Register</a></li>
+<li><a href="o_b5573232dd8f1481-468.html">FICOM/FICOMP—Compare Integer</a></li>
+<li><a href="o_b5573232dd8f1481-470.html">FILD—Load Integer</a></li>
+<li><a href="o_b5573232dd8f1481-472.html">FINCSTP—Increment Stack-Top Pointer</a></li>
+<li><a href="o_b5573232dd8f1481-473.html">FINIT/FNINIT—Initialize Floating-Point Unit</a></li>
+<li><a href="o_b5573232dd8f1481-475.html">FIST/FISTP—Store Integer</a></li>
+<li><a href="o_b5573232dd8f1481-478.html">FISTTP—Store Integer with Truncation</a></li>
+<li><a href="o_b5573232dd8f1481-480.html">FLD—Load Floating Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-482.html">FLD1/FLDL2T/FLDL2E/FLDPI/FLDLG2/FLDLN2/FLDZ—Load Constant</a></li>
+<li><a href="o_b5573232dd8f1481-484.html">FLDCW—Load x87 FPU Control Word</a></li>
+<li><a href="o_b5573232dd8f1481-486.html">FLDENV—Load x87 FPU Environment</a></li>
+<li><a href="o_b5573232dd8f1481-488.html">FMUL/FMULP/FIMUL—Multiply</a></li>
+<li><a href="o_b5573232dd8f1481-491.html">FNOP—No Operation</a></li>
+<li><a href="o_b5573232dd8f1481-492.html">FPATAN—Partial Arctangent</a></li>
+<li><a href="o_b5573232dd8f1481-494.html">FPREM—Partial Remainder</a></li>
+<li><a href="o_b5573232dd8f1481-496.html">FPREM1—Partial Remainder</a></li>
+<li><a href="o_b5573232dd8f1481-498.html">FPTAN—Partial Tangent</a></li>
+<li><a href="o_b5573232dd8f1481-500.html">FRNDINT—Round to Integer</a></li>
+<li><a href="o_b5573232dd8f1481-501.html">FRSTOR—Restore x87 FPU State</a></li>
+<li><a href="o_b5573232dd8f1481-503.html">FSAVE/FNSAVE—Store x87 FPU State</a></li>
+<li><a href="o_b5573232dd8f1481-506.html">FSCALE—Scale</a></li>
+<li><a href="o_b5573232dd8f1481-508.html">FSIN—Sine</a></li>
+<li><a href="o_b5573232dd8f1481-510.html">FSINCOS—Sine and Cosine</a></li>
+<li><a href="o_b5573232dd8f1481-512.html">FSQRT—Square Root</a></li>
+<li><a href="o_b5573232dd8f1481-514.html">FST/FSTP—Store Floating Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-516.html">FSTCW/FNSTCW—Store x87 FPU Control Word</a></li>
+<li><a href="o_b5573232dd8f1481-518.html">FSTENV/FNSTENV—Store x87 FPU Environment</a></li>
+<li><a href="o_b5573232dd8f1481-520.html">FSTSW/FNSTSW—Store x87 FPU Status Word</a></li>
+<li><a href="o_b5573232dd8f1481-522.html">FSUB/FSUBP/FISUB—Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-525.html">FSUBR/FSUBRP/FISUBR—Reverse Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-528.html">FTST—TEST</a></li>
+<li><a href="o_b5573232dd8f1481-530.html">FUCOM/FUCOMP/FUCOMPP—Unordered Compare Floating Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-533.html">FXAM—Examine Floating-Point</a></li>
+<li><a href="o_b5573232dd8f1481-535.html">FXCH—Exchange Register Contents</a></li>
+<li><a href="o_b5573232dd8f1481-537.html">FXRSTOR—Restore x87 FPU, MMX, XMM, and MXCSR State</a></li>
+<li><a href="o_b5573232dd8f1481-540.html">FXSAVE—Save x87 FPU, MMX Technology, and SSE State</a></li>
+<li><a href="o_b5573232dd8f1481-548.html">FXTRACT—Extract Exponent and Significand</a></li>
+<li><a href="o_b5573232dd8f1481-550.html">FYL2X—Compute y * log2x</a></li>
+<li><a href="o_b5573232dd8f1481-552.html">FYL2XP1—Compute y * log2(x +1)</a></li>
+<li><a href="o_b5573232dd8f1481-554.html">HADDPD—Packed Double-FP Horizontal Add</a></li>
+<li><a href="o_b5573232dd8f1481-557.html">HADDPS—Packed Single-FP Horizontal Add</a></li>
+<li><a href="o_b5573232dd8f1481-560.html">HLT—Halt</a></li>
+<li><a href="o_b5573232dd8f1481-561.html">HSUBPD—Packed Double-FP Horizontal Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-564.html">HSUBPS—Packed Single-FP Horizontal Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-567.html">IDIV—Signed Divide</a></li>
+<li><a href="o_b5573232dd8f1481-570.html">IMUL—Signed Multiply</a></li>
+<li><a href="o_b5573232dd8f1481-574.html">IN—Input from Port</a></li>
+<li><a href="o_b5573232dd8f1481-576.html">INC—Increment by 1</a></li>
+<li><a href="o_b5573232dd8f1481-578.html">INS/INSB/INSW/INSD—Input from Port to String</a></li>
+<li><a href="o_b5573232dd8f1481-581.html">INSERTPS—Insert Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-584.html">INT n/INTO/INT 3—Call to Interrupt Procedure</a></li>
+<li><a href="o_b5573232dd8f1481-596.html">INVD—Invalidate Internal Caches</a></li>
+<li><a href="o_b5573232dd8f1481-598.html">INVLPG—Invalidate TLB Entries</a></li>
+<li><a href="o_b5573232dd8f1481-600.html">INVPCID—Invalidate Process-Context Identifier</a></li>
+<li><a href="o_b5573232dd8f1481-603.html">IRET/IRETD—Interrupt Return</a></li>
+<li><a href="o_b5573232dd8f1481-610.html">Jcc—Jump if Condition Is Met</a></li>
+<li><a href="o_b5573232dd8f1481-615.html">JMP—Jump</a></li>
+<li><a href="o_b5573232dd8f1481-623.html">KADDW/KADDB/KADDQ/KADDD—ADD Two Masks</a></li>
+<li><a href="o_b5573232dd8f1481-624.html">KANDW/KANDB/KANDQ/KANDD—Bitwise Logical AND Masks</a></li>
+<li><a href="o_b5573232dd8f1481-625.html">KANDNW/KANDNB/KANDNQ/KANDND—Bitwise Logical AND NOT Masks</a></li>
+<li><a href="o_b5573232dd8f1481-626.html">KMOVW/KMOVB/KMOVQ/KMOVD—Move from and to Mask Registers</a></li>
+<li><a href="o_b5573232dd8f1481-628.html">KNOTW/KNOTB/KNOTQ/KNOTD—NOT Mask Register</a></li>
+<li><a href="o_b5573232dd8f1481-629.html">KORW/KORB/KORQ/KORD—Bitwise Logical OR Masks</a></li>
+<li><a href="o_b5573232dd8f1481-630.html">KORTESTW/KORTESTB/KORTESTQ/KORTESTD—OR Masks And Set Flags</a></li>
+<li><a href="o_b5573232dd8f1481-632.html">KSHIFTLW/KSHIFTLB/KSHIFTLQ/KSHIFTLD—Shift Left Mask Registers</a></li>
+<li><a href="o_b5573232dd8f1481-634.html">KSHIFTRW/KSHIFTRB/KSHIFTRQ/KSHIFTRD—Shift Right Mask Registers</a></li>
+<li><a href="o_b5573232dd8f1481-636.html">KTESTW/KTESTB/KTESTQ/KTESTD—Packed Bit Test Masks and Set Flags</a></li>
+<li><a href="o_b5573232dd8f1481-638.html">KUNPCKBW/KUNPCKWD/KUNPCKDQ—Unpack for Mask Registers</a></li>
+<li><a href="o_b5573232dd8f1481-639.html">KXNORW/KXNORB/KXNORQ/KXNORD—Bitwise Logical XNOR Masks</a></li>
+<li><a href="o_b5573232dd8f1481-640.html">KXORW/KXORB/KXORQ/KXORD—Bitwise Logical XOR Masks</a></li>
+<li><a href="o_b5573232dd8f1481-641.html">LAHF—Load Status Flags into AH Register</a></li>
+<li><a href="o_b5573232dd8f1481-642.html">LAR—Load Access Rights Byte</a></li>
+<li><a href="o_b5573232dd8f1481-645.html">LDDQU—Load Unaligned Integer 128 Bits</a></li>
+<li><a href="o_b5573232dd8f1481-647.html">LDMXCSR—Load MXCSR Register</a></li>
+<li><a href="o_b5573232dd8f1481-648.html">LDS/LES/LFS/LGS/LSS—Load Far Pointer</a></li>
+<li><a href="o_b5573232dd8f1481-652.html">LEA—Load Effective Address</a></li>
+<li><a href="o_b5573232dd8f1481-654.html">LEAVE—High Level Procedure Exit</a></li>
+<li><a href="o_b5573232dd8f1481-656.html">LFENCE—Load Fence</a></li>
+<li><a href="o_b5573232dd8f1481-657.html">LGDT/LIDT—Load Global/Interrupt Descriptor Table Register</a></li>
+<li><a href="o_b5573232dd8f1481-660.html">LLDT—Load Local Descriptor Table Register</a></li>
+<li><a href="o_b5573232dd8f1481-662.html">LMSW—Load Machine Status Word</a></li>
+<li><a href="o_b5573232dd8f1481-664.html">LOCK—Assert LOCK# Signal Prefix</a></li>
+<li><a href="o_b5573232dd8f1481-666.html">LODS/LODSB/LODSW/LODSD/LODSQ—Load String</a></li>
+<li><a href="o_b5573232dd8f1481-669.html">LOOP/LOOPcc—Loop According to ECX Counter</a></li>
+<li><a href="o_b5573232dd8f1481-671.html">LSL—Load Segment Limit</a></li>
+<li><a href="o_b5573232dd8f1481-674.html">LTR—Load Task Register</a></li>
+<li><a href="o_b5573232dd8f1481-676.html">LZCNT— Count the Number of Leading Zero Bits</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-681.html">Chapter 4 Instruction Set Reference, M-U</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-681.html">4.1 Imm8 Control Byte Operation for PCMPESTRI / PCMPESTRM / PCMPISTRI / PCMPISTRM</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-681.html">4.1.1 General Description</a></li>
+<li><a href="o_b5573232dd8f1481-682.html">4.1.2 Source Data Format</a></li>
+<li><a href="o_b5573232dd8f1481-682.html">4.1.3 Aggregation Operation</a></li>
+<li><a href="o_b5573232dd8f1481-683.html">4.1.4 Polarity</a></li>
+<li><a href="o_b5573232dd8f1481-684.html">4.1.5 Output Selection</a></li>
+<li><a href="o_b5573232dd8f1481-684.html">4.1.6 Valid/Invalid Override of Comparisons</a></li>
+<li><a href="o_b5573232dd8f1481-685.html">4.1.7 Summary of Im8 Control byte</a></li>
+<li><a href="o_b5573232dd8f1481-686.html">4.1.8 Diagram Comparison and Aggregation Process</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-686.html">4.2 Common Transformation and Primitive Functions for SHA1XXX and SHA256XXX</a></li>
+<li><a href="o_b5573232dd8f1481-687.html">4.3 Instructions (M-U)</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-688.html">MASKMOVDQU—Store Selected Bytes of Double Quadword</a></li>
+<li><a href="o_b5573232dd8f1481-690.html">MASKMOVQ—Store Selected Bytes of Quadword</a></li>
+<li><a href="o_b5573232dd8f1481-692.html">MAXPD—Maximum of Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-695.html">MAXPS—Maximum of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-698.html">MAXSD—Return Maximum Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-700.html">MAXSS—Return Maximum Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-702.html">MFENCE—Memory Fence</a></li>
+<li><a href="o_b5573232dd8f1481-703.html">MINPD—Minimum of Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-706.html">MINPS—Minimum of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-709.html">MINSD—Return Minimum Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-711.html">MINSS—Return Minimum Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-713.html">MONITOR—Set Up Monitor Address</a></li>
+<li><a href="o_b5573232dd8f1481-715.html">MOV—Move</a></li>
+<li><a href="o_b5573232dd8f1481-720.html">MOV—Move to/from Control Registers</a></li>
+<li><a href="o_b5573232dd8f1481-723.html">MOV—Move to/from Debug Registers</a></li>
+<li><a href="o_b5573232dd8f1481-725.html">MOVAPD—Move Aligned Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-729.html">MOVAPS—Move Aligned Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-733.html">MOVBE—Move Data After Swapping Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-735.html">MOVD/MOVQ—Move Doubleword/Move Quadword</a></li>
+<li><a href="o_b5573232dd8f1481-739.html">MOVDDUP—Replicate Double FP Values</a></li>
+<li><a href="o_b5573232dd8f1481-742.html">MOVDQA,VMOVDQA32/64—Move Aligned Packed Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-747.html">MOVDQU,VMOVDQU8/16/32/64—Move Unaligned Packed Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-755.html">MOVDQ2Q—Move Quadword from XMM to MMX Technology Register</a></li>
+<li><a href="o_b5573232dd8f1481-756.html">MOVHLPS—Move Packed Single-Precision Floating-Point Values High to Low</a></li>
+<li><a href="o_b5573232dd8f1481-758.html">MOVHPD—Move High Packed Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-760.html">MOVHPS—Move High Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-762.html">MOVLHPS—Move Packed Single-Precision Floating-Point Values Low to High</a></li>
+<li><a href="o_b5573232dd8f1481-764.html">MOVLPD—Move Low Packed Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-766.html">MOVLPS—Move Low Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-768.html">MOVMSKPD—Extract Packed Double-Precision Floating-Point Sign Mask</a></li>
+<li><a href="o_b5573232dd8f1481-770.html">MOVMSKPS—Extract Packed Single-Precision Floating-Point Sign Mask</a></li>
+<li><a href="o_b5573232dd8f1481-772.html">MOVNTDQA—Load Double Quadword Non-Temporal Aligned Hint</a></li>
+<li><a href="o_b5573232dd8f1481-774.html">MOVNTDQ—Store Packed Integers Using Non-Temporal Hint</a></li>
+<li><a href="o_b5573232dd8f1481-776.html">MOVNTI—Store Doubleword Using Non-Temporal Hint</a></li>
+<li><a href="o_b5573232dd8f1481-778.html">MOVNTPD—Store Packed Double-Precision Floating-Point Values Using Non-Temporal Hint</a></li>
+<li><a href="o_b5573232dd8f1481-780.html">MOVNTPS—Store Packed Single-Precision Floating-Point Values Using Non-Temporal Hint</a></li>
+<li><a href="o_b5573232dd8f1481-782.html">MOVNTQ—Store of Quadword Using Non-Temporal Hint</a></li>
+<li><a href="o_b5573232dd8f1481-783.html">MOVQ—Move Quadword</a></li>
+<li><a href="o_b5573232dd8f1481-786.html">MOVQ2DQ—Move Quadword from MMX Technology to XMM Register</a></li>
+<li><a href="o_b5573232dd8f1481-787.html">MOVS/MOVSB/MOVSW/MOVSD/MOVSQ—Move Data from String to String</a></li>
+<li><a href="o_b5573232dd8f1481-791.html">MOVSD—Move or Merge Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-794.html">MOVSHDUP—Replicate Single FP Values</a></li>
+<li><a href="o_b5573232dd8f1481-797.html">MOVSLDUP—Replicate Single FP Values</a></li>
+<li><a href="o_b5573232dd8f1481-800.html">MOVSS—Move or Merge Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-804.html">MOVSX/MOVSXD—Move with Sign-Extension</a></li>
+<li><a href="o_b5573232dd8f1481-806.html">MOVUPD—Move Unaligned Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-810.html">MOVUPS—Move Unaligned Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-814.html">MOVZX—Move with Zero-Extend</a></li>
+<li><a href="o_b5573232dd8f1481-816.html">MPSADBW — Compute Multiple Packed Sums of Absolute Difference</a></li>
+<li><a href="o_b5573232dd8f1481-824.html">MUL—Unsigned Multiply</a></li>
+<li><a href="o_b5573232dd8f1481-826.html">MULPD—Multiply Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-829.html">MULPS—Multiply Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-832.html">MULSD—Multiply Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-834.html">MULSS—Multiply Scalar Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-836.html">MULX — Unsigned Multiply Without Affecting Flags</a></li>
+<li><a href="o_b5573232dd8f1481-838.html">MWAIT—Monitor Wait</a></li>
+<li><a href="o_b5573232dd8f1481-841.html">NEG—Two's Complement Negation</a></li>
+<li><a href="o_b5573232dd8f1481-843.html">NOP—No Operation</a></li>
+<li><a href="o_b5573232dd8f1481-844.html">NOT—One's Complement Negation</a></li>
+<li><a href="o_b5573232dd8f1481-846.html">OR—Logical Inclusive OR</a></li>
+<li><a href="o_b5573232dd8f1481-848.html">ORPD—Bitwise Logical OR of Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-851.html">ORPS—Bitwise Logical OR of Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-854.html">OUT—Output to Port</a></li>
+<li><a href="o_b5573232dd8f1481-856.html">OUTS/OUTSB/OUTSW/OUTSD—Output String to Port</a></li>
+<li><a href="o_b5573232dd8f1481-860.html">PABSB/PABSW/PABSD/PABSQ — Packed Absolute Value</a></li>
+<li><a href="o_b5573232dd8f1481-866.html">PACKSSWB/PACKSSDW—Pack with Signed Saturation</a></li>
+<li><a href="o_b5573232dd8f1481-874.html">PACKUSDW—Pack with Unsigned Saturation</a></li>
+<li><a href="o_b5573232dd8f1481-879.html">PACKUSWB—Pack with Unsigned Saturation</a></li>
+<li><a href="o_b5573232dd8f1481-884.html">PADDB/PADDW/PADDD/PADDQ—Add Packed Integers</a></li>
+<li><a href="o_b5573232dd8f1481-891.html">PADDSB/PADDSW—Add Packed Signed Integers with Signed Saturation</a></li>
+<li><a href="o_b5573232dd8f1481-895.html">PADDUSB/PADDUSW—Add Packed Unsigned Integers with Unsigned Saturation</a></li>
+<li><a href="o_b5573232dd8f1481-899.html">PALIGNR — Packed Align Right</a></li>
+<li><a href="o_b5573232dd8f1481-903.html">PAND—Logical AND</a></li>
+<li><a href="o_b5573232dd8f1481-906.html">PANDN—Logical AND NOT</a></li>
+<li><a href="o_b5573232dd8f1481-909.html">PAUSE—Spin Loop Hint</a></li>
+<li><a href="o_b5573232dd8f1481-910.html">PAVGB/PAVGW—Average Packed Integers</a></li>
+<li><a href="o_b5573232dd8f1481-914.html">PBLENDVB — Variable Blend Packed Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-918.html">PBLENDW — Blend Packed Words</a></li>
+<li><a href="o_b5573232dd8f1481-921.html">PCLMULQDQ - Carry-Less Multiplication Quadword</a></li>
+<li><a href="o_b5573232dd8f1481-924.html">PCMPEQB/PCMPEQW/PCMPEQD— Compare Packed Data for Equal</a></li>
+<li><a href="o_b5573232dd8f1481-930.html">PCMPEQQ — Compare Packed Qword Data for Equal</a></li>
+<li><a href="o_b5573232dd8f1481-933.html">PCMPESTRI — Packed Compare Explicit Length Strings, Return Index</a></li>
+<li><a href="o_b5573232dd8f1481-935.html">PCMPESTRM — Packed Compare Explicit Length Strings, Return Mask</a></li>
+<li><a href="o_b5573232dd8f1481-937.html">PCMPGTB/PCMPGTW/PCMPGTD—Compare Packed Signed Integers for Greater Than</a></li>
+<li><a href="o_b5573232dd8f1481-943.html">PCMPGTQ — Compare Packed Data for Greater Than</a></li>
+<li><a href="o_b5573232dd8f1481-946.html">PCMPISTRI — Packed Compare Implicit Length Strings, Return Index</a></li>
+<li><a href="o_b5573232dd8f1481-948.html">PCMPISTRM — Packed Compare Implicit Length Strings, Return Mask</a></li>
+<li><a href="o_b5573232dd8f1481-950.html">PDEP — Parallel Bits Deposit</a></li>
+<li><a href="o_b5573232dd8f1481-952.html">PEXT — Parallel Bits Extract</a></li>
+<li><a href="o_b5573232dd8f1481-954.html">PEXTRB/PEXTRD/PEXTRQ — Extract Byte/Dword/Qword</a></li>
+<li><a href="o_b5573232dd8f1481-957.html">PEXTRW—Extract Word</a></li>
+<li><a href="o_b5573232dd8f1481-960.html">PHADDW/PHADDD — Packed Horizontal Add</a></li>
+<li><a href="o_b5573232dd8f1481-964.html">PHADDSW — Packed Horizontal Add and Saturate</a></li>
+<li><a href="o_b5573232dd8f1481-966.html">PHMINPOSUW — Packed Horizontal Word Minimum</a></li>
+<li><a href="o_b5573232dd8f1481-968.html">PHSUBW/PHSUBD — Packed Horizontal Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-971.html">PHSUBSW — Packed Horizontal Subtract and Saturate</a></li>
+<li><a href="o_b5573232dd8f1481-973.html">PINSRB/PINSRD/PINSRQ — Insert Byte/Dword/Qword</a></li>
+<li><a href="o_b5573232dd8f1481-976.html">PINSRW—Insert Word</a></li>
+<li><a href="o_b5573232dd8f1481-978.html">PMADDUBSW — Multiply and Add Packed Signed and Unsigned Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-981.html">PMADDWD—Multiply and Add Packed Integers</a></li>
+<li><a href="o_b5573232dd8f1481-984.html">PMAXSB/PMAXSW/PMAXSD/PMAXSQ—Maximum of Packed Signed Integers</a></li>
+<li><a href="o_b5573232dd8f1481-991.html">PMAXUB/PMAXUW—Maximum of Packed Unsigned Integers</a></li>
+<li><a href="o_b5573232dd8f1481-996.html">PMAXUD/PMAXUQ—Maximum of Packed Unsigned Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1000.html">PMINSB/PMINSW—Minimum of Packed Signed Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1005.html">PMINSD/PMINSQ—Minimum of Packed Signed Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1009.html">PMINUB/PMINUW—Minimum of Packed Unsigned Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1014.html">PMINUD/PMINUQ—Minimum of Packed Unsigned Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1018.html">PMOVMSKB—Move Byte Mask</a></li>
+<li><a href="o_b5573232dd8f1481-1020.html">PMOVSX—Packed Move with Sign Extend</a></li>
+<li><a href="o_b5573232dd8f1481-1030.html">PMOVZX—Packed Move with Zero Extend</a></li>
+<li><a href="o_b5573232dd8f1481-1039.html">PMULDQ—Multiply Packed Doubleword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1042.html">PMULHRSW — Packed Multiply High with Round and Scale</a></li>
+<li><a href="o_b5573232dd8f1481-1046.html">PMULHUW—Multiply Packed Unsigned Integers and Store High Result</a></li>
+<li><a href="o_b5573232dd8f1481-1050.html">PMULHW—Multiply Packed Signed Integers and Store High Result</a></li>
+<li><a href="o_b5573232dd8f1481-1054.html">PMULLD/PMULLQ—Multiply Packed Integers and Store Low Result</a></li>
+<li><a href="o_b5573232dd8f1481-1058.html">PMULLW—Multiply Packed Signed Integers and Store Low Result</a></li>
+<li><a href="o_b5573232dd8f1481-1062.html">PMULUDQ—Multiply Packed Unsigned Doubleword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1065.html">POP—Pop a Value from the Stack</a></li>
+<li><a href="o_b5573232dd8f1481-1070.html">POPA/POPAD—Pop All General-Purpose Registers</a></li>
+<li><a href="o_b5573232dd8f1481-1072.html">POPCNT — Return the Count of Number of Bits Set to 1</a></li>
+<li><a href="o_b5573232dd8f1481-1074.html">POPF/POPFD/POPFQ—Pop Stack into EFLAGS Register</a></li>
+<li><a href="o_b5573232dd8f1481-1079.html">POR—Bitwise Logical OR</a></li>
+<li><a href="o_b5573232dd8f1481-1082.html">PREFETCHh—Prefetch Data Into Caches</a></li>
+<li><a href="o_b5573232dd8f1481-1084.html">PREFETCHW—Prefetch Data into Caches in Anticipation of a Write</a></li>
+<li><a href="o_b5573232dd8f1481-1086.html">PREFETCHWT1—Prefetch Vector Data Into Caches with Intent to Write and T1 Hint</a></li>
+<li><a href="o_b5573232dd8f1481-1088.html">PSADBW—Compute Sum of Absolute Differences</a></li>
+<li><a href="o_b5573232dd8f1481-1092.html">PSHUFB — Packed Shuffle Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-1096.html">PSHUFD—Shuffle Packed Doublewords</a></li>
+<li><a href="o_b5573232dd8f1481-1100.html">PSHUFHW—Shuffle Packed High Words</a></li>
+<li><a href="o_b5573232dd8f1481-1103.html">PSHUFLW—Shuffle Packed Low Words</a></li>
+<li><a href="o_b5573232dd8f1481-1106.html">PSHUFW—Shuffle Packed Words</a></li>
+<li><a href="o_b5573232dd8f1481-1107.html">PSIGNB/PSIGNW/PSIGND — Packed SIGN</a></li>
+<li><a href="o_b5573232dd8f1481-1111.html">PSLLDQ—Shift Double Quadword Left Logical</a></li>
+<li><a href="o_b5573232dd8f1481-1113.html">PSLLW/PSLLD/PSLLQ—Shift Packed Data Left Logical</a></li>
+<li><a href="o_b5573232dd8f1481-1125.html">PSRAW/PSRAD/PSRAQ—Shift Packed Data Right Arithmetic</a></li>
+<li><a href="o_b5573232dd8f1481-1135.html">PSRLDQ—Shift Double Quadword Right Logical</a></li>
+<li><a href="o_b5573232dd8f1481-1137.html">PSRLW/PSRLD/PSRLQ—Shift Packed Data Right Logical</a></li>
+<li><a href="o_b5573232dd8f1481-1149.html">PSUBB/PSUBW/PSUBD—Subtract Packed Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1156.html">PSUBQ—Subtract Packed Quadword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1159.html">PSUBSB/PSUBSW—Subtract Packed Signed Integers with Signed Saturation</a></li>
+<li><a href="o_b5573232dd8f1481-1163.html">PSUBUSB/PSUBUSW—Subtract Packed Unsigned Integers with Unsigned Saturation</a></li>
+<li><a href="o_b5573232dd8f1481-1167.html">PTEST- Logical Compare</a></li>
+<li><a href="o_b5573232dd8f1481-1169.html">PTWRITE - Write Data to a Processor Trace Packet</a></li>
+<li><a href="o_b5573232dd8f1481-1171.html">PUNPCKHBW/PUNPCKHWD/PUNPCKHDQ/PUNPCKHQDQ— Unpack High Data</a></li>
+<li><a href="o_b5573232dd8f1481-1181.html">PUNPCKLBW/PUNPCKLWD/PUNPCKLDQ/PUNPCKLQDQ—Unpack Low Data</a></li>
+<li><a href="o_b5573232dd8f1481-1191.html">PUSH—Push Word, Doubleword or Quadword Onto the Stack</a></li>
+<li><a href="o_b5573232dd8f1481-1194.html">PUSHA/PUSHAD—Push All General-Purpose Registers</a></li>
+<li><a href="o_b5573232dd8f1481-1196.html">PUSHF/PUSHFD—Push EFLAGS Register onto the Stack</a></li>
+<li><a href="o_b5573232dd8f1481-1198.html">PXOR—Logical Exclusive OR</a></li>
+<li><a href="o_b5573232dd8f1481-1201.html">RCL/RCR/ROL/ROR—Rotate</a></li>
+<li><a href="o_b5573232dd8f1481-1206.html">RCPPS—Compute Reciprocals of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1208.html">RCPSS—Compute Reciprocal of Scalar Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1210.html">RDFSBASE/RDGSBASE—Read FS/GS Segment Base</a></li>
+<li><a href="o_b5573232dd8f1481-1212.html">RDMSR—Read from Model Specific Register</a></li>
+<li><a href="o_b5573232dd8f1481-1214.html">RDPID—Read Processor ID</a></li>
+<li><a href="o_b5573232dd8f1481-1215.html">RDPKRU—Read Protection Key Rights for User Pages</a></li>
+<li><a href="o_b5573232dd8f1481-1217.html">RDPMC—Read Performance-Monitoring Counters</a></li>
+<li><a href="o_b5573232dd8f1481-1221.html">RDRAND—Read Random Number</a></li>
+<li><a href="o_b5573232dd8f1481-1223.html">RDSEED—Read Random SEED</a></li>
+<li><a href="o_b5573232dd8f1481-1225.html">RDTSC—Read Time-Stamp Counter</a></li>
+<li><a href="o_b5573232dd8f1481-1227.html">RDTSCP—Read Time-Stamp Counter and Processor ID</a></li>
+<li><a href="o_b5573232dd8f1481-1229.html">REP/REPE/REPZ/REPNE/REPNZ—Repeat String Operation Prefix</a></li>
+<li><a href="o_b5573232dd8f1481-1233.html">RET—Return from Procedure</a></li>
+<li><a href="o_b5573232dd8f1481-1243.html">RORX — Rotate Right Logical Without Affecting Flags</a></li>
+<li><a href="o_b5573232dd8f1481-1244.html">ROUNDPD — Round Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1247.html">ROUNDPS — Round Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1250.html">ROUNDSD — Round Scalar Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1252.html">ROUNDSS — Round Scalar Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1254.html">RSM—Resume from System Management Mode</a></li>
+<li><a href="o_b5573232dd8f1481-1256.html">RSQRTPS—Compute Reciprocals of Square Roots of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1258.html">RSQRTSS—Compute Reciprocal of Square Root of Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-1260.html">SAHF—Store AH into Flags</a></li>
+<li><a href="o_b5573232dd8f1481-1262.html">SAL/SAR/SHL/SHR—Shift</a></li>
+<li><a href="o_b5573232dd8f1481-1267.html">SARX/SHLX/SHRX — Shift Without Affecting Flags</a></li>
+<li><a href="o_b5573232dd8f1481-1269.html">SBB—Integer Subtraction with Borrow</a></li>
+<li><a href="o_b5573232dd8f1481-1272.html">SCAS/SCASB/SCASW/SCASD—Scan String</a></li>
+<li><a href="o_b5573232dd8f1481-1276.html">SETcc—Set Byte on Condition</a></li>
+<li><a href="o_b5573232dd8f1481-1279.html">SFENCE—Store Fence</a></li>
+<li><a href="o_b5573232dd8f1481-1280.html">SGDT—Store Global Descriptor Table Register</a></li>
+<li><a href="o_b5573232dd8f1481-1282.html">SHA1RNDS4—Perform Four Rounds of SHA1 Operation</a></li>
+<li><a href="o_b5573232dd8f1481-1284.html">SHA1NEXTE—Calculate SHA1 State Variable E after Four Rounds</a></li>
+<li><a href="o_b5573232dd8f1481-1285.html">SHA1MSG1—Perform an Intermediate Calculation for the Next Four SHA1 Message Dwords</a></li>
+<li><a href="o_b5573232dd8f1481-1286.html">SHA1MSG2—Perform a Final Calculation for the Next Four SHA1 Message Dwords</a></li>
+<li><a href="o_b5573232dd8f1481-1287.html">SHA256RNDS2—Perform Two Rounds of SHA256 Operation</a></li>
+<li><a href="o_b5573232dd8f1481-1289.html">SHA256MSG1—Perform an Intermediate Calculation for the Next Four SHA256 Message Dwords</a></li>
+<li><a href="o_b5573232dd8f1481-1290.html">SHA256MSG2—Perform a Final Calculation for the Next Four SHA256 Message Dwords</a></li>
+<li><a href="o_b5573232dd8f1481-1291.html">SHLD—Double Precision Shift Left</a></li>
+<li><a href="o_b5573232dd8f1481-1294.html">SHRD—Double Precision Shift Right</a></li>
+<li><a href="o_b5573232dd8f1481-1297.html">SHUFPD—Packed Interleave Shuffle of Pairs of Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1302.html">SHUFPS—Packed Interleave Shuffle of Quadruplets of Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1306.html">SIDT—Store Interrupt Descriptor Table Register</a></li>
+<li><a href="o_b5573232dd8f1481-1308.html">SLDT—Store Local Descriptor Table Register</a></li>
+<li><a href="o_b5573232dd8f1481-1310.html">SMSW—Store Machine Status Word</a></li>
+<li><a href="o_b5573232dd8f1481-1312.html">SQRTPD—Square Root of Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1315.html">SQRTPS—Square Root of Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1318.html">SQRTSD—Compute Square Root of Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-1320.html">SQRTSS—Compute Square Root of Scalar Single-Precision Value</a></li>
+<li><a href="o_b5573232dd8f1481-1322.html">STAC—Set AC Flag in EFLAGS Register</a></li>
+<li><a href="o_b5573232dd8f1481-1323.html">STC—Set Carry Flag</a></li>
+<li><a href="o_b5573232dd8f1481-1324.html">STD—Set Direction Flag</a></li>
+<li><a href="o_b5573232dd8f1481-1325.html">STI—Set Interrupt Flag</a></li>
+<li><a href="o_b5573232dd8f1481-1327.html">STMXCSR—Store MXCSR Register State</a></li>
+<li><a href="o_b5573232dd8f1481-1328.html">STOS/STOSB/STOSW/STOSD/STOSQ—Store String</a></li>
+<li><a href="o_b5573232dd8f1481-1332.html">STR—Store Task Register</a></li>
+<li><a href="o_b5573232dd8f1481-1334.html">SUB—Subtract</a></li>
+<li><a href="o_b5573232dd8f1481-1336.html">SUBPD—Subtract Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1339.html">SUBPS—Subtract Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1342.html">SUBSD—Subtract Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-1344.html">SUBSS—Subtract Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-1346.html">SWAPGS—Swap GS Base Register</a></li>
+<li><a href="o_b5573232dd8f1481-1348.html">SYSCALL—Fast System Call</a></li>
+<li><a href="o_b5573232dd8f1481-1350.html">SYSENTER—Fast System Call</a></li>
+<li><a href="o_b5573232dd8f1481-1353.html">SYSEXIT—Fast Return from Fast System Call</a></li>
+<li><a href="o_b5573232dd8f1481-1356.html">SYSRET—Return From Fast System Call</a></li>
+<li><a href="o_b5573232dd8f1481-1359.html">TEST—Logical Compare</a></li>
+<li><a href="o_b5573232dd8f1481-1361.html">TZCNT — Count the Number of Trailing Zero Bits</a></li>
+<li><a href="o_b5573232dd8f1481-1363.html">UCOMISD—Unordered Compare Scalar Double-Precision Floating-Point Values and Set EFLAGS</a></li>
+<li><a href="o_b5573232dd8f1481-1365.html">UCOMISS—Unordered Compare Scalar Single-Precision Floating-Point Values and Set EFLAGS</a></li>
+<li><a href="o_b5573232dd8f1481-1367.html">UD2—Undefined Instruction</a></li>
+<li><a href="o_b5573232dd8f1481-1368.html">UNPCKHPD—Unpack and Interleave High Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1372.html">UNPCKHPS—Unpack and Interleave High Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1376.html">UNPCKLPD—Unpack and Interleave Low Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1380.html">UNPCKLPS—Unpack and Interleave Low Packed Single-Precision Floating-Point Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-1387.html">Chapter 5 Instruction Set Reference, V-Z</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-1387.html">5.1 Ternary Bit Vector Logic Table</a></li>
+<li><a href="o_b5573232dd8f1481-1390.html">5.2 Instructions (V-Z)</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-1391.html">VALIGND/VALIGNQ—Align Doubleword/Quadword Vectors</a></li>
+<li><a href="o_b5573232dd8f1481-1394.html">VBLENDMPD/VBLENDMPS—Blend Float64/Float32 Vectors Using an OpMask Control</a></li>
+<li><a href="o_b5573232dd8f1481-1396.html">VBROADCAST—Load with Broadcast Floating-Point Data</a></li>
+<li><a href="o_b5573232dd8f1481-1403.html">VPBROADCASTM—Broadcast Mask to Vector Register</a></li>
+<li><a href="o_b5573232dd8f1481-1405.html">VCOMPRESSPD—Store Sparse Packed Double-Precision Floating-Point Values into Dense Memory</a></li>
+<li><a href="o_b5573232dd8f1481-1407.html">VCOMPRESSPS—Store Sparse Packed Single-Precision Floating-Point Values into Dense Memory</a></li>
+<li><a href="o_b5573232dd8f1481-1409.html">VCVTPD2QQ—Convert Packed Double-Precision Floating-Point Values to Packed Quadword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1411.html">VCVTPD2UDQ—Convert Packed Double-Precision Floating-Point Values to Packed Unsigned Doubleword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1413.html">VCVTPD2UQQ—Convert Packed Double-Precision Floating-Point Values to Packed Unsigned Quadword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1415.html">VCVTPH2PS—Convert 16-bit FP values to Single-Precision FP values</a></li>
+<li><a href="o_b5573232dd8f1481-1418.html">VCVTPS2PH—Convert Single-Precision FP value to 16-bit FP value</a></li>
+<li><a href="o_b5573232dd8f1481-1422.html">VCVTPS2UDQ—Convert Packed Single-Precision Floating-Point Values to Packed Unsigned Doubleword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1424.html">VCVTPS2QQ—Convert Packed Single Precision Floating-Point Values to Packed Singed Quadword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1426.html">VCVTPS2UQQ—Convert Packed Single Precision Floating-Point Values to Packed Unsigned Quadword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1428.html">VCVTQQ2PD—Convert Packed Quadword Integers to Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1430.html">VCVTQQ2PS—Convert Packed Quadword Integers to Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1432.html">VCVTSD2USI—Convert Scalar Double-Precision Floating-Point Value to Unsigned Doubleword Integer</a></li>
+<li><a href="o_b5573232dd8f1481-1434.html">VCVTSS2USI—Convert Scalar Single-Precision Floating-Point Value to Unsigned Doubleword Integer</a></li>
+<li><a href="o_b5573232dd8f1481-1436.html">VCVTTPD2QQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Quadword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1438.html">VCVTTPD2UDQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Unsigned Doubleword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1440.html">VCVTTPD2UQQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Unsigned Quadword Integers</a></li>
+<li><a href="o_b5573232dd8f1481-1442.html">VCVTTPS2UDQ—Convert with Truncation Packed Single-Precision Floating-Point Values to Packed Unsigned Doubleword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1444.html">VCVTTPS2QQ—Convert with Truncation Packed Single Precision Floating-Point Values to Packed Singed Quadword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1446.html">VCVTTPS2UQQ—Convert with Truncation Packed Single Precision Floating-Point Values to Packed Unsigned Quadword Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1448.html">VCVTTSD2USI—Convert with Truncation Scalar Double-Precision Floating-Point Value to Unsigned Integer</a></li>
+<li><a href="o_b5573232dd8f1481-1449.html">VCVTTSS2USI—Convert with Truncation Scalar Single-Precision Floating-Point Value to Unsigned Integer</a></li>
+<li><a href="o_b5573232dd8f1481-1451.html">VCVTUDQ2PD—Convert Packed Unsigned Doubleword Integers to Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1453.html">VCVTUDQ2PS—Convert Packed Unsigned Doubleword Integers to Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1455.html">VCVTUQQ2PD—Convert Packed Unsigned Quadword Integers to Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1457.html">VCVTUQQ2PS—Convert Packed Unsigned Quadword Integers to Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1459.html">VCVTUSI2SD—Convert Unsigned Integer to Scalar Double-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-1461.html">VCVTUSI2SS—Convert Unsigned Integer to Scalar Single-Precision Floating-Point Value</a></li>
+<li><a href="o_b5573232dd8f1481-1463.html">VDBPSADBW—Double Block Packed Sum-Absolute-Differences (SAD) on Unsigned Bytes</a></li>
+<li><a href="o_b5573232dd8f1481-1466.html">VEXPANDPD—Load Sparse Packed Double-Precision Floating-Point Values from Dense Memory</a></li>
+<li><a href="o_b5573232dd8f1481-1468.html">VEXPANDPS—Load Sparse Packed Single-Precision Floating-Point Values from Dense Memory</a></li>
+<li><a href="o_b5573232dd8f1481-1470.html">VERR/VERW—Verify a Segment for Reading or Writing</a></li>
+<li><a href="o_b5573232dd8f1481-1472.html">VEXP2PD—Approximation to the Exponential 2^x of Packed Double-Precision Floating-Point Values with Less Than 2^-23 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1474.html">VEXP2PS—Approximation to the Exponential 2^x of Packed Single-Precision Floating-Point Values with Less Than 2^-23 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1476.html">VEXTRACTF128/VEXTRACTF32x4/VEXTRACTF64x2/VEXTRACTF32x8/VEXTRACTF64x4—Extra ct Packed Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1482.html">VEXTRACTI128/VEXTRACTI32x4/VEXTRACTI64x2/VEXTRACTI32x8/VEXTRACTI64x4—Extract packed Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1488.html">VFIXUPIMMPD—Fix Up Special Packed Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1492.html">VFIXUPIMMPS—Fix Up Special Packed Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1496.html">VFIXUPIMMSD—Fix Up Special Scalar Float64 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1499.html">VFIXUPIMMSS—Fix Up Special Scalar Float32 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1502.html">VFMADD132PD/VFMADD213PD/VFMADD231PD—Fused Multiply-Add of Packed Double- Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1509.html">VFMADD132PS/VFMADD213PS/VFMADD231PS—Fused Multiply-Add of Packed Single- Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1515.html">VFMADD132SD/VFMADD213SD/VFMADD231SD—Fused Multiply-Add of Scalar Double- Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1518.html">VFMADD132SS/VFMADD213SS/VFMADD231SS—Fused Multiply-Add of Scalar Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1521.html">VFMADDSUB132PD/VFMADDSUB213PD/VFMADDSUB231PD—Fused Multiply-Alternating Add/Subtract of Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1528.html">VFMADDSUB132PS/VFMADDSUB213PS/VFMADDSUB231PS—Fused Multiply-Alternating Add/Subtract of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1535.html">VFMSUBADD132PD/VFMSUBADD213PD/VFMSUBADD231PD—Fused Multiply-Alternating Subtract/Add of Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1542.html">VFMSUBADD132PS/VFMSUBADD213PS/VFMSUBADD231PS—Fused Multiply-Alternating Subtract/Add of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1549.html">VFMSUB132PD/VFMSUB213PD/VFMSUB231PD—Fused Multiply-Subtract of Packed Double- Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1555.html">VFMSUB132PS/VFMSUB213PS/VFMSUB231PS—Fused Multiply-Subtract of Packed Single- Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1561.html">VFMSUB132SD/VFMSUB213SD/VFMSUB231SD—Fused Multiply-Subtract of Scalar Double- Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1564.html">VFMSUB132SS/VFMSUB213SS/VFMSUB231SS—Fused Multiply-Subtract of Scalar Single- Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1567.html">VFNMADD132PD/VFNMADD213PD/VFNMADD231PD—Fused Negative Multiply-Add of Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1574.html">VFNMADD132PS/VFNMADD213PS/VFNMADD231PS—Fused Negative Multiply-Add of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1580.html">VFNMADD132SD/VFNMADD213SD/VFNMADD231SD—Fused Negative Multiply-Add of Scalar Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1583.html">VFNMADD132SS/VFNMADD213SS/VFNMADD231SS—Fused Negative Multiply-Add of Scalar Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1586.html">VFNMSUB132PD/VFNMSUB213PD/VFNMSUB231PD—Fused Negative Multiply-Subtract of Packed Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1592.html">VFNMSUB132PS/VFNMSUB213PS/VFNMSUB231PS—Fused Negative Multiply-Subtract of Packed Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1598.html">VFNMSUB132SD/VFNMSUB213SD/VFNMSUB231SD—Fused Negative Multiply-Subtract of Scalar Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1601.html">VFNMSUB132SS/VFNMSUB213SS/VFNMSUB231SS—Fused Negative Multiply-Subtract of Scalar Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1604.html">VFPCLASSPD—Tests Types Of a Packed Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1607.html">VFPCLASSPS—Tests Types Of a Packed Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1609.html">VFPCLASSSD—Tests Types Of a Scalar Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1611.html">VFPCLASSSS—Tests Types Of a Scalar Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1613.html">VGATHERDPD/VGATHERQPD — Gather Packed DP FP Values Using Signed Dword/Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1617.html">VGATHERDPS/VGATHERQPS — Gather Packed SP FP values Using Signed Dword/Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1621.html">VGATHERDPS/VGATHERDPD—Gather Packed Single, Packed Double with Signed Dword</a></li>
+<li><a href="o_b5573232dd8f1481-1624.html">VGATHERPF0DPS/VGATHERPF0QPS/VGATHERPF0DPD/VGATHERPF0QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T0 Hint</a></li>
+<li><a href="o_b5573232dd8f1481-1626.html">VGATHERPF1DPS/VGATHERPF1QPS/VGATHERPF1DPD/VGATHERPF1QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T1 Hint</a></li>
+<li><a href="o_b5573232dd8f1481-1628.html">VGATHERQPS/VGATHERQPD—Gather Packed Single, Packed Double with Signed Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1631.html">VPGATHERDD/VPGATHERQD — Gather Packed Dword Values Using Signed Dword/Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1635.html">VPGATHERDD/VPGATHERDQ—Gather Packed Dword, Packed Qword with Signed Dword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1638.html">VPGATHERDQ/VPGATHERQQ — Gather Packed Qword Values Using Signed Dword/Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1642.html">VPGATHERQD/VPGATHERQQ—Gather Packed Dword, Packed Qword with Signed Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1645.html">VGETEXPPD—Convert Exponents of Packed DP FP Values to DP FP Values</a></li>
+<li><a href="o_b5573232dd8f1481-1648.html">VGETEXPPS—Convert Exponents of Packed SP FP Values to SP FP Values</a></li>
+<li><a href="o_b5573232dd8f1481-1652.html">VGETEXPSD—Convert Exponents of Scalar DP FP Values to DP FP Value</a></li>
+<li><a href="o_b5573232dd8f1481-1654.html">VGETEXPSS—Convert Exponents of Scalar SP FP Values to SP FP Value</a></li>
+<li><a href="o_b5573232dd8f1481-1656.html">VGETMANTPD—Extract Float64 Vector of Normalized Mantissas from Float64 Vector</a></li>
+<li><a href="o_b5573232dd8f1481-1660.html">VGETMANTPS—Extract Float32 Vector of Normalized Mantissas from Float32 Vector</a></li>
+<li><a href="o_b5573232dd8f1481-1663.html">VGETMANTSD—Extract Float64 of Normalized Mantissas from Float64 Scalar</a></li>
+<li><a href="o_b5573232dd8f1481-1665.html">VGETMANTSS—Extract Float32 Vector of Normalized Mantissa from Float32 Vector</a></li>
+<li><a href="o_b5573232dd8f1481-1667.html">VINSERTF128/VINSERTF32x4/VINSERTF64x2/VINSERTF32x8/VINSERTF64x4—Insert Packed Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1671.html">VINSERTI128/VINSERTI32x4/VINSERTI64x2/VINSERTI32x8/VINSERTI64x4—Insert Packed Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1675.html">VMASKMOV—Conditional SIMD Packed Loads and Stores</a></li>
+<li><a href="o_b5573232dd8f1481-1678.html">VPBLENDD — Blend Packed Dwords</a></li>
+<li><a href="o_b5573232dd8f1481-1680.html">VPBLENDMB/VPBLENDMW—Blend Byte/Word Vectors Using an Opmask Control</a></li>
+<li><a href="o_b5573232dd8f1481-1682.html">VPBLENDMD/VPBLENDMQ—Blend Int32/Int64 Vectors Using an OpMask Control</a></li>
+<li><a href="o_b5573232dd8f1481-1684.html">VPBROADCASTB/W/D/Q—Load with Broadcast Integer Data from General Purpose Register</a></li>
+<li><a href="o_b5573232dd8f1481-1687.html">VPBROADCAST—Load Integer and Broadcast</a></li>
+<li><a href="o_b5573232dd8f1481-1696.html">VPCMPB/VPCMPUB—Compare Packed Byte Values Into Mask</a></li>
+<li><a href="o_b5573232dd8f1481-1699.html">VPCMPD/VPCMPUD—Compare Packed Integer Values into Mask</a></li>
+<li><a href="o_b5573232dd8f1481-1702.html">VPCMPQ/VPCMPUQ—Compare Packed Integer Values into Mask</a></li>
+<li><a href="o_b5573232dd8f1481-1705.html">VPCMPW/VPCMPUW—Compare Packed Word Values Into Mask</a></li>
+<li><a href="o_b5573232dd8f1481-1708.html">VPCOMPRESSD—Store Sparse Packed Doubleword Integer Values into Dense Memory/Register</a></li>
+<li><a href="o_b5573232dd8f1481-1710.html">VPCOMPRESSQ—Store Sparse Packed Quadword Integer Values into Dense Memory/Register</a></li>
+<li><a href="o_b5573232dd8f1481-1712.html">VPCONFLICTD/Q—Detect Conflicts Within a Vector of Packed Dword/Qword Values into Dense Memory/ Register</a></li>
+<li><a href="o_b5573232dd8f1481-1715.html">VPERM2F128 — Permute Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1717.html">VPERM2I128 — Permute Integer Values</a></li>
+<li><a href="o_b5573232dd8f1481-1719.html">VPERMD/VPERMW—Permute Packed Doublewords/Words Elements</a></li>
+<li><a href="o_b5573232dd8f1481-1722.html">VPERMI2W/D/Q/PS/PD—Full Permute From Two Tables Overwriting the Index</a></li>
+<li><a href="o_b5573232dd8f1481-1728.html">VPERMILPD—Permute In-Lane of Pairs of Double-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1733.html">VPERMILPS—Permute In-Lane of Quadruples of Single-Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1738.html">VPERMPD—Permute Double-Precision Floating-Point Elements</a></li>
+<li><a href="o_b5573232dd8f1481-1741.html">VPERMPS—Permute Single-Precision Floating-Point Elements</a></li>
+<li><a href="o_b5573232dd8f1481-1744.html">VPERMQ—Qwords Element Permutation</a></li>
+<li><a href="o_b5573232dd8f1481-1747.html">VPEXPANDD—Load Sparse Packed Doubleword Integer Values from Dense Memory / Register</a></li>
+<li><a href="o_b5573232dd8f1481-1749.html">VPEXPANDQ—Load Sparse Packed Quadword Integer Values from Dense Memory / Register</a></li>
+<li><a href="o_b5573232dd8f1481-1751.html">VPLZCNTD/Q—Count the Number of Leading Zero Bits for Packed Dword, Packed Qword Values</a></li>
+<li><a href="o_b5573232dd8f1481-1754.html">VPMASKMOV — Conditional SIMD Integer Packed Loads and Stores</a></li>
+<li><a href="o_b5573232dd8f1481-1757.html">VPMOVM2B/VPMOVM2W/VPMOVM2D/VPMOVM2Q—Convert a Mask Register to a Vector Register</a></li>
+<li><a href="o_b5573232dd8f1481-1760.html">VPMOVB2M/VPMOVW2M/VPMOVD2M/VPMOVQ2M—Convert a Vector Register to a Mask</a></li>
+<li><a href="o_b5573232dd8f1481-1763.html">VPMOVQB/VPMOVSQB/VPMOVUSQB—Down Convert QWord to Byte</a></li>
+<li><a href="o_b5573232dd8f1481-1767.html">VPMOVQW/VPMOVSQW/VPMOVUSQW—Down Convert QWord to Word</a></li>
+<li><a href="o_b5573232dd8f1481-1771.html">VPMOVQD/VPMOVSQD/VPMOVUSQD—Down Convert QWord to DWord</a></li>
+<li><a href="o_b5573232dd8f1481-1775.html">VPMOVDB/VPMOVSDB/VPMOVUSDB—Down Convert DWord to Byte</a></li>
+<li><a href="o_b5573232dd8f1481-1779.html">VPMOVDW/VPMOVSDW/VPMOVUSDW—Down Convert DWord to Word</a></li>
+<li><a href="o_b5573232dd8f1481-1783.html">VPMOVWB/VPMOVSWB/VPMOVUSWB—Down Convert Word to Byte</a></li>
+<li><a href="o_b5573232dd8f1481-1787.html">PROLD/PROLVD/PROLQ/PROLVQ—Bit Rotate Left</a></li>
+<li><a href="o_b5573232dd8f1481-1791.html">PRORD/PRORVD/PRORQ/PRORVQ—Bit Rotate Right</a></li>
+<li><a href="o_b5573232dd8f1481-1795.html">VPSCATTERDD/VPSCATTERDQ/VPSCATTERQD/VPSCATTERQQ—Scatter Packed Dword, Packed Qword with Signed Dword, Signed Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1799.html">VPSLLVW/VPSLLVD/VPSLLVQ—Variable Bit Shift Left Logical</a></li>
+<li><a href="o_b5573232dd8f1481-1804.html">VPSRAVW/VPSRAVD/VPSRAVQ—Variable Bit Shift Right Arithmetic</a></li>
+<li><a href="o_b5573232dd8f1481-1809.html">VPSRLVW/VPSRLVD/VPSRLVQ—Variable Bit Shift Right Logical</a></li>
+<li><a href="o_b5573232dd8f1481-1814.html">VPTERNLOGD/VPTERNLOGQ—Bitwise Ternary Logic</a></li>
+<li><a href="o_b5573232dd8f1481-1817.html">VPTESTMB/VPTESTMW/VPTESTMD/VPTESTMQ—Logical AND and Set Mask</a></li>
+<li><a href="o_b5573232dd8f1481-1820.html">VPTESTNMB/W/D/Q—Logical NAND and Set</a></li>
+<li><a href="o_b5573232dd8f1481-1823.html">VRANGEPD—Range Restriction Calculation For Packed Pairs of Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1827.html">VRANGEPS—Range Restriction Calculation For Packed Pairs of Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1830.html">VRANGESD—Range Restriction Calculation From a pair of Scalar Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1833.html">VRANGESS—Range Restriction Calculation From a Pair of Scalar Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1836.html">VRCP14PD—Compute Approximate Reciprocals of Packed Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1838.html">VRCP14SD—Compute Approximate Reciprocal of Scalar Float64 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1840.html">VRCP14PS—Compute Approximate Reciprocals of Packed Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1842.html">VRCP14SS—Compute Approximate Reciprocal of Scalar Float32 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1844.html">VRCP28PD—Approximation to the Reciprocal of Packed Double-Precision Floating-Point Values with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1846.html">VRCP28SD—Approximation to the Reciprocal of Scalar Double-Precision Floating-Point Value with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1848.html">VRCP28PS—Approximation to the Reciprocal of Packed Single-Precision Floating-Point Values with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1850.html">VRCP28SS—Approximation to the Reciprocal of Scalar Single-Precision Floating-Point Value with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1852.html">VREDUCEPD—Perform Reduction Transformation on Packed Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1855.html">VREDUCESD—Perform a Reduction Transformation on a Scalar Float64 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1857.html">VREDUCEPS—Perform Reduction Transformation on Packed Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1859.html">VREDUCESS—Perform a Reduction Transformation on a Scalar Float32 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1861.html">VRNDSCALEPD—Round Packed Float64 Values To Include A Given Number Of Fraction Bits</a></li>
+<li><a href="o_b5573232dd8f1481-1864.html">VRNDSCALESD—Round Scalar Float64 Value To Include A Given Number Of Fraction Bits</a></li>
+<li><a href="o_b5573232dd8f1481-1866.html">VRNDSCALEPS—Round Packed Float32 Values To Include A Given Number Of Fraction Bits</a></li>
+<li><a href="o_b5573232dd8f1481-1869.html">VRNDSCALESS—Round Scalar Float32 Value To Include A Given Number Of Fraction Bits</a></li>
+<li><a href="o_b5573232dd8f1481-1871.html">VRSQRT14PD—Compute Approximate Reciprocals of Square Roots of Packed Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1873.html">VRSQRT14SD—Compute Approximate Reciprocal of Square Root of Scalar Float64 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1875.html">VRSQRT14PS—Compute Approximate Reciprocals of Square Roots of Packed Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1877.html">VRSQRT14SS—Compute Approximate Reciprocal of Square Root of Scalar Float32 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1879.html">VRSQRT28PD—Approximation to the Reciprocal Square Root of Packed Double-Precision Floating-Point Values with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1881.html">VRSQRT28SD—Approximation to the Reciprocal Square Root of Scalar Double-Precision Floating-Point Value with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1883.html">VRSQRT28PS—Approximation to the Reciprocal Square Root of Packed Single-Precision Floating-Point Values with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1885.html">VRSQRT28SS—Approximation to the Reciprocal Square Root of Scalar Single-Precision Floating- Point Value with Less Than 2^-28 Relative Error</a></li>
+<li><a href="o_b5573232dd8f1481-1887.html">VSCALEFPD—Scale Packed Float64 Values With Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1890.html">VSCALEFSD—Scale Scalar Float64 Values With Float64 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1892.html">VSCALEFPS—Scale Packed Float32 Values With Float32 Values</a></li>
+<li><a href="o_b5573232dd8f1481-1894.html">VSCALEFSS—Scale Scalar Float32 Value With Float32 Value</a></li>
+<li><a href="o_b5573232dd8f1481-1896.html">VSCATTERDPS/VSCATTERDPD/VSCATTERQPS/VSCATTERQPD—Scatter Packed Single, Packed Double with Signed Dword and Qword Indices</a></li>
+<li><a href="o_b5573232dd8f1481-1900.html">VSCATTERPF0DPS/VSCATTERPF0QPS/VSCATTERPF0DPD/VSCATTERPF0QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T0 Hint with Intent to Write</a></li>
+<li><a href="o_b5573232dd8f1481-1902.html">VSCATTERPF1DPS/VSCATTERPF1QPS/VSCATTERPF1DPD/VSCATTERPF1QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T1 Hint with Intent to Write</a></li>
+<li><a href="o_b5573232dd8f1481-1904.html">VSHUFF32x4/VSHUFF64x2/VSHUFI32x4/VSHUFI64x2—Shuffle Packed Values at 128-bit Granularity</a></li>
+<li><a href="o_b5573232dd8f1481-1909.html">VTESTPD/VTESTPS—Packed Bit Test</a></li>
+<li><a href="o_b5573232dd8f1481-1912.html">VZEROALL—Zero All YMM Registers</a></li>
+<li><a href="o_b5573232dd8f1481-1914.html">VZEROUPPER—Zero Upper Bits of YMM Registers</a></li>
+<li><a href="o_b5573232dd8f1481-1916.html">WAIT/FWAIT—Wait</a></li>
+<li><a href="o_b5573232dd8f1481-1917.html">WBINVD—Write Back and Invalidate Cache</a></li>
+<li><a href="o_b5573232dd8f1481-1919.html">WRFSBASE/WRGSBASE—Write FS/GS Segment Base</a></li>
+<li><a href="o_b5573232dd8f1481-1921.html">WRMSR—Write to Model Specific Register</a></li>
+<li><a href="o_b5573232dd8f1481-1923.html">WRPKRU—Write Data to User Page Key Register</a></li>
+<li><a href="o_b5573232dd8f1481-1924.html">XACQUIRE/XRELEASE — Hardware Lock Elision Prefix Hints</a></li>
+<li><a href="o_b5573232dd8f1481-1927.html">XABORT — Transactional Abort</a></li>
+<li><a href="o_b5573232dd8f1481-1929.html">XADD—Exchange and Add</a></li>
+<li><a href="o_b5573232dd8f1481-1931.html">XBEGIN — Transactional Begin</a></li>
+<li><a href="o_b5573232dd8f1481-1934.html">XCHG—Exchange Register/Memory with Register</a></li>
+<li><a href="o_b5573232dd8f1481-1936.html">XEND — Transactional End</a></li>
+<li><a href="o_b5573232dd8f1481-1938.html">XGETBV—Get Value of Extended Control Register</a></li>
+<li><a href="o_b5573232dd8f1481-1940.html">XLAT/XLATB—Table Look-up Translation</a></li>
+<li><a href="o_b5573232dd8f1481-1942.html">XOR—Logical Exclusive OR</a></li>
+<li><a href="o_b5573232dd8f1481-1944.html">XORPD—Bitwise Logical XOR of Packed Double Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1947.html">XORPS—Bitwise Logical XOR of Packed Single Precision Floating-Point Values</a></li>
+<li><a href="o_b5573232dd8f1481-1950.html">XRSTOR—Restore Processor Extended States</a></li>
+<li><a href="o_b5573232dd8f1481-1954.html">XRSTORS—Restore Processor Extended States Supervisor</a></li>
+<li><a href="o_b5573232dd8f1481-1958.html">XSAVE—Save Processor Extended States</a></li>
+<li><a href="o_b5573232dd8f1481-1961.html">XSAVEC—Save Processor Extended States with Compaction</a></li>
+<li><a href="o_b5573232dd8f1481-1964.html">XSAVEOPT—Save Processor Extended States Optimized</a></li>
+<li><a href="o_b5573232dd8f1481-1967.html">XSAVES—Save Processor Extended States Supervisor</a></li>
+<li><a href="o_b5573232dd8f1481-1970.html">XSETBV—Set Extended Control Register</a></li>
+<li><a href="o_b5573232dd8f1481-1972.html">XTEST — Test If In Transactional Execution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-1975.html">Chapter 6 Safer Mode Extensions Reference</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-1975.html">6.1 Overview</a></li>
+<li><a href="o_b5573232dd8f1481-1975.html">6.2 SMX Functionality</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-1975.html">6.2.1 Detecting and Enabling SMX</a></li>
+<li><a href="o_b5573232dd8f1481-1976.html">6.2.2 SMX Instruction Summary</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-1976.html">6.2.2.1 GETSEC[CAPABILITIES]</a></li>
+<li><a href="o_b5573232dd8f1481-1977.html">6.2.2.2 GETSEC[ENTERACCS]</a></li>
+<li><a href="o_b5573232dd8f1481-1977.html">6.2.2.3 GETSEC[EXITAC]</a></li>
+<li><a href="o_b5573232dd8f1481-1977.html">6.2.2.4 GETSEC[SENTER]</a></li>
+<li><a href="o_b5573232dd8f1481-1978.html">6.2.2.5 GETSEC[SEXIT]</a></li>
+<li><a href="o_b5573232dd8f1481-1978.html">6.2.2.6 GETSEC[PARAMETERS]</a></li>
+<li><a href="o_b5573232dd8f1481-1978.html">6.2.2.7 GETSEC[SMCTRL]</a></li>
+<li><a href="o_b5573232dd8f1481-1978.html">6.2.2.8 GETSEC[WAKEUP]</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-1978.html">6.2.3 Measured Environment and SMX</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-1979.html">6.3 GETSEC Leaf Functions</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-1981.html">GETSEC[CAPABILITIES] - Report the SMX Capabilities</a></li>
+<li><a href="o_b5573232dd8f1481-1984.html">GETSEC[ENTERACCS] - Execute Authenticated Chipset Code</a></li>
+<li><a href="o_b5573232dd8f1481-1992.html">GETSEC[EXITAC]—Exit Authenticated Code Execution Mode</a></li>
+<li><a href="o_b5573232dd8f1481-1995.html">GETSEC[SENTER]—Enter a Measured Environment</a></li>
+<li><a href="o_b5573232dd8f1481-2004.html">GETSEC[SEXIT]—Exit Measured Environment</a></li>
+<li><a href="o_b5573232dd8f1481-2007.html">GETSEC[PARAMETERS]—Report the SMX Parameters</a></li>
+<li><a href="o_b5573232dd8f1481-2011.html">GETSEC[SMCTRL]—SMX Mode Control</a></li>
+<li><a href="o_b5573232dd8f1481-2014.html">GETSEC[WAKEUP]—Wake up sleeping processors in measured environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2017.html">Appendix A Opcode Map</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2017.html">A.1 Using Opcode Tables</a></li>
+<li><a href="o_b5573232dd8f1481-2017.html">A.2 Key to Abbreviations</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2017.html">A.2.1 Codes for Addressing Method</a></li>
+<li><a href="o_b5573232dd8f1481-2018.html">A.2.2 Codes for Operand Type</a></li>
+<li><a href="o_b5573232dd8f1481-2019.html">A.2.3 Register Codes</a></li>
+<li><a href="o_b5573232dd8f1481-2019.html">A.2.4 Opcode Look-up Examples for One, Two, and Three-Byte Opcodes</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2019.html">A.2.4.1 One-Byte Opcode Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-2020.html">A.2.4.2 Two-Byte Opcode Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-2021.html">A.2.4.3 Three-Byte Opcode Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-2021.html">A.2.4.4 VEX Prefix Instructions</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2022.html">A.2.5 Superscripts Utilized in Opcode Tables</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2022.html">A.3 One, Two, and THREE-Byte Opcode Maps</a></li>
+<li><a href="o_b5573232dd8f1481-2033.html">A.4 Opcode Extensions For One-Byte And Two-byte Opcodes</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2033.html">A.4.1 Opcode Look-up Examples Using Opcode Extensions</a></li>
+<li><a href="o_b5573232dd8f1481-2033.html">A.4.2 Opcode Extension Tables</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2036.html">A.5 Escape Opcode Instructions</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2036.html">A.5.1 Opcode Look-up Examples for Escape Instruction Opcodes</a></li>
+<li><a href="o_b5573232dd8f1481-2036.html">A.5.2 Escape Opcode Instruction Tables</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2036.html">A.5.2.1 Escape Opcodes with D8 as First Byte</a></li>
+<li><a href="o_b5573232dd8f1481-2037.html">A.5.2.2 Escape Opcodes with D9 as First Byte</a></li>
+<li><a href="o_b5573232dd8f1481-2038.html">A.5.2.3 Escape Opcodes with DA as First Byte</a></li>
+<li><a href="o_b5573232dd8f1481-2039.html">A.5.2.4 Escape Opcodes with DB as First Byte</a></li>
+<li><a href="o_b5573232dd8f1481-2040.html">A.5.2.5 Escape Opcodes with DC as First Byte</a></li>
+<li><a href="o_b5573232dd8f1481-2041.html">A.5.2.6 Escape Opcodes with DD as First Byte</a></li>
+<li><a href="o_b5573232dd8f1481-2042.html">A.5.2.7 Escape Opcodes with DE as First Byte</a></li>
+<li><a href="o_b5573232dd8f1481-2043.html">A.5.2.8 Escape Opcodes with DF As First Byte</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2047.html">Appendix B Instruction Formats and Encodings</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2047.html">B.1 Machine Instruction Format</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2047.html">B.1.1 Legacy Prefixes</a></li>
+<li><a href="o_b5573232dd8f1481-2048.html">B.1.2 REX Prefixes</a></li>
+<li><a href="o_b5573232dd8f1481-2048.html">B.1.3 Opcode Fields</a></li>
+<li><a href="o_b5573232dd8f1481-2048.html">B.1.4 Special Fields</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2049.html">B.1.4.1 Reg Field (reg) for Non-64-Bit Modes</a></li>
+<li><a href="o_b5573232dd8f1481-2050.html">B.1.4.2 Reg Field (reg) for 64-Bit Mode</a></li>
+<li><a href="o_b5573232dd8f1481-2050.html">B.1.4.3 Encoding of Operand Size (w) Bit</a></li>
+<li><a href="o_b5573232dd8f1481-2051.html">B.1.4.4 Sign-Extend (s) Bit</a></li>
+<li><a href="o_b5573232dd8f1481-2051.html">B.1.4.5 Segment Register (sreg) Field</a></li>
+<li><a href="o_b5573232dd8f1481-2051.html">B.1.4.6 Special-Purpose Register (eee) Field</a></li>
+<li><a href="o_b5573232dd8f1481-2052.html">B.1.4.7 Condition Test (tttn) Field</a></li>
+<li><a href="o_b5573232dd8f1481-2052.html">B.1.4.8 Direction (d) Bit</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2052.html">B.1.5 Other Notes</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2053.html">B.2 General-Purpose Instruction Formats and Encodings for Non- 64-Bit Modes</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2064.html">B.2.1 General Purpose Instruction Formats and Encodings for 64-Bit Mode</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2083.html">B.3 Pentium® Processor Family Instruction Formats and Encodings</a></li>
+<li><a href="o_b5573232dd8f1481-2083.html">B.4 64-bit Mode Instruction Encodings for SIMD Instruction Extensions</a></li>
+<li><a href="o_b5573232dd8f1481-2084.html">B.5 MMX Instruction Formats and Encodings</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2084.html">B.5.1 Granularity Field (gg)</a></li>
+<li><a href="o_b5573232dd8f1481-2084.html">B.5.2 MMX Technology and General-Purpose Register Fields (mmxreg and reg)</a></li>
+<li><a href="o_b5573232dd8f1481-2084.html">B.5.3 MMX Instruction Formats and Encodings Table</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2087.html">B.6 Processor ExtendeD State INstruction Formats and EncodIngs</a></li>
+<li><a href="o_b5573232dd8f1481-2087.html">B.7 P6 Family INstruction Formats and Encodings</a></li>
+<li><a href="o_b5573232dd8f1481-2088.html">B.8 SSE Instruction Formats and Encodings</a></li>
+<li><a href="o_b5573232dd8f1481-2094.html">B.9 SSE2 Instruction Formats and Encodings</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2094.html">B.9.1 Granularity Field (gg)</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2105.html">B.10 SSE3 Formats and Encodings Table</a></li>
+<li><a href="o_b5573232dd8f1481-2106.html">B.11 SSsE3 Formats and Encoding Table</a></li>
+<li><a href="o_b5573232dd8f1481-2109.html">B.12 AESNI and PCLMULQDQ INstruction Formats and Encodings</a></li>
+<li><a href="o_b5573232dd8f1481-2110.html">B.13 Special Encodings for 64-Bit Mode</a></li>
+<li><a href="o_b5573232dd8f1481-2112.html">B.14 SSE4.1 Formats and Encoding Table</a></li>
+<li><a href="o_b5573232dd8f1481-2117.html">B.15 SSE4.2 Formats and Encoding Table</a></li>
+<li><a href="o_b5573232dd8f1481-2119.html">B.16 AVX Formats and Encoding Table</a></li>
+<li><a href="o_b5573232dd8f1481-2159.html">B.17 Floating-Point Instruction Formats and Encodings</a></li>
+<li><a href="o_b5573232dd8f1481-2163.html">B.18 VMX Instructions</a></li>
+<li><a href="o_b5573232dd8f1481-2164.html">B.19 SMX Instructions</a></li>
+</ul>
+</li>
+<li><a href="o_b5573232dd8f1481-2165.html">Appendix C Intel® C/C++ Compiler Intrinsics and Functional Equivalents</a>
+<ul>
+<li><a href="o_b5573232dd8f1481-2166.html">C.1 Simple Intrinsics</a></li>
+<li><a href="o_b5573232dd8f1481-2178.html">C.2 Composite Intrinsics</a></li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

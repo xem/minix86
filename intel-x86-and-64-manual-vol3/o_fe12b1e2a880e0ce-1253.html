@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1253</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1253-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1253.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-3</p>
+<p style="position:absolute;top:47px;left:666px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">ated on the system&#160;bus and the multiplexed status&#160;signal&#160;EXF4 is asserted each&#160;time&#160;a bus transaction is generated&#160;<br/>while&#160;the&#160;processor&#160;is in SMM.&#160;For the&#160;Pentium&#160;and Intel486&#160;processors,&#160;the&#160;SMIACT# pin&#160;is asserted.<br/>An SMI has a&#160;greater priority&#160;than debug&#160;exceptions and external interrupts. Thus, if&#160;an&#160;NMI, maskable hardware&#160;<br/>interrupt, or a&#160;debug exception&#160;occurs at&#160;an&#160;instruction&#160;boundary&#160;along with an&#160;SMI, only&#160;the&#160;SMI is&#160;handled.&#160;<br/>Subsequent SMI requests are&#160;not acknowledged while&#160;the processor is in SMM. The first SMI&#160;interrupt request that&#160;<br/>occurs while the&#160;processor&#160;is in&#160;SMM (that is,&#160;after SMM&#160;has&#160;been acknowledged&#160;to external hardware)&#160;is latched&#160;<br/>and serviced&#160;when the&#160;processor exits SMM with&#160;the RSM&#160;instruction. The&#160;processor will latch&#160;only&#160;one&#160;SMI while&#160;<br/>in SMM.<br/>Se<a href="o_fe12b1e2a880e0ce-1259.html">e Section 34.5&#160;for a&#160;</a>detailed description&#160;of&#160;the execution environment when in&#160;SMM.</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft03">34.3.2&#160;</p>
+<p style="position:absolute;top:298px;left:149px;white-space:nowrap" class="ft03">Exiting From SMM</p>
+<p style="position:absolute;top:328px;left:69px;white-space:nowrap" class="ft07">The only way to exit&#160;SMM is&#160;to execute&#160;the&#160;RSM&#160;instruction. The&#160;RSM instruction<b>&#160;</b>is only available&#160;to the&#160;SMI&#160;<br/>handler; if the processor is&#160;not in&#160;SMM, attempts to execute the&#160;RSM instruction result&#160;in&#160;an invalid-opcode&#160;excep-<br/>tion (#UD) being generated.<br/>The RSM instruction&#160;restores the&#160;processor’s context&#160;by&#160;loading&#160;the state save&#160;image&#160;from SMRAM back into the&#160;<br/>processor’s registers. The&#160;processor then returns&#160;an SMIACK transaction&#160;on&#160;the system&#160;bus and returns program&#160;<br/>control&#160;back to&#160;the&#160;interrupted program.<br/>Upon successful completion of the&#160;RSM&#160;instruction,&#160;the&#160;processor signals&#160;external hardware that&#160;SMM has been&#160;<br/>exited.&#160;For the&#160;P6&#160;family&#160;processors,&#160;an SMI&#160;acknowledge&#160;transaction&#160;is generated on&#160;the&#160;system bus&#160;and the&#160;<br/>multiplexed status signal&#160;EXF4&#160;is no&#160;longer generated on bus&#160;cycles. For the&#160;Pentium and Intel486&#160;processors,&#160;the&#160;<br/>SMIACT# pin is&#160;deserted.<br/>If&#160;the processor&#160;detects invalid state information&#160;saved&#160;in&#160;the SMRAM,&#160;it enters&#160;the shutdown state and generates&#160;<br/>a special&#160;bus cycle to&#160;indicate&#160;it has&#160;entered shutdown&#160;state. Shutdown happens&#160;only in&#160;the following situations:</p>
+<p style="position:absolute;top:554px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:555px;left:95px;white-space:nowrap" class="ft07">A&#160;reserved&#160;bit in&#160;control&#160;register CR4&#160;is set&#160;to 1 on&#160;a&#160;write to&#160;CR4. This&#160;error&#160;should&#160;not happen unless&#160;SMI&#160;<br/>handler code&#160;modifies reserved&#160;areas&#160;of the&#160;SMRAM saved&#160;state&#160;map (see<a href="o_fe12b1e2a880e0ce-1254.html">&#160;Section 34.4.1). CR4 is&#160;</a>saved in&#160;the&#160;<br/>state&#160;map in&#160;a&#160;reserved&#160;location and&#160;cannot&#160;be&#160;read&#160;or modified in&#160;its saved state.</p>
+<p style="position:absolute;top:610px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:610px;left:95px;white-space:nowrap" class="ft07">An illegal&#160;combination of bits is&#160;written to&#160;control&#160;register CR0,&#160;in&#160;particular&#160;PG set to&#160;1&#160;and PE&#160;set&#160;to 0,&#160;or&#160;NW&#160;<br/>set&#160;to 1 and&#160;CD set to 0.</p>
+<p style="position:absolute;top:649px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:649px;left:95px;white-space:nowrap" class="ft02">CR4.PCIDE would&#160;be&#160;set to&#160;1 and&#160;IA32_EFER.LMA&#160;to 0.</p>
+<p style="position:absolute;top:671px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:672px;left:95px;white-space:nowrap" class="ft07">(For&#160;the Pentium and&#160;Intel486 processors only.)&#160;If&#160;the&#160;address stored&#160;in&#160;the SMBASE register&#160;when an&#160;RSM&#160;<br/>instruction is&#160;executed is&#160;not&#160;aligned on a&#160;32-KByte boundary.&#160;This&#160;restriction does not apply to&#160;the P6 family&#160;<br/>processors.</p>
+<p style="position:absolute;top:729px;left:69px;white-space:nowrap" class="ft07">In&#160;the shutdown&#160;state, Intel processors stop&#160;executing&#160;instructions&#160;until a&#160;RESET#, INIT#&#160;or NMI# is&#160;asserted.&#160;<br/>While&#160;Pentium&#160;family processors recognize&#160;the&#160;SMI#&#160;signal&#160;in&#160;shutdown state,&#160;P6&#160;family and Intel486&#160;processors&#160;<br/>do not. Intel does not support using&#160;SMI# to&#160;recover from&#160;shutdown&#160;states for any processor family; the response&#160;<br/>of processors in&#160;this circumstance&#160;is not well&#160;defined.&#160;On Pentium 4&#160;and later processors,&#160;shutdown will&#160;inhibit&#160;<br/>INTR and A20M&#160;but will not change any of the other inhibits.&#160;On these&#160;processors, NMIs will be&#160;inhibited&#160;if no action&#160;<br/>is taken in the SMI handler to&#160;uninhibit them<a href="o_fe12b1e2a880e0ce-1263.html">&#160;(see&#160;Section&#160;34.8).<br/></a>If the processor is in the HALT&#160;state when the SMI is received, the&#160;processor handles&#160;the return from SMM slightly&#160;<br/>differently&#160;(see<a href="o_fe12b1e2a880e0ce-1263.html">&#160;Section 34.10).&#160;</a>Also,&#160;the&#160;SMBASE address&#160;can be changed on&#160;a return from SMM&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1264.html">Section&#160;<br/>34.11).</a></p>
+<p style="position:absolute;top:924px;left:69px;white-space:nowrap" class="ft06">34.4 SMRAM</p>
+<p style="position:absolute;top:960px;left:69px;white-space:nowrap" class="ft07">Upon entering&#160;SMM,&#160;the&#160;processor&#160;switches to&#160;a new address&#160;space. Because paging is&#160;disabled&#160;upon&#160;entering&#160;<br/>SMM, this initial&#160;address space&#160;maps&#160;all memory accesses to the&#160;low 4&#160;GBytes of&#160;the processor's&#160;physical address&#160;<br/>space.&#160;The&#160;SMI handler's critical code and&#160;data reside&#160;in&#160;a&#160;memory region&#160;referred&#160;to&#160;as system-management RAM&#160;<br/>(SMRAM). The processor&#160;uses a pre-defined region&#160;within&#160;SMRAM to save the processor's&#160;pre-SMI&#160;context. SMRAM&#160;<br/>can&#160;also be used to&#160;store&#160;system management&#160;information&#160;(such&#160;as the&#160;system configuration&#160;and specific informa-<br/>tion about&#160;powered-down devices) and OEM-specific&#160;information.&#160;</p>
+</div>
+</body>
+</html>

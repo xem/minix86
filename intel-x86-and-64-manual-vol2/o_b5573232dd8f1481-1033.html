@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1033</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1033-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811033.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PMOVZX—Packed&#160;Move&#160;with Zero Extend</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-353</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">DEST[63:32]&#160;ZeroExtend(SRC[15:8]);<br/>DEST[95:64]&#160;ZeroExtend(SRC[23:16]);<br/>DEST[127:96]&#160;ZeroExtend(SRC[31:24]);</p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft03">Packed_Zero_Extend_BYTE_to_QWORD(DEST,&#160;SRC)<br/>DEST[63:0]&#160;ZeroExtend(SRC[7:0]);<br/>DEST[127:64]&#160;ZeroExtend(SRC[15:8]);</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft03">Packed_Zero_Extend_WORD_to_DWORD(DEST, SRC)<br/>DEST[31:0]&#160;ZeroExtend(SRC[15:0]);<br/>DEST[63:32]&#160;ZeroExtend(SRC[31:16]);<br/>DEST[95:64]&#160;ZeroExtend(SRC[47:32]);<br/>DEST[127:96]&#160;ZeroExtend(SRC[63:48]);</p>
+<p style="position:absolute;top:352px;left:69px;white-space:nowrap" class="ft03">Packed_Zero_Extend_WORD_to_QWORD(DEST, SRC)<br/>DEST[63:0]&#160;ZeroExtend(SRC[15:0]);<br/>DEST[127:64]&#160;ZeroExtend(SRC[31:16]);</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">Packed_Zero_Extend_DWORD_to_QWORD(DEST, SRC)<br/>DEST[63:0]&#160;ZeroExtend(SRC[31:0]);<br/>DEST[127:64]&#160;ZeroExtend(SRC[63:32]);</p>
+<p style="position:absolute;top:496px;left:69px;white-space:nowrap" class="ft03">VPMOVZXBW (EVEX&#160;encoded versions)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>Packed_Zero_Extend_BYTE_to_WORD(TMP_DEST[127:0], SRC[63:0])<br/>IF VL &gt;= 256</p>
+<p style="position:absolute;top:568px;left:89px;white-space:nowrap" class="ft02">Packed_Zero_Extend_BYTE_to_WORD(TMP_DEST[255:128], SRC[127:64])</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF VL &gt;= 512</p>
+<p style="position:absolute;top:622px;left:89px;white-space:nowrap" class="ft03">Packed_Zero_Extend_BYTE_to_WORD(TMP_DEST[383:256], SRC[191:128])<br/>Packed_Zero_Extend_BYTE_to_WORD(TMP_DEST[511:384], SRC[255:192])</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft03">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:694px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:730px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+15:i]&#160;&#160;TEMP_DEST[i+15:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:766px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:766px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:784px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:802px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:820px;left:197px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0</p>
+<p style="position:absolute;top:838px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:856px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft03">VPMOVZXBD (EVEX encoded versions)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>Packed_Zero_Extend_BYTE_to_DWORD(TMP_DEST[127:0], SRC[31:0])<br/>IF VL &gt;= 256</p>
+<p style="position:absolute;top:1000px;left:89px;white-space:nowrap" class="ft02">Packed_Zero_Extend_BYTE_to_DWORD(TMP_DEST[255:128], SRC[63:32])</p>
+<p style="position:absolute;top:1018px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF VL &gt;= 512</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">Packed_Zero_Extend_BYTE_to_DWORD(TMP_DEST[383:256], SRC[95:64])</p>
+</div>
+</body>
+</html>

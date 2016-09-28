@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 721</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:7px;font-family:Times;color:#000000;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page721-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce721.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-85</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft09"><b>Interrupt-based event sampling&#160;—&#160;</b>A&#160;performance counter&#160;is configured to count&#160;one or more&#160;types&#160;of&#160;<br/>events and to generate an interrupt when it&#160;overflows.&#160;To&#160;trigger an&#160;overflow,&#160;the&#160;counter is&#160;preset&#160;to a&#160;<br/>modulus value&#160;that&#160;will cause&#160;the counter&#160;to overflow after a&#160;specific&#160;number of events have&#160;been&#160;counted.&#160;<br/>When the counter overflows, the processor generates a&#160;performance monitoring&#160;interrupt (PMI). The interrupt&#160;<br/>service&#160;routine for the&#160;PMI&#160;then records the return instruction pointer (RIP),&#160;resets&#160;the modulus, and&#160;restarts&#160;<br/>the counter.&#160;Code performance&#160;can be analyzed&#160;by&#160;examining&#160;the distribution of RIPs with a tool&#160;like&#160;the&#160;<br/>VTune™ Performance Analyzer.</p>
+<p style="position:absolute;top:227px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:228px;left:95px;white-space:nowrap" class="ft09"><b>Processor event-based sampling&#160;(PEBS) —&#160;</b>In PEBS,&#160;the processor writes&#160;a record of the&#160;architectural&#160;<br/>state&#160;of&#160;the processor to&#160;a memory&#160;buffer after&#160;the counter&#160;overflows. The records of&#160;architectural state&#160;<br/>provide&#160;additional information&#160;for&#160;use in&#160;performance&#160;tuning.&#160;Processor-based event sampling can be used to&#160;<br/>count only a&#160;subset of at-retirement&#160;events.&#160;PEBS captures more precise processor state information compared&#160;<br/>to interrupt&#160;based event&#160;sampling, because&#160;the latter need&#160;to use&#160;the interrupt service routine&#160;to re-construct&#160;<br/>the architectural states&#160;of processor.&#160;</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft09">The&#160;following sections describe&#160;the MSRs&#160;and data structures&#160;used&#160;for&#160;performance monitoring in&#160;the Pentium 4&#160;<br/>and Intel Xeon&#160;processors.</p>
+<p style="position:absolute;top:401px;left:69px;white-space:nowrap" class="ft05">18.15.1 ESCR&#160;</p>
+<p style="position:absolute;top:401px;left:195px;white-space:nowrap" class="ft05">MSRs</p>
+<p style="position:absolute;top:432px;left:69px;white-space:nowrap" class="ft011">The 45&#160;ESCR MSRs (see<a href="o_fe12b1e2a880e0ce-718.html">&#160;Table 18-63) al</a>low software to select&#160;specific events to be&#160;countered. Each&#160;ESCR is&#160;usually&#160;<br/>associated&#160;with&#160;a pair&#160;of performance&#160;<a href="o_fe12b1e2a880e0ce-718.html">counters (see Table 18-63)&#160;</a>and each performance&#160;counter has&#160;several ESCRs&#160;<br/>associated&#160;with&#160;it (allowing&#160;the&#160;events counted&#160;to&#160;be&#160;selected&#160;from a&#160;variety of events).<br/><a href="o_fe12b1e2a880e0ce-721.html">Figure&#160;18-43&#160;</a>shows the&#160;layout of&#160;an&#160;ESCR MSR.&#160;The functions of&#160;the&#160;flags and&#160;fields&#160;are:</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:511px;left:95px;white-space:nowrap" class="ft09"><b>USR flag, bit 2 —&#160;</b>When set,&#160;events&#160;are counted&#160;when&#160;the&#160;processor&#160;is operating&#160;at a&#160;current&#160;privilege level&#160;<br/>(CPL)&#160;of 1, 2,&#160;or&#160;3. These privilege&#160;levels are&#160;generally used by application code and unprotected operating&#160;<br/>system code.</p>
+<p style="position:absolute;top:566px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:567px;left:95px;white-space:nowrap" class="ft09"><b>OS flag, bit&#160;3 —&#160;</b>When set, events&#160;are counted when the processor&#160;is operating at CPL of 0. This privilege&#160;level&#160;<br/>is generally reserved for protected operating&#160;system&#160;code. (When&#160;both&#160;the&#160;OS&#160;and USR flags&#160;are set,&#160;events&#160;<br/>are counted at&#160;all privilege&#160;levels.)</p>
+<p style="position:absolute;top:927px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:927px;left:95px;white-space:nowrap" class="ft03"><b>Tag enable, bit 4 —&#160;</b>When&#160;set, enables&#160;tagging&#160;of&#160;μops to assist&#160;in&#160;at-retirement event counting;&#160;when clear,&#160;</p>
+<p style="position:absolute;top:944px;left:94px;white-space:nowrap" class="ft04">disables&#160;tagging.&#160;<a href="o_fe12b1e2a880e0ce-731.html">See Section 18.15.6, “At-Retirement Counting.”</a></p>
+<p style="position:absolute;top:966px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:966px;left:95px;white-space:nowrap" class="ft03"><b>Tag value field, bits 5 through&#160;8 —&#160;</b>Selects a&#160;tag&#160;value&#160;to associate with a&#160;μop to&#160;assist in&#160;at-retirement&#160;</p>
+<p style="position:absolute;top:983px;left:95px;white-space:nowrap" class="ft04">event counting.</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:1005px;left:95px;white-space:nowrap" class="ft09"><b>Event mask&#160;field,&#160;bits 9 through&#160;24 —&#160;</b>Selects events to be counted from the event&#160;class&#160;selected&#160;with&#160;the&#160;<br/>event select field.</p>
+<p style="position:absolute;top:1044px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:1044px;left:95px;white-space:nowrap" class="ft09"><b>Event select&#160;field, bits 25 through&#160;30) —&#160;</b>Selects a&#160;class of events&#160;to&#160;be counted. The events within this&#160;<br/>class that&#160;are counted are&#160;selected&#160;with&#160;the&#160;event mask field.</p>
+<p style="position:absolute;top:863px;left:222px;white-space:nowrap" class="ft06">Figure&#160;18-43. &#160;Event Selection Control Register&#160;(ESCR) for Pentium&#160;4&#160;</p>
+<p style="position:absolute;top:881px;left:239px;white-space:nowrap" class="ft06">and&#160;Intel Xeon Processors&#160;without&#160;Intel HT&#160;Technology&#160;Support</p>
+<p style="position:absolute;top:670px;left:255px;white-space:nowrap" class="ft07">31</p>
+<p style="position:absolute;top:670px;left:343px;white-space:nowrap" class="ft07">24</p>
+<p style="position:absolute;top:670px;left:546px;white-space:nowrap" class="ft07">8</p>
+<p style="position:absolute;top:670px;left:646px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:670px;left:634px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:670px;left:621px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:670px;left:609px;white-space:nowrap" class="ft07">3</p>
+<p style="position:absolute;top:670px;left:596px;white-space:nowrap" class="ft07">4</p>
+<p style="position:absolute;top:670px;left:534px;white-space:nowrap" class="ft07">9</p>
+<p style="position:absolute;top:670px;left:330px;white-space:nowrap" class="ft07">25</p>
+<p style="position:absolute;top:670px;left:268px;white-space:nowrap" class="ft07">30</p>
+<p style="position:absolute;top:785px;left:255px;white-space:nowrap" class="ft07">63</p>
+<p style="position:absolute;top:785px;left:646px;white-space:nowrap" class="ft07">32</p>
+<p style="position:absolute;top:815px;left:430px;white-space:nowrap" class="ft08">Reserved</p>
+<p style="position:absolute;top:696px;left:416px;white-space:nowrap" class="ft08">Event Mask</p>
+<p style="position:absolute;top:690px;left:296px;white-space:nowrap" class="ft08">Event</p>
+<p style="position:absolute;top:701px;left:295px;white-space:nowrap" class="ft08">Select</p>
+<p style="position:absolute;top:770px;left:491px;white-space:nowrap" class="ft00">USR</p>
+<p style="position:absolute;top:755px;left:491px;white-space:nowrap" class="ft00">OS</p>
+<p style="position:absolute;top:670px;left:586px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:739px;left:491px;white-space:nowrap" class="ft00">Tag Enable</p>
+<p style="position:absolute;top:690px;left:558px;white-space:nowrap" class="ft08">Tag&#160;</p>
+<p style="position:absolute;top:702px;left:554px;white-space:nowrap" class="ft08">Value</p>
+<p style="position:absolute;top:753px;left:284px;white-space:nowrap" class="ft00">Reserved</p>
+</div>
+</body>
+</html>

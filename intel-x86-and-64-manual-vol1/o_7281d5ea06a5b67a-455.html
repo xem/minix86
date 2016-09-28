@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 455</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page455-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a455.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:776px;white-space:nowrap" class="ft00">Vol. 1&#160;E-13</p>
+<p style="position:absolute;top:47px;left:421px;white-space:nowrap" class="ft01">GUIDELINES FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION&#160;HANDLERS</p>
+<p style="position:absolute;top:105px;left:333px;white-space:nowrap" class="ft02">Table&#160;E-16. &#160;#O - Numeric Overflow</p>
+<p style="position:absolute;top:146px;left:76px;white-space:nowrap" class="ft03">Instruction</p>
+<p style="position:absolute;top:146px;left:184px;white-space:nowrap" class="ft03">Condition</p>
+<p style="position:absolute;top:146px;left:321px;white-space:nowrap" class="ft03">Masked&#160;Response</p>
+<p style="position:absolute;top:130px;left:631px;white-space:nowrap" class="ft03">Unmasked Response&#160;and&#160;</p>
+<p style="position:absolute;top:146px;left:631px;white-space:nowrap" class="ft03">Exception Code</p>
+<p style="position:absolute;top:171px;left:76px;white-space:nowrap" class="ft03">ADDPS</p>
+<p style="position:absolute;top:187px;left:76px;white-space:nowrap" class="ft03">ADDSUBPS</p>
+<p style="position:absolute;top:204px;left:76px;white-space:nowrap" class="ft03">HADDPS</p>
+<p style="position:absolute;top:220px;left:76px;white-space:nowrap" class="ft03">SUBPS</p>
+<p style="position:absolute;top:236px;left:76px;white-space:nowrap" class="ft03">HSUBPS</p>
+<p style="position:absolute;top:253px;left:76px;white-space:nowrap" class="ft03">MULPS</p>
+<p style="position:absolute;top:270px;left:76px;white-space:nowrap" class="ft03">DIVPS</p>
+<p style="position:absolute;top:286px;left:76px;white-space:nowrap" class="ft03">ADDSS</p>
+<p style="position:absolute;top:303px;left:76px;white-space:nowrap" class="ft03">SUBSS</p>
+<p style="position:absolute;top:319px;left:76px;white-space:nowrap" class="ft03">MULSS</p>
+<p style="position:absolute;top:335px;left:76px;white-space:nowrap" class="ft03">DIVSS</p>
+<p style="position:absolute;top:352px;left:76px;white-space:nowrap" class="ft03">CVTPD2PS</p>
+<p style="position:absolute;top:369px;left:76px;white-space:nowrap" class="ft03">CVTSD2SS</p>
+<p style="position:absolute;top:171px;left:184px;white-space:nowrap" class="ft03">Rounded result &gt;&#160;</p>
+<p style="position:absolute;top:187px;left:184px;white-space:nowrap" class="ft03">largest single&#160;</p>
+<p style="position:absolute;top:204px;left:184px;white-space:nowrap" class="ft03">precision&#160;finite&#160;</p>
+<p style="position:absolute;top:220px;left:184px;white-space:nowrap" class="ft03">normal value&#160;</p>
+<p style="position:absolute;top:171px;left:327px;white-space:nowrap" class="ft03">Rounding&#160;&#160;Sign</p>
+<p style="position:absolute;top:171px;left:461px;white-space:nowrap" class="ft03">Result &amp; Status&#160;Flags</p>
+<p style="position:absolute;top:171px;left:631px;white-space:nowrap" class="ft03">res = (result calculated&#160;with&#160;</p>
+<p style="position:absolute;top:187px;left:631px;white-space:nowrap" class="ft03">unbounded&#160;exponent&#160;and&#160;rounded&#160;</p>
+<p style="position:absolute;top:204px;left:631px;white-space:nowrap" class="ft03">to&#160;the destination&#160;precision)&#160;/ 2</p>
+<p style="position:absolute;top:201px;left:809px;white-space:nowrap" class="ft04">192</p>
+<p style="position:absolute;top:220px;left:631px;white-space:nowrap" class="ft03">#OE = 1</p>
+<p style="position:absolute;top:236px;left:631px;white-space:nowrap" class="ft03">#PE&#160;= 1&#160;if&#160;the result&#160;is inexact</p>
+<p style="position:absolute;top:195px;left:349px;white-space:nowrap" class="ft03">To&#160;</p>
+<p style="position:absolute;top:211px;left:334px;white-space:nowrap" class="ft03">nearest</p>
+<p style="position:absolute;top:211px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:227px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:195px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:211px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:227px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:252px;left:322px;white-space:nowrap" class="ft03">Toward&#160;</p>
+<p style="position:absolute;top:268px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:285px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:252px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:268px;left:461px;white-space:nowrap" class="ft03">res = 1.11…1 * 2</p>
+<p style="position:absolute;top:265px;left:556px;white-space:nowrap" class="ft04">127</p>
+<p style="position:absolute;top:285px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:308px;left:322px;white-space:nowrap" class="ft03">Toward&#160;</p>
+<p style="position:absolute;top:325px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:342px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:308px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:325px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:342px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;-1.11…1&#160;*&#160;2</p>
+<p style="position:absolute;top:339px;left:560px;white-space:nowrap" class="ft04">127</p>
+<p style="position:absolute;top:366px;left:335px;white-space:nowrap" class="ft03">Toward&#160;</p>
+<p style="position:absolute;top:382px;left:352px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:382px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:399px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:366px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:382px;left:461px;white-space:nowrap" class="ft03">res = 1.11…1 * 2</p>
+<p style="position:absolute;top:379px;left:556px;white-space:nowrap" class="ft04">127</p>
+<p style="position:absolute;top:399px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;-1.11…1&#160;*&#160;2</p>
+<p style="position:absolute;top:396px;left:560px;white-space:nowrap" class="ft04">127</p>
+<p style="position:absolute;top:423px;left:76px;white-space:nowrap" class="ft03">ADDPD</p>
+<p style="position:absolute;top:439px;left:76px;white-space:nowrap" class="ft03">ADDSUBPD</p>
+<p style="position:absolute;top:456px;left:76px;white-space:nowrap" class="ft03">HADDPD</p>
+<p style="position:absolute;top:472px;left:76px;white-space:nowrap" class="ft03">SUBPD</p>
+<p style="position:absolute;top:489px;left:76px;white-space:nowrap" class="ft03">HSUBPD</p>
+<p style="position:absolute;top:505px;left:76px;white-space:nowrap" class="ft03">MULPD</p>
+<p style="position:absolute;top:522px;left:76px;white-space:nowrap" class="ft03">DIVPD</p>
+<p style="position:absolute;top:538px;left:76px;white-space:nowrap" class="ft03">ADDSD</p>
+<p style="position:absolute;top:555px;left:76px;white-space:nowrap" class="ft03">SUBSD</p>
+<p style="position:absolute;top:571px;left:76px;white-space:nowrap" class="ft03">MULSD</p>
+<p style="position:absolute;top:588px;left:76px;white-space:nowrap" class="ft03">DIVSD</p>
+<p style="position:absolute;top:423px;left:184px;white-space:nowrap" class="ft03">Rounded result &gt;&#160;</p>
+<p style="position:absolute;top:439px;left:184px;white-space:nowrap" class="ft03">largest double&#160;</p>
+<p style="position:absolute;top:456px;left:184px;white-space:nowrap" class="ft03">precision&#160;finite&#160;</p>
+<p style="position:absolute;top:472px;left:184px;white-space:nowrap" class="ft03">normal value&#160;</p>
+<p style="position:absolute;top:423px;left:327px;white-space:nowrap" class="ft03">Rounding&#160;&#160;Sign</p>
+<p style="position:absolute;top:423px;left:461px;white-space:nowrap" class="ft03">Result &amp; Status&#160;Flags</p>
+<p style="position:absolute;top:423px;left:631px;white-space:nowrap" class="ft03">res = (result calculated&#160;with&#160;</p>
+<p style="position:absolute;top:439px;left:631px;white-space:nowrap" class="ft03">unbounded&#160;exponent&#160;and&#160;rounded&#160;</p>
+<p style="position:absolute;top:456px;left:631px;white-space:nowrap" class="ft03">to&#160;the destination&#160;precision)&#160;/ 2</p>
+<p style="position:absolute;top:458px;left:809px;white-space:nowrap" class="ft05">1536</p>
+<p style="position:absolute;top:472px;left:631px;white-space:nowrap" class="ft03">•&#160;#OE&#160;&#160;=&#160;&#160;1</p>
+<p style="position:absolute;top:487px;left:631px;white-space:nowrap" class="ft03">•&#160;#PE&#160;= 1&#160;if&#160;the result&#160;is inexact</p>
+<p style="position:absolute;top:447px;left:349px;white-space:nowrap" class="ft03">To&#160;</p>
+<p style="position:absolute;top:463px;left:334px;white-space:nowrap" class="ft03">nearest</p>
+<p style="position:absolute;top:463px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:480px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:447px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:463px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:480px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:504px;left:322px;white-space:nowrap" class="ft03">Toward&#160;</p>
+<p style="position:absolute;top:520px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:537px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:504px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:520px;left:461px;white-space:nowrap" class="ft03">res = 1.11…1 * 2</p>
+<p style="position:absolute;top:517px;left:556px;white-space:nowrap" class="ft04">1023</p>
+<p style="position:absolute;top:537px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:561px;left:322px;white-space:nowrap" class="ft03">Toward&#160;</p>
+<p style="position:absolute;top:577px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:594px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:561px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:577px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;</p>
+<p style="position:absolute;top:594px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;-1.11…1&#160;*&#160;2</p>
+<p style="position:absolute;top:591px;left:560px;white-space:nowrap" class="ft04">1023</p>
+<p style="position:absolute;top:618px;left:335px;white-space:nowrap" class="ft03">Toward&#160;</p>
+<p style="position:absolute;top:634px;left:352px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:634px;left:422px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:651px;left:424px;white-space:nowrap" class="ft03">-</p>
+<p style="position:absolute;top:618px;left:461px;white-space:nowrap" class="ft03">#OE =&#160;1, #PE = 1</p>
+<p style="position:absolute;top:634px;left:461px;white-space:nowrap" class="ft03">res = 1.11…1 * 2</p>
+<p style="position:absolute;top:631px;left:556px;white-space:nowrap" class="ft04">1023</p>
+<p style="position:absolute;top:651px;left:461px;white-space:nowrap" class="ft03">res&#160;=&#160;-1.11…1&#160;*&#160;2</p>
+<p style="position:absolute;top:648px;left:560px;white-space:nowrap" class="ft04">1023</p>
+<p style="position:absolute;top:211px;left:505px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:214px;left:494px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:227px;left:504px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:231px;left:497px;white-space:nowrap" class="ft03">–</p>
+<p style="position:absolute;top:251px;left:379px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:255px;left:371px;white-space:nowrap" class="ft03">–</p>
+<p style="position:absolute;top:284px;left:504px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:288px;left:497px;white-space:nowrap" class="ft03">–</p>
+<p style="position:absolute;top:308px;left:380px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:312px;left:369px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:325px;left:505px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:328px;left:494px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:463px;left:505px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:466px;left:494px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:479px;left:504px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:483px;left:497px;white-space:nowrap" class="ft03">–</p>
+<p style="position:absolute;top:503px;left:379px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:507px;left:371px;white-space:nowrap" class="ft03">–</p>
+<p style="position:absolute;top:536px;left:504px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:540px;left:497px;white-space:nowrap" class="ft03">–</p>
+<p style="position:absolute;top:560px;left:380px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:564px;left:369px;white-space:nowrap" class="ft03">+</p>
+<p style="position:absolute;top:577px;left:505px;white-space:nowrap" class="ft03">∞</p>
+<p style="position:absolute;top:580px;left:494px;white-space:nowrap" class="ft03">+</p>
+</div>
+</body>
+</html>

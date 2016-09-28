@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 617</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page617-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce617.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-43</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft06">A&#160;mechanism to enumerate the&#160;presence&#160;of the&#160;monitoring&#160;capabilities&#160;within&#160;the platform&#160;(via a&#160;CPUID feature&#160;<br/>bit).</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft06">A&#160;framework to enumerate the details of&#160;each&#160;sub-feature&#160;(including&#160;CMT and MBM,&#160;as discussed later,&#160;via&#160;<br/>CPUID leaves and sub-leaves).&#160;</p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:178px;left:95px;white-space:nowrap" class="ft06">A mechanism for&#160;the OS or Hypervisor to indicate&#160;a software-defined&#160;ID for each of the software&#160;threads (appli-<br/>cations,&#160;virtual machines,&#160;etc.)&#160;that&#160;are&#160;scheduled&#160;to&#160;run&#160;on a&#160;logical&#160;processor.&#160;These identifiers are&#160;known&#160;as&#160;<br/>Resource Monitoring IDs (RMIDs).&#160;</p>
+<p style="position:absolute;top:233px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:234px;left:95px;white-space:nowrap" class="ft06">Mechanisms&#160;in hardware&#160;to monitor&#160;cache occupancy and bandwidth&#160;statistics as&#160;applicable&#160;to a given product&#160;<br/>generation on&#160;a per software-id&#160;basis.&#160;</p>
+<p style="position:absolute;top:272px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:273px;left:95px;white-space:nowrap" class="ft06">Mechanisms for the&#160;OS or&#160;Hypervisor to&#160;read back the&#160;collected&#160;metrics&#160;such as L3&#160;occupancy or Memory&#160;<br/>Bandwidth for a&#160;given software&#160;ID&#160;at any&#160;point during&#160;runtime.</p>
+<p style="position:absolute;top:340px;left:69px;white-space:nowrap" class="ft04">17.16.1&#160;&#160;Overview of&#160;Cache Monitoring Technology and Memory Bandwidth Monitoring</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft06">The&#160;shared&#160;resource monitoring features&#160;described in this&#160;chapter&#160;provide&#160;a layer of abstraction between applica-<br/>tions and logical&#160;processors through the use&#160;of&#160;<b>Resource&#160;Monitoring&#160;ID</b>s (RMIDs). Each logical processor in the&#160;<br/>system can&#160;be assigned&#160;an RMID&#160;independently,&#160;or multiple logical processors can be&#160;assigned to the same RMID&#160;<br/>value&#160;(e.g.,&#160;to track an application with multiple threads).&#160;For each logical processor,&#160;only one RMID value is active&#160;<br/>at a&#160;time.&#160;This is&#160;enforced&#160;by the&#160;IA32_PQR_ASSOC MSR,&#160;which&#160;specifies the&#160;active&#160;RMID of&#160;a logical&#160;processor.&#160;<br/>Writing to this MSR by software changes the active&#160;RMID&#160;of the logical processor from an old value&#160;to&#160;a new value.<br/>The&#160;underlying platform shared&#160;resource&#160;monitoring hardware&#160;tracks&#160;cache metrics&#160;such as&#160;cache utilization and&#160;<br/>misses as&#160;a result&#160;of memory accesses according to&#160;the&#160;RMIDs&#160;and reports monitored&#160;data&#160;via&#160;a counter&#160;register&#160;<br/>(</p>
+<p style="position:absolute;top:510px;left:75px;white-space:nowrap" class="ft03">IA32_QM_CTR). The&#160;specific&#160;event types supported&#160;vary by&#160;generation and&#160;can be enumerated&#160;via&#160;CPUID.&#160;Before&#160;</p>
+<p style="position:absolute;top:526px;left:69px;white-space:nowrap" class="ft08">reading&#160;back monitored data&#160;software must configure&#160;an&#160;event selection MSR (IA32_QM_EVTSEL) to specify which&#160;<br/>metric is&#160;to be reported, and the&#160;specific&#160;RMID for which&#160;the data should&#160;be&#160;returned.&#160;<br/>Processor support of the&#160;monitoring&#160;framework&#160;and sub-features such&#160;as CMT&#160;is reported&#160;via the&#160;CPUID instruc-<br/>tion.&#160;The resource&#160;type&#160;available&#160;to&#160;the&#160;monitoring framework&#160;is enumerated via&#160;a new leaf&#160;function in&#160;CPUID.&#160;<br/>Reading&#160;and writing to&#160;the monitoring MSRs&#160;requires&#160;the&#160;RDMSR and WRMSR&#160;instructions.<br/>The Cache Monitoring&#160;Technology&#160;feature set&#160;provides&#160;the following unique&#160;mechanisms:</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:646px;left:95px;white-space:nowrap" class="ft06">A mechanism&#160;to enumerate the presence and&#160;details of the CMT&#160;feature as applicable to a&#160;given&#160;level&#160;of&#160;the&#160;<br/>cache&#160;hierarchy,&#160;independent of other&#160;monitoring&#160;features.&#160;</p>
+<p style="position:absolute;top:685px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:685px;left:95px;white-space:nowrap" class="ft03">CMT-specific event&#160;codes&#160;to read occupancy for a&#160;given level of&#160;the&#160;cache&#160;hierarchy.</p>
+<p style="position:absolute;top:709px;left:69px;white-space:nowrap" class="ft03">The Memory&#160;Bandwidth&#160;Monitoring feature&#160;provides&#160;the following unique&#160;mechanisms:</p>
+<p style="position:absolute;top:731px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:732px;left:95px;white-space:nowrap" class="ft06">A&#160;mechanism to enumerate the presence and&#160;details of the MBM feature as applicable to a given level of the&#160;<br/>cache&#160;hierarchy,&#160;independent of other&#160;monitoring&#160;features.</p>
+<p style="position:absolute;top:770px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:771px;left:95px;white-space:nowrap" class="ft06">MBM-specific&#160;event codes to&#160;read bandwidth&#160;out to&#160;the&#160;next&#160;level of the&#160;hierarchy and various&#160;sub-event codes&#160;<br/>to read more specific&#160;metrics as&#160;discussed later&#160;(e.g.,&#160;total&#160;bandwidth&#160;vs. bandwidth only from&#160;local memory&#160;<br/>controllers on&#160;the&#160;same&#160;package).</p>
+<p style="position:absolute;top:854px;left:69px;white-space:nowrap" class="ft04">17.16.2&#160;&#160;Enabling Monitoring: Usage Flow</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-618.html">Figure 17-19&#160;</a>illustrates&#160;the&#160;key steps for OS/VMM to&#160;detect&#160;support of&#160;shared&#160;resource&#160;monitoring features&#160;such&#160;<br/>as&#160;CMT and enable resource monitoring for available&#160;resource&#160;types&#160;and monitoring&#160;events.</p>
+</div>
+</body>
+</html>

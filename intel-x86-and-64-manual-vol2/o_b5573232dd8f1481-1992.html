@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1992</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1992-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811992.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:536px;white-space:nowrap" class="ft00">GETSEC[EXITAC]—Exit Authenticated Code Execution Mode</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-18&#160;Vol. 2D</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">GETSEC[EXITAC]—Exit Authenticated Code Execution Mode</p>
+<p style="position:absolute;top:235px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:261px;left:68px;white-space:nowrap" class="ft08">The&#160;GETSEC[EXITAC]&#160;leaf function exits&#160;the ILP out&#160;of&#160;authenticated code execution&#160;mode&#160;established by&#160;<br/>GETSEC[ENTERACCS]&#160;or GETSEC[SENTER]. The EXITAC&#160;leaf&#160;of&#160;GETSEC is selected with EAX set to 3&#160;at entry.&#160;EBX&#160;<br/>(or&#160;RBX, if in&#160;64-bit mode)&#160;holds the near&#160;jump&#160;target&#160;offset for where&#160;the processor execution&#160;resumes&#160;upon&#160;<br/>exiting authenticated code execution&#160;mode. EDX contains additional parameter control information. Currently only&#160;<br/>an&#160;input value of&#160;0 in&#160;EDX is&#160;supported. All other&#160;EDX settings are&#160;considered&#160;reserved&#160;and result in&#160;a&#160;general&#160;<br/>protection violation.<br/>GETSEC[EXITAC] can only be executed&#160;if the&#160;processor&#160;is&#160;in&#160;protected&#160;mode&#160;with CPL&#160;= 0&#160;and&#160;EFLAGS.VM&#160;= 0.&#160;The&#160;<br/>processor must also&#160;be&#160;in&#160;authenticated code execution mode.&#160;To&#160;avoid potential operability&#160;conflicts&#160;between&#160;<br/>modes, the&#160;processor&#160;is not allowed to execute&#160;this&#160;instruction if it&#160;is in&#160;SMM or in&#160;VMX&#160;operation. A violation of&#160;<br/>these&#160;conditions results&#160;in a&#160;general protection violation.<br/>Upon&#160;completion of the&#160;GETSEC[EXITAC] operation, the&#160;processor&#160;unmasks&#160;responses to&#160;external event&#160;signals&#160;<br/>INIT#, NMI#, and&#160;SMI#. This&#160;unmasking&#160;is performed conditionally, based&#160;on whether the&#160;authenticated&#160;code&#160;<br/>execution mode&#160;was&#160;entered&#160;via execution&#160;of GETSEC[SENTER]&#160;or&#160;GETSEC[ENTERACCS].&#160;If&#160;the&#160;processor&#160;is&#160;in&#160;<br/>authenticated&#160;code&#160;execution mode due to the execution&#160;of GETSEC[SENTER], then&#160;these&#160;external event signals&#160;<br/>will&#160;remain masked.&#160;In this case,&#160;A20M is&#160;kept&#160;disabled&#160;in the&#160;measured&#160;environment until the&#160;measured&#160;environ-<br/>ment executes&#160;GETSEC[SEXIT]. INIT#&#160;is unconditionally unmasked&#160;by&#160;EXITAC.&#160;Note that&#160;any events that&#160;are&#160;<br/>pending, but have&#160;been blocked while&#160;in&#160;authenticated code execution mode,&#160;will be recognized&#160;at the completion&#160;<br/>of the GETSEC[EXITAC] instruction&#160;if&#160;the pin event is&#160;unmasked.<br/>The&#160;intent of providing the&#160;ability&#160;to optionally leave the&#160;pin&#160;events&#160;SMI#, and&#160;NMI# masked&#160;is&#160;to support the&#160;<br/>completion of&#160;a measured&#160;environment bring-up that&#160;makes use&#160;of&#160;VMX. In&#160;this&#160;envisioned&#160;security&#160;usage&#160;<br/>scenario,&#160;these events will&#160;remain&#160;masked&#160;until an appropriate&#160;virtual&#160;machine&#160;has been established in order to&#160;<br/>field&#160;servicing of&#160;these events&#160;in a safer&#160;manner. Details&#160;on&#160;when&#160;and how events are&#160;masked&#160;and&#160;unmasked&#160;in&#160;<br/>VMX operation are described in&#160;<a href="��"><i>Intel® 64&#160;and IA-32 Architectures Software&#160;Developer’s Manual, Volume&#160;3C</i>. It&#160;<br/></a>should&#160;be cautioned that if&#160;no&#160;VMX&#160;environment is&#160;to&#160;be activated following&#160;GETSEC[EXITAC], that&#160;these&#160;events&#160;<br/>will&#160;remain masked&#160;until&#160;the&#160;measured environment is&#160;exited&#160;with&#160;GETSEC[SEXIT].&#160;If this is&#160;not desired then the&#160;<br/>GETSEC function&#160;SMCTRL(0)&#160;can be used for unmasking&#160;SMI# in&#160;this&#160;context.&#160;NMI#&#160;can&#160;be correspondingly&#160;<br/>unmasked by&#160;execution&#160;of&#160;IRET.<br/>A successful exit of the authenticated code&#160;execution mode&#160;requires the ILP to perform additional&#160;steps as outlined&#160;<br/>below:</p>
+<p style="position:absolute;top:775px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:775px;left:93px;white-space:nowrap" class="ft04">Invalidate the contents of&#160;the internal&#160;authenticated&#160;code&#160;execution area.&#160;</p>
+<p style="position:absolute;top:797px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:798px;left:93px;white-space:nowrap" class="ft04">Invalidate processor TLBs.&#160;</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:820px;left:93px;white-space:nowrap" class="ft04">Clear the&#160;internal processor AC&#160;Mode&#160;indicator&#160;flag.&#160;</p>
+<p style="position:absolute;top:842px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:843px;left:93px;white-space:nowrap" class="ft04">Re-lock the&#160;TPM&#160;locality&#160;3 space.&#160;</p>
+<p style="position:absolute;top:865px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:865px;left:93px;white-space:nowrap" class="ft04">Unlock the Intel</p>
+<p style="position:absolute;top:863px;left:200px;white-space:nowrap" class="ft07">®</p>
+<p style="position:absolute;top:865px;left:211px;white-space:nowrap" class="ft04">&#160;TXT-capable chipset memory and I/O&#160;protections to&#160;allow memory and&#160;I/O&#160;activity&#160;by other&#160;</p>
+<p style="position:absolute;top:882px;left:93px;white-space:nowrap" class="ft04">processor agents.&#160;</p>
+<p style="position:absolute;top:904px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:904px;left:93px;white-space:nowrap" class="ft04">Perform a near absolute&#160;indirect&#160;jump&#160;to the&#160;designated&#160;instruction&#160;location.</p>
+<p style="position:absolute;top:928px;left:68px;white-space:nowrap" class="ft08">The content of the authenticated code&#160;execution area is&#160;invalidated by&#160;hardware in order to protect it&#160;from further&#160;<br/>use or&#160;visibility.&#160;This&#160;internal processor storage area&#160;can no longer be used or&#160;relied&#160;upon after&#160;GETSEC[EXITAC].&#160;<br/>Data structures&#160;need&#160;to&#160;be&#160;re-established outside of&#160;the authenticated&#160;code&#160;execution area&#160;if they are&#160;to be&#160;refer-<br/>enced&#160;after EXITAC. Since addressed&#160;memory&#160;content formerly mapped&#160;to the authenticated code&#160;execution area&#160;<br/>may no longer be coherent&#160;with&#160;external&#160;system&#160;memory&#160;after EXITAC,&#160;processor TLBs in support of linear to&#160;phys-<br/>ical address&#160;translation are also&#160;invalidated.<br/>Upon&#160;completion of GETSEC[EXITAC] a&#160;near absolute indirect&#160;transfer is&#160;performed with&#160;EIP loaded&#160;with&#160;the&#160;<br/>contents of EBX&#160;(based&#160;on the&#160;current operating mode&#160;size).&#160;In 64-bit&#160;mode,&#160;all 64&#160;bits&#160;of RBX&#160;are loaded&#160;into RIP&#160;</p>
+<p style="position:absolute;top:137px;left:72px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:183px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:311px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:72px;white-space:nowrap" class="ft011">0F&#160;37<br/>(EAX=3)</p>
+<p style="position:absolute;top:160px;left:183px;white-space:nowrap" class="ft04">GETSEC[EXITAC]</p>
+<p style="position:absolute;top:160px;left:311px;white-space:nowrap" class="ft011">Exit&#160;authenticated&#160;code&#160;execution mode.<br/>RBX holds&#160;the Near Absolute&#160;Indirect&#160;jump&#160;target&#160;and&#160;EDX&#160;hold&#160;the&#160;exit&#160;parameter&#160;flags.</p>
+</div>
+</body>
+</html>

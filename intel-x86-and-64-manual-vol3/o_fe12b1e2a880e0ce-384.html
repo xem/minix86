@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 384</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page384-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce384.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-22&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:535px;left:68px;white-space:nowrap" class="ft02">10.6.2&#160;</p>
+<p style="position:absolute;top:535px;left:148px;white-space:nowrap" class="ft02">Determining IPI Destination</p>
+<p style="position:absolute;top:565px;left:68px;white-space:nowrap" class="ft09">The&#160;destination of&#160;an&#160;IPI&#160;can be&#160;one, all, or&#160;a subset&#160;(group)&#160;of&#160;the processors on&#160;the&#160;system&#160;bus. The sender of&#160;<br/>the IPI specifies&#160;the&#160;destination of an&#160;IPI&#160;with&#160;the following APIC registers and fields&#160;within&#160;the registers:</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:604px;left:93px;white-space:nowrap" class="ft011"><b>ICR Register</b>&#160;—&#160;The following fields in the&#160;ICR register&#160;are&#160;used&#160;to specify&#160;the destination of an&#160;IPI:<br/>—&#160;<b>Destination Mode&#160;</b>— Selects&#160;one&#160;of two destination modes&#160;(physical&#160;or logical).<br/>—&#160;<b>Destination Field&#160;</b>— In physical destination mode, used&#160;to&#160;specify&#160;the&#160;APIC ID of the&#160;destination&#160;</p>
+<p style="position:absolute;top:669px;left:119px;white-space:nowrap" class="ft09">processor; in logical destination mode, used to&#160;specify a message&#160;destination&#160;address&#160;(MDA)&#160;that can be&#160;<br/>used&#160;to&#160;select specific&#160;processors in clusters.</p>
+<p style="position:absolute;top:709px;left:93px;white-space:nowrap" class="ft03">—&#160;<b>Destination Shorthand</b>&#160;— A quick method&#160;of specifying all&#160;processors, all&#160;excluding self,&#160;or self&#160;as the&#160;</p>
+<p style="position:absolute;top:726px;left:119px;white-space:nowrap" class="ft03">destination.</p>
+<p style="position:absolute;top:750px;left:93px;white-space:nowrap" class="ft03">—&#160;<b>Delivery&#160;mode,&#160;Lowest&#160;Priority</b>&#160;— Architecturally specifies that a lowest-priority arbitration mechanism&#160;</p>
+<p style="position:absolute;top:766px;left:119px;white-space:nowrap" class="ft09">be used to&#160;select a&#160;destination&#160;processor from a&#160;specified group of&#160;processors. The ability&#160;of&#160;a processor&#160;to&#160;<br/>send a&#160;lowest priority&#160;IPI&#160;is model specific and&#160;should&#160;be&#160;avoided&#160;by&#160;BIOS&#160;and&#160;operating&#160;system&#160;software.</p>
+<p style="position:absolute;top:805px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:805px;left:93px;white-space:nowrap" class="ft09"><b>Local destination register (LDR)</b>&#160;—&#160;Used&#160;in conjunction&#160;with&#160;the logical&#160;destination&#160;mode&#160;and MDAs&#160;to&#160;<br/>select&#160;the destination processors.</p>
+<p style="position:absolute;top:844px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:844px;left:93px;white-space:nowrap" class="ft09"><b>Destination format&#160;register (DFR)</b>&#160;—&#160;Used in&#160;conjunction&#160;with&#160;the logical destination mode&#160;and MDAs to&#160;<br/>select&#160;the destination processors.</p>
+<p style="position:absolute;top:885px;left:68px;white-space:nowrap" class="ft010">How the ICR, LDR,&#160;and DFR&#160;are used to select an IPI destination&#160;depends on the&#160;destination mode used: physical,&#160;<br/>logical, broadcast/self,&#160;or lowest-priority delivery&#160;mode. These destination modes&#160;are&#160;described&#160;in the&#160;following&#160;<br/>sections.<br/>Determination of IPI destinations in&#160;x2APIC mode&#160;is&#160;discusse<a href="o_fe12b1e2a880e0ce-407.html">d in Section 10.12.10.</a></p>
+<p style="position:absolute;top:986px;left:68px;white-space:nowrap" class="ft06">10.6.2.1 &#160;&#160;Physical&#160;Destination Mode</p>
+<p style="position:absolute;top:1015px;left:68px;white-space:nowrap" class="ft09">In&#160;physical destination&#160;mode, the destination processor is specified&#160;by its&#160;local APIC ID&#160;(see<a href="o_fe12b1e2a880e0ce-371.html">&#160;Section 10.4.6, “Local&#160;<br/>APIC ID”).&#160;</a>For Pentium&#160;4 and&#160;Intel Xeon processors,&#160;either&#160;a single destination (local&#160;APIC&#160;IDs&#160;00H through FEH)&#160;<br/>or a&#160;broadcast&#160;to all&#160;APICs&#160;(the APIC ID is&#160;FFH) may be specified&#160;in physical destination&#160;mode.&#160;</p>
+<p style="position:absolute;top:181px;left:74px;white-space:nowrap" class="ft03">All including Self</p>
+<p style="position:absolute;top:181px;left:228px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:181px;left:330px;white-space:nowrap" class="ft03">Edge</p>
+<p style="position:absolute;top:181px;left:422px;white-space:nowrap" class="ft03">Fixed</p>
+<p style="position:absolute;top:181px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:204px;left:74px;white-space:nowrap" class="ft03">All including Self</p>
+<p style="position:absolute;top:204px;left:228px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:201px;left:255px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:204px;left:330px;white-space:nowrap" class="ft03">Level</p>
+<p style="position:absolute;top:204px;left:422px;white-space:nowrap" class="ft03">Fixed</p>
+<p style="position:absolute;top:204px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:226px;left:74px;white-space:nowrap" class="ft03">All including Self</p>
+<p style="position:absolute;top:226px;left:228px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:223px;left:264px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:226px;left:330px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:226px;left:422px;white-space:nowrap" class="ft03">Lowest Priority, NMI, INIT, SMI, Start-Up</p>
+<p style="position:absolute;top:226px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:249px;left:74px;white-space:nowrap" class="ft03">All excluding Self</p>
+<p style="position:absolute;top:249px;left:228px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:249px;left:330px;white-space:nowrap" class="ft03">Edge</p>
+<p style="position:absolute;top:249px;left:422px;white-space:nowrap" class="ft03">All Modes</p>
+<p style="position:absolute;top:246px;left:477px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:249px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:271px;left:74px;white-space:nowrap" class="ft03">All excluding Self</p>
+<p style="position:absolute;top:271px;left:228px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:268px;left:255px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:271px;left:330px;white-space:nowrap" class="ft03">Level</p>
+<p style="position:absolute;top:271px;left:422px;white-space:nowrap" class="ft03">Fixed,&#160;Lowest&#160;Priority</p>
+<p style="position:absolute;top:268px;left:547px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:271px;left:553px;white-space:nowrap" class="ft03">, NMI</p>
+<p style="position:absolute;top:271px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:294px;left:74px;white-space:nowrap" class="ft03">All excluding Self</p>
+<p style="position:absolute;top:294px;left:228px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:291px;left:264px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:294px;left:330px;white-space:nowrap" class="ft03">Level</p>
+<p style="position:absolute;top:294px;left:422px;white-space:nowrap" class="ft03">SMI,&#160;Start-Up</p>
+<p style="position:absolute;top:294px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:316px;left:74px;white-space:nowrap" class="ft03">All excluding Self</p>
+<p style="position:absolute;top:316px;left:228px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:313px;left:255px;white-space:nowrap" class="ft07">3</p>
+<p style="position:absolute;top:316px;left:330px;white-space:nowrap" class="ft03">Level</p>
+<p style="position:absolute;top:316px;left:422px;white-space:nowrap" class="ft03">INIT</p>
+<p style="position:absolute;top:316px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:339px;left:74px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:339px;left:228px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:336px;left:264px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:339px;left:330px;white-space:nowrap" class="ft03">Level</p>
+<p style="position:absolute;top:339px;left:422px;white-space:nowrap" class="ft03">SMI,&#160;Start-Up</p>
+<p style="position:absolute;top:339px;left:665px;white-space:nowrap" class="ft03">X</p>
+<p style="position:absolute;top:361px;left:74px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:381px;left:74px;white-space:nowrap" class="ft012">1.&#160;The ability of&#160;a&#160;processor&#160;to&#160;send a&#160;lowest&#160;priority IPI is model specific.<br/>2.&#160;Treated as&#160;edge&#160;triggered&#160;if level bit is set to&#160;1,&#160;otherwise ignored.<br/>3.&#160;Treated as edge&#160;triggered when Level&#160;bit&#160;is set&#160;to&#160;1;&#160;treated&#160;as&#160;“INIT&#160;Level Deassert”&#160;message when level bit is&#160;set to&#160;0&#160;(deassert).&#160;</p>
+<p style="position:absolute;top:436px;left:88px;white-space:nowrap" class="ft03">Only&#160;INIT level deassert messages are allowed to&#160;have&#160;the level&#160;bit set to&#160;0. For all other&#160;messages the level&#160;bit must&#160;be set&#160;to 1.</p>
+<p style="position:absolute;top:465px;left:74px;white-space:nowrap" class="ft012">4.&#160;X means the setting is ignored.<br/>5.&#160;The behavior of&#160;the APIC is undefined.</p>
+<p style="position:absolute;top:100px;left:250px;white-space:nowrap" class="ft08">Table 10-4&#160;Valid&#160;Combinations for the P6 Family&#160;Processors’</p>
+<p style="position:absolute;top:120px;left:292px;white-space:nowrap" class="ft08">Local APIC Interrupt Command Register&#160;(Contd.)</p>
+<p style="position:absolute;top:144px;left:74px;white-space:nowrap" class="ft03">Destination&#160;</p>
+<p style="position:absolute;top:159px;left:74px;white-space:nowrap" class="ft03">Shorthand</p>
+<p style="position:absolute;top:144px;left:228px;white-space:nowrap" class="ft03">Valid/</p>
+<p style="position:absolute;top:159px;left:228px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:144px;left:330px;white-space:nowrap" class="ft03">Trigger Mode</p>
+<p style="position:absolute;top:159px;left:422px;white-space:nowrap" class="ft03">Delivery Mode</p>
+<p style="position:absolute;top:159px;left:665px;white-space:nowrap" class="ft03">Destination Mode</p>
+</div>
+</body>
+</html>

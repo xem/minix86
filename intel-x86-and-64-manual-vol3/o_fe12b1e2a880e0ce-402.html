@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 402</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page402-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce402.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-40&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">x2APIC&#160;IDs&#160;in some clusters to&#160;provide for&#160;unique&#160;and non-overlapping system wide&#160;IDs before&#160;configuring the&#160;<br/>disconnected components&#160;into&#160;a single system.&#160;</p>
+<p style="position:absolute;top:167px;left:68px;white-space:nowrap" class="ft03">10.12.2&#160;&#160;x2APIC Register Availability</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft08">The&#160;local APIC registers can&#160;be&#160;accessed via&#160;the&#160;MSR&#160;interface&#160;only when&#160;the&#160;local APIC has been&#160;switched to the&#160;<br/>x2APIC&#160;mode as&#160;de<a href="o_fe12b1e2a880e0ce-398.html">scribed in Section 10.12.1.&#160;</a>Accessing&#160;any APIC register&#160;in&#160;the MSR&#160;address range 0800H&#160;<br/>through 0BFFH via RDMSR or&#160;WRMSR when the&#160;local APIC&#160;is not in&#160;x2APIC&#160;mode causes a&#160;general-protection&#160;<br/>exception. In&#160;x2APIC mode,&#160;the memory mapped&#160;interface&#160;is not available and&#160;any access to&#160;the MMIO interface&#160;<br/>will&#160;behave&#160;similar to that of a legacy xAPIC in&#160;globally&#160;disabled state.<a href="o_fe12b1e2a880e0ce-402.html">&#160;Table&#160;10-7 provide</a>s&#160;the interactions between&#160;<br/>the legacy &amp;&#160;extended&#160;modes&#160;and the&#160;legacy&#160;and&#160;register&#160;interfaces.</p>
+<p style="position:absolute;top:446px;left:68px;white-space:nowrap" class="ft03">10.12.3&#160;&#160;MSR Access in x2APIC Mode</p>
+<p style="position:absolute;top:477px;left:68px;white-space:nowrap" class="ft08">To&#160;allow for efficient access to the APIC registers in x2APIC mode, the serializing&#160;semantics of WRMSR&#160;are relaxed&#160;<br/>when writing&#160;to&#160;the APIC registers. Thus, system&#160;software should&#160;not use&#160;“WRMSR&#160;to APIC registers&#160;in x2APIC&#160;<br/>mode” as&#160;a serializing instruction.&#160;Read and&#160;write&#160;accesses to&#160;the APIC registers&#160;will&#160;occur in program order.&#160;A&#160;<br/>WRMSR to&#160;an&#160;APIC&#160;register&#160;may complete&#160;before all&#160;preceding&#160;stores are&#160;globally&#160;visible; software&#160;can prevent&#160;this&#160;<br/>by inserting&#160;a serializing instruction,&#160;an&#160;SFENCE,&#160;or an&#160;MFENCE&#160;before the&#160;WRMSR.<br/>The RDMSR instruction is&#160;not&#160;serializing&#160;and this&#160;behavior&#160;is&#160;unchanged&#160;when&#160;reading&#160;APIC&#160;registers in x2APIC&#160;<br/>mode. System&#160;software&#160;accessing the&#160;APIC&#160;registers using&#160;the&#160;RDMSR&#160;instruction should not&#160;expect&#160;a serializing&#160;<br/>behavior. (Note:&#160;The MMIO-based&#160;xAPIC&#160;interface is&#160;mapped&#160;by&#160;system software&#160;as an&#160;un-cached region. Conse-<br/>quently,&#160;read/writes to&#160;the xAPIC-MMIO&#160;interface have&#160;serializing&#160;semantics in&#160;the xAPIC&#160;mode.)</p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft03">10.12.4&#160;&#160;VM-Exit Controls for MSRs and x2APIC Registers</p>
+<p style="position:absolute;top:696px;left:68px;white-space:nowrap" class="ft08">The&#160;VMX architecture allows a&#160;VMM to&#160;specify&#160;lists of MSRs&#160;to be loaded or&#160;stored&#160;on VMX&#160;transitions using&#160;the&#160;<br/>VMX-transition&#160;MSR areas&#160;(see&#160;VM-exit MSR-store address&#160;field,&#160;VM-exit&#160;MSR-load&#160;address field,&#160;and VM-entry&#160;<br/>MSR-load address&#160;field in<a href="��">&#160;<i>Intel®&#160;64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual, Volume 3C</i></a>).<br/>The X2APIC MSRs&#160;cannot to&#160;be&#160;loaded&#160;and stored&#160;on VMX transitions. A&#160;VMX&#160;transition&#160;fails if the VMM&#160;has specified&#160;<br/>that the transition should&#160;access any MSRs in&#160;the&#160;address range from 0000_0800H to&#160;0000_08FFH&#160;(the&#160;range&#160;used&#160;<br/>for&#160;accessing the&#160;X2APIC registers). Specifically, processing&#160;of&#160;an&#160;128-bit entry&#160;in any of&#160;the VMX-transition MSR&#160;<br/>areas fails&#160;if&#160;bits 31:0 of that entry (represented&#160;as ENTRY_LOW_DW) satisfies the&#160;expression: “ENTRY_LOW_DW&#160;<br/>&amp;&#160;FFFFF800H = 00000800H”.&#160;Such&#160;a failure&#160;causes an&#160;associated&#160;VM&#160;entry&#160;to fail (by&#160;reloading&#160;host state)&#160;and&#160;<br/>causes an&#160;associated&#160;VM&#160;exit to&#160;lead&#160;to VMX abort.</p>
+<p style="position:absolute;top:884px;left:68px;white-space:nowrap" class="ft03">10.12.5&#160;&#160;x2APIC State Transitions</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft08">This section provides&#160;a&#160;detailed description&#160;of&#160;the x2APIC&#160;states of a&#160;local x2APIC unit,&#160;transitions between these&#160;<br/>states&#160;as well&#160;as interactions&#160;of these states&#160;with&#160;INIT&#160;and reset.&#160;</p>
+<p style="position:absolute;top:974px;left:68px;white-space:nowrap" class="ft05">10.12.5.1&#160;&#160;&#160;x2APIC&#160;States</p>
+<p style="position:absolute;top:1001px;left:68px;white-space:nowrap" class="ft02">The&#160;valid states&#160;for a&#160;local x2APIC unit is&#160;<a href="o_fe12b1e2a880e0ce-399.html">listed in Table&#160;10-5:</a></p>
+<p style="position:absolute;top:1023px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1024px;left:93px;white-space:nowrap" class="ft02">APIC&#160;disabled: IA32_APIC_BASE[EN]=0 and&#160;IA32_APIC_BASE[EXTD]=0</p>
+<p style="position:absolute;top:1045px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1046px;left:93px;white-space:nowrap" class="ft02">xAPIC&#160;mode:&#160;IA32_APIC_BASE[EN]=1&#160;and&#160;IA32_APIC_BASE[EXTD]=0</p>
+<p style="position:absolute;top:320px;left:176px;white-space:nowrap" class="ft07">Table&#160;10-7.&#160;MSR/MMIO Interface of&#160;a&#160;Local&#160;x2APIC&#160;in&#160;Different Modes&#160;of&#160;Operation</p>
+<p style="position:absolute;top:344px;left:274px;white-space:nowrap" class="ft02">MMIO Interface</p>
+<p style="position:absolute;top:344px;left:610px;white-space:nowrap" class="ft02">MSR&#160;Interface</p>
+<p style="position:absolute;top:369px;left:75px;white-space:nowrap" class="ft02">xAPIC mode</p>
+<p style="position:absolute;top:369px;left:274px;white-space:nowrap" class="ft02">Available</p>
+<p style="position:absolute;top:369px;left:610px;white-space:nowrap" class="ft02">General-protection&#160;exception</p>
+<p style="position:absolute;top:393px;left:75px;white-space:nowrap" class="ft02">x2APIC mode</p>
+<p style="position:absolute;top:393px;left:274px;white-space:nowrap" class="ft02">Behavior identical to&#160;xAPIC in globally disabled state</p>
+<p style="position:absolute;top:393px;left:610px;white-space:nowrap" class="ft02">Available</p>
+</div>
+</body>
+</html>

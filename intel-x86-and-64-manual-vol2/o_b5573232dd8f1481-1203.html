@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1203</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1203-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811203.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">RCL/RCR/ROL/ROR—Rotate</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-523</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft06">Shifts&#160;(rotates)&#160;the bits of&#160;the&#160;first operand (destination&#160;operand)&#160;the number&#160;of&#160;bit&#160;positions specified&#160;in the&#160;<br/>second operand (count operand) and stores the result&#160;in&#160;the destination&#160;operand.&#160;The&#160;destination operand&#160;can be&#160;<br/>a register&#160;or a memory location;&#160;the count operand&#160;is an&#160;unsigned&#160;integer&#160;that&#160;can be an&#160;immediate&#160;or a value&#160;in&#160;<br/>the CL&#160;register. The count is&#160;masked to 5&#160;bits&#160;(or 6&#160;bits&#160;if in 64-bit&#160;mode&#160;and REX.W&#160;=&#160;1).<br/>The rotate&#160;left (ROL) and&#160;rotate&#160;through&#160;carry&#160;left (RCL)&#160;instructions shift all&#160;the bits toward&#160;more-significant bit&#160;<br/>positions, except&#160;for&#160;the&#160;most-significant bit,&#160;which is&#160;rotated to the least-significant&#160;bit&#160;location.&#160;The rotate right&#160;<br/>(ROR) and&#160;rotate&#160;through carry&#160;right (RCR) instructions shift&#160;all the bits toward less significant bit positions,&#160;except&#160;<br/>for the&#160;least-significant&#160;bit, which&#160;is rotated to&#160;the most-significant&#160;bit location.<br/>The RCL&#160;and RCR&#160;instructions&#160;include the CF flag&#160;in the&#160;rotation.&#160;The&#160;RCL instruction shifts the CF flag&#160;into the&#160;<br/>least-significant&#160;bit and shifts the&#160;most-significant bit&#160;into&#160;the CF flag. The RCR&#160;instruction&#160;shifts&#160;the CF flag&#160;into&#160;<br/>the most-significant&#160;bit and shifts the&#160;least-significant&#160;bit into&#160;the CF flag.&#160;For the ROL&#160;and ROR&#160;instructions,&#160;the&#160;<br/>original value&#160;of the&#160;CF flag&#160;is&#160;not a&#160;part&#160;of the result, but&#160;the CF flag receives a&#160;copy of the bit that&#160;was&#160;shifted&#160;from&#160;<br/>one end to&#160;the other.<br/>The&#160;OF flag&#160;is defined only for the&#160;1-bit rotates;&#160;it is&#160;undefined&#160;in all&#160;other cases (except&#160;RCL and&#160;RCR instructions&#160;<br/>only: a zero-bit rotate does nothing, that&#160;is&#160;affects no&#160;flags). For left rotates, the OF flag&#160;is&#160;set&#160;to the exclusive OR&#160;<br/>of the&#160;CF bit&#160;(after&#160;the rotate)&#160;and the&#160;most-significant bit&#160;of&#160;the result. For right&#160;rotates, the&#160;OF&#160;flag&#160;is set to the&#160;<br/>exclusive OR&#160;of&#160;the two most-significant&#160;bits of&#160;the result.<br/>In&#160;64-bit mode, using&#160;a REX prefix&#160;in&#160;the&#160;form&#160;of&#160;REX.R permits access to&#160;additional&#160;registers (R8-R15). Use&#160;of&#160;<br/>REX.W&#160;promotes&#160;the first operand&#160;to 64 bits and&#160;causes&#160;the count&#160;operand&#160;to become a&#160;6-bit counter.</p>
+<p style="position:absolute;top:489px;left:69px;white-space:nowrap" class="ft02">IA-32 Architecture&#160;Compatibility</p>
+<p style="position:absolute;top:516px;left:69px;white-space:nowrap" class="ft06">The&#160;8086&#160;does&#160;not mask the&#160;rotation count.&#160;However,&#160;all&#160;other IA-32 processors (starting&#160;with&#160;the Intel 286&#160;<br/>processor)&#160;do mask the rotation count to&#160;5 bits,&#160;resulting in&#160;a&#160;maximum&#160;count of&#160;31.&#160;This&#160;masking&#160;is done in all&#160;<br/>operating&#160;modes (including&#160;the virtual-8086&#160;mode) to&#160;reduce the&#160;maximum execution&#160;time of&#160;the&#160;instructions.</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:612px;left:69px;white-space:nowrap" class="ft09">(* RCL and RCR instructions&#160;*)<br/>SIZE&#160;←&#160;OperandSize;</p>
+<p style="position:absolute;top:647px;left:69px;white-space:nowrap" class="ft03">CASE&#160;(determine&#160;count) OF</p>
+<p style="position:absolute;top:665px;left:89px;white-space:nowrap" class="ft03">SIZE&#160;←&#160;8:</p>
+<p style="position:absolute;top:665px;left:170px;white-space:nowrap" class="ft03">tempCOUNT&#160;←&#160;(COUNT&#160;AND&#160;1FH) MOD&#160;9;</p>
+<p style="position:absolute;top:683px;left:89px;white-space:nowrap" class="ft03">SIZE&#160;←&#160;16:&#160;tempCOUNT&#160;←&#160;(COUNT&#160;AND&#160;1FH) MOD&#160;17;</p>
+<p style="position:absolute;top:701px;left:89px;white-space:nowrap" class="ft03">SIZE&#160;←&#160;32:&#160;tempCOUNT&#160;←&#160;COUNT AND 1FH;</p>
+<p style="position:absolute;top:719px;left:89px;white-space:nowrap" class="ft03">SIZE&#160;←&#160;64:&#160;tempCOUNT&#160;←&#160;COUNT AND 3FH;</p>
+<p style="position:absolute;top:737px;left:69px;white-space:nowrap" class="ft03">ESAC;</p>
+<p style="position:absolute;top:773px;left:69px;white-space:nowrap" class="ft09">(* RCL&#160;instruction operation&#160;*)<br/>WHILE&#160;(tempCOUNT&#160;</p>
+<p style="position:absolute;top:791px;left:186px;white-space:nowrap" class="ft04">≠</p>
+<p style="position:absolute;top:792px;left:195px;white-space:nowrap" class="ft03">&#160;0)</p>
+<p style="position:absolute;top:810px;left:89px;white-space:nowrap" class="ft03">DO</p>
+<p style="position:absolute;top:827px;left:116px;white-space:nowrap" class="ft03">tempCF&#160;←&#160;MSB(DEST);</p>
+<p style="position:absolute;top:845px;left:116px;white-space:nowrap" class="ft03">DEST&#160;←&#160;(DEST<i>&#160;</i></p>
+<p style="position:absolute;top:845px;left:204px;white-space:nowrap" class="ft04">∗</p>
+<p style="position:absolute;top:846px;left:212px;white-space:nowrap" class="ft03">&#160;2)&#160;+&#160;CF;</p>
+<p style="position:absolute;top:864px;left:116px;white-space:nowrap" class="ft03">CF&#160;←&#160;tempCF;</p>
+<p style="position:absolute;top:881px;left:116px;white-space:nowrap" class="ft03">tempCOUNT&#160;←&#160;tempCOUNT – 1;</p>
+<p style="position:absolute;top:899px;left:89px;white-space:nowrap" class="ft03">OD;</p>
+<p style="position:absolute;top:917px;left:69px;white-space:nowrap" class="ft09">ELIHW;<br/>IF (COUNT &amp; COUNTMASK) = 1</p>
+<p style="position:absolute;top:953px;left:89px;white-space:nowrap" class="ft03">THEN&#160;OF&#160;←&#160;MSB(DEST) XOR CF;</p>
+<p style="position:absolute;top:971px;left:89px;white-space:nowrap" class="ft03">ELSE OF&#160;is&#160;undefined;</p>
+<p style="position:absolute;top:989px;left:69px;white-space:nowrap" class="ft03">FI;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1749</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1749-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1749.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-65</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL®&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">Non-Turbo&#160;frequency).&#160;Absent this, or separate&#160;indication&#160;of the&#160;scaling&#160;factor, the&#160;decoder will be unable to&#160;prop-<br/>erly track&#160;time in&#160;the trace.&#160;<a href="o_fe12b1e2a880e0ce-1763.html">See Section 36.8.3&#160;</a>for&#160;details on tracking time&#160;within an&#160;Intel PT trace.</p>
+<p style="position:absolute;top:161px;left:69px;white-space:nowrap" class="ft03">36.5.2.7 &#160;&#160;Failed VM&#160;Entry</p>
+<p style="position:absolute;top:188px;left:69px;white-space:nowrap" class="ft07">The packets&#160;generated&#160;by&#160;a failed VM entry&#160;depend both&#160;on&#160;the VMCS&#160;configuration, as&#160;well&#160;as&#160;on&#160;the type of&#160;<br/>failure. The results&#160;to expect are&#160;summarized&#160;in&#160;the&#160;table below.&#160;Note&#160;that packets&#160;in&#160;<i>italics</i>&#160;may&#160;or may&#160;not be&#160;<br/>generated,&#160;depending on&#160;implementation choice, and&#160;the&#160;point of failure.</p>
+<p style="position:absolute;top:453px;left:69px;white-space:nowrap" class="ft03">36.5.2.8 &#160;&#160;VMX Abort</p>
+<p style="position:absolute;top:480px;left:69px;white-space:nowrap" class="ft07">VMX abort conditions take&#160;the processor into a shutdown state. On a VM exit that leads to&#160;VMX abort,&#160;some packets&#160;<br/>(FUP, PIP) may&#160;be&#160;generated,&#160;but any&#160;expected&#160;TIP,&#160;TIP.PGE,&#160;or&#160;TIP.PGD&#160;may be&#160;dropped.</p>
+<p style="position:absolute;top:552px;left:69px;white-space:nowrap" class="ft05">36.6&#160;</p>
+<p style="position:absolute;top:552px;left:148px;white-space:nowrap" class="ft05">TRACING AND SMM&#160;TRANSFER MONITOR (STM)</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft07">SMM&#160;Transfer Monitor is&#160;a VMM that&#160;operates&#160;inside SMM&#160;while in VMX&#160;root operation. An STM&#160;operates in conjunc-<br/>tion with&#160;an executive&#160;monitor.&#160;The&#160;latter operates outside SMM and in VMX root&#160;operation. Transitions from the&#160;<br/>executive&#160;monitor or its VMs to&#160;the&#160;STM are&#160;called SMM VM&#160;exits. The STM&#160;returns from SMM&#160;via a VM entry to the&#160;<br/>VM in VMX non-root&#160;operation or the executive monitor in&#160;VMX root&#160;operation.&#160;<br/>Intel PT supports tracing in an STM similar to tracing support for VMX operation&#160;as described&#160;above&#160;<a href="o_fe12b1e2a880e0ce-1749.html">in Section 36.7.&#160;<br/></a>As&#160;a result, on&#160;a SMM&#160;VM&#160;exit resulting from&#160;#SMI, TraceEn is&#160;not saved and then cleared. Software&#160;can&#160;save&#160;the&#160;<br/>state&#160;of&#160;the trace configuration&#160;MSRs&#160;and&#160;clear TraceEn&#160;using the&#160;MSR&#160;load/save lists.&#160;</p>
+<p style="position:absolute;top:747px;left:69px;white-space:nowrap" class="ft05">36.7&#160;</p>
+<p style="position:absolute;top:747px;left:148px;white-space:nowrap" class="ft05">PACKET&#160;GENERATION SCENARIOS</p>
+<p style="position:absolute;top:781px;left:69px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-1749.html">Table 36-50</a><a href="o_fe12b1e2a880e0ce-1762.html">&#160;and&#160;Table&#160;36-52 illustr</a>ate&#160;the packets&#160;generated in various scenarios.&#160;In the heading row,&#160;PacketEn is&#160;<br/>abbreviated as PktEn,&#160;ContextEn as CntxEn. Note that&#160;this assumes that&#160;TraceEn=1 in&#160;IA32_RTIT_CTL,&#160;while&#160;Trig-<br/>gerEn=1 and&#160;Error=0 in&#160;IA32_RTIT_STATUS, unless&#160;otherwise&#160;specified. Entries that&#160;do not&#160;matter in&#160;packet&#160;<br/>generation&#160;are marked “D.C.”&#160;Packets followed by&#160;a&#160;“?”&#160;imply&#160;that these packets&#160;depend on&#160;additional&#160;factors,&#160;<br/>which are&#160;listed&#160;in the&#160;“Other Dependencies” column.<br/><a href="o_fe12b1e2a880e0ce-1749.html">In Table&#160;36-50,</a>&#160;PktEn is&#160;evaluated&#160;based&#160;on&#160;TiggerEn &amp;&#160;ContextEn &amp; FilterEn&#160;&amp; BranchEn.</p>
+<p style="position:absolute;top:252px;left:313px;white-space:nowrap" class="ft06">Table 36-49. Packets on&#160;a Failed&#160;VM Entry</p>
+<p style="position:absolute;top:276px;left:78px;white-space:nowrap" class="ft02">Usage Model</p>
+<p style="position:absolute;top:276px;left:177px;white-space:nowrap" class="ft02">Entry Configuration</p>
+<p style="position:absolute;top:276px;left:330px;white-space:nowrap" class="ft02">Early Failure&#160;(fall&#160;</p>
+<p style="position:absolute;top:293px;left:322px;white-space:nowrap" class="ft02">through&#160;to&#160;Next&#160;IP)</p>
+<p style="position:absolute;top:276px;left:582px;white-space:nowrap" class="ft02">Late Failure (VM exit)</p>
+<p style="position:absolute;top:317px;left:75px;white-space:nowrap" class="ft02">System-Wide&#160;</p>
+<p style="position:absolute;top:317px;left:170px;white-space:nowrap" class="ft02">No&#160;MSR load list</p>
+<p style="position:absolute;top:317px;left:313px;white-space:nowrap" class="ft02">TIP (NextIP)</p>
+<p style="position:absolute;top:317px;left:459px;white-space:nowrap" class="ft04"><i>PIP(Guest CR3, NR=1),&#160;TraceEn 0-&gt;1 Packets&#160;(S<a href="o_fe12b1e2a880e0ce-1703.html">ee Section&#160;</a></i></p>
+<p style="position:absolute;top:333px;left:459px;white-space:nowrap" class="ft04"><a href="o_fe12b1e2a880e0ce-1703.html"><i>36.2.7.3),&#160;</i></a>PIP(HostCR3, NR=0), TIP(HostIP)</p>
+<p style="position:absolute;top:357px;left:75px;white-space:nowrap" class="ft02">VMM Only</p>
+<p style="position:absolute;top:358px;left:170px;white-space:nowrap" class="ft07">MSR load list&#160;<br/>disables&#160;TraceEn</p>
+<p style="position:absolute;top:357px;left:314px;white-space:nowrap" class="ft02">TIP (NextIP)</p>
+<p style="position:absolute;top:357px;left:459px;white-space:nowrap" class="ft04"><i>TraceEn 0-&gt;1 Packet<a href="o_fe12b1e2a880e0ce-1703.html">s (See Section 36.2.7.3),&#160;</a></i>TIP(HostIP)</p>
+<p style="position:absolute;top:398px;left:75px;white-space:nowrap" class="ft02">VM&#160;Only</p>
+<p style="position:absolute;top:398px;left:170px;white-space:nowrap" class="ft07">MSR load list&#160;<br/>Enables TraceEn</p>
+<p style="position:absolute;top:398px;left:314px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:398px;left:459px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:901px;left:229px;white-space:nowrap" class="ft06">Table&#160;36-50.&#160;Packet&#160;Generation&#160;under Different&#160;Enable&#160;Conditions</p>
+<p style="position:absolute;top:925px;left:75px;white-space:nowrap" class="ft02">Case</p>
+<p style="position:absolute;top:925px;left:196px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:925px;left:353px;white-space:nowrap" class="ft02">PktEn&#160;</p>
+<p style="position:absolute;top:942px;left:351px;white-space:nowrap" class="ft02">Before</p>
+<p style="position:absolute;top:925px;left:407px;white-space:nowrap" class="ft02">PktEn&#160;</p>
+<p style="position:absolute;top:942px;left:409px;white-space:nowrap" class="ft02">After</p>
+<p style="position:absolute;top:925px;left:456px;white-space:nowrap" class="ft02">CntxEn&#160;</p>
+<p style="position:absolute;top:942px;left:461px;white-space:nowrap" class="ft02">After</p>
+<p style="position:absolute;top:925px;left:530px;white-space:nowrap" class="ft02">Other Dependencies</p>
+<p style="position:absolute;top:925px;left:711px;white-space:nowrap" class="ft02">Packets&#160;Output</p>
+<p style="position:absolute;top:966px;left:75px;white-space:nowrap" class="ft02">1a</p>
+<p style="position:absolute;top:966px;left:116px;white-space:nowrap" class="ft02">Normal non-jump&#160;operation</p>
+<p style="position:absolute;top:966px;left:349px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:966px;left:406px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:966px;left:456px;white-space:nowrap" class="ft02">D.C.</p>
+<p style="position:absolute;top:966px;left:684px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:989px;left:75px;white-space:nowrap" class="ft02">1b</p>
+<p style="position:absolute;top:989px;left:116px;white-space:nowrap" class="ft02">Normal non-jump&#160;operation</p>
+<p style="position:absolute;top:989px;left:349px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:989px;left:406px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:989px;left:456px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:989px;left:684px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:1014px;left:75px;white-space:nowrap" class="ft02">2a</p>
+<p style="position:absolute;top:1014px;left:116px;white-space:nowrap" class="ft02">WRMSR/XRSTORS/RSM that&#160;changes&#160;</p>
+<p style="position:absolute;top:1030px;left:116px;white-space:nowrap" class="ft02">TraceEn 0 -&gt; 1,&#160;with&#160;PacketByteCnt &gt;0</p>
+<p style="position:absolute;top:1014px;left:349px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:1014px;left:406px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:1014px;left:456px;white-space:nowrap" class="ft02">D.C.</p>
+<p style="position:absolute;top:1014px;left:511px;white-space:nowrap" class="ft02">*TSC&#160;if&#160;TSCEn=1;</p>
+<p style="position:absolute;top:1030px;left:511px;white-space:nowrap" class="ft02">*TMA&#160;if&#160;TSCEn=MTCEn=1</p>
+<p style="position:absolute;top:1014px;left:684px;white-space:nowrap" class="ft02">TSC?, TMA?, CBR</p>
+</div>
+</body>
+</html>

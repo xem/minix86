@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 486</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page486-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481486.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:647px;white-space:nowrap" class="ft00">FLDENV—Load x87 FPU Environment</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-358&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">FLDENV—Load x87 FPU Environment</p>
+<p style="position:absolute;top:219px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft07">Loads the complete&#160;x87 FPU operating environment from memory into the FPU registers.&#160;The source&#160;operand spec-<br/>ifies the first byte&#160;of&#160;the operating-environment&#160;data&#160;in&#160;memory. This&#160;data&#160;is typically written to&#160;the specified&#160;<br/>memory&#160;location by a&#160;FSTENV or FNSTENV instruction.<br/>The FPU&#160;operating environment&#160;consists of&#160;the&#160;FPU&#160;control&#160;word, status&#160;word, tag word,&#160;instruction&#160;pointer,&#160;data&#160;<br/>pointer,&#160;and&#160;last opcode. Figures 8-9 through 8-12<a href="��">&#160;in the&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software Developer’s&#160;<br/>Manual, Volume&#160;1</i>, s</a>how the&#160;layout in memory of the&#160;loaded&#160;environment, depending on the&#160;operating mode&#160;of&#160;the&#160;<br/>processor (protected&#160;or real) and&#160;the current&#160;operand-size&#160;attribute (16-bit&#160;or&#160;32-bit).&#160;In virtual-8086 mode,&#160;the&#160;<br/>real mode&#160;layouts are used.<br/>The FLDENV&#160;instruction&#160;should be executed&#160;in the&#160;same&#160;operating mode&#160;as the corresponding FSTENV/FNSTENV&#160;<br/>instruction.<br/>If one&#160;or&#160;more unmasked exception flags&#160;are&#160;set&#160;in&#160;the&#160;new FPU status word, a&#160;floating-point exception&#160;will&#160;be&#160;<br/>generated&#160;upon execution of the next floating-point instruction (except&#160;for the&#160;no-wait floating-point instructions,&#160;<br/>see&#160;the section titled “Software&#160;Exception&#160;Handling”&#160;<a href="��">in Chapter&#160;8 of the&#160;<i>Intel® 64&#160;and IA-32 Architectures&#160;Soft-<br/>ware&#160;Developer’s Manual, Volume&#160;1</i></a>).&#160;To&#160;avoid generating&#160;exceptions when loading a&#160;new&#160;environment,&#160;clear all&#160;<br/>the&#160;exception flags&#160;in the&#160;FPU status&#160;word that is&#160;being loaded.<br/>If&#160;a page&#160;or limit&#160;fault occurs&#160;during the execution&#160;of this&#160;instruction, the state of the x87&#160;FPU&#160;registers as&#160;seen&#160;by&#160;<br/>the fault&#160;handler may be different&#160;than&#160;the state being loaded&#160;from&#160;memory. In such&#160;situations, the&#160;fault handler&#160;<br/>should&#160;ignore&#160;the&#160;status of the&#160;x87 FPU registers,&#160;handle&#160;the fault,&#160;and&#160;return. The FLDENV&#160;instruction will then&#160;<br/>complete&#160;the loading of&#160;the&#160;x87 FPU&#160;registers with no&#160;resulting context&#160;inconsistency.<br/>This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.</p>
+<p style="position:absolute;top:629px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:660px;left:68px;white-space:nowrap" class="ft04">FPUControlWord&#160;←&#160;SRC[FPUControlWord];</p>
+<p style="position:absolute;top:678px;left:68px;white-space:nowrap" class="ft04">FPUStatusWord&#160;←&#160;SRC[FPUStatusWord];</p>
+<p style="position:absolute;top:696px;left:68px;white-space:nowrap" class="ft04">FPUTagWord&#160;←&#160;SRC[FPUTagWord];</p>
+<p style="position:absolute;top:714px;left:68px;white-space:nowrap" class="ft04">FPUDataPointer&#160;←&#160;SRC[FPUDataPointer];</p>
+<p style="position:absolute;top:732px;left:68px;white-space:nowrap" class="ft04">FPUInstructionPointer&#160;←&#160;SRC[FPUInstructionPointer];</p>
+<p style="position:absolute;top:750px;left:68px;white-space:nowrap" class="ft04">FPULastInstructionOpcode&#160;←&#160;SRC[FPULastInstructionOpcode];</p>
+<p style="position:absolute;top:784px;left:68px;white-space:nowrap" class="ft03">FPU&#160;Flags&#160;Affected</p>
+<p style="position:absolute;top:808px;left:68px;white-space:nowrap" class="ft04">The&#160;C0,&#160;C1, C2, C3 flags are&#160;loaded.</p>
+<p style="position:absolute;top:842px;left:68px;white-space:nowrap" class="ft03">Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:867px;left:68px;white-space:nowrap" class="ft06">None; however,&#160;if an&#160;unmasked&#160;exception&#160;is loaded&#160;in the&#160;status&#160;word, it&#160;is generated upon&#160;execution&#160;of&#160;the next&#160;<br/>“waiting” floating-point&#160;instruction.</p>
+<p style="position:absolute;top:128px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:128px;left:180px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:128px;left:391px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:144px;left:391px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:128px;left:450px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:144px;left:450px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:128px;left:534px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:166px;left:73px;white-space:nowrap" class="ft04">D9 /4</p>
+<p style="position:absolute;top:166px;left:180px;white-space:nowrap" class="ft04">FLDENV&#160;<i>m14/28byte</i></p>
+<p style="position:absolute;top:166px;left:391px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:450px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:533px;white-space:nowrap" class="ft04">Load&#160;FPU environment&#160;from&#160;<i>m14byte</i>&#160;or&#160;<i>m28byte.</i></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1853</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1853-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1853.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-43</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">IF (EPCM(DS:RCX).VALID =&#160;1)&#160;</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RCX); FI;</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft02">IF&#160;(&#160;(EPCM(DS:RDX&#160;&amp;&#160;~0FFFH).VALID&#160;= 0)&#160;or&#160;(EPCM(DS:RDX&#160;&amp;&#160;~0FFFH).PT&#160;≠&#160;PT_VA) )</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RDX); FI;</p>
+<p style="position:absolute;top:208px;left:69px;white-space:nowrap" class="ft03">(* Copy PCMD into scratch buffer *)<br/>SCRATCH_PCMD[1023: 0]&#160;DS:TMP_PCMD[1023:0];</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft03">(* Zero out TMP_HEADER*)<br/>TMP_HEADER[sizeof(TMP_HEADER)-1: 0]&#160;0;</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft03">TMP_HEADER.SECINFO&#160;&#160;SCRATCH_PCMD.SECINFO;<br/>TMP_HEADER.RSVD&#160;&#160;SCRATCH_PCMD.RSVD;<br/>TMP_HEADER.LINADDR&#160;&#160;DS:RBX.LINADDR;</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft03">(* Verify various attributes of SECS&#160;parameter&#160;*)<br/>IF ( (TMP_HEADER.SECINFO.FLAGS.PT&#160;= PT_REG) or&#160;(TMP_HEADER.SECINFO.FLAGS.PT&#160;= PT_TCS) or&#160;</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft03">&#160;(TMP_HEADER.SECINFO.FLAGS.PT = PT_TRIM) )<br/>THEN&#160;</p>
+<p style="position:absolute;top:460px;left:116px;white-space:nowrap" class="ft02">IF ( DS:TMP_SECS is&#160;not 4KByte&#160;aligned)&#160;</p>
+<p style="position:absolute;top:478px;left:143px;white-space:nowrap" class="ft02">THEN #GP(0) FI;</p>
+<p style="position:absolute;top:496px;left:116px;white-space:nowrap" class="ft02">IF (DS:TMP_SECS&#160;does not resolve&#160;within&#160;an&#160;EPC)&#160;</p>
+<p style="position:absolute;top:514px;left:143px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SECS) FI;</p>
+<p style="position:absolute;top:532px;left:116px;white-space:nowrap" class="ft02">IF ( Other&#160;instructions modifying&#160;SECS)&#160;</p>
+<p style="position:absolute;top:550px;left:143px;white-space:nowrap" class="ft02">THEN #GP(0) FI;</p>
+<p style="position:absolute;top:568px;left:116px;white-space:nowrap" class="ft02">IF&#160;( (EPCM(DS:TMP_SECS).VALID = 0)&#160;or&#160;(EPCM(DS:TMP_SECS).PT&#160;≠&#160;PT_SECS) )</p>
+<p style="position:absolute;top:586px;left:143px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SECS) FI;</p>
+<p style="position:absolute;top:604px;left:89px;white-space:nowrap" class="ft02">ELSIF&#160;( (TMP_HEADER.SECINFO.FLAGS.PT = PT_SECS)&#160;or&#160;(TMP_HEADER.SECINFO.FLAGS.PT&#160;= PT_VA) )&#160;</p>
+<p style="position:absolute;top:622px;left:116px;white-space:nowrap" class="ft02">IF ( ( TMP_SECS&#160;≠&#160;0) )</p>
+<p style="position:absolute;top:640px;left:143px;white-space:nowrap" class="ft02">THEN #GP(0) FI;</p>
+<p style="position:absolute;top:658px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:676px;left:143px;white-space:nowrap" class="ft02">#GP(0)&#160;</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft02">IF ( (TMP_HEADER.SECINFO.FLAGS.PT&#160;= PT_REG) or&#160;(TMP_HEADER.SECINFO.FLAGS.PT&#160;= PT_TCS) or&#160;</p>
+<p style="position:absolute;top:748px;left:89px;white-space:nowrap" class="ft03">&#160;(TMP_HEADER.SECINFO.FLAGS.PT = PT_TRIM) )<br/>THEN&#160;</p>
+<p style="position:absolute;top:784px;left:116px;white-space:nowrap" class="ft02">TMP_HEADER.EID&#160;&#160;DS:TMP_SECS.EID;</p>
+<p style="position:absolute;top:802px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:820px;left:116px;white-space:nowrap" class="ft03">(* These&#160;pages do&#160;not have&#160;any parent, and hence&#160;no&#160;EID binding *)<br/>TMP_HEADER.EID&#160;&#160;0;</p>
+<p style="position:absolute;top:856px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft03">(* Copy 4KBytes SRCPGE&#160;to secure location *)<br/>DS:RCX[32767: 0]&#160;DS:TMP_SRCPGE[32767: 0];<br/>TMP_VER&#160;&#160;DS:RDX[63:0];</p>
+<p style="position:absolute;top:964px;left:69px;white-space:nowrap" class="ft03">(* Decrypt&#160;and MAC&#160;page. AES_GCM_DEC&#160;has&#160;2 outputs, {plain&#160;text, MAC} *)<br/>(* Parameters&#160;for AES_GCM_DEC {Key, Counter,&#160;..} *)<br/>{DS:RCX, TMP_MAC}&#160;&#160;AES_GCM_DEC(CR_BASE_PK, TMP_VER &lt;&lt; 32, TMP_HEADER, 128, DS:RCX, 4096);</p>
+<p style="position:absolute;top:1036px;left:69px;white-space:nowrap" class="ft02">IF&#160;( (TMP_MAC&#160;≠&#160;DS:TMP_PCMD.MAC) )</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+</div>
+</body>
+</html>

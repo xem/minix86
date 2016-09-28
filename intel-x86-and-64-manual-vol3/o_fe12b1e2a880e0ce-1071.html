@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1071</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1071-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1071.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;24-25</p>
+<p style="position:absolute;top:47px;left:591px;white-space:nowrap" class="ft01">VIRTUAL MACHINE CONTROL STRUCTURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07">Writing to a&#160;VMCS with an ordinary&#160;memory&#160;write is not&#160;guaranteed&#160;to have&#160;a deterministic&#160;effect on the VMCS.&#160;<br/>Doing so&#160;may cause&#160;the&#160;VMCS&#160;to become corrupted&#160;(see&#160;below).</p>
+<p style="position:absolute;top:141px;left:69px;white-space:nowrap" class="ft07">(Software can&#160;avoid these hazards by&#160;removing any&#160;linear-address mappings&#160;to a&#160;VMCS&#160;region before&#160;executing&#160;a&#160;<br/>VMPTRLD for that&#160;region and&#160;by not remapping&#160;it&#160;until after&#160;executing&#160;VMCLEAR for that&#160;region.)<br/>If a&#160;logical processor leaves&#160;VMX operation, any&#160;VMCSs&#160;active&#160;on that&#160;logical processor may be&#160;corrupted&#160;(see&#160;<br/>below).&#160;To&#160;prevent such corruption of&#160;a VMCS that&#160;may be&#160;used either after&#160;a return to&#160;VMX&#160;operation&#160;or on&#160;<br/>another logical processor,&#160;software&#160;should execute&#160;VMCLEAR&#160;for&#160;that VMCS before&#160;executing the&#160;VMXOFF&#160;instruc-<br/>tion or removing&#160;power from&#160;the processor (e.g.,&#160;as&#160;part&#160;of a&#160;transition to the S3 and&#160;S4 power&#160;states).<br/>This section has identified&#160;operations&#160;that may cause&#160;a&#160;VMCS&#160;to become corrupted.&#160;These operations may&#160;cause&#160;<br/>the VMCS’s&#160;data&#160;to become&#160;undefined.&#160;Behavior may be unpredictable&#160;if that&#160;VMCS used subsequently on any&#160;<br/>logical processor.&#160;The following items&#160;detail&#160;some hazards&#160;of&#160;VMCS&#160;corruption:</p>
+<p style="position:absolute;top:310px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:310px;left:95px;white-space:nowrap" class="ft03">VM&#160;entries&#160;may fail&#160;for&#160;unexplained&#160;reasons or may load&#160;undesired processor state.</p>
+<p style="position:absolute;top:332px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:333px;left:95px;white-space:nowrap" class="ft07">The&#160;processor&#160;may&#160;not&#160;correctly support VMX non-root&#160;operation&#160;as documented&#160;in<a href="o_fe12b1e2a880e0ce-1119.html">&#160;Chapter 27</a>&#160;and&#160;may&#160;<br/>generate unexpected&#160;VM&#160;exits.</p>
+<p style="position:absolute;top:371px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:372px;left:95px;white-space:nowrap" class="ft07">VM&#160;exits may&#160;load undesired&#160;processor&#160;state, save&#160;incorrect state&#160;into the&#160;VMCS, or cause&#160;the logical processor&#160;<br/>to transition&#160;to&#160;a shutdown state.</p>
+<p style="position:absolute;top:439px;left:69px;white-space:nowrap" class="ft04">24.11.2&#160;&#160;VMREAD, VMWRITE, and Encodings of&#160;VMCS Fields</p>
+<p style="position:absolute;top:469px;left:69px;white-space:nowrap" class="ft07">Every field&#160;of the&#160;VMCS&#160;is associated&#160;with&#160;a 32-bit value&#160;that is&#160;its&#160;<b>encoding</b>.&#160;The encoding is&#160;provided&#160;in&#160;an&#160;<br/>operand to&#160;VMREAD and VMWRITE when software wishes&#160;to read&#160;or&#160;write that field.&#160;These instructions fail&#160;if given,&#160;<br/>in 64-bit mode,&#160;an operand that&#160;sets&#160;an&#160;encoding&#160;bit beyond&#160;bit&#160;32. Se<a href="o_fe12b1e2a880e0ce-1181.html">e&#160;Chapter 30 for a&#160;</a>description of these&#160;<br/>instructions.<br/>The&#160;structure&#160;of the&#160;32-bit encodings of&#160;the VMCS components&#160;is determined&#160;principally by the&#160;width of the&#160;fields&#160;<br/>and their function&#160;in the&#160;VMCS.&#160;Se<a href="o_fe12b1e2a880e0ce-1071.html">e Table&#160;24-17</a>.</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft03">The&#160;following items detail the&#160;meaning of the&#160;bits&#160;in each&#160;encoding:</p>
+<p style="position:absolute;top:998px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:999px;left:95px;white-space:nowrap" class="ft08"><b>Field width.</b>&#160;Bits&#160;14:13&#160;encode&#160;the&#160;width of the&#160;field.<br/>—&#160;A&#160;value of 0 indicates a&#160;16-bit field.<br/>—&#160;A&#160;value of 1 indicates a&#160;64-bit field.</p>
+<p style="position:absolute;top:590px;left:271px;white-space:nowrap" class="ft06">Table&#160;24-17.&#160; Structure of&#160;VMCS&#160;Component&#160;Encoding</p>
+<p style="position:absolute;top:624px;left:80px;white-space:nowrap" class="ft03">Bit Position(s)</p>
+<p style="position:absolute;top:624px;left:205px;white-space:nowrap" class="ft03">Contents</p>
+<p style="position:absolute;top:652px;left:80px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:652px;left:205px;white-space:nowrap" class="ft03">Access type&#160;(0&#160;= full; 1&#160;=&#160;high); must&#160;be full for 16-bit, 32-bit, and natural-width&#160;fields</p>
+<p style="position:absolute;top:681px;left:80px;white-space:nowrap" class="ft03">9:1</p>
+<p style="position:absolute;top:681px;left:205px;white-space:nowrap" class="ft03">Index</p>
+<p style="position:absolute;top:709px;left:80px;white-space:nowrap" class="ft03">11:10</p>
+<p style="position:absolute;top:709px;left:205px;white-space:nowrap" class="ft03">Type:</p>
+<p style="position:absolute;top:730px;left:217px;white-space:nowrap" class="ft03">0: control</p>
+<p style="position:absolute;top:746px;left:217px;white-space:nowrap" class="ft03">1: VM-exit information</p>
+<p style="position:absolute;top:763px;left:217px;white-space:nowrap" class="ft03">2: guest state</p>
+<p style="position:absolute;top:780px;left:217px;white-space:nowrap" class="ft03">3: host&#160;state</p>
+<p style="position:absolute;top:808px;left:80px;white-space:nowrap" class="ft03">12</p>
+<p style="position:absolute;top:808px;left:205px;white-space:nowrap" class="ft03">Reserved&#160;(must be&#160;0)</p>
+<p style="position:absolute;top:837px;left:80px;white-space:nowrap" class="ft03">14:13</p>
+<p style="position:absolute;top:837px;left:205px;white-space:nowrap" class="ft03">Width:</p>
+<p style="position:absolute;top:858px;left:217px;white-space:nowrap" class="ft03">0: 16-bit</p>
+<p style="position:absolute;top:874px;left:217px;white-space:nowrap" class="ft03">1: 64-bit</p>
+<p style="position:absolute;top:891px;left:217px;white-space:nowrap" class="ft03">2: 32-bit</p>
+<p style="position:absolute;top:907px;left:217px;white-space:nowrap" class="ft03">3: natural-width</p>
+<p style="position:absolute;top:936px;left:80px;white-space:nowrap" class="ft03">31:15</p>
+<p style="position:absolute;top:936px;left:205px;white-space:nowrap" class="ft03">Reserved&#160;(must be&#160;0)</p>
+</div>
+</body>
+</html>

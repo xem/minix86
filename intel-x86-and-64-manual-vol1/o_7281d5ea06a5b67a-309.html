@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 309</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page309-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a309.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;13-3</p>
+<p style="position:absolute;top:47px;left:544px;white-space:nowrap" class="ft01">MANAGING&#160;STATE&#160;USING&#160;THE XSAVE&#160;FEATURE SET</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft02">—&#160;If&#160;this bit&#160;is 0,&#160;the processor does not&#160;support any&#160;of the&#160;following instructions:&#160;XGETBV, XRSTOR,&#160;</p>
+<p style="position:absolute;top:117px;left:120px;white-space:nowrap" class="ft09">XRSTORS,&#160;XSAVE, XSAVEC, XSAVEOPT,&#160;XSAVES,&#160;and&#160;XSETBV;&#160;the processor provides no further&#160;<br/>enumeration through CPUID&#160;function 0DH (see below).</p>
+<p style="position:absolute;top:157px;left:95px;white-space:nowrap" class="ft02">—&#160;If&#160;this bit&#160;is 1,&#160;the processor supports the&#160;following instructions: XGETBV, XRSTOR,&#160;XSAVE,&#160;and XSETBV.</p>
+<p style="position:absolute;top:155px;left:823px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:157px;left:830px;white-space:nowrap" class="ft02">&#160;</p>
+<p style="position:absolute;top:174px;left:120px;white-space:nowrap" class="ft02">Further&#160;enumeration is&#160;provided through CPUID&#160;function&#160;0DH.</p>
+<p style="position:absolute;top:196px;left:95px;white-space:nowrap" class="ft02">CR4.OSXSAVE&#160;can be set&#160;to 1 if and&#160;only&#160;if CPUID.1:ECX.XSAVE[bit 26] is&#160;enumerated as&#160;1.</p>
+<p style="position:absolute;top:218px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:219px;left:95px;white-space:nowrap" class="ft010">CPUID&#160;function 0DH enumerates details of CPU support&#160;through a&#160;set&#160;of&#160;sub-functions. Software&#160;selects a&#160;<br/>specific sub-function by the&#160;value&#160;placed&#160;in&#160;the ECX&#160;register. The&#160;following items&#160;provide&#160;specific&#160;details:<br/>—&#160;CPUID&#160;function 0DH, sub-function 0.</p>
+<p style="position:absolute;top:285px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:283px;left:146px;white-space:nowrap" class="ft09">EDX:EAX is&#160;a bitmap of all&#160;the user&#160;state&#160;components that can&#160;be&#160;managed&#160;using the&#160;XSAVE feature&#160;<br/>set.&#160;A&#160;bit&#160;can&#160;be&#160;set&#160;in XCR0&#160;if&#160;and only if the&#160;corresponding&#160;bit&#160;is&#160;set in&#160;this&#160;bitmap. Every processor&#160;<br/>that supports the&#160;XSAVE feature&#160;set will&#160;set EAX[0] (x87&#160;state)&#160;and EAX[1]&#160;(SSE state).<br/>If EAX[<i>i</i>]&#160;=&#160;&#160;1&#160;&#160;(for&#160;&#160;1&#160;&lt;&#160;&#160;<i>i</i>&#160;&lt; 32) or EDX[<i>i</i>–32]&#160;=&#160;1 (for 32&#160;≤&#160;<i>i&#160;</i>&lt; 63),&#160;sub-function&#160;<i>i</i>&#160;enumerates details for&#160;<br/>state component&#160;<i>i</i>&#160;(see below).</p>
+<p style="position:absolute;top:382px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:381px;left:146px;white-space:nowrap" class="ft09">ECX enumerates the&#160;size&#160;(in&#160;bytes)&#160;required by the&#160;XSAVE instruction for&#160;an&#160;XSAVE area containing&#160;all&#160;<br/>the&#160;user&#160;state components&#160;supported&#160;by this&#160;processor.</p>
+<p style="position:absolute;top:423px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:421px;left:146px;white-space:nowrap" class="ft09">EBX enumerates&#160;the size&#160;(in&#160;bytes) required&#160;by the&#160;XSAVE instruction for an XSAVE&#160;area containing&#160;all&#160;<br/>the&#160;user&#160;state components&#160;corresponding to bits currently set in&#160;XCR0.</p>
+<p style="position:absolute;top:462px;left:95px;white-space:nowrap" class="ft02">—&#160;CPUID&#160;function 0DH, sub-function 1.</p>
+<p style="position:absolute;top:487px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:486px;left:146px;white-space:nowrap" class="ft09">EAX[0] enumerates support for the&#160;XSAVEOPT&#160;instruction. The&#160;instruction is&#160;supported if and&#160;only&#160;if&#160;<br/>this&#160;bit&#160;is 1.&#160;If&#160;EAX[0]&#160;= 0,&#160;execution of XSAVEOPT causes&#160;an invalid-opcode exception&#160;(#UD).</p>
+<p style="position:absolute;top:528px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:526px;left:146px;white-space:nowrap" class="ft09">EAX[1] enumerates support for&#160;<b>compaction extensions</b>&#160;to&#160;the XSAVE&#160;feature set.&#160;The following are&#160;<br/>supported if&#160;this bit&#160;is 1:</p>
+<p style="position:absolute;top:568px;left:145px;white-space:nowrap" class="ft05">—</p>
+<p style="position:absolute;top:567px;left:171px;white-space:nowrap" class="ft02">The&#160;compacted format of&#160;the&#160;extended region&#160;of XSAV<a href="o_7281d5ea06a5b67a-314.html">E areas (see Section 13.4.3).&#160;</a></p>
+<p style="position:absolute;top:592px;left:145px;white-space:nowrap" class="ft05">—</p>
+<p style="position:absolute;top:591px;left:171px;white-space:nowrap" class="ft02">The XSAVEC instruction.&#160;If EAX[1]&#160;=&#160;0,&#160;execution of&#160;XSAVEC&#160;causes&#160;a #UD.</p>
+<p style="position:absolute;top:616px;left:145px;white-space:nowrap" class="ft05">—</p>
+<p style="position:absolute;top:615px;left:171px;white-space:nowrap" class="ft02">Execution of the&#160;compacted&#160;form&#160;of&#160;XRST<a href="o_7281d5ea06a5b67a-320.html">OR (see Section 13.8).</a></p>
+<p style="position:absolute;top:640px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:639px;left:146px;white-space:nowrap" class="ft09">EAX[2] enumerates support for execution&#160;of XGETBV&#160;with ECX&#160;=&#160;1. This&#160;allows&#160;software to&#160;determine&#160;<br/>the&#160;state of the init optimization.&#160;See&#160;<a href="o_7281d5ea06a5b67a-318.html">Section&#160;13.6.</a></p>
+<p style="position:absolute;top:681px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:679px;left:146px;white-space:nowrap" class="ft09">EAX[3] enumerates support for XSAVES,&#160;XRSTORS,&#160;and the&#160;IA32_XSS&#160;MSR.&#160;If&#160;EAX[3]&#160;=&#160;0,&#160;execution&#160;<br/>of XSAVES&#160;or XRSTORS&#160;causes&#160;a #UD; an&#160;attempt to&#160;access&#160;the IA32_XSS&#160;MSR using&#160;RDMSR&#160;or&#160;<br/>WRMSR&#160;causes&#160;a&#160;general-protection exception&#160;(#GP). Every&#160;processor that&#160;supports a&#160;supervisor&#160;state&#160;<br/>component sets&#160;EAX[3]. Every processor that sets EAX[3] (XSAVES,&#160;XRSTORS,&#160;IA32_XSS) will also set&#160;<br/>EAX[1] (the&#160;compaction&#160;extensions).</p>
+<p style="position:absolute;top:771px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:769px;left:146px;white-space:nowrap" class="ft02">EAX[31:4] are reserved.</p>
+<p style="position:absolute;top:795px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:793px;left:146px;white-space:nowrap" class="ft09">EBX enumerates&#160;the size&#160;(in&#160;bytes) required&#160;by the&#160;XSAVES instruction&#160;for&#160;an XSAVE&#160;area containing all&#160;<br/>the&#160;state&#160;components corresponding&#160;to&#160;bits currently set in&#160;XCR0&#160;|&#160;IA32_XSS.</p>
+<p style="position:absolute;top:835px;left:120px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:834px;left:146px;white-space:nowrap" class="ft09">EDX:ECX is&#160;a bitmap of all&#160;the supervisor&#160;state&#160;components&#160;that can be managed by&#160;XSAVES and&#160;<br/>XRSTORS.&#160;A bit can be set&#160;in the IA32_XSS&#160;MSR if&#160;and&#160;only if&#160;the corresponding bit is set in this bitmap.</p>
+<p style="position:absolute;top:885px;left:433px;white-space:nowrap" class="ft08">NOTE</p>
+<p style="position:absolute;top:910px;left:122px;white-space:nowrap" class="ft09">In summary, the XSAVE feature set supports state component&#160;<i>i</i>&#160;(0&#160;≤&#160;<i>i&#160;</i>&lt; 63) if&#160;one of&#160;the following&#160;<br/>is true:&#160;(1)&#160;<i>i&#160;</i>&lt; 32 and&#160;CPUID.(EAX=0DH,ECX=0):EAX[<i>i</i>]&#160;=&#160;&#160;1;&#160;&#160;(2)&#160;<i>i&#160;</i>≥&#160;32&#160;and&#160;<br/>CPUID.(EAX=0DH,ECX=0):EAX[<i>i</i>–32]&#160;=&#160;1;&#160;(3)&#160;<i>i&#160;</i>&lt; 32 and&#160;CPUID.(EAX=0DH,ECX=1):ECX[<i>i</i>]&#160;=&#160;&#160;1;&#160;<br/>or (4)&#160;<i>i&#160;</i>≥&#160;32 and&#160;CPUID.(EAX=0DH,ECX=1):EDX[<i>i</i>–32]&#160;= 1.&#160;The XSAVE feature&#160;set supports&#160;user&#160;<br/>state&#160;component&#160;<i>i</i>&#160;if&#160;(1) or&#160;(2) holds; if (3)&#160;or (4) holds, state component&#160;<i>i</i>&#160;is&#160;a supervisor&#160;state&#160;<br/>component and&#160;support&#160;is limited&#160;to&#160;XSAVES and&#160;XRSTORS.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft02">1.&#160;If&#160;CPUID.1:ECX.XSAVE[bit 26]&#160;=&#160;1, XGETBV&#160;and XSETBV&#160;may be&#160;executed&#160;with&#160;ECX&#160;= 0 (to read&#160;and&#160;write XCR0). Any support for&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">execution of&#160;these instructions&#160;with other values of&#160;ECX is&#160;enumerated&#160;separately.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 2000</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page2000-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14812000.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:583px;white-space:nowrap" class="ft00">GETSEC[SENTER]—Enter a Measured Environment</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-26&#160;Vol. 2D</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;(IA32_MCG_STATUS.MCIP=1) or (IERR pin is&#160;asserted)</p>
+<p style="position:absolute;top:136px;left:88px;white-space:nowrap" class="ft02">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:154px;left:68px;white-space:nowrap" class="ft02">ACBASE←&#160;EBX;</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft02">ACSIZE←&#160;ECX;</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft02">IF&#160;(((ACBASE MOD 4096)&#160;≠&#160;0) or&#160;((ACSIZE MOD&#160;64)&#160;≠&#160;0 ) or (ACSIZE &lt; minimum&#160;</p>
+<p style="position:absolute;top:208px;left:88px;white-space:nowrap" class="ft02">module size) or&#160;(ACSIZE &gt;&#160;AC RAM capacity) or ((ACBASE+ACSIZE) &gt; (2^32 -1)))</p>
+<p style="position:absolute;top:226px;left:115px;white-space:nowrap" class="ft02">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft03">Mask SMI, INIT, A20M, and&#160;NMI external pin&#160;events;<br/>SignalTXTMsg(SENTER);<br/>DO<br/>WHILE (no SignalSENTER&#160;message);</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft03">TXT_SENTER__MSG_EVENT&#160;(ILP&#160;&amp;&#160;RLP):<br/>Mask and clear SignalSENTER&#160;event;<br/>Unmask SignalSEXIT event;<br/>IF&#160;(in VMX operation)</p>
+<p style="position:absolute;top:406px;left:88px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#IllegalEvent);</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft02">FOR I = 0 to IA32_MCG_CAP.COUNT-1 DO</p>
+<p style="position:absolute;top:442px;left:88px;white-space:nowrap" class="ft02">IF IA32_MC[I]_STATUS&#160;= uncorrectable&#160;error</p>
+<p style="position:absolute;top:460px;left:115px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#UnrecovMCError);</p>
+<p style="position:absolute;top:478px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:496px;left:68px;white-space:nowrap" class="ft03">OD;<br/>IF&#160;(IA32_MCG_STATUS.MCIP=1) or (IERR pin is&#160;asserted)</p>
+<p style="position:absolute;top:532px;left:88px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#UnrecovMCError);</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft02">IF&#160;(Voltage&#160;or bus&#160;ratio status are NOT at&#160;a&#160;known good&#160;state)</p>
+<p style="position:absolute;top:568px;left:88px;white-space:nowrap" class="ft02">THEN IF (Voltage&#160;select and&#160;bus&#160;ratio are internally adjustable)</p>
+<p style="position:absolute;top:586px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:604px;left:142px;white-space:nowrap" class="ft02">Make&#160;product-specific adjustment on&#160;operating&#160;parameters;</p>
+<p style="position:absolute;top:622px;left:115px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:640px;left:142px;white-space:nowrap" class="ft02">TXT-SHUTDOWN(#IIlegalVIDBRatio);</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft02">IA32_MISC_ENABLE←&#160;(IA32_MISC_ENABLE&#160;&amp; MASK_CONST*)</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft03">(* The hexadecimal value of MASK_CONST&#160;may vary due&#160;to processor implementations *)<br/>A20M←&#160;0;</p>
+<p style="position:absolute;top:748px;left:68px;white-space:nowrap" class="ft02">IA32_DEBUGCTL←&#160;0;</p>
+<p style="position:absolute;top:766px;left:68px;white-space:nowrap" class="ft03">Invalidate processor TLB(s);<br/>Drain&#160;outgoing&#160;transactions;<br/>Clear performance&#160;monitor counters&#160;and control;<br/>SENTERFLAG←&#160;1;</p>
+<p style="position:absolute;top:838px;left:68px;white-space:nowrap" class="ft03">SignalTXTMsg(SENTERAck);<br/>IF&#160;(logical&#160;processor&#160;is&#160;not ILP)</p>
+<p style="position:absolute;top:874px;left:88px;white-space:nowrap" class="ft02">THEN&#160;GOTO&#160;RLP_SENTER_ROUTINE;</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft03">(* ILP waits for all logical processors to ACK *)<br/>DO</p>
+<p style="position:absolute;top:928px;left:88px;white-space:nowrap" class="ft02">DONE←&#160;TXT.READ(LT.STS);</p>
+<p style="position:absolute;top:946px;left:68px;white-space:nowrap" class="ft03">WHILE (not DONE);<br/>SignalTXTMsg(SENTERContinue);<br/>SignalTXTMsg(ProcessorHold);<br/>FOR&#160;I=ACBASE&#160;to&#160;ACBASE+ACSIZE-1&#160;DO</p>
+<p style="position:absolute;top:1018px;left:88px;white-space:nowrap" class="ft02">ACRAM[I-ACBASE].ADDR←&#160;I;</p>
+<p style="position:absolute;top:1036px;left:88px;white-space:nowrap" class="ft02">ACRAM[I-ACBASE].DATA←&#160;LOAD(I);</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft02">OD;</p>
+</div>
+</body>
+</html>

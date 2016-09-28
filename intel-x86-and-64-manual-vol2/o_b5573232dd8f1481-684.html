@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 684</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft01{font-size:9px;font-family:Times;color:#000000;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page684-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481684.png" alt="background image"/>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft00">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft01">4-4&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">4.1.5 Output&#160;</p>
+<p style="position:absolute;top:98px;left:210px;white-space:nowrap" class="ft02">Selection</p>
+<p style="position:absolute;top:248px;left:68px;white-space:nowrap" class="ft05">For PCMPESTRI/PCMPISTRI,&#160;the Imm8 Control Byte&#160;bit[6] is used to&#160;determine if&#160;the&#160;index is of&#160;the least significant&#160;<br/>or&#160;most&#160;significant bit of IntRes2.</p>
+<p style="position:absolute;top:468px;left:68px;white-space:nowrap" class="ft05">Specifically for&#160;PCMPESTRM/PCMPISTRM, the&#160;Imm8&#160;Control Byte bit[6]&#160;is used&#160; to determine if the mask is a&#160;16 (8)&#160;<br/>bit mask&#160;or&#160;a&#160;128 bit byte/word mask.</p>
+<p style="position:absolute;top:535px;left:68px;white-space:nowrap" class="ft02">4.1.6&#160;</p>
+<p style="position:absolute;top:535px;left:148px;white-space:nowrap" class="ft02">Valid/Invalid Override of&#160;Comparisons</p>
+<p style="position:absolute;top:566px;left:68px;white-space:nowrap" class="ft05">PCMPxSTRx instructions allow for the possibility that an end-of-string (EOS) situation may occur within the 128-bit&#160;<br/>packed&#160;data value (see the instruction descriptions&#160;below&#160;for&#160;details). Any&#160;data elements on either source that are&#160;<br/>determined to be past&#160;the EOS are&#160;considered to be invalid, and the&#160;treatment of invalid data within&#160;a comparison&#160;<br/>pair&#160;varies&#160;depending&#160;on the&#160;aggregation function being performed.<br/>In&#160;general, the individual&#160;comparison result for&#160;each element&#160;pair&#160;BoolRes[i.j] can&#160;be forced&#160;true or&#160;false if&#160;one or&#160;<br/>more&#160;elements in&#160;the&#160;pair&#160;are&#160;invalid.&#160;See&#160;<a href="o_b5573232dd8f1481-684.html">Table&#160;4-7.</a></p>
+<p style="position:absolute;top:137px;left:359px;white-space:nowrap" class="ft04">Table 4-5. &#160;Output&#160;Selection</p>
+<p style="position:absolute;top:162px;left:74px;white-space:nowrap" class="ft03">Imm8[6]&#160;Operation</p>
+<p style="position:absolute;top:162px;left:279px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:186px;left:74px;white-space:nowrap" class="ft03">0b</p>
+<p style="position:absolute;top:186px;left:138px;white-space:nowrap" class="ft03">Least significant index&#160;The&#160;index&#160;returned to ECX is of the least significant set&#160;bit in IntRes2.</p>
+<p style="position:absolute;top:210px;left:74px;white-space:nowrap" class="ft03">1b</p>
+<p style="position:absolute;top:210px;left:138px;white-space:nowrap" class="ft03">Most significant index&#160;The&#160;index&#160;returned&#160;to ECX is&#160;of the most significant set bit in IntRes2.</p>
+<p style="position:absolute;top:308px;left:358px;white-space:nowrap" class="ft04">Table 4-6.&#160;&#160;Output Selection</p>
+<p style="position:absolute;top:333px;left:74px;white-space:nowrap" class="ft03">Imm8[6]</p>
+<p style="position:absolute;top:333px;left:143px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:333px;left:267px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:357px;left:74px;white-space:nowrap" class="ft03">0b</p>
+<p style="position:absolute;top:357px;left:143px;white-space:nowrap" class="ft03">Bit mask</p>
+<p style="position:absolute;top:357px;left:267px;white-space:nowrap" class="ft03">IntRes2 is returned as the&#160;mask to the least significant bits&#160;of&#160;XMM0 with zero&#160;extension&#160;to 128&#160;</p>
+<p style="position:absolute;top:373px;left:267px;white-space:nowrap" class="ft03">bits.</p>
+<p style="position:absolute;top:397px;left:74px;white-space:nowrap" class="ft03">1b</p>
+<p style="position:absolute;top:397px;left:143px;white-space:nowrap" class="ft03">Byte/word mask</p>
+<p style="position:absolute;top:397px;left:267px;white-space:nowrap" class="ft03">IntRes2 is expanded&#160;into a byte/word mask (based on imm8[1]) and placed in XMM0. &#160;The&#160;</p>
+<p style="position:absolute;top:414px;left:267px;white-space:nowrap" class="ft03">expansion is&#160;performed by&#160;replicating each&#160;bit into&#160;all of&#160;the&#160;bits&#160;of the byte/word&#160;of the same&#160;</p>
+<p style="position:absolute;top:430px;left:267px;white-space:nowrap" class="ft03">index.</p>
+<p style="position:absolute;top:700px;left:239px;white-space:nowrap" class="ft04">Table 4-7.&#160;&#160;Comparison&#160;Result for Each Element Pair&#160;BoolRes[i.j]</p>
+<p style="position:absolute;top:729px;left:74px;white-space:nowrap" class="ft03">xmm1&#160;</p>
+<p style="position:absolute;top:745px;left:74px;white-space:nowrap" class="ft03">byte/&#160;word</p>
+<p style="position:absolute;top:729px;left:183px;white-space:nowrap" class="ft03">xmm2/&#160;m128&#160;</p>
+<p style="position:absolute;top:745px;left:183px;white-space:nowrap" class="ft03">byte/word</p>
+<p style="position:absolute;top:729px;left:302px;white-space:nowrap" class="ft03">Imm8[3:2] = 00b</p>
+<p style="position:absolute;top:745px;left:302px;white-space:nowrap" class="ft03">(equal&#160;any)</p>
+<p style="position:absolute;top:729px;left:428px;white-space:nowrap" class="ft03">Imm8[3:2] = 01b&#160;</p>
+<p style="position:absolute;top:745px;left:428px;white-space:nowrap" class="ft03">(ranges)</p>
+<p style="position:absolute;top:729px;left:544px;white-space:nowrap" class="ft03">Imm8[3:2] = 10b&#160;</p>
+<p style="position:absolute;top:745px;left:544px;white-space:nowrap" class="ft03">(equal each)</p>
+<p style="position:absolute;top:729px;left:680px;white-space:nowrap" class="ft03">Imm8[3:2]&#160;=&#160;11b&#160;</p>
+<p style="position:absolute;top:745px;left:680px;white-space:nowrap" class="ft03">(equal ordered)</p>
+<p style="position:absolute;top:769px;left:74px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:769px;left:183px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:769px;left:303px;white-space:nowrap" class="ft03">Force&#160;false</p>
+<p style="position:absolute;top:769px;left:428px;white-space:nowrap" class="ft03">Force&#160;false</p>
+<p style="position:absolute;top:769px;left:544px;white-space:nowrap" class="ft03">Force true</p>
+<p style="position:absolute;top:769px;left:680px;white-space:nowrap" class="ft03">Force true</p>
+<p style="position:absolute;top:793px;left:74px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:793px;left:183px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:793px;left:303px;white-space:nowrap" class="ft03">Force&#160;false</p>
+<p style="position:absolute;top:793px;left:428px;white-space:nowrap" class="ft03">Force&#160;false</p>
+<p style="position:absolute;top:793px;left:544px;white-space:nowrap" class="ft03">Force&#160;false</p>
+<p style="position:absolute;top:793px;left:680px;white-space:nowrap" class="ft03">Force&#160;true</p>
+<p style="position:absolute;top:817px;left:74px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:817px;left:183px;white-space:nowrap" class="ft03">Invalid</p>
+<p style="position:absolute;top:817px;left:302px;white-space:nowrap" class="ft03">Force false</p>
+<p style="position:absolute;top:817px;left:428px;white-space:nowrap" class="ft03">Force&#160;false</p>
+<p style="position:absolute;top:817px;left:544px;white-space:nowrap" class="ft03">Force false</p>
+<p style="position:absolute;top:817px;left:680px;white-space:nowrap" class="ft03">Force&#160;false</p>
+<p style="position:absolute;top:841px;left:74px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:841px;left:183px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:841px;left:302px;white-space:nowrap" class="ft03">Do&#160;not force</p>
+<p style="position:absolute;top:841px;left:428px;white-space:nowrap" class="ft03">Do&#160;not force</p>
+<p style="position:absolute;top:841px;left:544px;white-space:nowrap" class="ft03">Do&#160;not force</p>
+<p style="position:absolute;top:841px;left:680px;white-space:nowrap" class="ft03">Do not force</p>
+</div>
+</body>
+</html>

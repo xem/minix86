@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 460</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page460-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a460.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">E-18&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:106px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;(needed to check tininess, to provide a scaled result to</p>
+<p style="position:absolute;top:120px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;an underflow/overflow trap handler, and in flush-to-zero mode)</p>
+<p style="position:absolute;top:135px;left:68px;white-space:nowrap" class="ft00">&#160; double&#160;dbl_res; &#160;// result in double precision format (needed to avoid a</p>
+<p style="position:absolute;top:151px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160;// double rounding error when&#160;denormalizing)</p>
+<p style="position:absolute;top:165px;left:68px;white-space:nowrap" class="ft00">&#160; unsigned int result_tiny;</p>
+<p style="position:absolute;top:180px;left:68px;white-space:nowrap" class="ft00">&#160; unsigned int result_huge;</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft00">&#160; unsigned short int sw; // 16 bits</p>
+<p style="position:absolute;top:210px;left:68px;white-space:nowrap" class="ft00">&#160; unsigned short int cw; // 16 bits</p>
+<p style="position:absolute;top:255px;left:68px;white-space:nowrap" class="ft00">&#160; // have&#160;to check first for faults (V, D, Z), and then for traps (O, U, I)</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft00">&#160; // initialize x87 FPU (floating-point exceptions are masked)</p>
+<p style="position:absolute;top:300px;left:68px;white-space:nowrap" class="ft00">&#160; _asm {</p>
+<p style="position:absolute;top:315px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; fninit;</p>
+<p style="position:absolute;top:331px;left:68px;white-space:nowrap" class="ft00">&#160; }</p>
+<p style="position:absolute;top:360px;left:68px;white-space:nowrap" class="ft00">&#160; result_tiny = 0;</p>
+<p style="position:absolute;top:376px;left:68px;white-space:nowrap" class="ft00">&#160; result_huge = 0;</p>
+<p style="position:absolute;top:405px;left:68px;white-space:nowrap" class="ft00">&#160; switch&#160;(exc_env-&gt;operation) {</p>
+<p style="position:absolute;top:435px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;ADDPS:</p>
+<p style="position:absolute;top:450px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;ADDSS:</p>
+<p style="position:absolute;top:466px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;SUBPS:</p>
+<p style="position:absolute;top:480px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;SUBSS:</p>
+<p style="position:absolute;top:495px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;MULPS:</p>
+<p style="position:absolute;top:511px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;MULSS:</p>
+<p style="position:absolute;top:525px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;DIVPS:</p>
+<p style="position:absolute;top:540px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; case&#160;DIVSS:</p>
+<p style="position:absolute;top:570px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; uiopd1 = exc_env-&gt;operand1_uint32; // copy as unsigned int</p>
+<p style="position:absolute;top:585px;left:121px;white-space:nowrap" class="ft00">// do not copy as float to avoid conversion&#160;</p>
+<p style="position:absolute;top:601px;left:121px;white-space:nowrap" class="ft00">// of SNaN to&#160;QNaN by compiled code</p>
+<p style="position:absolute;top:615px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; uiopd2 = exc_env-&gt;operand2_uint32;</p>
+<p style="position:absolute;top:630px;left:121px;white-space:nowrap" class="ft00">// do not copy as float to avoid conversion of SNaN&#160;</p>
+<p style="position:absolute;top:646px;left:121px;white-space:nowrap" class="ft00">// to QNaN by&#160;compiled code</p>
+<p style="position:absolute;top:660px;left:94px;white-space:nowrap" class="ft00">uiopd1 = check_for_daz (uiopd1); // operand1&#160;= +0.0 * operand1 if it&#160;is&#160;</p>
+<p style="position:absolute;top:675px;left:121px;white-space:nowrap" class="ft00">// denormal and DAZ=1</p>
+<p style="position:absolute;top:691px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; uiopd2 = check_for_daz (uiopd2); // operand2 = +0.0&#160;* operand2 if it is&#160;</p>
+<p style="position:absolute;top:706px;left:121px;white-space:nowrap" class="ft00">// denormal and DAZ=1</p>
+<p style="position:absolute;top:736px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;execute the operation and&#160;check whether the invalid, denormal, or&#160;</p>
+<p style="position:absolute;top:751px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;divide by zero flags are&#160;set and the respective exceptions enabled</p>
+<p style="position:absolute;top:781px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;set control word with rounding mode set to exc_env-&gt;rounding_mode,&#160;</p>
+<p style="position:absolute;top:796px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; //&#160;single precision, and all&#160;exceptions disabled</p>
+<p style="position:absolute;top:810px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; switch (exc_env-&gt;rounding_mode) {</p>
+<p style="position:absolute;top:826px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; case ROUND_TO_NEAREST:</p>
+<p style="position:absolute;top:841px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;cw = 003fH; // round to&#160;nearest, single precision, exceptions masked</p>
+<p style="position:absolute;top:855px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;break;</p>
+<p style="position:absolute;top:871px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; case ROUND_DOWN:</p>
+<p style="position:absolute;top:886px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;cw = 043fH; // round down, single precision, exceptions masked</p>
+<p style="position:absolute;top:900px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;break;</p>
+<p style="position:absolute;top:915px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; case ROUND_UP:</p>
+<p style="position:absolute;top:931px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;cw = 083fH; // round up,&#160;single precision, exceptions masked</p>
+<p style="position:absolute;top:945px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;break;</p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; case ROUND_TO_ZERO:</p>
+<p style="position:absolute;top:976px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;cw = 0c3fH; // round to&#160;zero, single precision,&#160;exceptions masked</p>
+<p style="position:absolute;top:990px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;break;</p>
+<p style="position:absolute;top:1005px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; default:</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; &#160;&#160;;&#160;</p>
+<p style="position:absolute;top:1035px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; }</p>
+<p style="position:absolute;top:1050px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; __asm {</p>
+<p style="position:absolute;top:1066px;left:68px;white-space:nowrap" class="ft00">&#160; &#160; &#160; &#160; fldcw WORD PTR cw;</p>
+</div>
+</body>
+</html>

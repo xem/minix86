@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 300</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page300-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481300.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:520px;white-space:nowrap" class="ft00">CMPSD—Compare&#160;Scalar Double-Precision Floating-Point Value</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-172&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">CMPSD—Compare Scalar Double-Precision Floating-Point&#160;Value</p>
+<p style="position:absolute;top:380px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:512px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:535px;left:68px;white-space:nowrap" class="ft08">Compares&#160;the low double-precision floating-point values in&#160;the second&#160;source operand and the&#160;first&#160;source&#160;operand&#160;<br/>and returns&#160;the results in&#160;of the comparison&#160;to the destination operand. The comparison&#160;predicate&#160;operand (imme-<br/>diate&#160;operand) specifies&#160;the type&#160;of comparison&#160;performed.&#160;<br/>128-bit Legacy SSE&#160;version:&#160;The first&#160;source and&#160;destination&#160;operand (first operand)&#160;is an&#160;XMM register.&#160;The&#160;<br/>second&#160;source&#160;operand&#160;(second&#160;operand) can be an&#160;XMM register&#160;or 64-bit memory location.&#160;Bits (MAX_VL-1:64)&#160;<br/>of the&#160;corresponding YMM destination register remain unchanged. The comparison result is a quadword mask of all&#160;<br/>1s (comparison&#160;true)&#160;or all&#160;0s&#160;(comparison false).&#160;<br/>VEX.128&#160;encoded version: The first source&#160;operand (second operand)&#160;is an&#160;XMM register.&#160;The&#160;second source&#160;<br/>operand&#160;(third&#160;operand)&#160;can be&#160;an XMM register or a 64-bit&#160;memory location. The result is stored in the low quad-<br/>word of the&#160;destination&#160;operand; the&#160;high quadword&#160;is filled with the&#160;contents of the&#160;high quadword&#160;of the&#160;first&#160;<br/>source operand.&#160;Bits (MAX_VL-1:128) of the&#160;destination ZMM&#160;register&#160;are zeroed.&#160;The comparison result&#160;is a quad-<br/>word mask of all&#160;1s (comparison&#160;true) or&#160;all 0s&#160;(comparison false).&#160;<br/>EVEX encoded version: The first&#160;source operand (second operand)&#160;is an XMM&#160;register.&#160;The&#160;second&#160;source operand&#160;<br/>can&#160;be a&#160;XMM register or&#160;a 64-bit memory location. The destination operand&#160;(first operand)&#160;is an opmask register.&#160;<br/>The&#160;comparison result&#160;is&#160;a single&#160;mask bit of&#160;1 (comparison true)&#160;or 0 (comparison&#160;false),&#160;written to&#160;the destination&#160;<br/>starting&#160;from the&#160;LSB according&#160;to the&#160;writemask&#160;k2.&#160;Bits&#160;(MAX_KL-1:128) of the destination&#160;register are&#160;cleared.<br/>The&#160;comparison predicate&#160;operand is&#160;an 8-bit immediate:&#160;</p>
+<p style="position:absolute;top:847px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:847px;left:93px;white-space:nowrap" class="ft06">For instructions encoded&#160;using the&#160;VEX&#160;prefix, bits 4:0 define the&#160;type&#160;of&#160;comparison&#160;to be&#160;performed&#160;(see&#160;<br/><a href="o_b5573232dd8f1481-283.html">Table&#160;3-1)</a>. Bits 5 through 7 of the&#160;immediate&#160;are reserved.&#160;</p>
+<p style="position:absolute;top:886px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:886px;left:93px;white-space:nowrap" class="ft06">For instruction encodings&#160;that do&#160;not&#160;use VEX prefix, bits&#160;2:0 define&#160;the type of comparison to&#160;be&#160;made (see the&#160;<br/>first 8 rows<a href="o_b5573232dd8f1481-283.html">&#160;of Table 3-1)</a>.&#160;Bits&#160;3&#160;through&#160;7&#160;of&#160;the immediate are&#160;reserved.&#160;</p>
+<p style="position:absolute;top:925px;left:68px;white-space:nowrap" class="ft06">The unordered relationship is&#160;true when at&#160;least&#160;one&#160;of&#160;the&#160;two source&#160;operands being compared&#160;is&#160;a NaN; the&#160;<br/>ordered relationship is&#160;true when neither&#160;source operand&#160;is a&#160;NaN.&#160;<br/>A&#160;subsequent computational instruction that&#160;uses&#160;the&#160;mask&#160;result in&#160;the destination operand&#160;as an input&#160;operand&#160;<br/>will&#160;not&#160;generate&#160;an&#160;exception,&#160;because&#160;a&#160;mask&#160;of&#160;all&#160;0s&#160;corresponds&#160;to&#160;a&#160;floating-point&#160;value&#160;of&#160;+0.0&#160;and&#160;a&#160;mask&#160;<br/>of all 1s&#160;corresponds&#160;to a&#160;QNaN.&#160;<br/>Note that processors with “CPUID.1H:ECX.AVX =0” do&#160;not&#160;implement&#160;the “greater-than”, “greater-than-or-equal”,&#160;<br/>“not-greater than”,&#160;and&#160;“not-greater-than-or-equal&#160;relations” predicates.&#160;These&#160;comparisons&#160;can be made either&#160;<br/>by using&#160;the&#160;inverse&#160;relationship&#160;(that&#160;is, use&#160;the&#160;“not-less-than-or-equal” to make&#160;a&#160;“greater-than”&#160;comparison)&#160;</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:290px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:137px;left:290px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:339px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:339px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:339px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:412px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:412px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:412px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:486px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft04">F2 0F C2 /r ib</p>
+<p style="position:absolute;top:189px;left:77px;white-space:nowrap" class="ft04">CMPSD xmm1, xmm2/m64, imm8</p>
+<p style="position:absolute;top:172px;left:290px;white-space:nowrap" class="ft04">RMI</p>
+<p style="position:absolute;top:172px;left:339px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:412px;white-space:nowrap" class="ft04">SSE2</p>
+<p style="position:absolute;top:172px;left:486px;white-space:nowrap" class="ft04">Compare&#160;low&#160;double-precision&#160;floating-point&#160;value in&#160;</p>
+<p style="position:absolute;top:189px;left:486px;white-space:nowrap" class="ft04">xmm2/m64&#160;and xmm1 using bits&#160;2:0&#160;of&#160;imm8&#160;as comparison&#160;</p>
+<p style="position:absolute;top:205px;left:486px;white-space:nowrap" class="ft04">predicate.</p>
+<p style="position:absolute;top:225px;left:77px;white-space:nowrap" class="ft04">VEX.NDS.128.F2.0F.WIG C2&#160;/r ib</p>
+<p style="position:absolute;top:241px;left:77px;white-space:nowrap" class="ft04">VCMPSD&#160;xmm1, xmm2,&#160;</p>
+<p style="position:absolute;top:258px;left:77px;white-space:nowrap" class="ft04">xmm3/m64, imm8</p>
+<p style="position:absolute;top:225px;left:290px;white-space:nowrap" class="ft04">RVMI</p>
+<p style="position:absolute;top:225px;left:339px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:225px;left:412px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:225px;left:486px;white-space:nowrap" class="ft04">Compare&#160;low&#160;double-precision&#160;floating-point&#160;value&#160;in&#160;</p>
+<p style="position:absolute;top:241px;left:486px;white-space:nowrap" class="ft04">xmm3/m64&#160;and xmm2 using bits&#160;4:0&#160;of&#160;imm8&#160;as comparison&#160;</p>
+<p style="position:absolute;top:258px;left:486px;white-space:nowrap" class="ft04">predicate.</p>
+<p style="position:absolute;top:277px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.LIG.F2.0F.W1 C2 /r&#160;ib</p>
+<p style="position:absolute;top:294px;left:77px;white-space:nowrap" class="ft04">VCMPSD k1&#160;{k2}, xmm2,&#160;</p>
+<p style="position:absolute;top:310px;left:77px;white-space:nowrap" class="ft04">xmm3/m64{sae},&#160;imm8</p>
+<p style="position:absolute;top:277px;left:290px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:277px;left:339px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:277px;left:412px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:277px;left:486px;white-space:nowrap" class="ft04">Compare&#160;low&#160;double-precision&#160;floating-point&#160;value&#160;in&#160;</p>
+<p style="position:absolute;top:294px;left:486px;white-space:nowrap" class="ft04">xmm3/m64&#160;and xmm2 using bits&#160;4:0&#160;of&#160;imm8&#160;as comparison&#160;</p>
+<p style="position:absolute;top:310px;left:486px;white-space:nowrap" class="ft04">predicate with writemask&#160;k2&#160;and leave the result in&#160;mask&#160;</p>
+<p style="position:absolute;top:326px;left:486px;white-space:nowrap" class="ft04">register&#160;k1.</p>
+<p style="position:absolute;top:403px;left:93px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:403px;left:200px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:403px;left:368px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:403px;left:543px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:403px;left:717px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:427px;left:99px;white-space:nowrap" class="ft04">RMI</p>
+<p style="position:absolute;top:427px;left:182px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r, w)</p>
+<p style="position:absolute;top:427px;left:358px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:427px;left:557px;white-space:nowrap" class="ft04">Imm8</p>
+<p style="position:absolute;top:427px;left:738px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:451px;left:95px;white-space:nowrap" class="ft04">RVMI</p>
+<p style="position:absolute;top:451px;left:187px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:451px;left:371px;white-space:nowrap" class="ft04">VEX.vvvv</p>
+<p style="position:absolute;top:451px;left:532px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:451px;left:731px;white-space:nowrap" class="ft04">Imm8</p>
+<p style="position:absolute;top:475px;left:98px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:475px;left:187px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:475px;left:367px;white-space:nowrap" class="ft04">EVEX.vvvv</p>
+<p style="position:absolute;top:475px;left:532px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:475px;left:731px;white-space:nowrap" class="ft04">Imm8</p>
+</div>
+</body>
+</html>

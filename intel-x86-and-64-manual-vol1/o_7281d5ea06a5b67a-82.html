@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 82</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page82-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a082.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-22&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">BASIC EXECUTION ENVIRONMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">When storing data&#160;in memory&#160;or loading data from&#160;memory, the&#160;DS segment default can be overridden to allow&#160;<br/>other&#160;segments&#160;to be accessed. Within&#160;an assembler,&#160;the segment override&#160;is generally handled with a&#160;colon&#160;“:”&#160;<br/>operator. For example,&#160;the&#160;following&#160;MOV instruction moves&#160;a value from register&#160;EAX into&#160;the&#160;segment pointed to&#160;<br/>by&#160;the ES&#160;register. The offset into&#160;the&#160;segment is&#160;contained in&#160;the EBX&#160;register:</p>
+<p style="position:absolute;top:180px;left:68px;white-space:nowrap" class="ft02">MOV&#160;ES:[EBX], EAX;</p>
+<p style="position:absolute;top:444px;left:68px;white-space:nowrap" class="ft08">At&#160;the machine level,&#160;a segment override is&#160;specified with&#160;a segment-override prefix, which is a byte placed at&#160;the&#160;<br/>beginning of an&#160;instruction. The&#160;following&#160;default segment selections cannot&#160;be&#160;overridden:</p>
+<p style="position:absolute;top:482px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:483px;left:93px;white-space:nowrap" class="ft02">Instruction fetches&#160;must&#160;be&#160;made&#160;from&#160;the code segment.</p>
+<p style="position:absolute;top:505px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:505px;left:93px;white-space:nowrap" class="ft02">Destination strings&#160;in string&#160;instructions&#160;must be&#160;stored in the data&#160;segment&#160;pointed to by&#160;the ES&#160;register.</p>
+<p style="position:absolute;top:527px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:528px;left:93px;white-space:nowrap" class="ft02">Push&#160;and pop operations must&#160;always&#160;reference&#160;the SS&#160;segment.</p>
+<p style="position:absolute;top:552px;left:68px;white-space:nowrap" class="ft08">Some instructions require a segment selector to be&#160;specified explicitly. In these&#160;cases, the 16-bit segment selector&#160;<br/>can be located in&#160;a memory location or&#160;in&#160;a 16-bit&#160;register. For example,&#160;the following MOV instruction moves&#160;a&#160;<br/>segment selector&#160;located&#160;in&#160;register BX into segment register&#160;DS:</p>
+<p style="position:absolute;top:615px;left:88px;white-space:nowrap" class="ft02">MOV DS, BX</p>
+<p style="position:absolute;top:639px;left:68px;white-space:nowrap" class="ft08">Segment selectors can&#160;also be specified&#160;explicitly as&#160;part&#160;of&#160;a 48-bit&#160;far&#160;pointer&#160;in memory. Here, the first double-<br/>word&#160;in&#160;memory&#160;contains&#160;the&#160;offset&#160;and&#160;the&#160;next word contains&#160;the segment selector.</p>
+<p style="position:absolute;top:700px;left:68px;white-space:nowrap" class="ft04">3.7.4.1 &#160;</p>
+<p style="position:absolute;top:700px;left:152px;white-space:nowrap" class="ft04">Segmentation in 64-Bit Mode</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft08">In&#160;IA-32e&#160;mode, the effects&#160;of&#160;segmentation depend on whether&#160;the&#160;processor&#160;is running&#160;in compatibility mode&#160;or&#160;<br/>64-bit mode. In compatibility mode, segmentation functions just as it does in&#160;legacy IA-32 mode,&#160;using the 16-bit&#160;<br/>or 32-bit&#160;protected mode&#160;semantics described&#160;above.<br/>In 64-bit&#160;mode,&#160;segmentation&#160;is generally (but not completely) disabled,&#160;creating a&#160;flat 64-bit&#160;linear-address&#160;<br/>space.&#160;The processor treats&#160;the segment base&#160;of CS, DS,&#160;ES, SS&#160;as zero, creating&#160;a linear&#160;address that is&#160;equal&#160;to&#160;<br/>the&#160;effective address. The&#160;exceptions are the&#160;FS&#160;and&#160;GS&#160;segments, whose segment registers&#160;(which&#160;hold the&#160;<br/>segment&#160;base)&#160;can be used&#160;as&#160;additional&#160;base&#160;registers in&#160;some&#160;linear&#160;address calculations.</p>
+<p style="position:absolute;top:885px;left:68px;white-space:nowrap" class="ft05">3.7.5&#160;</p>
+<p style="position:absolute;top:885px;left:148px;white-space:nowrap" class="ft05">Specifying an Offset</p>
+<p style="position:absolute;top:916px;left:68px;white-space:nowrap" class="ft08">The offset part of a&#160;memory address&#160;can be specified directly as&#160;a static&#160;value&#160;(called a&#160;<b>displacement</b>) or&#160;through&#160;<br/>an&#160;address computation&#160;made up&#160;of&#160;one or&#160;more of&#160;the&#160;following&#160;components:</p>
+<p style="position:absolute;top:954px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:955px;left:93px;white-space:nowrap" class="ft06"><b>Displacement</b>&#160;—&#160;An 8-,&#160;16-,&#160;or&#160;32-bit value.</p>
+<p style="position:absolute;top:976px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:977px;left:93px;white-space:nowrap" class="ft06"><b>Base</b>&#160;— The&#160;value&#160;in&#160;a general-purpose&#160;register.</p>
+<p style="position:absolute;top:999px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1000px;left:93px;white-space:nowrap" class="ft06"><b>Index</b>&#160;— The value in&#160;a general-purpose register.</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1022px;left:93px;white-space:nowrap" class="ft06"><b>Scale&#160;factor&#160;</b>—&#160;A&#160;value of 2,&#160;4,&#160;or 8&#160;that&#160;is multiplied by&#160;the index&#160;value.</p>
+<p style="position:absolute;top:210px;left:304px;white-space:nowrap" class="ft07">Table&#160;3-5.&#160;&#160;Default&#160;Segment&#160;Selection&#160;Rules</p>
+<p style="position:absolute;top:235px;left:74px;white-space:nowrap" class="ft02">Reference Type</p>
+<p style="position:absolute;top:235px;left:194px;white-space:nowrap" class="ft02">Register Used&#160;Segment Used</p>
+<p style="position:absolute;top:235px;left:426px;white-space:nowrap" class="ft02">Default&#160;Selection&#160;Rule</p>
+<p style="position:absolute;top:259px;left:74px;white-space:nowrap" class="ft02">Instructions</p>
+<p style="position:absolute;top:259px;left:194px;white-space:nowrap" class="ft02">CS</p>
+<p style="position:absolute;top:259px;left:291px;white-space:nowrap" class="ft02">Code Segment</p>
+<p style="position:absolute;top:259px;left:425px;white-space:nowrap" class="ft02">All instruction fetches.</p>
+<p style="position:absolute;top:283px;left:74px;white-space:nowrap" class="ft02">Stack</p>
+<p style="position:absolute;top:283px;left:194px;white-space:nowrap" class="ft02">SS</p>
+<p style="position:absolute;top:283px;left:291px;white-space:nowrap" class="ft02">Stack Segment</p>
+<p style="position:absolute;top:283px;left:425px;white-space:nowrap" class="ft02">All stack pushes&#160;and&#160;pops.</p>
+<p style="position:absolute;top:299px;left:425px;white-space:nowrap" class="ft02">Any memory&#160;reference which uses the ESP or&#160;EBP register&#160;as&#160;a base&#160;</p>
+<p style="position:absolute;top:316px;left:425px;white-space:nowrap" class="ft02">register.</p>
+<p style="position:absolute;top:340px;left:74px;white-space:nowrap" class="ft02">Local Data</p>
+<p style="position:absolute;top:340px;left:194px;white-space:nowrap" class="ft02">DS</p>
+<p style="position:absolute;top:340px;left:291px;white-space:nowrap" class="ft02">Data Segment</p>
+<p style="position:absolute;top:340px;left:425px;white-space:nowrap" class="ft02">All data references, except&#160;when relative&#160;to&#160;stack or string destination.</p>
+<p style="position:absolute;top:364px;left:74px;white-space:nowrap" class="ft02">Destination Strings&#160;ES</p>
+<p style="position:absolute;top:364px;left:291px;white-space:nowrap" class="ft02">Data&#160;Segment&#160;</p>
+<p style="position:absolute;top:381px;left:291px;white-space:nowrap" class="ft02">pointed to&#160;with the&#160;</p>
+<p style="position:absolute;top:397px;left:291px;white-space:nowrap" class="ft02">ES&#160;register</p>
+<p style="position:absolute;top:364px;left:425px;white-space:nowrap" class="ft02">Destination&#160;of&#160;string&#160;instructions.</p>
+</div>
+</body>
+</html>

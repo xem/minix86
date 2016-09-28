@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1723</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1723-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1723.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-39</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL®&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:375px;left:69px;white-space:nowrap" class="ft04">The processor-internal Last IP state is guaranteed to be reset to zero when a PSB is sent out.&#160;This means that the&#160;<br/>IP&#160;that&#160;follows&#160;the PSB with either&#160;be&#160;un-compressed (011b&#160;or 110b,&#160;see<a href="o_fe12b1e2a880e0ce-1723.html">&#160;Table&#160;36-18), or&#160;</a>compressed against&#160;<br/>zero.<br/>At&#160;times,&#160;“IPbytes”&#160;will have&#160;a value&#160;of&#160;0.&#160;As shown above,&#160;this does&#160;not mean that&#160;the&#160;IP payload matches the&#160;full&#160;<br/>address of the last IP, but&#160;rather that&#160;the IP&#160;for&#160;this&#160;packet&#160;was suppressed.&#160;This is used&#160;for cases&#160;where&#160;the IP that&#160;<br/>applies to&#160;the packet is out of context. An example is the&#160;TIP.PGD&#160;sent&#160;on a SYSCALL, when tracing only&#160;USR&#160;code.&#160;<br/>In that case,&#160;no TargetIP will be included&#160;in&#160;the packet,&#160;since&#160;that would expose an&#160;instruction&#160;point at&#160;CPL&#160;=&#160;0.&#160;<br/>When&#160;the IP payload&#160;is suppressed in&#160;this&#160;manner,&#160;Last IP&#160;is not cleared,&#160;and&#160;instead&#160;refers&#160;to the&#160;last IP&#160;packet&#160;<br/>with&#160;a non-zero IPBytes&#160;field.<br/>On&#160;processors&#160;that&#160;support&#160;a maximum linear address&#160;size&#160;of&#160;32&#160;bits,&#160;IP&#160;payloads&#160;may never exceed&#160;32&#160;bits&#160;<br/>(IPBytes &lt;=&#160;010b).</p>
+<p style="position:absolute;top:587px;left:69px;white-space:nowrap" class="ft03">Indirect&#160;Transfer&#160;Compression for Returns&#160;(RET)</p>
+<p style="position:absolute;top:612px;left:69px;white-space:nowrap" class="ft07">In addition to&#160;IP compression,&#160;TIP&#160;packets for near&#160;return&#160;(RET) instructions&#160;can&#160;also be compressed. If&#160;the&#160;RET&#160;<br/>target&#160;matches the&#160;next IP of the&#160;corresponding CALL, then&#160;the TIP packet&#160;is unneeded, since&#160;the&#160;decoder can&#160;<br/>deduce the&#160;target&#160;IP&#160;by maintaining a&#160;CALL/RET&#160;stack of its own.<br/>A CALL/RET&#160;stack&#160;can be maintained&#160;by&#160;the&#160;decoder by doing the&#160;following:<br/>1.&#160;Allocate&#160;space to&#160;store 64 RET&#160;targets.&#160;<br/>2.&#160;For near CALLs,&#160;push the Next IP onto the stack.&#160;Once&#160;the stack is full, new&#160;CALLs&#160;will force&#160;the&#160;oldest&#160;entry&#160;off&#160;</p>
+<p style="position:absolute;top:732px;left:95px;white-space:nowrap" class="ft04">the&#160;end&#160;of&#160;the stack, such that&#160;only&#160;the youngest 64 entries are&#160;stored. Note that this&#160;excludes zero-length&#160;<br/>CALLs, which&#160;are direct&#160;near CALLs&#160;with displacement&#160;zero (to&#160;the next IP).&#160;These CALLs typically don’t&#160;have&#160;<br/>matching RETs.&#160;</p>
+<p style="position:absolute;top:789px;left:69px;white-space:nowrap" class="ft04">3.&#160;For near&#160;RETs, pop the top&#160;(youngest)&#160;entry off&#160;the stack. This&#160;will&#160;be the&#160;target&#160;of&#160;the RET.<br/>In cases where the&#160;RET is&#160;compressed,&#160;the&#160;target&#160;is guaranteed to&#160;match&#160;the value&#160;produced in&#160;2) above. If the&#160;<br/>target is&#160;not compressed, a&#160;TIP&#160;packet will be generated&#160;with&#160;the&#160;RET&#160;target, which may&#160;differ from 2).<br/>The hardware ensure&#160;that packets read by&#160;the decoder&#160;will always&#160;have&#160;seen the&#160;CALL that corresponds to&#160;any&#160;<br/>compressed RET.&#160;The&#160;processor&#160;will&#160;never&#160;compress&#160;a RET across&#160;a PSB,&#160;a buffer&#160;overflow,&#160;or scenario where Pack-<br/>etEn=0. This&#160;means that a&#160;RET whose&#160;corresponding CALL&#160;executed while&#160;PacketEn=0, or before the last&#160;PSB,&#160;etc.,&#160;<br/>will&#160;not be&#160;compressed.<br/>If the&#160;CALL/RET&#160;stack is&#160;manipulated&#160;or corrupted&#160;by software, and thereby&#160;causes a&#160;RET to&#160;transfer control to&#160;a&#160;<br/>target&#160;that is&#160;inconsistent with the&#160;CALL/RET stack,&#160;then the&#160;RET will not&#160;be&#160;compressed,&#160;and will produce&#160;a TIP&#160;<br/>packet. This can happen,&#160;for example,&#160;if software executes&#160;a PUSH instruction&#160;to push a target&#160;onto the stack, and&#160;<br/>a later RET&#160;uses this&#160;target.<br/>When&#160;a RET&#160;is compressed, a&#160;Taken&#160;indication&#160;is added to&#160;the TNT buffer.&#160;Because it&#160;sends&#160;no TIP packet, it&#160;also&#160;<br/>does&#160;not update the&#160;internal Last IP value, and&#160;thus&#160;the&#160;decoder should treat it&#160;the same&#160;way.&#160;If&#160;the RET&#160;is not&#160;<br/>compressed, it&#160;will&#160;generate&#160;a TIP packet&#160;(just like when&#160;RET&#160;compression&#160;is disabled, via&#160;<br/>IA32_RTIT_CTL.DisRETC). For&#160;processors that employ&#160;defe<a href="o_fe12b1e2a880e0ce-1724.html">rred TIPs (Section&#160;36.4.2.3), an&#160;</a>uncompressed RET will&#160;<br/>not be&#160;deferred, and hence will force out any accumulated TNTs&#160;or&#160;TIPs. This serves&#160;to&#160;avoid ambiguity,&#160;and make&#160;</p>
+<p style="position:absolute;top:100px;left:321px;white-space:nowrap" class="ft03">Table 36-18. FUP/TIP&#160;IP&#160;Reconstruction</p>
+<p style="position:absolute;top:124px;left:75px;white-space:nowrap" class="ft02">IPBytes</p>
+<p style="position:absolute;top:124px;left:179px;white-space:nowrap" class="ft06">Uncompressed IP Value<br/>63:56</p>
+<p style="position:absolute;top:148px;left:263px;white-space:nowrap" class="ft02">55:48</p>
+<p style="position:absolute;top:148px;left:346px;white-space:nowrap" class="ft02">47:40</p>
+<p style="position:absolute;top:148px;left:429px;white-space:nowrap" class="ft02">39:32</p>
+<p style="position:absolute;top:148px;left:512px;white-space:nowrap" class="ft02">31:24</p>
+<p style="position:absolute;top:148px;left:595px;white-space:nowrap" class="ft02">23:16</p>
+<p style="position:absolute;top:148px;left:678px;white-space:nowrap" class="ft02">15:8</p>
+<p style="position:absolute;top:148px;left:762px;white-space:nowrap" class="ft02">7:0</p>
+<p style="position:absolute;top:172px;left:75px;white-space:nowrap" class="ft02">000b</p>
+<p style="position:absolute;top:172px;left:179px;white-space:nowrap" class="ft02">None, IP is&#160;out of&#160;context</p>
+<p style="position:absolute;top:196px;left:75px;white-space:nowrap" class="ft02">001b</p>
+<p style="position:absolute;top:196px;left:179px;white-space:nowrap" class="ft02">Last IP[63:16]</p>
+<p style="position:absolute;top:196px;left:678px;white-space:nowrap" class="ft02">IP Payload[15:0]</p>
+<p style="position:absolute;top:220px;left:75px;white-space:nowrap" class="ft02">010b</p>
+<p style="position:absolute;top:220px;left:179px;white-space:nowrap" class="ft02">Last IP[63:32]</p>
+<p style="position:absolute;top:220px;left:512px;white-space:nowrap" class="ft02">IP Payload[31:0]</p>
+<p style="position:absolute;top:244px;left:75px;white-space:nowrap" class="ft02">011b</p>
+<p style="position:absolute;top:244px;left:179px;white-space:nowrap" class="ft02">IP Payload[47] extended</p>
+<p style="position:absolute;top:244px;left:346px;white-space:nowrap" class="ft02">IP Payload[47:0]</p>
+<p style="position:absolute;top:268px;left:75px;white-space:nowrap" class="ft02">100b</p>
+<p style="position:absolute;top:268px;left:179px;white-space:nowrap" class="ft02">Last IP [63:48]&#160;</p>
+<p style="position:absolute;top:268px;left:346px;white-space:nowrap" class="ft02">IP Payload[47:0]</p>
+<p style="position:absolute;top:292px;left:75px;white-space:nowrap" class="ft02">101b</p>
+<p style="position:absolute;top:292px;left:179px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:316px;left:75px;white-space:nowrap" class="ft02">110b</p>
+<p style="position:absolute;top:316px;left:179px;white-space:nowrap" class="ft02">IP Payload[63:0]</p>
+<p style="position:absolute;top:340px;left:75px;white-space:nowrap" class="ft02">111b</p>
+<p style="position:absolute;top:340px;left:179px;white-space:nowrap" class="ft02">Reserved</p>
+</div>
+</body>
+</html>

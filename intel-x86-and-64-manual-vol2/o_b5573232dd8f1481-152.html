@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 152</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page152-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481152.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:637px;white-space:nowrap" class="ft00">AAS—ASCII Adjust AL After Subtraction</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-24&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">AAS—ASCII Adjust&#160;AL&#160;After Subtraction</p>
+<p style="position:absolute;top:217px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:300px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft08">Adjusts the result of the subtraction of two unpacked BCD values to create a unpacked&#160;BCD result. The AL register&#160;<br/>is the&#160;implied&#160;source&#160;and destination operand&#160;for&#160;this instruction. The AAS instruction is&#160;only&#160;useful when it&#160;follows&#160;<br/>a SUB&#160;instruction&#160;that subtracts (binary subtraction) one&#160;unpacked&#160;BCD&#160;value&#160;from another&#160;and stores&#160;a&#160;byte&#160;<br/>result in&#160;the AL&#160;register. The&#160;AAA instruction then adjusts&#160;the&#160;contents of the&#160;AL register&#160;to contain the&#160;correct 1-<br/>digit unpacked BCD&#160;result.&#160;<br/>If the subtraction&#160;produced a decimal&#160;carry, the AH&#160;register&#160;decrements&#160;by&#160;1,&#160;and the&#160;CF&#160;and AF flags are set. If no&#160;<br/>decimal carry occurred,&#160;the CF&#160;and AF flags are&#160;cleared, and&#160;the&#160;AH&#160;register&#160;is&#160;unchanged.&#160;In either&#160;case, the&#160;AL&#160;<br/>register is&#160;left with its&#160;top four bits set to 0.<br/>This&#160;instruction executes as&#160;described&#160;in compatibility mode and&#160;legacy&#160;mode. It&#160;is not valid&#160;in 64-bit&#160;mode.</p>
+<p style="position:absolute;top:506px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft04">IF&#160;64-bit mode</p>
+<p style="position:absolute;top:553px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:570px;left:115px;white-space:nowrap" class="ft04">#UD;</p>
+<p style="position:absolute;top:586px;left:88px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:603px;left:115px;white-space:nowrap" class="ft04">IF ((AL AND 0FH)&#160;&gt;&#160;9)&#160;or (AF&#160;</p>
+<p style="position:absolute;top:601px;left:278px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:603px;left:287px;white-space:nowrap" class="ft04">&#160;1)</p>
+<p style="position:absolute;top:621px;left:142px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:638px;left:169px;white-space:nowrap" class="ft04">AX&#160;←&#160;AX – 6;</p>
+<p style="position:absolute;top:656px;left:169px;white-space:nowrap" class="ft04">AH&#160;←&#160;AH&#160;– 1;</p>
+<p style="position:absolute;top:674px;left:169px;white-space:nowrap" class="ft04">AF&#160;←&#160;1;</p>
+<p style="position:absolute;top:692px;left:169px;white-space:nowrap" class="ft04">CF&#160;←&#160;1;</p>
+<p style="position:absolute;top:710px;left:169px;white-space:nowrap" class="ft04">AL&#160;←&#160;AL&#160;AND 0FH;</p>
+<p style="position:absolute;top:728px;left:142px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:746px;left:169px;white-space:nowrap" class="ft04">CF&#160;←&#160;0;</p>
+<p style="position:absolute;top:764px;left:169px;white-space:nowrap" class="ft04">AF&#160;←&#160;0;</p>
+<p style="position:absolute;top:782px;left:169px;white-space:nowrap" class="ft04">AL&#160;←&#160;AL&#160;AND 0FH;</p>
+<p style="position:absolute;top:800px;left:115px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:818px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:853px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:877px;left:68px;white-space:nowrap" class="ft06">The AF and&#160;CF&#160;flags are set&#160;to 1&#160;if there&#160;is a&#160;decimal&#160;borrow; otherwise,&#160;they are&#160;cleared to&#160;0.&#160;The&#160;OF,&#160;SF,&#160;ZF,&#160;and&#160;<br/>PF&#160;flags are undefined.</p>
+<p style="position:absolute;top:928px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:951px;left:68px;white-space:nowrap" class="ft04">#UD&#160;</p>
+<p style="position:absolute;top:951px;left:206px;white-space:nowrap" class="ft04">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:985px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:1008px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as protected&#160;mode.</p>
+<p style="position:absolute;top:123px;left:72px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:390px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:390px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:427px;white-space:nowrap" class="ft04">64-bit&#160;</p>
+<p style="position:absolute;top:137px;left:427px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:499px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:499px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:569px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:72px;white-space:nowrap" class="ft04">3F</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">AAS</p>
+<p style="position:absolute;top:160px;left:390px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:427px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:160px;left:499px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:569px;white-space:nowrap" class="ft04">ASCII adjust AL&#160;after subtraction.</p>
+<p style="position:absolute;top:240px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:240px;left:193px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:240px;left:367px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:240px;left:543px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:240px;left:719px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:263px;left:94px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:263px;left:214px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:388px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:564px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:740px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

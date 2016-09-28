@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 68</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page68-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce068.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">2-6&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;ARCHITECTURE&#160;OVERVIEW</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">2.1.5 Memory&#160;</p>
+<p style="position:absolute;top:98px;left:218px;white-space:nowrap" class="ft02">Management</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft07">System architecture&#160;supports&#160;either&#160;direct&#160;physical&#160;addressing of&#160;memory or&#160;virtual memory&#160;(through&#160;paging).&#160;<br/>When physical addressing is used,&#160;a linear address is treated&#160;as&#160;a physical&#160;address.&#160;When&#160;paging is used: all code,&#160;<br/>data, stack, and system segments (including&#160;the&#160;GDT and&#160;IDT) can be paged with only the most recently accessed&#160;<br/>pages&#160;being held&#160;in&#160;physical memory.<br/>The&#160;location of pages&#160;(sometimes&#160;called page&#160;frames) in&#160;physical&#160;memory is&#160;contained&#160;in the&#160;paging structures.&#160;<br/>These&#160;structures reside&#160;in physical memory (see<a href="o_fe12b1e2a880e0ce-64.html">&#160;Figure&#160;2-1 for the</a>&#160;case&#160;of&#160;32-bit paging).&#160;<br/>The base physical address of the paging-structure hierarchy&#160;is contained in control register&#160;CR3.&#160;The entries in the&#160;<br/>paging&#160;structures determine the&#160;physical&#160;address of the&#160;base of a&#160;page frame,&#160;access&#160;rights&#160;and memory manage-<br/>ment information.&#160;<br/>To&#160;use&#160;this paging&#160;mechanism, a&#160;linear address&#160;is broken&#160;into parts.&#160;The parts provide separate&#160;offsets into the&#160;<br/>paging&#160;structures&#160;and the&#160;page frame. A system can&#160;have&#160;a single&#160;hierarchy&#160;of paging structures&#160;or several. For&#160;<br/>example, each&#160;task can have&#160;its&#160;own hierarchy.</p>
+<p style="position:absolute;top:377px;left:68px;white-space:nowrap" class="ft04">2.1.5.1 &#160;</p>
+<p style="position:absolute;top:377px;left:152px;white-space:nowrap" class="ft04">Memory&#160;Management&#160;in IA-32e Mode&#160;</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft07">In&#160;IA-32e&#160;mode, physical memory&#160;pages are managed by&#160;a set of system data structures. In&#160;compatibility&#160;mode&#160;<br/>and 64-bit&#160;mode, four levels of&#160;system&#160;data&#160;structures&#160;are&#160;used. These&#160;include:&#160;</p>
+<p style="position:absolute;top:444px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:445px;left:93px;white-space:nowrap" class="ft07"><b>The page&#160;map level&#160;4 (PML4)</b>&#160;—&#160;An entry&#160;in a&#160;PML4 table&#160;contains&#160;the physical&#160;address of the&#160;base of a&#160;page&#160;<br/>directory pointer&#160;table, access&#160;rights, and&#160;memory&#160;management&#160;information.&#160;The base physical address of the&#160;<br/>PML4&#160;is stored&#160;in&#160;CR3.</p>
+<p style="position:absolute;top:499px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:500px;left:93px;white-space:nowrap" class="ft07"><b>A set&#160;of page directory&#160;pointer tables</b>&#160;— An entry in&#160;a page&#160;directory pointer table contains&#160;the physical&#160;<br/>address&#160;of&#160;the base of&#160;a page directory table,&#160;access&#160;rights, and&#160;memory management&#160;information.</p>
+<p style="position:absolute;top:538px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:539px;left:93px;white-space:nowrap" class="ft07"><b>Sets&#160;of page directories</b>&#160;— An entry in&#160;a page&#160;directory table contains&#160;the physical address&#160;of&#160;the base of&#160;a&#160;<br/>page&#160;table,&#160;access rights, and memory&#160;management information.</p>
+<p style="position:absolute;top:577px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:578px;left:93px;white-space:nowrap" class="ft07"><b>Sets of&#160;page tables</b>&#160;— An entry in&#160;a page table contains&#160;the physical&#160;address&#160;of&#160;a&#160;page frame, access rights,&#160;<br/>and memory&#160;management&#160;information.</p>
+<p style="position:absolute;top:645px;left:68px;white-space:nowrap" class="ft02">2.1.6 System&#160;</p>
+<p style="position:absolute;top:645px;left:213px;white-space:nowrap" class="ft02">Registers</p>
+<p style="position:absolute;top:676px;left:68px;white-space:nowrap" class="ft07">To&#160;assist in initializing&#160;the processor and controlling system&#160;operations, the&#160;system architecture&#160;provides&#160;system&#160;<br/>flags in&#160;the EFLAGS register and several&#160;system registers:</p>
+<p style="position:absolute;top:714px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:715px;left:93px;white-space:nowrap" class="ft07">The&#160;system&#160;flags and IOPL field in&#160;the&#160;EFLAGS&#160;register&#160;control task&#160;and mode&#160;switching, interrupt&#160;handling,&#160;<br/>instruction&#160;tracing, and access rights. See&#160;al<a href="o_fe12b1e2a880e0ce-71.html">so:&#160;Section&#160;2.3,&#160;“System Flags and&#160;Fields in&#160;the EFLAGS Register.”</a></p>
+<p style="position:absolute;top:753px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:754px;left:93px;white-space:nowrap" class="ft07">The&#160;control registers (CR0, CR2,&#160;CR3, and CR4)&#160;contain a&#160;variety of flags and data&#160;fields for controlling system-<br/>level operations.&#160;Other flags&#160;in these registers&#160;are used&#160;to indicate&#160;support&#160;for specific&#160;processor capabilities&#160;<br/>within the operating system or&#160;executive.&#160;See<a href="o_fe12b1e2a880e0ce-75.html">&#160;also:&#160;Section 2.5, “Control Registers”</a><a href="o_fe12b1e2a880e0ce-81.html">&#160;and Section&#160;2.6,&#160;“Extended&#160;<br/>Control Registers (Including XCR0).”</a></p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:826px;left:93px;white-space:nowrap" class="ft07">The&#160;debug&#160;registers&#160;(not shown&#160;<a href="o_fe12b1e2a880e0ce-64.html">in Figure&#160;2-1) all</a>ow the&#160;setting&#160;of breakpoints for use&#160;in debugging&#160;programs&#160;<br/>and systems softwa<a href="o_fe12b1e2a880e0ce-575.html">re. See also: Chapter 17, “Debug, Branch Profile,&#160;TSC, and Resource Monitoring Features.”</a></p>
+<p style="position:absolute;top:864px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:865px;left:93px;white-space:nowrap" class="ft07">The&#160;GDTR, LDTR, and&#160;IDTR registers&#160;contain the&#160;linear addresses and&#160;sizes (limits)&#160;of&#160;their respective tables.&#160;<br/>See&#160;<a href="o_fe12b1e2a880e0ce-73.html">also: Section 2.4,&#160;“Memory-Management Registers.”</a></p>
+<p style="position:absolute;top:903px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:904px;left:93px;white-space:nowrap" class="ft07">The&#160;task register&#160;contains&#160;the linear address and size&#160;of&#160;the TSS for&#160;the&#160;current task. See&#160;<a href="o_fe12b1e2a880e0ce-73.html">also: Section 2.4,&#160;<br/>“Memory-Management Registers.”</a></p>
+<p style="position:absolute;top:942px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:943px;left:93px;white-space:nowrap" class="ft03">Model-specific registers (not&#160;shown in&#160;<a href="o_fe12b1e2a880e0ce-64.html">Figure&#160;2-1)</a>.</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft07">The model-specific&#160;registers&#160;(MSRs) are a&#160;group of registers available&#160;primarily to&#160;operating-system or executive&#160;<br/>procedures&#160;(that is, code running&#160;at privilege level 0). These&#160;registers control items such as the debug extensions,&#160;<br/>the performance-monitoring&#160;counters,&#160;the machine- check&#160;architecture, and&#160;the memory type ranges (MTRRs).&#160;<br/>The&#160;number and&#160;function of&#160;these&#160;registers&#160;varies&#160;among&#160;different members&#160;of the&#160;Intel&#160;64&#160;and IA-32 processor&#160;<br/>families. See&#160;<a href="o_fe12b1e2a880e0ce-319.html">also: Section 9.4, “Model-Specific&#160;Registers (MSRs),”&#160;</a><a href="o_fe12b1e2a880e0ce-1281.html">and Chapter&#160;35, “Model-Specific&#160;Registers&#160;<br/>(MSRs).”</a></p>
+</div>
+</body>
+</html>

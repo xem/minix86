@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 2001</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page2001-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14812001.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">GETSEC[SENTER]—Enter a Measured Environment</p>
+<p style="position:absolute;top:47px;left:615px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2D&#160;6-27</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">IF&#160;(ACRAM&#160;memory&#160;type&#160;≠&#160;WB)</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMMType);</p>
+<p style="position:absolute;top:136px;left:69px;white-space:nowrap" class="ft02">IF&#160;(AC&#160;module&#160;header&#160;version is&#160;not supported) OR&#160;(ACRAM[ModuleType]&#160;≠&#160;2)</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#UnsupportedACM);</p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft02">KEY←&#160;GETKEY(ACRAM, ACBASE);</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft02">KEYHASH←&#160;HASH(KEY);</p>
+<p style="position:absolute;top:208px;left:69px;white-space:nowrap" class="ft02">CSKEYHASH←&#160;LT.READ(LT.PUBLIC.KEY);</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft02">IF (KEYHASH&#160;≠&#160;CSKEYHASH)</p>
+<p style="position:absolute;top:244px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#AuthenticateFail);</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft02">SIGNATURE←&#160;DECRYPT(ACRAM,&#160;ACBASE,&#160;KEY);</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft03">(* The value of SIGNATURE_LEN_CONST is&#160;implementation-specific*)<br/>FOR I=0&#160;to&#160;SIGNATURE_LEN_CONST&#160;- 1&#160;DO</p>
+<p style="position:absolute;top:316px;left:89px;white-space:nowrap" class="ft02">ACRAM[SCRATCH.I]←&#160;SIGNATURE[I];</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft02">COMPUTEDSIGNATURE←&#160;HASH(ACRAM, ACBASE,&#160;ACSIZE);</p>
+<p style="position:absolute;top:352px;left:69px;white-space:nowrap" class="ft02">FOR I=0&#160;to&#160;SIGNATURE_LEN_CONST&#160;- 1&#160;DO</p>
+<p style="position:absolute;top:370px;left:89px;white-space:nowrap" class="ft02">ACRAM[SCRATCH.SIGNATURE_LEN_CONST+I]←&#160;COMPUTEDSIGNATURE[I];</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft02">IF&#160;(SIGNATURE&#160;≠&#160;COMPUTEDSIGNATURE)</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#AuthenticateFail);</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft02">ACMCONTROL←&#160;ACRAM[CodeControl];</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft02">IF&#160;((ACMCONTROL.0 = 0) and (ACMCONTROL.1 = 1) and (snoop&#160;hit to&#160;modified&#160;line&#160;detected&#160;on&#160;ACRAM&#160;load))</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#UnexpectedHITM);</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft02">IF (ACMCONTROL&#160;reserved bits are set)</p>
+<p style="position:absolute;top:496px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft02">IF ((ACRAM[GDTBasePtr] &lt; (ACRAM[HeaderLen] * 4 + Scratch_size)) OR&#160;</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft03">((ACRAM[GDTBasePtr] + ACRAM[GDTLimit]) &gt;=&#160;ACSIZE))<br/>THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft02">IF&#160;((ACMCONTROL.0 = 1) and (ACMCONTROL.1 = 1) and (snoop&#160;hit to modified&#160;</p>
+<p style="position:absolute;top:586px;left:89px;white-space:nowrap" class="ft03">line detected&#160;on ACRAM load))&#160;<br/>THEN ACEntryPoint←&#160;ACBASE+ACRAM[ErrorEntryPoint];</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:640px;left:89px;white-space:nowrap" class="ft02">ACEntryPoint←&#160;ACBASE+ACRAM[EntryPoint];</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft02">IF ((ACEntryPoint &gt;= ACSIZE) or&#160;(ACEntryPoint&#160;&lt; (ACRAM[HeaderLen] * 4 + Scratch_size)))</p>
+<p style="position:absolute;top:676px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft02">IF ((ACRAM[SegSel] &gt; (ACRAM[GDTLimit] - 15)) or (ACRAM[SegSel] &lt; 8))</p>
+<p style="position:absolute;top:712px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft02">IF ((ACRAM[SegSel].TI=1)&#160;or (ACRAM[SegSel].RPL≠0))</p>
+<p style="position:absolute;top:748px;left:89px;white-space:nowrap" class="ft02">THEN TXT-SHUTDOWN(#BadACMFormat);</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft02">IF&#160;(FTM_INTERFACE_ID.[3:0] = 1 ) (* Alternate&#160;FTM Interface has been&#160;enabled *)</p>
+<p style="position:absolute;top:802px;left:89px;white-space:nowrap" class="ft02">THEN (* TPM_LOC_CTRL_4 is&#160;located at&#160;0FED44008H, TMP_DATA_BUFFER_4 is&#160;located at&#160;0FED44080H *)</p>
+<p style="position:absolute;top:820px;left:116px;white-space:nowrap" class="ft02">WRITE(TPM_LOC_CTRL_4)&#160;←&#160;01H; (* Modified HASH.START protocol&#160;*)</p>
+<p style="position:absolute;top:838px;left:116px;white-space:nowrap" class="ft03">(*&#160;Write&#160;to&#160;firmware&#160;storage *)<br/>WRITE(TPM_DATA_BUFFER_4)&#160;←&#160;SIGNATURE_LEN_CONST + 4;</p>
+<p style="position:absolute;top:874px;left:116px;white-space:nowrap" class="ft02">FOR I=0 to&#160;SIGNATURE_LEN_CONST - 1&#160;DO</p>
+<p style="position:absolute;top:892px;left:143px;white-space:nowrap" class="ft02">WRITE(TPM_DATA_BUFFER_4 + 2 + I )←&#160;ACRAM[SCRATCH.I];</p>
+<p style="position:absolute;top:910px;left:116px;white-space:nowrap" class="ft02">WRITE(TPM_DATA_BUFFER_4&#160;+&#160;2 + SIGNATURE_LEN_CONST)&#160;←&#160;EDX;</p>
+<p style="position:absolute;top:928px;left:116px;white-space:nowrap" class="ft02">WRITE(FTM.LOC_CTRL)&#160;←&#160;06H; (* Modified&#160;protocol&#160;combining HASH.DATA and HASH.END *)</p>
+<p style="position:absolute;top:946px;left:89px;white-space:nowrap" class="ft02">ELSE IF&#160;(FTM_INTERFACE_ID.[3:0] = 0 ) (* Use&#160;standard TPM&#160;Interface&#160;*)</p>
+<p style="position:absolute;top:964px;left:116px;white-space:nowrap" class="ft02">ACRAM[SCRATCH.SIGNATURE_LEN_CONST]←&#160;EDX;</p>
+<p style="position:absolute;top:982px;left:116px;white-space:nowrap" class="ft02">WRITE(TPM.HASH.START)←&#160;0;</p>
+<p style="position:absolute;top:1000px;left:116px;white-space:nowrap" class="ft02">FOR I=0 to&#160;SIGNATURE_LEN_CONST + 3&#160;DO</p>
+<p style="position:absolute;top:1018px;left:143px;white-space:nowrap" class="ft02">WRITE(TPM.HASH.DATA)←&#160;ACRAM[SCRATCH.I];</p>
+<p style="position:absolute;top:1036px;left:116px;white-space:nowrap" class="ft02">WRITE(TPM.HASH.END)←&#160;0;</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+</div>
+</body>
+</html>

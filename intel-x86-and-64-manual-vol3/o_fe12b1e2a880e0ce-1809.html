@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1809</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1809-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1809.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;40-7</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">ENCLAVE EXITING EVENTS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">(* Put the TCS LA into RBX for&#160;later&#160;use by ERESUME *)<br/>RBX&#160;&#160;CR_TCS_LA;</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft03">(* Put the AEP into&#160;RCX&#160;for later use by&#160;ERESUME *)<br/>RCX&#160;&#160;CR_TCS_PA.AEP;</p>
+<p style="position:absolute;top:208px;left:69px;white-space:nowrap" class="ft03">(* Increment the&#160;SSA&#160;frame #&#160;*)<br/>CR_TCS_PA.CSSA&#160;&#160;CR_TCS_PA.CSSA&#160;+&#160;1;</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft03">(* Restore XCR0&#160;if needed *)<br/>IF (CR4.OSXSAVE&#160;=&#160;1)</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">THEN&#160;XCR0&#160;&#160;CR_SAVE_XCR0;&#160;FI;</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft02">Un-suppress all code breakpoints that are outside ELRANGE</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">(* Update the thread context to&#160;show&#160;not in&#160;enclave&#160;mode&#160;*)<br/>CR_ENCLAVE_MODE&#160;&#160;0;</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">(* Assure consistent translations. *)<br/>Flush&#160;linear&#160;context including TLBs&#160;and paging-structure caches</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft02">IF (CR_DBGOPTIN&#160;= 0)</p>
+<p style="position:absolute;top:496px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:514px;left:116px;white-space:nowrap" class="ft03">Un-suppress all breakpoints that&#160;overlap&#160;ELRANGE<br/>(*&#160;Clear suppressed breakpoint&#160;matches *)<br/>Restore suppressed breakpoint matches<br/>(*&#160;Restore TF *)<br/>RFLAGS.TF&#160;&#160;CR_SAVE_TF;<br/>Un-suppress&#160;monitor trap flag;<br/>Un-suppress&#160;branch&#160;recording facilities;<br/>Un-suppress all suppressed performance&#160;monitoring&#160;activity;<br/>Promote&#160;any sibling-thread&#160;counters that were&#160;demoted from AnyThread to&#160;MyThread during enclave&#160;</p>
+<p style="position:absolute;top:675px;left:69px;white-space:nowrap" class="ft03">entry&#160;back to AnyThread;&#160;<br/>FI;</p>
+<p style="position:absolute;top:729px;left:69px;white-space:nowrap" class="ft02">IF the “monitor&#160;trap&#160;flag”&#160;VM-execution control is 1</p>
+<p style="position:absolute;top:747px;left:89px;white-space:nowrap" class="ft02">THEN Pend MTF VM&#160;Exit at the end of&#160;exit; FI;</p>
+<p style="position:absolute;top:783px;left:69px;white-space:nowrap" class="ft03">(* Clear&#160;low 12 bits of&#160;CR2 on #PF&#160;*)<br/>IF (Exception&#160;code is&#160;#PF)</p>
+<p style="position:absolute;top:819px;left:89px;white-space:nowrap" class="ft02">THEN&#160;CR2&#160;&#160;CR2&#160;&amp; ~0xFFF; FI;</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft04">(* end_of_flow&#160;*)<br/>(* Execution&#160;continues with normal event processing. *)</p>
+</div>
+</body>
+</html>

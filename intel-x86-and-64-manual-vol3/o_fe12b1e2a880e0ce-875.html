@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 875</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page875-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce875.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:754px;white-space:nowrap" class="ft00">Vol. 3B&#160;19-119</p>
+<p style="position:absolute;top:47px;left:622px;white-space:nowrap" class="ft01">PERFORMANCE-MONITORING&#160;EVENTS</p>
+<p style="position:absolute;top:160px;left:489px;white-space:nowrap" class="ft02">•&#160;The&#160;load&#160;is&#160;from&#160;bytes&#160;written&#160;by the preceding store,&#160;</p>
+<p style="position:absolute;top:175px;left:505px;white-space:nowrap" class="ft02">the store is&#160;misaligned&#160;and the&#160;load&#160;is&#160;not aligned&#160;on&#160;the&#160;</p>
+<p style="position:absolute;top:190px;left:505px;white-space:nowrap" class="ft02">beginning of&#160;the&#160;store.&#160;&#160;</p>
+<p style="position:absolute;top:205px;left:489px;white-space:nowrap" class="ft02">•&#160;The&#160;load&#160;is&#160;split over an&#160;eight byte&#160;boundary (excluding&#160;</p>
+<p style="position:absolute;top:220px;left:505px;white-space:nowrap" class="ft02">16-byte loads).&#160;</p>
+<p style="position:absolute;top:235px;left:489px;white-space:nowrap" class="ft02">•&#160;The&#160;load&#160;and store have&#160;the&#160;same offset&#160;relative&#160;to&#160;the&#160;</p>
+<p style="position:absolute;top:250px;left:505px;white-space:nowrap" class="ft02">beginning of&#160;different 4-KByte&#160;pages. This case&#160;is also&#160;</p>
+<p style="position:absolute;top:265px;left:505px;white-space:nowrap" class="ft02">called 4-KByte aliasing.&#160;</p>
+<p style="position:absolute;top:280px;left:489px;white-space:nowrap" class="ft02">•&#160;In all these cases the load&#160;is blocked until after the&#160;</p>
+<p style="position:absolute;top:295px;left:505px;white-space:nowrap" class="ft02">blocking&#160;store retires&#160;and&#160;the&#160;stored data is committed to&#160;</p>
+<p style="position:absolute;top:310px;left:505px;white-space:nowrap" class="ft02">the cache&#160;hierarchy.</p>
+<p style="position:absolute;top:332px;left:76px;white-space:nowrap" class="ft02">03H</p>
+<p style="position:absolute;top:332px;left:128px;white-space:nowrap" class="ft02">10H</p>
+<p style="position:absolute;top:332px;left:185px;white-space:nowrap" class="ft02">LOAD_BLOCK.</p>
+<p style="position:absolute;top:349px;left:185px;white-space:nowrap" class="ft02">UNTIL_RETIRE</p>
+<p style="position:absolute;top:332px;left:351px;white-space:nowrap" class="ft02">Loads&#160;blocked until&#160;</p>
+<p style="position:absolute;top:349px;left:351px;white-space:nowrap" class="ft02">retirement.</p>
+<p style="position:absolute;top:332px;left:489px;white-space:nowrap" class="ft02">This&#160;event indicates that&#160;load&#160;operations were&#160;blocked&#160;until&#160;</p>
+<p style="position:absolute;top:349px;left:489px;white-space:nowrap" class="ft02">retirement. The&#160;number&#160;of&#160;events is&#160;greater&#160;or&#160;equal to&#160;the&#160;</p>
+<p style="position:absolute;top:366px;left:489px;white-space:nowrap" class="ft02">number&#160;of&#160;load&#160;operations that&#160;were&#160;blocked.&#160;</p>
+<p style="position:absolute;top:382px;left:489px;white-space:nowrap" class="ft02">This&#160;includes&#160;mainly&#160;uncacheable loads and&#160;split loads (loads&#160;</p>
+<p style="position:absolute;top:399px;left:489px;white-space:nowrap" class="ft02">that&#160;cross the cache line boundary) but may include other&#160;</p>
+<p style="position:absolute;top:415px;left:489px;white-space:nowrap" class="ft02">cases where loads are blocked&#160;until retirement.</p>
+<p style="position:absolute;top:438px;left:76px;white-space:nowrap" class="ft02">03H</p>
+<p style="position:absolute;top:438px;left:128px;white-space:nowrap" class="ft02">20H</p>
+<p style="position:absolute;top:438px;left:185px;white-space:nowrap" class="ft02">LOAD_BLOCK.L1D</p>
+<p style="position:absolute;top:438px;left:351px;white-space:nowrap" class="ft02">Loads&#160;blocked by&#160;the&#160;</p>
+<p style="position:absolute;top:454px;left:351px;white-space:nowrap" class="ft02">L1 data cache.</p>
+<p style="position:absolute;top:438px;left:489px;white-space:nowrap" class="ft02">This event indicates that&#160;loads are blocked due to&#160;one or&#160;</p>
+<p style="position:absolute;top:454px;left:489px;white-space:nowrap" class="ft05">more&#160;reasons.&#160;Some&#160;triggers for this event are:&#160;<br/>•&#160;The number of&#160;L1 data&#160;cache misses exceeds the&#160;</p>
+<p style="position:absolute;top:490px;left:505px;white-space:nowrap" class="ft02">maximum&#160;number&#160;of&#160;outstanding&#160;misses supported by&#160;</p>
+<p style="position:absolute;top:505px;left:505px;white-space:nowrap" class="ft02">the&#160;processor.&#160;This&#160;includes&#160;misses&#160;generated&#160;as&#160;result&#160;of&#160;</p>
+<p style="position:absolute;top:520px;left:505px;white-space:nowrap" class="ft02">demand&#160;fetches,&#160;software&#160;prefetches&#160;or&#160;hardware&#160;</p>
+<p style="position:absolute;top:535px;left:505px;white-space:nowrap" class="ft02">prefetches.&#160;</p>
+<p style="position:absolute;top:550px;left:489px;white-space:nowrap" class="ft02">•&#160;Cache line split loads.&#160;</p>
+<p style="position:absolute;top:565px;left:489px;white-space:nowrap" class="ft02">•&#160;Partial&#160;reads, such&#160;as reads&#160;to&#160;un-cacheable memory,&#160;I/O&#160;</p>
+<p style="position:absolute;top:580px;left:505px;white-space:nowrap" class="ft02">instructions&#160;and more.&#160;</p>
+<p style="position:absolute;top:595px;left:489px;white-space:nowrap" class="ft02">•&#160;A&#160;locked&#160;load&#160;operation&#160;is&#160;in progress. The&#160;number&#160;of&#160;</p>
+<p style="position:absolute;top:610px;left:505px;white-space:nowrap" class="ft02">events is greater or&#160;equal to&#160;the number&#160;of&#160;load&#160;</p>
+<p style="position:absolute;top:625px;left:505px;white-space:nowrap" class="ft02">operations&#160;that&#160;were&#160;blocked.</p>
+<p style="position:absolute;top:647px;left:76px;white-space:nowrap" class="ft02">04H</p>
+<p style="position:absolute;top:647px;left:128px;white-space:nowrap" class="ft02">01H</p>
+<p style="position:absolute;top:647px;left:185px;white-space:nowrap" class="ft02">SB_DRAIN_</p>
+<p style="position:absolute;top:664px;left:185px;white-space:nowrap" class="ft02">CYCLES</p>
+<p style="position:absolute;top:647px;left:351px;white-space:nowrap" class="ft02">Cycles while&#160;stores are&#160;</p>
+<p style="position:absolute;top:664px;left:351px;white-space:nowrap" class="ft02">blocked due&#160;to&#160;store&#160;</p>
+<p style="position:absolute;top:681px;left:351px;white-space:nowrap" class="ft02">buffer&#160;drain.</p>
+<p style="position:absolute;top:647px;left:489px;white-space:nowrap" class="ft02">This&#160;event&#160;counts every cycle during&#160;which the&#160;store buffer&#160;</p>
+<p style="position:absolute;top:664px;left:489px;white-space:nowrap" class="ft06">is&#160;draining. This includes:&#160;<br/>•&#160;Serializing&#160;operations&#160;such as&#160;CPUID&#160;</p>
+<p style="position:absolute;top:700px;left:489px;white-space:nowrap" class="ft02">•&#160;Synchronizing&#160;operations&#160;such&#160;as XCHG&#160;</p>
+<p style="position:absolute;top:715px;left:489px;white-space:nowrap" class="ft02">•&#160;Interrupt&#160;acknowledgment&#160;</p>
+<p style="position:absolute;top:730px;left:489px;white-space:nowrap" class="ft02">•&#160;Other conditions, such as cache flushing</p>
+<p style="position:absolute;top:753px;left:76px;white-space:nowrap" class="ft02">04H</p>
+<p style="position:absolute;top:753px;left:128px;white-space:nowrap" class="ft02">02H</p>
+<p style="position:absolute;top:753px;left:185px;white-space:nowrap" class="ft02">STORE_BLOCK.</p>
+<p style="position:absolute;top:769px;left:185px;white-space:nowrap" class="ft02">ORDER</p>
+<p style="position:absolute;top:753px;left:351px;white-space:nowrap" class="ft02">Cycles while store is&#160;</p>
+<p style="position:absolute;top:769px;left:351px;white-space:nowrap" class="ft02">waiting&#160;for a&#160;</p>
+<p style="position:absolute;top:786px;left:351px;white-space:nowrap" class="ft02">preceding store to&#160;be&#160;</p>
+<p style="position:absolute;top:802px;left:351px;white-space:nowrap" class="ft02">globally observed.</p>
+<p style="position:absolute;top:753px;left:489px;white-space:nowrap" class="ft02">This event counts the total duration, in&#160;number of&#160;cycles,&#160;</p>
+<p style="position:absolute;top:769px;left:489px;white-space:nowrap" class="ft02">which stores are waiting for&#160;a preceding&#160;stored&#160;cache&#160;line&#160;to&#160;</p>
+<p style="position:absolute;top:786px;left:489px;white-space:nowrap" class="ft02">be&#160;observed&#160;by other cores.&#160;</p>
+<p style="position:absolute;top:802px;left:489px;white-space:nowrap" class="ft02">This situation&#160;happens as a&#160;result&#160;of&#160;the&#160;strong&#160;store&#160;</p>
+<p style="position:absolute;top:819px;left:489px;white-space:nowrap" class="ft02">ordering behavior,&#160;as&#160;defined in&#160;“Memory Ordering,”<a href="��">&#160;Chapter&#160;</a></p>
+<p style="position:absolute;top:835px;left:489px;white-space:nowrap" class="ft02"><a href="��">8,&#160;<i>Intel®&#160;64 and IA-32&#160;Architectures&#160;Software&#160;Developer’s&#160;</i></a></p>
+<p style="position:absolute;top:852px;left:489px;white-space:nowrap" class="ft03"><a href="��"><i>Manual, Volume 3A</i>.&#160;</a></p>
+<p style="position:absolute;top:891px;left:489px;white-space:nowrap" class="ft02">The stall may occur and&#160;be&#160;noticeable if&#160;there are&#160;many&#160;</p>
+<p style="position:absolute;top:907px;left:489px;white-space:nowrap" class="ft02">cases when&#160;a&#160;store either&#160;misses&#160;the L1&#160;data&#160;cache or&#160;hits a&#160;</p>
+<p style="position:absolute;top:924px;left:489px;white-space:nowrap" class="ft02">cache&#160;line&#160;in&#160;the Shared state.&#160;If&#160;the store requires a&#160;bus&#160;</p>
+<p style="position:absolute;top:940px;left:489px;white-space:nowrap" class="ft02">transaction&#160;to&#160;read&#160;the cache&#160;line&#160;then&#160;the stall ends&#160;when&#160;</p>
+<p style="position:absolute;top:957px;left:489px;white-space:nowrap" class="ft02">snoop&#160;response for the bus transaction arrives.</p>
+<p style="position:absolute;top:979px;left:76px;white-space:nowrap" class="ft02">04</p>
+<p style="position:absolute;top:979px;left:93px;white-space:nowrap" class="ft02">H</p>
+<p style="position:absolute;top:979px;left:128px;white-space:nowrap" class="ft02">08</p>
+<p style="position:absolute;top:979px;left:145px;white-space:nowrap" class="ft02">H</p>
+<p style="position:absolute;top:979px;left:185px;white-space:nowrap" class="ft02">STORE_BLOCK.</p>
+<p style="position:absolute;top:996px;left:185px;white-space:nowrap" class="ft02">SNOOP</p>
+<p style="position:absolute;top:979px;left:351px;white-space:nowrap" class="ft02">A store is&#160;blocked due&#160;</p>
+<p style="position:absolute;top:996px;left:351px;white-space:nowrap" class="ft02">to&#160;a conflict with&#160;an&#160;</p>
+<p style="position:absolute;top:1012px;left:351px;white-space:nowrap" class="ft02">external&#160;or&#160;internal&#160;</p>
+<p style="position:absolute;top:1029px;left:351px;white-space:nowrap" class="ft02">snoop.</p>
+<p style="position:absolute;top:979px;left:489px;white-space:nowrap" class="ft02">This&#160;event counts the&#160;number&#160;of&#160;cycles&#160;the store port&#160;was&#160;</p>
+<p style="position:absolute;top:996px;left:489px;white-space:nowrap" class="ft02">used&#160;for snooping&#160;the L1&#160;data&#160;cache and&#160;a store was stalled&#160;</p>
+<p style="position:absolute;top:1012px;left:489px;white-space:nowrap" class="ft02">by the snoop.&#160;The store is&#160;typically resubmitted&#160;one cycle&#160;</p>
+<p style="position:absolute;top:1029px;left:489px;white-space:nowrap" class="ft02">later.</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">Table 19-23. &#160;Non-Architectural Performance Events&#160;in Processors Based on&#160;Intel®&#160;Core™&#160;Microarchitecture&#160;(Contd.)</p>
+<p style="position:absolute;top:121px;left:76px;white-space:nowrap" class="ft02">Event&#160;</p>
+<p style="position:absolute;top:137px;left:76px;white-space:nowrap" class="ft02">Num</p>
+<p style="position:absolute;top:121px;left:128px;white-space:nowrap" class="ft02">Umask</p>
+<p style="position:absolute;top:137px;left:128px;white-space:nowrap" class="ft02">Value</p>
+<p style="position:absolute;top:137px;left:185px;white-space:nowrap" class="ft02">Event&#160;Name&#160;</p>
+<p style="position:absolute;top:137px;left:351px;white-space:nowrap" class="ft02">Definition</p>
+<p style="position:absolute;top:121px;left:489px;white-space:nowrap" class="ft02">Description and</p>
+<p style="position:absolute;top:137px;left:489px;white-space:nowrap" class="ft02">Comment</p>
+</div>
+</body>
+</html>

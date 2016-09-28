@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 81</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:7px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft013{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft014{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page81-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce081.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;2-19</p>
+<p style="position:absolute;top:47px;left:634px;white-space:nowrap" class="ft01">SYSTEM ARCHITECTURE OVERVIEW</p>
+<p style="position:absolute;top:100px;left:123px;white-space:nowrap" class="ft010">priority&#160;interrupt&#160;to be blocked.&#160;A value&#160;of&#160;0 means&#160;all&#160;interrupts&#160;are enabled. This&#160;field&#160;is available&#160;in 64-<br/>bit&#160;mode.&#160;A&#160;value&#160;of 15&#160;means&#160;all interrupts&#160;will be&#160;disabled.</p>
+<p style="position:absolute;top:167px;left:69px;white-space:nowrap" class="ft03">2.5.1&#160;</p>
+<p style="position:absolute;top:167px;left:149px;white-space:nowrap" class="ft03">CPUID Qualification of&#160;Control Register Flags</p>
+<p style="position:absolute;top:198px;left:69px;white-space:nowrap" class="ft011">Not all&#160;flags&#160;in control&#160;register&#160;CR4&#160;are&#160;implemented&#160;on&#160;all&#160;processors. With the&#160;exception of&#160;the PCE flag,&#160;they can&#160;<br/>be qualified with the&#160;CPUID instruction to&#160;determine if they&#160;are implemented&#160;on&#160;the processor before they&#160;are&#160;<br/>used.&#160;<br/>The CR8&#160;register&#160;is available on processors that&#160;support&#160;Intel 64 architecture.</p>
+<p style="position:absolute;top:310px;left:69px;white-space:nowrap" class="ft04">2.6&#160;</p>
+<p style="position:absolute;top:310px;left:148px;white-space:nowrap" class="ft04">EXTENDED CONTROL REGISTERS (INCLUDING XCR0)</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft010">If CPUID.01H:ECX.XSAVE[bit 26] is&#160;1,&#160;the&#160;processor supports one&#160;or more&#160;<b>extended control registers</b>&#160;(XCRs).&#160;<br/>Currently, the only such&#160;register&#160;defined is XCR0.&#160;This register specifies the&#160;set of processor&#160;state components for&#160;<br/>which the&#160;operating system&#160;provides context&#160;management,&#160;e.g.&#160;x87 FPU state, SSE&#160;state,&#160;AVX&#160;state.&#160;The&#160;OS&#160;<br/>programs&#160;XCR0&#160;to reflect&#160;the features for which&#160;it provides context&#160;management.</p>
+<p style="position:absolute;top:744px;left:69px;white-space:nowrap" class="ft011">Software&#160;can access&#160;XCR0&#160;only if CR4.OSXSAVE[bit&#160;18]&#160;= 1. (This bit&#160;is also&#160;readable&#160;as&#160;<br/>CPUID.01H:ECX.OSXSAVE[bit 27].) Software&#160;can use CPUID leaf function 0DH to&#160;enumerate the&#160;bits in XCR0 that&#160;<br/>the processor supports&#160;(see&#160;CPUID instruction in&#160;<a href="��"><i>Intel®&#160;64 and IA-32 Architectures Software Developer’s Manual,&#160;<br/>Volume 2A</i>).&#160;</a>Each supported&#160;state&#160;component&#160;is represented by a&#160;bit&#160;in XCR0.&#160;System software&#160;enables state&#160;<br/>components by loading an&#160;appropriate bit mask&#160;value into&#160;XCR0&#160;using the&#160;XSETBV&#160;instruction.<br/>As&#160;each bit in&#160;XCR0&#160;(except bit&#160;63) corresponds&#160;to a&#160;processor state component,&#160;XCR0 thus&#160;provides&#160;support for&#160;<br/>up to&#160;63&#160;sets of processor&#160;state&#160;components. Bit 63&#160;of XCR0&#160;is reserved&#160;for future expansion and will not represent&#160;<br/>a processor state&#160;component.<br/>Currently, XCR0&#160;defines support for the&#160;following&#160;state components:</p>
+<p style="position:absolute;top:911px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:912px;left:95px;white-space:nowrap" class="ft02">XCR0.X87&#160;(bit&#160;0):&#160;This bit 0&#160;must&#160;be&#160;1.&#160;An&#160;attempt to&#160;write 0&#160;to this&#160;bit causes a&#160;#GP exception.</p>
+<p style="position:absolute;top:934px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:935px;left:95px;white-space:nowrap" class="ft010">XCR0.SSE&#160;(bit 1):&#160;If&#160;1, the XSAVE feature&#160;set&#160;can be&#160;used&#160;to&#160;manage MXCSR&#160;and the XMM&#160;registers (XMM0-<br/>XMM15 in&#160;64-bit mode;&#160;otherwise&#160;XMM0-XMM7).&#160;</p>
+<p style="position:absolute;top:973px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:974px;left:95px;white-space:nowrap" class="ft010">XCR0.AVX (bit 2): If&#160;1, AVX instructions can be executed and&#160;the XSAVE feature set can be used to manage the&#160;<br/>upper halves of the&#160;YMM&#160;registers&#160;(YMM0-YMM15&#160;in 64-bit&#160;mode; otherwise&#160;YMM0-YMM7).</p>
+<p style="position:absolute;top:1012px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:1013px;left:95px;white-space:nowrap" class="ft010">XCR0.BNDREG (bit&#160;3):&#160;If 1,&#160;MPX instructions can&#160;be&#160;executed&#160;and&#160;the&#160;XSAVE feature&#160;set&#160;can be&#160;used&#160;to&#160;<br/>manage&#160;the bounds&#160;registers&#160;BND0–BND3.&#160;</p>
+<p style="position:absolute;top:715px;left:395px;white-space:nowrap" class="ft08">Figure&#160;2-8.&#160;&#160;XCR0</p>
+<p style="position:absolute;top:452px;left:315px;white-space:nowrap" class="ft09">63</p>
+<p style="position:absolute;top:529px;left:236px;white-space:nowrap" class="ft014">Reserved for&#160;XCR0 bit vector&#160;expansion<br/>Reserved / Future processor extended states</p>
+<p style="position:absolute;top:452px;left:685px;white-space:nowrap" class="ft09">2&#160;1&#160;0</p>
+<p style="position:absolute;top:642px;left:236px;white-space:nowrap" class="ft00">AVX state</p>
+<p style="position:absolute;top:480px;left:711px;white-space:nowrap" class="ft09">1</p>
+<p style="position:absolute;top:480px;left:172px;white-space:nowrap" class="ft00">Reserved (must be&#160;0)</p>
+<p style="position:absolute;top:671px;left:236px;white-space:nowrap" class="ft00">x87&#160;FPU/MMX state (must be&#160;1)</p>
+<p style="position:absolute;top:657px;left:236px;white-space:nowrap" class="ft00">SSE&#160;state</p>
+<p style="position:absolute;top:452px;left:592px;white-space:nowrap" class="ft09">9</p>
+<p style="position:absolute;top:557px;left:236px;white-space:nowrap" class="ft00">PKRU state</p>
+<p style="position:absolute;top:452px;left:645px;white-space:nowrap" class="ft09">5</p>
+<p style="position:absolute;top:452px;left:632px;white-space:nowrap" class="ft09">6</p>
+<p style="position:absolute;top:452px;left:618px;white-space:nowrap" class="ft09">7</p>
+<p style="position:absolute;top:571px;left:236px;white-space:nowrap" class="ft014">Hi16_ZMM state<br/>ZMM_Hi256 state<br/>Opmask state</p>
+<p style="position:absolute;top:452px;left:659px;white-space:nowrap" class="ft09">4&#160;3</p>
+<p style="position:absolute;top:614px;left:236px;white-space:nowrap" class="ft014">BNDCSR state<br/>BNDREG state</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 224</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page224-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce224.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-38&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND EXCEPTION&#160;HANDLING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft05">If the&#160;PAE and/or&#160;PSE&#160;flag in&#160;control&#160;register CR4&#160;is set&#160;and&#160;the&#160;processor detects&#160;any reserved&#160;bits&#160;in a&#160;page-<br/>directory-pointer-table entry&#160;set to&#160;1. These bits are&#160;checked&#160;during&#160;a write to&#160;control&#160;registers CR0, CR3,&#160;or&#160;<br/>CR4&#160;that&#160;causes&#160;a reloading of the page-directory-pointer-table&#160;entry.</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft03">Attempting&#160;to&#160;write&#160;a non-zero value&#160;into&#160;the reserved bits of the MXCSR&#160;register.</p>
+<p style="position:absolute;top:178px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:178px;left:93px;white-space:nowrap" class="ft05">Executing an SSE/SSE2/SSE3 instruction&#160;that attempts to&#160;access a 128-bit memory location that&#160;is&#160;not aligned&#160;<br/>on a&#160;16-byte&#160;boundary&#160;when&#160;the&#160;instruction requires&#160;16-byte&#160;alignment. This condition&#160;also applies&#160;to the&#160;stack&#160;<br/>segment.</p>
+<p style="position:absolute;top:235px;left:68px;white-space:nowrap" class="ft05">A&#160;program&#160;or task can&#160;be&#160;restarted following any general-protection exception. If the&#160;exception occurs&#160;while&#160;<br/>attempting to&#160;call an&#160;interrupt&#160;handler,&#160;the interrupted program&#160;can be restartable, but&#160;the interrupt may&#160;be&#160;lost.</p>
+<p style="position:absolute;top:289px;left:68px;white-space:nowrap" class="ft04">Exception&#160;Error&#160;Code</p>
+<p style="position:absolute;top:315px;left:68px;white-space:nowrap" class="ft05">The&#160;processor&#160;pushes an&#160;error code&#160;onto the&#160;exception handler's stack. If&#160;the&#160;fault condition&#160;was detected while&#160;<br/>loading&#160;a segment descriptor,&#160;the error code&#160;contains a&#160;segment&#160;selector&#160;to or&#160;IDT vector number&#160;for&#160;the&#160;<br/>descriptor; otherwise,&#160;the&#160;error code&#160;is&#160;0.&#160;The&#160;source of&#160;the&#160;selector in an&#160;error code may be&#160;any&#160;of&#160;the following:</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:370px;left:93px;white-space:nowrap" class="ft03">An&#160;operand of the instruction.</p>
+<p style="position:absolute;top:392px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:393px;left:93px;white-space:nowrap" class="ft03">A selector from a gate&#160;which is&#160;the operand&#160;of&#160;the&#160;instruction.</p>
+<p style="position:absolute;top:415px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:415px;left:93px;white-space:nowrap" class="ft03">A selector from a TSS&#160;involved&#160;in&#160;a task&#160;switch.</p>
+<p style="position:absolute;top:437px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:438px;left:93px;white-space:nowrap" class="ft03">IDT vector&#160;number.</p>
+<p style="position:absolute;top:475px;left:68px;white-space:nowrap" class="ft04">Saved Instruction&#160;Pointer</p>
+<p style="position:absolute;top:501px;left:68px;white-space:nowrap" class="ft03">The&#160;saved&#160;contents of CS&#160;and&#160;EIP registers&#160;point to the&#160;instruction that generated&#160;the&#160;exception.</p>
+<p style="position:absolute;top:538px;left:68px;white-space:nowrap" class="ft04">Program State&#160;Change</p>
+<p style="position:absolute;top:564px;left:68px;white-space:nowrap" class="ft05">In general, a&#160;program-state change&#160;does&#160;not accompany&#160;a general-protection exception, because the&#160;invalid&#160;<br/>instruction&#160;or operation is&#160;not executed. An&#160;exception handler can be&#160;designed&#160;to&#160;correct&#160;all of the&#160;conditions that&#160;<br/>cause&#160;general-protection exceptions&#160;and restart the&#160;program&#160;or task without any&#160;loss&#160;of program continuity.<br/>If&#160;a general-protection exception&#160;occurs during a task switch,&#160;it&#160;can occur before or after the&#160;commit-to-new-task&#160;<br/>point (see<a href="o_fe12b1e2a880e0ce-247.html">&#160;Section 7.3,&#160;“Task Switching”). If it occurs be</a>fore&#160;the commit point,&#160;no&#160;program state&#160;change occurs. If&#160;<br/>it occurs&#160;after the&#160;commit&#160;point,&#160;the processor will load all&#160;the state information&#160;from&#160;the&#160;new TSS (without&#160;<br/>performing&#160;any additional&#160;limit, present, or&#160;type checks)&#160;before it&#160;generates&#160;the&#160;exception. The&#160;general-protection&#160;<br/>exception&#160;handler&#160;should thus&#160;not rely on&#160;being&#160;able to&#160;use&#160;the segment&#160;selectors found in&#160;the&#160;CS, SS,&#160;DS, ES,&#160;FS,&#160;<br/>and GS&#160;registers&#160;without&#160;causing another exception.&#160;(See&#160;the Program State&#160;Change&#160;de<a href="o_fe12b1e2a880e0ce-217.html">scription for “Interrupt&#160;<br/>10—Invalid&#160;TSS Exception&#160;(#TS)” in&#160;</a>this chapter for additional&#160;information on how to&#160;handle this&#160;situation.)</p>
+<p style="position:absolute;top:757px;left:68px;white-space:nowrap" class="ft04">General Protection&#160;Exception in 64-bit&#160;Mode</p>
+<p style="position:absolute;top:783px;left:68px;white-space:nowrap" class="ft03">The following conditions&#160;cause general-protection exceptions in&#160;64-bit mode:</p>
+<p style="position:absolute;top:805px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:805px;left:93px;white-space:nowrap" class="ft03">If the&#160;memory&#160;address is&#160;in a&#160;non-canonical form.</p>
+<p style="position:absolute;top:827px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:828px;left:93px;white-space:nowrap" class="ft03">If a&#160;segment&#160;descriptor memory address&#160;is in non-canonical form.</p>
+<p style="position:absolute;top:850px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:850px;left:93px;white-space:nowrap" class="ft03">If the&#160;target&#160;offset in&#160;a destination&#160;operand&#160;of&#160;a call or&#160;jmp is&#160;in&#160;a&#160;non-canonical&#160;form.</p>
+<p style="position:absolute;top:872px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:873px;left:93px;white-space:nowrap" class="ft03">If&#160;a code segment or&#160;64-bit call&#160;gate&#160;overlaps non-canonical space.</p>
+<p style="position:absolute;top:895px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:895px;left:93px;white-space:nowrap" class="ft05">If the code segment descriptor pointed&#160;to by the&#160;selector&#160;in the&#160;64-bit gate doesn't have&#160;the&#160;L-bit set and&#160;the&#160;<br/>D-bit clear.</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:934px;left:93px;white-space:nowrap" class="ft03">If the EFLAGS.NT bit&#160;is set in&#160;IRET.</p>
+<p style="position:absolute;top:956px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:957px;left:93px;white-space:nowrap" class="ft03">If the&#160;stack segment selector of IRET is&#160;null when going back&#160;to&#160;compatibility&#160;mode.</p>
+<p style="position:absolute;top:979px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:979px;left:93px;white-space:nowrap" class="ft03">If the&#160;stack segment selector of IRET is&#160;null going back&#160;to CPL3 and&#160;64-bit mode.</p>
+<p style="position:absolute;top:1001px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:1002px;left:93px;white-space:nowrap" class="ft03">If a&#160;null stack segment selector RPL&#160;of&#160;IRET is&#160;not equal to&#160;CPL going back&#160;to non-CPL3&#160;and&#160;64-bit&#160;mode.</p>
+<p style="position:absolute;top:1024px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:1024px;left:93px;white-space:nowrap" class="ft03">If&#160;the&#160;proposed new code segment descriptor&#160;of&#160;IRET&#160;has both&#160;the D-bit&#160;and the&#160;L-bit set.</p>
+</div>
+</body>
+</html>

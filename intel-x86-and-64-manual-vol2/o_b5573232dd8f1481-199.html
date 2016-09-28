@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 199</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page199-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481199.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">ANDNPD—Bitwise Logical AND NOT&#160;of Packed&#160;Double&#160;Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-71</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:123px;left:69px;white-space:nowrap" class="ft04">VANDNPD&#160;(EVEX&#160;encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:177px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:213px;left:143px;white-space:nowrap" class="ft03">IF (EVEX.b ==&#160;1) AND (SRC2 *is memory*)</p>
+<p style="position:absolute;top:231px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:249px;left:197px;white-space:nowrap" class="ft03">DEST[i+63:i]&#160;&#160;(NOT(SRC1[i+63:i])) BITWISE AND SRC2[63:0]</p>
+<p style="position:absolute;top:267px;left:170px;white-space:nowrap" class="ft03">ELSE&#160;</p>
+<p style="position:absolute;top:285px;left:197px;white-space:nowrap" class="ft03">DEST[i+63:i]&#160;&#160;(NOT(SRC1[i+63:i])) BITWISE AND SRC2[i+63:i]</p>
+<p style="position:absolute;top:303px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:321px;left:116px;white-space:nowrap" class="ft03">ELSE&#160;</p>
+<p style="position:absolute;top:339px;left:143px;white-space:nowrap" class="ft03">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:339px;left:359px;white-space:nowrap" class="ft03">;&#160;merging-masking</p>
+<p style="position:absolute;top:357px;left:170px;white-space:nowrap" class="ft04">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:375px;left:365px;white-space:nowrap" class="ft03">zeroing-masking</p>
+<p style="position:absolute;top:393px;left:197px;white-space:nowrap" class="ft03">DEST[i+63:i]&#160;=&#160;0</p>
+<p style="position:absolute;top:411px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:429px;left:89px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:447px;left:69px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:501px;left:69px;white-space:nowrap" class="ft04">VANDNPD&#160;(VEX.256&#160;encoded&#160;version)<br/>DEST[63:0]&#160;&#160;(NOT(SRC1[63:0])) BITWISE&#160;AND SRC2[63:0]<br/>DEST[127:64]&#160;&#160;(NOT(SRC1[127:64])) BITWISE AND SRC2[127:64]<br/>DEST[191:128]&#160;&#160;(NOT(SRC1[191:128])) BITWISE AND SRC2[191:128]<br/>DEST[255:192]&#160;&#160;(NOT(SRC1[255:192])) BITWISE AND SRC2[255:192]<br/>DEST[MAX_VL-1:256]&#160;&#160;0</p>
+<p style="position:absolute;top:627px;left:69px;white-space:nowrap" class="ft04">VANDNPD&#160;(VEX.128&#160;encoded&#160;version)<br/>DEST[63:0]&#160;&#160;(NOT(SRC1[63:0])) BITWISE&#160;AND SRC2[63:0]<br/>DEST[127:64]&#160;&#160;(NOT(SRC1[127:64])) BITWISE AND SRC2[127:64]<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:717px;left:69px;white-space:nowrap" class="ft04">ANDNPD&#160;(128-bit Legacy&#160;SSE&#160;version)<br/>DEST[63:0]&#160;&#160;(NOT(DEST[63:0])) BITWISE AND SRC[63:0]<br/>DEST[127:64]&#160;&#160;(NOT(DEST[127:64])) BITWISE&#160;AND SRC[127:64]<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:804px;left:69px;white-space:nowrap" class="ft02">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:828px;left:69px;white-space:nowrap" class="ft04">VANDNPD __m512d _mm512_andnot_pd&#160;(__m512d&#160;a, __m512d b);<br/>VANDNPD __m512d _mm512_mask_andnot_pd&#160;(__m512d&#160;s, __mmask8&#160;k, __m512d a, __m512d&#160;b);<br/>VANDNPD __m512d _mm512_maskz_andnot_pd (__mmask8 k, __m512d&#160;a, __m512d b);<br/>VANDNPD __m256d _mm256_mask_andnot_pd&#160;(__m256d&#160;s, __mmask8&#160;k, __m256d a, __m256d&#160;b);<br/>VANDNPD __m256d _mm256_maskz_andnot_pd (__mmask8 k, __m256d&#160;a, __m256d b);<br/>VANDNPD __m128d _mm_mask_andnot_pd&#160;(__m128d&#160;s, __mmask8 k, __m128d a, __m128d b);<br/>VANDNPD __m128d _mm_maskz_andnot_pd (__mmask8 k, __m128d&#160;a, __m128d b);<br/>VANDNPD __m256d _mm256_andnot_pd&#160;(__m256d&#160;a, __m256d b);<br/>ANDNPD __m128d&#160;_mm_andnot_pd (__m128d a, __m128d&#160;b);</p>
+<p style="position:absolute;top:1006px;left:69px;white-space:nowrap" class="ft02">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:1029px;left:69px;white-space:nowrap" class="ft03">None</p>
+</div>
+</body>
+</html>

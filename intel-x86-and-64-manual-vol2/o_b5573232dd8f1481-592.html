@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 592</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page592-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481592.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:605px;white-space:nowrap" class="ft00">INT n/INTO/INT 3—Call&#160;to Interrupt Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-464&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:88px;white-space:nowrap" class="ft04">Push(TempEFlags);<br/>Push(CS);<br/>Push(EIP);<br/>GS&#160;←&#160;0; (*&#160;Segment registers made&#160;NULL,&#160;invalid for use in&#160;protected mode *)</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft02">FS&#160;←&#160;0;</p>
+<p style="position:absolute;top:190px;left:88px;white-space:nowrap" class="ft02">DS&#160;←&#160;0;</p>
+<p style="position:absolute;top:208px;left:88px;white-space:nowrap" class="ft02">ES&#160;←&#160;0;</p>
+<p style="position:absolute;top:226px;left:88px;white-space:nowrap" class="ft02">CS:IP&#160;←&#160;Gate(CS); (* Segment descriptor&#160;information also&#160;loaded&#160;*)</p>
+<p style="position:absolute;top:244px;left:88px;white-space:nowrap" class="ft02">IF&#160;OperandSize =</p>
+<p style="position:absolute;top:241px;left:184px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:244px;left:188px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:262px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:280px;left:142px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Gate(instruction pointer);</p>
+<p style="position:absolute;top:298px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize is&#160;16&#160;*)</p>
+<p style="position:absolute;top:316px;left:142px;white-space:nowrap" class="ft02">EIP&#160;←&#160;Gate(instruction&#160;pointer) AND 0000FFFFH;</p>
+<p style="position:absolute;top:334px;left:88px;white-space:nowrap" class="ft04">FI;<br/>(* Start execution&#160;of new&#160;routine in&#160;Protected Mode&#160;*)</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft04">END;<br/>INTRA-PRIVILEGE-LEVEL-INTERRUPT:</p>
+<p style="position:absolute;top:406px;left:88px;white-space:nowrap" class="ft04">(*&#160;PE =&#160;1,&#160;DPL =&#160;CPL&#160;or&#160;conforming&#160;segment&#160;*)<br/>IF IA32_EFER.LMA = 1 (* IA-32e mode&#160;*)</p>
+<p style="position:absolute;top:442px;left:115px;white-space:nowrap" class="ft02">IF IDT-descriptor IST&#160;≠&#160;0</p>
+<p style="position:absolute;top:460px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:478px;left:169px;white-space:nowrap" class="ft02">TSSstackAddress&#160;←&#160;(IDT-descriptor IST « 3) + 28;</p>
+<p style="position:absolute;top:496px;left:169px;white-space:nowrap" class="ft02">IF (TSSstackAddress + 7) &gt; TSS limit</p>
+<p style="position:absolute;top:514px;left:196px;white-space:nowrap" class="ft04">THEN #TS(error_code(current&#160;TSS&#160;selector,0,EXT)); FI;<br/>(* idt operand to&#160;error_code&#160;is 0&#160;because selector&#160;is&#160;used&#160;*)</p>
+<p style="position:absolute;top:550px;left:169px;white-space:nowrap" class="ft02">NewRSP&#160;←&#160;8&#160;bytes loaded&#160;from&#160;(current TSS&#160;base&#160;+ TSSstackAddress);</p>
+<p style="position:absolute;top:568px;left:88px;white-space:nowrap" class="ft04">FI;<br/>IF 32-bit gate&#160;(* implies IA32_EFER.LMA =&#160;0 *)</p>
+<p style="position:absolute;top:604px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:622px;left:142px;white-space:nowrap" class="ft04">IF current&#160;stack does not have&#160;room&#160;for 16&#160;bytes (error code&#160;pushed)&#160;<br/>or 12 bytes (no error code pushed)</p>
+<p style="position:absolute;top:658px;left:169px;white-space:nowrap" class="ft02">THEN #SS(EXT); FI;&#160;(* Error code&#160;contains&#160;NULL selector *)</p>
+<p style="position:absolute;top:676px;left:115px;white-space:nowrap" class="ft02">ELSE IF&#160;16-bit gate (* implies&#160;IA32_EFER.LMA =&#160;0 *)&#160;</p>
+<p style="position:absolute;top:694px;left:142px;white-space:nowrap" class="ft04">IF current&#160;stack does not have&#160;room&#160;for&#160;8 bytes (error&#160;code&#160;pushed)&#160;<br/>or 6 bytes (no&#160;error code&#160;pushed)</p>
+<p style="position:absolute;top:730px;left:169px;white-space:nowrap" class="ft02">THEN #SS(EXT); FI;&#160;(* Error code&#160;contains&#160;NULL selector *)</p>
+<p style="position:absolute;top:748px;left:115px;white-space:nowrap" class="ft02">ELSE (* IA32_EFER.LMA = 1, 64-bit gate*)</p>
+<p style="position:absolute;top:766px;left:169px;white-space:nowrap" class="ft02">IF NewRSP&#160;contains&#160;a non-canonical address</p>
+<p style="position:absolute;top:784px;left:196px;white-space:nowrap" class="ft02">THEN #SS(EXT); (* Error code contains&#160;NULL selector *)</p>
+<p style="position:absolute;top:802px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:820px;left:88px;white-space:nowrap" class="ft04">FI;<br/>IF (IA32_EFER.LMA = 0) (* Not&#160;IA-32e mode *)</p>
+<p style="position:absolute;top:856px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:874px;left:142px;white-space:nowrap" class="ft02">IF instruction pointer&#160;from&#160;IDT gate&#160;is not within new code-segment&#160;limit&#160;</p>
+<p style="position:absolute;top:892px;left:169px;white-space:nowrap" class="ft02">THEN #GP(EXT); FI; (*&#160;Error code&#160;contains&#160;NULL&#160;selector *)</p>
+<p style="position:absolute;top:910px;left:115px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:928px;left:142px;white-space:nowrap" class="ft02">IF&#160;instruction&#160;pointer from&#160;IDT&#160;gate contains a&#160;non-canonical address</p>
+<p style="position:absolute;top:946px;left:169px;white-space:nowrap" class="ft02">THEN #GP(EXT); FI; (*&#160;Error code&#160;contains&#160;NULL&#160;selector *)</p>
+<p style="position:absolute;top:964px;left:142px;white-space:nowrap" class="ft02">RSP&#160;←&#160;NewRSP &amp; FFFFFFFFFFFFFFF0H;</p>
+<p style="position:absolute;top:982px;left:88px;white-space:nowrap" class="ft04">FI;<br/>IF IDT gate&#160;is&#160;32-bit (* implies IA32_EFER.LMA = 0 *)</p>
+<p style="position:absolute;top:1018px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:1036px;left:142px;white-space:nowrap" class="ft04">Push (EFLAGS);<br/>Push&#160;(far&#160;pointer to&#160;return&#160;instruction); (* 3&#160;words&#160;padded&#160;to&#160;4 *)</p>
+</div>
+</body>
+</html>

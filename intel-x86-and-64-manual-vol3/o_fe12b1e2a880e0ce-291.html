@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 291</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page291-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce291.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-35</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Example&#160;8-16.&#160;&#160;Number of&#160;Levels&#160;Below the Physical&#160;Processor&#160;Package</p>
+<p style="position:absolute;top:142px;left:69px;white-space:nowrap" class="ft02">Byte type = 1;</p>
+<p style="position:absolute;top:160px;left:89px;white-space:nowrap" class="ft05">s = 0;<br/>While ( type ) {</p>
+<p style="position:absolute;top:196px;left:116px;white-space:nowrap" class="ft05">EAX&#160;= 0BH;&#160;// query each sub leaf&#160;of&#160;CPUID leaf&#160;0BH<br/>ECX = s;<br/>CPUID;&#160;<br/>type = ECX[15:8];&#160;// examine level type encoding<br/>s ++;</p>
+<p style="position:absolute;top:286px;left:89px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:304px;left:69px;white-space:nowrap" class="ft02">N = ECX[7:0];</p>
+<p style="position:absolute;top:326px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:327px;left:95px;white-space:nowrap" class="ft06">Sub-leaf index&#160;0&#160;(ECX= 0&#160;as&#160;input) provides&#160;enumeration&#160;parameters to&#160;extract the&#160;SMT sub-field of&#160;x2APIC&#160;<br/>ID.&#160;If&#160;EAX = 0BH,&#160;and ECX =0&#160;is specified&#160;as&#160;input when&#160;executing CPUID,&#160;CPUID.(EAX=0BH,&#160;<br/>ECX=0):EAX[4:0]&#160;reports&#160;a value (a&#160;right-shift count) that&#160;allow&#160;software to extract part of x2APIC ID to&#160;<br/>distinguish the next higher&#160;topological entities above the&#160;SMT level. This value also&#160;corresponds&#160;to the&#160;bit-<br/>width of the&#160;sub-field of x2APIC ID corresponding&#160;the&#160;hierarchical&#160;level with sub-leaf&#160;index 0.&#160;</p>
+<p style="position:absolute;top:415px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:415px;left:95px;white-space:nowrap" class="ft06">For&#160;each subsequent higher sub-leaf&#160;index m, CPUID.(EAX=0BH,&#160;ECX=m):EAX[4:0] reports the&#160;right-shift&#160;<br/>count that&#160;will&#160;allow&#160;software&#160;to&#160;extract part of x2APIC&#160;ID&#160;to distinguish&#160;higher-level topological entities.&#160;This&#160;<br/>means the&#160;right-shift value at&#160;of sub-leaf&#160;m,&#160;corresponds to&#160;the least significant (m+1) subfields of the&#160;32-bit&#160;<br/>x2APIC ID.&#160;</p>
+<p style="position:absolute;top:506px;left:69px;white-space:nowrap" class="ft01">Example 8-17. &#160;BitWidth Determination of&#160;x2APIC&#160;ID Subfields</p>
+<p style="position:absolute;top:548px;left:69px;white-space:nowrap" class="ft05">For m = 0, m &lt; N, m&#160;++;<br/>{&#160;cumulative_width[m] = CPUID.(EAX=0BH,&#160;ECX= m): EAX[4:0]; }<br/>BitWidth[0] = cumulative_width[0];<br/>For m = 1, m &lt; N, m&#160;++;</p>
+<p style="position:absolute;top:620px;left:89px;white-space:nowrap" class="ft02">BitWidth[m] = cumulative_width[m]&#160;-&#160;cumulative_width[m-1];</p>
+<p style="position:absolute;top:644px;left:69px;white-space:nowrap" class="ft06">Currently, only&#160;the following encoding of hierarchical level type are defined: 0 (invalid),&#160;1 (SMT), and&#160;2&#160;(core).&#160;<br/>Software must not&#160;assume&#160;any “level&#160;type“ encoding value&#160;to be related&#160;to&#160;any sub-leaf index, except&#160;sub-leaf&#160;0.<br/><a href="o_fe12b1e2a880e0ce-291.html">Example 8-16&#160;and Example 8-17&#160;</a>represent the&#160;general&#160;technique for using&#160;CPUID leaf&#160;0BH&#160;to enumerate processor&#160;<br/>topology of&#160;more&#160;than two levels of&#160;hierarchy inside a&#160;physical&#160;package.&#160;Most processor families&#160;to date&#160;requires&#160;<br/>only “SMT” and&#160;“CORE” levels&#160;within a&#160;physical&#160;package. The examples in later sections&#160;will focus on&#160;these three-<br/>level topology&#160;only.</p>
+<p style="position:absolute;top:785px;left:69px;white-space:nowrap" class="ft04">8.9.3&#160;</p>
+<p style="position:absolute;top:785px;left:149px;white-space:nowrap" class="ft04">Hierarchical ID of&#160;Logical Processors in an MP System</p>
+<p style="position:absolute;top:815px;left:69px;white-space:nowrap" class="ft06">For&#160;Intel 64&#160;and IA-32&#160;processors, system&#160;hardware&#160;establishes an 8-bit initial&#160;APIC&#160;ID&#160;(or 32-bit&#160;APIC ID&#160;if&#160;the&#160;<br/>processor supports CPUID&#160;leaf 0BH) that&#160;is unique&#160;for&#160;each logical processor following power-up or&#160;RESET (see&#160;<br/><a href="o_fe12b1e2a880e0ce-281.html">Section&#160;8.6.1). Each logical&#160;</a>processor on the&#160;system&#160;is allocated an initial APIC ID.&#160;BIOS may implement features&#160;<br/>that tell&#160;the OS to support less than the&#160;total number of logical processors on the&#160;system bus. Those&#160;logical&#160;proces-<br/>sors that are not available to applications at runtime are&#160;halted during the OS&#160;boot process.&#160;As a result, the number&#160;<br/>valid local APIC_IDs&#160;that&#160;can be&#160;queried&#160;by affinitizing-current-thread-context (S<a href="o_fe12b1e2a880e0ce-300.html">ee Example 8-22</a>) is limited&#160;to the&#160;<br/>number of logical processors enabled&#160;at runtime by&#160;the&#160;OS&#160;boot&#160;process.<br/><a href="o_fe12b1e2a880e0ce-292.html">Table 8-2</a>&#160;shows an example&#160;of the 8-bit APIC IDs that are initially reported for logical&#160;processors in&#160;a system with&#160;<br/>four Intel Xeon MP processors that support Intel Hyper-Threading Technology (a total of 8 logical processors, each&#160;<br/>physical package has&#160;two&#160;processor&#160;cores and supports&#160;Intel&#160;Hyper-Threading Technology). Of the two&#160;logical&#160;<br/>processors&#160;within&#160;a Intel&#160;Xeon processor MP, logical processor 0&#160;is designated the&#160;primary logical&#160;processor&#160;and&#160;<br/>logical&#160;processor&#160;1 as&#160;the secondary logical&#160;processor.</p>
+</div>
+</body>
+</html>

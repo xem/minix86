@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1183</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1183-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1183.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;30-3</p>
+<p style="position:absolute;top:47px;left:658px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">INVEPT— Invalidate Translations Derived from EPT</p>
+<p style="position:absolute;top:269px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:295px;left:69px;white-space:nowrap" class="ft08">Invalidates&#160;mappings in&#160;the&#160;translation&#160;lookaside buffers&#160;(TLBs) and&#160;paging-structure caches&#160;that were&#160;derived&#160;<br/>from extended&#160;page&#160;tables (EPT).&#160;(S<a href="o_fe12b1e2a880e0ce-1149.html">ee Chapter 28, “VMX&#160;Support&#160;for Address Translation”.) In</a>validation is&#160;based&#160;<br/>on the&#160;<b>INVEPT&#160;type</b>&#160;specified in the&#160;register operand&#160;and the&#160;<b>INVEPT descriptor</b>&#160;specified in the memory&#160;<br/>operand.<br/>Outside IA-32e&#160;mode,&#160;the&#160;register&#160;operand is always 32 bits, regardless of the value of CS.D; in 64-bit&#160;mode, the&#160;<br/>register&#160;operand has 64 bits (the&#160;instruction&#160;cannot be executed&#160;in&#160;compatibility&#160;mode).<br/>The&#160;INVEPT&#160;types&#160;supported&#160;by&#160;a logical&#160;processors&#160;are&#160;reported&#160;in&#160;the&#160;IA32_VMX_EPT_VPID_CAP&#160;MSR (see&#160;<br/><a href="��">Appendix A,&#160;“VMX Capability Reporting Facility”).</a>&#160;There are&#160;two&#160;INVEPT types currently defined:</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:448px;left:95px;white-space:nowrap" class="ft08">Single-context&#160;invalidation. If the&#160;INVEPT type is&#160;1,&#160;the&#160;logical processor invalidates all&#160;mappings associated&#160;<br/>with bits&#160;51:12 of the EPT pointer (EPTP) specified&#160;in&#160;the INVEPT descriptor.&#160;It may&#160;invalidate&#160;other mappings&#160;<br/>as well.</p>
+<p style="position:absolute;top:503px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:504px;left:95px;white-space:nowrap" class="ft08">Global invalidation:&#160;If the&#160;INVEPT type&#160;is 2, the&#160;logical&#160;processor&#160;invalidates mappings associated with all&#160;<br/>EPTPs.</p>
+<p style="position:absolute;top:544px;left:69px;white-space:nowrap" class="ft09">If an unsupported&#160;INVEPT&#160;type&#160;is&#160;specified, the&#160;instruction fails.<br/>INVEPT&#160;invalidates all&#160;the specified mappings&#160;for&#160;the&#160;indicated&#160;EPTP(s) regardless of the&#160;VPID&#160;and&#160;PCID&#160;values&#160;with&#160;<br/>which those&#160;mappings&#160;may be associated.<br/>The&#160;INVEPT&#160;descriptor comprises 128 bits and&#160;contains a&#160;64-bit EPTP&#160;value in&#160;bits&#160;63:0&#160;(see<a href="o_fe12b1e2a880e0ce-1183.html">&#160;Figure&#160;30-1).</a></p>
+<p style="position:absolute;top:807px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:839px;left:69px;white-space:nowrap" class="ft04">IF (not in VMX operation) or (CR0.PE = 0) or&#160;(RFLAGS.VM&#160;= 1)&#160;or&#160;(IA32_EFER.LMA&#160;= 1 and&#160;CS.L = 0)</p>
+<p style="position:absolute;top:857px;left:89px;white-space:nowrap" class="ft04">THEN&#160;#UD;</p>
+<p style="position:absolute;top:875px;left:69px;white-space:nowrap" class="ft04">ELSIF in&#160;VMX non-root operation</p>
+<p style="position:absolute;top:893px;left:89px;white-space:nowrap" class="ft04">THEN&#160;VM&#160;exit;</p>
+<p style="position:absolute;top:911px;left:69px;white-space:nowrap" class="ft04">ELSIF&#160;CPL</p>
+<p style="position:absolute;top:909px;left:129px;white-space:nowrap" class="ft07">&gt;</p>
+<p style="position:absolute;top:911px;left:137px;white-space:nowrap" class="ft04">&#160;0</p>
+<p style="position:absolute;top:929px;left:89px;white-space:nowrap" class="ft011">THEN&#160;#GP(0);<br/>ELSE</p>
+<p style="position:absolute;top:965px;left:116px;white-space:nowrap" class="ft04">INVEPT_TYPE&#160;←&#160;value&#160;of register&#160;operand;</p>
+<p style="position:absolute;top:983px;left:116px;white-space:nowrap" class="ft04">IF IA32_VMX_EPT_VPID_CAP MSR&#160;indicates that&#160;processor&#160;does&#160;not support INVEPT_TYPE</p>
+<p style="position:absolute;top:1001px;left:143px;white-space:nowrap" class="ft011">THEN&#160;VMfail(Invalid&#160;operand to INVEPT/INVVPID);<br/>ELSE</p>
+<p style="position:absolute;top:1019px;left:197px;white-space:nowrap" class="ft04">// INVEPT_TYPE must be&#160;1 or 2</p>
+<p style="position:absolute;top:1037px;left:170px;white-space:nowrap" class="ft04">INVEPT_DESC&#160;←&#160;value&#160;of&#160;memory operand;</p>
+<p style="position:absolute;top:1055px;left:170px;white-space:nowrap" class="ft04">EPTP&#160;←&#160;INVEPT_DESC[63:0];</p>
+<p style="position:absolute;top:137px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:201px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:373px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">66&#160;0F&#160;38&#160;80</p>
+<p style="position:absolute;top:160px;left:201px;white-space:nowrap" class="ft04">INVEPT r64,&#160;m128</p>
+<p style="position:absolute;top:160px;left:373px;white-space:nowrap" class="ft04">Invalidates EPT-derived entries in the TLBs and paging-structure&#160;caches (in 64-</p>
+<p style="position:absolute;top:177px;left:373px;white-space:nowrap" class="ft04">bit mode)</p>
+<p style="position:absolute;top:199px;left:74px;white-space:nowrap" class="ft04">66&#160;0F&#160;38&#160;80</p>
+<p style="position:absolute;top:199px;left:201px;white-space:nowrap" class="ft04">INVEPT&#160;r32,&#160;m128</p>
+<p style="position:absolute;top:199px;left:373px;white-space:nowrap" class="ft04">Invalidates EPT-derived&#160;entries in&#160;the&#160;TLBs and paging-structure&#160;caches&#160;(outside&#160;</p>
+<p style="position:absolute;top:215px;left:373px;white-space:nowrap" class="ft04">64-bit mode)</p>
+<p style="position:absolute;top:762px;left:347px;white-space:nowrap" class="ft03">Figure&#160;30-1.&#160;&#160;INVEPT&#160;Descriptor</p>
+<p style="position:absolute;top:673px;left:225px;white-space:nowrap" class="ft04">127</p>
+<p style="position:absolute;top:673px;left:443px;white-space:nowrap" class="ft04">64&#160;63</p>
+<p style="position:absolute;top:673px;left:684px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:696px;left:274px;white-space:nowrap" class="ft04">Reserved&#160;(must be zero)</p>
+<p style="position:absolute;top:696px;left:517px;white-space:nowrap" class="ft04">EPT pointer&#160;(EPTP)</p>
+</div>
+</body>
+</html>

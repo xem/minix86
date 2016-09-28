@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 295</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page295-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce295.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-39</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Example 8-18.&#160; Support&#160;Routines&#160;for Detecting Hardware&#160;Multi-Threading and Identifying the Relationships Between Package,&#160;</p>
+<p style="position:absolute;top:117px;left:69px;white-space:nowrap" class="ft01">Core&#160;and Logical Processors</p>
+<p style="position:absolute;top:145px;left:69px;white-space:nowrap" class="ft02"><b>1.</b></p>
+<p style="position:absolute;top:145px;left:101px;white-space:nowrap" class="ft02"><b>Detect support for&#160;Hardware Multi-Threading&#160;Support in&#160;a processor.</b></p>
+<p style="position:absolute;top:173px;left:69px;white-space:nowrap" class="ft03">//&#160;&#160;Returns a non-zero value&#160;if CPUID reports the presence&#160;of hardware&#160;multi-threading&#160;</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft04">//&#160;&#160;support in&#160;the&#160;physical&#160;package&#160;where the current logical processor&#160;is located.&#160;<br/>//&#160;&#160;This&#160;does not guarantee&#160;BIOS&#160;or&#160;OS&#160;will enable all logical processors in the physical&#160;<br/>//&#160;&#160;package and&#160;make&#160;them&#160;available&#160;to&#160;applications.&#160;<br/>//&#160;&#160;Returns zero if hardware&#160;multi-threading is not&#160;present.&#160;</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft03">#define&#160;HWMT_BIT 10000000H</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft04">unsigned&#160;int HWMTSupported(void)<br/>{</p>
+<p style="position:absolute;top:352px;left:89px;white-space:nowrap" class="ft03">&#160;//&#160;ensure cpuid instruction is&#160;supported</p>
+<p style="position:absolute;top:370px;left:116px;white-space:nowrap" class="ft04">execute cpuid&#160;with eax =&#160;0 to get vendor string<br/>execute cpuid&#160;with eax = 1&#160;to&#160;get feature flag&#160;and signature</p>
+<p style="position:absolute;top:442px;left:89px;white-space:nowrap" class="ft03">// Check to&#160;see&#160;if&#160;this&#160;a Genuine Intel Processor&#160;</p>
+<p style="position:absolute;top:476px;left:89px;white-space:nowrap" class="ft03">if&#160;(vendor string EQ&#160;GenuineIntel) {</p>
+<p style="position:absolute;top:494px;left:116px;white-space:nowrap" class="ft03">return (feature_flag_edx &amp; HWMT_BIT); // bit 28</p>
+<p style="position:absolute;top:512px;left:89px;white-space:nowrap" class="ft04">}<br/>return&#160;0;</p>
+<p style="position:absolute;top:548px;left:69px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:590px;left:69px;white-space:nowrap" class="ft01">Example&#160;8-19.&#160;&#160;Support&#160;Routines for Identifying Package,&#160;Core&#160;and Logical Processors&#160;from&#160;32-bit&#160;x2APIC&#160;ID</p>
+<p style="position:absolute;top:618px;left:69px;white-space:nowrap" class="ft02"><b>a.</b></p>
+<p style="position:absolute;top:618px;left:101px;white-space:nowrap" class="ft05"><b>Derive&#160;the extraction&#160;bitmask&#160;for&#160;logical processors&#160;in&#160;a processor&#160;core&#160;and&#160;associated&#160;mask&#160;offset&#160;for&#160;different<br/>cores.</b></p>
+<p style="position:absolute;top:660px;left:69px;white-space:nowrap" class="ft04">int DeriveSMT_Mask_Offsets (void)<br/>{</p>
+<p style="position:absolute;top:696px;left:89px;white-space:nowrap" class="ft04">if (!HWMTSupported()) return -1;<br/>execute cpuid&#160;with eax = 11,&#160;ECX =&#160;0;<br/>If (returned level type&#160;encoding&#160;in&#160;ECX[15:8] does&#160;not match&#160;SMT) return&#160;-1;<br/>Mask_SMT_shift = EAX[4:0]; // # bits&#160;shift right of&#160;APIC&#160;ID to&#160;distinguish&#160;different cores<br/>SMT_MASK&#160;= ~(&#160;(-1) &lt;&lt; Mask_SMT_shift); // shift&#160;left to derive extraction bitmask for SMT_ID<br/>return&#160;0;</p>
+<p style="position:absolute;top:804px;left:69px;white-space:nowrap" class="ft03">}</p>
+</div>
+</body>
+</html>

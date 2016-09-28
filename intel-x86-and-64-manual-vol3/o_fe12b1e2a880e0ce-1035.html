@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1035</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1035-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1035.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;22-31</p>
+<p style="position:absolute;top:47px;left:657px;white-space:nowrap" class="ft01">ARCHITECTURE&#160;COMPATIBILITY</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">22.30.3&#160;&#160;Enabling and Disabling Paging</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft06">Paging&#160;is enabled&#160;and disabled&#160;by loading a&#160;value into&#160;control&#160;register CR0&#160;that modifies&#160;the PG&#160;flag.&#160;For backward&#160;<br/>and forward compatibility with&#160;all IA-32&#160;processors, Intel&#160;recommends that the following&#160;operations be performed&#160;<br/>when enabling or&#160;disabling paging:<br/>1.&#160;Execute&#160;a MOV&#160;CR0,&#160;REG instruction to&#160;either&#160;set (enable&#160;paging) or clear (disable&#160;paging) the&#160;PG&#160;flag.&#160;<br/>2.&#160;Execute a&#160;near JMP instruction.<br/>The sequence bounded&#160;by&#160;the MOV and&#160;JMP&#160;instructions&#160;should be identity mapped&#160;(that&#160;is,&#160;the instructions&#160;should&#160;<br/>reside&#160;on a&#160;page&#160;whose linear and&#160;physical&#160;addresses are&#160;identical).<br/>For&#160;the P6 family processors,&#160;the&#160;MOV CR0, REG instruction&#160;is&#160;serializing, so&#160;the jump operation is&#160;not required.&#160;<br/>However,&#160;for backwards compatibility,&#160;the&#160;JMP instruction should&#160;still be included.</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft04">22.31&#160;STACK&#160;</p>
+<p style="position:absolute;top:346px;left:215px;white-space:nowrap" class="ft04">OPERATIONS</p>
+<p style="position:absolute;top:382px;left:69px;white-space:nowrap" class="ft03">This&#160;section&#160;identifies&#160;the differences in&#160;the stack mechanism for&#160;the various IA-32&#160;processors.</p>
+<p style="position:absolute;top:433px;left:69px;white-space:nowrap" class="ft02">22.31.1&#160;&#160;Selector Pushes and Pops</p>
+<p style="position:absolute;top:463px;left:69px;white-space:nowrap" class="ft08">When pushing a segment selector onto&#160;the&#160;stack, the&#160;Pentium 4,&#160;Intel Xeon,&#160;P6&#160;family, and&#160;Intel486&#160;processors&#160;<br/>decrement the&#160;ESP register&#160;by the&#160;operand&#160;size and&#160;then write 2 bytes. If the&#160;operand size&#160;is&#160;32-bits,&#160;the upper&#160;<br/>two&#160;bytes of the&#160;write are&#160;not modified.&#160;The Pentium processor decrements&#160;the&#160;ESP register by&#160;the&#160;operand&#160;size&#160;<br/>and&#160;determines the&#160;size of the&#160;write by&#160;the operand size.&#160;If&#160;the operand&#160;size&#160;is 32-bits, the&#160;upper two bytes&#160;are&#160;<br/>written&#160;as&#160;0s.&#160;<br/>When popping&#160;a segment selector from the&#160;stack,&#160;the&#160;Pentium 4, Intel&#160;Xeon, P6 family,&#160;and Intel486&#160;processors&#160;<br/>read 2 bytes&#160;and increment&#160;the ESP register&#160;by&#160;the operand&#160;size of the&#160;instruction.&#160;The Pentium processor deter-<br/>mines the&#160;size of the read from&#160;the operand&#160;size and increments&#160;the ESP register&#160;by&#160;the operand&#160;size.<br/>It is&#160;possible to&#160;align a&#160;32-bit selector push&#160;or pop such that&#160;the operation generates an&#160;exception&#160;on a&#160;Pentium&#160;<br/>processor and not&#160;on&#160;an&#160;Pentium 4, Intel Xeon, P6 family, or&#160;Intel486 processor.&#160;This could occur&#160;if&#160;the&#160;third and/or&#160;<br/>fourth byte of the operation lies&#160;beyond&#160;the limit of the segment or if&#160;the&#160;third and/or fourth byte&#160;of&#160;the operation&#160;<br/>is locate&#160;on a&#160;non-present&#160;or&#160;inaccessible page.<br/>For&#160;a POP-to-memory instruction that&#160;meets&#160;the following conditions:</p>
+<p style="position:absolute;top:706px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:706px;left:95px;white-space:nowrap" class="ft03">The&#160;stack segment size&#160;is 16-bit.</p>
+<p style="position:absolute;top:728px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:729px;left:95px;white-space:nowrap" class="ft03">Any&#160;32-bit&#160;addressing&#160;form with&#160;the&#160;SIB&#160;byte specifying ESP as&#160;the base register.</p>
+<p style="position:absolute;top:751px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:751px;left:95px;white-space:nowrap" class="ft06">The&#160;initial stack&#160;pointer&#160;is FFFCH (32-bit operand)&#160;or FFFEH (16-bit&#160;operand) and&#160;will&#160;wrap around&#160;to 0H as&#160;a&#160;<br/>result of the&#160;POP&#160;operation.</p>
+<p style="position:absolute;top:792px;left:69px;white-space:nowrap" class="ft06">The result&#160;of&#160;the memory&#160;write is&#160;implementation-specific.&#160;For example,&#160;in&#160;P6&#160;family processors, the&#160;result of the&#160;<br/>memory write is SS:0H plus any scaled index and displacement. In&#160;Pentium processors, the result of&#160;the memory&#160;<br/>write&#160;may&#160;be&#160;either&#160;a stack fault&#160;(real mode&#160;or protected&#160;mode with stack segment size&#160;of 64 KByte),&#160;or&#160;write to&#160;<br/>SS:10000H plus any&#160;scaled&#160;index and&#160;displacement (protected&#160;mode&#160;and stack&#160;segment&#160;size exceeds 64&#160;KByte).</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft02">22.31.2&#160;&#160;Error Code Pushes</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft06">The Intel486&#160;processor&#160;implements&#160;the error code pushed&#160;on&#160;the stack&#160;as a 16-bit&#160;value. When pushed onto&#160;a 32-<br/>bit stack,&#160;the&#160;Intel486 processor only&#160;pushes 2&#160;bytes and&#160;updates&#160;ESP&#160;by 4.&#160;The P6&#160;family and&#160;Pentium&#160;processors’&#160;<br/>error code&#160;is a full 32 bits with the upper 16 bits set to&#160;zero.&#160;The P6&#160;family&#160;and Pentium processors,&#160;therefore,&#160;push&#160;<br/>4 bytes&#160;and update ESP by&#160;4.&#160;Any&#160;code&#160;that relies on the state&#160;of the&#160;upper 16&#160;bits&#160;may&#160;produce&#160;inconsistent&#160;<br/>results.</p>
+</div>
+</body>
+</html>

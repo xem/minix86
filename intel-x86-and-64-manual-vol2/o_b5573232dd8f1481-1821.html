@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1821</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1821-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811821.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPTESTNMB/W/D/Q—Logical&#160;NAND and Set</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-435</p>
+<p style="position:absolute;top:100px;left:354px;white-space:nowrap" class="ft02">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:208px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:231px;left:69px;white-space:nowrap" class="ft04">Performs a&#160;bitwise logical NAND&#160;operation&#160;on the&#160;byte/word/doubleword/quadword&#160;element of the&#160;first&#160;source&#160;<br/>operand&#160;(the second operand)&#160;with&#160;the corresponding element of the&#160;second&#160;source operand&#160;(the third&#160;operand)&#160;<br/>and stores the logical comparison&#160;result&#160;into each bit of&#160;the&#160;destination&#160;operand (the first operand)&#160;according to&#160;the&#160;<br/>writemask&#160;k1.&#160;Each&#160;bit of the&#160;result&#160;is set to 1&#160;if the&#160;bitwise&#160;AND of the&#160;corresponding elements of the&#160;first and&#160;<br/>second src&#160;operands is&#160;zero; otherwise it&#160;is&#160;set to&#160;0.<br/>EVEX encoded VPTESTNMD/Q: The first&#160;source operand is a ZMM/YMM/XMM registers. The second&#160;source&#160;operand&#160;<br/>can be&#160;a&#160;ZMM/YMM/XMM&#160;register,&#160;a 512/256/128-bit&#160;memory location,&#160;or&#160;a 512/256/128-bit vector broadcasted&#160;<br/>from a&#160;32/64-bit&#160;memory location. The destination&#160;is updated&#160;according&#160;to the&#160;writemask.<br/>EVEX&#160;encoded&#160;VPTESTNMB/W:&#160;The first source&#160;operand&#160;is&#160;a ZMM/YMM/XMM registers. The second source operand&#160;<br/>can be&#160;a ZMM/YMM/XMM register,&#160;a 512/256/128-bit memory&#160;location.&#160;The destination is updated according&#160;to the&#160;<br/>writemask.</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:465px;left:69px;white-space:nowrap" class="ft06">VPTESTNMB<br/>(KL, VL) = (16, 128), (32, 256), (64,&#160;512)<br/>FOR j&#160;←&#160;0 TO&#160;KL-1</p>
+<p style="position:absolute;top:519px;left:89px;white-space:nowrap" class="ft03">i&#160;←&#160;j*8</p>
+<p style="position:absolute;top:537px;left:89px;white-space:nowrap" class="ft03">IF&#160;MaskBit(j)&#160;OR&#160;*no&#160;writemask*</p>
+<p style="position:absolute;top:555px;left:116px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:573px;left:69px;white-space:nowrap" class="ft03">&#160;&#160;</p>
+<p style="position:absolute;top:573px;left:143px;white-space:nowrap" class="ft03">&#160;DEST[j]&#160;←&#160;(SRC1[i+7:i] BITWISE AND SRC2[i+7:i] == 0)? 1 : 0</p>
+<p style="position:absolute;top:591px;left:116px;white-space:nowrap" class="ft03">ELSE DEST[j]&#160;←&#160;0; zeroing masking only</p>
+<p style="position:absolute;top:609px;left:89px;white-space:nowrap" class="ft03">FI</p>
+<p style="position:absolute;top:627px;left:69px;white-space:nowrap" class="ft06">ENDFOR<br/>DEST[MAX_KL-1:KL]&#160;←&#160;0</p>
+<p style="position:absolute;top:681px;left:69px;white-space:nowrap" class="ft06">VPTESTNMW<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>FOR j&#160;←&#160;0 TO&#160;KL-1</p>
+<p style="position:absolute;top:735px;left:89px;white-space:nowrap" class="ft03">i&#160;←&#160;j*16</p>
+<p style="position:absolute;top:753px;left:89px;white-space:nowrap" class="ft03">IF&#160;MaskBit(j)&#160;OR&#160;*no&#160;writemask*</p>
+<p style="position:absolute;top:771px;left:116px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:789px;left:69px;white-space:nowrap" class="ft03">&#160; &#160;</p>
+<p style="position:absolute;top:789px;left:143px;white-space:nowrap" class="ft03">DEST[j]&#160;←&#160;(SRC1[i+15:i]&#160;BITWISE AND SRC2[i+15:i]&#160;== 0)? 1&#160;: 0</p>
+<p style="position:absolute;top:807px;left:116px;white-space:nowrap" class="ft03">ELSE DEST[j]&#160;←&#160;0; zeroing masking only</p>
+<p style="position:absolute;top:825px;left:89px;white-space:nowrap" class="ft03">FI</p>
+<p style="position:absolute;top:843px;left:69px;white-space:nowrap" class="ft06">ENDFOR<br/>DEST[MAX_KL-1:KL]&#160;←&#160;0</p>
+<p style="position:absolute;top:897px;left:69px;white-space:nowrap" class="ft06">VPTESTNMD<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:951px;left:89px;white-space:nowrap" class="ft06">i&#160;&#160;j*32<br/>IF&#160;MaskBit(j)&#160;OR&#160;*no&#160;writemask*</p>
+<p style="position:absolute;top:987px;left:116px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:1005px;left:143px;white-space:nowrap" class="ft03">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:1023px;left:69px;white-space:nowrap" class="ft03">&#160;&#160;</p>
+<p style="position:absolute;top:1023px;left:143px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:1023px;left:170px;white-space:nowrap" class="ft06">THEN DEST[i+31:i]&#160;&#160;(SRC1[i+31:i] BITWISE AND SRC2[31:0] ==&#160;0)? 1 :&#160;0<br/>ELSE DEST[j]&#160;&#160;(SRC1[i+31:i] BITWISE&#160;AND SRC2[i+31:i] ==&#160;0)?&#160;1 :&#160;0</p>
+<p style="position:absolute;top:1059px;left:143px;white-space:nowrap" class="ft03">FI</p>
+<p style="position:absolute;top:123px;left:98px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:123px;left:214px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:123px;left:381px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:123px;left:552px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:123px;left:723px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:146px;left:103px;white-space:nowrap" class="ft03">FVM</p>
+<p style="position:absolute;top:146px;left:202px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:146px;left:372px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:146px;left:542px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:146px;left:744px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:170px;left:107px;white-space:nowrap" class="ft03">FV</p>
+<p style="position:absolute;top:170px;left:202px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:170px;left:372px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:170px;left:542px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:170px;left:744px;white-space:nowrap" class="ft03">NA</p>
+</div>
+</body>
+</html>

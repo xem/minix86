@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 249</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:6px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page249-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce249.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;7-11</p>
+<p style="position:absolute;top:47px;left:720px;white-space:nowrap" class="ft01">TASK&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:122px;white-space:nowrap" class="ft06">occurs after&#160;the commit point (in step&#160;13), the&#160;processor&#160;completes&#160;the task&#160;switch&#160;(without&#160;<br/>performing additional access and&#160;segment&#160;availability checks)&#160;and generates the&#160;appropriate&#160;<br/>exception prior&#160;to beginning execution&#160;of the&#160;new&#160;task.</p>
+<p style="position:absolute;top:166px;left:122px;white-space:nowrap" class="ft06">If exceptions&#160;occur after&#160;the commit point, the exception handler must finish the&#160;task switch itself&#160;<br/>before&#160;allowing the&#160;processor&#160;to begin&#160;executing the&#160;new task.&#160;Se<a href="o_fe12b1e2a880e0ce-217.html">e Chapter&#160;6,&#160;“Interrupt&#160;<br/>10—Invalid TSS Exception (#TS),”&#160;</a>for&#160;more&#160;information about&#160;the affect&#160;of&#160;exceptions on&#160;a&#160;task&#160;<br/>when&#160;they occur&#160;after the&#160;commit&#160;point of a&#160;task switch.</p>
+<p style="position:absolute;top:240px;left:69px;white-space:nowrap" class="ft02">14.&#160;Begins&#160;executing&#160;the new task. (To&#160;an exception&#160;handler,&#160;the first instruction of&#160;the new task appears&#160;not to&#160;</p>
+<p style="position:absolute;top:256px;left:95px;white-space:nowrap" class="ft02">have&#160;been&#160;executed.)</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft06">The&#160;state of&#160;the&#160;currently executing task is&#160;always saved when a&#160;successful task switch occurs. If the&#160;task is&#160;<br/>resumed, execution starts&#160;with the&#160;instruction pointed to&#160;by the&#160;saved&#160;EIP value,&#160;and the registers&#160;are restored&#160;to&#160;<br/>the&#160;values they&#160;held when&#160;the&#160;task was&#160;suspended.<br/>When switching tasks, the&#160;privilege level&#160;of&#160;the new task&#160;does not inherit&#160;its&#160;privilege&#160;level from&#160;the&#160;suspended&#160;<br/>task.&#160;The new task&#160;begins&#160;executing&#160;at the&#160;privilege level&#160;specified in&#160;the CPL&#160;field&#160;of the&#160;CS&#160;register,&#160;which is&#160;<br/>loaded&#160;from the TSS.&#160;Because tasks are isolated by their separate address spaces and TSSs and because privilege&#160;<br/>rules control&#160;access&#160;to&#160;a TSS,&#160;software&#160;does&#160;not need&#160;to&#160;perform explicit privilege&#160;checks&#160;on a&#160;task&#160;switch.<br/><a href="o_fe12b1e2a880e0ce-249.html">Table&#160;7-1&#160;</a>shows the&#160;exception conditions&#160;that the&#160;processor&#160;checks for when switching tasks. It&#160;also shows&#160;the&#160;<br/>exception&#160;that is generated&#160;for each check&#160;if an&#160;error&#160;is&#160;detected and the segment&#160;that&#160;the error code&#160;references.&#160;<br/>(The order of the checks in&#160;the table is the&#160;order used in&#160;the P6 family&#160;processors. The&#160;exact order&#160;is model specific&#160;<br/>and may be different for other IA-32 processors.)&#160;Exception handlers designed to&#160;handle&#160;these exceptions&#160;may&#160;be&#160;<br/>subject to&#160;recursive calls&#160;if they attempt to&#160;reload&#160;the segment&#160;selector&#160;that generated the exception.&#160;The&#160;cause&#160;of&#160;<br/>the&#160;exception (or&#160;the first of&#160;multiple causes)&#160;should&#160;be&#160;fixed before reloading the&#160;selector.</p>
+<p style="position:absolute;top:534px;left:240px;white-space:nowrap" class="ft03">Table 7-1. &#160;Exception&#160;Conditions&#160;Checked During a&#160;Task Switch&#160;</p>
+<p style="position:absolute;top:556px;left:252px;white-space:nowrap" class="ft02">Condition Checked</p>
+<p style="position:absolute;top:556px;left:585px;white-space:nowrap" class="ft02">Exception</p>
+<p style="position:absolute;top:557px;left:645px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:556px;left:696px;white-space:nowrap" class="ft02">Error Code&#160;Reference</p>
+<p style="position:absolute;top:557px;left:824px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:579px;left:75px;white-space:nowrap" class="ft02">Segment selector&#160;for a TSS&#160;descriptor&#160;references&#160;</p>
+<p style="position:absolute;top:595px;left:75px;white-space:nowrap" class="ft02">the GDT and is within the limits of&#160;the table.</p>
+<p style="position:absolute;top:579px;left:549px;white-space:nowrap" class="ft08">#GP<br/>#TS (for IRET)</p>
+<p style="position:absolute;top:579px;left:695px;white-space:nowrap" class="ft02">New Task’s&#160;TSS</p>
+<p style="position:absolute;top:622px;left:75px;white-space:nowrap" class="ft02">TSS descriptor is&#160;present in&#160;memory.</p>
+<p style="position:absolute;top:622px;left:549px;white-space:nowrap" class="ft02">#NP</p>
+<p style="position:absolute;top:622px;left:695px;white-space:nowrap" class="ft02">New Task’s&#160;TSS</p>
+<p style="position:absolute;top:645px;left:75px;white-space:nowrap" class="ft02">TSS&#160;descriptor&#160;is not busy&#160;(for&#160;task&#160;switch&#160;initiated&#160;by a&#160;call,&#160;interrupt,&#160;or&#160;</p>
+<p style="position:absolute;top:661px;left:75px;white-space:nowrap" class="ft02">exception).</p>
+<p style="position:absolute;top:645px;left:549px;white-space:nowrap" class="ft02">#GP (for JMP,&#160;CALL,&#160;INT)&#160;Task’s&#160;back-link&#160;TSS</p>
+<p style="position:absolute;top:684px;left:75px;white-space:nowrap" class="ft02">TSS&#160;descriptor&#160;is not busy&#160;(for&#160;task&#160;switch&#160;initiated&#160;by an IRET instruction).</p>
+<p style="position:absolute;top:684px;left:549px;white-space:nowrap" class="ft02">#TS&#160;(for IRET)</p>
+<p style="position:absolute;top:684px;left:695px;white-space:nowrap" class="ft02">New&#160;Task’s TSS</p>
+<p style="position:absolute;top:706px;left:75px;white-space:nowrap" class="ft02">TSS&#160;segment limit greater than&#160;or equal to&#160;108 (for 32-bit TSS)&#160;or 44 (for&#160;16-bit&#160;</p>
+<p style="position:absolute;top:723px;left:75px;white-space:nowrap" class="ft02">TSS).</p>
+<p style="position:absolute;top:706px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:706px;left:695px;white-space:nowrap" class="ft02">New Task’s TSS</p>
+<p style="position:absolute;top:745px;left:75px;white-space:nowrap" class="ft09">Registers are&#160;loaded&#160;from the values&#160;in&#160;the&#160;TSS.<br/>LDT segment selector&#160;of&#160;new task is valid&#160;</p>
+<p style="position:absolute;top:769px;left:315px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:771px;left:320px;white-space:nowrap" class="ft05">.</p>
+<p style="position:absolute;top:768px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:768px;left:695px;white-space:nowrap" class="ft02">New Task’s LDT</p>
+<p style="position:absolute;top:790px;left:75px;white-space:nowrap" class="ft02">Code&#160;segment DPL matches segment selector&#160;RPL.</p>
+<p style="position:absolute;top:790px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:790px;left:695px;white-space:nowrap" class="ft02">New&#160;Code&#160;Segment</p>
+<p style="position:absolute;top:813px;left:75px;white-space:nowrap" class="ft02">SS segment selector is valid&#160;</p>
+<p style="position:absolute;top:814px;left:237px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:816px;left:241px;white-space:nowrap" class="ft05">.</p>
+<p style="position:absolute;top:813px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:813px;left:695px;white-space:nowrap" class="ft02">New&#160;Stack Segment</p>
+<p style="position:absolute;top:835px;left:75px;white-space:nowrap" class="ft02">Stack segment is present in&#160;memory.</p>
+<p style="position:absolute;top:835px;left:549px;white-space:nowrap" class="ft02">#SS</p>
+<p style="position:absolute;top:835px;left:695px;white-space:nowrap" class="ft02">New Stack Segment</p>
+<p style="position:absolute;top:858px;left:75px;white-space:nowrap" class="ft02">Stack segment DPL matches CPL.</p>
+<p style="position:absolute;top:858px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:858px;left:695px;white-space:nowrap" class="ft02">New&#160;stack&#160;segment</p>
+<p style="position:absolute;top:880px;left:75px;white-space:nowrap" class="ft02">LDT of&#160;new task&#160;is present in&#160;memory.</p>
+<p style="position:absolute;top:880px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:880px;left:695px;white-space:nowrap" class="ft02">New Task’s&#160;LDT</p>
+<p style="position:absolute;top:903px;left:75px;white-space:nowrap" class="ft02">CS&#160;segment selector&#160;is valid&#160;</p>
+<p style="position:absolute;top:904px;left:236px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:906px;left:241px;white-space:nowrap" class="ft05">.</p>
+<p style="position:absolute;top:903px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:903px;left:695px;white-space:nowrap" class="ft02">New&#160;Code&#160;Segment</p>
+<p style="position:absolute;top:925px;left:75px;white-space:nowrap" class="ft02">Code&#160;segment is&#160;present&#160;in&#160;memory.</p>
+<p style="position:absolute;top:925px;left:549px;white-space:nowrap" class="ft02">#NP</p>
+<p style="position:absolute;top:925px;left:695px;white-space:nowrap" class="ft02">New&#160;Code&#160;Segment</p>
+<p style="position:absolute;top:948px;left:75px;white-space:nowrap" class="ft02">Stack segment DPL matches selector&#160;RPL.</p>
+<p style="position:absolute;top:948px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:948px;left:695px;white-space:nowrap" class="ft02">New&#160;Stack Segment</p>
+<p style="position:absolute;top:970px;left:75px;white-space:nowrap" class="ft02">DS, ES, FS, and GS&#160;segment selectors&#160;are valid&#160;</p>
+<p style="position:absolute;top:971px;left:339px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:973px;left:344px;white-space:nowrap" class="ft05">.</p>
+<p style="position:absolute;top:970px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:970px;left:695px;white-space:nowrap" class="ft02">New Data Segment</p>
+<p style="position:absolute;top:993px;left:75px;white-space:nowrap" class="ft02">DS, ES,&#160;FS,&#160;and GS&#160;segments are&#160;readable.</p>
+<p style="position:absolute;top:993px;left:549px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:993px;left:695px;white-space:nowrap" class="ft02">New Data Segment</p>
+</div>
+</body>
+</html>

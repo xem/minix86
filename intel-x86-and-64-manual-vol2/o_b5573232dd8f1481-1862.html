@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1862</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft07{font-size:7px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1862-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811862.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:377px;white-space:nowrap" class="ft00">VRNDSCALEPD—Round&#160;Packed Float64 Values&#160;To&#160;Include A Given&#160;Number Of&#160;Fraction Bits</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-476&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Note: EVEX.vvvv is&#160;reserved&#160;and must be&#160;1111b,&#160;otherwise&#160;instructions will #UD.</p>
+<p style="position:absolute;top:364px;left:68px;white-space:nowrap" class="ft02">Handling of special&#160;case of&#160;input values are&#160;listed in&#160;<a href="o_b5573232dd8f1481-1862.html">Table&#160;5-22.</a></p>
+<p style="position:absolute;top:536px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:558px;left:68px;white-space:nowrap" class="ft02">RoundToIntegerDP(SRC[63:0], imm8[7:0])&#160;{</p>
+<p style="position:absolute;top:576px;left:88px;white-space:nowrap" class="ft02">if (imm8[2] = 1)</p>
+<p style="position:absolute;top:594px;left:115px;white-space:nowrap" class="ft02">rounding_direction&#160;&#160;MXCSR:RC</p>
+<p style="position:absolute;top:594px;left:331px;white-space:nowrap" class="ft02">; get round control from MXCSR</p>
+<p style="position:absolute;top:612px;left:88px;white-space:nowrap" class="ft02">else</p>
+<p style="position:absolute;top:630px;left:115px;white-space:nowrap" class="ft02">rounding_direction&#160;&#160;imm8[1:0]</p>
+<p style="position:absolute;top:630px;left:331px;white-space:nowrap" class="ft02">;&#160;get round&#160;control from imm8[1:0]</p>
+<p style="position:absolute;top:648px;left:88px;white-space:nowrap" class="ft06">FI<br/>M&#160;&#160;imm8[7:4]</p>
+<p style="position:absolute;top:666px;left:223px;white-space:nowrap" class="ft02">;&#160;get the scaling factor</p>
+<p style="position:absolute;top:702px;left:88px;white-space:nowrap" class="ft06">case&#160;(rounding_direction)<br/>00: TMP[63:0]&#160;&#160;round_to_nearest_even_integer(2</p>
+<p style="position:absolute;top:718px;left:387px;white-space:nowrap" class="ft03">M</p>
+<p style="position:absolute;top:720px;left:395px;white-space:nowrap" class="ft02">*SRC[63:0])</p>
+<p style="position:absolute;top:738px;left:88px;white-space:nowrap" class="ft02">01: TMP[63:0]&#160;&#160;round_to_equal_or_smaller_integer(2</p>
+<p style="position:absolute;top:736px;left:405px;white-space:nowrap" class="ft03">M</p>
+<p style="position:absolute;top:738px;left:413px;white-space:nowrap" class="ft02">*SRC[63:0])</p>
+<p style="position:absolute;top:756px;left:88px;white-space:nowrap" class="ft02">10: TMP[63:0]&#160;&#160;round_to_equal_or_larger_integer(2</p>
+<p style="position:absolute;top:754px;left:398px;white-space:nowrap" class="ft03">M</p>
+<p style="position:absolute;top:756px;left:406px;white-space:nowrap" class="ft02">*SRC[63:0])</p>
+<p style="position:absolute;top:774px;left:88px;white-space:nowrap" class="ft02">11: TMP[63:0]&#160;&#160;round_to_nearest_smallest_magnitude_integer(2</p>
+<p style="position:absolute;top:772px;left:473px;white-space:nowrap" class="ft03">M</p>
+<p style="position:absolute;top:774px;left:481px;white-space:nowrap" class="ft02">*SRC[63:0])</p>
+<p style="position:absolute;top:792px;left:88px;white-space:nowrap" class="ft02">ESAC</p>
+<p style="position:absolute;top:828px;left:88px;white-space:nowrap" class="ft02">Dest[63:0]&#160;&#160;2</p>
+<p style="position:absolute;top:826px;left:177px;white-space:nowrap" class="ft03">-M</p>
+<p style="position:absolute;top:828px;left:188px;white-space:nowrap" class="ft02">* TMP[63:0]&#160;</p>
+<p style="position:absolute;top:828px;left:304px;white-space:nowrap" class="ft02">; scale down back to 2</p>
+<p style="position:absolute;top:826px;left:430px;white-space:nowrap" class="ft03">-M</p>
+<p style="position:absolute;top:864px;left:88px;white-space:nowrap" class="ft02">if (imm8[3] = 0) Then&#160;; check SPE</p>
+<p style="position:absolute;top:882px;left:115px;white-space:nowrap" class="ft02">if&#160;(SRC[63:0] !=&#160;Dest[63:0]) Then</p>
+<p style="position:absolute;top:882px;left:331px;white-space:nowrap" class="ft02">; check precision&#160;lost</p>
+<p style="position:absolute;top:900px;left:142px;white-space:nowrap" class="ft02">set_precision()</p>
+<p style="position:absolute;top:900px;left:304px;white-space:nowrap" class="ft02">;&#160;set #PE</p>
+<p style="position:absolute;top:918px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:936px;left:88px;white-space:nowrap" class="ft06">FI;<br/>return(Dest[63:0])</p>
+<p style="position:absolute;top:972px;left:68px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:309px;left:261px;white-space:nowrap" class="ft04">Figure&#160;5-29.&#160;&#160;Imm8 Controls for&#160;VRNDSCALEPD/SD/PS/SS</p>
+<p style="position:absolute;top:402px;left:281px;white-space:nowrap" class="ft04">Table&#160;5-22. VRNDSCALEPD/SD/PS/SS&#160;Special Cases</p>
+<p style="position:absolute;top:426px;left:413px;white-space:nowrap" class="ft02">Returned value&#160;</p>
+<p style="position:absolute;top:450px;left:72px;white-space:nowrap" class="ft02">Src1=±inf&#160;</p>
+<p style="position:absolute;top:450px;left:413px;white-space:nowrap" class="ft02">Src1</p>
+<p style="position:absolute;top:474px;left:72px;white-space:nowrap" class="ft02">Src1=±NAN</p>
+<p style="position:absolute;top:474px;left:413px;white-space:nowrap" class="ft02">Src1 converted to&#160;QNAN</p>
+<p style="position:absolute;top:498px;left:72px;white-space:nowrap" class="ft02">Src1=±0</p>
+<p style="position:absolute;top:498px;left:413px;white-space:nowrap" class="ft02">Src1</p>
+<p style="position:absolute;top:168px;left:174px;white-space:nowrap" class="ft05">7</p>
+<p style="position:absolute;top:168px;left:661px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:168px;left:522px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:168px;left:383px;white-space:nowrap" class="ft05">4</p>
+<p style="position:absolute;top:168px;left:244px;white-space:nowrap" class="ft05">6</p>
+<p style="position:absolute;top:168px;left:313px;white-space:nowrap" class="ft05">5</p>
+<p style="position:absolute;top:168px;left:452px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:168px;left:591px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:189px;left:586px;white-space:nowrap" class="ft05">Round Control Override</p>
+<p style="position:absolute;top:189px;left:246px;white-space:nowrap" class="ft05">Fixed&#160;point length</p>
+<p style="position:absolute;top:244px;left:122px;white-space:nowrap" class="ft05">Imm8[7:4] :&#160;Number&#160;of&#160;fixed points&#160;to&#160;preserve</p>
+<p style="position:absolute;top:188px;left:517px;white-space:nowrap" class="ft05">RS</p>
+<p style="position:absolute;top:230px;left:658px;white-space:nowrap" class="ft07">Imm8[1:0]&#160;= 00b&#160;:&#160;Round nearest even<br/>Imm8[1:0] =&#160;01b :&#160;Round&#160;down<br/>Imm8[1:0]&#160;= 10b&#160;:&#160;Round up<br/>Imm8[1:0] =&#160;11b :&#160;Truncate</p>
+<p style="position:absolute;top:186px;left:93px;white-space:nowrap" class="ft05">imm8</p>
+<p style="position:absolute;top:188px;left:446px;white-space:nowrap" class="ft05">SPE</p>
+<p style="position:absolute;top:240px;left:512px;white-space:nowrap" class="ft07">Round&#160;Select:&#160;Imm8[2]&#160;<br/>Imm8[2]&#160;= 0b&#160;:&#160;Use&#160;Imm8[1:0]<br/>Imm8[2]&#160;= 1b&#160;:&#160;Use&#160;MXCSR</p>
+<p style="position:absolute;top:226px;left:335px;white-space:nowrap" class="ft07">Suppress&#160;Precision Exception:&#160;Imm8[3]&#160;<br/>Imm8[3]&#160;= 0b : Use MXCSR&#160;exception mask<br/>Imm8[3] =&#160;1b&#160;: Suppress</p>
+</div>
+</body>
+</html>

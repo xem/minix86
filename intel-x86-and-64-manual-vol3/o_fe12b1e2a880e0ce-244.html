@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 244</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:9px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft013{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page244-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce244.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">7-6&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">TASK&#160;MANAGEMENT</p>
+<p style="position:absolute;top:465px;left:68px;white-space:nowrap" class="ft08">The&#160;base, limit, and&#160;DPL&#160;fields and the&#160;granularity and present flags&#160;have&#160;functions similar&#160;to their&#160;use in&#160;data-<br/>segment descriptors&#160;<a href="o_fe12b1e2a880e0ce-97.html">(see Section 3.4.5,&#160;“Segment Descriptors”). When the G&#160;</a>flag is 0&#160;in&#160;a TSS descriptor for a 32-<br/>bit TSS,&#160;the&#160;limit field must have&#160;a value&#160;equal&#160;to or&#160;greater than 67H, one&#160;byte less&#160;than the&#160;minimum size&#160;of a&#160;<br/>TSS.&#160;Attempting to switch to a task whose TSS descriptor has a&#160;limit&#160;less than 67H generates an invalid-TSS excep-<br/>tion (#TS). A larger limit&#160;is required&#160;if&#160;an&#160;I/O&#160;permission&#160;bit map&#160;is included or&#160;if&#160;the operating&#160;system&#160;stores&#160;addi-<br/>tional data.&#160;The processor does not&#160;check&#160;for a limit&#160;greater than 67H&#160;on a task&#160;switch;&#160;however,&#160;it does&#160;check&#160;<br/>when&#160;accessing&#160;the I/O&#160;permission&#160;bit map or interrupt redirection bit map.<br/>Any&#160;program or procedure with access to a TSS descriptor (that is, whose&#160;CPL is&#160;numerically equal to or less than&#160;<br/>the&#160;DPL&#160;of&#160;the TSS descriptor)&#160;can dispatch the&#160;task with&#160;a call or&#160;a&#160;jump.&#160;<br/>In&#160;most&#160;systems,&#160;the DPLs of&#160;TSS descriptors are&#160;set&#160;to values less than 3,&#160;so that&#160;only privileged software&#160;can&#160;<br/>perform task switching. However,&#160;in multitasking applications,&#160;DPLs for&#160;some&#160;TSS descriptors&#160;may be set to&#160;3 to&#160;<br/>allow&#160;task switching at&#160;the application (or&#160;user) privilege&#160;level.</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft03">7.2.3&#160;</p>
+<p style="position:absolute;top:712px;left:148px;white-space:nowrap" class="ft03">TSS Descriptor in 64-bit mode</p>
+<p style="position:absolute;top:743px;left:68px;white-space:nowrap" class="ft08">In 64-bit&#160;mode,&#160;task switching is&#160;not supported, but&#160;TSS&#160;descriptors&#160;still exist. The format of&#160;a&#160;64-bit TSS is&#160;<br/>described&#160;<a href="o_fe12b1e2a880e0ce-254.html">in Section 7.7.</a>&#160;<br/>In&#160;64-bit mode,&#160;the TSS descriptor&#160;is expanded&#160;to 16 byte<a href="o_fe12b1e2a880e0ce-245.html">s (see Figure&#160;7-4</a>).&#160;This&#160;expansion also&#160;applies to&#160;an LDT&#160;<br/>descriptor in&#160;64-bit&#160;mode.<a href="o_fe12b1e2a880e0ce-102.html">&#160;Table&#160;3-2</a>&#160;provides&#160;the&#160;encoding information&#160;for&#160;the segment type field.</p>
+<p style="position:absolute;top:419px;left:363px;white-space:nowrap" class="ft04">Figure&#160;7-3. &#160;TSS&#160;Descriptor</p>
+<p style="position:absolute;top:149px;left:250px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:149px;left:341px;white-space:nowrap" class="ft05">24&#160;23&#160;22&#160;21&#160;20&#160;19</p>
+<p style="position:absolute;top:149px;left:441px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:149px;left:479px;white-space:nowrap" class="ft05">13</p>
+<p style="position:absolute;top:149px;left:466px;white-space:nowrap" class="ft05">14</p>
+<p style="position:absolute;top:149px;left:491px;white-space:nowrap" class="ft05">12&#160;11</p>
+<p style="position:absolute;top:150px;left:546px;white-space:nowrap" class="ft05">8&#160;7</p>
+<p style="position:absolute;top:149px;left:649px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:180px;left:455px;white-space:nowrap" class="ft05">P</p>
+<p style="position:absolute;top:179px;left:274px;white-space:nowrap" class="ft06">Base 31:24</p>
+<p style="position:absolute;top:179px;left:354px;white-space:nowrap" class="ft05">G</p>
+<p style="position:absolute;top:171px;left:473px;white-space:nowrap" class="ft011">D<br/>P</p>
+<p style="position:absolute;top:190px;left:474px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:171px;left:517px;white-space:nowrap" class="ft06">Type</p>
+<p style="position:absolute;top:191px;left:494px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:180px;left:380px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:215px;left:249px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:215px;left:441px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:216px;left:649px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:244px;left:303px;white-space:nowrap" class="ft06">Base&#160;Address&#160;15:00</p>
+<p style="position:absolute;top:245px;left:507px;white-space:nowrap" class="ft06">Segment Limit&#160;15:00</p>
+<p style="position:absolute;top:179px;left:578px;white-space:nowrap" class="ft06">Base 23:16</p>
+<p style="position:absolute;top:171px;left:392px;white-space:nowrap" class="ft011">A<br/>V</p>
+<p style="position:absolute;top:190px;left:393px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:174px;left:415px;white-space:nowrap" class="ft06">Limit</p>
+<p style="position:absolute;top:184px;left:413px;white-space:nowrap" class="ft06">19:16</p>
+<p style="position:absolute;top:179px;left:367px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:191px;left:544px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:191px;left:531px;white-space:nowrap" class="ft05">B</p>
+<p style="position:absolute;top:191px;left:519px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:191px;left:507px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:132px;left:408px;white-space:nowrap" class="ft07"><b>TSS Descriptor</b></p>
+<p style="position:absolute;top:290px;left:293px;white-space:nowrap" class="ft012">AVL<br/>B<br/>BASE<br/>DPL<br/>G</p>
+<p style="position:absolute;top:290px;left:340px;white-space:nowrap" class="ft012">Available&#160;for use by system software<br/>Busy flag<br/>Segment Base Address<br/>Descriptor Privilege Level<br/>Granularity</p>
+<p style="position:absolute;top:360px;left:293px;white-space:nowrap" class="ft012">LIMIT<br/>P<br/>TYPE</p>
+<p style="position:absolute;top:360px;left:340px;white-space:nowrap" class="ft012">Segment Limit<br/>Segment Present<br/>Segment&#160;Type</p>
+<p style="position:absolute;top:246px;left:659px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:177px;left:659px;white-space:nowrap" class="ft00">4</p>
+</div>
+</body>
+</html>

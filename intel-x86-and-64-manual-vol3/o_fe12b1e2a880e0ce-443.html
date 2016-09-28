@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 443</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page443-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce443.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;11-31</p>
+<p style="position:absolute;top:47px;left:686px;white-space:nowrap" class="ft01">MEMORY CACHE CONTROL</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">11.11.7.2&#160;&#160;&#160;MemTypeSet() Function</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft04">The&#160;MemTypeSet() function&#160;<a href="o_fe12b1e2a880e0ce-443.html">in Example 11-6&#160;</a>sets&#160;a MTRR for the&#160;physical memory&#160;range&#160;specified&#160;by&#160;the&#160;parame-<br/>ters base and&#160;size to&#160;the type specified by&#160;type. The&#160;base&#160;address&#160;and size&#160;are multiples of 4&#160;KBytes&#160;and&#160;the size&#160;<br/>is not&#160;0.</p>
+<p style="position:absolute;top:201px;left:69px;white-space:nowrap" class="ft01">Example 11-6. &#160;MemTypeSet&#160;Pseudocode</p>
+<p style="position:absolute;top:240px;left:69px;white-space:nowrap" class="ft03">IF&#160;CPU_FEATURES.MTRR (* processor supports MTRRs *)</p>
+<p style="position:absolute;top:258px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:276px;left:116px;white-space:nowrap" class="ft03">IF BASE&#160;and SIZE&#160;are not&#160;4-KByte&#160;aligned&#160;or size&#160;is 0</p>
+<p style="position:absolute;top:294px;left:143px;white-space:nowrap" class="ft03">THEN return INVALID;&#160;</p>
+<p style="position:absolute;top:312px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:330px;left:116px;white-space:nowrap" class="ft03">IF (BASE&#160;+ SIZE)&#160;wrap 4-GByte address space</p>
+<p style="position:absolute;top:348px;left:143px;white-space:nowrap" class="ft03">THEN return INVALID;&#160;</p>
+<p style="position:absolute;top:366px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:384px;left:116px;white-space:nowrap" class="ft03">IF TYPE&#160;is invalid for Pentium 4,&#160;Intel Xeon, and&#160;P6 family</p>
+<p style="position:absolute;top:400px;left:116px;white-space:nowrap" class="ft03">processors</p>
+<p style="position:absolute;top:418px;left:143px;white-space:nowrap" class="ft03">THEN return UNSUPPORTED;&#160;</p>
+<p style="position:absolute;top:436px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:454px;left:116px;white-space:nowrap" class="ft03">IF TYPE&#160;is WC and not supported</p>
+<p style="position:absolute;top:472px;left:143px;white-space:nowrap" class="ft03">THEN return UNSUPPORTED;&#160;</p>
+<p style="position:absolute;top:490px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:508px;left:116px;white-space:nowrap" class="ft03">IF IA32_MTRRCAP.FIX is set AND range can&#160;be mapped using&#160;a</p>
+<p style="position:absolute;top:526px;left:116px;white-space:nowrap" class="ft03">fixed-range MTRR</p>
+<p style="position:absolute;top:544px;left:143px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:562px;left:170px;white-space:nowrap" class="ft03">pre_mtrr_change();</p>
+<p style="position:absolute;top:580px;left:170px;white-space:nowrap" class="ft03">update affected&#160;MTRR;</p>
+<p style="position:absolute;top:598px;left:170px;white-space:nowrap" class="ft03">post_mtrr_change();</p>
+<p style="position:absolute;top:616px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:652px;left:89px;white-space:nowrap" class="ft03">ELSE (*&#160;try to map using&#160;a variable MTRR&#160;pair *)</p>
+<p style="position:absolute;top:670px;left:116px;white-space:nowrap" class="ft03">IF IA32_MTRRCAP.VCNT = 0</p>
+<p style="position:absolute;top:688px;left:143px;white-space:nowrap" class="ft03">THEN return UNSUPPORTED;&#160;</p>
+<p style="position:absolute;top:706px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:724px;left:116px;white-space:nowrap" class="ft03">IF conflicts with current variable ranges&#160;</p>
+<p style="position:absolute;top:742px;left:143px;white-space:nowrap" class="ft03">THEN return RANGE_OVERLAP;</p>
+<p style="position:absolute;top:760px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:778px;left:116px;white-space:nowrap" class="ft03">IF no MTRRs available</p>
+<p style="position:absolute;top:796px;left:143px;white-space:nowrap" class="ft03">THEN return VAR_NOT_AVAILABLE;&#160;</p>
+<p style="position:absolute;top:814px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:832px;left:116px;white-space:nowrap" class="ft03">IF BASE&#160;and SIZE&#160;do not&#160;meet the&#160;power of&#160;2 requirements&#160;for</p>
+<p style="position:absolute;top:850px;left:116px;white-space:nowrap" class="ft03">variable&#160;MTRRs</p>
+<p style="position:absolute;top:868px;left:143px;white-space:nowrap" class="ft03">THEN return INVALID_VAR_REQUEST;&#160;</p>
+<p style="position:absolute;top:886px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:904px;left:116px;white-space:nowrap" class="ft03">pre_mtrr_change();</p>
+<p style="position:absolute;top:922px;left:116px;white-space:nowrap" class="ft03">Update affected&#160;MTRRs;</p>
+<p style="position:absolute;top:940px;left:116px;white-space:nowrap" class="ft03">post_mtrr_change();</p>
+<p style="position:absolute;top:958px;left:69px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:994px;left:69px;white-space:nowrap" class="ft03">pre_mtrr_change()</p>
+<p style="position:absolute;top:1012px;left:89px;white-space:nowrap" class="ft03">BEGIN</p>
+<p style="position:absolute;top:1030px;left:116px;white-space:nowrap" class="ft03">disable interrupts;</p>
+<p style="position:absolute;top:1048px;left:116px;white-space:nowrap" class="ft03">Save current value of CR4;</p>
+<p style="position:absolute;top:1066px;left:116px;white-space:nowrap" class="ft03">disable&#160;and flush caches;</p>
+</div>
+</body>
+</html>

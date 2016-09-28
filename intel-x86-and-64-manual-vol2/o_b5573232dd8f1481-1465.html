@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1465</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1465-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811465.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VDBPSADBW—Double&#160;Block&#160;Packed&#160;Sum-Absolute-Differences&#160;(SAD)&#160;on Unsigned Bytes</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:771px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-79</p>
+<p style="position:absolute;top:100px;left:116px;white-space:nowrap" class="ft03">ABS(SRC1[I+23:&#160;I+16]-&#160;TMP1[I+23: I+16]) +<br/>ABS(SRC1[I+31:&#160;I+24]-&#160;TMP1[I+31: I+24])&#160;</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[I+31: I+16]&#160;ABS(SRC1[I+7: I] - TMP1[I+15: I+8]) +</p>
+<p style="position:absolute;top:172px;left:116px;white-space:nowrap" class="ft03">ABS(SRC1[I+15:&#160;I+8]- TMP1[I+23:&#160;I+16]) +<br/>ABS(SRC1[I+23:&#160;I+16]-&#160;TMP1[I+31: I+24]) +<br/>ABS(SRC1[I+31:&#160;I+24]-&#160;TMP1[I+39: I+32])</p>
+<p style="position:absolute;top:226px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[I+47: I+32]&#160;ABS(SRC1[I+39:&#160;I+32] - TMP1[I+23: I+16]) +</p>
+<p style="position:absolute;top:244px;left:116px;white-space:nowrap" class="ft03">ABS(SRC1[I+47:&#160;I+40]-&#160;TMP1[I+31: I+24]) +<br/>ABS(SRC1[I+55:&#160;I+48]-&#160;TMP1[I+39: I+32]) +<br/>ABS(SRC1[I+63:&#160;I+56]-&#160;TMP1[I+47: I+40])&#160;</p>
+<p style="position:absolute;top:316px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[I+63: I+48]&#160;ABS(SRC1[I+39:&#160;I+32] - TMP1[I+31: I+24]) +</p>
+<p style="position:absolute;top:334px;left:116px;white-space:nowrap" class="ft03">ABS(SRC1[I+47:&#160;I+40] -&#160;TMP1[I+39: I+32]) +<br/>ABS(SRC1[I+55:&#160;I+48] -&#160;TMP1[I+47: I+40]) +<br/>ABS(SRC1[I+63:&#160;I+56]&#160;- TMP1[I+55: I+48])</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft02">ENDFOR</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:442px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:478px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+15:i]&#160;&#160;TMP_DEST[i+15:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:514px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:514px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:532px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:550px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:568px;left:197px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0</p>
+<p style="position:absolute;top:586px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:604px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:674px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:697px;left:69px;white-space:nowrap" class="ft03">VDBPSADBW&#160;__m512i&#160;_mm512_dbsad_epu8(__m512i a,&#160;__m512i&#160;b);<br/>VDBPSADBW&#160;__m512i&#160;_mm512_mask_dbsad_epu8(__m512i s,&#160;__mmask32 m,&#160;__m512i&#160;a, __m512i b);<br/>VDBPSADBW&#160;__m512i&#160;_mm512_maskz_dbsad_epu8(__mmask32&#160;m, __m512i a, __m512i b);<br/>VDBPSADBW&#160;__m256i&#160;_mm256_dbsad_epu8(__m256i a,&#160;__m256i&#160;b);<br/>VDBPSADBW&#160;__m256i&#160;_mm256_mask_dbsad_epu8(__m256i s,&#160;__mmask16 m,&#160;__m256i&#160;a, __m256i b);<br/>VDBPSADBW&#160;__m256i&#160;_mm256_maskz_dbsad_epu8(__mmask16&#160;m, __m256i a, __m256i b);<br/>VDBPSADBW&#160;__m128i&#160;_mm_dbsad_epu8(__m128i a, __m128i b);<br/>VDBPSADBW&#160;__m128i&#160;_mm_mask_dbsad_epu8(__m128i s, __mmask8 m, __m128i a,&#160;__m128i&#160;b);<br/>VDBPSADBW&#160;__m128i&#160;_mm_maskz_dbsad_epu8(__mmask8 m,&#160;__m128i&#160;a, __m128i b);</p>
+<p style="position:absolute;top:876px;left:69px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:898px;left:69px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:933px;left:69px;white-space:nowrap" class="ft01">Other Exceptions</p>
+<p style="position:absolute;top:955px;left:69px;white-space:nowrap" class="ft02">See&#160;Exceptions Type&#160;E4NF.nb.</p>
+</div>
+</body>
+</html>

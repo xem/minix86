@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1266</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1266-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1266.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">34-16&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">34.12.1&#160;&#160;Back-to-Back SMI Interrupts When&#160;I/O Instruction Restart Is Being Used</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft07">If&#160;an&#160;SMI&#160;interrupt&#160;is&#160;signaled&#160;while&#160;the&#160;processor&#160;is&#160;servicing an SMI interrupt that occurred on an I/O instruction&#160;<br/>boundary,&#160;the processor will service&#160;the&#160;new&#160;SMI request before restarting the&#160;originally interrupted&#160;I/O&#160;instruc-<br/>tion. If the I/O instruction restart field is set to FFH prior&#160;to returning from the second&#160;SMI handler,&#160;the EIP will point&#160;<br/>to an&#160;address different&#160;from the&#160;originally interrupted&#160;I/O instruction,&#160;which will&#160;likely lead to&#160;a program error.&#160;To&#160;<br/>avoid this&#160;situation, the SMI handler must&#160;be&#160;able to&#160;recognize the occurrence&#160;of&#160;back-to-back&#160;SMI&#160;interrupts when&#160;<br/>I/O instruction restart&#160;is being used and insure&#160;that&#160;the handler sets&#160;the I/O instruction restart&#160;field to&#160;00H prior&#160;to&#160;<br/>returning&#160;from&#160;the second invocation of the&#160;SMI handler.</p>
+<p style="position:absolute;top:283px;left:68px;white-space:nowrap" class="ft04">34.13&#160;&#160;SMM MULTIPLE-PROCESSOR CONSIDERATIONS</p>
+<p style="position:absolute;top:319px;left:68px;white-space:nowrap" class="ft03">The following should&#160;be&#160;noted when designing&#160;multiple-processor systems:</p>
+<p style="position:absolute;top:341px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:342px;left:93px;white-space:nowrap" class="ft03">Any processor in a&#160;multiprocessor&#160;system&#160;can respond to&#160;an SMM.</p>
+<p style="position:absolute;top:364px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:364px;left:93px;white-space:nowrap" class="ft03">Each processor needs its&#160;own&#160;SMRAM&#160;space. This space&#160;can&#160;be&#160;in&#160;system memory or in&#160;a separate&#160;RAM.</p>
+<p style="position:absolute;top:386px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:387px;left:93px;white-space:nowrap" class="ft07">The&#160;SMRAMs&#160;for different processors can&#160;be&#160;overlapped&#160;in&#160;the same&#160;memory&#160;space.&#160;The only&#160;stipulation is that&#160;<br/>each&#160;processor needs&#160;its own&#160;state&#160;save&#160;area and&#160;its&#160;own dynamic data storage&#160;area.&#160;(Also,&#160;for the&#160;Pentium&#160;<br/>and&#160;Intel486&#160;processors,&#160;the&#160;SMBASE&#160;address&#160;must be&#160;located on&#160;a 32-KByte&#160;boundary.)&#160;Code and static&#160;data&#160;<br/>can be shared&#160;among processors.&#160;Overlapping&#160;SMRAM&#160;spaces&#160;can&#160;be done more&#160;efficiently&#160;with&#160;the P6 family&#160;<br/>processors because they&#160;do not&#160;require&#160;that&#160;the&#160;SMBASE address&#160;be&#160;on a&#160;32-KByte boundary.&#160;</p>
+<p style="position:absolute;top:475px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:475px;left:93px;white-space:nowrap" class="ft03">The&#160;SMI handler will need&#160;to&#160;initialize&#160;the SMBASE for each&#160;processor.</p>
+<p style="position:absolute;top:497px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:498px;left:93px;white-space:nowrap" class="ft07">Processors&#160;can respond to&#160;local SMIs through&#160;their SMI#&#160;pins&#160;or&#160;to&#160;SMIs&#160;received&#160;through&#160;the APIC interface.&#160;<br/>The&#160;APIC interface can&#160;distribute&#160;SMIs to different processors.</p>
+<p style="position:absolute;top:536px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:537px;left:93px;white-space:nowrap" class="ft03">Two or&#160;more&#160;processors&#160;can be executing in&#160;SMM at&#160;the same&#160;time.</p>
+<p style="position:absolute;top:559px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:559px;left:93px;white-space:nowrap" class="ft08">When operating&#160;Pentium processors in&#160;dual&#160;processing&#160;(DP)&#160;mode, the&#160;SMIACT#&#160;pin is driven&#160;only by&#160;the&#160;MRM&#160;<br/>processor and&#160;should be sampled&#160;with ADS#.&#160;For additional details, see Chapter&#160;14&#160;of&#160;the&#160;<i>Pentium</i>&#160;<i>Processor&#160;<br/>Family&#160;User’s Manual, Volume&#160;1</i>.</p>
+<p style="position:absolute;top:616px;left:68px;white-space:nowrap" class="ft07">SMM is&#160;not re-entrant,&#160;because&#160;the SMRAM State&#160;Save&#160;Map is&#160;fixed relative&#160;to the&#160;SMBASE. If there is&#160;a need to&#160;<br/>support two or&#160;more processors in&#160;SMM mode at&#160;the same&#160;time&#160;then each processor should&#160;have dedicated&#160;SMRAM&#160;<br/>spaces.&#160;This can&#160;be&#160;done by&#160;using the&#160;SMBASE Relocation&#160;feature&#160;(see<a href="o_fe12b1e2a880e0ce-1264.html">&#160;Section 34.11).</a></p>
+<p style="position:absolute;top:705px;left:68px;white-space:nowrap" class="ft04">34.14&#160;&#160;DEFAULT TREATMENT OF&#160;SMIS AND SMM WITH VMX OPERATION AND&#160;</p>
+<p style="position:absolute;top:730px;left:146px;white-space:nowrap" class="ft04">SMX OPERATION</p>
+<p style="position:absolute;top:766px;left:68px;white-space:nowrap" class="ft07">Under the&#160;default&#160;treatment,&#160;the interactions of SMIs&#160;and SMM&#160;with&#160;VMX operation are&#160;few.&#160;This section&#160;details&#160;<br/>those interactions.&#160;It also&#160;explains how this&#160;treatment affects&#160;SMX operation.</p>
+<p style="position:absolute;top:833px;left:68px;white-space:nowrap" class="ft02">34.14.1&#160;&#160;Default Treatment of&#160;SMI Delivery</p>
+<p style="position:absolute;top:864px;left:68px;white-space:nowrap" class="ft07">Ordinary&#160;SMI&#160;delivery saves processor state&#160;into SMRAM and then&#160;loads&#160;state based&#160;on architectural&#160;definitions.&#160;<br/>Under&#160;the default treatment, processors that&#160;support&#160;VMX operation perform&#160;SMI delivery as&#160;follows:</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft09">enter SMM;<br/>save&#160;the following&#160;internal to&#160;the&#160;processor:</p>
+<p style="position:absolute;top:946px;left:88px;white-space:nowrap" class="ft09">CR4.VMXE<br/>an&#160;indication&#160;of&#160;whether the logical processor was in&#160;VMX operation&#160;(root or non-root)</p>
+<p style="position:absolute;top:982px;left:68px;white-space:nowrap" class="ft03">IF the logical processor&#160;is in&#160;VMX operation</p>
+<p style="position:absolute;top:1000px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:1018px;left:115px;white-space:nowrap" class="ft09">save&#160;current VMCS pointer&#160;internal to the processor;<br/>leave VMX operation;<br/>save VMX-critical&#160;state&#160;defined below;</p>
+</div>
+</body>
+</html>

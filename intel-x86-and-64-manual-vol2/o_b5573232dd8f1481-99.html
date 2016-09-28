@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 99</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page99-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481099.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 2A&#160;2-39</p>
+<p style="position:absolute;top:47px;left:706px;white-space:nowrap" class="ft01">INSTRUCTION FORMAT</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07">standard&#160;modR/M&#160;byte’s&#160;reg&#160;field&#160;and&#160;rm field&#160;and&#160;VEX.vvvv.&#160;Such&#160;a scalar&#160;opmask instruction does not&#160;<br/>support conditional&#160;update&#160;of&#160;the destination operand.</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft07">An opmask register providing conditional processing and/or conditional update of the destination register of a&#160;<br/>vector instruction is&#160;encoded using&#160;EVEX<a href="o_b5573232dd8f1481-99.html">.aaa field (see Section 2.6.4).</a></p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:178px;left:95px;white-space:nowrap" class="ft07">An&#160;opmask register serving as&#160;the&#160;destination or source&#160;operand of a&#160;vector&#160;instruction&#160;is encoded&#160;using&#160;<br/>standard&#160;modR/M&#160;byte’s&#160;reg&#160;field&#160;and&#160;rm fields.</p>
+<p style="position:absolute;top:458px;left:69px;white-space:nowrap" class="ft04">2.6.4&#160;</p>
+<p style="position:absolute;top:458px;left:150px;white-space:nowrap" class="ft04">Masking Support in EVEX</p>
+<p style="position:absolute;top:486px;left:69px;white-space:nowrap" class="ft08">EVEX&#160;can&#160;encode&#160;an opmask register to conditionally&#160;control&#160;per-element computational operation&#160;and updating of&#160;<br/>result&#160;of an&#160;instruction&#160;to&#160;the destination operand.&#160;The&#160;predicate&#160;operand&#160;is&#160;known&#160;as the&#160;opmask register.&#160;The&#160;<br/>EVEX.aaa&#160;field, P[18:16] of&#160;the&#160;EVEX&#160;prefix,&#160;is used to&#160;encode one&#160;out&#160;of&#160;a set of eight 64-bit&#160;architectural regis-<br/>ters. Note&#160;that from this set of 8 architectural&#160;registers,&#160;only k1&#160;through k7 can&#160;be&#160;addressed&#160;as predicate&#160;oper-<br/>ands.&#160;k0&#160;can be used as&#160;a regular source&#160;or&#160;destination but&#160;cannot be&#160;encoded&#160;as a&#160;predicate operand.&#160;<br/>AVX-512 instructions support two&#160;types of masking&#160;with EVEX.z bit (P[23]) controlling&#160;the type&#160;of masking:&#160;</p>
+<p style="position:absolute;top:595px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:595px;left:95px;white-space:nowrap" class="ft07">Merging-masking, which&#160;is&#160;the&#160;default type of masking&#160;for EVEX-encoded vector instructions, preserves the old&#160;<br/>value of each element of&#160;the destination&#160;where the&#160;corresponding mask bit has a&#160;0.&#160;It&#160;corresponds to&#160;the&#160;case&#160;<br/>of EVEX.z = 0.</p>
+<p style="position:absolute;top:650px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:651px;left:95px;white-space:nowrap" class="ft07">Zeroing-masking, is enabled by having&#160;the EVEX.z bit set to 1. In this case,&#160;an element of the destination is set&#160;<br/>to&#160;0 when the&#160;corresponding&#160;mask bit&#160;has a&#160;0 value.&#160;</p>
+<p style="position:absolute;top:688px;left:69px;white-space:nowrap" class="ft02">AVX-512 Foundation&#160;instructions&#160;can&#160;be&#160;divided into&#160;the following groups:</p>
+<p style="position:absolute;top:710px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:711px;left:95px;white-space:nowrap" class="ft09">Instructions&#160;which&#160;support “zeroing-masking”.<br/>—&#160;Also allow merging-masking.</p>
+<p style="position:absolute;top:757px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:757px;left:95px;white-space:nowrap" class="ft09">Instructions&#160;which require&#160;aaa = 000.<br/>—&#160;Do&#160;not allow any&#160;form of&#160;masking.</p>
+<p style="position:absolute;top:803px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:804px;left:95px;white-space:nowrap" class="ft09">Instructions which&#160;allow merging-masking&#160;but do&#160;not allow zeroing-masking.<br/>—&#160;Require EVEX.z to&#160;be&#160;set to&#160;0.<br/>—&#160;This group&#160;is mostly composed&#160;of&#160;instructions&#160;that&#160;write to&#160;memory.</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:874px;left:95px;white-space:nowrap" class="ft09">Instructions which&#160;require aaa&#160;&lt;&gt; 000 do not allow EVEX.z to&#160;be&#160;set&#160;to 1.<br/>—&#160;Allow merging-masking and&#160;do&#160;not&#160;allow&#160;zeroing-masking, e.g., gather&#160;instructions.</p>
+<p style="position:absolute;top:949px;left:69px;white-space:nowrap" class="ft04">2.6.5 Compressed&#160;</p>
+<p style="position:absolute;top:949px;left:253px;white-space:nowrap" class="ft04">Displacement (disp8*N) Support in EVEX</p>
+<p style="position:absolute;top:976px;left:69px;white-space:nowrap" class="ft07">For memory addressing&#160;using disp8&#160;form, EVEX-encoded&#160;instructions&#160;always use&#160;a compressed&#160;displacement&#160;<br/>scheme by&#160;multiplying disp8&#160;in conjunction with a&#160;scaling&#160;factor&#160;N that&#160;is determined&#160;based on the&#160;vector length,&#160;<br/>the value of EVEX.b bit (embedded broadcast) and the input&#160;element size of the instruction.&#160;In general,&#160;the factor&#160;<br/>N corresponds to the number&#160;of&#160;bytes characterizing the&#160;internal&#160;memory operation of&#160;the input operand (e.g., 64&#160;<br/>when the accessing a full 512-bit memory vector). The scale&#160;factor N&#160;is listed&#160;<a href="o_b5573232dd8f1481-100.html">in Table 2-34 and Table&#160;2-35 be</a>low,&#160;</p>
+<p style="position:absolute;top:228px;left:290px;white-space:nowrap" class="ft05">Table 2-33. &#160;Opmask Register Specifier&#160;Encoding</p>
+<p style="position:absolute;top:255px;left:256px;white-space:nowrap" class="ft02">[2:0]</p>
+<p style="position:absolute;top:255px;left:373px;white-space:nowrap" class="ft02">Register&#160;Access</p>
+<p style="position:absolute;top:255px;left:615px;white-space:nowrap" class="ft02">Common Usages&#160;</p>
+<p style="position:absolute;top:280px;left:81px;white-space:nowrap" class="ft02">REG</p>
+<p style="position:absolute;top:280px;left:240px;white-space:nowrap" class="ft02">modrm.reg</p>
+<p style="position:absolute;top:280px;left:405px;white-space:nowrap" class="ft02">k0-k7</p>
+<p style="position:absolute;top:280px;left:646px;white-space:nowrap" class="ft02">Source</p>
+<p style="position:absolute;top:304px;left:81px;white-space:nowrap" class="ft02">NDS</p>
+<p style="position:absolute;top:304px;left:243px;white-space:nowrap" class="ft02">VEX.vvvv</p>
+<p style="position:absolute;top:304px;left:405px;white-space:nowrap" class="ft02">k0-k7</p>
+<p style="position:absolute;top:304px;left:633px;white-space:nowrap" class="ft02">2nd Source&#160;</p>
+<p style="position:absolute;top:328px;left:81px;white-space:nowrap" class="ft02">RM</p>
+<p style="position:absolute;top:328px;left:239px;white-space:nowrap" class="ft02">modrm.r/m</p>
+<p style="position:absolute;top:328px;left:408px;white-space:nowrap" class="ft02">k0-7</p>
+<p style="position:absolute;top:328px;left:635px;white-space:nowrap" class="ft02">1st Source&#160;</p>
+<p style="position:absolute;top:356px;left:81px;white-space:nowrap" class="ft02">{k1}</p>
+<p style="position:absolute;top:354px;left:243px;white-space:nowrap" class="ft02">EVEX.aaa</p>
+<p style="position:absolute;top:356px;left:400px;white-space:nowrap" class="ft02">k0</p>
+<p style="position:absolute;top:353px;left:414px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:356px;left:420px;white-space:nowrap" class="ft02">-k7</p>
+<p style="position:absolute;top:383px;left:76px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:401px;left:75px;white-space:nowrap" class="ft02">1.&#160;Instructions that&#160;overwrite the&#160;conditional mask in&#160;opmask do&#160;not permit using k0 as&#160;the&#160;embedded mask.</p>
+<p style="position:absolute;top:354px;left:643px;white-space:nowrap" class="ft02">Opmask</p>
+</div>
+</body>
+</html>

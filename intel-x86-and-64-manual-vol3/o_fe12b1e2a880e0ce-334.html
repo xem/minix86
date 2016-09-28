@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 334</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page334-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce334.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-22&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:106px;left:68px;white-space:nowrap" class="ft02">&#160;261 &#160; &#160; &#160;REP MOVS &#160;&#160; BYTE PTR ES:[EDI],BYTE&#160;PTR DS:[ESI]</p>
+<p style="position:absolute;top:124px;left:68px;white-space:nowrap" class="ft02">&#160;262</p>
+<p style="position:absolute;top:142px;left:68px;white-space:nowrap" class="ft02">&#160;263 &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160;&#160; ; fixup TSS pointer</p>
+<p style="position:absolute;top:160px;left:68px;white-space:nowrap" class="ft02">&#160;264 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; GS:[EBX].bas_0_15,DX</p>
+<p style="position:absolute;top:178px;left:68px;white-space:nowrap" class="ft02">&#160;265 &#160; &#160; &#160; &#160;&#160; ROL &#160;&#160;&#160; EDX,16</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft02">&#160;266 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; GS:[EBX].bas_24_31,DH</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft02">&#160;267 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; GS:[EBX].bas_16_23,DL</p>
+<p style="position:absolute;top:232px;left:68px;white-space:nowrap" class="ft02">&#160;268 &#160; &#160; &#160; &#160;&#160; ROL &#160;&#160;&#160; EDX,16</p>
+<p style="position:absolute;top:250px;left:68px;white-space:nowrap" class="ft02">&#160;269 &#160; &#160; &#160;;save start of free ram at&#160;linear&#160;location&#160;RAMSTART</p>
+<p style="position:absolute;top:268px;left:68px;white-space:nowrap" class="ft02">&#160;270 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; free_mem_linear_base+RAM_START,EAX</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft02">&#160;271</p>
+<p style="position:absolute;top:304px;left:68px;white-space:nowrap" class="ft02">&#160;272 &#160; &#160; &#160;;assume no&#160; LDT used in &#160;the initial task&#160;&#160;- if necessary,</p>
+<p style="position:absolute;top:322px;left:68px;white-space:nowrap" class="ft02">&#160;273 &#160; &#160; &#160;;code &#160;to&#160;move the&#160;LDT could be added, and&#160;should resemble</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft02">&#160;274 &#160; &#160; &#160;;that used&#160;to move&#160;the TSS</p>
+<p style="position:absolute;top:358px;left:68px;white-space:nowrap" class="ft02">&#160;275</p>
+<p style="position:absolute;top:376px;left:68px;white-space:nowrap" class="ft02">&#160;276 &#160; &#160; &#160;;&#160;load task register</p>
+<p style="position:absolute;top:394px;left:68px;white-space:nowrap" class="ft02">&#160;277 &#160; &#160; &#160; &#160;&#160; LTR &#160;&#160;&#160; BX &#160; ;&#160;No task&#160;switch,&#160;only descriptor&#160;loading</p>
+<p style="position:absolute;top:412px;left:68px;white-space:nowrap" class="ft02">&#160;278 &#160; &#160; &#160;;&#160;<a href="o_fe12b1e2a880e0ce-337.html">See Figure&#160;9-6</a></p>
+<p style="position:absolute;top:430px;left:68px;white-space:nowrap" class="ft02">&#160;279 &#160; &#160; &#160;;&#160;load minimal set&#160;of registers necessary&#160;to simulate task</p>
+<p style="position:absolute;top:448px;left:68px;white-space:nowrap" class="ft02">&#160;280 &#160; &#160; &#160;;&#160;switch</p>
+<p style="position:absolute;top:466px;left:68px;white-space:nowrap" class="ft02">&#160;281 &#160;</p>
+<p style="position:absolute;top:484px;left:68px;white-space:nowrap" class="ft02">&#160;282</p>
+<p style="position:absolute;top:502px;left:68px;white-space:nowrap" class="ft02">&#160;283 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; AX,[EDX].SS_reg &#160; &#160; ;&#160;start loading registers</p>
+<p style="position:absolute;top:520px;left:68px;white-space:nowrap" class="ft02">&#160;284 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; EDI,[EDX].ESP_reg</p>
+<p style="position:absolute;top:538px;left:68px;white-space:nowrap" class="ft02">&#160;285 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; SS,AX</p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft02">&#160;286 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; ESP,EDI &#160; &#160; &#160;&#160;&#160; &#160; &#160; ;&#160;stack now valid</p>
+<p style="position:absolute;top:574px;left:68px;white-space:nowrap" class="ft02">&#160;287 &#160; &#160; &#160; &#160;&#160; PUSH &#160;&#160; DWORD&#160;PTR [EDX].EFLAGS_reg</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft02">&#160;288 &#160; &#160; &#160; &#160;&#160; PUSH &#160;&#160; DWORD&#160;PTR [EDX].CS_reg</p>
+<p style="position:absolute;top:610px;left:68px;white-space:nowrap" class="ft02">&#160;289 &#160; &#160; &#160; &#160;&#160; PUSH &#160;&#160; DWORD&#160;PTR [EDX].EIP_reg</p>
+<p style="position:absolute;top:628px;left:68px;white-space:nowrap" class="ft02">&#160;290 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; AX,[EDX].DS_reg</p>
+<p style="position:absolute;top:646px;left:68px;white-space:nowrap" class="ft02">&#160;291 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; BX,[EDX].ES_reg</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft02">&#160;292 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; DS,AX&#160;&#160; &#160; ; DS&#160;and ES&#160;no longer linear&#160;memory</p>
+<p style="position:absolute;top:682px;left:68px;white-space:nowrap" class="ft02">&#160;293 &#160; &#160; &#160; &#160;&#160; MOV &#160;&#160;&#160; ES,BX</p>
+<p style="position:absolute;top:700px;left:76px;white-space:nowrap" class="ft02">294</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft02">&#160;295 &#160; &#160; &#160; &#160;&#160; ; simulate far&#160;jump to&#160;initial&#160;task</p>
+<p style="position:absolute;top:736px;left:68px;white-space:nowrap" class="ft02">&#160;296 &#160; &#160; &#160; &#160;&#160; IRETD</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft02">&#160;297</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft02">&#160;298 &#160;STARTUP_CODE &#160;ENDS</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft02">***&#160;WARNING&#160;#377 IN&#160;298, (PASS 2) SEGMENT CONTAINS PRIVILEGED&#160;INSTRUCTION(S)</p>
+<p style="position:absolute;top:808px;left:68px;white-space:nowrap" class="ft02">&#160;299</p>
+<p style="position:absolute;top:826px;left:68px;white-space:nowrap" class="ft02">&#160;300 &#160;END STARTUP, DS:STARTUP_DATA,&#160;SS:STARTUP_DATA</p>
+<p style="position:absolute;top:844px;left:68px;white-space:nowrap" class="ft02">&#160;301</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft02">&#160;302</p>
+<p style="position:absolute;top:898px;left:68px;white-space:nowrap" class="ft02">ASSEMBLY COMPLETE, &#160;&#160;1 WARNING, &#160; NO&#160;ERRORS.</p>
+</div>
+</body>
+</html>

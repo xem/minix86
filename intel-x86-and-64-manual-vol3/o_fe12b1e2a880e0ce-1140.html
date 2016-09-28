@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1140</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1140-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1140.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">27-22&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;EXITS</p>
+<p style="position:absolute;top:100px;left:119px;white-space:nowrap" class="ft02">stack had the event been&#160;delivered through a trap or interrupt gate,</p>
+<p style="position:absolute;top:98px;left:569px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:100px;left:576px;white-space:nowrap" class="ft02">&#160;or into the old task-state&#160;segment had&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft02">the event been delivered&#160;through&#160;a task&#160;gate).</p>
+<p style="position:absolute;top:141px;left:93px;white-space:nowrap" class="ft02">—&#160;If the&#160;VM&#160;exit&#160;is due to&#160;a triple fault,&#160;the value&#160;saved is&#160;the return&#160;pointer that&#160;would&#160;have&#160;been&#160;saved&#160;</p>
+<p style="position:absolute;top:157px;left:119px;white-space:nowrap" class="ft06">(either on the&#160;stack had&#160;the event been&#160;delivered&#160;through&#160;a trap or&#160;interrupt gate,&#160;or&#160;into the&#160;old&#160;task-state&#160;<br/>segment had&#160;the event been&#160;delivered&#160;through a&#160;task gate) had delivery of the double fault not&#160;<br/>encountered&#160;the nested exception&#160;that caused the&#160;triple&#160;fault.</p>
+<p style="position:absolute;top:214px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the VM&#160;exit is&#160;due&#160;to a&#160;software&#160;exception (due&#160;to an&#160;execution of INT3 or&#160;INTO), the&#160;value saved&#160;</p>
+<p style="position:absolute;top:231px;left:119px;white-space:nowrap" class="ft02">references the&#160;INT3&#160;or INTO&#160;instruction that&#160;caused&#160;that exception.</p>
+<p style="position:absolute;top:255px;left:93px;white-space:nowrap" class="ft02">—&#160;Suppose&#160;that&#160;the&#160;VM&#160;exit is&#160;due to&#160;a task&#160;switch&#160;that&#160;was caused&#160;by&#160;execution of CALL, IRET, or JMP&#160;or&#160;by&#160;</p>
+<p style="position:absolute;top:271px;left:119px;white-space:nowrap" class="ft06">execution of a&#160;software interrupt&#160;(INT&#160;<i>n</i>) or&#160;software exception (due to&#160;execution of INT3&#160;or&#160;INTO) that&#160;<br/>encountered a task gate in&#160;the IDT.&#160;The&#160;value saved references the instruction&#160;that caused the task switch&#160;<br/>(CALL, IRET, JMP,&#160;INT&#160;<i>n</i>, INT3,&#160;or INTO).</p>
+<p style="position:absolute;top:328px;left:93px;white-space:nowrap" class="ft02">—&#160;Suppose that&#160;the VM&#160;exit is&#160;due to&#160;a task&#160;switch&#160;that&#160;was caused by&#160;a task gate in&#160;the IDT that was&#160;</p>
+<p style="position:absolute;top:345px;left:119px;white-space:nowrap" class="ft06">encountered for any&#160;reason except&#160;the direct access by&#160;a&#160;software&#160;interrupt or&#160;software exception.&#160;The&#160;<br/>value saved&#160;is that&#160;which would have been saved in&#160;the old task-state segment had&#160;the&#160;task&#160;switch&#160;<br/>completed normally.</p>
+<p style="position:absolute;top:402px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the VM&#160;exit is&#160;due&#160;to an execution of MOV&#160;to&#160;CR8&#160;or&#160;WRMSR that&#160;reduced the&#160;value of bits&#160;7:4 of&#160;VTPR&#160;</p>
+<p style="position:absolute;top:418px;left:119px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-1167.html">(see Section 29.1.1)</a>&#160;below that of TPR threshold&#160;VM-execution&#160;control field&#160;(see<a href="o_fe12b1e2a880e0ce-1168.html">&#160;Section&#160;29.1.2</a>), the value&#160;<br/>saved references the instruction following&#160;the MOV&#160;to&#160;CR8 or&#160;WRMSR.</p>
+<p style="position:absolute;top:459px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the&#160;VM&#160;exit&#160;was caused&#160;by APIC-write<a href="o_fe12b1e2a880e0ce-1174.html">&#160;emulation (see&#160;Section 29.4.3.2) that&#160;</a>results from an&#160;APIC access&#160;</p>
+<p style="position:absolute;top:475px;left:119px;white-space:nowrap" class="ft06">as part&#160;of instruction execution, the&#160;value&#160;saved&#160;references the&#160;instruction following&#160;the one&#160;whose&#160;<br/>execution caused the&#160;APIC-write emulation.</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:514px;left:93px;white-space:nowrap" class="ft02">The&#160;contents of&#160;the&#160;RSP register&#160;are&#160;saved&#160;into the&#160;RSP&#160;field.</p>
+<p style="position:absolute;top:536px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:537px;left:93px;white-space:nowrap" class="ft07">With the&#160;exception of the&#160;resume flag&#160;(RF;&#160;bit&#160;16),&#160;the contents of&#160;the RFLAGS register&#160;is saved&#160;into&#160;the&#160;<br/>RFLAGS field.&#160;RFLAGS.RF is&#160;saved as follows:<br/>—&#160;If the&#160;VM&#160;exit&#160;occurred&#160;in&#160;enclave mode, the&#160;value saved is&#160;0&#160;(the remaining&#160;items do not apply).<br/>—&#160;If the&#160;VM&#160;exit&#160;is caused directly by an&#160;event&#160;that&#160;would normally&#160;be delivered through&#160;the IDT,&#160;the&#160;value&#160;</p>
+<p style="position:absolute;top:618px;left:119px;white-space:nowrap" class="ft06">saved&#160;is that&#160;which would&#160;appear&#160;in the&#160;saved RFLAGS image&#160;(either&#160;that which would be&#160;saved on&#160;the&#160;<br/>stack had the event&#160;been delivered&#160;through a trap or interrupt&#160;gate</p>
+<p style="position:absolute;top:632px;left:567px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:634px;left:574px;white-space:nowrap" class="ft02">&#160;or into&#160;the old task-state segment had&#160;</p>
+<p style="position:absolute;top:651px;left:119px;white-space:nowrap" class="ft06">the&#160;event&#160;been delivered through&#160;a task gate) had the&#160;event&#160;been delivered through&#160;the IDT.&#160;See&#160;below for&#160;<br/>VM&#160;exits&#160;due to&#160;task switches caused by task&#160;gates&#160;in the&#160;IDT.</p>
+<p style="position:absolute;top:691px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the VM&#160;exit is&#160;caused&#160;by a triple&#160;fault, the&#160;value&#160;saved is&#160;that which the&#160;logical processor would&#160;have in&#160;</p>
+<p style="position:absolute;top:708px;left:119px;white-space:nowrap" class="ft02">RF in&#160;the RFLAGS register&#160;had the&#160;triple fault taken&#160;the logical processor to&#160;the shutdown state.</p>
+<p style="position:absolute;top:732px;left:93px;white-space:nowrap" class="ft02">—&#160;If the&#160;VM&#160;exit&#160;is caused by&#160;a&#160;task switch (including&#160;one caused by&#160;a task gate in&#160;the IDT),&#160;the value saved&#160;</p>
+<p style="position:absolute;top:748px;left:119px;white-space:nowrap" class="ft06">is&#160;that which would have&#160;been&#160;saved&#160;in the RFLAGS image in&#160;the&#160;old task-state segment (TSS) had the&#160;task&#160;<br/>switch&#160;completed normally&#160;without&#160;exception.</p>
+<p style="position:absolute;top:789px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;the VM&#160;exit&#160;is caused by an attempt to execute an instruction that unconditionally causes VM&#160;exits or one&#160;</p>
+<p style="position:absolute;top:805px;left:119px;white-space:nowrap" class="ft02">that was&#160;configured&#160;to do&#160;with&#160;a VM-execution&#160;control, the&#160;value saved is&#160;0.</p>
+<p style="position:absolute;top:803px;left:630px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:829px;left:93px;white-space:nowrap" class="ft02">—&#160;For APIC-access&#160;VM&#160;exits&#160;and for VM&#160;exits caused&#160;by&#160;EPT violations EPT misconfigurations,&#160;and page-</p>
+<p style="position:absolute;top:846px;left:119px;white-space:nowrap" class="ft06">modification&#160;log-full&#160;events,&#160;the value saved depends&#160;on whether the VM&#160;exit&#160;occurred&#160;during delivery&#160;of&#160;an&#160;<br/>event through&#160;the&#160;IDT:</p>
+<p style="position:absolute;top:930px;left:68px;white-space:nowrap" class="ft02">1.&#160;The&#160;reference&#160;here&#160;is&#160;to&#160;the&#160;full&#160;value&#160;of&#160;RIP&#160;before&#160;any&#160;truncation&#160;that&#160;would occur had the&#160;stack width been&#160;only 32&#160;bits&#160;or 16&#160;</p>
+<p style="position:absolute;top:946px;left:89px;white-space:nowrap" class="ft02">bits.</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft02">2.&#160;The&#160;reference here&#160;is&#160;to&#160;the&#160;full value of&#160;RFLAGS before&#160;any truncation that&#160;would occur&#160;had the stack&#160;width been&#160;only 32&#160;bits or&#160;</p>
+<p style="position:absolute;top:984px;left:89px;white-space:nowrap" class="ft02">16&#160;bits.</p>
+<p style="position:absolute;top:1005px;left:68px;white-space:nowrap" class="ft02">3.&#160;This&#160;is true&#160;even&#160;if RFLAGS.RF was 1 before&#160;the&#160;instruction was executed.&#160;If,&#160;in&#160;response to&#160;such&#160;a&#160;VM&#160;exit,&#160;a&#160;VM&#160;monitor&#160;re-enters&#160;</p>
+<p style="position:absolute;top:1021px;left:89px;white-space:nowrap" class="ft02">the guest to&#160;re-execute the instruction that&#160;caused&#160;the VM&#160;exit&#160;(for&#160;example,&#160;after clearing&#160;the VM-execution&#160;control that&#160;caused&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft02">the VM&#160;exit),&#160;the instruction may encounter&#160;a&#160;code&#160;breakpoint&#160;that&#160;has&#160;already been&#160;processed.&#160;A VM&#160;monitor can avoid this&#160;by set-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">ting the guest value of&#160;RFLAGS.RF to&#160;1&#160;before&#160;resuming&#160;guest&#160;software.</p>
+</div>
+</body>
+</html>

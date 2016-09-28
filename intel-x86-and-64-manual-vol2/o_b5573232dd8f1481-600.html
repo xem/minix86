@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 600</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page600-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481600.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:600px;white-space:nowrap" class="ft00">INVPCID—Invalidate Process-Context Identifier</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-472&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">INVPCID—Invalidate Process-Context Identifier</p>
+<p style="position:absolute;top:340px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:448px;left:68px;white-space:nowrap" class="ft010">Invalidates&#160;mappings in&#160;the&#160;translation&#160;lookaside buffers (TLBs) and&#160;paging-structure caches&#160;based on&#160;process-<br/>context&#160;identifier&#160;(PCID).&#160;<a href="��">(See Section 4.10, “Caching Translation Information,”&#160;</a>in&#160;<i>Intel&#160;64&#160;and IA-32 Architecture&#160;<br/>Software Developer’s Manual, Volume&#160;3A</i>.) Invalidation&#160;is based&#160;on the&#160;INVPCID type specified&#160;in the&#160;register&#160;<br/>operand&#160;and the&#160;INVPCID descriptor&#160;specified in&#160;the memory operand.<br/>Outside&#160;64-bit mode,&#160;the&#160;register operand&#160;is always 32&#160;bits, regardless of the&#160;value of CS.D. In 64-bit&#160;mode&#160;the&#160;<br/>register operand&#160;has&#160;64&#160;bits.<br/>There are four INVPCID&#160;types currently defined:</p>
+<p style="position:absolute;top:584px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:585px;left:93px;white-space:nowrap" class="ft08">Individual-address invalidation: If the&#160;INVPCID&#160;type&#160;is&#160;0,&#160;the logical processor invalidates&#160;mappings—except&#160;<br/>global translations—for the&#160;linear&#160;address&#160;and&#160;PCID&#160;specified in the&#160;INVPCID descriptor.</p>
+<p style="position:absolute;top:599px;left:685px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:601px;left:692px;white-space:nowrap" class="ft04">&#160;In&#160;some&#160;cases, the&#160;</p>
+<p style="position:absolute;top:618px;left:93px;white-space:nowrap" class="ft04">instruction may&#160;invalidate&#160;global translations&#160;or mappings for other&#160;linear&#160;addresses (or&#160;other PCIDs) as&#160;well.</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:640px;left:93px;white-space:nowrap" class="ft08">Single-context invalidation: If the INVPCID type&#160;is 1,&#160;the logical processor invalidates&#160;all mappings—except&#160;<br/>global translations—associated with&#160;the PCID specified in&#160;the INVPCID&#160;descriptor.&#160;In&#160;some cases,&#160;the&#160;<br/>instruction may&#160;invalidate&#160;global translations&#160;or mappings for other&#160;PCIDs&#160;as well.</p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:696px;left:93px;white-space:nowrap" class="ft08">All-context&#160;invalidation, including global&#160;translations: If&#160;the INVPCID type is 2,&#160;the logical processor&#160;invalidates&#160;<br/>all mappings—including&#160;global&#160;translations—associated with any&#160;PCID.&#160;</p>
+<p style="position:absolute;top:734px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:735px;left:93px;white-space:nowrap" class="ft08">All-context invalidation:&#160;If&#160;the INVPCID&#160;type&#160;is 3,&#160;the logical processor invalidates all mappings—except global&#160;<br/>translations—associated with any&#160;PCID.&#160;In&#160;some case,&#160;the instruction&#160;may invalidate global translations&#160;as&#160;<br/>well.&#160;</p>
+<p style="position:absolute;top:792px;left:68px;white-space:nowrap" class="ft08">The INVPCID&#160;descriptor comprises&#160;128 bits and&#160;consists of&#160;a&#160;PCID&#160;and a&#160;linear address&#160;as shown&#160;<a href="o_b5573232dd8f1481-600.html">in Figure 3-24.&#160;<br/></a>For&#160;INVPCID type&#160;0,&#160;the processor uses&#160;the full&#160;64&#160;bits&#160;of the&#160;linear&#160;address&#160;even outside&#160;64-bit mode; the&#160;linear&#160;<br/>address is&#160;not used for other&#160;INVPCID types.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode/Instruction</p>
+<p style="position:absolute;top:123px;left:359px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:139px;left:359px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:401px;white-space:nowrap" class="ft04">64/32-</p>
+<p style="position:absolute;top:139px;left:401px;white-space:nowrap" class="ft04">bit&#160;</p>
+<p style="position:absolute;top:155px;left:401px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:459px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:459px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:459px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:526px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:178px;left:73px;white-space:nowrap" class="ft04">66&#160;0F&#160;38&#160;82 /r</p>
+<p style="position:absolute;top:195px;left:73px;white-space:nowrap" class="ft04">INVPCID r32,&#160;m128</p>
+<p style="position:absolute;top:178px;left:359px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:178px;left:401px;white-space:nowrap" class="ft04">NE/V</p>
+<p style="position:absolute;top:178px;left:459px;white-space:nowrap" class="ft04">INVPCID</p>
+<p style="position:absolute;top:178px;left:526px;white-space:nowrap" class="ft04">Invalidates entries in&#160;the TLBs and&#160;paging-structure&#160;</p>
+<p style="position:absolute;top:195px;left:526px;white-space:nowrap" class="ft04">caches&#160;based on&#160;invalidation&#160;type&#160;in&#160;r32 and&#160;descrip-</p>
+<p style="position:absolute;top:211px;left:526px;white-space:nowrap" class="ft04">tor&#160;in&#160;m128.</p>
+<p style="position:absolute;top:250px;left:73px;white-space:nowrap" class="ft04">66&#160;0F&#160;38&#160;82 /r</p>
+<p style="position:absolute;top:267px;left:73px;white-space:nowrap" class="ft04">INVPCID r64,&#160;m128</p>
+<p style="position:absolute;top:250px;left:359px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:250px;left:401px;white-space:nowrap" class="ft04">V/NE</p>
+<p style="position:absolute;top:250px;left:459px;white-space:nowrap" class="ft04">INVPCID</p>
+<p style="position:absolute;top:250px;left:526px;white-space:nowrap" class="ft04">Invalidates entries in&#160;the TLBs and&#160;paging-structure&#160;</p>
+<p style="position:absolute;top:267px;left:526px;white-space:nowrap" class="ft04">caches&#160;based on&#160;invalidation&#160;type&#160;in&#160;r64 and&#160;descrip-</p>
+<p style="position:absolute;top:283px;left:526px;white-space:nowrap" class="ft04">tor&#160;in&#160;m128.</p>
+<p style="position:absolute;top:362px;left:88px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:362px;left:197px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:362px;left:369px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:362px;left:543px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:362px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:387px;left:96px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:387px;left:186px;white-space:nowrap" class="ft04">ModRM:reg&#160;(R)</p>
+<p style="position:absolute;top:387px;left:357px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(R)</p>
+<p style="position:absolute;top:387px;left:564px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:387px;left:739px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft04">1.&#160;If the&#160;paging&#160;structures&#160;map the linear&#160;address using&#160;a page&#160;larger&#160;than&#160;4 KBytes&#160;and there are&#160;multiple&#160;TLB&#160;entries for&#160;that&#160;page&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft04">(see<a href="��">&#160;Section&#160;4.10.2.3,&#160;“Details of&#160;TLB Use,”&#160;in the&#160;<i>Intel® 64&#160;and&#160;IA-32 Architectures&#160;Software&#160;Developer’s Manual, Volume 3A</i>), the&#160;</a></p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft04">instruction invalidates all of&#160;them.</p>
+<p style="position:absolute;top:985px;left:343px;white-space:nowrap" class="ft03">Figure&#160;3-24.&#160;&#160;INVPCID&#160;Descriptor</p>
+<p style="position:absolute;top:894px;left:224px;white-space:nowrap" class="ft04">127</p>
+<p style="position:absolute;top:894px;left:442px;white-space:nowrap" class="ft04">64&#160;63</p>
+<p style="position:absolute;top:894px;left:683px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:894px;left:646px;white-space:nowrap" class="ft04">11</p>
+<p style="position:absolute;top:894px;left:629px;white-space:nowrap" class="ft04">12</p>
+<p style="position:absolute;top:917px;left:478px;white-space:nowrap" class="ft04">Reserved&#160;(must&#160;be zero)</p>
+<p style="position:absolute;top:917px;left:300px;white-space:nowrap" class="ft04">Linear Address</p>
+<p style="position:absolute;top:917px;left:651px;white-space:nowrap" class="ft04">PCID</p>
+</div>
+</body>
+</html>

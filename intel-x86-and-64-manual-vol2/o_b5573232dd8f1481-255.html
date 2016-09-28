@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 255</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page255-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481255.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CALL—Call Procedure</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-127</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:130px;left:69px;white-space:nowrap" class="ft03">IF&#160;near call</p>
+<p style="position:absolute;top:148px;left:89px;white-space:nowrap" class="ft03">THEN IF near relative call</p>
+<p style="position:absolute;top:166px;left:116px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:184px;left:143px;white-space:nowrap" class="ft03">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:184px;left:232px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:184px;left:245px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:202px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:220px;left:197px;white-space:nowrap" class="ft03">tempDEST&#160;←&#160;SignExtend(DEST); (* DEST is&#160;rel32&#160;*)&#160;</p>
+<p style="position:absolute;top:238px;left:197px;white-space:nowrap" class="ft03">tempRIP&#160;←&#160;RIP&#160;+&#160;tempDEST;</p>
+<p style="position:absolute;top:256px;left:197px;white-space:nowrap" class="ft03">IF stack not large&#160;enough&#160;for a&#160;8-byte&#160;return address</p>
+<p style="position:absolute;top:274px;left:224px;white-space:nowrap" class="ft03">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:292px;left:197px;white-space:nowrap" class="ft06">Push(RIP);<br/>RIP&#160;←&#160;tempRIP;</p>
+<p style="position:absolute;top:328px;left:143px;white-space:nowrap" class="ft06">FI;<br/>IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:346px;left:232px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:346px;left:245px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:364px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:382px;left:197px;white-space:nowrap" class="ft03">tempEIP&#160;←&#160;EIP&#160;+&#160;DEST; (* DEST is&#160;<i>rel32</i>&#160;*)</p>
+<p style="position:absolute;top:400px;left:197px;white-space:nowrap" class="ft06">IF tempEIP&#160;is not within code&#160;segment limit THEN #GP(0); FI;<br/>IF stack not large&#160;enough&#160;for a&#160;4-byte&#160;return address</p>
+<p style="position:absolute;top:436px;left:224px;white-space:nowrap" class="ft03">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:454px;left:197px;white-space:nowrap" class="ft06">Push(EIP);<br/>EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:490px;left:143px;white-space:nowrap" class="ft06">FI;<br/>IF&#160;OperandSize =&#160;16</p>
+<p style="position:absolute;top:526px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:544px;left:197px;white-space:nowrap" class="ft03">tempEIP&#160;←&#160;(EIP&#160;+&#160;DEST) AND 0000FFFFH; (* DEST is&#160;<i>rel16</i>&#160;*)</p>
+<p style="position:absolute;top:562px;left:197px;white-space:nowrap" class="ft06">IF tempEIP&#160;is not within code&#160;segment limit THEN #GP(0); FI;<br/>IF stack not large&#160;enough&#160;for a&#160;2-byte&#160;return address&#160;</p>
+<p style="position:absolute;top:598px;left:224px;white-space:nowrap" class="ft03">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:616px;left:197px;white-space:nowrap" class="ft06">Push(IP);<br/>EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:652px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:670px;left:116px;white-space:nowrap" class="ft03">ELSE (* Near absolute&#160;call *)</p>
+<p style="position:absolute;top:688px;left:143px;white-space:nowrap" class="ft03">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:688px;left:232px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:688px;left:241px;white-space:nowrap" class="ft03">&#160;64</p>
+<p style="position:absolute;top:706px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:724px;left:197px;white-space:nowrap" class="ft03">tempRIP&#160;←&#160;DEST; (*&#160;DEST is&#160;<i>r/m64</i>&#160;*)</p>
+<p style="position:absolute;top:742px;left:197px;white-space:nowrap" class="ft03">IF stack not large&#160;enough&#160;for a&#160;8-byte&#160;return address&#160;</p>
+<p style="position:absolute;top:760px;left:224px;white-space:nowrap" class="ft03">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:778px;left:197px;white-space:nowrap" class="ft06">Push(RIP);&#160;<br/>RIP&#160;←&#160;tempRIP;</p>
+<p style="position:absolute;top:814px;left:143px;white-space:nowrap" class="ft06">FI;<br/>IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:832px;left:232px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:832px;left:241px;white-space:nowrap" class="ft03">&#160;32</p>
+<p style="position:absolute;top:850px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:868px;left:197px;white-space:nowrap" class="ft03">tempEIP&#160;←&#160;DEST; (* DEST is&#160;<i>r/m32</i>&#160;*)</p>
+<p style="position:absolute;top:886px;left:197px;white-space:nowrap" class="ft06">IF tempEIP&#160;is not within code&#160;segment limit THEN #GP(0); FI;<br/>IF stack not large&#160;enough&#160;for a&#160;4-byte&#160;return address&#160;</p>
+<p style="position:absolute;top:922px;left:224px;white-space:nowrap" class="ft03">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:940px;left:197px;white-space:nowrap" class="ft06">Push(EIP);&#160;<br/>EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:976px;left:143px;white-space:nowrap" class="ft06">FI;<br/>IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:994px;left:232px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:994px;left:241px;white-space:nowrap" class="ft03">&#160;16</p>
+<p style="position:absolute;top:1012px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:1030px;left:197px;white-space:nowrap" class="ft03">tempEIP&#160;←&#160;DEST&#160;AND 0000FFFFH; (* DEST&#160;is&#160;<i>r/m16</i>&#160;*)</p>
+<p style="position:absolute;top:1048px;left:197px;white-space:nowrap" class="ft03">IF tempEIP&#160;is not within code&#160;segment limit THEN #GP(0); FI;</p>
+</div>
+</body>
+</html>

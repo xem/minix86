@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1171</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1171-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1171.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;29-5</p>
+<p style="position:absolute;top:47px;left:549px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND VIRTUAL&#160;INTERRUPTS</p>
+<p style="position:absolute;top:97px;left:69px;white-space:nowrap" class="ft02">29.3&#160;</p>
+<p style="position:absolute;top:97px;left:148px;white-space:nowrap" class="ft02">VIRTUALIZING CR8-BASED TPR ACCESSES</p>
+<p style="position:absolute;top:133px;left:69px;white-space:nowrap" class="ft08">In 64-bit&#160;mode, software&#160;can access&#160;the&#160;local APIC’s&#160;task-priority register&#160;(TPR) through CR8.&#160;Specifically, software&#160;<br/>uses the&#160;MOV&#160;from&#160;CR8 and&#160;MOV&#160;to CR8&#160;instructions&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-393.html">Section 10.8.6, “Task&#160;Priority&#160;in&#160;IA-32e&#160;Mode”).&#160;</a>This&#160;<br/>section describes&#160;how&#160;these&#160;accesses can be&#160;virtualized.<br/>A virtual-machine monitor&#160;can virtualize these CR8-based&#160;APIC&#160;accesses&#160;by setting the&#160;“CR8-load exiting”&#160;and&#160;<br/>“CR8-store&#160;exiting” VM-execution controls, ensuring&#160;that&#160;the&#160;accesses cause&#160;VM&#160;exits (see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3). Alter</a>-<br/>natively, there&#160;are&#160;methods for virtualizing some&#160;CR8-based APIC accesses without&#160;VM&#160;exits.<br/>Normally,&#160;an execution of MOV&#160;from&#160;CR8 or&#160;MOV&#160;to CR8&#160;that does&#160;not fault or&#160;cause a VM&#160;exit accesses&#160;the APIC’s&#160;<br/>TPR. However,&#160;such an execution are&#160;treated specially if&#160;the&#160;“use TPR shadow” VM-execution&#160;control&#160;is 1.&#160;The&#160;<br/>following&#160;items provide&#160;details:</p>
+<p style="position:absolute;top:302px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:303px;left:95px;white-space:nowrap" class="ft08"><b>MOV from&#160;CR8.</b>&#160;The&#160;instruction&#160;loads bits 3:0 of its destination&#160;operand with bits&#160;7:4 of VTPR (see<a href="o_fe12b1e2a880e0ce-1167.html">&#160;Section&#160;<br/>29.1.1).</a>&#160;Bits&#160;63:4&#160;of the&#160;destination&#160;operand&#160;are&#160;cleared.</p>
+<p style="position:absolute;top:341px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:342px;left:95px;white-space:nowrap" class="ft08"><b>MOV to&#160;CR8.</b>&#160;The instruction stores&#160;bits&#160;3:0&#160;of its&#160;source operand&#160;into bits&#160;7:4 of VTPR; the&#160;remainder&#160;of&#160;VTPR&#160;<br/>(bits&#160;3:0 and&#160;bits&#160;31:8) are&#160;cleared.&#160;Following&#160;this,&#160;the&#160;processor performs&#160;TPR&#160;virtualization (see<a href="o_fe12b1e2a880e0ce-1168.html">&#160;Section&#160;<br/>29.1.2).</a></p>
+<p style="position:absolute;top:430px;left:69px;white-space:nowrap" class="ft02">29.4&#160;</p>
+<p style="position:absolute;top:430px;left:148px;white-space:nowrap" class="ft02">VIRTUALIZING MEMORY-MAPPED APIC ACCESSES</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft08">When the&#160;local APIC is&#160;in xAPIC&#160;mode, software accesses&#160;the local&#160;APIC’s&#160;control registers&#160;using a&#160;memory-<br/>mapped interface. Specifically, software&#160;uses linear addresses that&#160;translate&#160;to physical addresses&#160;on page frame&#160;<br/>indicated&#160;by the&#160;base&#160;address in the&#160;IA32_APIC_BASE&#160;MSR&#160;<a href="o_fe12b1e2a880e0ce-370.html">(see Section 10.4.4, “Local&#160;APIC&#160;Status and&#160;Location”).</a>&#160;<br/>This section describes&#160;how&#160;these accesses&#160;can be&#160;virtualized.<br/>A virtual-machine monitor (VMM) can virtualize these memory-mapped APIC&#160;accesses by ensuring&#160;that any access&#160;<br/>to a&#160;linear address&#160;that would access the&#160;local APIC instead causes&#160;a VM&#160;exit.&#160;This could be&#160;done&#160;using paging&#160;or&#160;<br/>the extended&#160;page-table mechanism (EPT).&#160;Another way is&#160;by using the 1-setting of&#160;the “virtualize&#160;APIC accesses”&#160;<br/>VM-execution control.<br/>If&#160;the “virtualize APIC accesses” VM-execution control is 1, the logical processor treats specially memory accesses&#160;<br/>using linear addresses that translate to physical addresses in the 4-KByte&#160;<b>APIC-access page</b>.</p>
+<p style="position:absolute;top:627px;left:705px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:630px;left:712px;white-space:nowrap" class="ft03">&#160;(The APIC-access&#160;</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft08">page&#160;is&#160;identified&#160;by the&#160;<b>APIC-access&#160;address</b>,&#160;a field&#160;in the&#160;VMCS; see<a href="o_fe12b1e2a880e0ce-1059.html">&#160;Section 24.6.8.</a>)<br/>In general, an access to&#160;the APIC-access&#160;page&#160;causes&#160;an&#160;<b>APIC-access VM&#160;exit</b>. APIC-access VM&#160;exits provide a&#160;<br/>VMM with information&#160;about the&#160;access&#160;causing the&#160;VM&#160;exit<a href="o_fe12b1e2a880e0ce-1172.html">. Section 29.4.1</a>&#160;discusses the&#160;priority&#160;of&#160;APIC-access&#160;<br/>VM&#160;exits.<br/>Certain&#160;VM-execution controls enable the processor&#160;to virtualize certain accesses to the APIC-access&#160;page without&#160;<br/>a&#160;VM&#160;exit. In general, this virtualization&#160;causes&#160;these&#160;accesses to&#160;be made to&#160;the&#160;virtual-APIC&#160;page instead of&#160;the&#160;<br/>APIC-access page.</p>
+<p style="position:absolute;top:795px;left:428px;white-space:nowrap" class="ft07">NOTES</p>
+<p style="position:absolute;top:820px;left:122px;white-space:nowrap" class="ft08">Unless&#160;stated otherwise,&#160;this section characterizes only linear&#160;accesses&#160;to the&#160;APIC-access page;&#160;<br/>an access to the&#160;APIC-access page is&#160;a linear&#160;access if&#160;(1)&#160;it results&#160;from a&#160;memory access using&#160;a&#160;<br/>linear address;&#160;and (2) the&#160;access’s&#160;physical&#160;address is&#160;the translation&#160;of that linear address.&#160;<br/><a href="o_fe12b1e2a880e0ce-1176.html">Section 29.4.6&#160;</a>discusses&#160;accesses to&#160;the&#160;APIC-access page&#160;that are&#160;not linear&#160;accesses.<br/>The&#160;distinction&#160;between&#160;the&#160;APIC-access page&#160;and&#160;the&#160;virtual-APIC&#160;page allows a&#160;VMM to&#160;share&#160;<br/>paging structures or EPT paging structures among the virtual processors&#160;of&#160;a virtual machine (the&#160;<br/>shared paging structures&#160;referencing&#160;the&#160;same&#160;APIC-access address, which&#160;appears in&#160;the VMCS of&#160;</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft03">3.&#160;Even&#160;when&#160;addresses are translated&#160;using EPT (see<a href="o_fe12b1e2a880e0ce-1149.html">&#160;Section 28.2),</a>&#160;the&#160;determination of&#160;whether&#160;an&#160;APIC-access&#160;VM&#160;exit occurs&#160;</p>
+<p style="position:absolute;top:1021px;left:91px;white-space:nowrap" class="ft03">depends on an access’s physical address, not its guest-physical address. Even&#160;when&#160;CR0.PG&#160;= 0,&#160;ordinary&#160;memory accesses by&#160;soft-</p>
+<p style="position:absolute;top:1038px;left:91px;white-space:nowrap" class="ft03">ware&#160;use linear&#160;addresses;&#160;the fact that&#160;CR0.PG&#160;= 0&#160;means only that&#160;the identity&#160;translation is&#160;used&#160;to&#160;convert linear&#160;addresses&#160;to&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">physical (or guest-physical) addresses.</p>
+</div>
+</body>
+</html>

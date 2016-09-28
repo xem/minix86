@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 440</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:10px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page440-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a440.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">D-18&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87 FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:333px;left:68px;white-space:nowrap" class="ft02">Case #1:&#160;x87&#160;FPU&#160;State Swap Without Numeric Exception</p>
+<p style="position:absolute;top:362px;left:68px;white-space:nowrap" class="ft08">Assume two threads A and B,&#160;both using the floating-point unit. Let A be the thread to have&#160;most recently&#160;executed&#160;<br/>a floating-point&#160;instruction,&#160;with no pending&#160;numeric exceptions. Let B be the&#160;currently executing thread.&#160;CR0.TS&#160;<br/>was set when thread A&#160;was suspended.&#160;<br/>When B starts to execute a floating-point instruction the&#160;instruction&#160;will fault with&#160;the&#160;DNA exception because&#160;TS is&#160;<br/>set.<br/>At&#160;this&#160;point the&#160;handler&#160;is entered, and&#160;eventually it&#160;finds&#160;that the&#160;current x87&#160;FPU&#160;Owner is&#160;not the&#160;currently&#160;<br/>executing thread.&#160;To&#160;guard&#160;the x87 FPU state swap from&#160;extraneous&#160;numeric exceptions, the x87&#160;FPU Owner&#160;is set&#160;<br/>to be&#160;the&#160;kernel.&#160;The old&#160;owner’s x87&#160;FPU&#160;state&#160;is saved&#160;with FNSAVE,&#160;and the&#160;current thread’s&#160;x87 FPU&#160;state is&#160;<br/>restored&#160;with FRSTOR.&#160;Before&#160;exiting,&#160;the x87&#160;FPU&#160;owner&#160;is set to thread B,&#160;and the&#160;TS&#160;bit&#160;is cleared.<br/>On exit,&#160;thread&#160;B resumes&#160;execution of the&#160;faulting&#160;floating-point&#160;instruction&#160;and&#160;continues.</p>
+<p style="position:absolute;top:572px;left:68px;white-space:nowrap" class="ft02">Case #2:&#160;x87&#160;FPU&#160;State Swap with&#160;Discarded Numeric Exception</p>
+<p style="position:absolute;top:600px;left:68px;white-space:nowrap" class="ft06">Again, assume two threads A and&#160;B, both&#160;using the&#160;floating-point&#160;unit. Let&#160;A&#160;be&#160;the thread to have&#160;most recently&#160;<br/>executed a floating-point instruction, but this time let there&#160;be&#160;a pending&#160;numeric exception.&#160;Let B be&#160;the&#160;currently&#160;<br/>executing thread.&#160;When B&#160;starts to&#160;execute&#160;a&#160;floating-point&#160;instruction&#160;the instruction will fault with the&#160;DNA&#160;<br/>exception and&#160;enter&#160;the&#160;DNA handler.&#160;(If&#160;both numeric and&#160;DNA exceptions&#160;are pending, the DNA&#160;exception takes&#160;<br/>precedence, in&#160;order&#160;to support&#160;handling&#160;the numeric exception&#160;in its&#160;own context.)<br/>When&#160;the FNSAVE starts, it&#160;will trigger an&#160;interrupt via&#160;FERR# because of&#160;the&#160;pending numeric&#160;exception.&#160;After&#160;<br/>some system&#160;dependent delay,&#160;the numeric exception&#160;handler&#160;is entered.&#160;It&#160;may be&#160;entered&#160;before&#160;the FNSAVE&#160;<br/>starts to&#160;execute, or&#160;it may be entered shortly after&#160;execution of&#160;the&#160;FNSAVE.&#160;Since&#160;the&#160;x87&#160;FPU Owner is&#160;the&#160;<br/>kernel, the&#160;numeric exception handler simply exits, discarding&#160;the exception. The DNA handler resumes&#160;execution,&#160;<br/>completing&#160;the FNSAVE of the old&#160;floating-point context&#160;of&#160;thread A&#160;and&#160;the FRSTOR&#160;of the&#160;floating-point context&#160;<br/>for thread B.<br/>Thread&#160;A eventually gets an&#160;opportunity to&#160;handle the&#160;exception&#160;that&#160;was discarded during&#160;the task&#160;switch. After&#160;<br/>some time, thread B is&#160;suspended, and&#160;thread&#160;A&#160;resumes execution.&#160;When&#160;thread A starts&#160;to execute an&#160;floating-<br/>point instruction, once&#160;again the&#160;DNA exception&#160;handler is&#160;entered.&#160;B’s x87&#160;FPU&#160;state is&#160;saved with FNSAVE, and&#160;<br/>A’s&#160;x87 FPU state is&#160;restored with FRSTOR.&#160;Note that&#160;in&#160;restoring the&#160;x87&#160;FPU state from&#160;A’s&#160;save&#160;area, the&#160;pending&#160;<br/>numeric exception flags are&#160;reloaded into&#160;the floating-point status&#160;word. Now&#160;when the&#160;DNA exception&#160;handler&#160;<br/>returns, thread A resumes&#160;execution of the&#160;faulting floating-point instruction just long&#160;enough to&#160;immediately&#160;<br/>generate a&#160;numeric&#160;exception, which now&#160;gets handled in&#160;the&#160;normal&#160;way.&#160;The net result&#160;is that the&#160;task&#160;switch and&#160;<br/>resulting x87 FPU state swap via&#160;the&#160;DNA exception handler&#160;causes&#160;an extra&#160;numeric&#160;exception which can&#160;be safely&#160;<br/>discarded.</p>
+<p style="position:absolute;top:973px;left:68px;white-space:nowrap" class="ft02">D.3.6.4 &#160;</p>
+<p style="position:absolute;top:973px;left:152px;white-space:nowrap" class="ft02">Interrupt Routing From&#160;the Kernel</p>
+<p style="position:absolute;top:1001px;left:68px;white-space:nowrap" class="ft06">In MS-DOS, an&#160;application&#160;that wishes to&#160;handle numeric exceptions&#160;hooks interrupt 16 by placing its&#160;handler&#160;<br/>address&#160;in the&#160;interrupt vector&#160;table,&#160;and&#160;exiting via&#160;a jump&#160;to the&#160;previous&#160;interrupt 16 handler.&#160;Protected&#160;mode&#160;<br/>systems&#160;that run MS-DOS programs under&#160;a subsystem&#160;can emulate&#160;this&#160;exception&#160;delivery&#160;mechanism.&#160;For&#160;<br/>example,&#160;assume&#160;a&#160;protected&#160;mode&#160;OS.&#160;that&#160;runs&#160;with&#160;CR0.NE[bit&#160;5]&#160;=&#160;1,&#160;and&#160;that&#160;runs&#160;MS-DOS&#160;programs&#160;in&#160;a&#160;</p>
+<p style="position:absolute;top:283px;left:224px;white-space:nowrap" class="ft04">Figure&#160;D-6. &#160;Program Flow&#160;for&#160;a Numeric Exception Dispatch&#160;Routine</p>
+<p style="position:absolute;top:123px;left:270px;white-space:nowrap" class="ft05">Numeric&#160;Exception&#160;Entry</p>
+<p style="position:absolute;top:172px;left:315px;white-space:nowrap" class="ft05">Is&#160;Kernel</p>
+<p style="position:absolute;top:188px;left:303px;white-space:nowrap" class="ft05">FPU Owner?</p>
+<p style="position:absolute;top:244px;left:286px;white-space:nowrap" class="ft05">Normal&#160;Dispatch to</p>
+<p style="position:absolute;top:259px;left:263px;white-space:nowrap" class="ft05">Numeric Exception&#160;Handler</p>
+<p style="position:absolute;top:258px;left:553px;white-space:nowrap" class="ft05">Exit</p>
+<p style="position:absolute;top:219px;left:356px;white-space:nowrap" class="ft05">No</p>
+<p style="position:absolute;top:190px;left:443px;white-space:nowrap" class="ft05">Yes</p>
+</div>
+</body>
+</html>

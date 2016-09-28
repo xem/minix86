@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 308</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page308-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a308.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">13-2&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MANAGING STATE&#160;USING THE XSAVE FEATURE SET</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">—&#160;State component&#160;6&#160;is used for the&#160;upper&#160;256 bits of the&#160;registers ZMM0–ZMM15.&#160;These&#160;16&#160;256-bit&#160;values&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft02">are denoted&#160;ZMM0_H–ZMM15_H (<b>ZMM_Hi256 state</b>).</p>
+<p style="position:absolute;top:141px;left:93px;white-space:nowrap" class="ft02">—&#160;State&#160;component 7&#160;is used&#160;for the&#160;16&#160;512-bit&#160;registers ZMM16–ZMM31 (<b>Hi16_ZMM state</b>).</p>
+<p style="position:absolute;top:163px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:163px;left:93px;white-space:nowrap" class="ft02">Bit&#160;8&#160;corresponds&#160;to the&#160;state component&#160;used&#160;for&#160;the Intel Processor Trace&#160;MSRs&#160;(<b>PT state</b>).</p>
+<p style="position:absolute;top:185px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:186px;left:93px;white-space:nowrap" class="ft08">Bit&#160;9&#160;corresponds&#160;to the&#160;state component&#160;used&#160;for&#160;the protection-key feature’s register PKRU&#160;(<b>PKRU state</b>).&#160;<br/>S<a href="o_7281d5ea06a5b67a-318.html">ee Section 13.5.7.</a></p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft08">Bits in the&#160;range 62:10&#160;are&#160;not&#160;currently&#160;defined&#160;in state-component bitmaps and&#160;are reserved&#160;for future&#160;expan-<br/>sion.&#160;As individual&#160;state&#160;component&#160;is defined within bits&#160;62:10,&#160;additional&#160;sub-sections are&#160;update<a href="o_7281d5ea06a5b67a-314.html">d within Section&#160;<br/>13.5 ov</a>er time. Bit&#160;63&#160;is used for special&#160;functionality&#160;in some bitmaps and does&#160;not correspond to&#160;any state&#160;<br/>component.<br/>The state component corresponding&#160;to bit&#160;<i>i</i>&#160;of state-component bitmaps is&#160;called&#160;<b>state component&#160;<i>i</i></b>. Thus, x87&#160;<br/>state is state&#160;component 0; SSE state is&#160;state component 1; AVX state is state component 2;&#160;MPX state comprises&#160;<br/>state components 3–4; AVX-512&#160;state comprises state components 5–7; PT&#160;state is&#160;state component 8;&#160;and&#160;PKRU&#160;<br/>state&#160;is state&#160;component 9.<br/>The XSAVE feature set&#160;uses&#160;state-component bitmaps in&#160;multiple&#160;ways. Most of the&#160;instructions&#160;use an&#160;implicit&#160;<br/>operand (in EDX:EAX), called the&#160;<b>instruction mask</b>, which&#160;is the&#160;state-component bitmap&#160;that specifies the&#160;state&#160;<br/>components on which the&#160;instruction&#160;operates.<br/>Some state components are&#160;<b>user state components</b>, and&#160;they&#160;can&#160;be managed by the entire&#160;XSAVE&#160;feature set.&#160;<br/>Other state&#160;components&#160;are&#160;<b>supervisor state components</b>,&#160;and they&#160;can be managed only by XSAVES&#160;and&#160;<br/>XRSTORS.&#160;All&#160;the state components corresponding&#160;to bits&#160;in the&#160;range&#160;9:0&#160;are&#160;user state&#160;components,&#160;except&#160;PT&#160;<br/>state&#160;(corresponding&#160;to bit&#160;8),&#160;which is&#160;a supervisor state&#160;component.<br/>Extended control register&#160;XCR0 contains a&#160;state-component&#160;bitmap that&#160;specifies the&#160;user state components that&#160;<br/>software has&#160;enabled&#160;the&#160;XSAVE feature&#160;set to&#160;manage.&#160;If&#160;the bit corresponding&#160;to&#160;a state component&#160;is clear&#160;in&#160;<br/>XCR0, instructions in the XSAVE feature set will&#160;not operate&#160;on that state component, regardless of&#160;the value of the&#160;<br/>instruction&#160;mask.<br/>The&#160;IA32_XSS&#160;MSR&#160;(index DA0H) contains&#160;a state-component&#160;bitmap&#160;that specifies the&#160;supervisor&#160;state compo-<br/>nents that&#160;software has enabled XSAVES&#160;and XRSTORS to&#160;manage&#160;(XSAVE, XSAVEC, XSAVEOPT, and XRSTOR&#160;<br/>cannot&#160;manage&#160;supervisor state&#160;components). If the&#160;bit corresponding to&#160;a state component&#160;is clear&#160;in the&#160;<br/>IA32_XSS&#160;MSR,&#160;XSAVES&#160;and XRSTORS&#160;will not operate&#160;on&#160;that&#160;state component, regardless of&#160;the&#160;value of&#160;the&#160;<br/>instruction&#160;mask.<br/>Some&#160;XSAVE-supported features&#160;can be used only&#160;if XCR0&#160;has been&#160;configured so&#160;that&#160;the features’ state compo-<br/>nents can&#160;be managed&#160;by the XSAVE feature set. (This applies only to features with user state components.)&#160;Such&#160;<br/>state components&#160;and features&#160;are&#160;<b>XSAVE-enabled</b>. In general, the&#160;processor&#160;will not modify (or&#160;allow&#160;modifica-<br/>tion of)&#160;the&#160;registers&#160;of&#160;a state&#160;component of an&#160;XSAVE-enabled feature&#160;if the&#160;bit corresponding&#160;to that state&#160;<br/>component&#160;is clear in&#160;XCR0. (If software&#160;clears&#160;such&#160;a bit in&#160;XCR0, the&#160;processor&#160;preserves&#160;the corresponding&#160;state&#160;<br/>component.) If an XSAVE-enabled&#160;feature&#160;has not been fully&#160;enabled in XCR0,&#160;execution of any&#160;instruction&#160;defined&#160;<br/>for that&#160;feature causes an invalid-opcode exception&#160;(#UD).<br/>As will be&#160;explained&#160;<a href="o_7281d5ea06a5b67a-310.html">in Section 13.3, the XS</a>AVE feature set is&#160;enabled only if CR4.OSXSAVE[bit&#160;18]&#160;= 1.&#160;If&#160;<br/>CR4.OSXSAVE&#160;=&#160;0,&#160;the&#160;processor treats&#160;XSAVE-enabled&#160;state&#160;features and&#160;their state components&#160;as if all&#160;bits&#160;in&#160;<br/>XCR0&#160;were&#160;clear; the&#160;state&#160;components cannot be modified&#160;and the features’&#160;instructions&#160;cannot be executed.<br/>The&#160;state&#160;components&#160;for x87&#160;state,&#160;for SSE&#160;state,&#160;for PT&#160;state,&#160;and&#160;for PKRU state are&#160;XSAVE-managed&#160;but&#160;the&#160;<br/>corresponding&#160;features are&#160;not XSAVE-enabled.&#160;Processors allow modification of this&#160;state,&#160;as&#160;well as&#160;execution of&#160;<br/>x87&#160;FPU instructions and&#160;SSE instructions and&#160;use of&#160;Intel Processor Trace&#160;and&#160;protection keys,&#160;regardless of the&#160;<br/>value&#160;of&#160;CR4.OSXSAVE&#160;and&#160;XCR0.</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft07">13.2&#160;</p>
+<p style="position:absolute;top:952px;left:147px;white-space:nowrap" class="ft07">ENUMERATION OF&#160;CPU SUPPORT FOR XSAVE INSTRUCTIONS AND XSAVE-</p>
+<p style="position:absolute;top:978px;left:146px;white-space:nowrap" class="ft07">SUPPORTED FEATURES</p>
+<p style="position:absolute;top:1014px;left:68px;white-space:nowrap" class="ft08">A processor enumerates&#160;support for the XSAVE feature&#160;set and for features&#160;supported by&#160;that&#160;feature set using&#160;the&#160;<br/>CPUID instruction.&#160;The&#160;following&#160;items provide&#160;specific details:</p>
+<p style="position:absolute;top:1052px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1053px;left:93px;white-space:nowrap" class="ft02">CPUID.1:ECX.XSAVE[bit 26] enumerates general&#160;support for&#160;the XSAVE feature&#160;set:</p>
+</div>
+</body>
+</html>

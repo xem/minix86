@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1742</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1742-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1742.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">36-58&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® PROCESSOR TRACE</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">36.4.2.22 &#160;&#160;Execution&#160;Stop (EXSTOP)&#160;Packet</p>
+<p style="position:absolute;top:142px;left:319px;white-space:nowrap" class="ft03">Table&#160;36-41.&#160;EXSTOP&#160;Packet&#160;Definition</p>
+<p style="position:absolute;top:166px;left:74px;white-space:nowrap" class="ft04">Name</p>
+<p style="position:absolute;top:166px;left:177px;white-space:nowrap" class="ft04">EXSTOP&#160;Packet</p>
+<p style="position:absolute;top:190px;left:74px;white-space:nowrap" class="ft04">Packet&#160;Format</p>
+<p style="position:absolute;top:324px;left:74px;white-space:nowrap" class="ft04">Dependencies</p>
+<p style="position:absolute;top:324px;left:177px;white-space:nowrap" class="ft04">TriggerEn&#160;&amp; PwrEvtEn</p>
+<p style="position:absolute;top:324px;left:381px;white-space:nowrap" class="ft04">Generation&#160;</p>
+<p style="position:absolute;top:340px;left:381px;white-space:nowrap" class="ft04">Scenario</p>
+<p style="position:absolute;top:324px;left:476px;white-space:nowrap" class="ft04">C-state entry,&#160;P-state change, or&#160;other processor clock power-</p>
+<p style="position:absolute;top:340px;left:476px;white-space:nowrap" class="ft04">down.&#160;Includes&#160;:</p>
+<p style="position:absolute;top:357px;left:476px;white-space:nowrap" class="ft04">•&#160;Entry to&#160;C-state&#160;deeper&#160;than&#160;C0.0</p>
+<p style="position:absolute;top:373px;left:476px;white-space:nowrap" class="ft04">•&#160;TM1/2</p>
+<p style="position:absolute;top:390px;left:476px;white-space:nowrap" class="ft04">•&#160;STPCLK#</p>
+<p style="position:absolute;top:406px;left:476px;white-space:nowrap" class="ft04">•&#160;Frequency change&#160;due to IA32_CLOCK_MODULATION, Turbo</p>
+<p style="position:absolute;top:430px;left:74px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:430px;left:177px;white-space:nowrap" class="ft04">This packet&#160;indicates that&#160;software&#160;execution has&#160;stopped due&#160;to&#160;processor clock powerdown.&#160;Later packets will&#160;</p>
+<p style="position:absolute;top:447px;left:177px;white-space:nowrap" class="ft04">indicate when&#160;execution&#160;resumes.&#160;</p>
+<p style="position:absolute;top:463px;left:177px;white-space:nowrap" class="ft04">If&#160;EXSTOP&#160;is&#160;generated&#160;while&#160;ContextEn&#160;is&#160;set,&#160;the IP bit will&#160;be set,&#160;and EXSTOP will be followed by&#160;a FUP packet&#160;</p>
+<p style="position:absolute;top:480px;left:177px;white-space:nowrap" class="ft04">containing&#160;the IP&#160;at&#160;which execution stopped.&#160;More&#160;precisely,&#160;this&#160;will be&#160;the IP&#160;of&#160;the oldest&#160;instruction that&#160;has&#160;</p>
+<p style="position:absolute;top:496px;left:177px;white-space:nowrap" class="ft04">not yet completed.</p>
+<p style="position:absolute;top:513px;left:177px;white-space:nowrap" class="ft04">This packet&#160;is CYC-eligible, and&#160;hence will generate a&#160;CYC&#160;packet&#160;if&#160;IA32_RTIT_CTL.CYCEn=1&#160;and&#160;any&#160;CYC&#160;Threshold&#160;</p>
+<p style="position:absolute;top:529px;left:177px;white-space:nowrap" class="ft04">has been&#160;reached.</p>
+<p style="position:absolute;top:553px;left:74px;white-space:nowrap" class="ft04">Application</p>
+<p style="position:absolute;top:553px;left:177px;white-space:nowrap" class="ft04">If&#160;a FUP follows EXSTOP&#160;(hence IP bit set),&#160;the&#160;EXSTOP can be&#160;bound&#160;to&#160;the FUP IP. Otherwise the IP is&#160;not known.&#160;</p>
+<p style="position:absolute;top:570px;left:177px;white-space:nowrap" class="ft04">Time of&#160;powerdown can be inferred from the preceding CYC,&#160;if&#160;CYCEn=1.&#160;Combined&#160;with&#160;the&#160;TSC at&#160;the time&#160;of&#160;</p>
+<p style="position:absolute;top:586px;left:177px;white-space:nowrap" class="ft04">wake&#160;(if TSCEn=1), this can be used to&#160;determine the duration of&#160;the powerdown.</p>
+<p style="position:absolute;top:284px;left:191px;white-space:nowrap" class="ft04">IP bit indicates&#160;if a FUP&#160;will follow.</p>
+<p style="position:absolute;top:213px;left:262px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:213px;left:324px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:213px;left:386px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:213px;left:449px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:213px;left:511px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:213px;left:573px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:213px;left:635px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:213px;left:697px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:200px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:262px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:324px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:386px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:449px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:511px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:573px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:234px;left:635px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:234px;left:697px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:255px;left:200px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:255px;left:262px;white-space:nowrap" class="ft04">IP</p>
+<p style="position:absolute;top:255px;left:324px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:255px;left:386px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:255px;left:449px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:255px;left:511px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:255px;left:573px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:255px;left:635px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:255px;left:697px;white-space:nowrap" class="ft04">0</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 312</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page312-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a312.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">13-6&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MANAGING STATE&#160;USING THE XSAVE FEATURE SET</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft09">state&#160;and software&#160;can&#160;execute MPX&#160;instructions. If&#160;XCR0[7:5] is&#160;111b,&#160;the XSAVE&#160;feature set can&#160;be used to&#160;<br/>manage&#160;AVX-512 state and&#160;software can execute&#160;AVX-512&#160;instructions. If XCR0[9]&#160;=&#160;1, the&#160;XSAVE feature&#160;set&#160;<br/>can be used&#160;to manage PKRU state.</p>
+<p style="position:absolute;top:157px;left:68px;white-space:nowrap" class="ft09">The IA32_XSS&#160;MSR (with MSR index&#160;DA0H) is&#160;zero&#160;coming&#160;out of RESET.&#160;If CR4.OSXSAVE&#160;=&#160;1,&#160;<br/>CPUID.(EAX=0DH,ECX=1):EAX[3]&#160;=&#160;1,&#160;and CPL&#160;=&#160;0,&#160;executing the&#160;WRMSR&#160;instruction&#160;with&#160;ECX&#160;=&#160;DA0H writes&#160;<br/>the 64-bit&#160;value&#160;in EDX:EAX&#160;to the&#160;IA32_XSS&#160;MSR&#160;(EAX is&#160;written to&#160;IA32_XSS[31:0] and&#160;EDX&#160;to&#160;<br/>IA32_XSS[63:32]). The&#160;following&#160;items provide details&#160;regarding&#160;individual bits in&#160;the IA32_XSS&#160;MSR:</p>
+<p style="position:absolute;top:229px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:229px;left:93px;white-space:nowrap" class="ft09">IA32_XSS[8]&#160;is associated wi<a href="o_7281d5ea06a5b67a-318.html">th PT state (see Section 13.5.6). Softw</a>are can&#160;use XSAVES and&#160;XRSTORS to&#160;<br/>manage&#160;PT&#160;state only if IA32_XSS[8]&#160;=&#160;1.&#160;The&#160;value&#160;of&#160;IA32_XSS[8] does not determine whether software&#160;can&#160;<br/>use Intel&#160;Processor&#160;Trace&#160;(the feature&#160;can be used even if&#160;IA32_XSS[8]&#160;=&#160;0).</p>
+<p style="position:absolute;top:284px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:285px;left:93px;white-space:nowrap" class="ft02">IA32_XSS[63:9] and&#160;IA32_XSS[7:0] are&#160;reserved.</p>
+<p style="position:absolute;top:282px;left:437px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:285px;left:444px;white-space:nowrap" class="ft02">&#160;Executing the&#160;WRMSR instruction causes&#160;a&#160;general-</p>
+<p style="position:absolute;top:301px;left:93px;white-space:nowrap" class="ft09">protection fault (#GP) if&#160;ECX&#160;=&#160;DA0H and any corresponding&#160;bit in EDX:EAX&#160;is not 0.&#160;These&#160;bits&#160;in&#160;XCR0 are&#160;all&#160;<br/>0 coming&#160;out of RESET.</p>
+<p style="position:absolute;top:342px;left:68px;white-space:nowrap" class="ft010">The IA32_XSS&#160;MSR is&#160;0 coming&#160;out of RESET.<br/>There is&#160;no mechanism by which software&#160;operating with CPL&#160;&gt;&#160;0&#160;can&#160;discover&#160;the value&#160;of&#160;the IA32_XSS&#160;MSR.</p>
+<p style="position:absolute;top:421px;left:68px;white-space:nowrap" class="ft05">13.4 XSAVE&#160;</p>
+<p style="position:absolute;top:421px;left:214px;white-space:nowrap" class="ft05">AREA</p>
+<p style="position:absolute;top:457px;left:68px;white-space:nowrap" class="ft010">The XSAVE feature set&#160;includes&#160;instructions&#160;that save&#160;and restore&#160;the&#160;XSAVE-managed&#160;state components&#160;to and&#160;<br/>from&#160;memory:&#160;XSAVE,&#160;XSAVEOPT,&#160;XSAVEC,&#160;and&#160;XSAVES&#160;(for&#160;saving);&#160;and&#160;XRSTOR&#160;and&#160;XRSTORS&#160;(for&#160;restoring).&#160;<br/>The processor&#160;organizes the&#160;state components in&#160;a region&#160;of memory called an&#160;<b>XSAVE area</b>. Each&#160;of the&#160;save&#160;and&#160;<br/>restore instructions&#160;takes a&#160;memory&#160;operand that&#160;specifies&#160;the 64-byte aligned&#160;base&#160;address of the XSAVE area on&#160;<br/>which it&#160;operates.<br/>Every XSAVE&#160;area has&#160;the following format:</p>
+<p style="position:absolute;top:569px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:570px;left:93px;white-space:nowrap" class="ft09">The&#160;<b>legacy&#160;region</b>.&#160;The legacy region of an XSAVE&#160;area&#160;comprises the 512 bytes&#160;starting at&#160;the&#160;area’s&#160;base&#160;<br/>address.&#160;It is used to&#160;manage&#160;the state components for&#160;x87 state&#160;and SSE state. The legacy region is described&#160;<br/>in&#160;more&#160;deta<a href="o_7281d5ea06a5b67a-312.html">il in Section 13.4.1</a>.</p>
+<p style="position:absolute;top:625px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:625px;left:93px;white-space:nowrap" class="ft09">The&#160;<b>XSAVE header</b>. The XSAVE&#160;header&#160;of&#160;an XSAVE area comprises&#160;the 64 bytes&#160;starting at&#160;an offset of 512&#160;<br/>bytes&#160;from&#160;the&#160;area’s&#160;base&#160;address. The&#160;XSAVE header&#160;is&#160;described in more&#160;detail<a href="o_7281d5ea06a5b67a-313.html">&#160;in&#160;Section 13.4.2</a>.</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:664px;left:93px;white-space:nowrap" class="ft09">The&#160;<b>extended&#160;region</b>.&#160;The extended&#160;region of&#160;an&#160;XSAVE area starts at an offset of 576 bytes from&#160;the&#160;area’s&#160;<br/>base address. It&#160;is used&#160;to&#160;manage the&#160;state&#160;components other&#160;than&#160;those for x87&#160;state&#160;and&#160;SSE state. The&#160;<br/>extended region&#160;is&#160;described in more deta<a href="o_7281d5ea06a5b67a-314.html">il in Section 13.4.3.</a>&#160;The size of the&#160;extended&#160;region is determined by&#160;<br/>which&#160;state components&#160;the processor supports and&#160;which&#160;bits have&#160;been set in XCR0&#160;and IA32_XSS&#160;(see&#160;<br/><a href="o_7281d5ea06a5b67a-310.html">Section 13.3</a>).</p>
+<p style="position:absolute;top:781px;left:68px;white-space:nowrap" class="ft07">13.4.1&#160;</p>
+<p style="position:absolute;top:781px;left:148px;white-space:nowrap" class="ft07">Legacy Region of&#160;an XSAVE Area</p>
+<p style="position:absolute;top:811px;left:68px;white-space:nowrap" class="ft09">The legacy region&#160;of&#160;an XSAVE&#160;area comprises the&#160;512&#160;bytes&#160;starting at&#160;the area’s&#160;base address. It&#160;has the&#160;same&#160;<br/>format&#160;as the&#160;FXSAVE area&#160;(see<a href="o_7281d5ea06a5b67a-250.html">&#160;Section 10.5.1).</a>&#160;The&#160;XSAVE feature&#160;set&#160;uses the&#160;legacy&#160;area&#160;for&#160;x87 state&#160;(state&#160;<br/>component&#160;0) and SSE&#160;state (state component&#160;<a href="o_7281d5ea06a5b67a-312.html">1).&#160;Table&#160;13-1&#160;</a>illustrates&#160;the format of the&#160;first 416 bytes&#160;of the&#160;<br/>legacy region of an XSAVE&#160;area.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">1.&#160;Bit&#160;9&#160;and bits&#160;7:0 correspond&#160;to&#160;user&#160;state&#160;components.&#160;Since&#160;bits can&#160;be&#160;set in the&#160;IA32_XSS&#160;MSR only for supervisor&#160;state&#160;compo-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">nents, those bits of&#160;the MSR must&#160;be 0.</p>
+<p style="position:absolute;top:890px;left:251px;white-space:nowrap" class="ft08">Table 13-1.&#160;&#160;Format&#160;of&#160;the&#160;Legacy&#160;Region of&#160;an XSAVE Area</p>
+<p style="position:absolute;top:915px;left:92px;white-space:nowrap" class="ft00">15&#160;14</p>
+<p style="position:absolute;top:915px;left:184px;white-space:nowrap" class="ft00">13&#160;&#160;12</p>
+<p style="position:absolute;top:915px;left:276px;white-space:nowrap" class="ft00">11&#160;10</p>
+<p style="position:absolute;top:915px;left:370px;white-space:nowrap" class="ft00">9</p>
+<p style="position:absolute;top:915px;left:401px;white-space:nowrap" class="ft00">8</p>
+<p style="position:absolute;top:915px;left:463px;white-space:nowrap" class="ft00">7</p>
+<p style="position:absolute;top:915px;left:491px;white-space:nowrap" class="ft00">6</p>
+<p style="position:absolute;top:915px;left:546px;white-space:nowrap" class="ft00">5&#160;</p>
+<p style="position:absolute;top:915px;left:592px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:915px;left:649px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:915px;left:674px;white-space:nowrap" class="ft00">2</p>
+<p style="position:absolute;top:915px;left:741px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:915px;left:766px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:939px;left:76px;white-space:nowrap" class="ft02">FIP[63:48] or&#160;</p>
+<p style="position:absolute;top:952px;left:88px;white-space:nowrap" class="ft02">reserved</p>
+<p style="position:absolute;top:941px;left:182px;white-space:nowrap" class="ft02">&#160;FCS or&#160;</p>
+<p style="position:absolute;top:958px;left:174px;white-space:nowrap" class="ft02">FIP[47:32]</p>
+<p style="position:absolute;top:950px;left:314px;white-space:nowrap" class="ft02">&#160;FIP[31:0]</p>
+<p style="position:absolute;top:950px;left:467px;white-space:nowrap" class="ft02">FOP</p>
+<p style="position:absolute;top:945px;left:534px;white-space:nowrap" class="ft02">Rsvd.&#160;FTW</p>
+<p style="position:absolute;top:950px;left:650px;white-space:nowrap" class="ft02">FSW</p>
+<p style="position:absolute;top:950px;left:742px;white-space:nowrap" class="ft02">FCW</p>
+<p style="position:absolute;top:945px;left:818px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:990px;left:112px;white-space:nowrap" class="ft02">MXCSR_MASK</p>
+<p style="position:absolute;top:990px;left:319px;white-space:nowrap" class="ft02">MXCSR</p>
+<p style="position:absolute;top:979px;left:448px;white-space:nowrap" class="ft02">FDP[63:48]&#160;</p>
+<p style="position:absolute;top:993px;left:448px;white-space:nowrap" class="ft02">or&#160;reserved</p>
+<p style="position:absolute;top:978px;left:552px;white-space:nowrap" class="ft02">&#160;FDS&#160;or&#160;</p>
+<p style="position:absolute;top:994px;left:540px;white-space:nowrap" class="ft02">FDP[47:32]</p>
+<p style="position:absolute;top:990px;left:679px;white-space:nowrap" class="ft02">&#160;FDP[31:0]</p>
+<p style="position:absolute;top:986px;left:814px;white-space:nowrap" class="ft02">16</p>
+</div>
+</body>
+</html>

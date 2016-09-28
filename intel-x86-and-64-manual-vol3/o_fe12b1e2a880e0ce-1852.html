@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1852</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1852-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1852.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-42&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:276px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:322px;left:293px;white-space:nowrap" class="ft02">Temp Variables in ELDB/ELDU&#160;Operational&#160;Flow</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft05">(* Check PAGEINFO&#160;and&#160;EPCPAGE alignment *)<br/>IF (&#160;(DS:RBX&#160;is not 32Byte&#160;Aligned) or (DS:RCX is&#160;not 4KByte&#160;Aligned) )</p>
+<p style="position:absolute;top:628px;left:88px;white-space:nowrap" class="ft03">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft03">IF&#160;(DS:RCX does not resolve within an EPC)</p>
+<p style="position:absolute;top:682px;left:88px;white-space:nowrap" class="ft03">THEN #PF(DS:RCX); FI;</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft05">(* Check VASLOT alignment *)<br/>IF&#160;(DS:RDX is&#160;not 8Byte&#160;aligned)</p>
+<p style="position:absolute;top:754px;left:88px;white-space:nowrap" class="ft03">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft03">IF (DS:RDX does&#160;not resolve within&#160;an&#160;EPC)</p>
+<p style="position:absolute;top:808px;left:88px;white-space:nowrap" class="ft03">THEN #PF(DS:RDX); FI;</p>
+<p style="position:absolute;top:844px;left:68px;white-space:nowrap" class="ft05">TMP_SRCPGE&#160;&#160;DS:RBX.SRCPGE;<br/>TMP_SECS&#160;&#160;DS:RBX.SECS;<br/>TMP_PCMD&#160;&#160;DS:RBXPCMD;</p>
+<p style="position:absolute;top:916px;left:68px;white-space:nowrap" class="ft05">(* Check alignment of&#160;PAGEINFO&#160;(RBX)linked&#160;parameters. Note:&#160;PCMD pointer is overlaid&#160;on&#160;top of&#160;PAGEINFO.SECINFO field *)<br/>IF&#160;( (DS:TMP_PCMD&#160;is&#160;not 128Byte aligned)&#160;or&#160;(DS:TMP_SRCPGE&#160;is&#160;not 4KByte aligned) )</p>
+<p style="position:absolute;top:952px;left:88px;white-space:nowrap" class="ft03">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:988px;left:68px;white-space:nowrap" class="ft05">(* Check concurrency of&#160;EPC&#160;and&#160;VASLOT&#160;by&#160;other&#160;Intel SGX&#160;instructions *)<br/>IF (&#160;(other instructions accessing&#160;EPC) or&#160;(Other&#160;instructions&#160;modifying&#160;VA&#160;slot) )&#160;</p>
+<p style="position:absolute;top:1024px;left:88px;white-space:nowrap" class="ft03">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1060px;left:68px;white-space:nowrap" class="ft03">(* Verify&#160;EPCM&#160;attributes of&#160;EPC&#160;page, VA, and SECS&#160;*)</p>
+<p style="position:absolute;top:116px;left:153px;white-space:nowrap" class="ft02">Table&#160;41-27.&#160; Concurrency Restrictions&#160;of&#160;ELDB/ELDU with&#160;Intel®&#160;SGX Instructions&#160;- 2 of&#160;2</p>
+<p style="position:absolute;top:145px;left:86px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:145px;left:158px;white-space:nowrap" class="ft04">EREMOVE</p>
+<p style="position:absolute;top:145px;left:223px;white-space:nowrap" class="ft04">EREPORT</p>
+<p style="position:absolute;top:139px;left:286px;white-space:nowrap" class="ft04">ETRA</p>
+<p style="position:absolute;top:151px;left:293px;white-space:nowrap" class="ft04">CK</p>
+<p style="position:absolute;top:145px;left:350px;white-space:nowrap" class="ft04">EWB</p>
+<p style="position:absolute;top:145px;left:421px;white-space:nowrap" class="ft04">EAUG</p>
+<p style="position:absolute;top:145px;left:475px;white-space:nowrap" class="ft04">EMODPE</p>
+<p style="position:absolute;top:145px;left:538px;white-space:nowrap" class="ft04">EMODPR</p>
+<p style="position:absolute;top:145px;left:606px;white-space:nowrap" class="ft04">EMODT</p>
+<p style="position:absolute;top:145px;left:680px;white-space:nowrap" class="ft04">EACCEPT</p>
+<p style="position:absolute;top:145px;left:758px;white-space:nowrap" class="ft04">EACCEPTCOPY</p>
+<p style="position:absolute;top:170px;left:116px;white-space:nowrap" class="ft04">Param&#160;Targ&#160;SECS&#160;Param&#160;SECS&#160;SECS</p>
+<p style="position:absolute;top:170px;left:323px;white-space:nowrap" class="ft04">SRC&#160;VA&#160;SECS&#160;Targ&#160;SECS&#160;Targ&#160;SECI</p>
+<p style="position:absolute;top:182px;left:500px;white-space:nowrap" class="ft04">NFO</p>
+<p style="position:absolute;top:170px;left:530px;white-space:nowrap" class="ft04">Targ&#160;SECS&#160;Targ&#160;SECS&#160;Targ&#160;SECI</p>
+<p style="position:absolute;top:182px;left:690px;white-space:nowrap" class="ft04">NFO</p>
+<p style="position:absolute;top:170px;left:719px;white-space:nowrap" class="ft04">SECS&#160;Targ&#160;SRC&#160;SECI</p>
+<p style="position:absolute;top:182px;left:810px;white-space:nowrap" class="ft04">NFO</p>
+<p style="position:absolute;top:202px;left:73px;white-space:nowrap" class="ft04">ELDB/E</p>
+<p style="position:absolute;top:214px;left:73px;white-space:nowrap" class="ft04">LDU</p>
+<p style="position:absolute;top:202px;left:116px;white-space:nowrap" class="ft04">Targ</p>
+<p style="position:absolute;top:202px;left:155px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:202px;left:284px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:202px;left:323px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:202px;left:350px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:202px;left:407px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:202px;left:436px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:202px;left:530px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:202px;left:595px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:221px;left:116px;white-space:nowrap" class="ft04">VA</p>
+<p style="position:absolute;top:221px;left:155px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:221px;left:323px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:221px;left:350px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:221px;left:407px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:221px;left:595px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:241px;left:116px;white-space:nowrap" class="ft04">SECS</p>
+<p style="position:absolute;top:241px;left:155px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:241px;left:184px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:241px;left:253px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:241px;left:284px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:241px;left:375px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:241px;left:407px;white-space:nowrap" class="ft04">N</p>
+<p style="position:absolute;top:241px;left:436px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:241px;left:561px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:241px;left:626px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:241px;left:719px;white-space:nowrap" class="ft04">Y</p>
+<p style="position:absolute;top:344px;left:76px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:344px;left:242px;white-space:nowrap" class="ft03">Type</p>
+<p style="position:absolute;top:344px;left:371px;white-space:nowrap" class="ft03">Size&#160;(Bits)</p>
+<p style="position:absolute;top:344px;left:452px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:369px;left:76px;white-space:nowrap" class="ft03">TMP_SRCPGE</p>
+<p style="position:absolute;top:369px;left:242px;white-space:nowrap" class="ft03">Memory page</p>
+<p style="position:absolute;top:369px;left:371px;white-space:nowrap" class="ft03">4KBytes</p>
+<p style="position:absolute;top:393px;left:76px;white-space:nowrap" class="ft03">TMP_SECS</p>
+<p style="position:absolute;top:393px;left:242px;white-space:nowrap" class="ft03">Memory page</p>
+<p style="position:absolute;top:393px;left:371px;white-space:nowrap" class="ft03">4KBytes</p>
+<p style="position:absolute;top:417px;left:76px;white-space:nowrap" class="ft03">TMP_PCMD</p>
+<p style="position:absolute;top:417px;left:242px;white-space:nowrap" class="ft03">PCMD</p>
+<p style="position:absolute;top:417px;left:371px;white-space:nowrap" class="ft03">128 Bytes</p>
+<p style="position:absolute;top:441px;left:76px;white-space:nowrap" class="ft03">TMP_HEADER</p>
+<p style="position:absolute;top:441px;left:242px;white-space:nowrap" class="ft03">MACHEADER</p>
+<p style="position:absolute;top:441px;left:371px;white-space:nowrap" class="ft03">128&#160;Bytes</p>
+<p style="position:absolute;top:465px;left:76px;white-space:nowrap" class="ft03">TMP_VER</p>
+<p style="position:absolute;top:465px;left:242px;white-space:nowrap" class="ft03">UINT64</p>
+<p style="position:absolute;top:465px;left:371px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:489px;left:76px;white-space:nowrap" class="ft03">TMP_MAC</p>
+<p style="position:absolute;top:489px;left:242px;white-space:nowrap" class="ft03">UINT128</p>
+<p style="position:absolute;top:489px;left:371px;white-space:nowrap" class="ft03">128</p>
+<p style="position:absolute;top:512px;left:76px;white-space:nowrap" class="ft03">TMP_PK</p>
+<p style="position:absolute;top:512px;left:242px;white-space:nowrap" class="ft03">UINT128</p>
+<p style="position:absolute;top:512px;left:371px;white-space:nowrap" class="ft03">128</p>
+<p style="position:absolute;top:512px;left:452px;white-space:nowrap" class="ft03">Page&#160;encryption/MAC&#160;key.</p>
+<p style="position:absolute;top:537px;left:76px;white-space:nowrap" class="ft03">SCRATCH_PCMD</p>
+<p style="position:absolute;top:537px;left:242px;white-space:nowrap" class="ft03">PCMD</p>
+<p style="position:absolute;top:537px;left:371px;white-space:nowrap" class="ft03">128 Bytes</p>
+</div>
+</body>
+</html>

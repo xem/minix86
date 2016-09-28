@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 621</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:7px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page621-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce621.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-47</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">RMID&#160;may allow cache occupancy,&#160;memory&#160;bandwidth&#160;information or&#160;other monitoring data to&#160;be&#160;read&#160;back later&#160;<br/>with monitoring event codes&#160;(retrieving data is&#160;discussed in&#160;a previous&#160;section).&#160;<br/>The&#160;association of an application&#160;thread with an&#160;RMID&#160;requires an OS to&#160;program&#160;the&#160;per-logical-processor&#160;MSR&#160;<br/>IA32_PQR_ASSOC at context swap time&#160;(updates may also&#160;be made at any other arbitrary points during program&#160;<br/>execution such&#160;as application phase changes). The IA32_PQR_ASSOC MSR specifies&#160;the active RMID&#160;that moni-<br/>toring hardware will use&#160;to tag internal&#160;operations, such&#160;as L3&#160;cache&#160;requests.&#160;The layout of&#160;the MSR is&#160;shown&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-621.html">Figure 17-23.</a>&#160;Software&#160;specifies the active&#160;RMID&#160;to&#160;monitor&#160;in the IA32_PQR_ASSOC.RMID field.&#160;The width&#160;of&#160;the&#160;<br/>RMID field can vary from one&#160;implementation to&#160;another,&#160;and&#160;is derived from Ceil (LOG</p>
+<p style="position:absolute;top:230px;left:656px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:223px;left:663px;white-space:nowrap" class="ft02">&#160;(&#160;1 + CPUID.(EAX=0FH,&#160;</p>
+<p style="position:absolute;top:240px;left:69px;white-space:nowrap" class="ft02">ECX=0):EBX[31:0])). The&#160;value of&#160;IA32_PQR_ASSOC&#160;after power-on is&#160;0.</p>
+<p style="position:absolute;top:458px;left:69px;white-space:nowrap" class="ft08">In&#160;the initial implementation, the width&#160;of the&#160;RMID field is up to&#160;10&#160;bits&#160;wide, zero-referenced&#160;and fully encoded.&#160;<br/>However,&#160;software must use CPUID&#160;to query the&#160;maximum&#160;RMID&#160;supported&#160;by the processor.&#160;If a value&#160;larger than&#160;<br/>the&#160;maximum RMID&#160;is written to&#160;IA32_PQR_ASSOC.RMID,&#160;a #GP(0) fault will be generated.<br/>RMIDs have&#160;a global&#160;scope&#160;within the physical&#160;package- if&#160;an RMID&#160;is assigned to&#160;one logical processor then&#160;the&#160;<br/>same RMID&#160;can be&#160;used to read&#160;multiple thread attributes later (for example, L3&#160;cache occupancy or&#160;external&#160;<br/>bandwidth from the&#160;L3 to the next level&#160;of&#160;the cache hierarchy). In&#160;a multiple LLC platform&#160;the RMIDs&#160;are to&#160;be&#160;<br/>reassigned&#160;by the&#160;OS or&#160;VMM scheduler when an&#160;application&#160;is migrated&#160;across LLCs.&#160;<br/>Note&#160;that in&#160;a situation&#160;where Monitoring supports multiple&#160;resource&#160;types,&#160;some&#160;upper range&#160;of RMIDs&#160;(e.g. RMID&#160;<br/>31)&#160;may&#160;only be&#160;supported by&#160;one&#160;resource&#160;type&#160;but not by&#160;another&#160;resource&#160;type.&#160;</p>
+<p style="position:absolute;top:655px;left:69px;white-space:nowrap" class="ft04">17.16.7&#160;&#160;Monitoring Resource&#160;Selection and Reporting Infrastructure</p>
+<p style="position:absolute;top:686px;left:69px;white-space:nowrap" class="ft08">The reporting&#160;mechanism for Cache&#160;Monitoring&#160;Technology and other related&#160;features is architecturally exposed&#160;as&#160;<br/>an MSR pair that can&#160;be programmed&#160;and read&#160;to measure various metrics such as the&#160;L3&#160;cache occupancy (CMT)&#160;<br/>and bandwidths (MBM)&#160;depending&#160;on the&#160;level of Monitoring&#160;support provided&#160;by&#160;the platform. Data is&#160;reported&#160;<br/>back on&#160;a per-RMID&#160;basis.&#160;These&#160;events do not trigger&#160;based on event counts&#160;or&#160;trigger APIC interrupts&#160;(e.g. no&#160;<br/>Performance&#160;Monitoring Interrupt occurs based&#160;on counts). Rather, they are used to&#160;sample counts&#160;explicitly.&#160;<br/>The MSR&#160;pair for&#160;the shared resource monitoring features&#160;(CMT, MBM) is&#160;separate&#160;from and not shared with archi-<br/>tectural Perfmon&#160;counters, meaning software can use these monitoring features simultaneously with the Perfmon&#160;<br/>counters.&#160;<br/>Access to the&#160;aggregated monitoring information is&#160;accomplished&#160;through&#160;the following programmable monitoring&#160;<br/>MSRs:</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:872px;left:95px;white-space:nowrap" class="ft08">IA32_QM_EVTSEL: This MSR provides a&#160;role&#160;similar&#160;to the&#160;event select MSRs&#160;for&#160;programmable&#160;performance&#160;<br/>monitoring described&#160;in&#160;Chapter 18.&#160;The simplified&#160;layout&#160;of&#160;the&#160;MSR&#160;is&#160;shown&#160;in<a href="o_fe12b1e2a880e0ce-622.html">&#160;Figure&#160;17-24</a>.&#160;Bits&#160;<br/>IA32_QM_EVTSEL.EvtID (bits 7:0) specify an event&#160;code&#160;of&#160;a&#160;supported&#160;resource&#160;type&#160;for hardware&#160;to report&#160;<br/>monitored&#160;data associated&#160;with&#160;IA32_QM_EVTSEL.RMID (bits 41:32). Software can&#160;configure&#160;<br/>IA32_QM_EVTSEL.RMID&#160;with&#160;any RMID&#160;that is&#160;active&#160;within the&#160;physical processor.&#160;The&#160;width of&#160;<br/>IA32_QM_EVTSEL.RMID matches&#160;that of IA32_PQR_ASSOC.RMID.&#160;Supported&#160;event codes for the&#160;<br/>IA32_QM_EVTSEL register&#160;are&#160;<a href="o_fe12b1e2a880e0ce-620.html">shown in Table&#160;17-19.&#160;</a>Note&#160;that valid&#160;event codes may&#160;not necessarily&#160;map&#160;<br/>directly to the bit&#160;position used to&#160;enumerate&#160;support&#160;for&#160;the resource via CPUID.&#160;<br/>Software can program an&#160;RMID /&#160;Event ID pair into the&#160;IA32_QM_EVTSEL&#160;MSR bit field&#160;to&#160;select&#160;an RMID&#160;to&#160;<br/>read a particular counter for a given resource. The currently supported&#160;list of Monitoring Event IDs is discussed&#160;<br/><a href="o_fe12b1e2a880e0ce-619.html">in&#160;Section&#160;17.16.5, which co</a>vers feature-specific details.</p>
+<p style="position:absolute;top:412px;left:326px;white-space:nowrap" class="ft06">Figure&#160;17-23.&#160;&#160;IA32_PQR_ASSOC&#160;MSR</p>
+<p style="position:absolute;top:334px;left:613px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:334px;left:493px;white-space:nowrap" class="ft03">10</p>
+<p style="position:absolute;top:334px;left:215px;white-space:nowrap" class="ft03">63</p>
+<p style="position:absolute;top:313px;left:182px;white-space:nowrap" class="ft00">Width of IA32_PQR_ASSOC.RMID field: Log</p>
+<p style="position:absolute;top:318px;left:421px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:313px;left:426px;white-space:nowrap" class="ft00">&#160;( CPUID.(EAX=0FH, ECX=0H).EBX[31:0] +1)</p>
+<p style="position:absolute;top:354px;left:549px;white-space:nowrap" class="ft03">RMID</p>
+<p style="position:absolute;top:335px;left:510px;white-space:nowrap" class="ft03">9</p>
+<p style="position:absolute;top:354px;left:405px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:351px;left:649px;white-space:nowrap" class="ft03">IA32_PQR_ASSOC</p>
+<p style="position:absolute;top:355px;left:239px;white-space:nowrap" class="ft03">Reserved&#160;for&#160;CLOS*</p>
+<p style="position:absolute;top:332px;left:348px;white-space:nowrap" class="ft03">32&#160;31</p>
+<p style="position:absolute;top:392px;left:214px;white-space:nowrap" class="ft03">*See Section&#160;17.15</p>
+</div>
+</body>
+</html>

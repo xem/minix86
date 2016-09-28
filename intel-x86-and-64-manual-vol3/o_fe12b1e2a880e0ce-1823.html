@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1823</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1823-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1823.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-13</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">(* Check the&#160;EPC page&#160;for concurrency *)<br/>IF&#160;(EPC page&#160;in&#160;use)&#160;</p>
+<p style="position:absolute;top:136px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:172px;left:69px;white-space:nowrap" class="ft02">IF (EPCM(DS:RCX).VALID&#160;≠&#160;0)&#160;</p>
+<p style="position:absolute;top:190px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RCX); FI;</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft04">(* Check&#160;the&#160;SECS&#160;for&#160;concurrency&#160;*)<br/>IF&#160;(SECS is&#160;not available for&#160;EADD)&#160;</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft02">IF&#160;(EPCM(DS:TMP_SECS).VALID = 0&#160;or EPCM(DS:TMP_SECS).PT&#160;≠&#160;PT_SECS)&#160;</p>
+<p style="position:absolute;top:316px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_SECS); FI;</p>
+<p style="position:absolute;top:352px;left:69px;white-space:nowrap" class="ft04">(* Copy 4KBytes from&#160;source&#160;page&#160;to&#160;EPC page*)<br/>DS:RCX[32767:0]&#160;&#160;DS:TMP_SRCPGE[32767:0];</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft04">CASE&#160;(SCRATCH_SECINFO.FLAGS.PT)&#160;<br/>{</p>
+<p style="position:absolute;top:442px;left:89px;white-space:nowrap" class="ft02">PT_TCS:</p>
+<p style="position:absolute;top:460px;left:116px;white-space:nowrap" class="ft04">IF (DS:RCX.RESERVED&#160;≠&#160;0) #GP(0);&#160;FI;<br/>IF ( (DS:TMP_SECS.ATTIBUTES.MODE64BIT = 0)&#160;and&#160;</p>
+<p style="position:absolute;top:496px;left:143px;white-space:nowrap" class="ft02">((DS:TCS.FSLIMIT &amp; 0FFFH&#160;≠&#160;0FFFH)&#160;or&#160;(DS:TCS.GSLIMIT &amp; 0FFFH&#160;≠&#160;0FFFH) ))&#160;#GP(0);&#160;FI;</p>
+<p style="position:absolute;top:514px;left:116px;white-space:nowrap" class="ft02">BREAK;</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft02">PT_REG:</p>
+<p style="position:absolute;top:550px;left:116px;white-space:nowrap" class="ft04">IF&#160;(SCRATCH_SECINFO.FLAGS.W&#160;=&#160;1 and&#160;SCRATCH_SECINFO.FLAGS.R = 0) #GP(0); FI;<br/>BREAK;</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft02">ESAC;</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft04">(* Check the enclave offset&#160;is within&#160;the enclave linear&#160;address space *)<br/>IF (TMP_LINADDR&#160;&lt; DS:TMP_SECS.BASEADDR or TMP_LINADDR&#160;</p>
+<p style="position:absolute;top:637px;left:435px;white-space:nowrap" class="ft03">≥</p>
+<p style="position:absolute;top:640px;left:444px;white-space:nowrap" class="ft02">&#160;DS:TMP_SECS.BASEADDR + DS:TMP_SECS.SIZE)&#160;</p>
+<p style="position:absolute;top:658px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft04">(* Check concurrency of&#160;measurement resource*)<br/>IF&#160;(Measurement being updated)&#160;</p>
+<p style="position:absolute;top:730px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft04">(* Check if&#160;the enclave&#160;to which&#160;the&#160;page&#160;will be&#160;added&#160;is already in&#160;Initialized&#160;state&#160;*)<br/>IF (DS:TMP_SECS&#160;already initialized)&#160;</p>
+<p style="position:absolute;top:802px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:838px;left:69px;white-space:nowrap" class="ft04">(* For TCS pages, force&#160;EPCM.rwx bits to 0&#160;and no&#160;debug access&#160;*)<br/>IF&#160;(SCRATCH_SECINFO.FLAGS.PT = PT_TCS)&#160;</p>
+<p style="position:absolute;top:874px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:892px;left:116px;white-space:nowrap" class="ft04">SCRATCH_SECINFO.FLAGS.R&#160;&#160;0;<br/>SCRATCH_SECINFO.FLAGS.W&#160;&#160;0;<br/>SCRATCH_SECINFO.FLAGS.X&#160;&#160;0;<br/>(DS:RCX).FLAGS.DBGOPTIN&#160;&#160;0; //&#160;force&#160;TCS.FLAGS.DBGOPTIN off<br/>DS:RCX.CSSA&#160;&#160;0;<br/>DS:RCX.AEP&#160;&#160;0;<br/>DS:RCX.STATE&#160;&#160;0;</p>
+<p style="position:absolute;top:1018px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">(* Add&#160;enclave offset and security&#160;attributes to MRENCLAVE *)</p>
+</div>
+</body>
+</html>

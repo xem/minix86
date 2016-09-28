@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 886</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page886-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481886.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:563px;white-space:nowrap" class="ft00">PADDB/PADDW/PADDD/PADDQ—Add Packed Integers</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-206&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">The PADDQ&#160;and VPADDQ instructions&#160;add&#160;packed quadword&#160;integers&#160;from the&#160;first source&#160;operand and&#160;second&#160;<br/>source operand&#160;and store&#160;the&#160;packed&#160;integer&#160;results in the&#160;destination&#160;operand. When&#160;a quadword result&#160;is too&#160;<br/>large to&#160;be&#160;represented&#160;in 64 bits (overflow),&#160;the result&#160;is wrapped&#160;around&#160;and&#160;the low 64 bits&#160;are&#160;written&#160;to the&#160;<br/>destination&#160;operand (that is,&#160;the&#160;carry is&#160;ignored).<br/>Note&#160;that&#160;the (V)PADDB, (V)PADDW, (V)PADDD&#160;and (V)PADDQ instructions can&#160;operate on&#160;either unsigned or&#160;<br/>signed (two's complement notation) packed&#160;integers; however,&#160;it does not&#160;set bits in&#160;the EFLAGS&#160;register to&#160;indi-<br/>cate&#160;overflow&#160;and/or a&#160;carry.&#160;To&#160;prevent&#160;undetected&#160;overflow&#160;conditions, software&#160;must&#160;control the&#160;ranges&#160;of&#160;<br/>values&#160;operated&#160;on.<br/>EVEX encoded&#160;VPADDD/Q: The&#160;first source&#160;operand is&#160;a&#160;ZMM/YMM/XMM&#160;register. The second source&#160;operand is&#160;a&#160;<br/>ZMM/YMM/XMM register,&#160;a 512/256/128-bit&#160;memory&#160;location or&#160;a 512/256/128-bit&#160;vector&#160;broadcasted from a&#160;<br/>32/64-bit&#160;memory&#160;location. The destination operand&#160;is&#160;a&#160;ZMM/YMM/XMM register updated according&#160;to the&#160;<br/>writemask.<br/>EVEX&#160;encoded VPADDB/W: The&#160;first source&#160;operand is&#160;a&#160;ZMM/YMM/XMM register. The&#160;second&#160;source operand&#160;is a&#160;<br/>ZMM/YMM/XMM register,&#160;a 512/256/128-bit&#160;memory&#160;location. The&#160;destination operand is&#160;a ZMM/YMM/XMM&#160;<br/>register&#160;updated according to&#160;the writemask.<br/>VEX.256 encoded version: The&#160;first source operand is a YMM register. The second&#160;source&#160;operand is a YMM register&#160;<br/>or a&#160;256-bit memory location.&#160;The&#160;destination&#160;operand&#160;is&#160;a YMM&#160;register.&#160;the upper&#160;bits (MAX_VL-1:256)&#160;of the&#160;<br/>destination are&#160;cleared.<br/>VEX.128&#160;encoded version: The first source&#160;operand is&#160;an XMM&#160;register. The second source&#160;operand is&#160;an&#160;XMM&#160;<br/>register&#160;or 128-bit&#160;memory&#160;location. The destination operand&#160;is an&#160;XMM register.&#160;The&#160;upper bits&#160;(MAX_VL-1:128)&#160;<br/>of the corresponding ZMM&#160;register destination are&#160;zeroed.<br/>128-bit Legacy SSE&#160;version:&#160;The first&#160;source operand&#160;is an&#160;XMM register.&#160;The&#160;second operand&#160;can be an&#160;XMM&#160;<br/>register or&#160;an&#160;128-bit&#160;memory location. The&#160;destination&#160;is not&#160;distinct from the&#160;first source&#160;XMM register&#160;and the&#160;<br/>upper bits&#160;(MAX_VL-1:128) of the&#160;corresponding ZMM&#160;register destination are&#160;unmodified.</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:574px;left:68px;white-space:nowrap" class="ft02">PADDB (with&#160;64-bit operands)</p>
+<p style="position:absolute;top:592px;left:88px;white-space:nowrap" class="ft02">DEST[7:0]&#160;←&#160;DEST[7:0]&#160;+&#160;SRC[7:0];&#160;</p>
+<p style="position:absolute;top:610px;left:88px;white-space:nowrap" class="ft05">(* Repeat add operation&#160;for 2nd through 7th&#160;byte&#160;*)<br/>DEST[63:56]&#160;←&#160;DEST[63:56]&#160;+&#160;SRC[63:56];</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft02">PADDW (with&#160;64-bit operands)</p>
+<p style="position:absolute;top:676px;left:88px;white-space:nowrap" class="ft02">DEST[15:0]&#160;←&#160;DEST[15:0]&#160;+&#160;SRC[15:0];</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft05">(* Repeat add operation&#160;for 2nd and 3th&#160;word *)<br/>DEST[63:48]&#160;←&#160;DEST[63:48]&#160;+&#160;SRC[63:48];</p>
+<p style="position:absolute;top:742px;left:68px;white-space:nowrap" class="ft02">PADDD (with&#160;64-bit operands)</p>
+<p style="position:absolute;top:760px;left:88px;white-space:nowrap" class="ft02">DEST[31:0]&#160;←&#160;DEST[31:0]&#160;+&#160;SRC[31:0];</p>
+<p style="position:absolute;top:778px;left:88px;white-space:nowrap" class="ft02">DEST[63:32]&#160;←&#160;DEST[63:32]&#160;+&#160;SRC[63:32];</p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft02">PADDQ (with&#160;64-Bit&#160;operands)</p>
+<p style="position:absolute;top:820px;left:88px;white-space:nowrap" class="ft02">DEST[63:0]&#160;←&#160;DEST[63:0]&#160;+&#160;SRC[63:0];</p>
+<p style="position:absolute;top:856px;left:68px;white-space:nowrap" class="ft02">PADDB (Legacy SSE&#160;instruction)</p>
+<p style="position:absolute;top:874px;left:88px;white-space:nowrap" class="ft02">DEST[7:0]←&#160;DEST[7:0] +&#160;SRC[7:0];&#160;</p>
+<p style="position:absolute;top:892px;left:88px;white-space:nowrap" class="ft05">(* Repeat add operation&#160;for 2nd through 15th byte&#160;*)<br/>DEST[127:120]←&#160;DEST[127:120] + SRC[127:120];</p>
+<p style="position:absolute;top:928px;left:88px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft02">PADDW&#160;(Legacy SSE&#160;instruction)</p>
+<p style="position:absolute;top:982px;left:88px;white-space:nowrap" class="ft02">DEST[15:0]&#160;←&#160;DEST[15:0] + SRC[15:0];</p>
+<p style="position:absolute;top:1000px;left:88px;white-space:nowrap" class="ft05">(* Repeat add operation&#160;for 2nd through 7th&#160;word *)<br/>DEST[127:112]←&#160;DEST[127:112] + SRC[127:112];</p>
+<p style="position:absolute;top:1036px;left:88px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128] (Unmodified)</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 586</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page586-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481586.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:605px;white-space:nowrap" class="ft00">INT n/INTO/INT 3—Call&#160;to Interrupt Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-458&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">IF&#160;PE&#160;</p>
+<p style="position:absolute;top:98px;left:99px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:100px;left:113px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:118px;left:88px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:136px;left:115px;white-space:nowrap" class="ft02">GOTO&#160;REAL-ADDRESS-MODE;</p>
+<p style="position:absolute;top:154px;left:88px;white-space:nowrap" class="ft02">ELSE (* PE&#160;</p>
+<p style="position:absolute;top:152px;left:151px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:154px;left:160px;white-space:nowrap" class="ft02">&#160;1 *)</p>
+<p style="position:absolute;top:172px;left:115px;white-space:nowrap" class="ft02">IF (VM&#160;</p>
+<p style="position:absolute;top:170px;left:154px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:172px;left:167px;white-space:nowrap" class="ft02">1 and&#160;IOPL&#160;&lt;&#160;3 AND INT&#160;<i>n</i>)&#160;</p>
+<p style="position:absolute;top:190px;left:142px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:208px;left:169px;white-space:nowrap" class="ft02">&#160;#GP(0);&#160;(* Bit 0 of error code&#160;is&#160;0&#160;because INT&#160;<i>n *</i>)</p>
+<p style="position:absolute;top:226px;left:142px;white-space:nowrap" class="ft02">ELSE (* Protected mode, IA-32e&#160;mode, or&#160;virtual-8086 mode&#160;interrupt *)</p>
+<p style="position:absolute;top:244px;left:169px;white-space:nowrap" class="ft02">IF (IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:242px;left:281px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:244px;left:290px;white-space:nowrap" class="ft02">&#160;0)</p>
+<p style="position:absolute;top:262px;left:196px;white-space:nowrap" class="ft02">THEN (* Protected&#160;mode, or virtual-8086&#160;mode&#160;interrupt *)</p>
+<p style="position:absolute;top:280px;left:223px;white-space:nowrap" class="ft02">GOTO PROTECTED-MODE;</p>
+<p style="position:absolute;top:298px;left:169px;white-space:nowrap" class="ft02">ELSE (* IA-32e mode interrupt *)</p>
+<p style="position:absolute;top:316px;left:196px;white-space:nowrap" class="ft02">GOTO IA-32e-MODE;</p>
+<p style="position:absolute;top:334px;left:169px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:352px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft05">FI;<br/>REAL-ADDRESS-MODE:</p>
+<p style="position:absolute;top:406px;left:88px;white-space:nowrap" class="ft02">IF ((vector_number « 2) + 3)&#160;is not&#160;within&#160;IDT limit&#160;</p>
+<p style="position:absolute;top:424px;left:115px;white-space:nowrap" class="ft02">THEN #GP; FI;</p>
+<p style="position:absolute;top:442px;left:88px;white-space:nowrap" class="ft02">IF stack&#160;not large enough for&#160;a 6-byte return information&#160;</p>
+<p style="position:absolute;top:460px;left:115px;white-space:nowrap" class="ft02">THEN #SS;&#160;FI;</p>
+<p style="position:absolute;top:478px;left:88px;white-space:nowrap" class="ft05">Push (EFLAGS[15:0]);<br/>IF&#160;←&#160;0;&#160;(*&#160;Clear interrupt flag&#160;*)</p>
+<p style="position:absolute;top:514px;left:88px;white-space:nowrap" class="ft02">TF&#160;←&#160;0; (* Clear trap flag *)</p>
+<p style="position:absolute;top:532px;left:88px;white-space:nowrap" class="ft02">AC&#160;←&#160;0; (* Clear AC flag *)</p>
+<p style="position:absolute;top:550px;left:88px;white-space:nowrap" class="ft05">Push(CS);<br/>Push(IP);<br/>(* No&#160;error codes&#160;are pushed&#160;in&#160;real-address mode*)<br/>CS&#160;←&#160;IDT(Descriptor (vector_number&#160;« 2), selector));</p>
+<p style="position:absolute;top:622px;left:88px;white-space:nowrap" class="ft02">EIP&#160;←&#160;IDT(Descriptor&#160;(vector_number&#160;« 2), offset)); (* 16&#160;bit offset&#160;AND 0000FFFFH&#160;*)</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft05">END;<br/>PROTECTED-MODE:</p>
+<p style="position:absolute;top:676px;left:88px;white-space:nowrap" class="ft05">IF ((vector_number « 3) + 7)&#160;is not&#160;within&#160;IDT limits<br/>or selected IDT descriptor is not an&#160;interrupt-,&#160;trap-,&#160;or&#160;task-gate type</p>
+<p style="position:absolute;top:712px;left:115px;white-space:nowrap" class="ft05">THEN&#160;#GP(error_code(vector_number,1,EXT)); FI;<br/>(*&#160;idt operand to error_code&#160;set&#160;because vector is&#160;used *)</p>
+<p style="position:absolute;top:748px;left:88px;white-space:nowrap" class="ft02">IF software&#160;interrupt (* Generated by INT&#160;<i>n</i>, INT3,&#160;or&#160;INTO&#160;*)</p>
+<p style="position:absolute;top:766px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:784px;left:142px;white-space:nowrap" class="ft02">IF gate&#160;DPL &lt; CPL (* PE&#160;=&#160;1,&#160;DPL &lt; CPL,&#160;software&#160;interrupt *)</p>
+<p style="position:absolute;top:802px;left:169px;white-space:nowrap" class="ft05">THEN&#160;#GP(error_code(vector_number,1,0));&#160;FI;<br/>(*&#160;idt operand to error_code&#160;set&#160;because vector is&#160;used *)<br/>(* ext operand to&#160;error_code&#160;is 0&#160;because INT&#160;<i>n</i>, INT3, or INTO*)</p>
+<p style="position:absolute;top:856px;left:88px;white-space:nowrap" class="ft05">FI;<br/>IF gate not present&#160;</p>
+<p style="position:absolute;top:892px;left:115px;white-space:nowrap" class="ft05">THEN #NP(error_code(vector_number,1,EXT)); FI;<br/>(*&#160;idt operand to error_code&#160;set&#160;because vector is&#160;used *)</p>
+<p style="position:absolute;top:928px;left:88px;white-space:nowrap" class="ft02">IF task&#160;gate (*&#160;Specified in&#160;the&#160;selected&#160;interrupt table&#160;descriptor&#160;*)</p>
+<p style="position:absolute;top:946px;left:115px;white-space:nowrap" class="ft05">THEN&#160;GOTO&#160;TASK-GATE;<br/>ELSE&#160;GOTO TRAP-OR-INTERRUPT-GATE; (* PE&#160;= 1, trap/interrupt gate&#160;*)</p>
+<p style="position:absolute;top:982px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft05">END;<br/>IA-32e-MODE:</p>
+<p style="position:absolute;top:1036px;left:88px;white-space:nowrap" class="ft02">IF INTO and CS.L = 1&#160;(64-bit mode)</p>
+<p style="position:absolute;top:1054px;left:115px;white-space:nowrap" class="ft02">THEN&#160;#UD;</p>
+</div>
+</body>
+</html>

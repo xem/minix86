@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1221</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1221-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1221.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;31-11</p>
+<p style="position:absolute;top:47px;left:475px;white-space:nowrap" class="ft01">VIRTUAL-MACHINE&#160;MONITOR PROGRAMMING CONSIDERATIONS</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">31.8.1 Initialization</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft05">Before enabling VMX, an&#160;MP-aware&#160;VMM must check to&#160;make&#160;sure&#160;that all&#160;processors in&#160;the system are&#160;compatible&#160;<br/>and&#160;support&#160;features required. This can be done by:</p>
+<p style="position:absolute;top:167px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:168px;left:95px;white-space:nowrap" class="ft05">Checking&#160;the&#160;CPUID on each logical processor to ensure&#160;VMX is&#160;supported and that&#160;the overall&#160;feature set of&#160;<br/>each logical processor is&#160;compatible.</p>
+<p style="position:absolute;top:206px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:207px;left:95px;white-space:nowrap" class="ft03">Checking&#160;VMCS revision&#160;identifiers&#160;on&#160;each logical processor.</p>
+<p style="position:absolute;top:229px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:229px;left:95px;white-space:nowrap" class="ft03">Checking&#160;each&#160;of the&#160;“allowed-1”&#160;or&#160;“allowed-0” fields&#160;of&#160;the VMX capability MSR’s&#160;on each&#160;processor.</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft02">31.8.2&#160;</p>
+<p style="position:absolute;top:280px;left:150px;white-space:nowrap" class="ft02">Moving a VMCS Between Processors</p>
+<p style="position:absolute;top:310px;left:69px;white-space:nowrap" class="ft06">An MP-aware VMM&#160;is free&#160;to assign any&#160;logical processor&#160;to&#160;a VM. But for performance&#160;considerations, moving a&#160;<br/>guest VMCS to&#160;another logical processor is&#160;slower&#160;than&#160;resuming that guest VMCS on&#160;the same&#160;logical&#160;processor.&#160;<br/>Certain&#160;VMX&#160;performance&#160;features (such&#160;as caching&#160;of&#160;portions of&#160;the VMCS in&#160;the processor) are&#160;optimized&#160;for&#160;a&#160;<br/>guest VMCS that&#160;runs&#160;on the&#160;same logical processor.&#160;<br/>The reasons&#160;are:</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:406px;left:95px;white-space:nowrap" class="ft05">To&#160;restart&#160;a guest&#160;on the&#160;same logical processor,&#160;a&#160;VMM can&#160;use VMRESUME.&#160;VMRESUME&#160;is expected&#160;to&#160;be&#160;<br/>faster than&#160;VMLAUNCH&#160;in&#160;general.</p>
+<p style="position:absolute;top:445px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:445px;left:95px;white-space:nowrap" class="ft05">To&#160;migrate&#160;a VMCS&#160;to another logical processor,&#160;a&#160;VMM must&#160;use&#160;the&#160;sequence&#160;of VMCLEAR,&#160;VMPTRLD&#160;and&#160;<br/>VMLAUNCH.</p>
+<p style="position:absolute;top:484px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:484px;left:95px;white-space:nowrap" class="ft05">Operations involving VMCLEAR&#160;can impact&#160;performance&#160;negatively. See<br/><a href="o_fe12b1e2a880e0ce-1073.html">Section 24.11.3.</a></p>
+<p style="position:absolute;top:525px;left:69px;white-space:nowrap" class="ft05">A VMM scheduler&#160;should make&#160;an effort to schedule&#160;a guest VMCS to run&#160;on the logical processor&#160;where it last ran.&#160;<br/>Such&#160;a scheduler&#160;might&#160;also benefit from doing lazy&#160;VMCLEARs (that&#160;is: performing&#160;a&#160;VMCLEAR on a&#160;VMCS only&#160;<br/>when&#160;the scheduler knows&#160;the VMCS&#160;is being moved to&#160;a new logical processor).&#160;The&#160;remainder&#160;of&#160;this&#160;section&#160;<br/>describes&#160;the&#160;steps a&#160;VMM must take to&#160;move a&#160;VMCS from&#160;one processor to&#160;another.<br/>A VMM&#160;must&#160;check the&#160;VMCS&#160;revision identifier in the&#160;VMX&#160;capability MSR IA32_VMX_BASIC to&#160;determine if the&#160;<br/>VMCS&#160;regions are identical between all&#160;logical&#160;processors.&#160;If&#160;the VMCS&#160;regions are identical (same&#160;revision ID) the&#160;<br/>following&#160;sequence&#160;can be used&#160;to&#160;move or&#160;copy&#160;the VMCS&#160;from one&#160;logical&#160;processor&#160;to another:</p>
+<p style="position:absolute;top:653px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:654px;left:95px;white-space:nowrap" class="ft05">Perform a&#160;VMCLEAR operation&#160;on&#160;the source&#160;logical&#160;processor.&#160;This&#160;ensures that&#160;all VMCS data that&#160;may be&#160;<br/>cached by the&#160;processor&#160;are&#160;flushed to memory.</p>
+<p style="position:absolute;top:692px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:693px;left:95px;white-space:nowrap" class="ft05">Copy&#160;the VMCS&#160;region from one&#160;memory location&#160;to another location.&#160;This&#160;is an optional&#160;step&#160;assuming the&#160;<br/>VMM wishes to&#160;relocate&#160;the VMCS&#160;or&#160;move&#160;the&#160;VMCS&#160;to another&#160;system.</p>
+<p style="position:absolute;top:731px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:732px;left:95px;white-space:nowrap" class="ft05">Perform&#160;a VMPTRLD&#160;of the physical address of&#160;VMCS region&#160;on the destination processor&#160;to establish its&#160;current&#160;<br/>VMCS&#160;pointer.</p>
+<p style="position:absolute;top:772px;left:69px;white-space:nowrap" class="ft05">If&#160;the revision identifiers&#160;are different,&#160;each&#160;field&#160;must&#160;be&#160;copied to an intermediate structure using individual&#160;reads&#160;<br/>(VMREAD)&#160;from&#160;the&#160;source&#160;fields&#160;and&#160;writes&#160;(VMWRITE)&#160;to&#160;destination&#160;fields.&#160;Care&#160;must&#160;be&#160;taken&#160;on&#160;fields&#160;that&#160;are&#160;<br/>hard-wired to certain values on&#160;some&#160;processor implementations.</p>
+<p style="position:absolute;top:856px;left:69px;white-space:nowrap" class="ft02">31.8.3&#160;</p>
+<p style="position:absolute;top:856px;left:149px;white-space:nowrap" class="ft02">Paired Index-Data Registers</p>
+<p style="position:absolute;top:886px;left:69px;white-space:nowrap" class="ft05">A&#160;VMM&#160;may&#160;need&#160;to virtualize&#160;hardware that&#160;is visible to&#160;software&#160;using&#160;paired&#160;index-data registers.&#160;Paired&#160;index-<br/>data&#160;register&#160;interfaces, such as&#160;those used&#160;in&#160;PCI (CF8,&#160;CFC),&#160;require special&#160;treatment in&#160;cases&#160;where&#160;a VM&#160;<br/>performing writes to&#160;these pairs can be&#160;moved&#160;during execution. In this case,&#160;the&#160;index&#160;(e.g. CF8)&#160;should&#160;be&#160;part&#160;<br/>of the&#160;virtualized state.&#160;If the&#160;VM&#160;is moved during execution,&#160;writes&#160;to the&#160;index&#160;should be&#160;redone&#160;so&#160;subsequent&#160;<br/>data reads/writes go&#160;to the&#160;right location.</p>
+<p style="position:absolute;top:1003px;left:69px;white-space:nowrap" class="ft02">31.8.4&#160;</p>
+<p style="position:absolute;top:1003px;left:149px;white-space:nowrap" class="ft02">External Data Structures</p>
+<p style="position:absolute;top:1033px;left:69px;white-space:nowrap" class="ft05">Certain&#160;fields in&#160;the VMCS&#160;point to&#160;external data&#160;structures (for&#160;example: the&#160;MSR bitmap, the&#160;I/O&#160;bitmaps).&#160;If a&#160;<br/>logical processor is&#160;in VMX&#160;non-root&#160;operation, none&#160;of&#160;the&#160;external structures&#160;referenced by that&#160;logical&#160;</p>
+</div>
+</body>
+</html>

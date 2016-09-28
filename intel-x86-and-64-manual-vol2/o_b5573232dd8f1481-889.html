@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 889</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page889-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481889.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PADDB/PADDW/PADDD/PADDQ—Add Packed Integers</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-209</p>
+<p style="position:absolute;top:118px;left:69px;white-space:nowrap" class="ft03">VPADDQ (EVEX encoded versions)&#160;<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:208px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:226px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:244px;left:170px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;SRC1[i+63:i]&#160;+ SRC2[63:0]<br/>ELSE DEST[i+63:i]&#160;&#160;SRC1[i+63:i] + SRC2[i+63:i]</p>
+<p style="position:absolute;top:280px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:298px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:316px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:316px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:334px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:352px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:370px;left:197px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:388px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:476px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalents</p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft03">VPADDB__m512i _mm512_add_epi8 ( __m512i a, __m512i&#160;b)<br/>VPADDW__m512i _mm512_add_epi16&#160;( __m512i a, __m512i b)<br/>VPADDB__m512i _mm512_mask_add_epi8 ( __m512i&#160;s, __mmask64&#160;m, __m512i&#160;a, __m512i b)<br/>VPADDW__m512i _mm512_mask_add_epi16&#160;( __m512i s, __mmask32&#160;m, __m512i a, __m512i b)<br/>VPADDB__m512i _mm512_maskz_add_epi8 (__mmask64&#160;m, __m512i a, __m512i b)<br/>VPADDW__m512i _mm512_maskz_add_epi16&#160;(__mmask32 m,&#160;__m512i a, __m512i b)<br/>VPADDB__m256i&#160;_mm256_mask_add_epi8&#160;(__m256i&#160;s, __mmask32&#160;m, __m256i&#160;a, __m256i b)<br/>VPADDW__m256i _mm256_mask_add_epi16&#160;(__m256i s, __mmask16&#160;m, __m256i a, __m256i b)<br/>VPADDB__m256i _mm256_maskz_add_epi8 (__mmask32&#160;m, __m256i a, __m256i b)<br/>VPADDW__m256i _mm256_maskz_add_epi16&#160;(__mmask16 m,&#160;__m256i a, __m256i b)<br/>VPADDB__m128i&#160;_mm_mask_add_epi8 (__m128i s,&#160;__mmask16 m,&#160;__m128i&#160;a, __m128i b)<br/>VPADDW__m128i _mm_mask_add_epi16 (__m128i&#160;s, __mmask8 m, __m128i a, __m128i b)<br/>VPADDB__m128i _mm_maskz_add_epi8&#160;(__mmask16&#160;m, __m128i a, __m128i b)<br/>VPADDW__m128i _mm_maskz_add_epi16&#160;(__mmask8 m, __m128i a, __m128i b)<br/>VPADDD __m512i&#160;_mm512_add_epi32( __m512i&#160;a,&#160;__m512i b);<br/>VPADDD __m512i&#160;_mm512_mask_add_epi32(__m512i&#160;s, __mmask16 k, __m512i&#160;a,&#160;__m512i b);<br/>VPADDD __m512i&#160;_mm512_maskz_add_epi32( __mmask16 k,&#160;__m512i a, __m512i&#160;b);<br/>VPADDD __m256i&#160;_mm256_mask_add_epi32(__m256i&#160;s,&#160;__mmask8 k,&#160;__m256i a, __m256i&#160;b);<br/>VPADDD __m256i&#160;_mm256_maskz_add_epi32( __mmask8 k,&#160;__m256i&#160;a,&#160;__m256i b);<br/>VPADDD __m128i&#160;_mm_mask_add_epi32(__m128i&#160;s,&#160;__mmask8 k,&#160;__m128i a, __m128i&#160;b);<br/>VPADDD __m128i&#160;_mm_maskz_add_epi32(&#160;__mmask8 k, __m128i&#160;a,&#160;__m128i b);<br/>VPADDQ __m512i _mm512_add_epi64( __m512i a, __m512i b);<br/>VPADDQ __m512i _mm512_mask_add_epi64(__m512i s,&#160;__mmask8&#160;k, __m512i&#160;a,&#160;__m512i b);<br/>VPADDQ __m512i _mm512_maskz_add_epi64( __mmask8&#160;k, __m512i a, __m512i&#160;b);<br/>VPADDQ __m256i _mm256_mask_add_epi64(__m256i s,&#160;__mmask8&#160;k, __m256i&#160;a,&#160;__m256i b);<br/>VPADDQ __m256i _mm256_maskz_add_epi64( __mmask8&#160;k, __m256i a, __m256i&#160;b);<br/>VPADDQ __m128i _mm_mask_add_epi64(__m128i&#160;s, __mmask8 k, __m128i&#160;a, __m128i b);<br/>VPADDQ __m128i _mm_maskz_add_epi64(&#160;__mmask8&#160;k, __m128i a, __m128i b);<br/>PADDB __m128i _mm_add_epi8&#160;(__m128i a,__m128i b&#160;);<br/>PADDW&#160;__m128i _mm_add_epi16 ( __m128i a, __m128i b);<br/>PADDD &#160;__m128i _mm_add_epi32 ( __m128i a, __m128i b);<br/>PADDQ __m128i&#160;_mm_add_epi64 ( __m128i&#160;a,&#160;__m128i b);</p>
+</div>
+</body>
+</html>

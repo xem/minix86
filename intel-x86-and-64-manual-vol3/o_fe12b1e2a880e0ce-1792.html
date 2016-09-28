@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1792</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1792-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1792.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">39-4&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">1.&#160;Check that TCS is&#160;not&#160;busy and&#160;flush&#160;all cached&#160;linear-to-physical&#160;mappings.&#160;<br/>2.&#160;Change&#160;the&#160;mode&#160;of&#160;operation to be&#160;in&#160;enclave&#160;mode.&#160;<br/>3.&#160;Save the&#160;old RSP,&#160;RBP for later&#160;restore&#160;on AEX (Software&#160;is responsible&#160;for&#160;setting&#160;up the new RSP,&#160;RBP&#160;to be&#160;</p>
+<p style="position:absolute;top:165px;left:93px;white-space:nowrap" class="ft02">used&#160;inside&#160;enclave).&#160;</p>
+<p style="position:absolute;top:189px;left:68px;white-space:nowrap" class="ft06">4.&#160;Save XCR0 and&#160;replace it&#160;with&#160;the XFRM&#160;value for the&#160;enclave.&#160;<br/>5.&#160;Check&#160;if&#160;software wishes to&#160;debug (applicable to&#160;a debuggable&#160;enclave):</p>
+<p style="position:absolute;top:237px;left:93px;white-space:nowrap" class="ft06">—&#160;If&#160;not debugging,&#160;then configure hardware so&#160;the enclave appears&#160;as a&#160;single&#160;instruction.&#160;<br/>—&#160;If&#160;debugging, then&#160;configure hardware to allow traps,&#160;breakpoints,&#160;and single&#160;steps inside the&#160;enclave.</p>
+<p style="position:absolute;top:285px;left:68px;white-space:nowrap" class="ft06">6.&#160;Set the TCS&#160;as busy.<br/>7.&#160;Transfer control&#160;from outside enclave to&#160;predetermined location&#160;inside&#160;the enclave specified&#160;by the&#160;TCS.<br/>The&#160;EEXIT leaf function&#160;is the&#160;method of leaving&#160;the enclave&#160;under program control. EEXIT&#160;receives the target&#160;<br/>address outside&#160;of the enclave&#160;that&#160;the enclave wishes to&#160;transfer&#160;control to.&#160;It is the&#160;responsibility of enclave&#160;soft-<br/>ware to erase&#160;any&#160;secret from the registers prior to invoking EEXIT. To&#160;allow enclave&#160;software&#160;to&#160;easily perform an&#160;<br/>external function call and re-enter the enclave (using EEXIT and&#160;EENTER leaf functions),&#160;EEXIT returns&#160;the&#160;value of&#160;<br/>the AEP that&#160;was used&#160;when the&#160;enclave&#160;was entered.&#160;<br/>EEXIT performs&#160;the following&#160;operations:<br/>1.&#160;Clear enclave mode&#160;and&#160;flush all&#160;cached&#160;linear-to-physical mappings.&#160;<br/>2.&#160;Mark TCS&#160;as not&#160;busy.&#160;<br/>3.&#160;Transfer control&#160;from inside the&#160;enclave&#160;to a&#160;location&#160;on the outside&#160;specified&#160;as parameter to&#160;the EEXIT leaf&#160;</p>
+<p style="position:absolute;top:508px;left:93px;white-space:nowrap" class="ft02">function.</p>
+<p style="position:absolute;top:559px;left:68px;white-space:nowrap" class="ft03">39.2.2&#160;</p>
+<p style="position:absolute;top:559px;left:148px;white-space:nowrap" class="ft03">Asynchronous Enclave Exit (AEX)</p>
+<p style="position:absolute;top:588px;left:68px;white-space:nowrap" class="ft08">Asynchronous and synchronous&#160;events, such&#160;as exceptions, interrupts,&#160;traps, SMIs, and VM&#160;exits may&#160;occur while&#160;<br/>executing inside an&#160;enclave.&#160;These events&#160;are referred&#160;to&#160;as&#160;Enclave Exiting&#160;Events (EEE). Upon an&#160;EEE,&#160;the&#160;<br/>processor&#160;state&#160;is securely&#160;saved inside&#160;the&#160;enclave&#160;(in the&#160;thread’s&#160;current SSA&#160;frame) and then replaced by a&#160;<br/>synthetic&#160;state to&#160;prevent leakage of&#160;secrets. The&#160;process&#160;of&#160;securely saving state and establishing&#160;the&#160;synthetic&#160;<br/>state is&#160;called&#160;an Asynchronous Enclave&#160;Exit (AEX). Details of AEX is&#160;de<a href="��">scribed in Chapter&#160;40, “Enclave&#160;Exiting&#160;<br/>Events”.<br/></a>As part&#160;of most&#160;EEEs, the AEP is pushed onto the stack&#160;as&#160;the location of the eventing address. This is the location&#160;<br/>where&#160;control will return&#160;to after&#160;executing&#160;the IRET. The&#160;ERESUME&#160;leaf function can be executed&#160;from&#160;that point&#160;<br/>to reenter the&#160;enclave and&#160;resume&#160;execution&#160;from&#160;the interrupted point.<br/>After AEX has&#160;completed,&#160;the logical processor is&#160;no&#160;longer in&#160;enclave&#160;mode&#160;and&#160;the&#160;exiting event is&#160;processed&#160;<br/>normally. Any new events that&#160;occur after the AEX has&#160;completed are&#160;treated as&#160;having&#160;occurred outside the&#160;<br/>enclave&#160;(e.g. a&#160;#PF&#160;in dispatching&#160;to an interrupt handler).</p>
+<p style="position:absolute;top:832px;left:68px;white-space:nowrap" class="ft03">39.2.3&#160;</p>
+<p style="position:absolute;top:832px;left:148px;white-space:nowrap" class="ft03">Resuming Execution after AEX</p>
+<p style="position:absolute;top:861px;left:68px;white-space:nowrap" class="ft08">After system&#160;software has serviced&#160;the event that&#160;caused&#160;the logical processor to exit&#160;an enclave,&#160;the logical&#160;<br/>processor can continue&#160;enclave execution using ERESUME.&#160;ERESUME restores processor&#160;state&#160;and returns control&#160;<br/>to where&#160;execution was&#160;interrupted.&#160;<br/>If the&#160;cause of the&#160;exit was an exception&#160;or a&#160;fault&#160;and&#160;was&#160;not resolved, the&#160;event will be&#160;triggered again&#160;if the&#160;<br/>enclave&#160;is re-entered&#160;using&#160;ERESUME.&#160;For example,&#160;if&#160;an&#160;enclave&#160;performs a&#160;divide&#160;by 0&#160;operation,&#160;executing&#160;<br/>ERESUME will cause the&#160;enclave to&#160;attempt to re-execute&#160;the faulting instruction&#160;and result in another divide&#160;by 0&#160;<br/>exception. Intel</p>
+<p style="position:absolute;top:963px;left:173px;white-space:nowrap" class="ft04">®</p>
+<p style="position:absolute;top:966px;left:184px;white-space:nowrap" class="ft02">&#160;SGX provides the&#160;means for an&#160;enclave&#160;developer&#160;to handle enclave exceptions&#160;from within the&#160;</p>
+<p style="position:absolute;top:982px;left:68px;white-space:nowrap" class="ft08">enclave.&#160;Software can enter the&#160;enclave at a different location and invoke&#160;the exception handler within the enclave&#160;<br/>by executing&#160;the&#160;EENTER leaf function.&#160;The&#160;exception handler&#160;within&#160;the&#160;enclave can&#160;read the&#160;fault information&#160;<br/>from&#160;the SSA frame&#160;and attempt&#160;to resolve&#160;the&#160;faulting condition&#160;or simply&#160;return&#160;and indicate to software&#160;that the&#160;<br/>enclave&#160;should be terminated&#160;(e.g.&#160;using EEXIT).</p>
+</div>
+</body>
+</html>

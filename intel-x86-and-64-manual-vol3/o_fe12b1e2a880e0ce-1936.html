@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1936</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1936-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1936.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">43-4&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE CODE&#160;DEBUG&#160;AND PROFILING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">Following an opt-in&#160;entry instruction&#160;and data breakpoints are&#160;not suppressed.<br/>The processor does&#160;not report&#160;any matches on debug breakpoints that are&#160;suppressed on enclave&#160;entry.&#160;However,&#160;<br/>the processor does not&#160;clear any&#160;bits&#160;in DR6 that&#160;were already set&#160;at the time&#160;of&#160;the enclave entry.</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft03">43.3.2&#160;</p>
+<p style="position:absolute;top:190px;left:148px;white-space:nowrap" class="ft03">Reporting of&#160;Instruction Breakpoint&#160;on Next&#160;Instruction on a Debug Trap</p>
+<p style="position:absolute;top:219px;left:68px;white-space:nowrap" class="ft07">A&#160;debug exception caused by the&#160;single-step execution&#160;mode or when a&#160;data breakpoint condition was&#160;met causes&#160;<br/>the processor to&#160;perform an&#160;AEX. Following such an&#160;AEX, the&#160;processor reports&#160;in the&#160;debug&#160;status&#160;register (DR6)&#160;<br/>matches of the&#160;new instruction pointer&#160;(the AEP address)&#160;in&#160;a&#160;breakpoint&#160;address register setup to&#160;detect instruc-<br/>tion execution.</p>
+<p style="position:absolute;top:319px;left:68px;white-space:nowrap" class="ft03">43.3.3&#160;</p>
+<p style="position:absolute;top:319px;left:148px;white-space:nowrap" class="ft03">RF Treatment on AEX</p>
+<p style="position:absolute;top:348px;left:68px;white-space:nowrap" class="ft07">RF flag&#160;value saved&#160;in SSA is&#160;the same as&#160;what&#160;would have&#160;been pushed on&#160;stack if the exception&#160;or event causing&#160;<br/>the AEX&#160;occurred when executing outside&#160;an enclav<a href="o_fe12b1e2a880e0ce-582.html">e (see Section 17.3.1.1</a>). Following&#160;an AEX,&#160;the RF flag&#160;is 0&#160;in&#160;<br/>the synthetic&#160;state.&#160;</p>
+<p style="position:absolute;top:431px;left:68px;white-space:nowrap" class="ft03">43.3.4&#160;</p>
+<p style="position:absolute;top:431px;left:148px;white-space:nowrap" class="ft03">Breakpoint&#160;Matching in Intel® SGX Instruction Flows</p>
+<p style="position:absolute;top:460px;left:68px;white-space:nowrap" class="ft07">Implicit&#160;accesses made&#160;by&#160;Intel SGX instructions&#160;to&#160;EPC regions do not&#160;trigger data breakpoints.&#160;Explicit accesses&#160;<br/>made by&#160;ENCLS[ECREATE], ENCLS[EADD], ENCLS[EEXTEND],&#160;ENCLS[EINIT], ENCLS[EREMOVE],&#160;<br/>ENCLS[ETRACK], ENCLS[EBLOCK], ENCLS[EPA],&#160;ENCLS[EWB], ENCLS[ELD], ENCLS[EDBGRD], ENCLS[EDBGWR],&#160;<br/>ENCLU[EENTER],&#160;and ENCLU[ERESUME]&#160;to the&#160;EPC&#160;operands do&#160;not trigger data breakpoints.<br/>Explicit accesses made by the&#160;Intel&#160;SGX instructions&#160;(ENCLU[EGETKEY]&#160;and ENCLU[EREPORT])&#160;executed by an&#160;<br/>enclave&#160;following an opt-in&#160;entry,&#160;trigger data breakpoints on accesses to their&#160;EPC operands. All Intel SGX&#160;instruc-<br/>tions trigger&#160;data breakpoints on accesses&#160;to their&#160;non-EPC operands.&#160;</p>
+<p style="position:absolute;top:621px;left:68px;white-space:nowrap" class="ft04">43.4 INT3&#160;</p>
+<p style="position:absolute;top:621px;left:197px;white-space:nowrap" class="ft04">CONSIDERATION</p>
+<p style="position:absolute;top:683px;left:68px;white-space:nowrap" class="ft03">43.4.1&#160;</p>
+<p style="position:absolute;top:683px;left:148px;white-space:nowrap" class="ft03">Behavior of&#160;INT3 Inside an Enclave</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft07">Inside&#160;an enclave,&#160;INT3&#160;delivers a&#160;fault-class exception and&#160;thus&#160;does&#160;not require&#160;the&#160;CPL to&#160;be&#160;less than DPL in the&#160;<br/>IDT gate 3. Following opt-out&#160;entry,&#160;the&#160;instruction&#160;delivers #UD.&#160;Following&#160;opt-in&#160;entry,&#160;INT3 delivers #BP.<br/>The&#160;RIP saved&#160;in&#160;the SSA&#160;on AEX is that&#160;of&#160;the INT3&#160;instruction.&#160;The RIP saved on the&#160;stack ( or&#160;in the TSS or&#160;VMCS)&#160;<br/>is&#160;that of the&#160;AEP.<br/>If&#160;execution&#160;of INT3&#160;in an enclave causes&#160;a VM&#160;exit, the&#160;event type in the VM-exit&#160;interruption&#160;information field indi-<br/>cates a hardware exception (type&#160;3; not a software exception with type 6) and the VM-exit instruction length field&#160;<br/>is saved&#160;as zero.</p>
+<p style="position:absolute;top:874px;left:68px;white-space:nowrap" class="ft03">43.4.2 Debugger&#160;</p>
+<p style="position:absolute;top:874px;left:232px;white-space:nowrap" class="ft03">Considerations</p>
+<p style="position:absolute;top:903px;left:68px;white-space:nowrap" class="ft07">The INT3 is fault-like inside an&#160;enclave&#160;and&#160;the RIP saved&#160;in&#160;the&#160;SSA on&#160;AEX&#160;is&#160;that of the INT3 instruction. Conse-<br/>quently,&#160;the debugger&#160;must not&#160;decrement SSA.RIP for #BP&#160;coming from&#160;an enclave&#160;to re-execute the&#160;instruction&#160;<br/>at&#160;the RIP of&#160;the INT3 instruction on a&#160;subsequent enclave entry.&#160;</p>
+<p style="position:absolute;top:986px;left:68px;white-space:nowrap" class="ft03">43.4.3 VMM&#160;</p>
+<p style="position:absolute;top:986px;left:192px;white-space:nowrap" class="ft03">Considerations</p>
+<p style="position:absolute;top:1015px;left:68px;white-space:nowrap" class="ft07">As described above,&#160;INT3 executed&#160;by&#160;enclave&#160;delivers&#160;#BP with “interruption type” of 3.&#160;A VMM&#160;that re-injects&#160;<br/>#BP&#160;into the&#160;guest&#160;can obtain&#160;the VM entry&#160;interruption information&#160;from&#160;appropriate VMCS fields (as&#160;recom-<br/>mended in&#160;<a href="��"><i>Intel® 64 and IA-32 Architectures&#160;Software&#160;Developer’s Manual, Volume&#160;3C</i></a>).</p>
+</div>
+</body>
+</html>

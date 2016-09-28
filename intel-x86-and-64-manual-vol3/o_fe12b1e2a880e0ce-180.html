@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 180</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page180-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce180.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-28&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">5.11.1 Page-Protection&#160;</p>
+<p style="position:absolute;top:98px;left:283px;white-space:nowrap" class="ft02">Flags</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft05">Protection&#160;information for pages&#160;is contained in two flags&#160;in a&#160;paging-struc<a href="o_fe12b1e2a880e0ce-105.html">ture entry (see Chapter&#160;4): t</a>he&#160;<br/>read/write flag&#160;(bit&#160;1) and the&#160;user/supervisor flag&#160;(bit&#160;2).&#160;The protection checks&#160;use&#160;the&#160;flags in&#160;all paging struc-<br/>tures.&#160;</p>
+<p style="position:absolute;top:212px;left:68px;white-space:nowrap" class="ft02">5.11.2&#160;</p>
+<p style="position:absolute;top:212px;left:148px;white-space:nowrap" class="ft02">Restricting Addressable Domain</p>
+<p style="position:absolute;top:243px;left:68px;white-space:nowrap" class="ft03">The&#160;page-level&#160;protection&#160;mechanism&#160;allows restricting access&#160;to pages&#160;based on two privilege&#160;levels:</p>
+<p style="position:absolute;top:265px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:265px;left:93px;white-space:nowrap" class="ft05">Supervisor mode&#160;(U/S flag is&#160;0)—(Most privileged)&#160;For the&#160;operating&#160;system or&#160;executive,&#160;other system&#160;<br/>software&#160;(such&#160;as device drivers),&#160;and&#160;protected&#160;system&#160;data&#160;(such as&#160;page&#160;tables).</p>
+<p style="position:absolute;top:304px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:304px;left:93px;white-space:nowrap" class="ft03">User&#160;mode (U/S&#160;flag is&#160;1)—(Least privileged) For application code&#160;and&#160;data.</p>
+<p style="position:absolute;top:328px;left:68px;white-space:nowrap" class="ft05">The segment privilege&#160;levels map&#160;to the&#160;page&#160;privilege levels as&#160;follows. If the&#160;processor is currently&#160;operating at&#160;<br/>a&#160;CPL of 0, 1, or&#160;2, it&#160;is&#160;in&#160;supervisor&#160;mode;&#160;if&#160;it is&#160;operating at a&#160;CPL of 3, it is&#160;in user mode. When the&#160;processor is&#160;<br/>in supervisor mode, it can access all pages; when in user&#160;mode, it&#160;can access only user-level pages.&#160;(Note that the&#160;<br/>WP flag&#160;in control register&#160;CR0 modifies&#160;the supervisor&#160;permissions, as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-180.html">in Section 5.11.3, “Page&#160;Type.”)<br/></a>Note that to&#160;use the&#160;page-level protection&#160;mechanism,&#160;code&#160;and data segments must be set up&#160;for&#160;at least two&#160;<br/>segment-based privilege&#160;levels: level&#160;0 for&#160;supervisor code&#160;and data segments and&#160;level 3&#160;for&#160;user&#160;code&#160;and data&#160;<br/>segments. (In&#160;this&#160;model,&#160;the stacks&#160;are placed&#160;in&#160;the&#160;data segments.)&#160;To&#160;minimize the use&#160;of&#160;segments, a&#160;flat&#160;<br/>memory model&#160;ca<a href="o_fe12b1e2a880e0ce-91.html">n be used (see Section 3.2.1,&#160;“Basic Flat Model”).</a>&#160;<br/>Here, the&#160;user&#160;and supervisor&#160;code&#160;and data segments all begin at&#160;address zero&#160;in the&#160;linear address&#160;space&#160;and&#160;<br/>overlay each other.&#160;With this arrangement, operating-system code (running at the supervisor&#160;level)&#160;and application&#160;<br/>code (running at the user level) can execute as if there&#160;are no segments. Protection&#160;between operating-system and&#160;<br/>application&#160;code&#160;and&#160;data is&#160;provided&#160;by the&#160;processor’s&#160;page-level protection mechanism.&#160;</p>
+<p style="position:absolute;top:575px;left:68px;white-space:nowrap" class="ft02">5.11.3 Page&#160;</p>
+<p style="position:absolute;top:575px;left:193px;white-space:nowrap" class="ft02">Type</p>
+<p style="position:absolute;top:606px;left:68px;white-space:nowrap" class="ft03">The page-level&#160;protection mechanism recognizes two page&#160;types:</p>
+<p style="position:absolute;top:628px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:628px;left:93px;white-space:nowrap" class="ft03">Read-only access (R/W&#160;flag&#160;is 0).</p>
+<p style="position:absolute;top:650px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:651px;left:93px;white-space:nowrap" class="ft03">Read/write access (R/W&#160;flag is&#160;1).</p>
+<p style="position:absolute;top:675px;left:68px;white-space:nowrap" class="ft05">When the&#160;processor&#160;is in&#160;supervisor mode&#160;and&#160;the WP&#160;flag&#160;in register CR0&#160;is clear (its&#160;state&#160;following reset&#160;initial-<br/>ization), all&#160;pages are both&#160;readable&#160;and&#160;writable (write-protection&#160;is ignored). When&#160;the processor is&#160;in user&#160;<br/>mode,&#160;it can write only to user-mode pages that are read/write accessible.&#160;User-mode&#160;pages which are read/write&#160;<br/>or read-only are readable;&#160;supervisor-mode pages are neither readable nor writable&#160;from user&#160;mode.&#160;A&#160;page-fault&#160;<br/>exception&#160;is generated on&#160;any attempt&#160;to violate&#160;the protection rules.<br/>Starting&#160;with&#160;the P6&#160;family, Intel processors allow&#160;user-mode&#160;pages to&#160;be&#160;write-protected&#160;against&#160;supervisor-mode&#160;<br/>access. Setting&#160;CR0.WP = 1&#160;enables supervisor-mode sensitivity&#160;to write&#160;protected&#160;pages.&#160;If CR0.WP&#160;=&#160;1,&#160;read-<br/>only pages&#160;are not&#160;writable from&#160;any&#160;privilege level. This&#160;supervisor write-protect feature&#160;is useful for&#160;imple-<br/>menting a “copy-on-write” strategy&#160;used&#160;by some operating&#160;systems,&#160;such as UNIX*,&#160;for task creation&#160;(also called&#160;<br/>forking or&#160;spawning).&#160;When&#160;a new task&#160;is created, it&#160;is possible to&#160;copy&#160;the&#160;entire&#160;address&#160;space of the parent&#160;task.&#160;<br/>This gives&#160;the&#160;child task a&#160;complete,&#160;duplicate&#160;set&#160;of&#160;the parent's&#160;segments&#160;and pages. An alternative copy-on-<br/>write&#160;strategy saves memory space&#160;and&#160;time by&#160;mapping&#160;the&#160;child's&#160;segments and&#160;pages to&#160;the same&#160;segments&#160;<br/>and pages used&#160;by the parent task. A&#160;private copy of a page&#160;gets created only when one of the tasks writes to the&#160;<br/>page.&#160;By&#160;using&#160;the&#160;WP&#160;flag&#160;and&#160;marking&#160;the&#160;shared&#160;pages&#160;as read-only,&#160;the supervisor&#160;can detect an&#160;attempt&#160;to&#160;<br/>write&#160;to a&#160;page,&#160;and can copy&#160;the page&#160;at that time.</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft02">5.11.4&#160;</p>
+<p style="position:absolute;top:964px;left:148px;white-space:nowrap" class="ft02">Combining Protection of&#160;Both Levels of&#160;Page Tables</p>
+<p style="position:absolute;top:994px;left:68px;white-space:nowrap" class="ft05">For&#160;any one page,&#160;the protection attributes&#160;of&#160;its page-directory entry (first-level page&#160;table)&#160;may differ from those&#160;<br/>of its page-table entry (second-level page&#160;table). The processor&#160;checks&#160;the&#160;protection for a&#160;page in&#160;both its&#160;page-<br/>directory&#160;and&#160;the&#160;page-table&#160;entries.<a href="o_fe12b1e2a880e0ce-181.html">&#160;Table&#160;5-3&#160;shows</a>&#160;the protection&#160;provided by the&#160;possible combinations&#160;of&#160;<br/>protection attributes when the&#160;WP&#160;flag is&#160;clear.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 776</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page776-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481776.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:563px;white-space:nowrap" class="ft00">MOVNTI—Store&#160;Doubleword Using Non-Temporal&#160;Hint</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-96&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">MOVNTI—Store&#160;Doubleword&#160;Using Non-Temporal Hint</p>
+<p style="position:absolute;top:272px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:359px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:385px;left:68px;white-space:nowrap" class="ft06">Moves&#160;the doubleword integer in&#160;the source&#160;operand (second&#160;operand)&#160;to the&#160;destination&#160;operand&#160;(first operand)&#160;<br/>using&#160;a non-temporal hint to&#160;minimize&#160;cache pollution&#160;during the&#160;write to&#160;memory. The&#160;source operand&#160;is a&#160;<br/>general-purpose&#160;register.&#160;The destination operand&#160;is a&#160;32-bit memory&#160;location.<br/>The&#160;non-temporal hint&#160;is implemented by&#160;using a&#160;write&#160;combining (WC)&#160;memory type protocol when&#160;writing the&#160;<br/>data&#160;to memory.&#160;Using&#160;this protocol, the&#160;processor&#160;does&#160;not write the data&#160;into the&#160;cache hierarchy,&#160;nor does it&#160;<br/>fetch the&#160;corresponding cache&#160;line from memory into the&#160;cache&#160;hierarchy.&#160;The memory type of the&#160;region&#160;being&#160;<br/>written to can&#160;override the non-temporal&#160;hint, if&#160;the memory address&#160;specified for the&#160;non-temporal&#160;store is&#160;in an&#160;<br/>uncacheable (UC) or write&#160;protected (WP) memory region. For more&#160;information on&#160;non-temporal stores, see&#160;<br/>“Caching of&#160;Temporal&#160;vs. Non-Temporal&#160;Data”<a href="��">&#160;in&#160;Chapter 10 in&#160;the&#160;<i>Intel® 64 and IA-32 Architectures&#160;Software&#160;<br/>Developer’s Manual, Volume&#160;1</i></a>.<br/>Because the WC protocol uses a&#160;weakly-ordered&#160;memory&#160;consistency model,&#160;a fencing operation implemented with&#160;<br/>the SFENCE or&#160;MFENCE&#160;instruction&#160;should be&#160;used in conjunction&#160;with MOVNTI&#160;instructions if multiple&#160;processors&#160;<br/>might use&#160;different memory types to&#160;read/write&#160;the&#160;destination memory&#160;locations.<br/>In 64-bit&#160;mode,&#160;the instruction’s&#160;default operation size&#160;is&#160;32 bits.&#160;Use&#160;of the&#160;REX.R prefix&#160;permits access to&#160;addi-<br/>tional registers&#160;(R8-R15).&#160;Use&#160;of the&#160;REX.W prefix&#160;promotes&#160;operation to 64 bits.&#160;See the&#160;summary chart&#160;at the&#160;<br/>beginning of this&#160;section for encoding data and&#160;limits.</p>
+<p style="position:absolute;top:692px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft04">DEST&#160;←&#160;SRC;</p>
+<p style="position:absolute;top:755px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:783px;left:68px;white-space:nowrap" class="ft04">MOVNTI:</p>
+<p style="position:absolute;top:783px;left:153px;white-space:nowrap" class="ft04">void&#160;_mm_stream_si32 (int *p,&#160;int a)</p>
+<p style="position:absolute;top:805px;left:68px;white-space:nowrap" class="ft04">MOVNTI:</p>
+<p style="position:absolute;top:805px;left:153px;white-space:nowrap" class="ft04">void&#160;_mm_stream_si64(__int64 *p, __int64 a)</p>
+<p style="position:absolute;top:839px;left:68px;white-space:nowrap" class="ft03">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:865px;left:68px;white-space:nowrap" class="ft04">None.</p>
+<p style="position:absolute;top:902px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:925px;left:68px;white-space:nowrap" class="ft04">#GP(0)</p>
+<p style="position:absolute;top:925px;left:206px;white-space:nowrap" class="ft04">For&#160;an illegal memory operand&#160;effective&#160;address in&#160;the&#160;CS,&#160;DS, ES,&#160;FS&#160;or GS segments.</p>
+<p style="position:absolute;top:946px;left:68px;white-space:nowrap" class="ft04">#SS(0)&#160;</p>
+<p style="position:absolute;top:946px;left:206px;white-space:nowrap" class="ft04">For an&#160;illegal&#160;address in&#160;the SS&#160;segment.&#160;</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft04">#PF(fault-code)&#160;</p>
+<p style="position:absolute;top:967px;left:206px;white-space:nowrap" class="ft04">For a&#160;page&#160;fault.</p>
+<p style="position:absolute;top:988px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:988px;left:206px;white-space:nowrap" class="ft09">If&#160;CPUID.01H:EDX.SSE2[bit 26] = 0.<br/>If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:220px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:425px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:497px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:497px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:567px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F C3&#160;/<i>r</i></p>
+<p style="position:absolute;top:160px;left:220px;white-space:nowrap" class="ft04">MOVNTI&#160;<i>m32</i>,&#160;<i>r32</i></p>
+<p style="position:absolute;top:160px;left:388px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:160px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:567px;white-space:nowrap" class="ft04">Move&#160;doubleword&#160;from&#160;<i>r32</i>&#160;to&#160;<i>m32</i>&#160;using&#160;non-</p>
+<p style="position:absolute;top:177px;left:567px;white-space:nowrap" class="ft04">temporal&#160;hint.</p>
+<p style="position:absolute;top:199px;left:73px;white-space:nowrap" class="ft04">REX.W +&#160;0F&#160;C3&#160;/<i>r</i></p>
+<p style="position:absolute;top:199px;left:220px;white-space:nowrap" class="ft04">MOVNTI&#160;<i>m64,</i>&#160;<i>r64</i></p>
+<p style="position:absolute;top:199px;left:388px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:199px;left:425px;white-space:nowrap" class="ft04">Valid&#160;</p>
+<p style="position:absolute;top:199px;left:497px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:199px;left:567px;white-space:nowrap" class="ft04">Move&#160;quadword&#160;from&#160;<i>r64</i>&#160;to&#160;<i>m64</i>&#160;using&#160;non-</p>
+<p style="position:absolute;top:215px;left:567px;white-space:nowrap" class="ft04">temporal&#160;hint.</p>
+<p style="position:absolute;top:295px;left:87px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:295px;left:196px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:295px;left:374px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:295px;left:545px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:295px;left:715px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:319px;left:95px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:319px;left:183px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(w)</p>
+<p style="position:absolute;top:319px;left:364px;white-space:nowrap" class="ft04">ModRM:reg (r)</p>
+<p style="position:absolute;top:319px;left:566px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:319px;left:737px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

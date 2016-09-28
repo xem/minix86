@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1962</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1962-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811962.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:533px;white-space:nowrap" class="ft00">XSAVEC—Save Processor Extended States with Compaction</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-576&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:88px;white-space:nowrap" class="ft02">THEN store x87 state into legacy region&#160;of&#160;XSAVE area;</p>
+<p style="position:absolute;top:118px;left:68px;white-space:nowrap" class="ft05">FI;<br/>IF&#160;RFBM[1]&#160;=&#160;1 and&#160;(XINUSE[1]&#160;= 1&#160;or MXCSR&#160;≠&#160;1F80H)</p>
+<p style="position:absolute;top:154px;left:88px;white-space:nowrap" class="ft02">THEN store SSE&#160;state&#160;into&#160;legacy region&#160;of&#160;XSAVE area;</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft05">FI;<br/>IF RFBM[2]&#160;=&#160;1 AND XINUSE[2]&#160;=&#160;1</p>
+<p style="position:absolute;top:208px;left:88px;white-space:nowrap" class="ft02">THEN store AVX state into extended&#160;region&#160;of&#160;XSAVE&#160;area;</p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:262px;left:68px;white-space:nowrap" class="ft02">XSTATE_BV&#160;field in&#160;XSAVE header&#160;←&#160;XINUSE AND&#160;RFBM;</p>
+<p style="position:absolute;top:259px;left:396px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft02">XCOMP_BV field in&#160;XSAVE header&#160;←&#160;COMPMASK;</p>
+<p style="position:absolute;top:317px;left:68px;white-space:nowrap" class="ft04">Flags Affected</p>
+<p style="position:absolute;top:343px;left:68px;white-space:nowrap" class="ft02">None.</p>
+<p style="position:absolute;top:380px;left:68px;white-space:nowrap" class="ft04">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:405px;left:68px;white-space:nowrap" class="ft02">XSAVEC:</p>
+<p style="position:absolute;top:405px;left:147px;white-space:nowrap" class="ft02">void&#160;_xsavec(&#160;void * , unsigned __int64);</p>
+<p style="position:absolute;top:427px;left:68px;white-space:nowrap" class="ft02">XSAVEC64:&#160;void&#160;_xsavec64(&#160;void&#160;* ,&#160;unsigned&#160;__int64);</p>
+<p style="position:absolute;top:464px;left:68px;white-space:nowrap" class="ft04">Protected Mode Exceptions</p>
+<p style="position:absolute;top:487px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:487px;left:206px;white-space:nowrap" class="ft06">If&#160;a memory operand effective&#160;address is&#160;outside&#160;the CS,&#160;DS, ES,&#160;FS,&#160;or GS segment limit.<br/>If&#160;a memory operand is&#160;not aligned&#160;on&#160;a 64-byte boundary,&#160;regardless&#160;of segment.</p>
+<p style="position:absolute;top:529px;left:68px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:529px;left:206px;white-space:nowrap" class="ft02">If a&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft02">#PF(fault-code)</p>
+<p style="position:absolute;top:550px;left:206px;white-space:nowrap" class="ft02">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:571px;left:68px;white-space:nowrap" class="ft02">#NM&#160;</p>
+<p style="position:absolute;top:571px;left:206px;white-space:nowrap" class="ft02">If CR0.TS[bit 3]&#160;= 1.</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:592px;left:206px;white-space:nowrap" class="ft06">If&#160;CPUID.01H:ECX.XSAVE[bit&#160;26] = 0&#160;or&#160;CPUID.(EAX=0DH,ECX=1):EAX.XSAVEC[bit&#160;1]&#160;=&#160;0.<br/>If&#160;CR4.OSXSAVE[bit 18] = 0.<br/>If&#160;any of the&#160;LOCK, 66H, F3H&#160;or&#160;F2H prefixes is&#160;used.</p>
+<p style="position:absolute;top:655px;left:68px;white-space:nowrap" class="ft02">#AC&#160;</p>
+<p style="position:absolute;top:655px;left:206px;white-space:nowrap" class="ft02">If this&#160;exception is&#160;disabled&#160;a&#160;general protection exception&#160;(#GP) is&#160;signaled if&#160;the memory&#160;</p>
+<p style="position:absolute;top:672px;left:205px;white-space:nowrap" class="ft07">operand is&#160;not&#160;aligned on a&#160;16-byte&#160;boundary,&#160;as described above. If the&#160;alignment&#160;check&#160;<br/>exception&#160;(#AC) is&#160;enabled (and&#160;the CPL is&#160;3), signaling of #AC is&#160;not guaranteed&#160;and may&#160;<br/>vary with implementation, as&#160;follows. In all implementations&#160;where&#160;#AC is&#160;not&#160;signaled,&#160;a&#160;<br/>general protection&#160;exception is&#160;signaled&#160;in its place.&#160;In addition,&#160;the&#160;width of the&#160;alignment&#160;<br/>check may also&#160;vary with&#160;implementation. For instance, for&#160;a&#160;given implementation, an&#160;align-<br/>ment&#160;check&#160;exception might be&#160;signaled&#160;for a&#160;2-byte misalignment,&#160;whereas&#160;a general protec-<br/>tion exception&#160;might be signaled&#160;for&#160;all other&#160;misalignments (4-, 8-,&#160;or&#160;16-byte&#160;<br/>misalignments).</p>
+<p style="position:absolute;top:824px;left:68px;white-space:nowrap" class="ft04">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:847px;left:68px;white-space:nowrap" class="ft02">#GP</p>
+<p style="position:absolute;top:847px;left:206px;white-space:nowrap" class="ft06">If&#160;a memory operand is&#160;not aligned&#160;on&#160;a 64-byte boundary,&#160;regardless&#160;of segment.<br/>If&#160;any part of&#160;the&#160;operand lies&#160;outside&#160;the&#160;effective&#160;address space from 0&#160;to FFFFH.</p>
+<p style="position:absolute;top:889px;left:68px;white-space:nowrap" class="ft02">#NM&#160;</p>
+<p style="position:absolute;top:889px;left:206px;white-space:nowrap" class="ft02">If CR0.TS[bit 3]&#160;= 1.</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:910px;left:206px;white-space:nowrap" class="ft08">If&#160;CPUID.01H:ECX.XSAVE[bit&#160;26] = 0&#160;or&#160;CPUID.(EAX=0DH,ECX=1):EAX.XSAVEC[bit&#160;1]&#160;=&#160;0.<br/>If&#160;CR4.OSXSAVE[bit 18] = 0.<br/>If&#160;any of the&#160;LOCK, 66H, F3H&#160;or&#160;F2H prefixes is&#160;used.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">1.&#160;If MXCSR does not have&#160;its initial value&#160;of&#160;1F80H, XSAVEC sets XSTATE_BV[1] to&#160;1 as&#160;long as RFBM[1] = 1,&#160;regardless&#160;of&#160;the&#160;value&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">of&#160;XINUSE[1].</p>
+</div>
+</body>
+</html>

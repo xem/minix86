@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1770</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1770-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1770.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">37-6&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTRODUCTION&#160;TO&#160;INTEL® SOFTWARE&#160;GUARD EXTENSIONS</p>
+<p style="position:absolute;top:264px;left:68px;white-space:nowrap" class="ft05">On processors that support Intel&#160;SGX1&#160;and SGX2,&#160;CPUID&#160;leaf 12H&#160;sub-leaf&#160;2 report physical memory&#160;resources&#160;<br/>available&#160;for&#160;use with Intel&#160;SGX.&#160;These&#160;physical memory sections are&#160;typically allocated&#160;by&#160;BIOS as&#160;<b>Processor&#160;<br/>Reserved Memory</b>,&#160;and available to&#160;the OS&#160;to manage as&#160;EPC.&#160;<br/>To&#160;enumerate how many&#160;EPC sections are&#160;available&#160;to the EPC&#160;manager,&#160;software&#160;can&#160;enumerate&#160;CPUID leaf&#160;12H&#160;<br/>with sub-leaf&#160;index&#160;starting from 2, and&#160;decode&#160;the sub-leaf-type&#160;encoding&#160;(returned&#160;in&#160;EAX[3:0])&#160;until&#160;the sub-<br/>leaf type is&#160;invalid. All invalid sub-leaves&#160;of&#160;CPUID&#160;leaf&#160;12H&#160;return&#160;EAX/EBX/ECX/EDX with 0.</p>
+<p style="position:absolute;top:172px;left:100px;white-space:nowrap" class="ft02">ECX</p>
+<p style="position:absolute;top:172px;left:161px;white-space:nowrap" class="ft02">31:0</p>
+<p style="position:absolute;top:172px;left:241px;white-space:nowrap" class="ft02">Report the valid bits of&#160;SECS.ATTRIBUTES[95:64] that&#160;software&#160;can set with ECREATE.&#160;</p>
+<p style="position:absolute;top:189px;left:241px;white-space:nowrap" class="ft02">SECS.ATTRIBUTES[n+64] can be&#160;set to&#160;1&#160;using&#160;ECREATE&#160;only if&#160;ECX[n]&#160;is&#160;1, where&#160;n &lt;&#160;32.</p>
+<p style="position:absolute;top:213px;left:100px;white-space:nowrap" class="ft02">EDX</p>
+<p style="position:absolute;top:213px;left:161px;white-space:nowrap" class="ft02">31:0</p>
+<p style="position:absolute;top:213px;left:241px;white-space:nowrap" class="ft02">Report the valid bits of&#160;SECS.ATTRIBUTES[127:96] that&#160;software&#160;can set with ECREATE.&#160;</p>
+<p style="position:absolute;top:229px;left:241px;white-space:nowrap" class="ft02">SECS.ATTRIBUTES[n+96] can be&#160;set to&#160;1&#160;using&#160;ECREATE&#160;only if&#160;EDX[n] is&#160;1, where n&#160;&lt; 32.</p>
+<p style="position:absolute;top:390px;left:137px;white-space:nowrap" class="ft04">Table 37-6. &#160;CPUID Leaf&#160;12H, Sub-Leaf&#160;Index&#160;2&#160;or Higher Enumeration of&#160;Intel® SGX Resources</p>
+<p style="position:absolute;top:415px;left:74px;white-space:nowrap" class="ft02">CPUID.(EAX=12H,ECX &gt; 1)</p>
+<p style="position:absolute;top:415px;left:474px;white-space:nowrap" class="ft02">Description&#160;Behavior</p>
+<p style="position:absolute;top:439px;left:87px;white-space:nowrap" class="ft02">Register</p>
+<p style="position:absolute;top:439px;left:186px;white-space:nowrap" class="ft02">Bits</p>
+<p style="position:absolute;top:463px;left:101px;white-space:nowrap" class="ft02">EAX</p>
+<p style="position:absolute;top:463px;left:163px;white-space:nowrap" class="ft02">3:0</p>
+<p style="position:absolute;top:463px;left:244px;white-space:nowrap" class="ft08">0000b: This&#160;sub-leaf&#160;is&#160;invalid;&#160;EDX:ECX:EBX:EAX return&#160;0.<br/>0001b: This&#160;sub-leaf&#160;enumerates&#160;an&#160;EPC&#160;section.&#160;EBX:EAX and&#160;EDX:ECX provide&#160;information on&#160;the&#160;</p>
+<p style="position:absolute;top:501px;left:244px;white-space:nowrap" class="ft09">Enclave Page Cache (EPC) section.<br/>All other encoding are reserved.</p>
+<p style="position:absolute;top:546px;left:163px;white-space:nowrap" class="ft02">11:4</p>
+<p style="position:absolute;top:546px;left:244px;white-space:nowrap" class="ft02">Reserved&#160;(enumerate&#160;0).</p>
+<p style="position:absolute;top:570px;left:163px;white-space:nowrap" class="ft02">31:12</p>
+<p style="position:absolute;top:570px;left:244px;white-space:nowrap" class="ft02">If EAX[3:0]&#160;= 0001b, these are&#160;bits 31:12 of&#160;the physical&#160;address of&#160;the base&#160;of&#160;the EPC&#160;section.</p>
+<p style="position:absolute;top:606px;left:101px;white-space:nowrap" class="ft02">EBX</p>
+<p style="position:absolute;top:594px;left:163px;white-space:nowrap" class="ft02">19:0</p>
+<p style="position:absolute;top:594px;left:244px;white-space:nowrap" class="ft02">If EAX[3:0]&#160;= 0001b, these are&#160;bits 51:32 of&#160;the physical&#160;address of&#160;the base&#160;of&#160;the EPC&#160;section.</p>
+<p style="position:absolute;top:618px;left:163px;white-space:nowrap" class="ft02">31:20</p>
+<p style="position:absolute;top:618px;left:244px;white-space:nowrap" class="ft02">Reserved.</p>
+<p style="position:absolute;top:695px;left:101px;white-space:nowrap" class="ft02">ECX</p>
+<p style="position:absolute;top:642px;left:163px;white-space:nowrap" class="ft02">3: 0</p>
+<p style="position:absolute;top:642px;left:244px;white-space:nowrap" class="ft09">If EAX[3:0]&#160;0000b, then&#160;all bits&#160;of&#160;the&#160;EDX:ECX pair are enumerated&#160;as&#160;0.<br/>If EAX[3:0]&#160;0001b, then&#160;this section has confidentiality and integrity protection.<br/>All other encoding are reserved.</p>
+<p style="position:absolute;top:708px;left:163px;white-space:nowrap" class="ft02">11:4</p>
+<p style="position:absolute;top:708px;left:244px;white-space:nowrap" class="ft02">Reserved&#160;(enumerate&#160;0).</p>
+<p style="position:absolute;top:732px;left:163px;white-space:nowrap" class="ft02">31:12</p>
+<p style="position:absolute;top:732px;left:244px;white-space:nowrap" class="ft02">If EAX[3:0]&#160;= 0001b, these are&#160;bits 31:12 of&#160;the size&#160;of&#160;the corresponding&#160;EPC section within&#160;the&#160;</p>
+<p style="position:absolute;top:748px;left:244px;white-space:nowrap" class="ft02">Processor Reserved Memory.</p>
+<p style="position:absolute;top:772px;left:101px;white-space:nowrap" class="ft02">EDX</p>
+<p style="position:absolute;top:772px;left:163px;white-space:nowrap" class="ft02">19:&#160;0</p>
+<p style="position:absolute;top:772px;left:244px;white-space:nowrap" class="ft02">If EAX[3:0]&#160;= 0001b, these are&#160;bits 51:32 of&#160;the size&#160;of&#160;the corresponding&#160;EPC section within&#160;the&#160;</p>
+<p style="position:absolute;top:789px;left:244px;white-space:nowrap" class="ft02">Processor Reserved Memory.</p>
+<p style="position:absolute;top:813px;left:163px;white-space:nowrap" class="ft02">31:20</p>
+<p style="position:absolute;top:813px;left:244px;white-space:nowrap" class="ft02">Reserved.</p>
+<p style="position:absolute;top:100px;left:187px;white-space:nowrap" class="ft04">Table&#160;37-5.&#160; CPUID&#160;Leaf&#160;12H,&#160;Sub-Leaf&#160;1 Enumeration of&#160;Intel® SGX&#160;Capabilities</p>
+<p style="position:absolute;top:124px;left:76px;white-space:nowrap" class="ft02">CPUID.(EAX=12H,ECX=1)</p>
+<p style="position:absolute;top:124px;left:473px;white-space:nowrap" class="ft02">Description Behavior</p>
+<p style="position:absolute;top:148px;left:86px;white-space:nowrap" class="ft02">Register</p>
+<p style="position:absolute;top:148px;left:183px;white-space:nowrap" class="ft02">Bits</p>
+</div>
+</body>
+</html>

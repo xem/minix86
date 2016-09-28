@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 539</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page539-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce539.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-33</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:101px;left:69px;white-space:nowrap" class="ft00">FOR each&#160;bank of machine-check registers&#160;</p>
+<p style="position:absolute;top:116px;left:88px;white-space:nowrap" class="ft00">DO</p>
+<p style="position:absolute;top:131px;left:107px;white-space:nowrap" class="ft02">CLEAR_MC_BANK =&#160;FALSE;<br/>READ IA32_MCi_STATUS;</p>
+<p style="position:absolute;top:161px;left:107px;white-space:nowrap" class="ft00">IF VAL Flag&#160;in&#160;IA32_MCi_STATUS =&#160;1</p>
+<p style="position:absolute;top:176px;left:126px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:191px;left:145px;white-space:nowrap" class="ft00">IF UC Flag&#160;in&#160;IA32_MCi_STATUS&#160;= 1</p>
+<p style="position:absolute;top:206px;left:164px;white-space:nowrap" class="ft00">THEN&#160;</p>
+<p style="position:absolute;top:221px;left:182px;white-space:nowrap" class="ft00">IF Bit 24 in IA32_MCG_CAP = 0</p>
+<p style="position:absolute;top:236px;left:201px;white-space:nowrap" class="ft00">THEN (*&#160;the processor&#160;does&#160;not support software error&#160;recovery&#160;*)</p>
+<p style="position:absolute;top:251px;left:220px;white-space:nowrap" class="ft02">RESTARTABILITY =&#160;FALSE;<br/>NOERROR = FALSE;<br/>GOTO&#160;LOG MCA REGISTER;</p>
+<p style="position:absolute;top:296px;left:182px;white-space:nowrap" class="ft02">FI;<br/>(*&#160;the processor supports software&#160;error recovery *)<br/>IF EN Flag in IA32_MCi_STATUS = 0&#160;AND OVER Flag in IA32_MCi_STATUS=0</p>
+<p style="position:absolute;top:341px;left:201px;white-space:nowrap" class="ft00">THEN&#160;(*&#160;It&#160;is&#160;a&#160;spurious&#160;MCA&#160;Log. Log and clear the&#160;register *)</p>
+<p style="position:absolute;top:356px;left:220px;white-space:nowrap" class="ft02">CLEAR_MC_BANK =&#160;TRUE;<br/>GOTO&#160;LOG MCA REGISTER;</p>
+<p style="position:absolute;top:386px;left:182px;white-space:nowrap" class="ft02">FI;<br/>IF PCC&#160;= 1 and EN =&#160;1 in IA32_MCi_STATUS</p>
+<p style="position:absolute;top:416px;left:201px;white-space:nowrap" class="ft00">THEN (* processor context might&#160;have been&#160;corrupted *)</p>
+<p style="position:absolute;top:431px;left:220px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE;&#160;</p>
+<p style="position:absolute;top:446px;left:201px;white-space:nowrap" class="ft00">ELSE&#160;(*&#160;It is&#160;a uncorrected recoverable (UCR) error *)</p>
+<p style="position:absolute;top:461px;left:220px;white-space:nowrap" class="ft00">IF S&#160;Flag in IA32_MCi_STATUS = 0</p>
+<p style="position:absolute;top:476px;left:239px;white-space:nowrap" class="ft00">THEN&#160;</p>
+<p style="position:absolute;top:491px;left:258px;white-space:nowrap" class="ft00">IF AR Flag in&#160;IA32_MCi_STATUS =&#160;0</p>
+<p style="position:absolute;top:506px;left:277px;white-space:nowrap" class="ft00">THEN (*&#160;It is&#160;a uncorrected&#160;no&#160;action required (UCNA) error *)</p>
+<p style="position:absolute;top:521px;left:296px;white-space:nowrap" class="ft00">GOTO&#160;CONTINUE;&#160;(* let CMCI and&#160;CMC polling&#160;handler to process *)</p>
+<p style="position:absolute;top:536px;left:277px;white-space:nowrap" class="ft00">ELSE</p>
+<p style="position:absolute;top:551px;left:296px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE; (* S=0, AR=1 is&#160;illegal *)</p>
+<p style="position:absolute;top:566px;left:258px;white-space:nowrap" class="ft00">FI</p>
+<p style="position:absolute;top:581px;left:220px;white-space:nowrap" class="ft02">FI;&#160;<br/>IF RESTARTABILITY&#160;= FALSE</p>
+<p style="position:absolute;top:611px;left:239px;white-space:nowrap" class="ft00">THEN (* no&#160;need to&#160;take recovery action if RESTARTABILITY is&#160;already false *)</p>
+<p style="position:absolute;top:626px;left:258px;white-space:nowrap" class="ft02">NOERROR = FALSE;<br/>GOTO LOG&#160;MCA&#160;REGISTER;</p>
+<p style="position:absolute;top:656px;left:220px;white-space:nowrap" class="ft02">FI;<br/>(* S&#160;in IA32_MCi_STATUS&#160;= 1 *)&#160;<br/>IF AR Flag in&#160;IA32_MCi_STATUS =&#160;1</p>
+<p style="position:absolute;top:701px;left:239px;white-space:nowrap" class="ft00">THEN&#160;(*&#160;It is&#160;a software recoverable and&#160;action required (SRAR) error *)</p>
+<p style="position:absolute;top:716px;left:258px;white-space:nowrap" class="ft00">IF OVER Flag in&#160;IA32_MCi_STATUS =&#160;1</p>
+<p style="position:absolute;top:731px;left:277px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:746px;left:296px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE;</p>
+<p style="position:absolute;top:761px;left:296px;white-space:nowrap" class="ft02">NOERROR = FALSE;<br/>GOTO LOG&#160;MCA&#160;REGISTER;</p>
+<p style="position:absolute;top:791px;left:258px;white-space:nowrap" class="ft00">FI</p>
+<p style="position:absolute;top:806px;left:258px;white-space:nowrap" class="ft02">IF MCACOD Value&#160;in IA32_MCi_STATUS&#160;is recognized<br/>&#160; &#160; AND Current Processor is an Affected Processor&#160;</p>
+<p style="position:absolute;top:836px;left:277px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:851px;left:296px;white-space:nowrap" class="ft02">Implement MCACOD specific recovery action;<br/>CLEAR_MC_BANK =&#160;TRUE;&#160;</p>
+<p style="position:absolute;top:881px;left:277px;white-space:nowrap" class="ft00">ELSE&#160;</p>
+<p style="position:absolute;top:896px;left:296px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE;</p>
+<p style="position:absolute;top:911px;left:258px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:926px;left:239px;white-space:nowrap" class="ft00">ELSE (*&#160;It is a software recoverable&#160;and action optional (SRAO) error *)</p>
+<p style="position:absolute;top:941px;left:258px;white-space:nowrap" class="ft02">IF OVER Flag in&#160;IA32_MCi_STATUS =&#160;0 AND<br/>&#160;MCACOD in IA32_MCi_STATUS is recognized</p>
+<p style="position:absolute;top:971px;left:277px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:986px;left:296px;white-space:nowrap" class="ft00">Implement MCACOD specific recovery action;</p>
+<p style="position:absolute;top:1001px;left:258px;white-space:nowrap" class="ft02">FI;<br/>CLEAR_MC_BANK =&#160;TRUE;</p>
+<p style="position:absolute;top:1031px;left:220px;white-space:nowrap" class="ft00">FI; AR&#160;</p>
+<p style="position:absolute;top:1046px;left:182px;white-space:nowrap" class="ft02">FI; PCC<br/>NOERROR = FALSE;</p>
+</div>
+</body>
+</html>

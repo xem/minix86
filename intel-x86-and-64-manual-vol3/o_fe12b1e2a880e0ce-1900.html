@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1900</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1900-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1900.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-90&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft03">(*&#160;Determine values key is based&#160;on&#160;*)<br/>TMP_KEYDEPENDENCIES.KEYNAME&#160;&#160;PROVISION_SEAL_KEY;<br/>TMP_KEYDEPENDENCIES.ISVPRODID&#160;&#160;TMP_CURRENTSECS.ISVPRODID;<br/>TMP_KEYDEPENDENCIES.ISVSVN&#160;&#160;DS:RBX.ISVSVN;<br/>TMP_KEYDEPENDENCIES.OWNEREPOCH&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.ATTRIBUTES&#160;&#160;TMP_ATTRIBUTES;<br/>TMP_KEYDEPENDENCIES.ATTRIBUTESMASK&#160;&#160;DS:RBX.ATTRIBUTEMASK;<br/>TMP_KEYDEPENDENCIES.MRENCLAVE&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.MRSIGNER&#160;&#160;TMP_CURRENTSECS.MRSIGNER;<br/>TMP_KEYDEPENDENCIES.KEYID&#160;&#160;0;<br/>TMP_KEYDEPENDENCIES.SEAL_KEY_FUSES&#160;&#160;CR_SEAL_FUSES;<br/>TMP_KEYDEPENDENCIES.CPUSVN&#160;&#160;DS:RBX.CPUSVN;<br/>TMP_KEYDEPENDENCIES.PADDING&#160;&#160;TMP_CURRENTSECS.PADDING;<br/>TMP_KEYDEPENDENCIES.MISCSELECT&#160;&#160;TMP_MISCSELECT;<br/>TMP_KEYDEPENDENCIES.MISCMASK&#160;&#160;~DS:RBX.MISCMASK;<br/>BREAK;</p>
+<p style="position:absolute;top:388px;left:88px;white-space:nowrap" class="ft02">DEFAULT:</p>
+<p style="position:absolute;top:406px;left:115px;white-space:nowrap" class="ft03">(*&#160;The&#160;value&#160;of KEYNAME is&#160;invalid *)<br/>RFLAGS.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_KEYNAME;<br/>GOTO EXIT:</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft02">ESAC;</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft03">(* Calculate the&#160;final derived key and output&#160;to&#160;the&#160;address in&#160;RCX *)<br/>TMP_OUTPUTKEY&#160;&#160;derivekey(TMP_KEYDEPENDENCIES);<br/>DS:RCX[15:0]&#160;&#160;TMP_OUTPUTKEY;<br/>RAX&#160;&#160;0;<br/>RFLAGS.ZF&#160;&#160;0;</p>
+<p style="position:absolute;top:622px;left:68px;white-space:nowrap" class="ft03">EXIT:<br/>RFLAGS.CF&#160;&#160;0;<br/>RFLAGS.PF&#160;&#160;0;<br/>RFLAGS.AF&#160;&#160;0;<br/>RFLAGS.OF&#160;&#160;0;<br/>RFLAGS.SF&#160;&#160;0;</p>
+<p style="position:absolute;top:746px;left:68px;white-space:nowrap" class="ft01">Flags Affected</p>
+<p style="position:absolute;top:769px;left:68px;white-space:nowrap" class="ft02">ZF&#160;is cleared&#160;if&#160;successful,&#160;otherwise&#160;ZF is&#160;set. CF,&#160;PF, AF, OF, SF are cleared.</p>
+<p style="position:absolute;top:804px;left:68px;white-space:nowrap" class="ft01">Protected Mode&#160;Exceptions</p>
+<p style="position:absolute;top:826px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:826px;left:206px;white-space:nowrap" class="ft05">If&#160;a memory operand effective&#160;address is&#160;outside&#160;the current&#160;enclave.<br/>If&#160;an effective address&#160;is not&#160;properly aligned.<br/>If&#160;an effective address&#160;is outside the&#160;DS segment limit.<br/>If KEYREQUEST format&#160;is invalid.</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:910px;left:206px;white-space:nowrap" class="ft02">If a&#160;page&#160;fault occurs&#160;in&#160;accessing memory.</p>
+<p style="position:absolute;top:944px;left:68px;white-space:nowrap" class="ft01">64-Bit Mode&#160;Exceptions</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:967px;left:206px;white-space:nowrap" class="ft04">If&#160;a memory operand effective&#160;address is&#160;outside&#160;the current&#160;enclave.<br/>If&#160;an effective address&#160;is not&#160;properly aligned.<br/>If&#160;an effective address&#160;is not&#160;canonical.<br/>If KEYREQUEST format&#160;is invalid.</p>
+<p style="position:absolute;top:1051px;left:68px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:1051px;left:206px;white-space:nowrap" class="ft02">If a&#160;page&#160;fault occurs&#160;in&#160;accessing memory&#160;operands.</p>
+</div>
+</body>
+</html>

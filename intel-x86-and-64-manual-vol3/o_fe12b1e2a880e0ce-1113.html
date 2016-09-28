@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1113</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1113-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1113.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;26-21</p>
+<p style="position:absolute;top:47px;left:766px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">If event delivery&#160;encounters a&#160;fault&#160;(due&#160;to a violation of&#160;IDTR.limit&#160;or of SS.limit), the&#160;fault is&#160;treated as&#160;if&#160;it had&#160;<br/>occurred during&#160;event delivery&#160;in&#160;VMX&#160;non-root&#160;operation.&#160;Such a&#160;fault&#160;may lead&#160;to a VM&#160;exit as&#160;discussed in&#160;<br/><a href="o_fe12b1e2a880e0ce-1112.html">Section 26.5.1.2.</a></p>
+<p style="position:absolute;top:184px;left:69px;white-space:nowrap" class="ft03">26.5.2&#160;</p>
+<p style="position:absolute;top:184px;left:149px;white-space:nowrap" class="ft03">Injection of&#160;Pending MTF VM Exits</p>
+<p style="position:absolute;top:214px;left:69px;white-space:nowrap" class="ft08">If the&#160;interruption type&#160;in the&#160;VM-entry interruption-information&#160;field is&#160;7&#160;(other&#160;event) and&#160;the&#160;vector&#160;field is&#160;0,&#160;<br/>VM&#160;entry causes&#160;an MTF&#160;VM&#160;exit&#160;to be&#160;pending on&#160;the&#160;instruction boundary&#160;following VM&#160;entry.&#160;This is&#160;the case&#160;<br/>even&#160;if&#160;the “monitor&#160;trap flag” VM-execution&#160;control&#160;is 0.&#160;S<a href="o_fe12b1e2a880e0ce-1086.html">ee Section 25.5.2&#160;</a>for&#160;the treatment of pending&#160;MTF&#160;<br/>VM&#160;exits.</p>
+<p style="position:absolute;top:319px;left:69px;white-space:nowrap" class="ft04">26.6&#160;</p>
+<p style="position:absolute;top:319px;left:148px;white-space:nowrap" class="ft04">SPECIAL FEATURES OF&#160;VM&#160;ENTRY</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft08">This section&#160;details&#160;a variety of features&#160;of&#160;VM&#160;entry.&#160;It uses the&#160;following&#160;terminology:&#160;a VM&#160;entry is&#160;<b>vectoring</b>&#160;if&#160;<br/>the&#160;valid bit (bit&#160;31) of&#160;the VM-entry interruption&#160;information&#160;field is&#160;1&#160;and the&#160;interruption type&#160;in&#160;the field&#160;is&#160;0&#160;<br/>(external interrupt),&#160;2 (non-maskable&#160;interrupt); 3&#160;(hardware exception), 4 (software&#160;interrupt),&#160;5&#160;(privileged&#160;<br/>software exception),&#160;or&#160;6 (software&#160;exception).</p>
+<p style="position:absolute;top:455px;left:69px;white-space:nowrap" class="ft03">26.6.1 Interruptibility&#160;</p>
+<p style="position:absolute;top:455px;left:272px;white-space:nowrap" class="ft03">State</p>
+<p style="position:absolute;top:486px;left:69px;white-space:nowrap" class="ft08">The&#160;interruptibility-state&#160;field in the&#160;guest-state area&#160;(see<a href="o_fe12b1e2a880e0ce-1052.html">&#160;Table&#160;24-3) contains bits that</a>&#160;control&#160;blocking by&#160;STI,&#160;<br/>blocking by&#160;MOV&#160;SS,&#160;and blocking&#160;by NMI.&#160;This field&#160;impacts&#160;event&#160;blocking&#160;after VM&#160;entry&#160;as follows:</p>
+<p style="position:absolute;top:524px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:525px;left:95px;white-space:nowrap" class="ft08">If the VM&#160;entry is vectoring,&#160;there is&#160;no&#160;blocking&#160;by&#160;STI or by&#160;MOV&#160;SS&#160;following the&#160;VM&#160;entry,&#160;regardless of&#160;the&#160;<br/>contents of&#160;the&#160;interruptibility-state field.</p>
+<p style="position:absolute;top:563px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:564px;left:95px;white-space:nowrap" class="ft09">If the&#160;VM&#160;entry&#160;is not vectoring, the&#160;following&#160;apply:<br/>—&#160;Events&#160;are blocked&#160;by STI if&#160;and only if bit&#160;0&#160;in&#160;the interruptibility-state&#160;field is&#160;1. This blocking is&#160;cleared&#160;</p>
+<p style="position:absolute;top:604px;left:120px;white-space:nowrap" class="ft08">after the guest executes one instruction or incurs&#160;an&#160;exception (including a debug exception&#160;made&#160;pending&#160;<br/>by&#160;VM&#160;entry; se<a href="o_fe12b1e2a880e0ce-1114.html">e&#160;Section 26.6.3).</a></p>
+<p style="position:absolute;top:645px;left:95px;white-space:nowrap" class="ft02">—&#160;Events&#160;are blocked&#160;by MOV&#160;SS if and&#160;only&#160;if bit&#160;1&#160;in&#160;the interruptibility-state&#160;field&#160;is 1.&#160;This may affect the&#160;</p>
+<p style="position:absolute;top:661px;left:120px;white-space:nowrap" class="ft08">treatment of pending&#160;debug&#160;exceptions;&#160;<a href="o_fe12b1e2a880e0ce-1114.html">see Section&#160;26.6.3.&#160;</a>This blocking&#160;is&#160;cleared&#160;after&#160;the&#160;guest&#160;<br/>executes&#160;one instruction or incurs&#160;an&#160;exception (including a&#160;debug exception made pending&#160;by&#160;VM&#160;entry).</p>
+<p style="position:absolute;top:700px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:700px;left:95px;white-space:nowrap" class="ft010">The&#160;blocking of non-maskable interrupts (NMIs)&#160;is&#160;determined as&#160;follows:<br/>—&#160;If the “virtual NMIs” VM-execution control&#160;is 0, NMIs&#160;are blocked if&#160;and&#160;only&#160;if bit&#160;3&#160;(blocking by NMI) in the&#160;</p>
+<p style="position:absolute;top:741px;left:120px;white-space:nowrap" class="ft08">interruptibility-state&#160;field is&#160;1.&#160;If the “NMI&#160;exiting”&#160;VM-execution control&#160;is 0,&#160;execution&#160;of the&#160;IRET&#160;<br/>instruction&#160;removes&#160;this blocking (even if the&#160;instruction generates&#160;a fault).&#160;If the&#160;“NMI exiting”&#160;control&#160;is&#160;<br/>1, IRET does not&#160;affect&#160;this blocking.</p>
+<p style="position:absolute;top:798px;left:94px;white-space:nowrap" class="ft02">—&#160;The following items&#160;describe the&#160;use&#160;of&#160;bit&#160;3&#160;(blocking by NMI) in&#160;the&#160;interruptibility-state field if the&#160;</p>
+<p style="position:absolute;top:814px;left:120px;white-space:nowrap" class="ft02">“virtual NMIs”&#160;VM-execution control is&#160;1:</p>
+<p style="position:absolute;top:840px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:838px;left:146px;white-space:nowrap" class="ft02">The bit’s&#160;value does not affect&#160;the blocking&#160;of&#160;NMIs&#160;after VM&#160;entry.&#160;NMIs are not blocked&#160;in&#160;VMX non-</p>
+<p style="position:absolute;top:855px;left:145px;white-space:nowrap" class="ft08">root operation (except&#160;for ordinary blocking&#160;for other reasons,&#160;such&#160;as by the&#160;MOV&#160;SS instruction,&#160;the&#160;<br/>wait-for-SIPI state,&#160;etc.)</p>
+<p style="position:absolute;top:897px;left:120px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:895px;left:146px;white-space:nowrap" class="ft02">The bit’s&#160;value determines whether&#160;there is&#160;virtual-NMI&#160;blocking after&#160;VM&#160;entry.&#160;If the bit&#160;is 1,&#160;virtual-</p>
+<p style="position:absolute;top:912px;left:145px;white-space:nowrap" class="ft08">NMI&#160;blocking is&#160;in effect&#160;after VM&#160;entry.&#160;If&#160;the bit&#160;is 0,&#160;there is&#160;no virtual-NMI&#160;blocking after&#160;VM&#160;entry&#160;<br/>unless the&#160;VM&#160;entry&#160;is injecting&#160;an NMI (see&#160;<a href="o_fe12b1e2a880e0ce-1110.html">Section&#160;26.5.1.1).&#160;</a>Execution of&#160;IRET removes virtual-NMI&#160;<br/>blocking (even if&#160;the instruction generates&#160;a fault).</p>
+<p style="position:absolute;top:967px;left:94px;white-space:nowrap" class="ft02">If the&#160;“NMI&#160;exiting” VM-execution control is 0,&#160;the&#160;“virtual&#160;NMIs”&#160;control must be&#160;0;<a href="o_fe12b1e2a880e0ce-1094.html">&#160;see Section&#160;26.2.1.1.</a></p>
+<p style="position:absolute;top:989px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:990px;left:95px;white-space:nowrap" class="ft09">Blocking&#160;of system-management&#160;interrupts (SMIs)&#160;is determined&#160;as follows:<br/>—&#160;If&#160;the VM&#160;entry was&#160;not&#160;executed&#160;in system-management mode (SMM), SMI blocking is&#160;unchanged by&#160;</p>
+<p style="position:absolute;top:1030px;left:120px;white-space:nowrap" class="ft02">VM&#160;entry.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 419</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page419-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce419.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;11-7</p>
+<p style="position:absolute;top:47px;left:686px;white-space:nowrap" class="ft01">MEMORY CACHE CONTROL</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07"><b>Write Combining (WC)&#160;</b>—&#160;System memory locations are not cached (as&#160;with&#160;uncacheable&#160;memory)&#160;and&#160;<br/>coherency is&#160;not enforced by the&#160;processor’s bus&#160;coherency protocol. Speculative reads&#160;are allowed. Writes&#160;<br/>may be&#160;delayed and combined in the write&#160;combining buffer (WC buffer)&#160;to reduce memory accesses. If the WC&#160;<br/>buffer is partially filled, the writes may&#160;be delayed until&#160;the next occurrence of a serializing event;&#160;such&#160;as, an&#160;<br/>SFENCE or MFENCE instruction,&#160;CPUID execution,&#160;a&#160;read or write&#160;to uncached&#160;memory, an interrupt&#160;<br/>occurrence, or&#160;a LOCK&#160;instruction execution. This type&#160;of cache-control is appropriate for video frame buffers,&#160;<br/>where the order&#160;of writes is&#160;unimportant&#160;as long as&#160;the&#160;writes&#160;update memory so they&#160;can be seen&#160;on the&#160;<br/>graphics display.&#160;Se<a href="o_fe12b1e2a880e0ce-419.html">e Section 11.3.1, “Buffering&#160;of Write Combining Memory&#160;Locations,” fo</a>r more&#160;information&#160;<br/>about&#160;caching the&#160;WC memory&#160;type. This memory&#160;type&#160;is available&#160;in the&#160;Pentium&#160;Pro&#160;and Pentium II&#160;<br/>processors by programming the&#160;MTRRs; or in&#160;processor&#160;families starting&#160;from&#160;the Pentium&#160;III&#160;processors by&#160;<br/>programming&#160;the&#160;MTRRs&#160;or by selecting&#160;it through the&#160;PAT.</p>
+<p style="position:absolute;top:287px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:288px;left:95px;white-space:nowrap" class="ft07"><b>Write-through (WT)&#160;</b>— Writes&#160;and reads to&#160;and from system&#160;memory are&#160;cached.&#160;Reads come&#160;from cache&#160;<br/>lines&#160;on cache&#160;hits; read misses&#160;cause cache&#160;fills. Speculative&#160;reads are&#160;allowed. All writes are&#160;written to&#160;a&#160;<br/>cache&#160;line (when possible)&#160;and through&#160;to system memory.&#160;When writing through&#160;to memory, invalid cache&#160;<br/>lines are never filled,&#160;and valid&#160;cache&#160;lines are&#160;either&#160;filled&#160;or invalidated. Write&#160;combining is&#160;allowed. This&#160;type&#160;<br/>of&#160;cache-control is&#160;appropriate for frame&#160;buffers or&#160;when&#160;there are devices on&#160;the system&#160;bus&#160;that access&#160;<br/>system memory,&#160;but do not perform&#160;snooping of&#160;memory&#160;accesses. It&#160;enforces&#160;coherency&#160;between&#160;caches&#160;in&#160;<br/>the processors and&#160;system memory.</p>
+<p style="position:absolute;top:409px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:409px;left:95px;white-space:nowrap" class="ft07"><b>Write-back (WB)&#160;</b>— Writes and&#160;reads to and&#160;from system memory are&#160;cached. Reads come from cache lines&#160;<br/>on cache hits;&#160;read misses cause cache fills. Speculative&#160;reads are allowed. Write&#160;misses cause&#160;cache&#160;line&#160;fills&#160;<br/>(in processor families&#160;starting&#160;with the&#160;P6&#160;family&#160;processors), and writes are&#160;performed&#160;entirely in the cache,&#160;<br/>when&#160;possible.&#160;Write combining&#160;is allowed. The write-back memory&#160;type&#160;reduces bus&#160;traffic by eliminating&#160;<br/>many&#160;unnecessary&#160;writes&#160;to&#160;system memory.&#160;Writes to&#160;a cache&#160;line are not immediately forwarded to&#160;system&#160;<br/>memory; instead, they are accumulated in the cache. The&#160;modified&#160;cache lines are written to&#160;system memory&#160;<br/>later,&#160;when&#160;a write-back&#160;operation&#160;is performed.&#160;Write-back&#160;operations&#160;are triggered when cache&#160;lines need&#160;to&#160;<br/>be&#160;deallocated,&#160;such&#160;as when new cache&#160;lines&#160;are being&#160;allocated in&#160;a cache&#160;that is&#160;already full. They&#160;also are&#160;<br/>triggered by the mechanisms used to maintain cache consistency.&#160;This type of&#160;cache-control provides the best&#160;<br/>performance,&#160;but it&#160;requires that all&#160;devices that access system&#160;memory on&#160;the system&#160;bus be able to&#160;snoop&#160;<br/>memory&#160;accesses to&#160;insure&#160;system memory and&#160;cache coherency.</p>
+<p style="position:absolute;top:596px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:597px;left:95px;white-space:nowrap" class="ft07"><b>Write protected (WP) —</b>&#160;Reads come&#160;from cache lines&#160;when&#160;possible,&#160;and read misses cause&#160;cache fills.&#160;<br/>Writes&#160;are propagated&#160;to&#160;the system&#160;bus and&#160;cause&#160;corresponding&#160;cache&#160;lines&#160;on all processors on the&#160;bus to&#160;<br/>be&#160;invalidated. Speculative reads&#160;are&#160;allowed. This memory&#160;type is available in&#160;processor families&#160;starting from&#160;<br/>the P6 family&#160;processors&#160;by&#160;programming the&#160;MTRRs&#160;(s<a href="o_fe12b1e2a880e0ce-426.html">ee Table&#160;11-6).</a></p>
+<p style="position:absolute;top:670px;left:69px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-419.html">Table 11-3</a>&#160;shows which&#160;of these&#160;caching&#160;methods are&#160;available&#160;in the&#160;Pentium,&#160;P6&#160;Family, Pentium&#160;4, and&#160;Intel&#160;<br/>Xeon processors.</p>
+<p style="position:absolute;top:1010px;left:69px;white-space:nowrap" class="ft05">11.3.1&#160;</p>
+<p style="position:absolute;top:1010px;left:150px;white-space:nowrap" class="ft05">Buffering of&#160;Write Combining Memory Locations</p>
+<p style="position:absolute;top:1041px;left:69px;white-space:nowrap" class="ft07">Writes to&#160;the WC&#160;memory type are not cached in&#160;the typical&#160;sense&#160;of&#160;the word cached.&#160;They&#160;are retained in&#160;an&#160;<br/>internal write&#160;combining buffer (WC&#160;buffer)&#160;that is&#160;separate&#160;from the&#160;internal L1, L2,&#160;and L3&#160;caches and&#160;the store&#160;</p>
+<p style="position:absolute;top:718px;left:79px;white-space:nowrap" class="ft06">Table 11-3.&#160;&#160;Methods&#160;of&#160;Caching&#160;Available in&#160;Intel&#160;Core&#160;2&#160;Duo,&#160;Intel Atom,&#160;Intel Core&#160;Duo, Pentium&#160;M,&#160;Pentium 4,&#160;</p>
+<p style="position:absolute;top:739px;left:295px;white-space:nowrap" class="ft06">Intel Xeon,&#160;P6 Family, and&#160;Pentium Processors</p>
+<p style="position:absolute;top:763px;left:77px;white-space:nowrap" class="ft04">Memory&#160;Type</p>
+<p style="position:absolute;top:763px;left:280px;white-space:nowrap" class="ft04">Intel Core&#160;2&#160;Duo, Intel&#160;Atom, Intel&#160;Core&#160;Duo,&#160;</p>
+<p style="position:absolute;top:778px;left:280px;white-space:nowrap" class="ft04">Pentium&#160;M, Pentium 4&#160;and Intel&#160;Xeon Processors</p>
+<p style="position:absolute;top:763px;left:585px;white-space:nowrap" class="ft04">P6&#160;Family&#160;</p>
+<p style="position:absolute;top:778px;left:585px;white-space:nowrap" class="ft04">Processors</p>
+<p style="position:absolute;top:763px;left:719px;white-space:nowrap" class="ft04">Pentium&#160;</p>
+<p style="position:absolute;top:778px;left:719px;white-space:nowrap" class="ft04">Processor</p>
+<p style="position:absolute;top:802px;left:77px;white-space:nowrap" class="ft04">Strong Uncacheable (UC)</p>
+<p style="position:absolute;top:802px;left:280px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:802px;left:585px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:802px;left:719px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:826px;left:77px;white-space:nowrap" class="ft04">Uncacheable (UC-)</p>
+<p style="position:absolute;top:826px;left:280px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:826px;left:585px;white-space:nowrap" class="ft04">Yes*</p>
+<p style="position:absolute;top:826px;left:719px;white-space:nowrap" class="ft04">No</p>
+<p style="position:absolute;top:850px;left:77px;white-space:nowrap" class="ft04">Write Combining (WC)</p>
+<p style="position:absolute;top:850px;left:280px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:850px;left:585px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:850px;left:719px;white-space:nowrap" class="ft04">No</p>
+<p style="position:absolute;top:874px;left:77px;white-space:nowrap" class="ft04">Write&#160;Through (WT)</p>
+<p style="position:absolute;top:874px;left:280px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:874px;left:585px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:874px;left:719px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:898px;left:77px;white-space:nowrap" class="ft04">Write&#160;Back&#160;(WB)</p>
+<p style="position:absolute;top:898px;left:280px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:898px;left:585px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:898px;left:719px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:922px;left:77px;white-space:nowrap" class="ft04">Write&#160;Protected (WP)</p>
+<p style="position:absolute;top:922px;left:280px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:922px;left:585px;white-space:nowrap" class="ft04">Yes</p>
+<p style="position:absolute;top:922px;left:719px;white-space:nowrap" class="ft04">No</p>
+<p style="position:absolute;top:946px;left:77px;white-space:nowrap" class="ft01">NOTE:</p>
+<p style="position:absolute;top:966px;left:77px;white-space:nowrap" class="ft04">*&#160;Introduced in the Pentium&#160;III processor; not available in the Pentium Pro or Pentium&#160;II&#160;processors</p>
+</div>
+</body>
+</html>

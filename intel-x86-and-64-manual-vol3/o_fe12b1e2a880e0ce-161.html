@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 161</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:16px;font-family:Times;color:#ffffff;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page161-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce161.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;5-9</p>
+<p style="position:absolute;top:47px;left:763px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07">E1 or&#160;E2,&#160;such that&#160;the&#160;RPL would be&#160;acceptable, it still could&#160;not access data segment&#160;E because&#160;its CPL is not&#160;<br/>privileged enough.</p>
+<p style="position:absolute;top:141px;left:69px;white-space:nowrap" class="ft02">4.&#160;The&#160;procedure in&#160;code&#160;segment&#160;D&#160;should&#160;be&#160;able&#160;to&#160;access data&#160;segment&#160;E because code segment D’s&#160;CPL is&#160;</p>
+<p style="position:absolute;top:157px;left:95px;white-space:nowrap" class="ft07">numerically less&#160;than the&#160;DPL of&#160;data&#160;segment E. However,&#160;the RPL of&#160;segment&#160;selector E3 (which the&#160;code&#160;<br/>segment D procedure&#160;is&#160;using&#160;to access data segment&#160;E)&#160;is numerically greater than the DPL of data segment&#160;<br/>E, so access is not&#160;allowed. If the code&#160;segment D procedure&#160;were&#160;to use segment selector&#160;E1 or E2&#160;to access&#160;<br/>the&#160;data&#160;segment,&#160;access&#160;would&#160;be&#160;allowed.</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft07">As&#160;demonstrated&#160;in&#160;the previous&#160;examples,&#160;the&#160;addressable&#160;domain of a&#160;program or&#160;task&#160;varies as&#160;its CPL changes.&#160;<br/>When the&#160;CPL&#160;is 0, data segments at&#160;all privilege&#160;levels&#160;are&#160;accessible; when the&#160;CPL is&#160;1,&#160;only&#160;data segments at&#160;<br/>privilege&#160;levels&#160;1 through&#160;3 are&#160;accessible;&#160;when&#160;the&#160;CPL&#160;is&#160;3,&#160;only&#160;data&#160;segments at&#160;privilege&#160;level 3 are&#160;acces-<br/>sible.&#160;<br/>The RPL of&#160;a segment selector can&#160;always&#160;override the&#160;addressable&#160;domain of&#160;a&#160;program or&#160;task. When&#160;properly&#160;<br/>used,&#160;RPLs&#160;can&#160;prevent problems&#160;caused by&#160;accidental (or&#160;intensional) use of segment selectors for privileged&#160;data&#160;<br/>segments by&#160;less privileged programs or&#160;procedures.<br/>It is&#160;important to&#160;note that the RPL of a&#160;segment&#160;selector for a&#160;data segment is&#160;under&#160;software&#160;control.&#160;For&#160;<br/>example, an application&#160;program running&#160;at a CPL&#160;of&#160;3 can&#160;set the RPL for a data- segment selector to 0. With the&#160;<br/>RPL set to 0, only the&#160;CPL checks, not&#160;the&#160;RPL checks, will&#160;provide&#160;protection against deliberate, direct attempts to&#160;<br/>violate privilege-level&#160;security for the&#160;data&#160;segment.&#160;To&#160;prevent these types of privilege-level-check&#160;violations,&#160;a&#160;<br/>program or&#160;procedure can&#160;check&#160;access&#160;privileges whenever&#160;it&#160;receives&#160;a data-segment selector&#160;from another&#160;<br/>procedure&#160;(see<a href="o_fe12b1e2a880e0ce-178.html">&#160;Section 5.10.4,&#160;“Checking&#160;Caller Access Privileges&#160;(ARPL&#160;Instruction)”).</a></p>
+<p style="position:absolute;top:868px;left:69px;white-space:nowrap" class="ft03">5.6.1&#160;</p>
+<p style="position:absolute;top:868px;left:149px;white-space:nowrap" class="ft03">Accessing Data in Code Segments</p>
+<p style="position:absolute;top:898px;left:69px;white-space:nowrap" class="ft07">In some&#160;instances it&#160;may be desirable&#160;to access&#160;data&#160;structures&#160;that&#160;are contained in a&#160;code&#160;segment. The&#160;<br/>following&#160;methods of accessing data in&#160;code&#160;segments&#160;are possible:</p>
+<p style="position:absolute;top:937px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:937px;left:95px;white-space:nowrap" class="ft02">Load&#160;a data-segment&#160;register with&#160;a segment selector&#160;for a nonconforming, readable,&#160;code&#160;segment.</p>
+<p style="position:absolute;top:959px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:960px;left:95px;white-space:nowrap" class="ft02">Load&#160;a data-segment&#160;register with&#160;a segment selector&#160;for a conforming,&#160;readable, code segment.</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:982px;left:95px;white-space:nowrap" class="ft07">Use a&#160;code-segment&#160;override prefix&#160;(CS) to&#160;read&#160;a readable, code segment whose&#160;selector&#160;is already loaded&#160;in&#160;<br/>the CS&#160;register.</p>
+<p style="position:absolute;top:1023px;left:69px;white-space:nowrap" class="ft07">The same&#160;rules for accessing&#160;data segments apply to&#160;method&#160;1.&#160;Method 2&#160;is always valid because the&#160;privilege&#160;<br/>level&#160;of&#160;a conforming code segment is&#160;effectively&#160;the same&#160;as&#160;the CPL,&#160;regardless of its DPL. Method 3&#160;is&#160;always&#160;<br/>valid&#160;because the&#160;DPL of&#160;the code segment selected&#160;by&#160;the CS&#160;register&#160;is&#160;the same&#160;as&#160;the&#160;CPL.</p>
+<p style="position:absolute;top:558px;left:182px;white-space:nowrap" class="ft05">Figure&#160;5-5.&#160;&#160;Examples of&#160;Accessing Data&#160;Segments&#160;From&#160;Various&#160;Privilege&#160;Levels</p>
+<p style="position:absolute;top:355px;left:534px;white-space:nowrap" class="ft00">Data</p>
+<p style="position:absolute;top:320px;left:280px;white-space:nowrap" class="ft00">Lowest Privilege</p>
+<p style="position:absolute;top:533px;left:281px;white-space:nowrap" class="ft00">Highest Privilege</p>
+<p style="position:absolute;top:365px;left:517px;white-space:nowrap" class="ft00">Segment E</p>
+<p style="position:absolute;top:313px;left:264px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:383px;left:264px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:454px;left:264px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:525px;left:263px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:450px;left:289px;white-space:nowrap" class="ft00">CPL=1</p>
+<p style="position:absolute;top:303px;left:289px;white-space:nowrap" class="ft00">CPL=3</p>
+<p style="position:absolute;top:522px;left:573px;white-space:nowrap" class="ft00">CPL=0</p>
+<p style="position:absolute;top:385px;left:516px;white-space:nowrap" class="ft00">DPL=2</p>
+<p style="position:absolute;top:377px;left:290px;white-space:nowrap" class="ft00">CPL=2</p>
+<p style="position:absolute;top:285px;left:385px;white-space:nowrap" class="ft00">Segment Sel. E3</p>
+<p style="position:absolute;top:297px;left:446px;white-space:nowrap" class="ft00">RPL=3</p>
+<p style="position:absolute;top:357px;left:386px;white-space:nowrap" class="ft00">Segment Sel.&#160;E1</p>
+<p style="position:absolute;top:369px;left:446px;white-space:nowrap" class="ft00">RPL=2</p>
+<p style="position:absolute;top:429px;left:386px;white-space:nowrap" class="ft00">Segment Sel. E2</p>
+<p style="position:absolute;top:441px;left:447px;white-space:nowrap" class="ft00">RPL=1</p>
+<p style="position:absolute;top:275px;left:305px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:286px;left:290px;white-space:nowrap" class="ft00">Segment C</p>
+<p style="position:absolute;top:350px;left:306px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:361px;left:292px;white-space:nowrap" class="ft00">Segment A</p>
+<p style="position:absolute;top:422px;left:306px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:433px;left:292px;white-space:nowrap" class="ft00">Segment B</p>
+<p style="position:absolute;top:494px;left:589px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:505px;left:574px;white-space:nowrap" class="ft00">Segment D</p>
+</div>
+</body>
+</html>

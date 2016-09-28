@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 164</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:16px;font-family:Times;color:#ffffff;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page164-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce164.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-12&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:571px;left:68px;white-space:nowrap" class="ft08">The RPL of the segment selector that points to a nonconforming code segment&#160;has&#160;a limited effect&#160;on the&#160;privilege&#160;<br/>check. The RPL must be&#160;numerically&#160;less than&#160;or&#160;equal&#160;to&#160;the CPL of the&#160;calling&#160;procedure&#160;for a successful&#160;control&#160;<br/>transfer to&#160;occur.&#160;So,&#160;in&#160;the&#160;example<a href="o_fe12b1e2a880e0ce-164.html">&#160;in Figure&#160;5-7,</a>&#160;the&#160;RPLs of segment selectors C1 and C2&#160;could&#160;legally&#160;be&#160;set to&#160;<br/>0,&#160;1,&#160;or 2, but not to&#160;3.<br/>When the segment selector of a nonconforming code segment&#160;is loaded&#160;into the CS register, the privilege level field&#160;<br/>is not&#160;changed;&#160;that is, it&#160;remains at&#160;the&#160;CPL (which is&#160;the&#160;privilege level of&#160;the&#160;calling&#160;procedure).&#160;This is&#160;true, even&#160;<br/>if&#160;the RPL&#160;of&#160;the segment selector is&#160;different from&#160;the&#160;CPL.</p>
+<p style="position:absolute;top:722px;left:68px;white-space:nowrap" class="ft03">5.8.1.2&#160;&#160;</p>
+<p style="position:absolute;top:722px;left:152px;white-space:nowrap" class="ft03">Accessing Conforming Code&#160;Segments</p>
+<p style="position:absolute;top:750px;left:68px;white-space:nowrap" class="ft08">When accessing conforming code segments,&#160;the CPL of&#160;the calling procedure&#160;may be numerically equal to&#160;or&#160;<br/>greater than (less&#160;privileged) the&#160;DPL of the destination&#160;code&#160;segment;&#160;the&#160;processor generates a&#160;general-protec-<br/>tion exception (#GP)&#160;only&#160;if the&#160;CPL&#160;is&#160;less than&#160;the DPL. (The segment selector&#160;RPL for the&#160;destination code&#160;<br/>segment is&#160;not checked&#160;if&#160;the segment is&#160;a conforming code segment.)<br/>In the example in<a href="o_fe12b1e2a880e0ce-164.html">&#160;Figure&#160;5-7, code s</a>egment D is a conforming code segment.&#160;Therefore,&#160;calling procedures&#160;in both&#160;<br/>code segment A and B can access code segment D (using either segment selector&#160;D1 or D2, respectively), because&#160;<br/>they both&#160;have CPLs that&#160;are greater&#160;than&#160;or&#160;equal&#160;to the DPL&#160;of&#160;the&#160;conforming&#160;code&#160;segment.<b>&#160;For conforming&#160;<br/>code segments, the DPL represents&#160;the numerically lowest privilege&#160;level that a&#160;calling procedure may&#160;<br/>be at&#160;to successfully make a call to the code segment.<br/></b>(Note that segments selectors&#160;D1&#160;and D2&#160;are identical except for their&#160;respective&#160;RPLs.&#160;But&#160;since RPLs&#160;are&#160;not&#160;<br/>checked when accessing conforming&#160;code&#160;segments,&#160;the&#160;two segment selectors are&#160;essentially&#160;interchangeable.)<br/>When program control&#160;is transferred to&#160;a conforming code&#160;segment, the&#160;CPL does not&#160;change,&#160;even&#160;if&#160;the DPL&#160;of&#160;<br/>the destination code segment is&#160;less&#160;than&#160;the CPL.&#160;This&#160;situation&#160;is&#160;the&#160;only&#160;one where&#160;the CPL&#160;may be&#160;different&#160;<br/>from&#160;the DPL of the&#160;current code&#160;segment.&#160;Also,&#160;since the&#160;CPL&#160;does&#160;not change, no&#160;stack&#160;switch&#160;occurs.<br/>Conforming&#160;segments&#160;are used for code modules such as&#160;math&#160;libraries and&#160;exception&#160;handlers,&#160;which&#160;support&#160;<br/>applications&#160;but do&#160;not require access to&#160;protected system&#160;facilities.&#160;These&#160;modules&#160;are part of&#160;the&#160;operating&#160;<br/>system&#160;or&#160;executive software, but they&#160;can&#160;be&#160;executed&#160;at numerically higher&#160;privilege&#160;levels&#160;(less&#160;privileged&#160;<br/>levels). Keeping&#160;the CPL&#160;at the level&#160;of&#160;a calling&#160;code&#160;segment when switching to&#160;a conforming code&#160;segment&#160;</p>
+<p style="position:absolute;top:525px;left:73px;white-space:nowrap" class="ft05">Figure&#160;5-7.&#160;&#160;Examples of&#160;Accessing&#160;Conforming and&#160;Nonconforming Code Segments From&#160;Various Privilege Levels</p>
+<p style="position:absolute;top:341px;left:597px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:352px;left:581px;white-space:nowrap" class="ft00">Segment D</p>
+<p style="position:absolute;top:241px;left:522px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:252px;left:507px;white-space:nowrap" class="ft00">Segment&#160;C</p>
+<p style="position:absolute;top:250px;left:299px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:262px;left:284px;white-space:nowrap" class="ft00">Segment A</p>
+<p style="position:absolute;top:213px;left:269px;white-space:nowrap" class="ft00">Lowest Privilege</p>
+<p style="position:absolute;top:497px;left:270px;white-space:nowrap" class="ft00">Highest Privilege</p>
+<p style="position:absolute;top:189px;left:283px;white-space:nowrap" class="ft00">CPL=3</p>
+<p style="position:absolute;top:159px;left:299px;white-space:nowrap" class="ft00">Code</p>
+<p style="position:absolute;top:170px;left:284px;white-space:nowrap" class="ft00">Segment B</p>
+<p style="position:absolute;top:289px;left:501px;white-space:nowrap" class="ft06">Nonconforming</p>
+<p style="position:absolute;top:300px;left:501px;white-space:nowrap" class="ft06">Code&#160;Segment</p>
+<p style="position:absolute;top:387px;left:584px;white-space:nowrap" class="ft06">Conforming</p>
+<p style="position:absolute;top:398px;left:577px;white-space:nowrap" class="ft06">Code&#160;Segment</p>
+<p style="position:absolute;top:206px;left:251px;white-space:nowrap" class="ft07">3</p>
+<p style="position:absolute;top:300px;left:252px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:394px;left:251px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:489px;left:251px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:281px;left:283px;white-space:nowrap" class="ft00">CPL=2</p>
+<p style="position:absolute;top:272px;left:506px;white-space:nowrap" class="ft00">DPL=2</p>
+<p style="position:absolute;top:370px;left:580px;white-space:nowrap" class="ft00">DPL=1</p>
+<p style="position:absolute;top:274px;left:378px;white-space:nowrap" class="ft00">Segment&#160;Sel. D1</p>
+<p style="position:absolute;top:286px;left:439px;white-space:nowrap" class="ft00">RPL=2</p>
+<p style="position:absolute;top:151px;left:381px;white-space:nowrap" class="ft00">Segment&#160;Sel. D2</p>
+<p style="position:absolute;top:163px;left:441px;white-space:nowrap" class="ft00">RPL=3</p>
+<p style="position:absolute;top:183px;left:381px;white-space:nowrap" class="ft00">Segment&#160;Sel. C2</p>
+<p style="position:absolute;top:195px;left:441px;white-space:nowrap" class="ft00">RPL=3</p>
+<p style="position:absolute;top:242px;left:379px;white-space:nowrap" class="ft00">Segment Sel.&#160;C1</p>
+<p style="position:absolute;top:254px;left:440px;white-space:nowrap" class="ft00">RPL=2</p>
+</div>
+</body>
+</html>

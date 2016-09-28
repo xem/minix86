@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 430</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page430-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a430.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">D-8&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87 FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">D.3.1 &#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Floating-Point&#160;Exceptions and Their Defaults</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft07">The x87 FPU can recognize six classes of&#160;floating-point&#160;exception conditions while&#160;executing floating-point instruc-<br/>tions:<br/>1.&#160;<b>#I</b>&#160;— Invalid operation</p>
+<p style="position:absolute;top:186px;left:93px;white-space:nowrap" class="ft06">&#160;&#160;&#160;&#160;#IS — Stack&#160;fault<br/>&#160;&#160;&#160;&#160;#IA&#160;—&#160;IEEE standard invalid operation</p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft06">2.&#160;<b>#Z</b>&#160;— Divide-by-zero<br/>3.&#160;<b>#D&#160;</b>— Denormalized operand<br/>4.&#160;<b>#O&#160;</b>— Numeric&#160;overflow<br/>5.&#160;<b>#U</b>&#160;— Numeric&#160;underflow<br/>6.&#160;<b>#P&#160;</b>— Inexact&#160;result (precision)<br/>For&#160;complete&#160;details on these&#160;exceptions&#160;and&#160;their&#160;defaults,&#160;see<a href="o_7281d5ea06a5b67a-215.html">&#160;Section 8.4,&#160;“x87&#160;FPU Floating-Point&#160;Exception&#160;<br/>Handling,”&#160;</a><a href="o_7281d5ea06a5b67a-216.html">and Section 8.5, “x87&#160;FPU&#160;Floating-Point&#160;Exception&#160;Conditions.”</a></p>
+<p style="position:absolute;top:413px;left:68px;white-space:nowrap" class="ft02">D.3.2 &#160;</p>
+<p style="position:absolute;top:413px;left:148px;white-space:nowrap" class="ft02">Two Options for Handling Numeric Exceptions</p>
+<p style="position:absolute;top:444px;left:68px;white-space:nowrap" class="ft08">Depending on options&#160;determined&#160;by the&#160;software&#160;system&#160;designer, the&#160;processor&#160;takes&#160;one of two possible&#160;<br/>courses&#160;of action&#160;when&#160;a&#160;numeric&#160;exception&#160;occurs:<br/>1.&#160;The&#160;x87&#160;FPU can&#160;handle selected exceptions&#160;itself, producing a&#160;default fix-up that is&#160;reasonable in most&#160;</p>
+<p style="position:absolute;top:501px;left:93px;white-space:nowrap" class="ft06">situations.&#160;This&#160;allows the numeric&#160;program execution to&#160;continue undisturbed. Programs can&#160;mask individual&#160;<br/>exception&#160;types&#160;to indicate that the x87&#160;FPU should&#160;generate&#160;this safe, reasonable&#160;result whenever&#160;the&#160;<br/>exception&#160;occurs. The&#160;default&#160;exception fix-up&#160;activity&#160;is treated by&#160;the x87&#160;FPU as&#160;part of the&#160;instruction&#160;<br/>causing the exception;&#160;no external indication&#160;of the exception is given (except that the instruction takes longer&#160;<br/>to&#160;execute&#160;when&#160;it handles&#160;a masked&#160;exception.) When&#160;masked&#160;exceptions are&#160;detected,&#160;a flag&#160;is set in the&#160;<br/>numeric status&#160;register, but no information&#160;is&#160;preserved regarding&#160;where&#160;or when it&#160;was set.</p>
+<p style="position:absolute;top:607px;left:68px;white-space:nowrap" class="ft03">2.&#160;A software exception handler can be invoked to handle&#160;the exception.&#160;When a numeric&#160;exception is&#160;unmasked&#160;</p>
+<p style="position:absolute;top:624px;left:93px;white-space:nowrap" class="ft06">and&#160;the&#160;exception occurs,&#160;the&#160;x87 FPU&#160;stops further execution of the&#160;numeric instruction and&#160;causes a branch&#160;<br/>to a&#160;software exception&#160;handler.&#160;The exception&#160;handler&#160;can then&#160;implement any&#160;sort of recovery procedures&#160;<br/>desired&#160;for any numeric&#160;exception detectable&#160;by the&#160;x87&#160;FPU.</p>
+<p style="position:absolute;top:701px;left:68px;white-space:nowrap" class="ft05">D.3.2.1 &#160;</p>
+<p style="position:absolute;top:701px;left:152px;white-space:nowrap" class="ft05">Automatic Exception&#160;Handling:&#160;Using Masked Exceptions</p>
+<p style="position:absolute;top:730px;left:68px;white-space:nowrap" class="ft06">Each&#160;of the&#160;six exception conditions described above&#160;has a&#160;corresponding flag bit in the x87 FPU status word and&#160;a&#160;<br/>mask bit in the x87&#160;FPU control&#160;word.&#160;If an exception is&#160;masked (the corresponding mask bit in the control word =&#160;<br/>1),&#160;the processor takes an&#160;appropriate default&#160;action and&#160;continues with&#160;the&#160;computation.&#160;<br/>The&#160;processor&#160;has a&#160;default fix-up&#160;activity&#160;for every possible&#160;exception condition&#160;it may encounter.&#160;These&#160;masked-<br/>exception responses are&#160;designed to be safe&#160;and&#160;are&#160;generally acceptable&#160;for most numeric applications.<br/>For example,&#160;if&#160;the Inexact&#160;result (Precision) exception is&#160;masked,&#160;the&#160;system can&#160;specify whether&#160;the&#160;x87&#160;FPU&#160;<br/>should&#160;handle a&#160;result that cannot be&#160;represented exactly&#160;by one of four modes of rounding: rounding&#160;it normally,&#160;<br/>chopping it toward zero, always&#160;rounding it&#160;up,&#160;or always down.&#160;If&#160;the&#160;Underflow exception&#160;is&#160;masked, the&#160;x87&#160;FPU&#160;<br/>will&#160;store a number&#160;that is too small to&#160;be represented in normalized&#160;form as a&#160;denormal (or zero if it’s&#160;smaller than&#160;<br/>the smallest denormal). Note that when exceptions&#160;are masked, the&#160;x87&#160;FPU&#160;may detect&#160;multiple&#160;exceptions in a&#160;<br/>single&#160;instruction,&#160;because&#160;it continues executing the&#160;instruction&#160;after performing&#160;its masked response.&#160;For&#160;<br/>example,&#160;the&#160;x87 FPU could&#160;detect a&#160;denormalized&#160;operand,&#160;perform&#160;its masked&#160;response&#160;to this exception,&#160;and&#160;<br/>then detect&#160;an underflow.<br/>As&#160;an&#160;example&#160;of&#160;how&#160;even&#160;severe&#160;exceptions&#160;can&#160;be&#160;handled safely and automatically using the&#160;default exception&#160;<br/>responses,&#160;consider a&#160;calculation of the&#160;parallel resistance&#160;of&#160;several values&#160;using only the&#160;standard&#160;formula (see&#160;<br/><a href="o_7281d5ea06a5b67a-431.html">Figure&#160;D-4).&#160;</a>If&#160;R1 becomes zero, the&#160;circuit resistance&#160;becomes zero.&#160;With the divide-by-zero&#160;and precision&#160;excep-<br/>tions masked,&#160;the processor will produce&#160;the&#160;correct&#160;result.&#160;FDIV of&#160;R1 into 1 gives&#160;infinity,&#160;and&#160;then FDIV&#160;of&#160;<br/>(infinity +R2&#160;+R3) into 1&#160;gives&#160;zero.</p>
+</div>
+</body>
+</html>

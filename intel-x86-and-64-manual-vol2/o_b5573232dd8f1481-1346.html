@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1346</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1346-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811346.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:666px;white-space:nowrap" class="ft00">SWAPGS—Swap&#160;GS&#160;Base&#160;Register</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-666&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">SWAPGS—Swap GS Base Register</p>
+<p style="position:absolute;top:250px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:336px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:363px;left:68px;white-space:nowrap" class="ft06">SWAPGS exchanges the current GS base&#160;register&#160;value with the&#160;value&#160;contained&#160;in MSR address&#160;C0000102H&#160;<br/>(IA32_KERNEL_GS_BASE).&#160;The SWAPGS instruction is&#160;a privileged instruction intended&#160;for&#160;use&#160;by system&#160;soft-<br/>ware.&#160;<br/>When&#160;using SYSCALL&#160;to implement&#160;system&#160;calls, there is&#160;no&#160;kernel&#160;stack at&#160;the OS entry point.&#160;Neither is&#160;there&#160;a&#160;<br/>straightforward method to obtain a pointer to kernel structures from which the&#160;kernel stack pointer could&#160;be&#160;read.&#160;<br/>Thus,&#160;the kernel cannot save&#160;general&#160;purpose registers or&#160;reference&#160;memory.&#160;<br/>By design,&#160;SWAPGS&#160;does not require&#160;any general purpose registers or memory operands.&#160;No registers need to be&#160;<br/>saved before&#160;using&#160;the&#160;instruction.&#160;SWAPGS&#160;exchanges&#160;the&#160;CPL&#160;0 data pointer from&#160;the IA32_KERNEL_GS_BASE&#160;<br/>MSR&#160;with&#160;the&#160;GS&#160;base&#160;register.&#160;The&#160;kernel&#160;can then&#160;use&#160;the&#160;GS&#160;prefix&#160;on&#160;normal&#160;memory&#160;references&#160;to&#160;access&#160;<br/>kernel&#160;data structures.&#160;Similarly,&#160;when the OS&#160;kernel&#160;is&#160;entered using an interrupt&#160;or exception (where the kernel&#160;<br/>stack is&#160;already set up), SWAPGS can&#160;be&#160;used&#160;to&#160;quickly get a&#160;pointer to&#160;the kernel data structures.<br/>The IA32_KERNEL_GS_BASE MSR&#160;itself is&#160;only&#160;accessible&#160;using RDMSR/WRMSR instructions. Those&#160;instructions&#160;<br/>are&#160;only accessible&#160;at&#160;privilege&#160;level 0.&#160;The&#160;WRMSR&#160;instruction ensures&#160;that the&#160;IA32_KERNEL_GS_BASE MSR&#160;<br/>contains&#160;a canonical address.</p>
+<p style="position:absolute;top:637px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:663px;left:68px;white-space:nowrap" class="ft04">IF&#160;CS.L&#160;</p>
+<p style="position:absolute;top:661px;left:108px;white-space:nowrap" class="ft05">≠&#160;</p>
+<p style="position:absolute;top:663px;left:121px;white-space:nowrap" class="ft04">1 (* Not in&#160;64-Bit Mode&#160;*)</p>
+<p style="position:absolute;top:681px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:699px;left:115px;white-space:nowrap" class="ft04">#UD; FI;</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft04">IF&#160;CPL&#160;</p>
+<p style="position:absolute;top:727px;left:106px;white-space:nowrap" class="ft05">≠</p>
+<p style="position:absolute;top:729px;left:115px;white-space:nowrap" class="ft04">&#160;0</p>
+<p style="position:absolute;top:746px;left:88px;white-space:nowrap" class="ft04">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:777px;left:68px;white-space:nowrap" class="ft04">tmp&#160;←&#160;GS.base;</p>
+<p style="position:absolute;top:795px;left:68px;white-space:nowrap" class="ft04">GS.base&#160;←&#160;IA32_KERNEL_GS_BASE;</p>
+<p style="position:absolute;top:813px;left:68px;white-space:nowrap" class="ft04">IA32_KERNEL_GS_BASE&#160;←&#160;tmp;</p>
+<p style="position:absolute;top:849px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:876px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:936px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:936px;left:206px;white-space:nowrap" class="ft04">If&#160;Mode&#160;</p>
+<p style="position:absolute;top:934px;left:261px;white-space:nowrap" class="ft05">≠</p>
+<p style="position:absolute;top:937px;left:270px;white-space:nowrap" class="ft04">&#160;64-Bit.</p>
+<p style="position:absolute;top:973px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:996px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:996px;left:206px;white-space:nowrap" class="ft04">If&#160;Mode&#160;</p>
+<p style="position:absolute;top:994px;left:261px;white-space:nowrap" class="ft05">≠</p>
+<p style="position:absolute;top:997px;left:270px;white-space:nowrap" class="ft04">&#160;64-Bit.</p>
+<p style="position:absolute;top:1033px;left:68px;white-space:nowrap" class="ft03">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:1056px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:1056px;left:206px;white-space:nowrap" class="ft04">If&#160;Mode&#160;</p>
+<p style="position:absolute;top:1054px;left:261px;white-space:nowrap" class="ft05">≠</p>
+<p style="position:absolute;top:1057px;left:270px;white-space:nowrap" class="ft04">&#160;64-Bit.</p>
+<p style="position:absolute;top:123px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:220px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:386px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:386px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:423px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:423px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:495px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:495px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:565px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F&#160;01&#160;F8</p>
+<p style="position:absolute;top:160px;left:220px;white-space:nowrap" class="ft04">SWAPGS</p>
+<p style="position:absolute;top:160px;left:386px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:423px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:495px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:160px;left:565px;white-space:nowrap" class="ft04">Exchanges&#160;the current GS base&#160;register&#160;value&#160;</p>
+<p style="position:absolute;top:177px;left:565px;white-space:nowrap" class="ft04">with the value contained in&#160;MSR address&#160;</p>
+<p style="position:absolute;top:193px;left:565px;white-space:nowrap" class="ft04">C0000102H.</p>
+<p style="position:absolute;top:272px;left:84px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:272px;left:193px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:272px;left:369px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:272px;left:541px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:272px;left:716px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:297px;left:93px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:297px;left:214px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:297px;left:390px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:297px;left:562px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:297px;left:737px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

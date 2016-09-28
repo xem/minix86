@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 689</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page689-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce689.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-53</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">18.9.2 Counter&#160;</p>
+<p style="position:absolute;top:98px;left:218px;white-space:nowrap" class="ft02">Coalescence</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft05">In processors based&#160;on&#160;Intel microarchitecture&#160;code&#160;name Sandy Bridge,&#160;each processor core&#160;implements&#160;eight&#160;<br/>general-purpose&#160;counters.&#160;CPUID.0AH:EAX[15:8]&#160;will report&#160;either&#160;4 or&#160;8 depending specific processor’s&#160;product&#160;<br/>features.&#160;<br/>If&#160;a processor&#160;core is shared by two logical processors, each logical processors can access 4 counters&#160;(IA32_PMC0-<br/>IA32_PMC3). This is&#160;the&#160;same as in the prior generation for processors based on Intel&#160;microarchitecture&#160;code name&#160;<br/>Nehalem.<br/>If&#160;a processor&#160;core&#160;is not shared by&#160;two&#160;logical processors,&#160;all eight general-purpose&#160;counters&#160;are&#160;visible,&#160;and&#160;<br/>CPUID.0AH:EAX[15:8]&#160;reports 8.&#160;IA32_PMC4-IA32_PMC7&#160;occupy MSR addresses 0C5H through 0C8H.&#160;Each&#160;<br/>counter&#160;is accompanied by an&#160;event&#160;select&#160;MSR (IA32_PERFEVTSEL4-IA32_PERFEVTSEL7).<br/>If CPUID.0AH:EAX[15:8] report 4,&#160;access to&#160;IA32_PMC4-IA32_PMC7,&#160;IA32_PMC4-IA32_PMC7&#160;will&#160;cause&#160;#GP.&#160;<br/>Writing&#160;1’s to&#160;bit position 7:4&#160;of IA32_PERF_GLOBAL_CTRL,&#160;IA32_PERF_GLOBAL_STATUS,&#160;or&#160;<br/>IA32_PERF_GLOBAL_OVF_CTL&#160;will also&#160;cause #GP.</p>
+<p style="position:absolute;top:383px;left:69px;white-space:nowrap" class="ft02">18.9.3&#160;</p>
+<p style="position:absolute;top:383px;left:149px;white-space:nowrap" class="ft02">Full Width Writes to&#160;Performance Counters</p>
+<p style="position:absolute;top:414px;left:69px;white-space:nowrap" class="ft05">Processors&#160;based on Intel microarchitecture&#160;code&#160;name&#160;Sandy Bridge support full-width&#160;writes&#160;to&#160;the&#160;general-<br/>purpose counters, IA32_PMCx.&#160;Support&#160;of&#160;full-width&#160;writes&#160;are&#160;enumerated by&#160;<br/>IA32_PERF_CAPABILITIES.FW_WRITES[13]&#160;(see<a href="o_fe12b1e2a880e0ce-647.html">&#160;Section 18.2.4).<br/></a>The default&#160;behavior of IA32_PMCx&#160;is unchanged,&#160;i.e.&#160;WRMSR&#160;to IA32_PMCx&#160;results in&#160;a sign-extended&#160;32-bit&#160;<br/>value of the&#160;input EAX written&#160;into&#160;IA32_PMCx. Full-width&#160;writes&#160;must issue&#160;WRMSR to&#160;a dedicated alias MSR&#160;<br/>address for each&#160;IA32_PMCx.<br/>Software must check&#160;the presence&#160;of&#160;full-width write capability&#160;and the&#160;presence of&#160;the alias&#160;address&#160;<br/>IA32_A_PMCx by testing IA32_PERF_CAPABILITIES[13].</p>
+<p style="position:absolute;top:595px;left:69px;white-space:nowrap" class="ft02">18.9.4&#160;</p>
+<p style="position:absolute;top:595px;left:150px;white-space:nowrap" class="ft02">PEBS Support in Intel</p>
+<p style="position:absolute;top:594px;left:321px;white-space:nowrap" class="ft01">®</p>
+<p style="position:absolute;top:595px;left:334px;white-space:nowrap" class="ft02">&#160;Microarchitecture Code Name Sandy Bridge</p>
+<p style="position:absolute;top:625px;left:69px;white-space:nowrap" class="ft05">Processors&#160;based on Intel microarchitecture&#160;code&#160;name&#160;Sandy Bridge support PEBS, similar to&#160;those offered in&#160;<br/>prior&#160;generation,&#160;with&#160;several enhanced features. The key&#160;components&#160;and differences of PEBS facility relative&#160;to&#160;<br/>Intel microarchitecture&#160;code&#160;name Westmere&#160;is&#160;<a href="o_fe12b1e2a880e0ce-689.html">summarized in Table&#160;18-31.</a></p>
+<p style="position:absolute;top:700px;left:322px;white-space:nowrap" class="ft04">Table 18-31. &#160;PEBS&#160;Facility Comparison</p>
+<p style="position:absolute;top:741px;left:75px;white-space:nowrap" class="ft03">Box</p>
+<p style="position:absolute;top:724px;left:245px;white-space:nowrap" class="ft03">Intel® microarchitecture&#160;code name&#160;</p>
+<p style="position:absolute;top:741px;left:245px;white-space:nowrap" class="ft03">Sandy Bridge</p>
+<p style="position:absolute;top:724px;left:478px;white-space:nowrap" class="ft03">Intel® microarchitecture&#160;</p>
+<p style="position:absolute;top:741px;left:478px;white-space:nowrap" class="ft03">code&#160;name&#160;Westmere</p>
+<p style="position:absolute;top:741px;left:644px;white-space:nowrap" class="ft03">Comment</p>
+<p style="position:absolute;top:764px;left:75px;white-space:nowrap" class="ft03">Valid IA32_PMCx</p>
+<p style="position:absolute;top:764px;left:245px;white-space:nowrap" class="ft03">PMC0-PMC3</p>
+<p style="position:absolute;top:764px;left:478px;white-space:nowrap" class="ft03">PMC0-PMC3</p>
+<p style="position:absolute;top:764px;left:644px;white-space:nowrap" class="ft03">No&#160;PEBS&#160;on&#160;PMC4-PMC7.</p>
+<p style="position:absolute;top:789px;left:75px;white-space:nowrap" class="ft03">PEBS&#160;Buffer&#160;Programming</p>
+<p style="position:absolute;top:789px;left:245px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-671.html">&#160;Section 18.8.1.1</a></p>
+<p style="position:absolute;top:789px;left:478px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-671.html">Section 18.8.1.1</a></p>
+<p style="position:absolute;top:789px;left:643px;white-space:nowrap" class="ft03">Unchanged</p>
+<p style="position:absolute;top:813px;left:75px;white-space:nowrap" class="ft03">IA32_PEBS_ENABLE&#160;</p>
+<p style="position:absolute;top:829px;left:75px;white-space:nowrap" class="ft03">Layout</p>
+<p style="position:absolute;top:813px;left:245px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-690.html">&#160;Figure&#160;18-35</a></p>
+<p style="position:absolute;top:813px;left:478px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-672.html">Figure&#160;18-21</a></p>
+<p style="position:absolute;top:853px;left:75px;white-space:nowrap" class="ft03">PEBS record&#160;layout</p>
+<p style="position:absolute;top:853px;left:245px;white-space:nowrap" class="ft03">Physical Layout&#160;sa<a href="o_fe12b1e2a880e0ce-673.html">me as Table&#160;18-23.</a></p>
+<p style="position:absolute;top:853px;left:478px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-673.html">Table&#160;18-23</a></p>
+<p style="position:absolute;top:853px;left:644px;white-space:nowrap" class="ft03">Enhanced&#160;fields&#160;at&#160;offsets 98H,&#160;</p>
+<p style="position:absolute;top:870px;left:644px;white-space:nowrap" class="ft03">A0H,&#160;A8H.</p>
+<p style="position:absolute;top:894px;left:75px;white-space:nowrap" class="ft03">PEBS&#160;Events</p>
+<p style="position:absolute;top:894px;left:245px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-691.html">e&#160;Table&#160;18-32.</a></p>
+<p style="position:absolute;top:894px;left:478px;white-space:nowrap" class="ft03">Se<a href="o_fe12b1e2a880e0ce-656.html">e Table&#160;18-10</a>.</p>
+<p style="position:absolute;top:894px;left:644px;white-space:nowrap" class="ft03">IA32_PMC4-IA32_PMC7&#160;do&#160;not&#160;</p>
+<p style="position:absolute;top:910px;left:644px;white-space:nowrap" class="ft03">support PEBS.</p>
+<p style="position:absolute;top:934px;left:75px;white-space:nowrap" class="ft03">PEBS-Load&#160;Latency</p>
+<p style="position:absolute;top:934px;left:245px;white-space:nowrap" class="ft03">See<a href="o_fe12b1e2a880e0ce-692.html">&#160;Table&#160;18-33.</a></p>
+<p style="position:absolute;top:934px;left:478px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-676.html">Table&#160;18-24</a></p>
+<p style="position:absolute;top:958px;left:75px;white-space:nowrap" class="ft03">PEBS-Precise Store</p>
+<p style="position:absolute;top:958px;left:245px;white-space:nowrap" class="ft03">Yes; see<a href="o_fe12b1e2a880e0ce-692.html">&#160;Section&#160;18.9.4.3.</a></p>
+<p style="position:absolute;top:958px;left:478px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:958px;left:644px;white-space:nowrap" class="ft03">IA32_PMC3&#160;only</p>
+<p style="position:absolute;top:982px;left:75px;white-space:nowrap" class="ft03">PEBS-PDIR</p>
+<p style="position:absolute;top:982px;left:244px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:982px;left:478px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:982px;left:643px;white-space:nowrap" class="ft03">IA32_PMC1&#160;only</p>
+<p style="position:absolute;top:1006px;left:75px;white-space:nowrap" class="ft03">PEBS&#160;skid&#160;from&#160;EventingIP</p>
+<p style="position:absolute;top:1006px;left:244px;white-space:nowrap" class="ft03">1 (or 2&#160;if&#160;micro+macro fusion)</p>
+<p style="position:absolute;top:1006px;left:478px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:1030px;left:75px;white-space:nowrap" class="ft03">SAMPLING Restriction</p>
+<p style="position:absolute;top:1030px;left:244px;white-space:nowrap" class="ft03">Small SAV(CountDown)&#160;value&#160;incur&#160;higher&#160;overhead&#160;than&#160;prior&#160;</p>
+<p style="position:absolute;top:1047px;left:245px;white-space:nowrap" class="ft03">generation.</p>
+</div>
+</body>
+</html>

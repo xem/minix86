@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1109</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1109-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1109.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;26-17</p>
+<p style="position:absolute;top:47px;left:766px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">26.3.2.4 &#160;&#160;Loading&#160;Page-Directory-Pointer-Table Entries</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft09">As&#160;noted&#160;in&#160;<a href="o_fe12b1e2a880e0ce-1106.html">Section&#160;26.3.1.6,&#160;</a>the logical processor uses&#160;PAE paging&#160;if&#160;CR0.PG&#160;= 1,&#160;CR4.PAE = 1,&#160;and&#160;<br/>IA32_EFER.LME&#160;=&#160;0. A VM&#160;entry to a&#160;guest&#160;that uses PAE&#160;paging loads the PDPTEs&#160;into internal, non-architectural&#160;<br/>registers based&#160;on&#160;the setting of&#160;the&#160;“enable&#160;EPT”&#160;VM-execution&#160;control:</p>
+<p style="position:absolute;top:182px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:183px;left:95px;white-space:nowrap" class="ft09">If&#160;the control&#160;is 0, the PDPTEs&#160;are loaded&#160;from&#160;the page-directory-pointer&#160;table&#160;referenced&#160;by the&#160;physical&#160;<br/>address in the value of CR3&#160;being loaded by the VM&#160;entry&#160;(see<a href="o_fe12b1e2a880e0ce-1107.html">&#160;Section&#160;26.3.2.1</a>).&#160;The&#160;values&#160;loaded&#160;are&#160;treated&#160;<br/>as physical addresses&#160;in VMX non-root&#160;operation.</p>
+<p style="position:absolute;top:238px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:238px;left:95px;white-space:nowrap" class="ft09">If&#160;the control&#160;is 1, the PDPTEs&#160;are loaded&#160;from&#160;corresponding&#160;fields&#160;in&#160;the guest-state&#160;area (see<a href="o_fe12b1e2a880e0ce-1051.html">&#160;Section&#160;<br/>24.4.2).</a>&#160;The&#160;values loaded&#160;are&#160;treated&#160;as guest-physical addresses in&#160;VMX non-root operation.</p>
+<p style="position:absolute;top:299px;left:69px;white-space:nowrap" class="ft02">26.3.2.5 &#160;&#160;Updating Non-Register State</p>
+<p style="position:absolute;top:328px;left:69px;white-space:nowrap" class="ft09"><a href="o_fe12b1e2a880e0ce-1161.html">Section&#160;28.3 d</a>escribes&#160;how&#160;the VMX architecture&#160;controls&#160;how a&#160;logical&#160;processor&#160;manages information&#160;in the TLBs&#160;<br/>and&#160;paging-structure caches. The following items&#160;detail&#160;how&#160;VM&#160;entries invalidate cached mappings:</p>
+<p style="position:absolute;top:366px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:367px;left:95px;white-space:nowrap" class="ft09">If the “enable VPID” VM-execution control is 0, the logical processor invalidates linear&#160;mappings and combined&#160;<br/>mappings&#160;associated with&#160;VPID&#160;0000H (for all&#160;PCIDs);&#160;combined mappings&#160;for VPID 0000H are invalidated&#160;for&#160;<br/>all EP4TA&#160;values (EP4TA&#160;is the&#160;value of bits&#160;51:12 of EPTP).</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:422px;left:95px;white-space:nowrap" class="ft09">VM&#160;entries are&#160;not&#160;required to invalidate&#160;any guest-physical mappings,&#160;nor are&#160;they required to invalidate any&#160;<br/>linear&#160;mappings&#160;or combined mappings if&#160;the “enable VPID”&#160;VM-execution control&#160;is&#160;1.</p>
+<p style="position:absolute;top:463px;left:69px;white-space:nowrap" class="ft09">If&#160;the “virtual-interrupt delivery” VM-execution control is&#160;1, VM entry&#160;loads the&#160;values of RVI&#160;and SVI&#160;from the&#160;<br/>guest interrupt-status field in the VMCS&#160;(see<a href="o_fe12b1e2a880e0ce-1051.html">&#160;Section 24.4.2). After doin</a>g so, the logical processor first causes PPR&#160;<br/>virt<a href="o_fe12b1e2a880e0ce-1168.html">ualization (Section 29.1.3) and&#160;</a>then evaluates&#160;pending virtual interrupts&#160;<a href="o_fe12b1e2a880e0ce-1169.html">(Section 29.2.1).<br/></a>If&#160;a virtual interrupt&#160;is recognized, it&#160;may be delivered in VMX non-root operation&#160;immediately after&#160;VM entry&#160;<br/>(including any&#160;specified event injection) completes; see<a href="o_fe12b1e2a880e0ce-1115.html">&#160;Section 26.6.5</a>.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-1170.html">Section&#160;29.2.2 for d</a>etails&#160;regarding&#160;<br/>the&#160;delivery of virtual interrupts.</p>
+<p style="position:absolute;top:603px;left:69px;white-space:nowrap" class="ft05">26.3.3&#160;</p>
+<p style="position:absolute;top:603px;left:149px;white-space:nowrap" class="ft05">Clearing Address-Range Monitoring</p>
+<p style="position:absolute;top:634px;left:69px;white-space:nowrap" class="ft011">The Intel&#160;64&#160;and IA-32 architectures allow software&#160;to&#160;monitor&#160;a specified&#160;address range&#160;using&#160;the MONITOR&#160;and&#160;<br/>MWAIT instructions.&#160;S<a href="o_fe12b1e2a880e0ce-303.html">ee Section&#160;8.10.4 in the&#160;</a><a href="��"><i>Intel®&#160;64 and IA-32&#160;Architectures&#160;Software&#160;Developer’s Manual,&#160;<br/>Volume 3A</i>. VM&#160;</a>entries&#160;clear&#160;any address-range monitoring that&#160;may be&#160;in&#160;effect.</p>
+<p style="position:absolute;top:722px;left:69px;white-space:nowrap" class="ft07">26.4 LOADING&#160;</p>
+<p style="position:absolute;top:722px;left:238px;white-space:nowrap" class="ft07">MSRS</p>
+<p style="position:absolute;top:758px;left:69px;white-space:nowrap" class="ft09">VM&#160;entries may&#160;load&#160;MSRs&#160;from&#160;the VM-entry MSR-load&#160;area&#160;(see<a href="o_fe12b1e2a880e0ce-1065.html">&#160;Section 24.8.2). Spe</a>cifically each&#160;entry in&#160;that&#160;<br/>area (up&#160;to the&#160;number specified&#160;in&#160;the&#160;VM-entry MSR-load&#160;count) is&#160;processed&#160;in&#160;order&#160;by loading&#160;the MSR&#160;<br/>indexed&#160;by&#160;bits&#160;31:0 with the&#160;contents of bits&#160;127:64 as&#160;they would be written by&#160;WRMSR.</p>
+<p style="position:absolute;top:789px;left:681px;white-space:nowrap" class="ft08">1</p>
+<p style="position:absolute;top:791px;left:688px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:815px;left:69px;white-space:nowrap" class="ft03">Processing&#160;of&#160;an entry fails&#160;in&#160;any of the following&#160;cases:</p>
+<p style="position:absolute;top:837px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:838px;left:95px;white-space:nowrap" class="ft03">The&#160;value of bits&#160;31:0 is either C0000100H (the IA32_FS_BASE MSR) or C0000101 (the IA32_GS_BASE MSR).</p>
+<p style="position:absolute;top:859px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:860px;left:95px;white-space:nowrap" class="ft09">The&#160;value of&#160;bits&#160;31:8&#160;is&#160;000008H,&#160;meaning&#160;that the&#160;indexed&#160;MSR is one&#160;that allows access to&#160;an APIC register&#160;<br/>when&#160;the local&#160;APIC&#160;is in x2APIC mode.&#160;</p>
+<p style="position:absolute;top:898px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:899px;left:95px;white-space:nowrap" class="ft09">The&#160;value of bits&#160;31:0 indicates an MSR that can be written only in system-management mode (SMM) and the&#160;<br/>VM&#160;entry did&#160;not&#160;commence in SMM. (IA32_SMM_MONITOR_CTL is&#160;an MSR&#160;that&#160;can be written only in&#160;SMM.)</p>
+<p style="position:absolute;top:937px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:938px;left:95px;white-space:nowrap" class="ft09">The value of bits 31:0&#160;indicates&#160;an&#160;MSR that&#160;cannot&#160;be&#160;loaded&#160;on&#160;VM entries&#160;for model-specific reasons. A&#160;<br/>processor may&#160;prevent loading&#160;of certain MSRs even&#160;if&#160;they can normally be written by WRMSR.&#160;Such model-<br/>specific behavior is<a href="o_fe12b1e2a880e0ce-1281.html">&#160;documented in Chapter&#160;35.</a></p>
+<p style="position:absolute;top:993px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:994px;left:95px;white-space:nowrap" class="ft03">Bits&#160;63:32&#160;are&#160;not all&#160;0.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">1.&#160;Because attempts to&#160;modify the value of&#160;IA32_EFER.LMA by&#160;WRMSR are&#160;ignored,&#160;attempts to&#160;modify&#160;it using the VM-entry MSR-</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">load area&#160;are also ignored.</p>
+</div>
+</body>
+</html>

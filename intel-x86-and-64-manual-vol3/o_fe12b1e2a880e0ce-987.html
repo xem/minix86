@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 987</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page987-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce987.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;20-11</p>
+<p style="position:absolute;top:47px;left:734px;white-space:nowrap" class="ft01">8086 EMULATION</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">20.2.8.1 &#160;&#160;I/O-Port-Mapped I/O</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft010">The I/O permission bit map in the&#160;TSS can be used&#160;to generate exceptions on attempts&#160;to&#160;access specific I/O port&#160;<br/>addresses.&#160;The I/O permission bit map&#160;of&#160;each virtual-8086-mode&#160;task determines which I/O addresses generate&#160;<br/>exceptions&#160;for&#160;that task.&#160;Because&#160;each task may have&#160;a different&#160;I/O&#160;permission bit&#160;map,&#160;the addresses that&#160;<br/>generate exceptions&#160;for one&#160;task may&#160;be different from the&#160;addresses for another&#160;task.&#160;This&#160;differs from protected&#160;<br/>mode in which,&#160;if&#160;the CPL is&#160;less&#160;than&#160;or equal to&#160;the&#160;IOPL,&#160;I/O access is&#160;allowed without&#160;checking the&#160;I/O&#160;permis-<br/>sion&#160;bit map.&#160;See&#160;<a href="��">Chapter&#160;18, “Input/Output”, in&#160;the&#160;<i>Intel® 64&#160;and&#160;IA-32 Architectures Software&#160;Developer’s&#160;<br/>Manual, Volume&#160;1</i></a>, for more&#160;information about&#160;the I/O&#160;permission&#160;bit map.</p>
+<p style="position:absolute;top:271px;left:69px;white-space:nowrap" class="ft02">20.2.8.2 &#160;&#160;Memory-Mapped I/O</p>
+<p style="position:absolute;top:299px;left:69px;white-space:nowrap" class="ft09">In systems which use&#160;memory-mapped&#160;I/O,&#160;the&#160;paging facilities&#160;of the&#160;processor&#160;can be&#160;used&#160;to generate&#160;excep-<br/>tions for attempts to access I/O&#160;ports.&#160;The&#160;virtual-8086&#160;monitor may&#160;use&#160;paging&#160;to control memory-mapped I/O&#160;in&#160;<br/>these ways:</p>
+<p style="position:absolute;top:354px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:355px;left:95px;white-space:nowrap" class="ft09">Map&#160;part of the&#160;linear address&#160;space&#160;of each&#160;task&#160;that&#160;needs to&#160;perform I/O&#160;to the&#160;physical&#160;address space&#160;<br/>where I/O&#160;ports&#160;are placed.&#160;By putting&#160;the&#160;I/O ports&#160;at different&#160;addresses&#160;(in different&#160;pages),&#160;the paging&#160;<br/>mechanism can&#160;enforce&#160;isolation between tasks.</p>
+<p style="position:absolute;top:409px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:410px;left:95px;white-space:nowrap" class="ft09">Map&#160;part of the&#160;linear address&#160;space&#160;to pages&#160;that are&#160;not-present.&#160;This&#160;generates&#160;an exception whenever a&#160;<br/>task attempts to&#160;perform I/O&#160;to&#160;those pages. System&#160;software then&#160;can interpret the&#160;I/O operation being&#160;<br/>attempted.</p>
+<p style="position:absolute;top:467px;left:69px;white-space:nowrap" class="ft09">Software&#160;emulation&#160;of&#160;the&#160;I/O space may&#160;require&#160;too much&#160;operating system intervention&#160;under some conditions.&#160;<br/>In these&#160;cases, it&#160;may&#160;be&#160;possible&#160;to&#160;generate an&#160;exception for only the&#160;first&#160;attempt&#160;to access I/O.&#160;The&#160;system&#160;<br/>software&#160;then may determine&#160;whether a&#160;program can&#160;be given exclusive control&#160;of I/O temporarily, the protection&#160;<br/>of&#160;the I/O&#160;space&#160;may&#160;be&#160;lifted, and&#160;the program allowed to&#160;run&#160;at full speed.</p>
+<p style="position:absolute;top:561px;left:69px;white-space:nowrap" class="ft02">20.2.8.3 &#160;&#160;Special&#160;I/O Buffers</p>
+<p style="position:absolute;top:589px;left:69px;white-space:nowrap" class="ft09">Buffers of&#160;intelligent controllers&#160;(for&#160;example, a&#160;bit-mapped&#160;frame buffer)&#160;also can be emulated using&#160;page&#160;<br/>mapping.&#160;The&#160;linear&#160;space&#160;for the&#160;buffer&#160;can be&#160;mapped&#160;to a&#160;different physical space&#160;for&#160;each virtual-8086-mode&#160;<br/>task.&#160;The virtual-8086&#160;monitor then&#160;can control which virtual buffer to&#160;copy onto the&#160;real buffer&#160;in the&#160;physical&#160;<br/>address space.</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft06">20.3&#160;</p>
+<p style="position:absolute;top:694px;left:148px;white-space:nowrap" class="ft06">INTERRUPT AND EXCEPTION&#160;HANDLING IN VIRTUAL-8086 MODE</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft011">When&#160;the processor receives an interrupt&#160;or detects&#160;an&#160;exception condition&#160;while&#160;in&#160;virtual-8086 mode,&#160;it invokes&#160;<br/>an interrupt&#160;or exception&#160;handler,&#160;just as&#160;it does in&#160;protected or&#160;real-address mode.&#160;The&#160;interrupt&#160;or exception&#160;<br/>handler that is invoked and the mechanism&#160;used&#160;to&#160;invoke&#160;it&#160;depends&#160;on&#160;the&#160;class of interrupt&#160;or exception that has&#160;<br/>been&#160;detected or generated and the&#160;state of&#160;various&#160;system&#160;flags and fields.<br/>In virtual-8086 mode,&#160;the&#160;interrupts&#160;and exceptions&#160;are&#160;divided into three&#160;classes for the&#160;purposes&#160;of handling:</p>
+<p style="position:absolute;top:826px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:826px;left:95px;white-space:nowrap" class="ft09"><b>Class 1&#160;</b>— All processor-generated exceptions and&#160;all hardware interrupts, including the NMI interrupt and the&#160;<br/>hardware&#160;interrupts&#160;sent to&#160;the processor’s&#160;external interrupt delivery&#160;pins.&#160;All&#160;class 1&#160;exceptions&#160;and&#160;<br/>interrupts are handled by the&#160;protected-mode&#160;exception and&#160;interrupt&#160;handlers.</p>
+<p style="position:absolute;top:881px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:882px;left:95px;white-space:nowrap" class="ft09"><b>Class 2</b>&#160;—&#160;Special&#160;case for maskable hardware interrupts&#160;<a href="o_fe12b1e2a880e0ce-189.html">(Section 6.3.2,&#160;“Maskable Hardware&#160;Interrupts”)&#160;<br/></a>when&#160;the virtual mode&#160;extensions are enabled.</p>
+<p style="position:absolute;top:920px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:921px;left:95px;white-space:nowrap" class="ft07"><b>Class 3&#160;</b>— All software-generated interrupts, that&#160;is interrupts generated with&#160;the&#160;INT&#160;<i>n</i>&#160;instruction</p>
+<p style="position:absolute;top:918px;left:764px;white-space:nowrap" class="ft08">1</p>
+<p style="position:absolute;top:921px;left:771px;white-space:nowrap" class="ft03">.</p>
+<p style="position:absolute;top:945px;left:69px;white-space:nowrap" class="ft09">The method&#160;the&#160;processor&#160;uses&#160;to handle class 2 and&#160;3 interrupts depends on the setting&#160;of the following&#160;flags and&#160;<br/>fields:</p>
+<p style="position:absolute;top:983px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:984px;left:95px;white-space:nowrap" class="ft09"><b>IOPL&#160;field (bits 12&#160;and 13&#160;in&#160;the EFLAGS&#160;register)&#160;</b>— Controls&#160;how class 3&#160;software&#160;interrupts&#160;are handled&#160;<br/>when&#160;the&#160;processor&#160;is in virtual-8086&#160;mode&#160;(see<a href="o_fe12b1e2a880e0ce-71.html">&#160;Section 2.3,&#160;“System&#160;Flags&#160;and Fields&#160;in the&#160;EFLAGS&#160;</a></p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">1.&#160;The INT 3 instruction is&#160;a special case&#160;(see&#160;the&#160;description&#160;of&#160;the&#160;INT&#160;<i>n</i>&#160;instru<a href="��">ction in Chapter&#160;3,&#160;“Instruction Set Reference, A-L”,</a>&#160;of&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03"><a href="��">the&#160;<i>Intel® 64&#160;and&#160;IA-32 Architectures Software&#160;Developer’s Manual, Volume&#160;2A</i>).</a></p>
+</div>
+</body>
+</html>

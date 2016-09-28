@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1767</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1767-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1767.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;37-3</p>
+<p style="position:absolute;top:47px;left:499px;white-space:nowrap" class="ft01">INTRODUCTION&#160;TO&#160;INTEL® SOFTWARE&#160;GUARD EXTENSIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">is accessible&#160;to the&#160;program currently executing.&#160;Generally an EPC page&#160;is only accessed by the&#160;owner of the&#160;<br/>executing enclave or&#160;an&#160;instruction which&#160;is setting up&#160;an EPC&#160;page<br/>The EPC is&#160;divided into EPC pages. An EPC page&#160;is&#160;4KB in&#160;size and&#160;always aligned on&#160;a 4KB boundary.&#160;<br/>Pages in&#160;the EPC can either be valid&#160;or invalid.&#160;Every valid&#160;page in&#160;the&#160;EPC&#160;belongs to&#160;one enclave instance. Each&#160;<br/>enclave&#160;instance has&#160;an EPC page&#160;that holds its SECS.&#160;The&#160;security&#160;metadata&#160;for&#160;each EPC page&#160;is held in an&#160;<br/>internal&#160;micro-architectural&#160;structure called&#160;Enclave Page&#160;Cache Map (EPCM,&#160;se<a href="o_fe12b1e2a880e0ce-1767.html">e Section 37.5.1).<br/></a>The&#160;EPC&#160;is managed by privileged software. Intel&#160;SGX provides&#160;a set of instructions for&#160;adding&#160;and removing&#160;<br/>content to and from the EPC.&#160;The EPC may be&#160;configured&#160;by&#160;BIOS&#160;at boot time.&#160;On&#160;implementations in which EPC&#160;<br/>memory&#160;is part&#160;of system DRAM,&#160;the&#160;contents&#160;of&#160;the EPC are&#160;protected&#160;by&#160;an encryption&#160;engine.&#160;</p>
+<p style="position:absolute;top:301px;left:69px;white-space:nowrap" class="ft03">37.5.1&#160;</p>
+<p style="position:absolute;top:301px;left:149px;white-space:nowrap" class="ft03">Enclave Page Cache Map (EPCM)</p>
+<p style="position:absolute;top:330px;left:69px;white-space:nowrap" class="ft07">The EPCM&#160;is a secure structure used&#160;by the&#160;processor&#160;to&#160;track the contents&#160;of&#160;the EPC.&#160;The EPCM holds&#160;one entry&#160;<br/>for&#160;each page&#160;in the&#160;EPC.&#160;The&#160;format of the&#160;EPCM&#160;is&#160;micro-architectural, and consequently&#160;is implementation&#160;<br/>dependent. However, the&#160;EPCM contains the&#160;following&#160;architectural information:</p>
+<p style="position:absolute;top:385px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:385px;left:95px;white-space:nowrap" class="ft02">The&#160;status of&#160;EPC&#160;page with&#160;respect to&#160;validity and&#160;accessibility.</p>
+<p style="position:absolute;top:407px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:408px;left:95px;white-space:nowrap" class="ft02">An&#160;SECS&#160;identifier (see&#160;<a href="o_fe12b1e2a880e0ce-1786.html">Section 38.19) of the&#160;</a>enclave&#160;to which the&#160;page&#160;belongs.&#160;</p>
+<p style="position:absolute;top:430px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:430px;left:95px;white-space:nowrap" class="ft02">The&#160;type&#160;of page:&#160;regular,&#160;SECS,&#160;TCS&#160;or VA.</p>
+<p style="position:absolute;top:452px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:453px;left:95px;white-space:nowrap" class="ft02">The&#160;linear&#160;address through which&#160;the enclave&#160;is allowed&#160;to access the&#160;page.</p>
+<p style="position:absolute;top:475px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:475px;left:95px;white-space:nowrap" class="ft02">The&#160;specified&#160;read/write/execute&#160;permissions&#160;on that page.&#160;</p>
+<p style="position:absolute;top:498px;left:69px;white-space:nowrap" class="ft08">The&#160;EPCM&#160;structure&#160;is used&#160;by&#160;the&#160;CPU in&#160;the address-translation&#160;flow to&#160;enforce access-control on the&#160;EPC pages.&#160;<br/>The EPCM structure&#160;is described&#160;in&#160;<a href="o_fe12b1e2a880e0ce-1787.html">Table 38-27</a>, and&#160;the&#160;conceptual access-control&#160;flow&#160;is described in&#160;<a href="o_fe12b1e2a880e0ce-1772.html">Section&#160;<br/>38.5.<br/></a>The EPCM entries are managed by&#160;the processor as&#160;part of&#160;various instruction&#160;flows.&#160;</p>
+<p style="position:absolute;top:609px;left:69px;white-space:nowrap" class="ft05">37.6&#160;</p>
+<p style="position:absolute;top:609px;left:148px;white-space:nowrap" class="ft05">ENCLAVE INSTRUCTIONS AND INTEL® SGX</p>
+<p style="position:absolute;top:643px;left:69px;white-space:nowrap" class="ft07">The enclave instructions&#160;available&#160;with&#160;Intel SGX are organized as&#160;leaf&#160;functions under two instruction&#160;mnemonics:&#160;<br/>ENCLS&#160;(ring 0) and ENCLU (ring 3).&#160;Each&#160;leaf function&#160;uses&#160;EAX to specify the&#160;leaf&#160;function index, and&#160;may require&#160;<br/>additional implicit input&#160;registers as&#160;parameters.&#160;The use&#160;of EAX is&#160;implied implicitly by the&#160;ENCLS and ENCLU&#160;<br/>instructions, ModR/M&#160;byte&#160;encoding is&#160;not used&#160;with&#160;ENCLS and&#160;ENCLU.&#160;The&#160;use of additional&#160;registers&#160;does&#160;not&#160;<br/>use ModR/M&#160;encoding&#160;and is&#160;implied implicitly by the respective leaf&#160;function&#160;index.<br/>Each&#160;leaf&#160;function&#160;index is&#160;also associated with a&#160;unique, leaf-specific&#160;mnemonic. A long-form expression of Intel&#160;<br/>SGX instruction takes the form of&#160;ENCLx[LEAF_MNEMONIC],&#160;where&#160;‘x’ is&#160;either ‘S’&#160;or&#160;‘U’.&#160;The long-form&#160;expression&#160;<br/>provides clear association&#160;of&#160;the privilege-level&#160;requirement&#160;of&#160;a given “leaf&#160;mnemonic”.&#160;For simplicity,&#160;the unique&#160;<br/>“Leaf_Mnemonic” name&#160;is used (omitting&#160;the ENCLx for convenience)&#160;throughout&#160;in this document.&#160;<br/>Details of Individual SGX leaf&#160;functions are described&#160;in&#160;<a href="��">Chapter 41</a><a href="o_fe12b1e2a880e0ce-1767.html">. Table 37-1 provides&#160;</a>a summary of the instruc-<br/>tion leaves that&#160;are available&#160;in the&#160;initial&#160;implementation&#160;of Intel&#160;SGX, which&#160;is introduced&#160;in&#160;the 6th&#160;generation&#160;<br/>Intel Core&#160;<a href="o_fe12b1e2a880e0ce-1767.html">processors. Table&#160;37-1 summariz</a>es enhancement&#160;of&#160;Intel SGX for future Intel&#160;processors.</p>
+<p style="position:absolute;top:878px;left:131px;white-space:nowrap" class="ft06">Table 37-1. &#160;Supervisor and&#160;User&#160;Mode Enclave&#160;Instruction Leaf&#160;Functions in Long-Form&#160;of&#160;SGX1</p>
+<p style="position:absolute;top:900px;left:80px;white-space:nowrap" class="ft02">Supervisor&#160;Instruction</p>
+<p style="position:absolute;top:900px;left:314px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:900px;left:495px;white-space:nowrap" class="ft02">User&#160;Instruction</p>
+<p style="position:absolute;top:900px;left:689px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:922px;left:76px;white-space:nowrap" class="ft02">ENCLS[EADD]</p>
+<p style="position:absolute;top:922px;left:227px;white-space:nowrap" class="ft02">Add&#160;an&#160;EPC page&#160;to an&#160;enclave.</p>
+<p style="position:absolute;top:922px;left:479px;white-space:nowrap" class="ft02">ENCLU[EENTER]</p>
+<p style="position:absolute;top:922px;left:618px;white-space:nowrap" class="ft02">Enter an&#160;enclave.</p>
+<p style="position:absolute;top:945px;left:76px;white-space:nowrap" class="ft02">ENCLS[EBLOCK]</p>
+<p style="position:absolute;top:945px;left:226px;white-space:nowrap" class="ft02">Block an&#160;EPC&#160;page.</p>
+<p style="position:absolute;top:945px;left:479px;white-space:nowrap" class="ft02">ENCLU[EEXIT]</p>
+<p style="position:absolute;top:945px;left:618px;white-space:nowrap" class="ft02">Exit an&#160;enclave.</p>
+<p style="position:absolute;top:967px;left:76px;white-space:nowrap" class="ft02">ENCLS[ECREATE]</p>
+<p style="position:absolute;top:967px;left:227px;white-space:nowrap" class="ft02">Create&#160;an&#160;enclave.</p>
+<p style="position:absolute;top:967px;left:478px;white-space:nowrap" class="ft02">ENCLU[EGETKEY]</p>
+<p style="position:absolute;top:967px;left:618px;white-space:nowrap" class="ft02">Create&#160;a cryptographic key.</p>
+<p style="position:absolute;top:990px;left:76px;white-space:nowrap" class="ft02">ENCLS[EDBGRD]</p>
+<p style="position:absolute;top:990px;left:227px;white-space:nowrap" class="ft02">Read data&#160;from a&#160;debug enclave&#160;by debug-</p>
+<p style="position:absolute;top:1006px;left:227px;white-space:nowrap" class="ft02">ger.</p>
+<p style="position:absolute;top:990px;left:479px;white-space:nowrap" class="ft02">ENCLU[EREPORT]</p>
+<p style="position:absolute;top:990px;left:618px;white-space:nowrap" class="ft02">Create&#160;a cryptographic report.</p>
+<p style="position:absolute;top:1029px;left:76px;white-space:nowrap" class="ft02">ENCLS[EDBGWR]</p>
+<p style="position:absolute;top:1029px;left:227px;white-space:nowrap" class="ft02">Write data&#160;into&#160;a&#160;debug&#160;enclave by&#160;debug-</p>
+<p style="position:absolute;top:1045px;left:227px;white-space:nowrap" class="ft02">ger.</p>
+<p style="position:absolute;top:1029px;left:479px;white-space:nowrap" class="ft02">ENCLU[ERESUME]</p>
+<p style="position:absolute;top:1029px;left:618px;white-space:nowrap" class="ft02">Re-enter&#160;an&#160;enclave.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 347</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page347-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce347.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;9-35</p>
+<p style="position:absolute;top:47px;left:560px;white-space:nowrap" class="ft01">PROCESSOR&#160;MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft05">In&#160;64-bit mode, EAX contains&#160;the&#160;lower&#160;32-bits of the&#160;microcode&#160;update&#160;linear address.&#160;In&#160;protected&#160;mode,&#160;EAX&#160;<br/>contains the&#160;full&#160;32-bit linear address of&#160;the&#160;microcode&#160;update.</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft05">In 64-bit&#160;mode,&#160;EDX&#160;contains&#160;the upper&#160;32-bits&#160;of the&#160;microcode update&#160;linear address.&#160;In&#160;protected&#160;mode,&#160;<br/>EDX&#160;equals zero.</p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:178px;left:95px;white-space:nowrap" class="ft03">ECX&#160;contains 79H&#160;(address of IA32_BIOS_UPDT_TRIG).</p>
+<p style="position:absolute;top:202px;left:69px;white-space:nowrap" class="ft03">Other requirements are:</p>
+<p style="position:absolute;top:224px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:225px;left:95px;white-space:nowrap" class="ft05">If the&#160;update&#160;is&#160;loaded&#160;while the&#160;processor&#160;is in&#160;real&#160;mode, then&#160;the update&#160;data may not cross&#160;a segment&#160;<br/>boundary.</p>
+<p style="position:absolute;top:263px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:264px;left:95px;white-space:nowrap" class="ft05">If the&#160;update&#160;is&#160;loaded&#160;while the&#160;processor&#160;is in&#160;real&#160;mode, then&#160;the update&#160;data may not exceed a&#160;segment&#160;<br/>limit.</p>
+<p style="position:absolute;top:302px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:303px;left:95px;white-space:nowrap" class="ft03">If paging&#160;is enabled,&#160;pages&#160;that are&#160;currently&#160;present must map&#160;the update&#160;data.</p>
+<p style="position:absolute;top:325px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:325px;left:95px;white-space:nowrap" class="ft03">The&#160;microcode&#160;update&#160;data&#160;requires&#160;a 16-byte boundary&#160;alignment.</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft04">9.11.6.1 &#160;&#160;Hard&#160;Resets in Update&#160;Loading</p>
+<p style="position:absolute;top:398px;left:69px;white-space:nowrap" class="ft05">The effects of&#160;a&#160;loaded update&#160;are&#160;cleared from the processor upon&#160;a hard reset.&#160;Therefore, each time a&#160;hard reset&#160;<br/>is asserted&#160;during&#160;the&#160;BIOS&#160;POST,&#160;the&#160;update&#160;must be&#160;reloaded&#160;on all&#160;processors&#160;that observed&#160;the&#160;reset.&#160;The&#160;<br/>effects&#160;of&#160;a loaded&#160;update are, however,&#160;maintained&#160;across&#160;a processor INIT. There are&#160;no side&#160;effects caused by&#160;<br/>loading&#160;an update into&#160;a processor multiple&#160;times.</p>
+<p style="position:absolute;top:492px;left:69px;white-space:nowrap" class="ft04">9.11.6.2 &#160;&#160;Update in&#160;a Multiprocessor System</p>
+<p style="position:absolute;top:520px;left:69px;white-space:nowrap" class="ft05">A&#160;multiprocessor (MP) system requires&#160;loading&#160;each processor with&#160;update&#160;data appropriate&#160;for&#160;its CPUID and&#160;plat-<br/>form ID bits.&#160;The BIOS&#160;is&#160;responsible for ensuring&#160;that this&#160;requirement&#160;is met and&#160;that&#160;the&#160;loader&#160;is located in&#160;a&#160;<br/>module&#160;executed&#160;by&#160;all processors in&#160;the&#160;system. If a&#160;system design permits multiple&#160;steppings of Pentium&#160;4,&#160;Intel&#160;<br/>Xeon, and P6&#160;family processors to exist&#160;concurrently; then&#160;the&#160;BIOS must verify individual&#160;processors against the&#160;<br/>update header information&#160;to ensure&#160;appropriate loading.&#160;Given these&#160;considerations, it&#160;is&#160;most&#160;practical to load&#160;<br/>the update&#160;during MP initialization.</p>
+<p style="position:absolute;top:647px;left:69px;white-space:nowrap" class="ft04">9.11.6.3 &#160;&#160;Update in&#160;a System Supporting Intel Hyper-Threading Technology&#160;</p>
+<p style="position:absolute;top:676px;left:69px;white-space:nowrap" class="ft05">Intel Hyper-Threading Technology&#160;has implications&#160;on&#160;the loading of the&#160;microcode&#160;update.&#160;The update&#160;must&#160;be&#160;<br/>loaded for each&#160;core&#160;in&#160;a physical processor.&#160;Thus, for&#160;a processor supporting&#160;Intel&#160;Hyper-Threading Technology,&#160;<br/>only one logical processor per core is required&#160;to load&#160;the microcode&#160;update. Each&#160;individual logical processor can&#160;<br/>independently load the&#160;update. However,&#160;MP initialization must provide&#160;some&#160;mechanism&#160;(e.g.&#160;a software&#160;sema-<br/>phore) to&#160;force&#160;serialization of microcode update loads&#160;and to&#160;prevent simultaneous load attempts&#160;to the same&#160;<br/>core.</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft04">9.11.6.4 &#160;&#160;Update&#160;in&#160;a&#160;System&#160;Supporting Dual-Core Technology&#160;</p>
+<p style="position:absolute;top:831px;left:69px;white-space:nowrap" class="ft05">Dual-core technology has implications on&#160;the&#160;loading of&#160;the microcode&#160;update. The microcode update facility is not&#160;<br/>shared between&#160;processor cores in&#160;the same physical package.&#160;The&#160;update&#160;must&#160;be&#160;loaded&#160;for&#160;each&#160;core&#160;in&#160;a&#160;phys-<br/>ical processor.&#160;<br/>If processor core&#160;supports&#160;Intel Hyper-Threading&#160;Technology,&#160;the guideline&#160;described&#160;<a href="o_fe12b1e2a880e0ce-347.html">in Section 9.11.6.3 also&#160;<br/></a>applies.</p>
+<p style="position:absolute;top:949px;left:69px;white-space:nowrap" class="ft04">9.11.6.5 &#160;&#160;Update Loader Enhancements</p>
+<p style="position:absolute;top:977px;left:69px;white-space:nowrap" class="ft05">The update loader presen<a href="o_fe12b1e2a880e0ce-346.html">ted in&#160;Section&#160;9.11.6,&#160;“Microcode&#160;Update Loader,”&#160;is&#160;</a>a minimal implementation&#160;that can&#160;<br/>be&#160;enhanced&#160;to provide additional functionality.&#160;Potential&#160;enhancements are&#160;described below:</p>
+<p style="position:absolute;top:1015px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:1016px;left:95px;white-space:nowrap" class="ft05">BIOS&#160;can incorporate&#160;multiple&#160;updates to&#160;support&#160;multiple&#160;steppings&#160;of&#160;the Pentium 4, Intel Xeon, and&#160;P6&#160;<br/>family processors.&#160;This&#160;feature provides for operating&#160;in a&#160;mixed&#160;stepping environment&#160;on&#160;an MP system&#160;and&#160;<br/>enables a&#160;user to&#160;upgrade&#160;to&#160;a later version of the&#160;processor.&#160;In this case,&#160;modify the&#160;loader to&#160;check the&#160;CPUID&#160;</p>
+</div>
+</body>
+</html>

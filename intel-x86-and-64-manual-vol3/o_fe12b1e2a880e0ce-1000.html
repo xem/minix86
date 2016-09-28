@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1000</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1000-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1000.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">21-4&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MIXING&#160;16-BIT&#160;AND 32-BIT&#160;CODE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft03">The&#160;size of the&#160;stack pointer&#160;(SP or&#160;ESP) changes when switching between 16-bit&#160;and 32-bit&#160;code&#160;segments.</p>
+<p style="position:absolute;top:124px;left:68px;white-space:nowrap" class="ft03">These&#160;limitations are&#160;discussed in&#160;greater detail in&#160;the&#160;following&#160;sections.</p>
+<p style="position:absolute;top:175px;left:68px;white-space:nowrap" class="ft04">21.4.1&#160;</p>
+<p style="position:absolute;top:175px;left:148px;white-space:nowrap" class="ft04">Code-Segment Pointer Size</p>
+<p style="position:absolute;top:205px;left:68px;white-space:nowrap" class="ft05">For&#160;control-transfer instructions that use a&#160;pointer to&#160;identify the next instruction (that&#160;is,&#160;those that&#160;do not&#160;use&#160;<br/>gates), the&#160;operand-size attribute determines the&#160;size&#160;of&#160;the&#160;offset&#160;portion of the&#160;pointer.&#160;The&#160;implications&#160;of&#160;this&#160;<br/>rule are&#160;as&#160;follows:</p>
+<p style="position:absolute;top:260px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:261px;left:93px;white-space:nowrap" class="ft05">A JMP,&#160;CALL,&#160;or RET&#160;instruction&#160;from&#160;a 32-bit segment&#160;to a&#160;16-bit segment is&#160;always&#160;possible using&#160;a 32-bit&#160;<br/>operand size, providing the&#160;32-bit pointer&#160;does&#160;not exceed&#160;FFFFH.</p>
+<p style="position:absolute;top:299px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:300px;left:93px;white-space:nowrap" class="ft05">A JMP,&#160;CALL, or RET instruction from&#160;a 16-bit segment&#160;to a 32-bit&#160;segment cannot address a destination greater&#160;<br/>than FFFFH, unless&#160;the instruction is&#160;given an&#160;operand-size&#160;prefix.</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft05">Se<a href="o_fe12b1e2a880e0ce-1002.html">e Section 21.4.5, “Writing&#160;Interface Procedures,”&#160;</a>for&#160;an&#160;interface&#160;procedure that can&#160;transfer program control&#160;<br/>from&#160;16-bit segments to destinations in&#160;32-bit segments beyond&#160;FFFFH.</p>
+<p style="position:absolute;top:407px;left:68px;white-space:nowrap" class="ft04">21.4.2&#160;</p>
+<p style="position:absolute;top:407px;left:148px;white-space:nowrap" class="ft04">Stack Management&#160;for Control Transfer</p>
+<p style="position:absolute;top:438px;left:68px;white-space:nowrap" class="ft05">Because the stack is managed differently&#160;for 16-bit procedure&#160;calls than for 32-bit calls,&#160;the&#160;operand-size&#160;attribute&#160;<br/>of&#160;the&#160;RET instruction must match that&#160;of the&#160;CALL<a href="o_fe12b1e2a880e0ce-1001.html">&#160;instruction (see Figure&#160;21-1). On&#160;</a>a&#160;16-bit call,&#160;the processor&#160;<br/>pushes&#160;the&#160;contents&#160;of&#160;the&#160;16-bit&#160;IP&#160;register&#160;and&#160;(for&#160;calls between privilege&#160;levels) the&#160;16-bit SP register. The&#160;<br/>matching&#160;RET&#160;instruction&#160;must&#160;also&#160;use&#160;a 16-bit&#160;operand&#160;size&#160;to pop&#160;these&#160;16-bit&#160;values&#160;from the&#160;stack&#160;into&#160;the&#160;16-<br/>bit registers.&#160;<br/>A&#160;32-bit CALL&#160;instruction&#160;pushes the&#160;contents of the&#160;32-bit&#160;EIP&#160;register and&#160;(for inter-privilege-level&#160;calls)&#160;the 32-<br/>bit ESP register. Here, the matching RET&#160;instruction must use a&#160;32-bit operand size&#160;to&#160;pop&#160;these 32-bit values from&#160;<br/>the&#160;stack into&#160;the 32-bit registers. If&#160;the two parts&#160;of a&#160;CALL/RET instruction pair do not have&#160;matching&#160;operand&#160;<br/>sizes,&#160;the stack&#160;will not be&#160;managed correctly&#160;and the values&#160;of&#160;the&#160;instruction&#160;pointer&#160;and&#160;stack pointer will not be&#160;<br/>restored to correct values.&#160;</p>
+</div>
+</body>
+</html>

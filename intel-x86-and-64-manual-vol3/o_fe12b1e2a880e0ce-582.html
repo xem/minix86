@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 582</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page582-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce582.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-8&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:331px;left:68px;white-space:nowrap" class="ft02">17.3.1.1 &#160;&#160;Instruction-Breakpoint&#160;Exception Condition</p>
+<p style="position:absolute;top:359px;left:68px;white-space:nowrap" class="ft07">The processor reports an instruction breakpoint when&#160;it attempts&#160;to&#160;execute an instruction at an address&#160;specified&#160;<br/>in a breakpoint-address&#160;register (DR0 through DR3) that has&#160;been&#160;set up to detect instruction execution&#160;(R/W flag&#160;<br/>is&#160;set&#160;to 0). Upon&#160;reporting&#160;the instruction breakpoint,&#160;the processor generates&#160;a fault-class, debug&#160;exception&#160;<br/>(#DB) before&#160;it&#160;executes&#160;the target instruction for the&#160;breakpoint.&#160;<br/>Instruction&#160;breakpoints are the&#160;highest&#160;priority&#160;debug&#160;exceptions.&#160;They&#160;are serviced before any&#160;other exceptions&#160;<br/>detected during&#160;the decoding or execution of an&#160;instruction. However,&#160;if&#160;a&#160;code&#160;instruction&#160;breakpoint&#160;is&#160;placed&#160;on&#160;<br/>an instruction&#160;located&#160;immediately&#160;after&#160;a&#160;POP SS/MOV SS&#160;instruction, the&#160;breakpoint may not&#160;be&#160;triggered. In&#160;<br/>most&#160;situations,&#160;POP SS/MOV SS&#160;will&#160;inhibit such&#160;interrupts&#160;(see&#160;“MOV—Move”&#160;and&#160;“POP—Pop a Value from&#160;the&#160;<br/>Stack”&#160;in Chapter&#160;4&#160;of&#160;<a href="��">the&#160;<i>Intel®&#160;64&#160;and IA-32 Architectures&#160;Software Developer’s&#160;Manual,&#160;Volume 2B</i></a>).</p>
+<p style="position:absolute;top:532px;left:68px;white-space:nowrap" class="ft07">Because&#160;the&#160;debug&#160;exception for an instruction breakpoint&#160;is generated before the&#160;instruction&#160;is&#160;executed, if&#160;the&#160;<br/>instruction&#160;breakpoint is&#160;not removed by the exception&#160;handler;&#160;the processor will detect the&#160;instruction&#160;breakpoint&#160;<br/>again when the instruction is restarted and&#160;generate another debug exception.&#160;To&#160;prevent&#160;looping on an instruction&#160;<br/>breakpoint,&#160;the&#160;Intel 64&#160;and&#160;IA-32&#160;architectures&#160;provide&#160;the RF&#160;flag&#160;(resume flag)&#160;in the&#160;EFLAGS&#160;register&#160;(see&#160;<br/><a href="o_fe12b1e2a880e0ce-71.html">Section&#160;2.3,&#160;“System Flags and&#160;Fields&#160;in the&#160;EFLAGS&#160;Register,”</a>&#160;in&#160;the<a href="��">&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;<br/>Developer’s Manual, Volume&#160;3A</i></a>). When&#160;the RF&#160;flag&#160;is set, the&#160;processor&#160;ignores&#160;instruction&#160;breakpoints.<br/>All&#160;Intel 64&#160;and&#160;IA-32 processors manage&#160;the RF flag as&#160;follows.&#160;The RF Flag is cleared at&#160;the start of the instruction&#160;<br/>after the&#160;check for code&#160;breakpoint, CS&#160;limit&#160;violation&#160;and FP exceptions. Task&#160;Switches&#160;and&#160;IRETD/IRETQ&#160;instruc-<br/>tions transfer&#160;the RF&#160;image&#160;from&#160;the TSS/stack to&#160;the EFLAGS&#160;register.<br/>When calling&#160;an event handler,&#160;Intel&#160;64&#160;and IA-32 processors&#160;establish the&#160;value&#160;of the RF&#160;flag&#160;in&#160;the EFLAGS&#160;image&#160;<br/>pushed on&#160;the stack:</p>
+<p style="position:absolute;top:733px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:734px;left:93px;white-space:nowrap" class="ft07">For&#160;any fault-class exception&#160;except a debug&#160;exception generated&#160;in response to an&#160;instruction&#160;breakpoint, the&#160;<br/>value&#160;pushed for RF&#160;is 1.</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:773px;left:93px;white-space:nowrap" class="ft07">For any&#160;interrupt arriving&#160;after any&#160;iteration of&#160;a repeated&#160;string instruction but&#160;the last&#160;iteration, the&#160;value&#160;<br/>pushed&#160;for RF&#160;is&#160;1.</p>
+<p style="position:absolute;top:811px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:812px;left:93px;white-space:nowrap" class="ft07">For any&#160;trap-class&#160;exception generated by any&#160;iteration&#160;of&#160;a repeated&#160;string instruction but&#160;the last&#160;iteration,&#160;<br/>the&#160;value&#160;pushed&#160;for RF&#160;is 1.</p>
+<p style="position:absolute;top:850px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:851px;left:93px;white-space:nowrap" class="ft010">For&#160;other cases, the value pushed for&#160;RF is&#160;the value&#160;that was in EFLAG.RF at&#160;the time&#160;the&#160;event&#160;handler was&#160;<br/>called. This includes:<br/>—&#160;Debug&#160;exceptions generated in&#160;response&#160;to instruction breakpoints<br/>—&#160;Hardware-generated interrupts&#160;arriving between instructions&#160;(including those&#160;arriving&#160;after&#160;the last&#160;</p>
+<p style="position:absolute;top:932px;left:119px;white-space:nowrap" class="ft03">iteration of&#160;a repeated string&#160;instruction)</p>
+<p style="position:absolute;top:956px;left:93px;white-space:nowrap" class="ft03">—&#160;Trap-class&#160;exceptions&#160;generated after&#160;an instruction completes (including those&#160;generated&#160;after the&#160;last&#160;</p>
+<p style="position:absolute;top:973px;left:119px;white-space:nowrap" class="ft03">iteration of&#160;a repeated string&#160;instruction)</p>
+<p style="position:absolute;top:997px;left:93px;white-space:nowrap" class="ft03">—&#160;Software-generated interrupts&#160;(RF&#160;is pushed&#160;as&#160;0, since&#160;it was cleared&#160;at the&#160;start of the&#160;software&#160;interrupt)</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft07">As&#160;noted&#160;above, the&#160;processor does&#160;not set the&#160;RF flag&#160;prior&#160;to calling&#160;the debug&#160;exception handler for debug&#160;<br/>exceptions&#160;resulting&#160;from instruction&#160;breakpoints.&#160;The&#160;debug exception&#160;handler can&#160;prevent recurrence of&#160;the&#160;<br/>instruction&#160;breakpoint by setting the&#160;RF&#160;flag in&#160;the&#160;EFLAGS image on the stack.&#160;If&#160;the&#160;RF&#160;flag&#160;in&#160;the&#160;EFLAGS&#160;image&#160;</p>
+<p style="position:absolute;top:148px;left:76px;white-space:nowrap" class="ft03">I/O&#160;read&#160;or&#160;write&#160;breakpoint,&#160;at&#160;addresses&#160;defined&#160;by DR<i>n</i>&#160;</p>
+<p style="position:absolute;top:164px;left:76px;white-space:nowrap" class="ft03">and LEN<i>n</i></p>
+<p style="position:absolute;top:148px;left:418px;white-space:nowrap" class="ft03">B<i>n</i>&#160;= 1 and&#160;</p>
+<p style="position:absolute;top:164px;left:418px;white-space:nowrap" class="ft03">(G<i>n&#160;</i>or&#160;L<i>n</i>&#160;= 1)</p>
+<p style="position:absolute;top:148px;left:560px;white-space:nowrap" class="ft03">R/Wn = 2</p>
+<p style="position:absolute;top:148px;left:700px;white-space:nowrap" class="ft03">Trap</p>
+<p style="position:absolute;top:189px;left:76px;white-space:nowrap" class="ft03">Data&#160;read or write (but&#160;not instruction fetches), at&#160;</p>
+<p style="position:absolute;top:205px;left:76px;white-space:nowrap" class="ft03">addresses defined by&#160;DR<i>n</i>&#160;and LEN<i>n</i></p>
+<p style="position:absolute;top:189px;left:418px;white-space:nowrap" class="ft03">B<i>n</i>&#160;= 1 and&#160;</p>
+<p style="position:absolute;top:205px;left:418px;white-space:nowrap" class="ft03">(G<i>n&#160;</i>or&#160;L<i>n</i>&#160;= 1)</p>
+<p style="position:absolute;top:189px;left:560px;white-space:nowrap" class="ft03">R/Wn = 3</p>
+<p style="position:absolute;top:189px;left:700px;white-space:nowrap" class="ft03">Trap</p>
+<p style="position:absolute;top:229px;left:76px;white-space:nowrap" class="ft03">General detect fault, resulting from an attempt to&#160;modify&#160;</p>
+<p style="position:absolute;top:245px;left:76px;white-space:nowrap" class="ft03">debug registers (usually in&#160;conjunction&#160;with&#160;in-circuit&#160;</p>
+<p style="position:absolute;top:262px;left:76px;white-space:nowrap" class="ft03">emulation)</p>
+<p style="position:absolute;top:229px;left:418px;white-space:nowrap" class="ft03">BD =&#160;1</p>
+<p style="position:absolute;top:229px;left:700px;white-space:nowrap" class="ft03">Fault</p>
+<p style="position:absolute;top:286px;left:76px;white-space:nowrap" class="ft03">Task switch</p>
+<p style="position:absolute;top:286px;left:418px;white-space:nowrap" class="ft03">BT&#160;= 1</p>
+<p style="position:absolute;top:286px;left:700px;white-space:nowrap" class="ft03">Trap</p>
+<p style="position:absolute;top:100px;left:316px;white-space:nowrap" class="ft06">Table 17-2. &#160;Debug Exception Conditions</p>
+<p style="position:absolute;top:124px;left:77px;white-space:nowrap" class="ft03">Debug or&#160;Breakpoint&#160;Condition</p>
+<p style="position:absolute;top:124px;left:418px;white-space:nowrap" class="ft03">DR6 Flags Tested</p>
+<p style="position:absolute;top:124px;left:560px;white-space:nowrap" class="ft03">DR7 Flags Tested</p>
+<p style="position:absolute;top:124px;left:700px;white-space:nowrap" class="ft03">Exception Class</p>
+</div>
+</body>
+</html>

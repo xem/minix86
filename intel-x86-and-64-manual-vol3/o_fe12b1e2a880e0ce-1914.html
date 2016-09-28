@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1914</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1914-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1914.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-104&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:88px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:136px;left:68px;white-space:nowrap" class="ft03">(* SECS.ATTRIBUTES.XFRM&#160;selects the&#160;features&#160;to be&#160;saved.&#160;*)<br/>(* CR_XSAVE_PAGE_n:&#160;A list of&#160;1 or more&#160;physical&#160;address of&#160;pages&#160;that&#160;contain the XSAVE area.&#160;*)<br/>XRSTOR(TMP_MODE64,&#160;SECS.ATTRIBUTES.XFRM,&#160;CR_XSAVE_PAGE_n);</p>
+<p style="position:absolute;top:208px;left:68px;white-space:nowrap" class="ft02">IF (XRSTOR failed with&#160;#GP)&#160;</p>
+<p style="position:absolute;top:226px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:244px;left:115px;white-space:nowrap" class="ft03">DS:RBX.STATE&#160;&#160;INACTIVE;<br/>#GP(0);</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:316px;left:68px;white-space:nowrap" class="ft03">CR_ENCALVE_MODE&#160;&#160;1;<br/>CR_ACTIVE_SECS&#160;&#160;TMP_SECS;<br/>CR_ELRANGE&#160;&#160;(TMP_SECS.BASEADDR, TMP_SECS.SIZE);</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft03">(* Save sate for possible AEXs *)<br/>CR_TCS_PA&#160;&#160;Physical_Address (DS:RBX);<br/>CR_TCS_LA&#160;&#160;RBX;<br/>CR_TCS_LA.AEP&#160;&#160;RCX;</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft03">(* Save&#160;the&#160;hidden&#160;portions&#160;of FS and GS *)<br/>CR_SAVE_FS_selector&#160;&#160;FS.selector;<br/>CR_SAVE_FS_base&#160;&#160;FS.base;<br/>CR_SAVE_FS_limit&#160;&#160;FS.limit;<br/>CR_SAVE_FS_access_rights&#160;&#160;FS.access_rights;<br/>CR_SAVE_GS_selector&#160;&#160;GS.selector;<br/>CR_SAVE_GS_base&#160;&#160;GS.base;<br/>CR_SAVE_GS_limit&#160;&#160;GS.limit;<br/>CR_SAVE_GS_access_rights&#160;&#160;GS.access_rights;</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft03">(* Set CR_ENCLAVE_ENTRY_IP *)<br/>CR_ENCLAVE_ENTRY_IP&#160;&#160;CRIP”<br/>RIP&#160;&#160;TMP_TARGET;</p>
+<p style="position:absolute;top:730px;left:68px;white-space:nowrap" class="ft02">Restore_GPRs from DS:TMP_GPR;</p>
+<p style="position:absolute;top:766px;left:68px;white-space:nowrap" class="ft04">(*Restore the RFLAGS values from&#160;SSA*)<br/>RFLAGS.CF&#160;&#160;DS:TMP_GPR.RFLAGS.CF;<br/>RFLAGS.PF&#160;&#160;DS:TMP_GPR.RFLAGS.PF;<br/>RFLAGS.AF&#160;&#160;DS:TMP_GPR.RFLAGS.AF;<br/>RFLAGS.ZF&#160;&#160;DS:TMP_GPR.RFLAGS.ZF;<br/>RFLAGS.SF&#160;&#160;DS:TMP_GPR.RFLAGS.SF;<br/>RFLAGS.DF&#160;&#160;DS:TMP_GPR.RFLAGS.DF;<br/>RFLAGS.OF&#160;&#160;DS:TMP_GPR.RFLAGS.OF;<br/>RFLAGS.NT&#160;&#160;DS:TMP_GPR.RFLAGS.NT;<br/>RFLAGS.AC&#160;&#160;DS:TMP_GPR.RFLAGS.AC;<br/>RFLAGS.ID&#160;&#160;DS:TMP_GPR.RFLAGS.ID;<br/>RFLAGS.RF&#160;&#160;DS:TMP_GPR.RFLAGS.RF;<br/>RFLAGS.VM&#160;&#160;0;<br/>IF&#160;(RFLAGS.IOPL = 3)&#160;</p>
+<p style="position:absolute;top:1018px;left:88px;white-space:nowrap" class="ft02">THEN RFLAGS.IF = DS:TMP_GPR.IF;&#160;FI;</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft02">IF&#160;(TCS.FLAGS.OPTIN = 0)&#160;</p>
+</div>
+</body>
+</html>

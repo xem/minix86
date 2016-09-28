@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1752</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1752-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811752.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:352px;white-space:nowrap" class="ft00">VPLZCNTD/Q—Count the&#160;Number of Leading Zero&#160;Bits for Packed Dword, Packed Qword Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-366&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:123px;left:68px;white-space:nowrap" class="ft03">VPLZCNTD<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:177px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j*32<br/>IF&#160;MaskBit(j)&#160;OR&#160;*no&#160;writemask*</p>
+<p style="position:absolute;top:213px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:231px;left:68px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:231px;left:142px;white-space:nowrap" class="ft02">temp&#160;&#160;32</p>
+<p style="position:absolute;top:249px;left:68px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:249px;left:142px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:267px;left:68px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:267px;left:142px;white-space:nowrap" class="ft02">WHILE&#160;(temp&#160;&gt; 0) AND (SRC[i+temp-1] = 0)</p>
+<p style="position:absolute;top:285px;left:115px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:285px;left:142px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:303px;left:169px;white-space:nowrap" class="ft03">temp&#160;&#160;temp – 1<br/>DEST[i+31:i]&#160;&#160;DEST[i+31:i]&#160;+ 1</p>
+<p style="position:absolute;top:339px;left:115px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:339px;left:142px;white-space:nowrap" class="ft02">OD</p>
+<p style="position:absolute;top:357px;left:115px;white-space:nowrap" class="ft03">ELSE<br/>&#160; &#160;IF *merging-masking*&#160;</p>
+<p style="position:absolute;top:393px;left:142px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:429px;left:115px;white-space:nowrap" class="ft02">&#160; &#160;FI</p>
+<p style="position:absolute;top:447px;left:88px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:465px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:519px;left:68px;white-space:nowrap" class="ft03">VPLZCNTQ<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:573px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j*64<br/>IF&#160;MaskBit(j)&#160;OR&#160;*no&#160;writemask*</p>
+<p style="position:absolute;top:609px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:627px;left:68px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:627px;left:142px;white-space:nowrap" class="ft02">temp&#160;&#160;64</p>
+<p style="position:absolute;top:645px;left:68px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:645px;left:142px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:663px;left:68px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:663px;left:142px;white-space:nowrap" class="ft02">WHILE&#160;(temp&#160;&gt; 0) AND (SRC[i+temp-1] = 0)</p>
+<p style="position:absolute;top:681px;left:115px;white-space:nowrap" class="ft02">&#160;&#160;</p>
+<p style="position:absolute;top:681px;left:142px;white-space:nowrap" class="ft02">DO</p>
+<p style="position:absolute;top:699px;left:169px;white-space:nowrap" class="ft03">temp&#160;&#160;temp – 1<br/>DEST[i+63:i]&#160;&#160;DEST[i+63:i]&#160;+ 1</p>
+<p style="position:absolute;top:735px;left:115px;white-space:nowrap" class="ft02">&#160; &#160;</p>
+<p style="position:absolute;top:735px;left:142px;white-space:nowrap" class="ft02">OD</p>
+<p style="position:absolute;top:753px;left:115px;white-space:nowrap" class="ft03">ELSE<br/>&#160; &#160;IF *merging-masking*&#160;</p>
+<p style="position:absolute;top:789px;left:142px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:825px;left:115px;white-space:nowrap" class="ft02">&#160; &#160;FI</p>
+<p style="position:absolute;top:843px;left:88px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:861px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:941px;left:68px;white-space:nowrap" class="ft04">VPLZCNTD __m512i&#160;_mm512_lzcnt_epi32(__m512i a);<br/>VPLZCNTD __m512i&#160;_mm512_mask_lzcnt_epi32(__m512i s,&#160;__mmask16&#160;m, __m512i&#160;a);<br/>VPLZCNTD __m512i&#160;_mm512_maskz_lzcnt_epi32( __mmask16&#160;m, __m512i a);<br/>VPLZCNTQ __m512i _mm512_lzcnt_epi64(__m512i&#160;a);<br/>VPLZCNTQ __m512i _mm512_mask_lzcnt_epi64(__m512i&#160;s, __mmask8 m,&#160;__m512i&#160;a);<br/>VPLZCNTQ __m512i _mm512_maskz_lzcnt_epi64(__mmask8 m, __m512i a);<br/>VPLZCNTD __m256i&#160;_mm256_lzcnt_epi32(__m256i a);</p>
+</div>
+</body>
+</html>

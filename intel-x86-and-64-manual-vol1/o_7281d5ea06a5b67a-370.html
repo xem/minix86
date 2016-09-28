@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 370</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page370-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a370.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-6&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® AVX-512</p>
+<p style="position:absolute;top:274px;left:68px;white-space:nowrap" class="ft06">Software must follow&#160;the&#160;detection&#160;procedure for the&#160;512-bit&#160;AVX-512&#160;Foundation instructions as&#160;described in&#160;<br/><a href="o_7281d5ea06a5b67a-367.html">Section 15.2.<br/></a>Detection of other 512-bit sibling instruction groups listed&#160;<a href="o_7281d5ea06a5b67a-370.html">in Table 15-1 (excluding A</a>VX512F) follows&#160;the&#160;procedure&#160;<br/>descri<a href="o_7281d5ea06a5b67a-370.html">bed in&#160;Figure&#160;15-4:</a></p>
+<p style="position:absolute;top:735px;left:68px;white-space:nowrap" class="ft09">To&#160;detect 512-bit instructions enumerated by&#160;AVX512CD,&#160;the&#160;following sequence is&#160;strongly recommended.<br/>1.&#160;Detect&#160;CPUID.1:ECX.OSXSAVE[bit 27] =&#160;1&#160;(XGETBV&#160;enabled for application use).<br/>2.&#160;Execute XGETBV&#160;and verify that XCR0[7:5] = ‘111b’&#160;(OPMASK&#160;state,&#160;upper 256-bit of ZMM0-ZMM15&#160;and&#160;</p>
+<p style="position:absolute;top:799px;left:93px;white-space:nowrap" class="ft06">ZMM16-ZMM31 state are enabled&#160;by OS) and that XCR0[2:1] = ‘11b’ (XMM state&#160;and&#160;YMM state are enabled by&#160;<br/>OS).</p>
+<p style="position:absolute;top:840px;left:68px;white-space:nowrap" class="ft06">3.&#160;Verify both&#160;CPUID.0x7.0:EBX.AVX512F[bit 16]&#160;= 1,&#160;CPUID.0x7.0:EBX.AVX512CD[bit 28]&#160;= 1.<br/>Similarly,&#160;the detection procedure&#160;for&#160;enumerating&#160;512-bit instructions reported&#160;by AVX512DW&#160;follows the&#160;same&#160;<br/>flow.</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft03">15.4&#160;</p>
+<p style="position:absolute;top:934px;left:147px;white-space:nowrap" class="ft03">DETECTION OF&#160;INTEL AVX-512 INSTRUCTION GROUPS OPERATING AT 256&#160;</p>
+<p style="position:absolute;top:960px;left:146px;white-space:nowrap" class="ft03">AND 128-BIT VECTOR LENGTHS</p>
+<p style="position:absolute;top:994px;left:68px;white-space:nowrap" class="ft06">For each&#160;of&#160;the&#160;512-bit instruction groups in the&#160;Intel&#160;AVX-<a href="o_7281d5ea06a5b67a-370.html">512 family listed in&#160;Table 15-1</a>,&#160;the&#160;EVEX&#160;encoding&#160;<br/>scheme may&#160;support&#160;a vast majority&#160;of these&#160;instructions&#160;operating&#160;at&#160;256-bit or&#160;128-bit (if applicable) vector&#160;<br/>lengths.&#160;Encoding support&#160;for vector lengths&#160;smaller than 512-bits&#160;is indicated by CPUID.(EAX=07H,&#160;<br/>ECX=0):EBX[bit&#160;31], abbreviated as&#160;AVX512VL.</p>
+<p style="position:absolute;top:116px;left:227px;white-space:nowrap" class="ft04">Table 15-1.&#160;&#160;512-bit&#160;Instruction Groups&#160;in&#160;the Intel&#160;AVX-512&#160;Family</p>
+<p style="position:absolute;top:141px;left:105px;white-space:nowrap" class="ft02">CPUID Leaf&#160;7&#160;Feature Flag&#160;Bit</p>
+<p style="position:absolute;top:141px;left:342px;white-space:nowrap" class="ft02">Feature&#160;Flag&#160;abbreviation of&#160;512-bit&#160;Instruction Group</p>
+<p style="position:absolute;top:141px;left:708px;white-space:nowrap" class="ft02">SW Detection Flow</p>
+<p style="position:absolute;top:164px;left:87px;white-space:nowrap" class="ft02">CPUID.(EAX=07H, ECX=0):EBX[bit 16]</p>
+<p style="position:absolute;top:164px;left:414px;white-space:nowrap" class="ft02">AVX512F (AVX-512&#160;Foundation)</p>
+<p style="position:absolute;top:165px;left:725px;white-space:nowrap" class="ft02"><a href="o_7281d5ea06a5b67a-368.html">Figure&#160;15-2</a></p>
+<p style="position:absolute;top:189px;left:87px;white-space:nowrap" class="ft02">CPUID.(EAX=07H, ECX=0):EBX[bit 28]</p>
+<p style="position:absolute;top:189px;left:475px;white-space:nowrap" class="ft02">AVX512CD</p>
+<p style="position:absolute;top:189px;left:725px;white-space:nowrap" class="ft02"><a href="o_7281d5ea06a5b67a-370.html">Figure&#160;15-4</a></p>
+<p style="position:absolute;top:213px;left:87px;white-space:nowrap" class="ft02">CPUID.(EAX=07H, ECX=0):EBX[bit 17]</p>
+<p style="position:absolute;top:213px;left:474px;white-space:nowrap" class="ft02">AVX512DQ</p>
+<p style="position:absolute;top:213px;left:725px;white-space:nowrap" class="ft02"><a href="o_7281d5ea06a5b67a-370.html">Figure&#160;15-4</a></p>
+<p style="position:absolute;top:236px;left:87px;white-space:nowrap" class="ft02">CPUID.(EAX=07H, ECX=0):EBX[bit 30]</p>
+<p style="position:absolute;top:236px;left:473px;white-space:nowrap" class="ft02">AVX512BW</p>
+<p style="position:absolute;top:237px;left:725px;white-space:nowrap" class="ft02"><a href="o_7281d5ea06a5b67a-370.html">Figure&#160;15-4</a></p>
+<p style="position:absolute;top:682px;left:167px;white-space:nowrap" class="ft04">Figure&#160;15-4.&#160;&#160;Procedural Flow&#160;for&#160;Application Detection of&#160;512-bit Instruction&#160;Groups</p>
+<p style="position:absolute;top:533px;left:340px;white-space:nowrap" class="ft05">Implied&#160;HW support for</p>
+<p style="position:absolute;top:616px;left:268px;white-space:nowrap" class="ft00">Check enabled state in</p>
+<p style="position:absolute;top:638px;left:265px;white-space:nowrap" class="ft00">XCR0 via XGETBV</p>
+<p style="position:absolute;top:619px;left:493px;white-space:nowrap" class="ft00">Check AVX512F&#160;and</p>
+<p style="position:absolute;top:632px;left:506px;white-space:nowrap" class="ft00">a sibling 512-bit&#160;flag</p>
+<p style="position:absolute;top:441px;left:259px;white-space:nowrap" class="ft00">Check feature&#160;flag</p>
+<p style="position:absolute;top:462px;left:259px;white-space:nowrap" class="ft00">CPUID.1H:ECX.OXSAVE = 1?&#160;</p>
+<p style="position:absolute;top:500px;left:321px;white-space:nowrap" class="ft05">OS provides processor</p>
+<p style="position:absolute;top:515px;left:338px;white-space:nowrap" class="ft05">extended&#160;state management</p>
+<p style="position:absolute;top:633px;left:421px;white-space:nowrap" class="ft00">States</p>
+<p style="position:absolute;top:633px;left:647px;white-space:nowrap" class="ft00">ok to&#160;use</p>
+<p style="position:absolute;top:549px;left:340px;white-space:nowrap" class="ft05">XSAVE, XRSTOR, XGETBV, XCR0</p>
+<p style="position:absolute;top:646px;left:421px;white-space:nowrap" class="ft00">enabled</p>
+<p style="position:absolute;top:647px;left:647px;white-space:nowrap" class="ft00">Instructions</p>
+<p style="position:absolute;top:531px;left:288px;white-space:nowrap" class="ft05">Yes&#160;</p>
+<p style="position:absolute;top:607px;left:412px;white-space:nowrap" class="ft00">YMM,ZMM</p>
+<p style="position:absolute;top:594px;left:411px;white-space:nowrap" class="ft00">Opmask,</p>
+</div>
+</body>
+</html>

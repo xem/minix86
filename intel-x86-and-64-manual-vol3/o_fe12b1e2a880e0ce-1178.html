@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1178</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1178-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1178.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">29-12&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND&#160;VIRTUAL INTERRUPTS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">A physical access to&#160;the APIC-access page&#160;may&#160;or&#160;may&#160;not&#160;cause&#160;an&#160;APIC-access VM exit. If&#160;it does not cause&#160;an&#160;<br/>APIC-access&#160;VM&#160;exit, it&#160;may access the&#160;APIC-access page&#160;or&#160;the virtual-APIC page. Physical write&#160;accesses&#160;to the&#160;<br/>APIC-access page&#160;may or&#160;may not&#160;cause&#160;APIC-write&#160;emulation or APIC-write&#160;VM&#160;exits.<br/>The&#160;priority&#160;of&#160;an&#160;APIC-access&#160;VM&#160;exit&#160;caused&#160;by&#160;physical&#160;access&#160;is not defined&#160;relative to&#160;other&#160;events that the&#160;<br/>access may&#160;cause.<br/>It is recommended that software not set the&#160;APIC-access address to any of the&#160;addresses used by physical&#160;memory&#160;<br/>accesses (identified above). For&#160;example,&#160;it should not set the APIC-access address&#160;to the physical address&#160;of&#160;any&#160;<br/>of the active&#160;paging&#160;structures if the&#160;“enable&#160;EPT”&#160;VM-execution&#160;control&#160;is 0.</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft03">29.5&#160;</p>
+<p style="position:absolute;top:286px;left:147px;white-space:nowrap" class="ft03">VIRTUALIZING MSR-BASED APIC ACCESSES</p>
+<p style="position:absolute;top:322px;left:68px;white-space:nowrap" class="ft07">When the&#160;local APIC is&#160;in x2APIC mode, software&#160;accesses the&#160;local APIC’s&#160;control registers&#160;using the&#160;MSR inter-<br/>face. Specifically, software&#160;uses the RDMSR and&#160;WRMSR&#160;instructions, setting&#160;ECX&#160;(identifying&#160;the&#160;MSR being&#160;<br/>accessed)&#160;to&#160;values&#160;in&#160;the range 800H–8FFH&#160;(see<a href="o_fe12b1e2a880e0ce-398.html">&#160;Section 10.12,&#160;“Extended&#160;XAPIC (x2APIC)”).</a>&#160;This&#160;section&#160;<br/>describes how&#160;these&#160;accesses can&#160;be virtualized.<br/>A virtual-machine monitor can&#160;virtualize&#160;these MSR-based APIC accesses&#160;by&#160;configuring the MSR bitmaps (see&#160;<br/><a href="o_fe12b1e2a880e0ce-1060.html">Section 24.6.9)&#160;</a>to&#160;ensure that the&#160;accesses cause&#160;VM&#160;exits&#160;(see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3</a>).&#160;Alternatively,&#160;there&#160;are methods&#160;<br/>for&#160;virtualizing&#160;some MSR-based APIC accesses without VM&#160;exits.<br/>Normally, an&#160;execution of RDMSR or&#160;WRMSR that&#160;does&#160;not&#160;fault&#160;or cause&#160;a VM&#160;exit accesses&#160;the&#160;MSR indicated&#160;in&#160;<br/>ECX.&#160;However,&#160;such an&#160;execution treats some&#160;values&#160;of&#160;ECX in&#160;the&#160;range 800H–8FFH&#160;specially if&#160;the&#160;“virtualize&#160;<br/>x2APIC&#160;mode” VM-execution control&#160;is&#160;1. The following items&#160;provide&#160;details:</p>
+<p style="position:absolute;top:508px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:508px;left:93px;white-space:nowrap" class="ft09"><b>RDMSR.</b>&#160;The instruction’s behavior&#160;depends&#160;on&#160;the setting of&#160;the&#160;“APIC-register&#160;virtualization”&#160;VM-execution&#160;<br/>control.<br/>—&#160;If the&#160;“APIC-register&#160;virtualization”&#160;VM-execution control is&#160;0,&#160;behavior&#160;depends upon&#160;the value&#160;of&#160;ECX.</p>
+<p style="position:absolute;top:574px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:573px;left:144px;white-space:nowrap" class="ft02">If ECX contains&#160;808H (indicating the&#160;TPR MSR),&#160;the&#160;instruction&#160;reads&#160;the&#160;8&#160;bytes from offset 080H on&#160;</p>
+<p style="position:absolute;top:589px;left:143px;white-space:nowrap" class="ft07">the&#160;virtual-APIC page&#160;(VTPR and&#160;the 4&#160;bytes above&#160;it)&#160;into&#160;EDX:EAX.&#160;This occurs even&#160;if&#160;the local&#160;APIC&#160;<br/>is not in&#160;x2APIC mode (no&#160;general-protection&#160;fault&#160;occurs because the&#160;local&#160;APIC is&#160;not x2APIC mode).</p>
+<p style="position:absolute;top:631px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:630px;left:144px;white-space:nowrap" class="ft02">If&#160;ECX contains any&#160;other value&#160;in the&#160;range 800H–8FFH,&#160;the&#160;instruction operates&#160;normally.&#160;If&#160;the&#160;local&#160;</p>
+<p style="position:absolute;top:646px;left:143px;white-space:nowrap" class="ft07">APIC is&#160;in x2APIC mode&#160;and ECX&#160;indicates&#160;a readable&#160;APIC register, EDX&#160;and EAX are loaded with the&#160;<br/>value of&#160;that&#160;register.&#160;If the local&#160;APIC&#160;is not in x2APIC mode or ECX does&#160;not indicate a readable APIC&#160;<br/>register,&#160;a general-protection fault occurs.</p>
+<p style="position:absolute;top:703px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;“APIC-register virtualization”&#160;is 1 and&#160;ECX contains&#160;a&#160;value in&#160;the range&#160;800H–8FFH,&#160;the instruction reads&#160;</p>
+<p style="position:absolute;top:720px;left:119px;white-space:nowrap" class="ft07">the 8&#160;bytes from offset X on&#160;the virtual-APIC page into EDX:EAX,&#160;where X&#160;=&#160;(ECX&#160;&amp; FFH) «&#160;4.&#160;This occurs&#160;<br/>even if the&#160;local&#160;APIC is&#160;not in&#160;x2APIC mode (no general-protection fault occurs&#160;because&#160;the local&#160;APIC&#160;is&#160;<br/>not&#160;in&#160;x2APIC&#160;mode).</p>
+<p style="position:absolute;top:775px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:775px;left:93px;white-space:nowrap" class="ft09"><b>WRMSR.</b>&#160;The&#160;instruction’s behavior&#160;depends&#160;on&#160;the value&#160;of&#160;ECX and&#160;the setting of the “virtual-interrupt&#160;<br/>delivery” VM-execution&#160;control.<br/>Special processing applies in the following cases:&#160;(1)&#160;ECX contains 808H (indicating the&#160;TPR MSR); (2)&#160;ECX<br/>contains 80BH (indicating the&#160;EOI MSR)&#160;and the&#160;“virtual-interrupt delivery” VM-execution&#160;control&#160;is 1;&#160;and<br/>(3)&#160;ECX&#160;contains 83FH (indicating the self-IPI MSR) and the “virtual-interrupt delivery”&#160;VM-execution control<br/>is 1.<br/>If special&#160;processing applies, no general-protection exception is&#160;produced due to&#160;the fact&#160;that the&#160;local APIC is<br/>in xAPIC mode. However,&#160;WRMSR does perform the normal reserved-bit&#160;checking:<br/>—&#160;If&#160;ECX contains 808H or 83FH,&#160;a general-protection&#160;fault occurs if&#160;either EDX&#160;or EAX[31:8]&#160;is&#160;non-zero.<br/>—&#160;If&#160;ECX&#160;contains&#160;80BH,&#160;a general-protection&#160;fault occurs if&#160;either EDX&#160;or EAX&#160;is&#160;non-zero.<br/>If there is no fault, WRMSR stores EDX:EAX&#160;at offset&#160;X&#160;on&#160;the&#160;virtual-APIC&#160;page, where&#160;X =&#160;(ECX&#160;&amp; FFH)&#160;«&#160;4.<br/>Following this,&#160;the processor&#160;performs an operation depending&#160;on the value of ECX:<br/>—&#160;If&#160;ECX contains 808H,&#160;the&#160;processor performs&#160;TPR&#160;virtualization (see<a href="o_fe12b1e2a880e0ce-1168.html">&#160;Section 29.1.2).<br/></a>—&#160;If ECX&#160;contains&#160;80BH,&#160;the processor performs&#160;EOI&#160;<a href="o_fe12b1e2a880e0ce-1169.html">virtualization (see Section 29.1.4).<br/></a>—&#160;If&#160;ECX contains&#160;83FH, the processor then&#160;checks&#160;the&#160;value&#160;of&#160;EAX[7:4]&#160;and proceeds&#160;as&#160;follows:</p>
+</div>
+</body>
+</html>

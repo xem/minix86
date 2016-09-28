@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 271</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page271-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce271.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-15</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:292px;left:69px;white-space:nowrap" class="ft05"><a href="o_fe12b1e2a880e0ce-271.html">In Example&#160;8-14,&#160;</a>processor 0&#160;started&#160;a string&#160;operation&#160;to&#160;write&#160;to&#160;a memory&#160;block of 512 bytes&#160;starting at&#160;address&#160;<br/>_x. Processor 0 got interrupted&#160;after k iterations of store&#160;operations.&#160;The address&#160;_y&#160;has&#160;not&#160;yet been updated by&#160;<br/>processor 0 when&#160;processor 0&#160;got interrupted.&#160;The interrupt&#160;handler that took control on&#160;processor 0 writes to the&#160;<br/>address _z.&#160;Processor 1&#160;may see&#160;the store to&#160;_z from the interrupt handler,&#160;before seeing the remaining stores to&#160;<br/>the 512-byte&#160;memory block&#160;that are&#160;executed&#160;when&#160;the string operation resumes.<br/><a href="o_fe12b1e2a880e0ce-271.html">Example&#160;8-15 illustr</a>ates the&#160;ordering of string operations with earlier stores. No store from a string operation&#160;can&#160;<br/>be visible before all&#160;prior&#160;stores are&#160;visible.</p>
+<p style="position:absolute;top:665px;left:69px;white-space:nowrap" class="ft03">8.2.5&#160;</p>
+<p style="position:absolute;top:665px;left:149px;white-space:nowrap" class="ft03">Strengthening or Weakening the Memory-Ordering Model</p>
+<p style="position:absolute;top:696px;left:69px;white-space:nowrap" class="ft05">The Intel&#160;64&#160;and IA-32 architectures provide several&#160;mechanisms&#160;for strengthening or&#160;weakening the&#160;memory-<br/>ordering model to&#160;handle special&#160;programming situations.&#160;These&#160;mechanisms include:</p>
+<p style="position:absolute;top:734px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:735px;left:95px;white-space:nowrap" class="ft05">The&#160;I/O instructions, locking&#160;instructions, the LOCK prefix, and&#160;serializing instructions force stronger&#160;ordering&#160;<br/>on the&#160;processor.</p>
+<p style="position:absolute;top:773px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:774px;left:95px;white-space:nowrap" class="ft05">The&#160;SFENCE instruction (introduced to the IA-32&#160;architecture in the Pentium&#160;III&#160;processor) and the LFENCE and&#160;<br/>MFENCE instructions&#160;(introduced&#160;in&#160;the Pentium 4 processor) provide memory-ordering&#160;and serialization&#160;<br/>capabilities for&#160;specific types&#160;of&#160;memory operations.</p>
+<p style="position:absolute;top:829px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:829px;left:95px;white-space:nowrap" class="ft05">The&#160;memory type&#160;range&#160;registers&#160;(MTRRs)&#160;can&#160;be used&#160;to&#160;strengthen or weaken memory ordering&#160;for&#160;specific&#160;<br/>area of&#160;physical&#160;<a href="o_fe12b1e2a880e0ce-432.html">memory (see Section 11.11,&#160;“Memory&#160;Type Range Registers (MTRRs)”).&#160;</a>MTRRs are&#160;available&#160;<br/>only&#160;in&#160;the Pentium 4,&#160;Intel Xeon,&#160;and P6 family&#160;processors.&#160;</p>
+<p style="position:absolute;top:884px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:885px;left:95px;white-space:nowrap" class="ft05">The&#160;page attribute table (PAT) can be used to strengthen&#160;memory ordering for a specific&#160;page&#160;or group of&#160;pages&#160;<br/>(see<a href="o_fe12b1e2a880e0ce-445.html">&#160;Section 11.12,&#160;“Page Attribute Table&#160;(PAT)”).&#160;</a>The PAT&#160;is&#160;available only in&#160;the Pentium 4, Intel&#160;Xeon, and&#160;<br/>Pentium&#160;III&#160;processors.&#160;</p>
+<p style="position:absolute;top:942px;left:69px;white-space:nowrap" class="ft05">These&#160;mechanisms can be used&#160;as&#160;follows:<br/>Memory mapped&#160;devices&#160;and other&#160;I/O devices on&#160;the&#160;bus&#160;are&#160;often&#160;sensitive&#160;to&#160;the&#160;order of writes to&#160;their I/O&#160;<br/>buffers.&#160;I/O instructions can be&#160;used&#160;to&#160;(the IN&#160;and&#160;OUT instructions)&#160;impose strong&#160;write ordering on&#160;such&#160;<br/>accesses&#160;as follows. Prior&#160;to executing an&#160;I/O instruction,&#160;the processor waits&#160;for&#160;all previous&#160;instructions in the&#160;<br/>program&#160;to complete and for all&#160;buffered&#160;writes&#160;to drain&#160;to memory.&#160;Only instruction fetch&#160;and page&#160;tables&#160;walks&#160;<br/>can pass&#160;I/O instructions. Execution of subsequent instructions do not begin&#160;until&#160;the processor determines&#160;that&#160;<br/>the I/O&#160;instruction&#160;has been completed.</p>
+<p style="position:absolute;top:123px;left:69px;white-space:nowrap" class="ft01">Example&#160;8-14.&#160; Interrupted String&#160;Operation</p>
+<p style="position:absolute;top:142px;left:226px;white-space:nowrap" class="ft02">Processor 0</p>
+<p style="position:absolute;top:142px;left:609px;white-space:nowrap" class="ft02">Processor 1</p>
+<p style="position:absolute;top:164px;left:74px;white-space:nowrap" class="ft02">rep:stosd [ _x] //&#160;interrupted&#160;before&#160;es:edi&#160;reach&#160;_y</p>
+<p style="position:absolute;top:164px;left:457px;white-space:nowrap" class="ft02">mov r1, [ _z]</p>
+<p style="position:absolute;top:187px;left:74px;white-space:nowrap" class="ft02">mov [_z],&#160;$1 //&#160;interrupt handler&#160;</p>
+<p style="position:absolute;top:187px;left:458px;white-space:nowrap" class="ft02">mov r2, [ _y]</p>
+<p style="position:absolute;top:209px;left:74px;white-space:nowrap" class="ft08">Initially on&#160;processor 0:&#160;EAX =&#160;1,&#160;ECX=128,&#160;ES:EDI&#160;=_x&#160;<br/>Initially&#160;[_y] = [_z] = 0, [_x]&#160;to&#160;511[_x]= 0, _x&#160;&lt;= _y &lt; _x+512, _z&#160;is a separate&#160;memory location<br/>r1 = 1 and r2 = 0 is allowed</p>
+<p style="position:absolute;top:445px;left:69px;white-space:nowrap" class="ft01">Example&#160;8-15.&#160; String&#160;Operations Are&#160;not&#160;Reordered with&#160;Earlier Stores</p>
+<p style="position:absolute;top:465px;left:226px;white-space:nowrap" class="ft02">Processor 0</p>
+<p style="position:absolute;top:465px;left:609px;white-space:nowrap" class="ft02">Processor 1</p>
+<p style="position:absolute;top:487px;left:74px;white-space:nowrap" class="ft02">mov [_z],&#160;$1</p>
+<p style="position:absolute;top:487px;left:457px;white-space:nowrap" class="ft02">mov r1, [ _y]</p>
+<p style="position:absolute;top:510px;left:74px;white-space:nowrap" class="ft02">rep:stosd [ _x]&#160;</p>
+<p style="position:absolute;top:510px;left:457px;white-space:nowrap" class="ft02">mov r2, [ _z]</p>
+<p style="position:absolute;top:532px;left:74px;white-space:nowrap" class="ft08">Initially on&#160;processor 0:&#160;EAX =&#160;1,&#160;ECX=128,&#160;ES:EDI&#160;=_x&#160;<br/>Initially&#160;[_y] = [_z] = 0, [_x]&#160;to&#160;511[_x]= 0, _x&#160;&lt;= _y &lt; _x+512, _z&#160;is a separate&#160;memory location<br/>r1 = 1 and r2 = 0 is not allowed</p>
+</div>
+</body>
+</html>

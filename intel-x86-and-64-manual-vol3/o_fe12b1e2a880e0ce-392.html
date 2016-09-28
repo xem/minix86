@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 392</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft010{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page392-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce392.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-30&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:335px;left:68px;white-space:nowrap" class="ft06">If more than&#160;one interrupt&#160;is generated with the&#160;same vector number,&#160;the&#160;local APIC can set the&#160;bit&#160;for&#160;the vector&#160;<br/>both in&#160;the IRR&#160;and&#160;the ISR.&#160;This means&#160;that for the&#160;Pentium&#160;4 and&#160;Intel&#160;Xeon&#160;processors,&#160;the&#160;IRR and&#160;ISR can&#160;<br/>queue&#160;two interrupts for each interrupt vector:&#160;one in the&#160;IRR and&#160;one&#160;in the ISR. Any&#160;additional interrupts issued&#160;<br/>for the&#160;same&#160;interrupt vector are collapsed&#160;into&#160;the single bit in&#160;the IRR.<br/>For&#160;the P6 family and&#160;Pentium&#160;processors, the&#160;IRR and ISR registers&#160;can queue&#160;no more&#160;than&#160;two&#160;interrupts per&#160;<br/>interrupt&#160;vector&#160;and will reject&#160;other interrupts that are&#160;received within&#160;the same&#160;vector.&#160;<br/>If the&#160;local APIC receives&#160;an interrupt&#160;with&#160;an interrupt-priority&#160;class&#160;higher than that&#160;of&#160;the interrupt currently in&#160;<br/>service,&#160;and interrupts are enabled&#160;in the&#160;processor&#160;core, the&#160;local APIC dispatches&#160;the higher priority&#160;interrupt&#160;to&#160;<br/>the processor immediately (without&#160;waiting&#160;for&#160;a write to&#160;the EOI register). The currently executing interrupt&#160;<br/>handler is then&#160;interrupted&#160;so&#160;the&#160;higher-priority interrupt&#160;can&#160;be handled. When&#160;the handling of&#160;the higher-priority&#160;<br/>interrupt has been&#160;completed,&#160;the servicing of the interrupted interrupt is&#160;resumed.<br/>The&#160;trigger mode&#160;register&#160;(TMR) indicates the&#160;trigger mode&#160;of the&#160;interrupt (see&#160;<a href="o_fe12b1e2a880e0ce-392.html">Figure&#160;10-20</a>).&#160;Upon acceptance&#160;<br/>of&#160;an interrupt&#160;into the&#160;IRR, the&#160;corresponding&#160;TMR&#160;bit&#160;is cleared&#160;for&#160;edge-triggered interrupts&#160;and set for level-<br/>triggered interrupts.&#160;If&#160;a TMR bit is set when an&#160;EOI cycle&#160;for its&#160;corresponding&#160;interrupt vector is&#160;generated,&#160;an&#160;EOI&#160;<br/>message&#160;is&#160;sent to&#160;all I/O&#160;APICs.</p>
+<p style="position:absolute;top:639px;left:68px;white-space:nowrap" class="ft03">10.8.5&#160;</p>
+<p style="position:absolute;top:639px;left:148px;white-space:nowrap" class="ft03">Signaling Interrupt&#160;Servicing Completion</p>
+<p style="position:absolute;top:670px;left:68px;white-space:nowrap" class="ft06">For&#160;all interrupts except&#160;those&#160;delivered&#160;with the&#160;NMI, SMI, INIT, ExtINT,&#160;the start-up, or&#160;INIT-Deassert&#160;delivery&#160;<br/>mode, the&#160;interrupt handler must include&#160;a&#160;write&#160;to the&#160;end-of-interrupt&#160;(EOI) register (see&#160;<a href="o_fe12b1e2a880e0ce-392.html">Figure&#160;10-21</a>).&#160;This&#160;<br/>write&#160;must occur at the&#160;end of the handler routine, sometime before the IRET&#160;instruction.&#160;This action indicates that&#160;<br/>the servicing of the&#160;current interrupt&#160;is complete&#160;and the&#160;local APIC can issue&#160;the&#160;next interrupt&#160;from&#160;the&#160;ISR.&#160;</p>
+<p style="position:absolute;top:913px;left:68px;white-space:nowrap" class="ft06">Upon receiving&#160;an EOI,&#160;the APIC clears&#160;the highest priority&#160;bit&#160;in&#160;the ISR&#160;and dispatches&#160;the next highest priority&#160;<br/>interrupt to the&#160;processor.&#160;If the terminated interrupt was a level-triggered interrupt, the local APIC also sends an&#160;<br/>end-of-interrupt message to&#160;all I/O&#160;APICs.&#160;<br/>System software&#160;may prefer to&#160;direct&#160;EOIs to&#160;specific&#160;I/O&#160;APICs rather than&#160;having the&#160;local APIC send end-of-<br/>interrupt messages to&#160;all I/O&#160;APICs.<br/>Software&#160;can inhibit the&#160;broadcast&#160;of EOI&#160;message&#160;by setting&#160;bit&#160;12 of the&#160;Spurious&#160;Interrupt Vector Register&#160;(see&#160;<br/><a href="o_fe12b1e2a880e0ce-394.html">Section 10.9</a>). If this bit is set,&#160;a broadcast&#160;EOI is&#160;not generated&#160;on an&#160;EOI cycle even&#160;if the associated&#160;TMR&#160;bit indi-<br/>cates that the current interrupt was level-triggered. The default&#160;value&#160;for the bit is 0, indicating that EOI broadcasts&#160;<br/>are performed.</p>
+<p style="position:absolute;top:107px;left:452px;white-space:nowrap" class="ft02">&#160;</p>
+<p style="position:absolute;top:283px;left:311px;white-space:nowrap" class="ft04">Figure&#160;10-20.&#160;&#160;IRR,&#160;ISR&#160;and&#160;TMR Registers</p>
+<p style="position:absolute;top:867px;left:361px;white-space:nowrap" class="ft04">Figure&#160;10-21.&#160;&#160;EOI&#160;Register</p>
+<p style="position:absolute;top:127px;left:235px;white-space:nowrap" class="ft05">255</p>
+<p style="position:absolute;top:128px;left:634px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:148px;left:563px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:220px;left:249px;white-space:nowrap" class="ft00">Addresses:&#160;IRR&#160;&#160;FEE0&#160;0200H -&#160;FEE0 0270H&#160;</p>
+<p style="position:absolute;top:262px;left:249px;white-space:nowrap" class="ft00">Value after&#160;reset: 0H</p>
+<p style="position:absolute;top:127px;left:525px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:148px;left:646px;white-space:nowrap" class="ft00">IRR</p>
+<p style="position:absolute;top:172px;left:563px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:172px;left:646px;white-space:nowrap" class="ft00">ISR</p>
+<p style="position:absolute;top:196px;left:563px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:196px;left:646px;white-space:nowrap" class="ft00">TMR</p>
+<p style="position:absolute;top:234px;left:313px;white-space:nowrap" class="ft09">ISR&#160;&#160;FEE0 0100H&#160;- FEE0 0170H<br/>TMR FEE0 0180H - FEE0 01F0H</p>
+<p style="position:absolute;top:776px;left:249px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:776px;left:648px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:828px;left:263px;white-space:nowrap" class="ft010">Address: 0FEE0 00B0H<br/>Value&#160;after reset: 0H</p>
+</div>
+</body>
+</html>

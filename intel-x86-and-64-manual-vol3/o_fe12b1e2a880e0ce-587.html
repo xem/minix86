@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 587</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page587-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce587.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-13</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">17.4.3 Single-Stepping&#160;</p>
+<p style="position:absolute;top:98px;left:281px;white-space:nowrap" class="ft02">on&#160;</p>
+<p style="position:absolute;top:98px;left:306px;white-space:nowrap" class="ft02">Branches</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft07">When software&#160;sets&#160;both the&#160;BTF&#160;flag&#160;(bit 1)&#160;in&#160;the&#160;IA32_DEBUGCTL&#160;MSR and&#160;the TF&#160;flag&#160;in the&#160;EFLAGS&#160;register,&#160;<br/>the processor generates a&#160;single-step debug&#160;exception only after&#160;instructions&#160;that&#160;cause&#160;a branch.</p>
+<p style="position:absolute;top:143px;left:732px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:145px;left:739px;white-space:nowrap" class="ft03">&#160;This&#160;mecha-</p>
+<p style="position:absolute;top:162px;left:69px;white-space:nowrap" class="ft07">nism allows&#160;a debugger&#160;to single-step&#160;on control&#160;transfers&#160;caused by&#160;branches. This “branch&#160;single stepping”&#160;helps&#160;<br/>isolate&#160;a bug to a&#160;particular&#160;block of code before&#160;instruction single-stepping further narrows the&#160;search.&#160;The&#160;<br/>processor&#160;clears&#160;the&#160;BTF flag&#160;when&#160;it generates a&#160;debug&#160;exception.&#160;The&#160;debugger must set the&#160;BTF&#160;flag before&#160;<br/>resuming program execution&#160;to continue single-stepping on branches.</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft02">17.4.4&#160;</p>
+<p style="position:absolute;top:262px;left:150px;white-space:nowrap" class="ft02">Branch Trace Messages</p>
+<p style="position:absolute;top:292px;left:69px;white-space:nowrap" class="ft08">Setting&#160;the&#160;TR&#160;flag&#160;(bit 6)&#160;in the&#160;IA32_DEBUGCTL MSR&#160;enables&#160;branch&#160;trace&#160;messages (BTMs). Thereafter, when&#160;<br/>the processor detects a branch, exception,&#160;or interrupt,&#160;it&#160;sends a&#160;branch record out on&#160;the&#160;system bus as a&#160;BTM.&#160;<br/>A debugging device that&#160;is monitoring the&#160;system bus&#160;can read these messages and&#160;synchronize&#160;operations&#160;with&#160;<br/>taken branch, interrupt,&#160;and exception&#160;events.&#160;<br/>When interrupts or exceptions&#160;occur in conjunction&#160;with&#160;a taken&#160;branch, additional BTMs&#160;are sent&#160;out on the&#160;bus,&#160;<br/>as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-586.html">in Section 17.4.2, “Monitoring Branches, Exceptions,&#160;and Interrupts.”<br/></a>For P6 processor family, Pentium M processor family, processors based on Intel Core microarchitecture, TR&#160;and LBR&#160;<br/>bits can&#160;not be set at the&#160;same time due to&#160;hardware limitation. The content&#160;of LBR stack&#160;is undefined when&#160;TR&#160;is&#160;<br/>set.&#160;<br/>For processors with&#160;Intel NetBurst microarchitecture,&#160;Intel Atom processors,&#160;and Intel Core and related&#160;Intel Xeon&#160;<br/>processors both&#160;starting&#160;with&#160;the Nehalem&#160;microarchitecture,&#160;the processor can&#160;collect&#160;branch records in&#160;the LBR&#160;<br/>stack and&#160;at the&#160;same time&#160;send/store&#160;BTMs&#160;when&#160;both&#160;the&#160;TR&#160;and&#160;LBR&#160;flags&#160;are set in&#160;the&#160;IA32_DEBUGCTL&#160;MSR&#160;<br/>(or&#160;the equivalent MSR_DEBUGCTLA, MSR_DEBUGCTLB).<br/>The following&#160;exception applies:</p>
+<p style="position:absolute;top:559px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:559px;left:95px;white-space:nowrap" class="ft07">BTM may&#160;not&#160;be observable on&#160;Intel Atom processor families&#160;that do&#160;not provide an externally&#160;visible&#160;system&#160;<br/>bus (i.e.,&#160;processors based&#160;on&#160;the Silvermont&#160;microarchitecture or&#160;later).</p>
+<p style="position:absolute;top:620px;left:69px;white-space:nowrap" class="ft06">17.4.4.1 &#160;&#160;Branch Trace Message Visibility</p>
+<p style="position:absolute;top:649px;left:69px;white-space:nowrap" class="ft07">Branch trace&#160;message (BTM)&#160;visibility is&#160;implementation&#160;specific&#160;and limited to&#160;&#160;systems with a&#160;front&#160;side&#160;bus&#160;<br/>(FSB).&#160;BTMs may&#160;not be visible to&#160;newer&#160;system link interfaces&#160;or a&#160;system&#160;bus&#160;that&#160;deviates from&#160;a traditional&#160;<br/>FSB.</p>
+<p style="position:absolute;top:732px;left:69px;white-space:nowrap" class="ft02">17.4.5&#160;</p>
+<p style="position:absolute;top:732px;left:150px;white-space:nowrap" class="ft02">Branch Trace Store (BTS)</p>
+<p style="position:absolute;top:763px;left:69px;white-space:nowrap" class="ft07">A trace of taken branches,&#160;interrupts, and&#160;exceptions is&#160;useful&#160;for debugging code by providing a&#160;method of deter-<br/>mining&#160;the decision path&#160;taken&#160;to reach&#160;a particular code&#160;location.&#160;The LBR&#160;flag&#160;(bit&#160;0) of IA32_DEBUGCTL&#160;provides&#160;<br/>a mechanism for capturing records of taken branches,&#160;interrupts,&#160;and exceptions&#160;and saving them&#160;in the&#160;last&#160;<br/>branch record (LBR)&#160;stack MSRs, setting the&#160;TR flag for sending&#160;them out onto&#160;the system bus as&#160;BTMs.&#160;The branch&#160;<br/>trace store&#160;(BTS) mechanism provides&#160;the additional capability of saving the branch&#160;records in&#160;a memory-resident&#160;<br/>BTS buffer, which&#160;is part of the&#160;DS save&#160;area. The BTS&#160;buffer can&#160;be&#160;configured&#160;to&#160;be&#160;circular so&#160;that the&#160;most&#160;<br/>recent&#160;branch records are&#160;always available&#160;or it&#160;can be&#160;configured to generate an interrupt when the&#160;buffer&#160;is&#160;<br/>nearly&#160;full so that all the&#160;branch records can be&#160;saved. The BTINT flag (bit 8)&#160;can&#160;be used to enable&#160;the&#160;generation&#160;<br/>of interrupt when&#160;the BTS buffer&#160;is full. Se<a href="o_fe12b1e2a880e0ce-596.html">e Section 17.4.9.2, “Setting&#160;Up the DS Save&#160;Area.”</a>&#160;for additional details.<br/>Setting&#160;this flag&#160;(BTS) alone&#160;can&#160;greatly reduce the&#160;performance of&#160;the processor.&#160;CPL-qualified branch&#160;trace&#160;<br/>storing&#160;mechanism&#160;can help mitigate the&#160;performance&#160;impact of&#160;sending/logging branch trace messages.</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft03">1.&#160;Executions&#160;of&#160;CALL,&#160;IRET, and&#160;JMP that&#160;cause&#160;task&#160;switches&#160;never cause single-step&#160;debug exceptions&#160;(regardless of&#160;the&#160;value&#160;of&#160;the&#160;</p>
+<p style="position:absolute;top:1038px;left:91px;white-space:nowrap" class="ft03">BTF&#160;flag).&#160;A&#160;debugger&#160;desiring&#160;debug&#160;exceptions&#160;on&#160;switches&#160;to&#160;a&#160;task&#160;should&#160;set&#160;the&#160;T&#160;flag&#160;(debug&#160;trap&#160;flag)&#160;in&#160;the&#160;TSS&#160;of&#160;that task.&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">See<a href="o_fe12b1e2a880e0ce-241.html">&#160;Section&#160;7.2.1, “Task-State&#160;Segment (TSS).”</a></p>
+</div>
+</body>
+</html>

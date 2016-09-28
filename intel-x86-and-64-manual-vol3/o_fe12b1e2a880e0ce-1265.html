@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1265</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:3px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:10px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft011{font-size:10px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1265-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1265.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-15</p>
+<p style="position:absolute;top:47px;left:666px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:247px;left:69px;white-space:nowrap" class="ft07">In&#160;multiple-processor systems, initialization software must&#160;adjust&#160;the&#160;SMBASE value&#160;for each&#160;processor so&#160;that the&#160;<br/>SMRAM&#160;state&#160;save&#160;areas for each processor do&#160;not overlap.&#160;(For Pentium and&#160;Intel486&#160;processors,&#160;the SMBASE&#160;<br/>values&#160;must&#160;be aligned on a 32-KByte boundary or the&#160;processor will enter shutdown state&#160;during the execution of&#160;<br/>a RSM&#160;instruction.)<br/>If the&#160;SMBASE relocation flag&#160;in&#160;the SMM&#160;revision identifier&#160;field is&#160;set,&#160;it indicates&#160;the&#160;ability to relocate the&#160;<br/>SM<a href="o_fe12b1e2a880e0ce-1263.html">BASE (see Section 34.9).</a></p>
+<p style="position:absolute;top:392px;left:69px;white-space:nowrap" class="ft03">34.12 I/O&#160;</p>
+<p style="position:absolute;top:392px;left:181px;white-space:nowrap" class="ft03">INSTRUCTION&#160;</p>
+<p style="position:absolute;top:392px;left:315px;white-space:nowrap" class="ft03">RESTART</p>
+<p style="position:absolute;top:429px;left:69px;white-space:nowrap" class="ft07">If the&#160;I/O instruction restart&#160;flag in&#160;the SMM&#160;revision identifier&#160;field&#160;is set (see<a href="o_fe12b1e2a880e0ce-1263.html">&#160;Section 34.9</a>),&#160;the I/O&#160;instruction&#160;<br/>restart&#160;mechanism&#160;is present on&#160;the&#160;processor.&#160;This&#160;mechanism allows an interrupted&#160;I/O instruction to&#160;be&#160;re-<br/>executed&#160;upon returning from&#160;SMM&#160;mode.&#160;For example,&#160;if&#160;an I/O instruction is used to access&#160;a powered-down I/O&#160;<br/>device,&#160;a chip set&#160;supporting&#160;this device can&#160;intercept&#160;the&#160;access and&#160;respond&#160;by asserting SMI#. This&#160;action&#160;<br/>invokes the&#160;SMI handler&#160;to power-up the device.&#160;Upon&#160;returning from the&#160;SMI&#160;handler,&#160;the&#160;I/O instruction restart&#160;<br/>mechanism&#160;can be&#160;used to&#160;re-execute&#160;the I/O&#160;instruction&#160;that caused the&#160;SMI.<br/>The&#160;I/O&#160;instruction&#160;restart field&#160;(at offset 7F00H in the&#160;SMM state-save area, se<a href="o_fe12b1e2a880e0ce-1265.html">e&#160;Figure&#160;34-5)&#160;</a>controls&#160;I/O instruc-<br/>tion&#160;restart. When an&#160;RSM instruction&#160;is&#160;executed, if this&#160;field contains the&#160;value FFH, then the EIP register&#160;is modi-<br/>fied to point&#160;to the I/O instruction&#160;that&#160;received the SMI&#160;request.&#160;The processor will&#160;then automatically re-execute&#160;<br/>the&#160;I/O instruction&#160;that&#160;the SMI&#160;trapped. (The&#160;processor&#160;saves&#160;the necessary machine state to&#160;insure&#160;that re-<br/>execution of the&#160;instruction is&#160;handled&#160;coherently.)</p>
+<p style="position:absolute;top:762px;left:69px;white-space:nowrap" class="ft07">If the I/O instruction restart field contains&#160;the&#160;value&#160;00H&#160;when&#160;the&#160;RSM&#160;instruction is&#160;executed, then the&#160;processor&#160;<br/>begins program execution&#160;with&#160;the&#160;instruction following the I/O&#160;instruction. (When&#160;a repeat prefix&#160;is being&#160;used,&#160;<br/>the next&#160;instruction&#160;may be the next I/O&#160;instruction&#160;in the&#160;repeat&#160;loop.)&#160;Not re-executing the&#160;interrupted I/O&#160;<br/>instruction&#160;is&#160;the default behavior; the processor&#160;automatically initializes the&#160;I/O instruction restart&#160;field&#160;to 00H&#160;<br/>upon entering&#160;SMM.<a href="o_fe12b1e2a880e0ce-1265.html">&#160;Table&#160;34-8 summariz</a>es the&#160;states of the&#160;I/O instruction&#160;restart field.</p>
+<p style="position:absolute;top:990px;left:69px;white-space:nowrap" class="ft07">The I/O&#160;instruction&#160;restart mechanism does not&#160;indicate&#160;the cause&#160;of the&#160;SMI. It&#160;is&#160;the responsibility of&#160;the SMI&#160;<br/>handler to examine&#160;the&#160;state of the processor to&#160;determine&#160;the cause of the SMI and to determine if&#160;an I/O instruc-<br/>tion was&#160;interrupted&#160;and&#160;should&#160;be&#160;restarted upon&#160;exiting SMM.&#160;If&#160;an SMI interrupt&#160;is signaled&#160;on a&#160;non-I/O&#160;<br/>instruction boundary,&#160;setting the I/O&#160;instruction&#160;restart&#160;field to&#160;FFH&#160;prior&#160;to executing the&#160;RSM instruction will likely&#160;<br/>result in&#160;a program error.</p>
+<p style="position:absolute;top:114px;left:120px;white-space:nowrap" class="ft04">&#160;</p>
+<p style="position:absolute;top:201px;left:325px;white-space:nowrap" class="ft05">Figure&#160;34-4.&#160;&#160;SMBASE&#160;Relocation&#160;Field</p>
+<p style="position:absolute;top:640px;left:120px;white-space:nowrap" class="ft04">&#160;</p>
+<p style="position:absolute;top:716px;left:315px;white-space:nowrap" class="ft05">Figure&#160;34-5. &#160;I/O&#160;Instruction&#160;Restart&#160;Field</p>
+<p style="position:absolute;top:858px;left:293px;white-space:nowrap" class="ft05">Table 34-8. &#160;I/O Instruction Restart&#160;Field Values</p>
+<p style="position:absolute;top:883px;left:75px;white-space:nowrap" class="ft02">Value&#160;of&#160;Flag&#160;After&#160;</p>
+<p style="position:absolute;top:898px;left:75px;white-space:nowrap" class="ft02">Entry to&#160;SMM</p>
+<p style="position:absolute;top:883px;left:256px;white-space:nowrap" class="ft02">Value of&#160;Flag&#160;When&#160;</p>
+<p style="position:absolute;top:898px;left:256px;white-space:nowrap" class="ft02">Exiting&#160;SMM</p>
+<p style="position:absolute;top:883px;left:450px;white-space:nowrap" class="ft02">Action of&#160;Processor&#160;When Exiting&#160;SMM</p>
+<p style="position:absolute;top:922px;left:75px;white-space:nowrap" class="ft010">00H<br/>00H</p>
+<p style="position:absolute;top:922px;left:256px;white-space:nowrap" class="ft010">00H<br/>FFH</p>
+<p style="position:absolute;top:922px;left:450px;white-space:nowrap" class="ft010">Does not re-execute trapped&#160;I/O instruction.<br/>Re-executes trapped I/O&#160;instruction.</p>
+<p style="position:absolute;top:130px;left:607px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:130px;left:207px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:156px;left:381px;white-space:nowrap" class="ft06">SMM Base</p>
+<p style="position:absolute;top:148px;left:619px;white-space:nowrap" class="ft011">Register&#160;Offset<br/>7EF8H</p>
+<p style="position:absolute;top:652px;left:512px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:652px;left:306px;white-space:nowrap" class="ft06">15</p>
+<p style="position:absolute;top:673px;left:339px;white-space:nowrap" class="ft06">I/O Instruction&#160;Restart Field</p>
+<p style="position:absolute;top:668px;left:526px;white-space:nowrap" class="ft011">Register Offset<br/>7F00H</p>
+</div>
+</body>
+</html>

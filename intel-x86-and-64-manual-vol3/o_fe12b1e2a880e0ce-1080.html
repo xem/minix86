@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1080</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1080-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1080.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">25-6&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX NON-ROOT&#160;OPERATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07"><b>VMX-preemption&#160;timer.</b>&#160;A&#160;VM&#160;exit occurs&#160;when&#160;the&#160;timer&#160;counts&#160;down to&#160;zero.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-1085.html">Section&#160;25.5.1 for d</a>etails&#160;<br/>of operation of the VMX-preemption&#160;timer.<br/>Debug-trap exceptions and higher&#160;priority&#160;events&#160;take&#160;priority over VM&#160;exits caused by the&#160;VMX-preemption&#160;<br/>timer.&#160;VM&#160;exits caused by&#160;the VMX-preemption&#160;timer take&#160;priority&#160;over VM&#160;exits caused&#160;by&#160;the&#160;“NMI-window&#160;<br/>exiting” VM-execution control&#160;and lower&#160;priority&#160;events.&#160;<br/>These&#160;VM&#160;exits&#160;wake&#160;a logical processor from&#160;the&#160;same inactive&#160;states as&#160;would&#160;a non-maskable interrupt.&#160;<br/>Specifically,&#160;they&#160;wake&#160;a logical processor&#160;from the shutdown state and&#160;from the states entered using the HLT&#160;<br/>and MWAIT instructions.&#160;These VM&#160;exits do&#160;not occur if&#160;the&#160;logical&#160;processor is&#160;in the&#160;wait-for-SIPI state.</p>
+<p style="position:absolute;top:252px;left:68px;white-space:nowrap" class="ft04">In addition,&#160;there&#160;are controls that&#160;cause VM&#160;exits based&#160;on the&#160;readiness&#160;of guest software&#160;to&#160;receive&#160;interrupts:</p>
+<p style="position:absolute;top:274px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:274px;left:93px;white-space:nowrap" class="ft07">If the&#160;“interrupt-window&#160;exiting” VM-execution control is&#160;1, a VM&#160;exit occurs before&#160;execution&#160;of&#160;any instruction&#160;<br/>if RFLAGS.IF&#160;=&#160;1&#160;and&#160;there is&#160;no blocking&#160;of events&#160;by&#160;STI&#160;or by&#160;MOV&#160;SS (see<a href="o_fe12b1e2a880e0ce-1052.html">&#160;Table&#160;24-3</a>). Such&#160;a VM&#160;exit&#160;<br/>occurs immediately after&#160;VM&#160;entry if&#160;the above conditions&#160;are&#160;true<a href="o_fe12b1e2a880e0ce-1115.html">&#160;(see Section 26.6.5).<br/></a>Non-maskable&#160;interrupts (NMIs) and&#160;higher&#160;priority&#160;events&#160;take&#160;priority&#160;over&#160;VM&#160;exits caused by this&#160;control.&#160;<br/>VM&#160;exits caused by this&#160;control&#160;take&#160;priority&#160;over external&#160;interrupts&#160;and lower&#160;priority&#160;events.&#160;<br/>These VM&#160;exits wake a&#160;logical&#160;processor&#160;from the&#160;same&#160;inactive&#160;states&#160;as would an&#160;external interrupt. Specifi-<br/>cally, they wake a&#160;logical&#160;processor&#160;from the&#160;states&#160;entered using&#160;the HLT&#160;and MWAIT instructions. These&#160;<br/>VM&#160;exits do&#160;not occur if&#160;the&#160;logical processor is&#160;in&#160;the shutdown state&#160;or the&#160;wait-for-SIPI state.</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:424px;left:93px;white-space:nowrap" class="ft07">If the&#160;“NMI-window exiting” VM-execution&#160;control&#160;is&#160;1,&#160;a VM&#160;exit occurs&#160;before execution of any&#160;instruction&#160;if&#160;<br/>there&#160;is&#160;no&#160;virtual-NMI blocking&#160;and there is&#160;no blocking&#160;of&#160;events by MOV&#160;SS&#160;(see<a href="o_fe12b1e2a880e0ce-1052.html">&#160;Table&#160;24-3).</a>&#160;(A&#160;logical&#160;<br/>processor may&#160;also prevent&#160;such a&#160;VM&#160;exit if&#160;there is&#160;blocking&#160;of&#160;events by STI.) Such&#160;a VM&#160;exit&#160;occurs&#160;<br/>immediately&#160;after VM&#160;entry if the&#160;above&#160;conditions&#160;are true&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1115.html">Section 26.6.6</a>).<br/>VM&#160;exits caused by the VMX-preemption timer and&#160;higher priority events take&#160;priority over VM&#160;exits caused&#160;by&#160;<br/>this&#160;control. VM&#160;exits caused&#160;by this&#160;control take&#160;priority over non-maskable interrupts (NMIs)&#160;and&#160;lower&#160;<br/>priority events.&#160;<br/>These VM&#160;exits wake a logical processor from the same inactive&#160;states as would an NMI. Specifically, they&#160;wake&#160;<br/>a logical processor from&#160;the&#160;shutdown state and&#160;from the&#160;states entered using&#160;the HLT and&#160;MWAIT instructions.&#160;<br/>These VM&#160;exits do not occur&#160;if&#160;the logical processor is&#160;in the&#160;wait-for-SIPI&#160;state.</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft05">25.3&#160;</p>
+<p style="position:absolute;top:640px;left:147px;white-space:nowrap" class="ft05">CHANGES TO&#160;INSTRUCTION BEHAVIOR IN VMX NON-ROOT&#160;OPERATION</p>
+<p style="position:absolute;top:676px;left:68px;white-space:nowrap" class="ft07">The&#160;behavior of some&#160;instructions&#160;is changed in&#160;VMX non-root&#160;operation. Some of these changes are&#160;determined&#160;<br/>by&#160;the settings of certain&#160;VM-execution&#160;control fields.&#160;The&#160;following&#160;items detail such&#160;changes:</p>
+<p style="position:absolute;top:690px;left:706px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:715px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:715px;left:93px;white-space:nowrap" class="ft09"><b>CLTS.</b>&#160;Behavior of the CLTS&#160;instruction is&#160;determined&#160;by the bits in position&#160;3 (corresponding&#160;to CR0.TS) in the&#160;<br/>CR0 guest/host&#160;mask&#160;and the CR0 read shadow:<br/>—&#160;If&#160;bit&#160;3 in&#160;the CR0&#160;guest/host mask is&#160;0,&#160;CLTS&#160;clears&#160;CR0.TS&#160;normally (the&#160;value&#160;of bit 3&#160;in the&#160;CR0&#160;read&#160;</p>
+<p style="position:absolute;top:772px;left:119px;white-space:nowrap" class="ft07">shadow is irrelevant&#160;in this case), unless CR0.TS&#160;is&#160;fixed to 1 in&#160;VMX operation (see<a href="o_fe12b1e2a880e0ce-1045.html">&#160;Section 23.8),</a>&#160;in which&#160;<br/>case CLTS&#160;causes&#160;a general-protection exception.</p>
+<p style="position:absolute;top:813px;left:93px;white-space:nowrap" class="ft04">—&#160;If bit&#160;3&#160;in the CR0&#160;guest/host mask is 1 and bit&#160;3&#160;in&#160;the&#160;CR0 read&#160;shadow is 0,&#160;CLTS&#160;completes but does not&#160;</p>
+<p style="position:absolute;top:829px;left:119px;white-space:nowrap" class="ft04">change&#160;the&#160;contents of CR0.TS.</p>
+<p style="position:absolute;top:853px;left:93px;white-space:nowrap" class="ft04">—&#160;If&#160;the bits in&#160;position&#160;3&#160;in the&#160;CR0 guest/host mask and&#160;the CR0&#160;read&#160;shadow&#160;are&#160;both 1,&#160;CLTS&#160;causes&#160;a&#160;</p>
+<p style="position:absolute;top:870px;left:119px;white-space:nowrap" class="ft04">VM&#160;exit.</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:892px;left:93px;white-space:nowrap" class="ft010"><b>INVPCID.</b>&#160;Behavior of the&#160;INVPCID instruction is&#160;determined first by&#160;the setting&#160;of the&#160;“enable&#160;INVPCID”&#160;<br/>VM-execution control:<br/>—&#160;If the&#160;“enable&#160;INVPCID” VM-execution control&#160;is 0,&#160;INVPCID causes&#160;an invalid-opcode&#160;exception&#160;(#UD).&#160;</p>
+<p style="position:absolute;top:949px;left:119px;white-space:nowrap" class="ft04">This exception&#160;takes&#160;priority&#160;over&#160;any&#160;other exception the&#160;instruction may&#160;incur.</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft04">1.&#160;Under&#160;the dual-monitor treatment of&#160;SMIs&#160;and&#160;SMM,&#160;SMIs&#160;also&#160;cause&#160;SMM&#160;VM&#160;exits&#160;if&#160;they&#160;occur&#160;in&#160;VMX&#160;root&#160;operation&#160;outside&#160;SMM.&#160;</p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft04">If&#160;the processor&#160;is using the default treatment of&#160;SMIs and SMM,&#160;SMIs&#160;are delivered&#160;as&#160;described in<a href="o_fe12b1e2a880e0ce-1266.html">&#160;Section 34.14.1.</a></p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft04">1.&#160;Some&#160;of&#160;the items in&#160;this section refer&#160;to&#160;secondary&#160;processor-based&#160;VM-execution&#160;controls. If&#160;bit&#160;31 of&#160;the primary processor-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft04">based VM-execution controls is 0, VMX non-root&#160;operation&#160;functions as&#160;if&#160;these&#160;controls&#160;were&#160;all 0.&#160;Se<a href="o_fe12b1e2a880e0ce-1055.html">e Section 24.6.2</a>.</p>
+</div>
+</body>
+</html>

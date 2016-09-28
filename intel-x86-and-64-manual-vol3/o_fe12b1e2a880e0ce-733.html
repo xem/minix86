@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 733</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page733-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce733.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-97</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">18.15.6.2&#160;&#160;&#160;Tagging Mechanism for Front_end_event</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft03">The Front_end_event counts&#160;μops&#160;that have&#160;been&#160;tagged&#160;as encountering&#160;any of the&#160;following&#160;events:</p>
+<p style="position:absolute;top:149px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:151px;left:95px;white-space:nowrap" class="ft03">μ<b>op decode events —&#160;</b>Tagging&#160;μops for&#160;μop decode&#160;events requires specifying bits&#160;in&#160;the&#160;ESCR associated&#160;with&#160;</p>
+<p style="position:absolute;top:166px;left:95px;white-space:nowrap" class="ft03">the performance-monitoring event, Uop_type.&#160;</p>
+<p style="position:absolute;top:188px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:189px;left:95px;white-space:nowrap" class="ft05"><b>Trace cache&#160;events —&#160;</b>Tagging&#160;μops for trace cache&#160;events may&#160;require&#160;specifying certain&#160;bits&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:205px;left:95px;white-space:nowrap" class="ft03">MSR_TC_PRECISE_EVENT&#160;MSR (see<a href="o_fe12b1e2a880e0ce-952.html">&#160;Table 19-31).</a></p>
+<p style="position:absolute;top:229px;left:69px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-947.html">Table&#160;19-29&#160;d</a>escribes&#160;the&#160;Front_end_event&#160;and<a href="o_fe12b1e2a880e0ce-952.html">&#160;Table&#160;19-31&#160;</a>describes metrics that are&#160;used&#160;to set up&#160;a&#160;<br/>Front_end_event count.<br/>The&#160;MSRs&#160;specified&#160;in&#160;the<a href="o_fe12b1e2a880e0ce-947.html">&#160;Table&#160;19-29 that are s</a>upported&#160;by the front-end tagging mechanism must be&#160;set and one&#160;<br/>or both of the&#160;NBOGUS&#160;and BOGUS&#160;bits&#160;in the&#160;Front_end_event&#160;event&#160;mask&#160;must&#160;be set to count events.&#160;None of&#160;<br/>the events&#160;currently&#160;supported&#160;requires the use of the&#160;MSR_TC_PRECISE_EVENT&#160;MSR.&#160;</p>
+<p style="position:absolute;top:347px;left:69px;white-space:nowrap" class="ft02">18.15.6.3&#160;&#160;&#160;Tagging Mechanism For&#160;Execution_event</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-947.html">Table&#160;19-29&#160;d</a>escribes&#160;the&#160;Execution_event&#160;and<a href="o_fe12b1e2a880e0ce-952.html">&#160;Table&#160;19-32&#160;</a>describes metrics&#160;that are&#160;used&#160;to set up&#160;an&#160;<br/>Execution_event count.<br/>The execution tagging mechanism&#160;differs from&#160;other tagging&#160;mechanisms in&#160;how&#160;it causes tagging. One&#160;<i>upstream</i>&#160;<br/>ESCR&#160;is used to&#160;specify an&#160;event&#160;to detect&#160;and to&#160;specify&#160;a tag value&#160;(bits 5 through 8) to identify that event. A&#160;<br/>second&#160;<i>downstream</i>&#160;ESCR&#160;is&#160;used&#160;to&#160;detect&#160;μops that&#160;have been&#160;tagged with that&#160;tag value&#160;identifier&#160;using&#160;</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft07">Execution_event for the&#160;event selection.&#160;<br/>The upstream&#160;ESCR that counts&#160;the event must have&#160;its&#160;tag&#160;enable&#160;flag (bit 4)&#160;set&#160;and must have&#160;an&#160;appropriate&#160;<br/>tag value mask entered in its tag value field. The 4-bit tag&#160;value mask specifies which of tag bits should be set for&#160;<br/>a particular&#160;μop.&#160;The&#160;value&#160;selected&#160;for the&#160;tag value&#160;should&#160;coincide&#160;with&#160;the event mask selected&#160;in&#160;the&#160;down-</p>
+<p style="position:absolute;top:539px;left:69px;white-space:nowrap" class="ft07">stream ESCR. For example, if&#160;a tag&#160;value of 1 is&#160;set,&#160;then the&#160;event mask of NBOGUS0&#160;should&#160;be&#160;enabled,&#160;corre-<br/>spondingly in the downstream ESCR.&#160;The downstream ESCR&#160;detects&#160;and counts tagged&#160;μops. The normal (not tag&#160;</p>
+<p style="position:absolute;top:572px;left:69px;white-space:nowrap" class="ft07">value)&#160;mask bits in the&#160;downstream ESCR specify which tag bits to count.&#160;If&#160;any one of&#160;the&#160;tag bits selected by&#160;the&#160;<br/>mask is set, the related&#160;counter is&#160;incremented&#160;by one.&#160;This mechanism is&#160;summarized in&#160;<a href="o_fe12b1e2a880e0ce-952.html">the Table 19-32&#160;me</a>trics&#160;<br/>that are&#160;supported&#160;by the&#160;execution&#160;tagging&#160;mechanism.&#160;The tag enable and tag&#160;value bits are&#160;irrelevant for the&#160;<br/>downstream ESCR&#160;used&#160;to select the&#160;Execution_event.<br/>The&#160;four&#160;separate tag bits&#160;allow the&#160;user to&#160;simultaneously but&#160;distinctly count&#160;up&#160;to&#160;four execution events at&#160;<br/>retirement.&#160;(This applies for interrupt-based event sampling.&#160;There&#160;are additional&#160;restrictions for PEBS as&#160;noted&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-734.html">Section&#160;18.15.7.3,&#160;“Setting&#160;Up&#160;the&#160;PEBS&#160;Buffer.”) It&#160;</a>is also&#160;possible&#160;to detect&#160;or&#160;count combinations of events&#160;by&#160;<br/>setting multiple tag value bits in&#160;the&#160;upstream ESCR or&#160;multiple&#160;mask&#160;bits&#160;in the&#160;downstream ESCR. For&#160;example,&#160;<br/>use&#160;a&#160;tag&#160;value of 3H&#160;in&#160;the upstream&#160;ESCR&#160;and&#160;use&#160;NBOGUS0/NBOGUS1 in&#160;the downstream ESCR&#160;event&#160;mask.</p>
+<p style="position:absolute;top:756px;left:69px;white-space:nowrap" class="ft02">18.15.6.4&#160;&#160;&#160;Tagging Mechanism for Replay_event</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-947.html">Table 19-29&#160;describ</a>es the&#160;Replay_event&#160;and<a href="o_fe12b1e2a880e0ce-952.html">&#160;Table&#160;19-33&#160;de</a>scribes metrics that are used&#160;to set up an Replay_event&#160;<br/>count.<br/>The replay&#160;mechanism&#160;enables tagging of&#160;μops&#160;for&#160;a subset of&#160;all&#160;replays before retirement.&#160;Use of the&#160;replay&#160;</p>
+<p style="position:absolute;top:841px;left:69px;white-space:nowrap" class="ft03">mechanism requires&#160;selecting&#160;the type of&#160;μop&#160;that may experience&#160;the&#160;replay&#160;in the&#160;MSR_PEBS_MATRIX_VERT&#160;</p>
+<p style="position:absolute;top:858px;left:69px;white-space:nowrap" class="ft07">MSR&#160;and selecting the type of event in&#160;the MSR_PEBS_ENABLE&#160;MSR.&#160;Replay tagging must&#160;also be&#160;enabled with the&#160;<br/>UOP_Tag&#160;flag&#160;(bit 24) in&#160;the MSR_PEBS_ENABLE MSR.&#160;<br/><a href="o_fe12b1e2a880e0ce-952.html">The Table 19-33 lists&#160;</a>the metrics that are support the replay tagging mechanism and the&#160;at-retirement events that&#160;<br/>use the&#160;replay&#160;tagging&#160;mechanism,&#160;and&#160;specifies how&#160;the appropriate MSRs need to&#160;be&#160;configured. The&#160;replay&#160;tags&#160;<br/>defined&#160;in Table&#160;A-5 also enable Processor Event-Based Sampling (PEBS,&#160;see<a href="o_fe12b1e2a880e0ce-591.html">&#160;Section 17.4.9).</a>&#160;Each&#160;of these replay&#160;<br/>tags&#160;can also&#160;be&#160;used&#160;in&#160;normal&#160;sampling&#160;by&#160;not setting&#160;Bit 24&#160;nor Bit&#160;25&#160;in IA_32_PEBS_ENABLE_MSR.&#160;Each of&#160;<br/>these&#160;metrics requires that&#160;the Replay_Event&#160;<a href="o_fe12b1e2a880e0ce-947.html">(see Table 19-29</a>)&#160;be&#160;used&#160;to count the&#160;tagged&#160;μops.</p>
+</div>
+</body>
+</html>

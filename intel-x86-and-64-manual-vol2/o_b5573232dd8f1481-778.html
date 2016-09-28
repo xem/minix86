@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 778</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:9px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page778-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481778.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:378px;white-space:nowrap" class="ft00">MOVNTPD—Store&#160;Packed&#160;Double-Precision&#160;Floating-Point Values&#160;Using Non-Temporal Hint</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-98&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">MOVNTPD—Store Packed Double-Precision Floating-Point&#160;Values Using Non-Temporal Hint</p>
+<p style="position:absolute;top:428px;left:349px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:425px;left:548px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:559px;left:68px;white-space:nowrap" class="ft06">Moves the&#160;packed&#160;double-precision floating-point values in&#160;the source operand (second operand) to the destination&#160;<br/>operand (first operand) using a non-temporal&#160;hint&#160;to prevent caching&#160;of&#160;the data&#160;during the&#160;write&#160;to memory. The&#160;<br/>source operand&#160;is an&#160;XMM register,&#160;YMM register or&#160;ZMM register, which&#160;is assumed to contain&#160;packed double-<br/>precision,&#160;floating-pointing&#160;data.&#160;The destination operand is&#160;a&#160;128-bit,&#160;256-bit or&#160;512-bit memory location.&#160;The&#160;<br/>memory&#160;operand&#160;must be&#160;aligned&#160;on&#160;a 16-byte&#160;(128-bit&#160;version),&#160;32-byte (VEX.256&#160;encoded version) or&#160;64-byte&#160;<br/>(EVEX.512&#160;encoded&#160;version) boundary&#160;otherwise&#160;a&#160;general-protection exception&#160;(#GP) will be generated.&#160;<br/>The&#160;non-temporal hint&#160;is implemented by&#160;using a&#160;write&#160;combining (WC)&#160;memory type protocol when&#160;writing the&#160;<br/>data&#160;to memory.&#160;Using&#160;this protocol, the&#160;processor&#160;does&#160;not write the data&#160;into the&#160;cache hierarchy,&#160;nor does it&#160;<br/>fetch the&#160;corresponding cache&#160;line from memory into the&#160;cache&#160;hierarchy.&#160;The memory type of the&#160;region&#160;being&#160;<br/>written to can&#160;override the non-temporal&#160;hint, if&#160;the memory address&#160;specified for the&#160;non-temporal&#160;store is&#160;in an&#160;<br/>uncacheable (UC) or write&#160;protected (WP) memory region. For more&#160;information on&#160;non-temporal stores, see&#160;<br/>“Caching of&#160;Temporal&#160;vs. Non-Temporal&#160;Data”&#160;in&#160;Chapter&#160;10&#160;in&#160;the IA-32 Intel Architecture Software&#160;Developer’s&#160;<br/>Manual, Volume&#160;1.<br/>Because the WC protocol uses a&#160;weakly-ordered&#160;memory&#160;consistency model,&#160;a fencing operation implemented with&#160;<br/>the SFENCE or MFENCE instruction should&#160;be used in conjunction with&#160;MOVNTPD instructions if multiple processors&#160;<br/>might use&#160;different memory types to&#160;read/write&#160;the&#160;destination memory&#160;locations.<br/>Note:&#160;VEX.vvvv and&#160;EVEX.vvvv&#160;are reserved&#160;and must be&#160;1111b,&#160;VEX.L&#160;must be 0;&#160;otherwise instructions will&#160;<br/>#UD.</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:915px;left:68px;white-space:nowrap" class="ft08">VMOVNTPD (EVEX encoded versions)&#160;<br/>VL&#160;= 128, 256, 512<br/>DEST[VL-1:0]&#160;&#160;SRC[VL-1:0]<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft05">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft05">Instruction</p>
+<p style="position:absolute;top:123px;left:272px;white-space:nowrap" class="ft05">Op&#160;/&#160;</p>
+<p style="position:absolute;top:137px;left:272px;white-space:nowrap" class="ft05">En</p>
+<p style="position:absolute;top:123px;left:316px;white-space:nowrap" class="ft05">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:316px;white-space:nowrap" class="ft05">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:316px;white-space:nowrap" class="ft05">Support</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft05">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft05">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:389px;white-space:nowrap" class="ft05">Flag</p>
+<p style="position:absolute;top:123px;left:477px;white-space:nowrap" class="ft05">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft05">66&#160;0F&#160;2B&#160;/r</p>
+<p style="position:absolute;top:172px;left:272px;white-space:nowrap" class="ft05">MR</p>
+<p style="position:absolute;top:172px;left:316px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:172px;left:389px;white-space:nowrap" class="ft05">SSE2</p>
+<p style="position:absolute;top:172px;left:477px;white-space:nowrap" class="ft05">Move&#160;packed&#160;double-precision&#160;values&#160;in&#160;xmm1&#160;to&#160;m128&#160;using&#160;</p>
+<p style="position:absolute;top:189px;left:477px;white-space:nowrap" class="ft05">non-temporal&#160;hint.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft09">MOVNTPD m128, xmm1<br/>VEX.128.66.0F.WIG&#160;2B&#160;/r</p>
+<p style="position:absolute;top:211px;left:272px;white-space:nowrap" class="ft05">MR</p>
+<p style="position:absolute;top:211px;left:316px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:211px;left:389px;white-space:nowrap" class="ft05">AVX</p>
+<p style="position:absolute;top:211px;left:477px;white-space:nowrap" class="ft05">Move&#160;packed&#160;double-precision&#160;values&#160;in&#160;xmm1&#160;to&#160;m128&#160;using&#160;</p>
+<p style="position:absolute;top:227px;left:477px;white-space:nowrap" class="ft05">non-temporal&#160;hint.</p>
+<p style="position:absolute;top:231px;left:77px;white-space:nowrap" class="ft09">VMOVNTPD m128, xmm1<br/>VEX.256.66.0F.WIG&#160;2B&#160;/r</p>
+<p style="position:absolute;top:267px;left:77px;white-space:nowrap" class="ft05">VMOVNTPD m256, ymm1</p>
+<p style="position:absolute;top:250px;left:272px;white-space:nowrap" class="ft05">MR</p>
+<p style="position:absolute;top:250px;left:316px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:250px;left:389px;white-space:nowrap" class="ft05">AVX</p>
+<p style="position:absolute;top:250px;left:477px;white-space:nowrap" class="ft05">Move&#160;packed&#160;double-precision&#160;values&#160;in&#160;ymm1&#160;to&#160;m256&#160;using&#160;</p>
+<p style="position:absolute;top:267px;left:477px;white-space:nowrap" class="ft05">non-temporal&#160;hint.</p>
+<p style="position:absolute;top:286px;left:77px;white-space:nowrap" class="ft05">EVEX.128.66.0F.W1&#160;2B&#160;/r</p>
+<p style="position:absolute;top:303px;left:77px;white-space:nowrap" class="ft05">VMOVNTPD m128, xmm1</p>
+<p style="position:absolute;top:286px;left:272px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:286px;left:316px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:286px;left:389px;white-space:nowrap" class="ft05">AVX512VL</p>
+<p style="position:absolute;top:303px;left:389px;white-space:nowrap" class="ft05">AVX512F</p>
+<p style="position:absolute;top:286px;left:477px;white-space:nowrap" class="ft05">Move&#160;packed&#160;double-precision&#160;values&#160;in&#160;xmm1&#160;to&#160;m128&#160;using&#160;</p>
+<p style="position:absolute;top:303px;left:477px;white-space:nowrap" class="ft05">non-temporal&#160;hint.</p>
+<p style="position:absolute;top:322px;left:77px;white-space:nowrap" class="ft05">EVEX.256.66.0F.W1&#160;2B&#160;/r</p>
+<p style="position:absolute;top:339px;left:77px;white-space:nowrap" class="ft05">VMOVNTPD m256, ymm1</p>
+<p style="position:absolute;top:322px;left:272px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:322px;left:316px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:322px;left:389px;white-space:nowrap" class="ft05">AVX512VL</p>
+<p style="position:absolute;top:339px;left:389px;white-space:nowrap" class="ft05">AVX512F</p>
+<p style="position:absolute;top:322px;left:477px;white-space:nowrap" class="ft05">Move&#160;packed double-precision values&#160;in&#160;ymm1&#160;to&#160;m256&#160;using&#160;</p>
+<p style="position:absolute;top:339px;left:477px;white-space:nowrap" class="ft05">non-temporal&#160;hint.</p>
+<p style="position:absolute;top:358px;left:77px;white-space:nowrap" class="ft05">EVEX.512.66.0F.W1&#160;2B&#160;/r</p>
+<p style="position:absolute;top:375px;left:77px;white-space:nowrap" class="ft05">VMOVNTPD m512, zmm1</p>
+<p style="position:absolute;top:358px;left:272px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:358px;left:316px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:358px;left:389px;white-space:nowrap" class="ft05">AVX512F</p>
+<p style="position:absolute;top:358px;left:477px;white-space:nowrap" class="ft05">Move&#160;packed&#160;double-precision&#160;values&#160;in zmm1&#160;to&#160;m512 using&#160;</p>
+<p style="position:absolute;top:375px;left:477px;white-space:nowrap" class="ft05">non-temporal&#160;hint.</p>
+<p style="position:absolute;top:451px;left:112px;white-space:nowrap" class="ft05">Op/En</p>
+<p style="position:absolute;top:451px;left:242px;white-space:nowrap" class="ft05">Operand&#160;1</p>
+<p style="position:absolute;top:451px;left:405px;white-space:nowrap" class="ft05">Operand&#160;2</p>
+<p style="position:absolute;top:451px;left:566px;white-space:nowrap" class="ft05">Operand&#160;3</p>
+<p style="position:absolute;top:451px;left:725px;white-space:nowrap" class="ft05">Operand&#160;4</p>
+<p style="position:absolute;top:475px;left:120px;white-space:nowrap" class="ft05">MR</p>
+<p style="position:absolute;top:475px;left:229px;white-space:nowrap" class="ft05">ModRM:r/m&#160;(w)</p>
+<p style="position:absolute;top:475px;left:395px;white-space:nowrap" class="ft05">ModRM:reg&#160;(r)</p>
+<p style="position:absolute;top:475px;left:587px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:475px;left:747px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:499px;left:117px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:499px;left:229px;white-space:nowrap" class="ft05">ModRM:r/m&#160;(w)</p>
+<p style="position:absolute;top:499px;left:395px;white-space:nowrap" class="ft05">ModRM:reg&#160;(r)</p>
+<p style="position:absolute;top:499px;left:587px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:499px;left:747px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft05">1.&#160;ModRM.MOD = 011B&#160;required</p>
+</div>
+</body>
+</html>

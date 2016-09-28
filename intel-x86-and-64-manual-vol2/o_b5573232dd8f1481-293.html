@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 293</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page293-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481293.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CMPPS—Compare Packed Single-Precision&#160;Floating-Point Values</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-165</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">VCMPPS&#160;(EVEX&#160;encoded&#160;versions)&#160;<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k2[j] OR *no writemask*</p>
+<p style="position:absolute;top:190px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:208px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:226px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:244px;left:197px;white-space:nowrap" class="ft02">CMP&#160;&#160;SRC1[i+31:i]&#160;OP5&#160;SRC2[31:0]</p>
+<p style="position:absolute;top:262px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:280px;left:197px;white-space:nowrap" class="ft02">CMP&#160;&#160;SRC1[i+31:i]&#160;OP5&#160;SRC2[i+31:i]</p>
+<p style="position:absolute;top:298px;left:143px;white-space:nowrap" class="ft03">FI;<br/>IF CMP = TRUE</p>
+<p style="position:absolute;top:334px;left:170px;white-space:nowrap" class="ft03">THEN DEST[j]&#160;&#160;1;<br/>ELSE DEST[j]&#160;&#160;0; FI;</p>
+<p style="position:absolute;top:370px;left:116px;white-space:nowrap" class="ft02">ELSE DEST[j]&#160;</p>
+<p style="position:absolute;top:372px;left:215px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:370px;left:228px;white-space:nowrap" class="ft02">&#160;0</p>
+<p style="position:absolute;top:370px;left:332px;white-space:nowrap" class="ft02">;&#160;zeroing-masking onlyFI;</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_KL-1:KL]&#160;&#160;0</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft03">VCMPPS (VEX.256&#160;encoded version)<br/>CMP0&#160;&#160;SRC1[31:0] OP5 SRC2[31:0];<br/>CMP1&#160;&#160;SRC1[63:32] OP5 SRC2[63:32];<br/>CMP2&#160;&#160;SRC1[95:64] OP5 SRC2[95:64];<br/>CMP3&#160;&#160;SRC1[127:96] OP5&#160;SRC2[127:96];<br/>CMP4&#160;&#160;SRC1[159:128] OP5 SRC2[159:128];<br/>CMP5&#160;&#160;SRC1[191:160] OP5 SRC2[191:160];<br/>CMP6&#160;&#160;SRC1[223:192] OP5 SRC2[223:192];<br/>CMP7&#160;&#160;SRC1[255:224] OP5 SRC2[255:224];<br/>IF&#160;CMP0&#160;= TRUE</p>
+<p style="position:absolute;top:640px;left:89px;white-space:nowrap" class="ft03">THEN DEST[31:0]&#160;FFFFFFFFH;<br/>ELSE DEST[31:0]&#160;&#160;000000000H; FI;</p>
+<p style="position:absolute;top:676px;left:69px;white-space:nowrap" class="ft02">IF&#160;CMP1&#160;= TRUE</p>
+<p style="position:absolute;top:694px;left:89px;white-space:nowrap" class="ft03">THEN DEST[63:32]&#160;&#160;FFFFFFFFH;<br/>ELSE DEST[63:32]&#160;000000000H; FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft02">IF&#160;CMP2&#160;= TRUE</p>
+<p style="position:absolute;top:748px;left:89px;white-space:nowrap" class="ft03">THEN DEST[95:64]&#160;&#160;FFFFFFFFH;<br/>ELSE DEST[95:64]&#160;&#160;000000000H; FI;</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft02">IF&#160;CMP3&#160;= TRUE</p>
+<p style="position:absolute;top:802px;left:89px;white-space:nowrap" class="ft03">THEN DEST[127:96]&#160;&#160;FFFFFFFFH;<br/>ELSE DEST[127:96]&#160;&#160;000000000H; FI;</p>
+<p style="position:absolute;top:838px;left:69px;white-space:nowrap" class="ft02">IF&#160;CMP4&#160;= TRUE</p>
+<p style="position:absolute;top:856px;left:89px;white-space:nowrap" class="ft03">THEN DEST[159:128]&#160;&#160;FFFFFFFFH;<br/>ELSE DEST[159:128]&#160;&#160;000000000H; FI;</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft02">IF&#160;CMP5&#160;= TRUE</p>
+<p style="position:absolute;top:910px;left:89px;white-space:nowrap" class="ft03">THEN DEST[191:160]&#160;&#160;FFFFFFFFH;<br/>ELSE DEST[191:160]&#160;&#160;000000000H; FI;</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft02">IF&#160;CMP6&#160;= TRUE</p>
+<p style="position:absolute;top:964px;left:89px;white-space:nowrap" class="ft03">THEN DEST[223:192]&#160;&#160;FFFFFFFFH;<br/>ELSE DEST[223:192]&#160;000000000H; FI;</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft02">IF&#160;CMP7&#160;= TRUE</p>
+<p style="position:absolute;top:1018px;left:89px;white-space:nowrap" class="ft03">THEN DEST[255:224]&#160;&#160;FFFFFFFFH;<br/>ELSE DEST[255:224]&#160;&#160;000000000H; FI;</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:256]&#160;&#160;0</p>
+</div>
+</body>
+</html>

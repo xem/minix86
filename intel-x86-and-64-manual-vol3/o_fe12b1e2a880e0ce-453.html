@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 453</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:8px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page453-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce453.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;12-5</p>
+<p style="position:absolute;top:47px;left:529px;white-space:nowrap" class="ft01">INTEL</p>
+<p style="position:absolute;top:45px;left:562px;white-space:nowrap" class="ft02">®</p>
+<p style="position:absolute;top:47px;left:573px;white-space:nowrap" class="ft01">&#160;MMX</p>
+<p style="position:absolute;top:45px;left:604px;white-space:nowrap" class="ft02">™</p>
+<p style="position:absolute;top:47px;left:615px;white-space:nowrap" class="ft01">&#160;TECHNOLOGY&#160;SYSTEM&#160;PROGRAMMING</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft03">12.5.1&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft03">Effect of&#160;MMX Instructions on Pending x87 Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft08">If&#160;an&#160;x87&#160;FPU floating-point&#160;exception&#160;is pending and the&#160;processor&#160;encounters an&#160;MMX instruction, the&#160;processor&#160;<br/>generates a&#160;x87 FPU&#160;floating-point&#160;error (#MF) prior&#160;to executing&#160;the&#160;MMX instruction,&#160;to allow&#160;the&#160;pending excep-<br/>tion to be handled by the&#160;x87 FPU&#160;floating-point error exception handler.&#160;While&#160;this exception&#160;handler is&#160;executing,&#160;<br/>the x87&#160;FPU state&#160;is maintained and&#160;is visible&#160;to the handler.&#160;Upon returning from the exception&#160;handler,&#160;the&#160;MMX&#160;<br/>instruction is executed,&#160;which will alter&#160;the x87&#160;FPU&#160;state,&#160;as de<a href="o_fe12b1e2a880e0ce-449.html">scribed in Section 12.2,&#160;“The&#160;MMX State and MMX&#160;<br/>Register Aliasing.”&#160;</a></p>
+<p style="position:absolute;top:267px;left:69px;white-space:nowrap" class="ft05">12.6 DEBUGGING&#160;</p>
+<p style="position:absolute;top:267px;left:265px;white-space:nowrap" class="ft05">MMX&#160;</p>
+<p style="position:absolute;top:267px;left:316px;white-space:nowrap" class="ft05">CODE</p>
+<p style="position:absolute;top:303px;left:69px;white-space:nowrap" class="ft08">The&#160;debug facilities operate&#160;in&#160;the&#160;same&#160;manner when executing&#160;MMX instructions&#160;as when executing&#160;other IA-32&#160;<br/>or&#160;Intel 64 architecture instructions.<br/>To&#160;correctly&#160;interpret the&#160;contents&#160;of&#160;the&#160;MMX or&#160;x87 FPU&#160;registers from&#160;the FSAVE/FNSAVE or&#160;FXSAVE image in&#160;<br/>memory, a&#160;debugger&#160;needs&#160;to take account of&#160;the relationship&#160;between&#160;the x87&#160;FPU register’s&#160;logical locations&#160;<br/>relative&#160;to TOS&#160;and the&#160;MMX register’s&#160;physical locations.<br/>In the&#160;x87 FPU&#160;context,&#160;ST<i>n</i>&#160;refers to an&#160;x87 FPU&#160;register at location&#160;<i>n</i>&#160;relative to&#160;the TOS.&#160;However,&#160;the&#160;tags in&#160;the&#160;<br/>x87 FPU tag&#160;word&#160;are&#160;associated&#160;with&#160;the physical locations&#160;of&#160;the x87&#160;FPU&#160;registers (R0&#160;through R7).&#160;The MMX&#160;<br/>registers always refer to the&#160;physical&#160;locations of the&#160;registers (with MM0&#160;through&#160;MM7&#160;being mapped&#160;to R0&#160;<br/>through&#160;R7).&#160;<a href="o_fe12b1e2a880e0ce-453.html">Figure&#160;12-2 shows this&#160;</a>relationship. Here, the&#160;inner circle refers&#160;to the&#160;physical&#160;location&#160;of the&#160;x87&#160;<br/>FPU&#160;and&#160;MMX registers. The&#160;outer circle refers&#160;to the&#160;x87&#160;FPU&#160;registers’s relative&#160;location to the&#160;current TOS.<br/>When the&#160;TOS&#160;eq<a href="o_fe12b1e2a880e0ce-453.html">uals 0 (case A in Figure&#160;12-2), S</a>T0 points to&#160;the physical location R0 on&#160;the floating-point stack.&#160;<br/>MM0&#160;maps&#160;to ST0,&#160;MM1 maps&#160;to ST1,&#160;and&#160;so on.<br/>When the&#160;TOS&#160;equals 2&#160;(case&#160;B in&#160;<a href="o_fe12b1e2a880e0ce-453.html">Figure&#160;12-2),&#160;</a>ST0&#160;points&#160;to&#160;the physical location&#160;R2.&#160;MM0 maps&#160;to ST6, MM1&#160;<br/>maps to&#160;ST7,&#160;MM2&#160;maps&#160;to ST0,&#160;and&#160;so on.</p>
+<p style="position:absolute;top:854px;left:211px;white-space:nowrap" class="ft07">Figure&#160;12-2. &#160;Mapping&#160;of&#160;MMX Registers&#160;to&#160;x87&#160;FPU Data&#160;Register Stack</p>
+<p style="position:absolute;top:646px;left:528px;white-space:nowrap" class="ft00">MM0</p>
+<p style="position:absolute;top:670px;left:567px;white-space:nowrap" class="ft00">MM1</p>
+<p style="position:absolute;top:699px;left:582px;white-space:nowrap" class="ft00">MM2</p>
+<p style="position:absolute;top:740px;left:567px;white-space:nowrap" class="ft00">MM3</p>
+<p style="position:absolute;top:763px;left:528px;white-space:nowrap" class="ft00">MM4</p>
+<p style="position:absolute;top:741px;left:491px;white-space:nowrap" class="ft00">MM5</p>
+<p style="position:absolute;top:704px;left:477px;white-space:nowrap" class="ft00">MM6</p>
+<p style="position:absolute;top:669px;left:490px;white-space:nowrap" class="ft00">MM7</p>
+<p style="position:absolute;top:639px;left:370px;white-space:nowrap" class="ft00">ST1</p>
+<p style="position:absolute;top:705px;left:395px;white-space:nowrap" class="ft00">ST2</p>
+<p style="position:absolute;top:640px;left:203px;white-space:nowrap" class="ft00">ST7</p>
+<p style="position:absolute;top:603px;left:288px;white-space:nowrap" class="ft00">ST0</p>
+<p style="position:absolute;top:602px;left:528px;white-space:nowrap" class="ft00">ST6</p>
+<p style="position:absolute;top:639px;left:616px;white-space:nowrap" class="ft00">ST7</p>
+<p style="position:absolute;top:764px;left:617px;white-space:nowrap" class="ft00">ST1</p>
+<p style="position:absolute;top:703px;left:527px;white-space:nowrap" class="ft00">TOS</p>
+<p style="position:absolute;top:699px;left:286px;white-space:nowrap" class="ft00">TOS</p>
+<p style="position:absolute;top:597px;left:194px;white-space:nowrap" class="ft00">x87 FPU “push”</p>
+<p style="position:absolute;top:598px;left:346px;white-space:nowrap" class="ft00">x87 FPU&#160;“pop”</p>
+<p style="position:absolute;top:593px;left:573px;white-space:nowrap" class="ft00">x87 FPU “push”</p>
+<p style="position:absolute;top:746px;left:645px;white-space:nowrap" class="ft00">x87 FPU “pop”</p>
+<p style="position:absolute;top:797px;left:178px;white-space:nowrap" class="ft00">Case A: TOS=0</p>
+<p style="position:absolute;top:792px;left:406px;white-space:nowrap" class="ft00">Case B:&#160;TOS=2</p>
+<p style="position:absolute;top:647px;left:284px;white-space:nowrap" class="ft00">MM0</p>
+<p style="position:absolute;top:671px;left:323px;white-space:nowrap" class="ft00">MM1</p>
+<p style="position:absolute;top:696px;left:337px;white-space:nowrap" class="ft00">MM2</p>
+<p style="position:absolute;top:741px;left:323px;white-space:nowrap" class="ft00">MM3</p>
+<p style="position:absolute;top:764px;left:284px;white-space:nowrap" class="ft00">MM4</p>
+<p style="position:absolute;top:741px;left:247px;white-space:nowrap" class="ft00">MM5</p>
+<p style="position:absolute;top:705px;left:232px;white-space:nowrap" class="ft00">MM6</p>
+<p style="position:absolute;top:670px;left:246px;white-space:nowrap" class="ft00">MM7</p>
+<p style="position:absolute;top:703px;left:640px;white-space:nowrap" class="ft00">ST0</p>
+<p style="position:absolute;top:815px;left:216px;white-space:nowrap" class="ft00">Outer&#160;circle&#160;= x87 FPU data register’s&#160;logical&#160;location&#160;relative&#160;to&#160;TOS</p>
+<p style="position:absolute;top:829px;left:216px;white-space:nowrap" class="ft00">Inner circle&#160;= x87 FPU tags = MMX register’s location =&#160;FP registers’s physical&#160;location</p>
+<p style="position:absolute;top:658px;left:287px;white-space:nowrap" class="ft00">(R0)</p>
+<p style="position:absolute;top:711px;left:583px;white-space:nowrap" class="ft00">(R2)</p>
+<p style="position:absolute;top:707px;left:339px;white-space:nowrap" class="ft00">(R2)</p>
+<p style="position:absolute;top:658px;left:530px;white-space:nowrap" class="ft00">(R0)</p>
+</div>
+</body>
+</html>

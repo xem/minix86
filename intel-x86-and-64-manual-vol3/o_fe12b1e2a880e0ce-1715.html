@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1715</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1715-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1715.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-31</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL¬Æ&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft09">When restoring the&#160;trace&#160;configuration context,&#160;IA32_RTIT_CTL&#160;should be&#160;restored&#160;last:<br/>1.&#160;Read&#160;saved configuration MSR&#160;values, aside&#160;from IA32_RTIT_CTL,&#160;from memory, and restore&#160;them&#160;with&#160;</p>
+<p style="position:absolute;top:141px;left:95px;white-space:nowrap" class="ft02">WRMSR&#160;</p>
+<p style="position:absolute;top:165px;left:69px;white-space:nowrap" class="ft02">2.&#160;Read saved&#160;IA32_RTIT_CTL value&#160;from memory,&#160;and restore with WRMSR.</p>
+<p style="position:absolute;top:209px;left:69px;white-space:nowrap" class="ft03">36.3.5.2 &#160;&#160;Trace Configuration Context Switch Using&#160;XSAVES/XRSTORS</p>
+<p style="position:absolute;top:236px;left:69px;white-space:nowrap" class="ft012">On&#160;processors&#160;whose&#160;XSAVE feature&#160;set&#160;supports&#160;XSAVES and XRSTORS,&#160;the Trace&#160;configuration state&#160;can be&#160;<br/>saved using XSAVES and restored by&#160;XRSTORS,&#160;in conjunction with the bit&#160;field associated&#160;with supervisory state&#160;<br/>component in IA32_XSS.&#160;See&#160;<a href="˛ˇ">Chapter 13,&#160;‚ÄúManaging&#160;State Using&#160;the XSAVE Feature&#160;Set‚Äù</a>&#160;of&#160;<a href="˛ˇ"><i>Intel¬Æ 64&#160;and&#160;IA-32&#160;<br/>Architectures&#160;Software Developer‚Äôs Manual, Volume&#160;1</i>.<br/></a>The&#160;layout of the&#160;trace&#160;configuration component state in&#160;the&#160;XSAVE area&#160;is&#160;<a href="o_fe12b1e2a880e0ce-1715.html">shown in&#160;Table&#160;36-13</a>.</p>
+<p style="position:absolute;top:305px;left:726px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:529px;left:69px;white-space:nowrap" class="ft011">The IA32_XSS&#160;MSR&#160;is&#160;zero&#160;coming out of RESET.&#160;Once&#160;IA32_XSS[bit 8]&#160;is set, system&#160;software&#160;operating&#160;at CPL=&#160;<br/>0 can use&#160;XSAVES/XRSTORS&#160;with&#160;the&#160;appropriate requested-feature bitmap (RFBM)&#160;to manage&#160;supervisor&#160;state&#160;<br/>components&#160;in the XSAVE map.&#160;Se<a href="˛ˇ">e Chapter&#160;13, ‚ÄúManaging State&#160;Using the XSAVE&#160;Feature Set‚Äù</a>&#160;<a href="˛ˇ">of&#160;<i>Intel¬Æ 64&#160;and&#160;<br/>IA-32&#160;Architectures&#160;Software Developer‚Äôs Manual, Volume&#160;1</i></a>.</p>
+<p style="position:absolute;top:629px;left:69px;white-space:nowrap" class="ft06">36.3.6 Cycle-Accurate&#160;</p>
+<p style="position:absolute;top:629px;left:273px;white-space:nowrap" class="ft06">Mode&#160;</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft010">Intel PT can&#160;be run in&#160;a cycle-accurate mode which enables CYC packet<a href="o_fe12b1e2a880e0ce-1736.html">s (see Section 36.4.2.14) that provide low</a>-<br/>level information&#160;in the&#160;processor&#160;core clock domain. This&#160;cycle&#160;counter&#160;data in&#160;CYC packets&#160;can be&#160;used to&#160;<br/>compute&#160;IPC (Instructions Per&#160;Cycle), or&#160;to&#160;track wall-clock&#160;time on&#160;a&#160;fine-grain&#160;level.<br/>To&#160;enable cycle-accurate mode packet generation, software&#160;should set&#160;IA32_RTIT_CTL.CYCEn=1.&#160;It&#160;is recom-<br/>mended that software&#160;also set TSCEn=1&#160;anytime&#160;cycle-accurate mode is&#160;in&#160;use.&#160;With&#160;this, all&#160;CYC-eligible packets&#160;<br/>will&#160;be&#160;preceded&#160;by&#160;a CYC packet, the&#160;payload of which indicates the&#160;number&#160;of core clock cycles since&#160;the last&#160;CYC&#160;<br/>packet.&#160;In cases&#160;where&#160;multiple&#160;CYC-eligible packets&#160;are&#160;generated&#160;in a single cycle, only a&#160;single&#160;CYC will be&#160;<br/>generated&#160;before&#160;the&#160;CYC-eligible packets, otherwise each&#160;CYC-eligible packet will be preceded&#160;by its own CYC.&#160;The&#160;<br/>CYC-eligible&#160;packets&#160;are:</p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft07">‚Ä¢</p>
+<p style="position:absolute;top:818px;left:95px;white-space:nowrap" class="ft02">TNT,&#160;TIP,&#160;TIP.PGE, TIP.PGD,&#160;MODE.EXEC,&#160;MODE.TSX, PIP,&#160;VMCS, OVF,&#160;MTC,&#160;TSC,&#160;PTWRITE, EXSTOP</p>
+<p style="position:absolute;top:841px;left:69px;white-space:nowrap" class="ft010">TSC packets&#160;are generated when there is&#160;insufficient&#160;information to&#160;reconstruct&#160;wall-clock time, due to&#160;tracing&#160;<br/>being&#160;disabled (TriggerEn=0), or&#160;power down scenarios&#160;like&#160;a transition&#160;to a&#160;deep-sleep&#160;MWAIT C-state.&#160;In&#160;this&#160;<br/>case, the&#160;CYC that&#160;is generated along with&#160;the TSC will&#160;indicate&#160;the&#160;number&#160;of cycles actively tracing (those&#160;<br/>powered up, with&#160;TriggerEn=1) executed&#160;between the&#160;last&#160;CYC packet&#160;and the&#160;TSC&#160;packet.&#160;And hence&#160;the amount&#160;<br/>of time spent while tracing is&#160;inactive&#160;can be inferred&#160;from the difference in&#160;time&#160;between that expected based on&#160;<br/>the CYC value,&#160;and&#160;the actual&#160;time&#160;indicated by&#160;the TSC.<br/>Additional CYC packets may&#160;be sent&#160;stand-alone, so that&#160;the processor can ensure that the decoder is&#160;aware of the&#160;<br/>number of cycles&#160;that&#160;have&#160;passed before&#160;the&#160;internal hardware&#160;counter wraps,&#160;or&#160;is reset due to&#160;other micro-<br/>architectural condition. There is&#160;no guarantee&#160;at what intervals these&#160;standalone&#160;CYC&#160;packets will be sent,&#160;except&#160;<br/>that they will&#160;be&#160;sent before&#160;the&#160;wrap occurs. An&#160;illustration is&#160;given below.</p>
+<p style="position:absolute;top:1043px;left:69px;white-space:nowrap" class="ft02">1.&#160;<a href="o_fe12b1e2a880e0ce-1715.html">Table&#160;36-13</a>&#160;documents support for the MSRs&#160;defining&#160;address&#160;ranges 0 and 1.&#160;Processors that provide XSAVE support for Intel Processor&#160;</p>
+<p style="position:absolute;top:1059px;left:91px;white-space:nowrap" class="ft02">Trace support only those&#160;address ranges.</p>
+<p style="position:absolute;top:339px;left:205px;white-space:nowrap" class="ft08">Table 36-13.&#160;Memory&#160;Layout&#160;of&#160;the&#160;Trace Configuration State&#160;Component</p>
+<p style="position:absolute;top:363px;left:91px;white-space:nowrap" class="ft02">Offset&#160;within&#160;</p>
+<p style="position:absolute;top:380px;left:81px;white-space:nowrap" class="ft02">Component Area</p>
+<p style="position:absolute;top:363px;left:309px;white-space:nowrap" class="ft02">Field</p>
+<p style="position:absolute;top:363px;left:475px;white-space:nowrap" class="ft02">Offset within&#160;</p>
+<p style="position:absolute;top:380px;left:464px;white-space:nowrap" class="ft02">Component&#160;Area</p>
+<p style="position:absolute;top:363px;left:692px;white-space:nowrap" class="ft02">Field</p>
+<p style="position:absolute;top:404px;left:123px;white-space:nowrap" class="ft02">0H</p>
+<p style="position:absolute;top:404px;left:200px;white-space:nowrap" class="ft02">IA32_RTIT_CTL</p>
+<p style="position:absolute;top:404px;left:503px;white-space:nowrap" class="ft02">08H</p>
+<p style="position:absolute;top:404px;left:583px;white-space:nowrap" class="ft02">IA32_RTIT_OUTPUT_BASE</p>
+<p style="position:absolute;top:428px;left:119px;white-space:nowrap" class="ft02">10H</p>
+<p style="position:absolute;top:428px;left:200px;white-space:nowrap" class="ft02">IA32_RTIT_OUTPUT_MASK_PTRS</p>
+<p style="position:absolute;top:428px;left:503px;white-space:nowrap" class="ft02">18H</p>
+<p style="position:absolute;top:428px;left:584px;white-space:nowrap" class="ft02">IA32_RTIT_STATUS</p>
+<p style="position:absolute;top:452px;left:119px;white-space:nowrap" class="ft02">20H</p>
+<p style="position:absolute;top:452px;left:200px;white-space:nowrap" class="ft02">IA32_RTIT_CR3_MATCH</p>
+<p style="position:absolute;top:452px;left:503px;white-space:nowrap" class="ft02">28H</p>
+<p style="position:absolute;top:452px;left:583px;white-space:nowrap" class="ft02">IA32_RTIT_ADDR0_A</p>
+<p style="position:absolute;top:476px;left:119px;white-space:nowrap" class="ft02">30H</p>
+<p style="position:absolute;top:476px;left:200px;white-space:nowrap" class="ft02">IA32_RTIT_ADDR0_B</p>
+<p style="position:absolute;top:476px;left:503px;white-space:nowrap" class="ft02">38H</p>
+<p style="position:absolute;top:476px;left:583px;white-space:nowrap" class="ft02">IA32_RTIT_ADDR1_A</p>
+<p style="position:absolute;top:500px;left:119px;white-space:nowrap" class="ft02">40H</p>
+<p style="position:absolute;top:500px;left:200px;white-space:nowrap" class="ft02">IA32_RTIT_ADDR1_B</p>
+<p style="position:absolute;top:500px;left:489px;white-space:nowrap" class="ft02">48H‚ÄìEnd</p>
+<p style="position:absolute;top:500px;left:583px;white-space:nowrap" class="ft02">Reserved</p>
+</div>
+</body>
+</html>

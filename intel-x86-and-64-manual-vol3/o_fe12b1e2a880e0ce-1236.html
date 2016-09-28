@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1236</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1236-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1236.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">32-8&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VIRTUALIZATION&#160;OF&#160;SYSTEM&#160;RESOURCES</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft06">Examine all&#160;PTEs in&#160;the page table; if they are now all marked not-present, de-allocate the page table and set&#160;<br/>P&#160;=&#160;0 in&#160;the&#160;PDE (this step&#160;may be&#160;optional).</p>
+<p style="position:absolute;top:161px;left:68px;white-space:nowrap" class="ft03">32.3.5.4 &#160;&#160;Response&#160;to CR3 Writes</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft07">A&#160;guest&#160;operating system may attempt to write&#160;to CR3.&#160;Any write to&#160;CR3&#160;implies a&#160;TLB flush and a&#160;possible&#160;page&#160;<br/>table&#160;change.&#160;The&#160;following&#160;steps are&#160;performed:<br/>1.&#160;The&#160;VMM notes the&#160;new&#160;CR3&#160;value&#160;(used&#160;later&#160;to walk guest page&#160;tables)&#160;and emulates the&#160;write.<br/>2.&#160;The&#160;VMM allocates a&#160;new PD page, with all&#160;invalid&#160;entries.<br/>3.&#160;The&#160;VMM&#160;sets&#160;actual processor CR3&#160;register to&#160;point&#160;to&#160;the&#160;new PD page.<br/>The&#160;VMM may,&#160;at&#160;this point, speculatively&#160;fill in&#160;VTLB&#160;mappings for performance&#160;reasons.</p>
+<p style="position:absolute;top:358px;left:68px;white-space:nowrap" class="ft04">32.4&#160;</p>
+<p style="position:absolute;top:358px;left:147px;white-space:nowrap" class="ft04">MICROCODE UPDATE FACILITY</p>
+<p style="position:absolute;top:394px;left:68px;white-space:nowrap" class="ft06">The microcode&#160;code&#160;update facility&#160;may be invoked at&#160;various points&#160;during&#160;the&#160;operation of a&#160;platform.&#160;Typically,&#160;<br/>the BIOS invokes the&#160;facility on all processors during the BIOS boot process.&#160;This is sufficient to boot the BIOS and&#160;<br/>operating system. As a&#160;microcode update&#160;more&#160;current than&#160;the&#160;system BIOS&#160;may&#160;be&#160;available, system software&#160;<br/>should&#160;provide&#160;another mechanism for invoking the&#160;microcode update&#160;facility.&#160;The implications of&#160;the&#160;microcode&#160;<br/>update&#160;mechanism on the&#160;design of the&#160;VMM are&#160;described in this&#160;section.</p>
+<p style="position:absolute;top:494px;left:432px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:520px;left:120px;white-space:nowrap" class="ft06">Microcode updates&#160;must&#160;not be&#160;performed&#160;during&#160;VMX&#160;non-root&#160;operation. Updates performed in&#160;<br/>VMX non-root&#160;operation may&#160;result in&#160;unpredictable system&#160;behavior.</p>
+<p style="position:absolute;top:587px;left:68px;white-space:nowrap" class="ft05">32.4.1&#160;</p>
+<p style="position:absolute;top:587px;left:148px;white-space:nowrap" class="ft05">Early Load of&#160;Microcode Updates</p>
+<p style="position:absolute;top:617px;left:68px;white-space:nowrap" class="ft06">The microcode&#160;update facility&#160;may be invoked early&#160;in&#160;the&#160;VMM&#160;or&#160;guest&#160;OS&#160;boot&#160;process.&#160;Loading&#160;the microcode&#160;<br/>update&#160;early provides the&#160;opportunity to&#160;correct errata&#160;affecting&#160;the boot process but&#160;the technique generally&#160;<br/>requires a reboot of&#160;the software.<br/>A microcode update&#160;may&#160;be loaded&#160;from&#160;the OS&#160;or VMM&#160;image loader. Typically, such&#160;image&#160;loaders do not run&#160;on&#160;<br/>every logical processor,&#160;so&#160;this method&#160;effects only one&#160;logical processor.&#160;Later&#160;in the&#160;VMM or OS boot&#160;process,&#160;<br/>after&#160;bringing&#160;all application processors on-line,&#160;the&#160;VMM or&#160;OS needs to&#160;invoke&#160;the&#160;microcode update&#160;facility&#160;for&#160;all&#160;<br/>application processors.<br/>Depending on the&#160;order&#160;of&#160;the VMM&#160;and the&#160;guest OS&#160;boot,&#160;the microcode&#160;update facility may be invoked by the&#160;<br/>VMM or&#160;the guest OS.&#160;For&#160;example,&#160;if the&#160;guest OS&#160;boots&#160;first and&#160;then&#160;loads the&#160;VMM,&#160;the guest OS&#160;may&#160;invoke&#160;<br/>the microcode&#160;update facility&#160;on all&#160;the&#160;logical processors.&#160;If&#160;a VMM&#160;boots before its&#160;guests, then&#160;the VMM&#160;may&#160;<br/>invoke the microcode update facility during its boot process.&#160;In both cases, the VMM or&#160;OS should invoke the micro-<br/>code update&#160;facilities soon&#160;after performing the&#160;multiprocessor startup.<br/>In&#160;the early&#160;load&#160;scenario,&#160;microcode updates may be contained in&#160;the VMM&#160;or OS image&#160;or, the VMM or&#160;OS&#160;may&#160;<br/>manage&#160;a separate&#160;database&#160;or&#160;file of microcode updates. Maintaining a&#160;separate microcode update image data-<br/>base&#160;has the&#160;advantage&#160;of reducing&#160;the&#160;number&#160;of required&#160;VMM or OS releases&#160;as a&#160;result of microcode update&#160;<br/>releases.</p>
+<p style="position:absolute;top:938px;left:68px;white-space:nowrap" class="ft05">32.4.2&#160;</p>
+<p style="position:absolute;top:938px;left:148px;white-space:nowrap" class="ft05">Late Load of&#160;Microcode Updates</p>
+<p style="position:absolute;top:968px;left:68px;white-space:nowrap" class="ft06">A microcode update may&#160;be loaded during normal system&#160;operation. This&#160;allows&#160;system software&#160;to&#160;activate&#160;the&#160;<br/>microcode update&#160;at anytime without requiring a system&#160;reboot. This scenario does not&#160;allow the&#160;microcode&#160;update&#160;<br/>to correct&#160;errata&#160;which&#160;affect&#160;the&#160;processor’s boot&#160;process&#160;but does allow high-availability systems&#160;to activate&#160;<br/>microcode updates without interrupting the availability of&#160;the&#160;system. In&#160;this late&#160;load scenario,&#160;either the VMM or&#160;<br/>a designated guest may&#160;load&#160;the microcode update.&#160;If the&#160;guest&#160;is loading&#160;the&#160;microcode update,&#160;the&#160;VMM must&#160;</p>
+</div>
+</body>
+</html>

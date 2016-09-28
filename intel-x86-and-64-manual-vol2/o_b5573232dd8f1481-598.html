@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 598</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page598-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481598.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:678px;white-space:nowrap" class="ft00">INVLPG—Invalidate&#160;TLB Entries</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-470&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">INVLPG—Invalidate TLB Entries</p>
+<p style="position:absolute;top:259px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:343px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:367px;left:68px;white-space:nowrap" class="ft07">Invalidates any translation&#160;lookaside buffer&#160;(TLB) entries specified&#160;with the&#160;source&#160;operand. The source operand is&#160;<br/>a memory address.&#160;The&#160;processor&#160;determines&#160;the&#160;page&#160;that&#160;contains that&#160;address and&#160;flushes&#160;all TLB entries for&#160;<br/>that page.</p>
+<p style="position:absolute;top:398px;left:137px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft07">The INVLPG instruction&#160;is a privileged instruction. When&#160;the processor is&#160;running in protected&#160;mode, the CPL must&#160;<br/>be&#160;0&#160;to execute&#160;this instruction.<br/>The INVLPG instruction normally&#160;flushes TLB&#160;entries&#160;only&#160;for&#160;the specified page; however,&#160;in&#160;some cases,&#160;it&#160;may&#160;<br/>flush&#160;more&#160;entries,&#160;even&#160;the entire&#160;TLB.&#160;The&#160;instruction&#160;is guaranteed&#160;to invalidates&#160;only TLB entries associated&#160;<br/>with the current PCID. (If PCIDs are disabled&#160;— CR4.PCIDE&#160;=&#160;0&#160;—&#160;the&#160;current&#160;PCID is&#160;000H.) The&#160;instruction also&#160;<br/>invalidates&#160;any global TLB entries for&#160;the&#160;specified page, regardless of PCID.<br/>For more details on operations&#160;that flush the TLB,&#160;se<a href="o_b5573232dd8f1481-720.html">e “MOV—Move to/from Control Registers” in the&#160;</a><a href="��"><i>Intel® 64&#160;and&#160;<br/>IA-32&#160;Architectures&#160;Software Developer’s Manual, Volume&#160;2B</i></a>&#160;<a href="��">and Section 4.10.4.1, “Operations&#160;that Invalidate&#160;<br/>TLBs&#160;and Paging-Structure&#160;Caches,”&#160;in</a>&#160;the&#160;<a href="��"><i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual,&#160;<br/>Volume 3A</i></a>.<br/>This instruction’s&#160;operation&#160;is the&#160;same&#160;in&#160;all non-64-bit modes.&#160;It also&#160;operates the&#160;same in&#160;64-bit mode, except&#160;<br/>if the&#160;memory address&#160;is in&#160;non-canonical&#160;form. In this&#160;case, INVLPG&#160;is the&#160;same&#160;as a&#160;NOP.</p>
+<p style="position:absolute;top:662px;left:68px;white-space:nowrap" class="ft03">IA-32 Architecture&#160;Compatibility</p>
+<p style="position:absolute;top:687px;left:68px;white-space:nowrap" class="ft07">The INVLPG instruction is&#160;implementation&#160;dependent, and its&#160;function may be&#160;implemented differently on&#160;different&#160;<br/>families of Intel 64&#160;or IA-32 processors.&#160;This&#160;instruction&#160;is not supported&#160;on IA-32&#160;processors&#160;earlier than the&#160;<br/>Intel486&#160;processor.</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:784px;left:68px;white-space:nowrap" class="ft011">Invalidate(RelevantTLBEntries);<br/>Continue; (* Continue&#160;execution&#160;*)</p>
+<p style="position:absolute;top:836px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:861px;left:68px;white-space:nowrap" class="ft04">None.</p>
+<p style="position:absolute;top:895px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:918px;left:68px;white-space:nowrap" class="ft04">#GP(0)</p>
+<p style="position:absolute;top:918px;left:206px;white-space:nowrap" class="ft04">If&#160;the current&#160;privilege level&#160;is not 0.</p>
+<p style="position:absolute;top:939px;left:68px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:939px;left:206px;white-space:nowrap" class="ft012">Operand is&#160;a register.<br/>If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:427px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:427px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:499px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:499px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:569px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F 01/7</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">INVLPG&#160;<i>m</i></p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:160px;left:427px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:499px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:569px;white-space:nowrap" class="ft04">Invalidate TLB entries for page&#160;containing&#160;<i>m.</i></p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:202px;left:73px;white-space:nowrap" class="ft04">*&#160;See&#160;the&#160;IA-32&#160;Architecture&#160;Compatibility section below.</p>
+<p style="position:absolute;top:281px;left:81px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:281px;left:186px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:281px;left:361px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:281px;left:537px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:281px;left:716px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:306px;left:94px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:306px;left:176px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:306px;left:382px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:306px;left:558px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:306px;left:737px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft04">1.&#160;If the&#160;paging&#160;structures&#160;map the linear&#160;address using&#160;a page&#160;larger&#160;than&#160;4 KBytes&#160;and there are&#160;multiple&#160;TLB&#160;entries for&#160;that&#160;page&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft04">(see<a href="��">&#160;Section&#160;4.10.2.3,&#160;“Details of&#160;TLB Use,”&#160;in the&#160;<i>Intel® 64&#160;and&#160;IA-32 Architectures&#160;Software&#160;Developer’s Manual, Volume 3A</i>), the&#160;</a></p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft04">instruction invalidates all of&#160;them.</p>
+</div>
+</body>
+</html>

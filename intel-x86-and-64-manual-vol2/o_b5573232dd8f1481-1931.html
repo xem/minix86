@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1931</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1931-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811931.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">XBEGIN — Transactional Begin</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-545</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">XBEGIN&#160;— Transactional Begin</p>
+<p style="position:absolute;top:334px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:421px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:445px;left:69px;white-space:nowrap" class="ft05">The XBEGIN instruction&#160;specifies the start of&#160;an&#160;RTM code region.&#160;If the logical processor was not already&#160;in trans-<br/>actional execution, then the XBEGIN instruction&#160;causes the logical&#160;processor to transition&#160;into transactional execu-<br/>tion. The XBEGIN instruction that transitions the&#160;logical processor into transactional execution is referred&#160;to&#160;as the&#160;<br/>outermost&#160;XBEGIN instruction. The instruction&#160;also specifies a&#160;relative&#160;offset&#160;to compute the address&#160;of the fallback&#160;<br/>code&#160;path following a&#160;transactional abort.<br/>On&#160;an&#160;RTM&#160;abort,&#160;the logical processor discards&#160;all architectural register&#160;and memory updates&#160;performed&#160;during&#160;<br/>the RTM execution and restores architectural state&#160;to that&#160;corresponding to the outermost XBEGIN instruction.&#160;The&#160;<br/>fallback address&#160;following an&#160;abort is&#160;computed from&#160;the outermost&#160;XBEGIN instruction.&#160;</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:624px;left:69px;white-space:nowrap" class="ft07">XBEGIN<br/>IF&#160;RTM_NEST_COUNT&#160;&lt;&#160;MAX_RTM_NEST_COUNT</p>
+<p style="position:absolute;top:660px;left:89px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:678px;left:116px;white-space:nowrap" class="ft07">RTM_NEST_COUNT++<br/>IF RTM_NEST_COUNT = 1 THEN</p>
+<p style="position:absolute;top:714px;left:143px;white-space:nowrap" class="ft04">IF 64-bit Mode</p>
+<p style="position:absolute;top:732px;left:170px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:750px;left:224px;white-space:nowrap" class="ft04">fallbackRIP&#160;←&#160;RIP&#160;+ SignExtend64(IMM)</p>
+<p style="position:absolute;top:768px;left:305px;white-space:nowrap" class="ft04">(*&#160;RIP is&#160;instruction following XBEGIN instruction&#160;*)</p>
+<p style="position:absolute;top:786px;left:197px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:804px;left:224px;white-space:nowrap" class="ft04">fallbackEIP&#160;←&#160;EIP + SignExtend32(IMM)</p>
+<p style="position:absolute;top:822px;left:305px;white-space:nowrap" class="ft04">(* EIP&#160;is instruction following&#160;XBEGIN&#160;instruction *)</p>
+<p style="position:absolute;top:840px;left:143px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:876px;left:143px;white-space:nowrap" class="ft04">IF (64-bit mode)</p>
+<p style="position:absolute;top:894px;left:170px;white-space:nowrap" class="ft04">THEN IF (fallbackRIP&#160;is&#160;not canonical)</p>
+<p style="position:absolute;top:912px;left:197px;white-space:nowrap" class="ft04">THEN&#160;#GP(0)</p>
+<p style="position:absolute;top:930px;left:170px;white-space:nowrap" class="ft07">FI;<br/>ELSE IF&#160;(fallbackEIP outside&#160;code&#160;segment limit)</p>
+<p style="position:absolute;top:966px;left:197px;white-space:nowrap" class="ft04">THEN&#160;#GP(0)</p>
+<p style="position:absolute;top:984px;left:170px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:1002px;left:143px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:1038px;left:143px;white-space:nowrap" class="ft04">RTM_ACTIVE&#160;←&#160;1</p>
+<p style="position:absolute;top:1056px;left:143px;white-space:nowrap" class="ft04">Enter&#160;RTM&#160;Execution&#160;(* record register state,&#160;start tracking memory&#160;state*)</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/Instruction</p>
+<p style="position:absolute;top:123px;left:264px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:139px;left:264px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:304px;white-space:nowrap" class="ft04">64/32bit&#160;</p>
+<p style="position:absolute;top:139px;left:304px;white-space:nowrap" class="ft04">Mode&#160;</p>
+<p style="position:absolute;top:155px;left:304px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:377px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:377px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:377px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:444px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">C7&#160;F8</p>
+<p style="position:absolute;top:175px;left:264px;white-space:nowrap" class="ft04">A</p>
+<p style="position:absolute;top:175px;left:304px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:377px;white-space:nowrap" class="ft04">RTM</p>
+<p style="position:absolute;top:175px;left:444px;white-space:nowrap" class="ft04">Specifies the start&#160;of&#160;an&#160;RTM region.&#160;Provides a&#160;16-bit relative&#160;</p>
+<p style="position:absolute;top:191px;left:444px;white-space:nowrap" class="ft04">offset&#160;to&#160;compute&#160;the&#160;address&#160;of&#160;the fallback instruction&#160;address at&#160;</p>
+<p style="position:absolute;top:208px;left:444px;white-space:nowrap" class="ft04">which&#160;execution resumes following&#160;an&#160;RTM&#160;abort.</p>
+<p style="position:absolute;top:195px;left:78px;white-space:nowrap" class="ft04">XBEGIN rel16</p>
+<p style="position:absolute;top:247px;left:78px;white-space:nowrap" class="ft04">C7&#160;F8</p>
+<p style="position:absolute;top:247px;left:264px;white-space:nowrap" class="ft04">A</p>
+<p style="position:absolute;top:247px;left:304px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:247px;left:377px;white-space:nowrap" class="ft04">RTM</p>
+<p style="position:absolute;top:247px;left:444px;white-space:nowrap" class="ft04">Specifies the start&#160;of&#160;an&#160;RTM region.&#160;Provides a&#160;32-bit relative&#160;</p>
+<p style="position:absolute;top:263px;left:444px;white-space:nowrap" class="ft04">offset&#160;to&#160;compute&#160;the&#160;address&#160;of&#160;the fallback instruction&#160;address at&#160;</p>
+<p style="position:absolute;top:280px;left:444px;white-space:nowrap" class="ft04">which&#160;execution resumes following&#160;an&#160;RTM&#160;abort.</p>
+<p style="position:absolute;top:267px;left:78px;white-space:nowrap" class="ft04">XBEGIN rel32</p>
+<p style="position:absolute;top:357px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:357px;left:185px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:357px;left:357px;white-space:nowrap" class="ft04">Operand2</p>
+<p style="position:absolute;top:357px;left:532px;white-space:nowrap" class="ft04">Operand3</p>
+<p style="position:absolute;top:357px;left:713px;white-space:nowrap" class="ft04">Operand4</p>
+<p style="position:absolute;top:381px;left:98px;white-space:nowrap" class="ft04">A</p>
+<p style="position:absolute;top:381px;left:197px;white-space:nowrap" class="ft04">Offset</p>
+<p style="position:absolute;top:381px;left:377px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:381px;left:551px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:381px;left:733px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

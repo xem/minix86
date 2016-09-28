@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 219</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page219-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481219.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">BNDCL—Check Lower&#160;Bound</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-91</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">BNDCL—Check Lower Bound</p>
+<p style="position:absolute;top:281px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:365px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft06">Compare the&#160;address in the second&#160;operand with the&#160;lower&#160;bound in bnd.&#160;The&#160;second&#160;operand can be either a&#160;<br/>register or memory&#160;operand. If the address is lower than&#160;the&#160;lower&#160;bound in bnd.LB,&#160;it will&#160;set BNDSTATUS to 01H&#160;<br/>and signal a&#160;#BR&#160;exception.<br/>This instruction does not&#160;cause any&#160;memory&#160;access, and&#160;does&#160;not read or write&#160;any flags.&#160;</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:501px;left:69px;white-space:nowrap" class="ft07">BNDCL BND, reg<br/>IF reg &lt; BND.LB&#160;Then</p>
+<p style="position:absolute;top:537px;left:89px;white-space:nowrap" class="ft07">BNDSTATUS&#160;&#160;01H;&#160;<br/>#BR;&#160;</p>
+<p style="position:absolute;top:573px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:609px;left:69px;white-space:nowrap" class="ft07">BNDCL BND, mem<br/>TEMP&#160;&#160;LEA(mem);&#160;<br/>IF TEMP &lt; BND.LB Then</p>
+<p style="position:absolute;top:663px;left:89px;white-space:nowrap" class="ft07">BNDSTATUS&#160;&#160;01H;&#160;<br/>#BR;&#160;</p>
+<p style="position:absolute;top:699px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:732px;left:69px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:756px;left:69px;white-space:nowrap" class="ft04">BNDCL void &#160; _bnd_chk_ptr_lbounds(const void *q)</p>
+<p style="position:absolute;top:790px;left:69px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:813px;left:69px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:847px;left:69px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:870px;left:69px;white-space:nowrap" class="ft04">#BR</p>
+<p style="position:absolute;top:870px;left:207px;white-space:nowrap" class="ft04">If lower bound check fails.</p>
+<p style="position:absolute;top:891px;left:69px;white-space:nowrap" class="ft04">#UD</p>
+<p style="position:absolute;top:891px;left:207px;white-space:nowrap" class="ft09">If the&#160;LOCK prefix&#160;is used.<br/>If ModRM.r/m&#160;encodes&#160;BND4-BND7&#160;when Intel MPX&#160;is enabled.<br/>If&#160;67H prefix&#160;is not used and&#160;CS.D=0.<br/>If&#160;67H prefix&#160;is used and&#160;CS.D=1.</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:262px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:318px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:318px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:318px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:391px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:391px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:391px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:458px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">F3&#160;0F&#160;1A /r</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">BNDCL&#160;bnd,&#160;r/m32</p>
+<p style="position:absolute;top:175px;left:262px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:318px;white-space:nowrap" class="ft04">NE/V</p>
+<p style="position:absolute;top:175px;left:392px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:175px;left:458px;white-space:nowrap" class="ft04">Generate a&#160;#BR&#160;if&#160;the&#160;address in&#160;r/m32 is&#160;lower than&#160;the lower&#160;</p>
+<p style="position:absolute;top:191px;left:458px;white-space:nowrap" class="ft04">bound&#160;in&#160;bnd.LB.</p>
+<p style="position:absolute;top:211px;left:78px;white-space:nowrap" class="ft04">F3&#160;0F&#160;1A /r</p>
+<p style="position:absolute;top:227px;left:78px;white-space:nowrap" class="ft04">BNDCL&#160;bnd,&#160;r/m64</p>
+<p style="position:absolute;top:211px;left:262px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:211px;left:318px;white-space:nowrap" class="ft04">V/NE</p>
+<p style="position:absolute;top:211px;left:392px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:211px;left:458px;white-space:nowrap" class="ft04">Generate a&#160;#BR&#160;if&#160;the&#160;address in&#160;r/m64 is&#160;lower than&#160;the lower&#160;</p>
+<p style="position:absolute;top:227px;left:458px;white-space:nowrap" class="ft04">bound&#160;in&#160;bnd.LB.</p>
+<p style="position:absolute;top:304px;left:99px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:304px;left:242px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:304px;left:467px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:304px;left:697px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:328px;left:107px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:328px;left:229px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:328px;left:457px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:328px;left:718px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

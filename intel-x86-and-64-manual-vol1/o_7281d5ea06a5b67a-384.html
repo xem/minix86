@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 384</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page384-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a384.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">16-4&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® TRANSACTIONAL SYNCHRONIZATION EXTENSIONS</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">16.3.2&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Querying Transactional Execution Status</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft06">The&#160;XTEST instruction can be used to determine&#160;the&#160;transactional&#160;status&#160;of a&#160;transactional region&#160;specified by&#160;HLE&#160;<br/>or&#160;RTM. Note, while the HLE&#160;prefixes are ignored on processors that do not support HLE, the XTEST instruction&#160;will&#160;<br/>generate&#160;a #UD exception&#160;when used on&#160;processors that&#160;do not support either HLE or&#160;RTM.</p>
+<p style="position:absolute;top:211px;left:68px;white-space:nowrap" class="ft02">16.3.3&#160;</p>
+<p style="position:absolute;top:211px;left:148px;white-space:nowrap" class="ft02">Requirements for HLE Locks</p>
+<p style="position:absolute;top:240px;left:68px;white-space:nowrap" class="ft06">For&#160;HLE&#160;execution to&#160;successfully&#160;commit&#160;transactionally, the&#160;lock must satisfy certain&#160;properties and access&#160;to the&#160;<br/>lock must follow&#160;certain guidelines.&#160;</p>
+<p style="position:absolute;top:278px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:279px;left:93px;white-space:nowrap" class="ft06">An&#160;XRELEASE&#160;prefixed instruction must restore&#160;the&#160;value&#160;of&#160;the elided&#160;lock to&#160;the&#160;value it&#160;had before the&#160;lock&#160;<br/>acquisition. This&#160;allows hardware&#160;to&#160;safely&#160;elide&#160;locks by not&#160;adding&#160;them&#160;to&#160;the write-set. The data size&#160;and&#160;<br/>data address of&#160;the&#160;lock release&#160;(XRELEASE&#160;prefixed)&#160;instruction&#160;must&#160;match that of the&#160;lock acquire&#160;<br/>(XACQUIRE prefixed) and the&#160;lock&#160;must not&#160;cross a&#160;cache line&#160;boundary.</p>
+<p style="position:absolute;top:350px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:351px;left:93px;white-space:nowrap" class="ft06">Software&#160;should not&#160;write to the&#160;elided&#160;lock inside a transactional HLE region&#160;with&#160;any instruction&#160;other than&#160;an&#160;<br/>XRELEASE prefixed instruction,&#160;otherwise&#160;it&#160;may cause&#160;a&#160;transactional abort. In&#160;addition, recursive locks&#160;<br/>(where&#160;a thread acquires&#160;the&#160;same lock multiple&#160;times&#160;without first releasing&#160;the lock)&#160;may also&#160;cause&#160;a trans-<br/>actional abort. Note that software&#160;can observe&#160;the result&#160;of&#160;the&#160;elided lock acquire&#160;inside&#160;the&#160;critical section.&#160;<br/>Such&#160;a read operation will&#160;return&#160;the&#160;value of the&#160;write to&#160;the lock.</p>
+<p style="position:absolute;top:439px;left:68px;white-space:nowrap" class="ft06">The&#160;processor&#160;automatically&#160;detects violations to these guidelines, and safely transitions&#160;to a&#160;non-transactional&#160;<br/>execution without elision. Since Intel TSX&#160;detects conflicts&#160;at the&#160;granularity of a&#160;cache&#160;line,&#160;writes&#160;to&#160;data collo-<br/>cated on the same&#160;cache line&#160;as the&#160;elided&#160;lock may&#160;be&#160;detected as&#160;data conflicts by other&#160;logical processors eliding&#160;<br/>the same&#160;lock.</p>
+<p style="position:absolute;top:539px;left:68px;white-space:nowrap" class="ft02">16.3.4 Transactional&#160;</p>
+<p style="position:absolute;top:539px;left:261px;white-space:nowrap" class="ft02">Nesting</p>
+<p style="position:absolute;top:568px;left:68px;white-space:nowrap" class="ft06">Both&#160;HLE- and RTM-based transactional&#160;executions support&#160;nested&#160;transactional regions. However,&#160;a transactional&#160;<br/>abort restores state to the operation&#160;that started transactional execution: either the outermost XACQUIRE prefixed&#160;<br/>HLE eligible instruction or&#160;the&#160;outermost XBEGIN instruction.&#160;The processor treats&#160;all nested&#160;transactional regions&#160;<br/>as&#160;one monolithic transactional&#160;region.</p>
+<p style="position:absolute;top:662px;left:68px;white-space:nowrap" class="ft05">16.3.4.1 &#160;&#160;HLE Nesting and Elision</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft06">Programmers&#160;can&#160;nest HLE regions up to an implementation&#160;specific depth of MAX_HLE_NEST_COUNT. Each logical&#160;<br/>processor tracks the&#160;nesting&#160;count&#160;internally but&#160;this count is not available to&#160;software.&#160;An&#160;XACQUIRE&#160;prefixed&#160;HLE-<br/>eligible&#160;instruction increments&#160;the nesting count, and&#160;an&#160;XRELEASE&#160;prefixed&#160;HLE-eligible&#160;instruction decrements it.&#160;<br/>The logical processor enters&#160;transactional&#160;execution when&#160;the&#160;nesting count goes&#160;from zero&#160;to one.&#160;The&#160;logical&#160;<br/>processor&#160;attempts&#160;to commit only when the&#160;nesting count&#160;becomes&#160;zero.&#160;A&#160;transactional abort may&#160;occur if the&#160;<br/>nesting count exceeds MAX_HLE_NEST_COUNT.<br/>In&#160;addition&#160;to supporting nested HLE&#160;regions,&#160;the processor can&#160;also elide&#160;multiple nested&#160;locks. The processor&#160;<br/>tracks a&#160;lock&#160;for&#160;elision beginning with the XACQUIRE&#160;prefixed HLE eligible&#160;instruction for that&#160;lock&#160;and ending&#160;with&#160;<br/>the XRELEASE prefixed&#160;HLE&#160;eligible&#160;instruction&#160;for&#160;that same&#160;lock.&#160;The processor can,&#160;at&#160;any one&#160;time, track&#160;up to&#160;<br/>a MAX_HLE_ELIDED_LOCKS number of&#160;locks. For&#160;example,&#160;if the&#160;implementation supports a&#160;<br/>MAX_HLE_ELIDED_LOCKS value of&#160;two&#160;and if&#160;the&#160;programmer nests three&#160;HLE&#160;identified critical&#160;sections&#160;(by&#160;<br/>performing XACQUIRE&#160;prefixed HLE eligible&#160;instructions on&#160;three&#160;distinct&#160;locks without&#160;performing an&#160;intervening&#160;<br/>XRELEASE&#160;prefixed HLE eligible&#160;instruction on any&#160;one&#160;of&#160;the locks), then&#160;the&#160;first two locks will be&#160;elided,&#160;but&#160;the&#160;<br/>third won't&#160;be&#160;elided&#160;(but&#160;will be&#160;added&#160;to the&#160;transaction’s write-set). However,&#160;the execution&#160;will still&#160;continue&#160;<br/>transactionally. Once&#160;an XRELEASE&#160;for&#160;one of&#160;the two elided locks is&#160;encountered,&#160;a subsequent lock acquired&#160;<br/>through the&#160;XACQUIRE prefixed&#160;HLE eligible&#160;instruction will be elided.<br/>The processor attempts to&#160;commit&#160;the HLE execution&#160;when&#160;all&#160;elided&#160;XACQUIRE&#160;and&#160;XRELEASE pairs have&#160;been&#160;<br/>matched,&#160;the nesting count goes to&#160;zero, and&#160;the&#160;locks&#160;have&#160;satisfied&#160;the&#160;requirements&#160;described&#160;earlier.&#160;If execu-<br/>tion cannot commit atomically,&#160;then execution&#160;transitions to a&#160;non-transactional&#160;execution without elision&#160;as if the&#160;<br/>first instruction did not have&#160;an&#160;XACQUIRE prefix.</p>
+</div>
+</body>
+</html>

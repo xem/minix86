@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 405</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page405-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a405.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;18-5</p>
+<p style="position:absolute;top:47px;left:748px;white-space:nowrap" class="ft01">INPUT/OUTPUT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">bit-map&#160;base&#160;address,&#160;the map&#160;has 11&#160;bytes&#160;and the&#160;first 80&#160;I/O&#160;ports are&#160;mapped.&#160;Higher&#160;addresses in&#160;the&#160;I/O&#160;<br/>address space generate&#160;exceptions.<br/>If&#160;the I/O bit map base address is&#160;greater than&#160;or equal to the TSS segment limit,&#160;there&#160;is no I/O&#160;permission&#160;map,&#160;<br/>and all&#160;I/O instructions generate&#160;exceptions&#160;when the&#160;CPL is&#160;greater than&#160;the&#160;current&#160;IOPL.</p>
+<p style="position:absolute;top:213px;left:69px;white-space:nowrap" class="ft03">18.6 ORDERING&#160;</p>
+<p style="position:absolute;top:213px;left:252px;white-space:nowrap" class="ft03">I/O</p>
+<p style="position:absolute;top:249px;left:69px;white-space:nowrap" class="ft09">When controlling&#160;I/O devices it&#160;is often&#160;important&#160;that memory and&#160;I/O operations be carried&#160;out&#160;in precisely the&#160;<br/>order programmed. For example, a program may write a command to an I/O port, then read the status&#160;of&#160;the I/O&#160;<br/>device from&#160;another&#160;I/O&#160;port. It&#160;is important&#160;that&#160;the status returned be the status of&#160;the device&#160;<b>after</b>&#160;it&#160;receives&#160;<br/>the command, not&#160;<b>before</b>.&#160;<br/>When using&#160;memory-mapped&#160;I/O,&#160;caution&#160;should be taken&#160;to avoid situations in&#160;which the&#160;programmed&#160;order is&#160;<br/>not preserved by the&#160;processor.&#160;To&#160;optimize performance,&#160;the&#160;processor allows cacheable memory reads to&#160;be&#160;<br/>reordered&#160;ahead of&#160;buffered&#160;writes&#160;in most situations.&#160;Internally,&#160;processor&#160;reads (cache&#160;hits) can be reordered&#160;<br/>around&#160;buffered&#160;writes.&#160;When using&#160;memory-mapped&#160;I/O,&#160;therefore, it&#160;is possible&#160;that an&#160;I/O&#160;read&#160;might be&#160;<br/>performed&#160;before&#160;the memory write of&#160;a previous&#160;instruction.&#160;The recommended&#160;method of&#160;enforcing&#160;program&#160;<br/>ordering&#160;of memory-mapped&#160;I/O accesses&#160;with the&#160;Pentium&#160;4,&#160;Intel Xeon,&#160;and P6 family processors is&#160;to&#160;use&#160;the&#160;<br/>MTRRs to make&#160;the&#160;memory&#160;mapped I/O address&#160;space&#160;uncacheable; for the&#160;Pentium&#160;and Intel486&#160;processors,&#160;<br/>either&#160;the KEN#&#160;pin or&#160;the PCD flags&#160;can be used for&#160;<a href="o_7281d5ea06a5b67a-402.html">this purpose (see Section 18.3.1, “Memory-Mapped I/O”).</a>&#160;<br/>When the&#160;target&#160;of a&#160;read&#160;or write is&#160;in an uncacheable&#160;region&#160;of&#160;memory, memory reordering does not&#160;occur&#160;<br/>externally&#160;at the&#160;processor’s pins&#160;(that is, reads and&#160;writes&#160;appear in-order). Designating a&#160;memory mapped I/O&#160;<br/>region of the address space as uncacheable insures that&#160;reads and writes&#160;of I/O&#160;devices are carried out&#160;in program&#160;<br/>order.&#160;Se<a href="��">e Chapter&#160;11,&#160;“Memory Cache&#160;Control” in the</a>&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;<br/>Manual, Volume&#160;3A,</i>&#160;for more information&#160;on using&#160;MTRRs.<br/>Another method&#160;of&#160;enforcing program order is&#160;to insert&#160;one of the&#160;serializing&#160;instructions, such&#160;as&#160;the CPUID&#160;<br/>instruction, between operations. Se<a href="��">e Chapter&#160;8,&#160;“Multiple-Processor&#160;Management” in the</a>&#160;<i>Intel® 64&#160;and IA-32&#160;<br/>Architectures&#160;Software Developer’s Manual, Volume&#160;3A,</i>&#160;for more&#160;information on serialization&#160;of&#160;instructions.<br/>It should be noted&#160;that the chip&#160;set being&#160;used to support&#160;the processor&#160;(bus controller,&#160;memory controller,&#160;and/or&#160;<br/>I/O&#160;controller) may&#160;post&#160;writes to&#160;uncacheable memory which&#160;can lead to&#160;out-of-order&#160;execution of memory&#160;<br/>accesses. In&#160;situations&#160;where out-of-order&#160;processing of&#160;memory accesses&#160;by&#160;the chip set&#160;can potentially cause&#160;<br/>faulty memory-mapped I/O&#160;processing, code must&#160;be&#160;written&#160;to force&#160;synchronization&#160;and ordering of&#160;I/O&#160;opera-<br/>tions.&#160;Serializing&#160;instructions&#160;can often be used&#160;for this&#160;purpose.<br/>When the&#160;I/O address&#160;space&#160;is used&#160;instead of&#160;memory-mapped I/O,&#160;the&#160;situation&#160;is different in two respects:</p>
+<p style="position:absolute;top:721px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:721px;left:95px;white-space:nowrap" class="ft08">The&#160;processor&#160;never buffers I/O&#160;writes.&#160;Therefore,&#160;strict ordering of&#160;I/O&#160;operations is&#160;enforced by&#160;the&#160;<br/>processor.&#160;(As with memory-mapped I/O,&#160;it is&#160;possible for a&#160;chip&#160;set to&#160;post writes&#160;in certain&#160;I/O ranges.)</p>
+<p style="position:absolute;top:760px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:760px;left:95px;white-space:nowrap" class="ft02">The&#160;processor&#160;synchronizes&#160;I/O instruction execution with external&#160;bus activity&#160;(see<a href="o_7281d5ea06a5b67a-405.html">&#160;Table 18-1)</a>.&#160;</p>
+<p style="position:absolute;top:791px;left:319px;white-space:nowrap" class="ft07">Table&#160;18-1. &#160;I/O Instruction&#160;Serialization</p>
+<p style="position:absolute;top:849px;left:77px;white-space:nowrap" class="ft02">Instruction Being&#160;</p>
+<p style="position:absolute;top:865px;left:77px;white-space:nowrap" class="ft02">Executed</p>
+<p style="position:absolute;top:816px;left:232px;white-space:nowrap" class="ft02">Processor&#160;Delays Execution of&#160;…</p>
+<p style="position:absolute;top:816px;left:542px;white-space:nowrap" class="ft02">Until&#160;Completion&#160;of&#160;…</p>
+<p style="position:absolute;top:865px;left:232px;white-space:nowrap" class="ft02">Current Instruction?</p>
+<p style="position:absolute;top:865px;left:388px;white-space:nowrap" class="ft02">Next&#160;Instruction?</p>
+<p style="position:absolute;top:865px;left:542px;white-space:nowrap" class="ft02">Pending Stores?</p>
+<p style="position:absolute;top:865px;left:696px;white-space:nowrap" class="ft02">Current&#160;Store?</p>
+<p style="position:absolute;top:889px;left:77px;white-space:nowrap" class="ft02">IN</p>
+<p style="position:absolute;top:889px;left:294px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:889px;left:603px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:913px;left:77px;white-space:nowrap" class="ft02">INS</p>
+<p style="position:absolute;top:913px;left:294px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:913px;left:603px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:937px;left:77px;white-space:nowrap" class="ft02">REP&#160;INS</p>
+<p style="position:absolute;top:937px;left:294px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:937px;left:603px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:961px;left:77px;white-space:nowrap" class="ft02">OUT</p>
+<p style="position:absolute;top:961px;left:449px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:961px;left:603px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:961px;left:753px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:985px;left:77px;white-space:nowrap" class="ft02">OUTS</p>
+<p style="position:absolute;top:985px;left:449px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:985px;left:603px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:985px;left:753px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:1009px;left:77px;white-space:nowrap" class="ft02">REP&#160;OUTS</p>
+<p style="position:absolute;top:1009px;left:449px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:1009px;left:603px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:1009px;left:753px;white-space:nowrap" class="ft02">Yes</p>
+</div>
+</body>
+</html>

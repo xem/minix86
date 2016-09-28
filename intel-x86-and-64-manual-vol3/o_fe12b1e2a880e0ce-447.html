@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 447</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page447-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce447.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;11-35</p>
+<p style="position:absolute;top:47px;left:686px;white-space:nowrap" class="ft01">MEMORY CACHE CONTROL</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">11.12.3&#160;&#160;Selecting a Memory Type from the PAT</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft05">To&#160;select&#160;a&#160;memory&#160;type&#160;for&#160;a&#160;page&#160;from&#160;the&#160;PAT,&#160;a&#160;3-bit&#160;index made up&#160;of&#160;the PAT,&#160;PCD,&#160;and PWT bits must be&#160;<br/>encoded&#160;in&#160;the&#160;page-table&#160;or&#160;page-directory entry for&#160;the&#160;page.<a href="o_fe12b1e2a880e0ce-447.html">&#160;Table&#160;11-11</a>&#160;shows the&#160;possible encodings of&#160;the&#160;<br/>PAT,&#160;PCD,&#160;and PWT bits and&#160;the PAT entry&#160;selected with each&#160;encoding.&#160;The&#160;PAT&#160;bit is&#160;bit&#160;7&#160;in&#160;page-table&#160;entries&#160;<br/>that point to 4-KByte pages and bit 12&#160;in&#160;paging-structure&#160;entries that point to larger pages.&#160;The PCD&#160;and&#160;PWT&#160;bits&#160;<br/>are&#160;bits 4&#160;and&#160;3,&#160;respectively,&#160;in&#160;paging-structure&#160;entries that&#160;point to&#160;pages of any&#160;size.<br/>The PAT entry selected for a&#160;page is&#160;used&#160;in&#160;conjunction&#160;with&#160;the MTRR setting for the region&#160;of physical&#160;memory&#160;<br/>in which&#160;the page&#160;is mapped&#160;to determine the effective&#160;memory type&#160;for the&#160;page,&#160;as shown&#160;<a href="o_fe12b1e2a880e0ce-427.html">in Table&#160;11-7.</a></p>
+<p style="position:absolute;top:500px;left:69px;white-space:nowrap" class="ft02">11.12.4&#160;&#160;Programming the PAT</p>
+<p style="position:absolute;top:531px;left:69px;white-space:nowrap" class="ft05"><a href="o_fe12b1e2a880e0ce-447.html">Table 11-12 shows&#160;</a>the default setting for each&#160;PAT&#160;entry&#160;following a&#160;power up or reset of the&#160;processor.&#160;The setting&#160;<br/>remain unchanged&#160;following&#160;a soft reset (INIT reset).&#160;</p>
+<p style="position:absolute;top:832px;left:69px;white-space:nowrap" class="ft05">The&#160;values&#160;in all&#160;the entries of the&#160;PAT can be&#160;changed&#160;by&#160;writing to the&#160;IA32_PAT&#160;MSR&#160;using the&#160;WRMSR instruc-<br/>tion. The IA32_PAT MSR&#160;is read&#160;and write&#160;accessible (use&#160;of&#160;the&#160;RDMSR&#160;and WRMSR&#160;instructions, respectively) to&#160;<br/>software&#160;operating at a&#160;CPL of&#160;0.<a href="o_fe12b1e2a880e0ce-446.html">&#160;Table 11-10&#160;</a>shows&#160;the allowable encoding&#160;of the entries&#160;in&#160;the PAT.&#160;Attempting&#160;to&#160;<br/>write&#160;an undefined&#160;memory type&#160;encoding into the&#160;PAT causes&#160;a general-protection (#GP)&#160;exception&#160;to be gener-<br/>ated.<br/>The operating system is responsible&#160;for insuring that changes to a PAT entry&#160;occur in&#160;a&#160;manner that maintains the&#160;<br/>consistency&#160;of the processor caches and translation lookaside buffers (TLB).&#160;This&#160;is accomplished by following&#160;the&#160;<br/>procedure&#160;as&#160;specified&#160;in&#160;<a href="o_fe12b1e2a880e0ce-444.html">Section&#160;11.11.8,&#160;“MTRR&#160;Considerations&#160;in&#160;MP Systems,” for changing the&#160;</a>value&#160;of an&#160;<br/>MTRR&#160;in&#160;a multiple processor system.&#160;It requires&#160;a specific&#160;sequence&#160;of operations that includes flushing the&#160;<br/>processors caches and&#160;TLBs.<br/>The&#160;PAT&#160;allows&#160;any memory type&#160;to be&#160;specified in the&#160;page tables, and&#160;therefore it&#160;is&#160;possible&#160;to have&#160;a&#160;single&#160;<br/>physical page mapped to two or more different linear addresses, each with&#160;different memory types. Intel does&#160;not&#160;<br/>support this practice because it may lead to undefined operations that can result in a system&#160;failure. In particular,&#160;<br/>a WC page&#160;must&#160;never be&#160;aliased to&#160;a cacheable&#160;page&#160;because WC writes&#160;may not&#160;check the&#160;processor&#160;caches.</p>
+<p style="position:absolute;top:266px;left:222px;white-space:nowrap" class="ft04">Table 11-11.&#160;&#160;Selection&#160;of&#160;PAT Entries with PAT,&#160;PCD,&#160;and PWT&#160;Flags</p>
+<p style="position:absolute;top:288px;left:155px;white-space:nowrap" class="ft03">PAT</p>
+<p style="position:absolute;top:288px;left:345px;white-space:nowrap" class="ft03">PCD</p>
+<p style="position:absolute;top:288px;left:535px;white-space:nowrap" class="ft03">PWT</p>
+<p style="position:absolute;top:288px;left:710px;white-space:nowrap" class="ft03">PAT&#160;Entry</p>
+<p style="position:absolute;top:308px;left:163px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:308px;left:354px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:308px;left:545px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:308px;left:724px;white-space:nowrap" class="ft03">PAT0</p>
+<p style="position:absolute;top:330px;left:163px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:330px;left:354px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:330px;left:545px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:330px;left:724px;white-space:nowrap" class="ft03">PAT1</p>
+<p style="position:absolute;top:350px;left:163px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:350px;left:354px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:350px;left:545px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:350px;left:724px;white-space:nowrap" class="ft03">PAT2</p>
+<p style="position:absolute;top:371px;left:163px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:371px;left:354px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:371px;left:545px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:371px;left:724px;white-space:nowrap" class="ft03">PAT3</p>
+<p style="position:absolute;top:393px;left:163px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:393px;left:354px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:393px;left:545px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:393px;left:724px;white-space:nowrap" class="ft03">PAT4</p>
+<p style="position:absolute;top:413px;left:163px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:413px;left:354px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:413px;left:545px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:413px;left:724px;white-space:nowrap" class="ft03">PAT5</p>
+<p style="position:absolute;top:435px;left:163px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:435px;left:354px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:435px;left:545px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:435px;left:724px;white-space:nowrap" class="ft03">PAT6</p>
+<p style="position:absolute;top:456px;left:163px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:456px;left:354px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:456px;left:545px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:456px;left:724px;white-space:nowrap" class="ft03">PAT7</p>
+<p style="position:absolute;top:578px;left:181px;white-space:nowrap" class="ft04">Table 11-12. &#160;Memory Type Setting&#160;of&#160;PAT Entries Following a&#160;Power-up or Reset&#160;</p>
+<p style="position:absolute;top:603px;left:215px;white-space:nowrap" class="ft03">PAT&#160;Entry</p>
+<p style="position:absolute;top:603px;left:498px;white-space:nowrap" class="ft03">Memory Type Following Power-up or Reset</p>
+<p style="position:absolute;top:627px;left:229px;white-space:nowrap" class="ft03">PAT0</p>
+<p style="position:absolute;top:627px;left:618px;white-space:nowrap" class="ft03">WB</p>
+<p style="position:absolute;top:651px;left:229px;white-space:nowrap" class="ft03">PAT1</p>
+<p style="position:absolute;top:651px;left:619px;white-space:nowrap" class="ft03">WT</p>
+<p style="position:absolute;top:675px;left:229px;white-space:nowrap" class="ft03">PAT2</p>
+<p style="position:absolute;top:675px;left:618px;white-space:nowrap" class="ft03">UC-</p>
+<p style="position:absolute;top:699px;left:229px;white-space:nowrap" class="ft03">PAT3</p>
+<p style="position:absolute;top:699px;left:620px;white-space:nowrap" class="ft03">UC</p>
+<p style="position:absolute;top:723px;left:229px;white-space:nowrap" class="ft03">PAT4</p>
+<p style="position:absolute;top:723px;left:618px;white-space:nowrap" class="ft03">WB</p>
+<p style="position:absolute;top:746px;left:229px;white-space:nowrap" class="ft03">PAT5</p>
+<p style="position:absolute;top:746px;left:619px;white-space:nowrap" class="ft03">WT</p>
+<p style="position:absolute;top:771px;left:229px;white-space:nowrap" class="ft03">PAT6</p>
+<p style="position:absolute;top:771px;left:618px;white-space:nowrap" class="ft03">UC-</p>
+<p style="position:absolute;top:795px;left:229px;white-space:nowrap" class="ft03">PAT7</p>
+<p style="position:absolute;top:795px;left:620px;white-space:nowrap" class="ft03">UC</p>
+</div>
+</body>
+</html>

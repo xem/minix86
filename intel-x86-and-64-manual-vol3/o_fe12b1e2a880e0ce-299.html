@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 299</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page299-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce299.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-43</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:102px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:146px;white-space:nowrap" class="ft03">The extraction&#160;start from&#160;the&#160;right-most bit field,&#160;corresponding&#160;to SMT_ID,&#160;the innermost hierarchy in&#160;</p>
+<p style="position:absolute;top:117px;left:145px;white-space:nowrap" class="ft05">a&#160;three-level&#160;topology&#160;(See<a href="o_fe12b1e2a880e0ce-292.html">&#160;Figure 8-7).</a>&#160;For the&#160;right-most bit field,&#160;the shift&#160;value of&#160;the working mask&#160;<br/>is zero. The width of&#160;the bit&#160;field&#160;is determined&#160;dynamically using&#160;the maximum&#160;number&#160;of logical&#160;<br/>processor&#160;per core, which&#160;can be derived from information&#160;provided&#160;from&#160;CPUID.</p>
+<p style="position:absolute;top:175px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:174px;left:146px;white-space:nowrap" class="ft03">To&#160;extract the next bit-field, the shift value of the&#160;working mask&#160;is determined from the width of the&#160;bit&#160;</p>
+<p style="position:absolute;top:190px;left:145px;white-space:nowrap" class="ft05">mask&#160;of the&#160;previous&#160;step. The width of the bit&#160;field is&#160;determined dynamically using&#160;the maximum&#160;<br/>number of&#160;cores per package.</p>
+<p style="position:absolute;top:232px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:231px;left:146px;white-space:nowrap" class="ft03">To&#160;extract&#160;the remaining bit-field, the&#160;shift value of the working mask is determined from the maximum&#160;</p>
+<p style="position:absolute;top:247px;left:145px;white-space:nowrap" class="ft05">number of&#160;logical processor per package.&#160;So&#160;the&#160;remaining bits&#160;in the&#160;APIC&#160;ID&#160;(excluding those&#160;bits&#160;<br/>already&#160;extracted in the two previous&#160;steps)&#160;are extracted as&#160;the third identifier. This&#160;applies&#160;to&#160;a non-<br/>clustered MP system, or if&#160;there&#160;is no need&#160;to&#160;distinguish between PACKAGE_ID and&#160;CLUSTER_ID.</p>
+<p style="position:absolute;top:304px;left:146px;white-space:nowrap" class="ft05">If&#160;there is&#160;need to&#160;distinguish between PACKAGE_ID and&#160;CLUSTER_ID, PACKAGE_ID can&#160;be&#160;extracted&#160;<br/>using an&#160;algorithm similar&#160;to the extraction of CORE_ID,&#160;assuming&#160;the number of physical&#160;packages in&#160;<br/>each node of a&#160;clustered system is&#160;symmetric.</p>
+<p style="position:absolute;top:359px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:360px;left:95px;white-space:nowrap" class="ft05">Assemble&#160;the three-level identifiers&#160;of SMT_ID,&#160;CORE_ID,&#160;PACKAGE_IDs into&#160;arrays for each&#160;enabled logical&#160;<br/>processor.&#160;This&#160;is&#160;<a href="o_fe12b1e2a880e0ce-300.html">shown in Example&#160;8-22</a>a.</p>
+<p style="position:absolute;top:398px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:399px;left:95px;white-space:nowrap" class="ft05">To&#160;detect the number of physical packages: use&#160;PACKAGE_ID&#160;to identify those logical processors&#160;that reside in&#160;<br/>the&#160;same&#160;physical&#160;package.<a href="o_fe12b1e2a880e0ce-300.html">&#160;This is shown in Example 8-22</a>b.&#160;This example&#160;also depicts&#160;a technique&#160;to construct&#160;<br/>a mask to&#160;represent&#160;the&#160;logical processors that&#160;reside in&#160;the same&#160;package.</p>
+<p style="position:absolute;top:454px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:454px;left:95px;white-space:nowrap" class="ft05">To&#160;detect the&#160;number&#160;of processor cores:&#160;use&#160;CORE_ID to identify those&#160;logical&#160;processors&#160;that&#160;reside in&#160;the&#160;<br/>same core. This is&#160;<a href="o_fe12b1e2a880e0ce-300.html">shown in&#160;Example&#160;8-22</a>.&#160;This example also depicts&#160;a technique&#160;to construct a&#160;mask&#160;to&#160;<br/>represent&#160;the&#160;logical processors that reside&#160;in the&#160;same core.</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft05"><a href="o_fe12b1e2a880e0ce-299.html">In Example 8-21,</a>&#160;the&#160;numerical ID&#160;value can&#160;be&#160;obtained&#160;from&#160;the&#160;value extracted&#160;with&#160;the mask by shifting&#160;it right&#160;<br/>by shift count.&#160;Algorithms&#160;below do&#160;not shift the&#160;value. The assumption is&#160;that the SubID values&#160;can be compared&#160;<br/>for&#160;equivalence without&#160;the need to&#160;shift.&#160;</p>
+<p style="position:absolute;top:585px;left:69px;white-space:nowrap" class="ft01">Example 8-21. &#160;Pseudo Code&#160;Depicting Three-level&#160;Extraction Algorithm</p>
+<p style="position:absolute;top:609px;left:69px;white-space:nowrap" class="ft03">For Each local_APIC_ID{</p>
+<p style="position:absolute;top:627px;left:89px;white-space:nowrap" class="ft06">//&#160;Calculate&#160;SMT_MASK,&#160;the bit mask pattern&#160;to&#160;extract SMT_ID,&#160;<br/>//&#160;SMT_MASK&#160;is determined&#160;using&#160;topology enumertaion parameters<br/>//&#160;from CPUID leaf 0BH (<a href="o_fe12b1e2a880e0ce-295.html">Example 8-19</a>);<br/>//&#160;otherwise,&#160;SMT_MASK&#160;is determined&#160;using CPUID&#160;leaf 01H and leaf 04H (<a href="o_fe12b1e2a880e0ce-296.html">Example 8-20).<br/></a>// This algorithm assumes&#160;there&#160;is symmetry across core&#160;boundary, i.e.&#160;each core within a<br/>//&#160;&#160;package has&#160;the same&#160;number&#160;of&#160;logical processors<br/>//&#160;SMT_ID always starts from bit 0, corresponding to the right-most bit-field<br/>SMT_ID&#160;= APIC_ID &amp; SMT_MASK;</p>
+<p style="position:absolute;top:789px;left:69px;white-space:nowrap" class="ft03">//&#160;Extract CORE_ID:</p>
+<p style="position:absolute;top:807px;left:89px;white-space:nowrap" class="ft06">//&#160;CORE_MASK is&#160;determined&#160;in<a href="o_fe12b1e2a880e0ce-295.html">&#160;Example 8-19</a>&#160;or&#160;<a href="o_fe12b1e2a880e0ce-296.html">Example 8-20<br/></a>CORE_ID =&#160;(APIC_ID&#160;&amp; CORE_MASK) ;</p>
+<p style="position:absolute;top:861px;left:89px;white-space:nowrap" class="ft06">//&#160;Extract PACKAGE_ID:<br/>// Assume single cluster.&#160;<br/>//&#160;Shift out the&#160;mask&#160;width for&#160;maximum&#160;logical processors&#160;per package<br/>//&#160;PACKAGE_MASK&#160;is determined&#160;in<a href="o_fe12b1e2a880e0ce-295.html">&#160;Example&#160;8-19 or Example 8-2</a><a href="o_fe12b1e2a880e0ce-296.html">0<br/></a>PACKAGE_ID = (APIC_ID &amp; PACKAGE_MASK) ;</p>
+<p style="position:absolute;top:951px;left:69px;white-space:nowrap" class="ft03">}</p>
+</div>
+</body>
+</html>

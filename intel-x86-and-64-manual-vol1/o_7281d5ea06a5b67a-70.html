@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 70</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page70-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a070.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-10&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">BASIC EXECUTION ENVIRONMENT</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">3.3.7&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Address Calculations in 64-Bit Mode</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft07">In most cases,&#160;64-bit mode&#160;uses&#160;flat&#160;address space for&#160;code, data, and stacks.&#160;In 64-bit&#160;mode (if&#160;there is&#160;no&#160;<br/>address-size override), the&#160;size of effective address calculations is 64&#160;bits. An effective-address calculation&#160;uses&#160;a&#160;<br/>64-bit base and index&#160;registers and&#160;sign-extend&#160;displacements to&#160;64&#160;bits.<br/>In the&#160;flat address space&#160;of&#160;64-bit mode, linear addresses are equal to&#160;effective&#160;addresses because&#160;the base&#160;<br/>address is&#160;zero. In&#160;the event&#160;that&#160;FS or GS&#160;segments&#160;are used with a&#160;non-zero&#160;base, this&#160;rule does not&#160;hold.&#160;In 64-<br/>bit mode,&#160;the effective address&#160;components are added and&#160;the&#160;effective address&#160;is truncated (See&#160;for example the&#160;<br/>instruction LEA) before&#160;adding&#160;the&#160;full&#160;64-bit&#160;segment base. The base&#160;is never&#160;truncated, regardless of&#160;addressing&#160;<br/>mode in&#160;64-bit&#160;mode.<br/>The&#160;instruction pointer is extended&#160;to 64&#160;bits to&#160;support 64-bit&#160;code offsets. The&#160;64-bit instruction&#160;pointer is&#160;called&#160;<br/>the&#160;RIP.<a href="o_7281d5ea06a5b67a-70.html">&#160;Table 3-1 shows the&#160;</a>relationship&#160;between&#160;RIP,&#160;EIP,&#160;and IP.</p>
+<p style="position:absolute;top:326px;left:333px;white-space:nowrap" class="ft04">Table 3-1. &#160;Instruction Pointer Sizes</p>
+<p style="position:absolute;top:452px;left:68px;white-space:nowrap" class="ft07">Generally,&#160;displacements and immediates in 64-bit&#160;mode&#160;are&#160;not&#160;extended&#160;to&#160;64&#160;bits. They&#160;are still limited to 32&#160;<br/>bits and sign-extended during&#160;effective-address&#160;calculations.&#160;In 64-bit&#160;mode, however,&#160;support is provided for&#160;64-<br/>bit displacement&#160;and immediate forms of the&#160;MOV&#160;instruction.&#160;<br/>All 16-bit&#160;and 32-bit&#160;address calculations&#160;are zero-extended&#160;in IA-32e&#160;mode&#160;to form&#160;64-bit&#160;addresses.&#160;Address&#160;<br/>calculations are&#160;first truncated to the&#160;effective&#160;address&#160;size&#160;of the&#160;current mode&#160;(64-bit mode&#160;or compatibility&#160;<br/>mode),&#160;as overridden&#160;by&#160;any address-size prefix.&#160;The&#160;result&#160;is&#160;then zero-extended to the full&#160;64-bit address width.&#160;<br/>Because of&#160;this, 16-bit&#160;and 32-bit&#160;applications&#160;running&#160;in&#160;compatibility mode&#160;can access only&#160;the&#160;low&#160;4 GBytes&#160;of&#160;<br/>the&#160;64-bit mode&#160;effective addresses. Likewise, a&#160;32-bit&#160;address generated in&#160;64-bit mode&#160;can access&#160;only&#160;the low&#160;<br/>4 GBytes of&#160;the 64-bit&#160;mode effective addresses.</p>
+<p style="position:absolute;top:636px;left:68px;white-space:nowrap" class="ft05">3.3.7.1&#160;&#160;</p>
+<p style="position:absolute;top:636px;left:152px;white-space:nowrap" class="ft05">Canonical Addressing</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft07">In 64-bit&#160;mode,&#160;an address&#160;is considered&#160;to be in&#160;canonical&#160;form&#160;if address bits 63 through&#160;to the&#160;most-significant&#160;<br/>implemented bit by the&#160;microarchitecture are set&#160;to either all&#160;ones or&#160;all zeros.<br/>Intel 64&#160;architecture&#160;defines a 64-bit linear address. Implementations can support&#160;less. The first implementation&#160;of&#160;<br/>IA-32&#160;processors with Intel&#160;64 architecture&#160;supports&#160;a 48-bit&#160;linear&#160;address. This&#160;means&#160;a canonical address&#160;must&#160;<br/>have bits&#160;63&#160;through 48 set&#160;to zeros&#160;or ones&#160;(depending on whether bit 47 is&#160;a zero&#160;or one).<br/>Although&#160;implementations may&#160;not use&#160;all 64 bits of the&#160;linear&#160;address,&#160;they&#160;should check bits 63 through&#160;the&#160;<br/>most-significant implemented bit to&#160;see&#160;if&#160;the address&#160;is&#160;in&#160;canonical form. If&#160;a linear-memory reference is&#160;not in&#160;<br/>canonical form, the implementation&#160;should generate&#160;an exception. In most&#160;cases, a general-protection exception&#160;<br/>(#GP)&#160;is generated.&#160;However,&#160;in&#160;the case of explicit or&#160;implied stack&#160;references, a&#160;stack fault (#SS) is&#160;generated.&#160;<br/>Instructions that&#160;have&#160;implied stack references, by default,&#160;use&#160;the&#160;SS&#160;segment register.&#160;These include&#160;PUSH/POP-<br/>related instructions and&#160;instructions&#160;using&#160;RSP/RBP as&#160;base&#160;registers.&#160;In these&#160;cases, the&#160;canonical fault is&#160;#SS.&#160;<br/>If an instruction uses&#160;base&#160;registers&#160;RSP/RBP and&#160;uses a&#160;segment&#160;override&#160;prefix&#160;to specify a&#160;non-SS&#160;segment,&#160;a&#160;<br/>canonical fault generates a #GP (instead&#160;of an #SS). In&#160;64-bit&#160;mode, only&#160;FS&#160;and GS&#160;segment-overrides are appli-<br/>cable&#160;in this situation. Other segment override prefixes (CS,&#160;DS, ES and SS) are ignored. Note that this also means&#160;<br/>that an&#160;SS&#160;segment-override applied to&#160;a “non-stack”&#160;register&#160;reference&#160;is ignored.&#160;Such&#160;a sequence still produces&#160;<br/>a&#160;#GP for a&#160;canonical fault (and&#160;not an&#160;#SS).</p>
+<p style="position:absolute;top:997px;left:68px;white-space:nowrap" class="ft06">3.4 BASIC&#160;</p>
+<p style="position:absolute;top:997px;left:208px;white-space:nowrap" class="ft06">PROGRAM&#160;</p>
+<p style="position:absolute;top:997px;left:308px;white-space:nowrap" class="ft06">EXECUTION REGISTERS</p>
+<p style="position:absolute;top:1033px;left:68px;white-space:nowrap" class="ft07">IA-32 architecture provides 16 basic&#160;program execution&#160;registers&#160;for&#160;use&#160;in general&#160;system and&#160;application&#160;<br/>programing&#160;(see<a href="o_7281d5ea06a5b67a-71.html">&#160;Figure&#160;3-4).</a>&#160;These&#160;registers&#160;can&#160;be&#160;grouped as&#160;follows:</p>
+<p style="position:absolute;top:349px;left:291px;white-space:nowrap" class="ft03">Bits 63:32</p>
+<p style="position:absolute;top:349px;left:552px;white-space:nowrap" class="ft03">Bits 31:16</p>
+<p style="position:absolute;top:349px;left:698px;white-space:nowrap" class="ft03">Bits&#160;15:0</p>
+<p style="position:absolute;top:373px;left:74px;white-space:nowrap" class="ft03">16-bit instruction pointer</p>
+<p style="position:absolute;top:373px;left:291px;white-space:nowrap" class="ft03">Not&#160;Modified</p>
+<p style="position:absolute;top:373px;left:698px;white-space:nowrap" class="ft03">IP</p>
+<p style="position:absolute;top:395px;left:74px;white-space:nowrap" class="ft03">32-bit instruction pointer</p>
+<p style="position:absolute;top:395px;left:291px;white-space:nowrap" class="ft03">Zero Extension</p>
+<p style="position:absolute;top:395px;left:553px;white-space:nowrap" class="ft03">EIP</p>
+<p style="position:absolute;top:416px;left:74px;white-space:nowrap" class="ft03">64-bit instruction pointer</p>
+<p style="position:absolute;top:416px;left:291px;white-space:nowrap" class="ft03">RIP</p>
+</div>
+</body>
+</html>

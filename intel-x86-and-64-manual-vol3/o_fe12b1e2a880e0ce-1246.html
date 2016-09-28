@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1246</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1246-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1246.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">33-8&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">HANDLING&#160;BOUNDARY&#160;CONDITIONS&#160;IN A VIRTUAL MACHINE MONITOR</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft06">depending on the&#160;VMM event&#160;priority&#160;policies, the&#160;VMM may&#160;need&#160;to queue the&#160;external virtual&#160;interrupt&#160;if a&#160;<br/>higher priority event is&#160;to&#160;be delivered&#160;on the next VM&#160;entry.&#160;Since the VMM has masked this particular interrupt&#160;<br/>source (if it was level triggered) and done EOI to the platform interrupt controller,&#160;other platform interrupts can&#160;<br/>be serviced&#160;while&#160;this&#160;virtual&#160;interrupt&#160;event is&#160;queued for later delivery&#160;to&#160;the VM.</p>
+<p style="position:absolute;top:174px;left:68px;white-space:nowrap" class="ft02">5.&#160;Update the&#160;virtual&#160;interrupt&#160;controller state.&#160;When the&#160;above checks&#160;have&#160;passed,&#160;before&#160;generating the&#160;virtual&#160;</p>
+<p style="position:absolute;top:190px;left:93px;white-space:nowrap" class="ft06">interrupt to&#160;the guest,&#160;the&#160;VMM updates&#160;the virtual interrupt controller state (Local-APIC,&#160;IO-APIC&#160;and/or PIC)&#160;<br/>to reflect&#160;assertion&#160;of&#160;the virtual interrupt.&#160;This involves&#160;updating the&#160;various&#160;interrupt capture registers, and&#160;<br/>priority registers&#160;as done by the&#160;respective&#160;hardware&#160;interrupt controllers. Updating the&#160;virtual&#160;interrupt&#160;<br/>controller state is&#160;required for proper interrupt event processing&#160;by&#160;guest&#160;software.</p>
+<p style="position:absolute;top:264px;left:68px;white-space:nowrap" class="ft02">6.&#160;Inject&#160;the&#160;virtual&#160;interrupt on&#160;VM&#160;entry.&#160;To&#160;inject an&#160;external virtual interrupt&#160;to a&#160;guest&#160;VM, the VMM&#160;sets up&#160;</p>
+<p style="position:absolute;top:280px;left:93px;white-space:nowrap" class="ft06">the VM-entry interruption-information&#160;field&#160;in the&#160;guest&#160;controlling-VMCS before entry to&#160;guest&#160;using&#160;<br/>VMRESUME. Upon VM entry,&#160;the processor will use this vector to access the&#160;gate in guest’s IDT and the&#160;value of&#160;<br/>RFLAGS and EIP in&#160;guest-state&#160;area&#160;of controlling-VMCS&#160;is pushed on the&#160;guest&#160;stack. If&#160;the guest RFLAGS.IF&#160;<br/>is clear,&#160;the&#160;STI-masking&#160;bit is&#160;set, or&#160;the MOV-&#160;SS/POP-SS-masking bit&#160;is set,&#160;the VM entry&#160;will&#160;fail and&#160;the&#160;<br/>processor will load&#160;state from the host-state&#160;area of the&#160;working VMCS as&#160;if a VM&#160;exit had occurred (see<a href="o_fe12b1e2a880e0ce-1117.html">&#160;Section&#160;<br/>26.7).</a></p>
+<p style="position:absolute;top:418px;left:68px;white-space:nowrap" class="ft03">33.4&#160;</p>
+<p style="position:absolute;top:418px;left:147px;white-space:nowrap" class="ft03">ERROR HANDLING BY&#160;VMM</p>
+<p style="position:absolute;top:454px;left:68px;white-space:nowrap" class="ft06">Error&#160;conditions may occur during VM entries and&#160;VM&#160;exits and a&#160;few&#160;other situations.&#160;This section describes&#160;how&#160;<br/>VMM should&#160;handle&#160;these error conditions, including triple faults&#160;and machine-check exceptions.</p>
+<p style="position:absolute;top:521px;left:68px;white-space:nowrap" class="ft04">33.4.1 VM-Exit&#160;</p>
+<p style="position:absolute;top:521px;left:215px;white-space:nowrap" class="ft04">Failures</p>
+<p style="position:absolute;top:552px;left:68px;white-space:nowrap" class="ft06">All VM&#160;exits load processor state from the host-state area&#160;of the&#160;VMCS that&#160;was the controlling&#160;VMCS before the&#160;VM&#160;<br/>exit. This state is&#160;checked for consistency&#160;while being loaded. Because the&#160;host-state&#160;is checked&#160;on VM entry,&#160;these&#160;<br/>checks will generally&#160;succeed. Failure&#160;is possible&#160;only&#160;if host software&#160;is incorrect&#160;or if VMCS&#160;data in&#160;the VMCS&#160;<br/>region&#160;in&#160;memory&#160;has&#160;been&#160;written&#160;by&#160;guest&#160;software&#160;(or&#160;by&#160;I/O&#160;DMA)&#160;since&#160;the&#160;last&#160;VM&#160;entry.&#160;VM&#160;exits&#160;may&#160;fail&#160;for&#160;<br/>the following reasons:</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:640px;left:93px;white-space:nowrap" class="ft02">There was&#160;a failure&#160;on&#160;storing guest MSRs.</p>
+<p style="position:absolute;top:662px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:663px;left:93px;white-space:nowrap" class="ft02">There was&#160;failure&#160;in&#160;loading a&#160;PDPTR.</p>
+<p style="position:absolute;top:685px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:685px;left:93px;white-space:nowrap" class="ft06">The&#160;controlling VMCS has been&#160;corrupted&#160;(through writes&#160;to the corresponding VMCS region)&#160;in such a way that&#160;<br/>the&#160;implementation cannot complete&#160;the VM exit.</p>
+<p style="position:absolute;top:724px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:724px;left:93px;white-space:nowrap" class="ft02">There&#160;was a&#160;failure on loading host&#160;MSRs.</p>
+<p style="position:absolute;top:746px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:747px;left:93px;white-space:nowrap" class="ft02">A machine-check event occurred.</p>
+<p style="position:absolute;top:771px;left:68px;white-space:nowrap" class="ft02">If&#160;one of&#160;these problems occurs&#160;on&#160;a VM exit, a&#160;VMX&#160;abort results.&#160;</p>
+<p style="position:absolute;top:821px;left:68px;white-space:nowrap" class="ft04">33.4.2 Machine-Check&#160;</p>
+<p style="position:absolute;top:821px;left:273px;white-space:nowrap" class="ft04">Considerations</p>
+<p style="position:absolute;top:852px;left:68px;white-space:nowrap" class="ft06">The following sequence determine&#160;how machine-check&#160;events are&#160;handled during&#160;VMXON, VMXOFF, VM entries,&#160;<br/>and VM&#160;exits:</p>
+<p style="position:absolute;top:890px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:891px;left:93px;white-space:nowrap" class="ft06">VMXOFF and VMXON:&#160;<br/>If a&#160;machine-check event occurs&#160;during&#160;VMXOFF or&#160;VMXON and&#160;CR4.MCE&#160;=&#160;1,&#160;a&#160;machine-check&#160;exception&#160;<br/>(#MC)&#160;is&#160;generated.&#160;If&#160;CR4.MCE&#160;=&#160;0,&#160;the processor goes&#160;to&#160;shutdown&#160;state.</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:952px;left:93px;white-space:nowrap" class="ft08">VM&#160;entry:&#160;<br/>If a&#160;machine-check event occurs&#160;during&#160;VM entry,&#160;one of the&#160;following&#160;three&#160;treatments must occur:<br/>a.&#160;Normal&#160;delivery before&#160;VM&#160;entry.&#160;If&#160;CR4.MCE&#160;=&#160;1 before&#160;VM&#160;entry,&#160;delivery of&#160;a machine-check exception&#160;</p>
+<p style="position:absolute;top:1015px;left:119px;white-space:nowrap" class="ft02">(#MC) through&#160;the host IDT occurs.&#160;If CR4.MCE&#160;=&#160;0,&#160;the processor goes to&#160;shutdown&#160;state.</p>
+</div>
+</body>
+</html>

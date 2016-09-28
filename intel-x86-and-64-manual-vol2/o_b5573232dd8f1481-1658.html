@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1658</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1658-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811658.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:404px;white-space:nowrap" class="ft00">VGETMANTPD—Extract&#160;Float64 Vector of Normalized Mantissas from Float64 Vector</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-272&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:88px;white-space:nowrap" class="ft05">// Checking&#160;for&#160;denormal operands<br/>IF (DenormOperand)&#160;<br/>{</p>
+<p style="position:absolute;top:136px;left:115px;white-space:nowrap" class="ft05">IF (MXCSR.DAZ=1)&#160;Dst.fraction&#160;&#160;0;// Zero out fraction<br/>ELSE&#160;<br/>{</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft05">// Jbit&#160;is the hidden&#160;integral&#160;bit.&#160;Zero in&#160;case&#160;of&#160;denormal&#160;operand.<br/>Src.Jbit&#160;&#160;0;</p>
+<p style="position:absolute;top:190px;left:304px;white-space:nowrap" class="ft02">// Zero Src Jbit</p>
+<p style="position:absolute;top:208px;left:142px;white-space:nowrap" class="ft02">Dst.exp&#160;&#160;03FFh;</p>
+<p style="position:absolute;top:208px;left:304px;white-space:nowrap" class="ft02">// Override&#160;exponent&#160;with BIAS</p>
+<p style="position:absolute;top:226px;left:142px;white-space:nowrap" class="ft02">WHILE (Src.Jbit =&#160;0) {</p>
+<p style="position:absolute;top:226px;left:304px;white-space:nowrap" class="ft02">// normalize&#160;mantissa</p>
+<p style="position:absolute;top:244px;left:169px;white-space:nowrap" class="ft02">Src.Jbit&#160;&#160;Dst.fraction[51];</p>
+<p style="position:absolute;top:244px;left:358px;white-space:nowrap" class="ft02">//&#160;Get the fraction MSB</p>
+<p style="position:absolute;top:262px;left:169px;white-space:nowrap" class="ft02">Dst.fraction&#160;&#160;(Dst.fraction &lt;&lt;&#160;1);</p>
+<p style="position:absolute;top:262px;left:412px;white-space:nowrap" class="ft02">// Start&#160;normalizing&#160;the mantissa</p>
+<p style="position:absolute;top:280px;left:169px;white-space:nowrap" class="ft02">Dst.exp-- ;</p>
+<p style="position:absolute;top:280px;left:250px;white-space:nowrap" class="ft02">// Adjust the exponent</p>
+<p style="position:absolute;top:298px;left:142px;white-space:nowrap" class="ft05">}<br/>SET #DE;</p>
+<p style="position:absolute;top:316px;left:250px;white-space:nowrap" class="ft02">// Set DE bit</p>
+<p style="position:absolute;top:334px;left:115px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:352px;left:88px;white-space:nowrap" class="ft02">}&#160;</p>
+<p style="position:absolute;top:352px;left:142px;white-space:nowrap" class="ft02">//&#160;At this point, Dst.fraction&#160;is&#160;normalized.</p>
+<p style="position:absolute;top:370px;left:88px;white-space:nowrap" class="ft05">// Checking&#160;for&#160;exponent response<br/>Unbiased.exp&#160;&#160;Dst.exp – 03FFh;&#160;</p>
+<p style="position:absolute;top:388px;left:331px;white-space:nowrap" class="ft02">// subtract the bias&#160;from&#160;exponent</p>
+<p style="position:absolute;top:406px;left:88px;white-space:nowrap" class="ft02">IsOddExp&#160;&#160;Unbiased.exp[0];</p>
+<p style="position:absolute;top:406px;left:331px;white-space:nowrap" class="ft02">// recognized&#160;unbiased ODD exponent</p>
+<p style="position:absolute;top:424px;left:88px;white-space:nowrap" class="ft05">SignalingBit&#160;&#160;Dst.fraction[51];<br/>CASE (<i>interv</i>[1:0])&#160;</p>
+<p style="position:absolute;top:460px;left:115px;white-space:nowrap" class="ft02">00: Dst.exp&#160;&#160;03FFh;</p>
+<p style="position:absolute;top:460px;left:385px;white-space:nowrap" class="ft02">// This is the&#160;bias</p>
+<p style="position:absolute;top:478px;left:115px;white-space:nowrap" class="ft02">01: Dst.exp&#160;&#160;(IsOddExp)&#160;? 03FEh : 03FFh;</p>
+<p style="position:absolute;top:478px;left:412px;white-space:nowrap" class="ft02">// either&#160;bias-1, or bias</p>
+<p style="position:absolute;top:496px;left:115px;white-space:nowrap" class="ft02">10: Dst.exp&#160;&#160;03FEh;</p>
+<p style="position:absolute;top:496px;left:385px;white-space:nowrap" class="ft02">// bias-1</p>
+<p style="position:absolute;top:514px;left:115px;white-space:nowrap" class="ft02">11: Dst.exp&#160;&#160;(SignalingBit) ? 03FEh&#160;: 03FFh;</p>
+<p style="position:absolute;top:514px;left:412px;white-space:nowrap" class="ft02">// either&#160;bias-1, or bias</p>
+<p style="position:absolute;top:532px;left:88px;white-space:nowrap" class="ft05">ESCA<br/>//&#160;At this point Dst.exp has the correct&#160;result.&#160;Form&#160;the final destination<br/>DEST[63:0]&#160;&#160;(Dst.sign &lt;&lt;&#160;63) OR (Dst.exp&#160;&lt;&lt; 52) OR (Dst.fraction);<br/>Return&#160;(DEST);</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft05">SignCtrl[1:0]&#160;&#160;IMM8[3:2];<br/>Interv[1:0]&#160;&#160;IMM8[1:0];</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft05">VGETMANTPD&#160;(EVEX&#160;encoded&#160;versions)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:748px;left:88px;white-space:nowrap" class="ft05">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:784px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:802px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC *is memory*)</p>
+<p style="position:absolute;top:820px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:838px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;</p>
+<p style="position:absolute;top:837px;left:297px;white-space:nowrap" class="ft04">GetNormalizedMantissaDP(</p>
+<p style="position:absolute;top:838px;left:467px;white-space:nowrap" class="ft02">SRC</p>
+<p style="position:absolute;top:837px;left:490px;white-space:nowrap" class="ft04">[63:0], sc, interv)</p>
+<p style="position:absolute;top:856px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:874px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;</p>
+<p style="position:absolute;top:873px;left:297px;white-space:nowrap" class="ft04">GetNormalizedMantissaDP(</p>
+<p style="position:absolute;top:874px;left:467px;white-space:nowrap" class="ft02">SRC</p>
+<p style="position:absolute;top:873px;left:490px;white-space:nowrap" class="ft04">[i+63:i], sc, interv)</p>
+<p style="position:absolute;top:892px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:910px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:928px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:928px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:946px;left:169px;white-space:nowrap" class="ft05">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:964px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:982px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:1000px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:1018px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft05">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

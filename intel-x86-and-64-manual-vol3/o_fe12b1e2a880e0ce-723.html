@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 723</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:7px;font-family:Times;color:#000000;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page723-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce723.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-87</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:281px;left:69px;white-space:nowrap" class="ft09">The&#160;RDPMC&#160;instruction&#160;is not&#160;serializing or&#160;ordered with other instructions. Thus, it&#160;does&#160;not&#160;necessarily wait until&#160;<br/>all previous&#160;instructions&#160;have&#160;been&#160;executed before&#160;reading the&#160;counter.&#160;Similarly,&#160;subsequent&#160;instructions&#160;may&#160;<br/>begin execution&#160;before&#160;the&#160;RDPMC instruction operation is&#160;performed.<br/>Only&#160;the operating system, executing at&#160;privilege level 0,&#160;can directly manipulate the performance counters,&#160;using&#160;<br/>the RDMSR and&#160;WRMSR instructions. A&#160;secure operating&#160;system would clear the&#160;PCE&#160;flag during&#160;system&#160;initializa-<br/>tion to disable direct user access to the&#160;performance-monitoring counters, but provide a user-accessible&#160;program-<br/>ming&#160;interface&#160;that emulates&#160;the RDPMC&#160;instruction.<br/>Some&#160;uses of the performance&#160;counters&#160;require the&#160;counters&#160;to be preset&#160;before&#160;counting begins (that&#160;is,&#160;before&#160;<br/>the counter&#160;is enabled). This&#160;can be&#160;accomplished by&#160;writing to the&#160;counter using the WRMSR instruction.&#160;To&#160;set&#160;a&#160;<br/>counter to&#160;a specified&#160;number&#160;of counts before&#160;overflow,&#160;enter a&#160;2s complement negative&#160;integer&#160;in the&#160;counter.&#160;<br/>The counter&#160;will&#160;then&#160;count from&#160;the preset value&#160;up&#160;to&#160;-1 and&#160;overflow.&#160;Writing to a&#160;performance counter&#160;in a&#160;<br/>Pentium&#160;4 or&#160;Intel Xeon processor with the&#160;WRMSR instruction causes&#160;all 40 bits of the counter to&#160;be&#160;written.</p>
+<p style="position:absolute;top:528px;left:69px;white-space:nowrap" class="ft03">18.15.3 CCCR&#160;</p>
+<p style="position:absolute;top:528px;left:195px;white-space:nowrap" class="ft03">MSRs</p>
+<p style="position:absolute;top:558px;left:69px;white-space:nowrap" class="ft09">Each&#160;of&#160;the 18 performance counters has&#160;one CCCR MSR&#160;associated with&#160;it (see&#160;<a href="o_fe12b1e2a880e0ce-718.html">Table 18-63</a>). The CCCRs&#160;control&#160;<br/>the filtering&#160;and counting of events&#160;as well as interrupt genera<a href="o_fe12b1e2a880e0ce-724.html">tion. Figure&#160;18-45 shows the la</a>yout of&#160;an CCCR MSR.&#160;<br/>The&#160;functions of the flags&#160;and fields are&#160;as follows:</p>
+<p style="position:absolute;top:613px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:614px;left:95px;white-space:nowrap" class="ft09"><b>Enable&#160;flag, bit 12&#160;—&#160;</b>When&#160;set, enables&#160;counting; when clear,&#160;the&#160;counter is disabled.&#160;This&#160;flag is cleared on&#160;<br/>reset.</p>
+<p style="position:absolute;top:652px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:653px;left:95px;white-space:nowrap" class="ft09"><b>ESCR&#160;select&#160;field,&#160;bits&#160;13&#160;through&#160;15&#160;—&#160;</b>Identifies the&#160;ESCR&#160;to be used to&#160;select&#160;events to&#160;be&#160;counted with&#160;<br/>the&#160;counter associated with the&#160;CCCR.</p>
+<p style="position:absolute;top:691px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:692px;left:95px;white-space:nowrap" class="ft09"><b>Compare flag, bit&#160;18 —&#160;</b>When set, enables&#160;filtering of the&#160;event count; when clear,&#160;disables&#160;filtering.&#160;The&#160;<br/>filtering method&#160;is&#160;selected with the&#160;threshold, complement,&#160;and edge&#160;flags.</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:731px;left:95px;white-space:nowrap" class="ft09"><b>Complement flag, bit 19&#160;—&#160;</b>Selects&#160;how&#160;the&#160;incoming event&#160;count&#160;is compared with the&#160;threshold value.&#160;<br/>When&#160;set,&#160;event counts that&#160;are less than or&#160;equal&#160;to&#160;the&#160;threshold value&#160;result in&#160;a single&#160;count being&#160;<br/>delivered&#160;to&#160;the performance&#160;counter; when clear,&#160;counts greater&#160;than&#160;the threshold value result in a&#160;count&#160;<br/>being delivered&#160;to the performance&#160;counter (see<a href="o_fe12b1e2a880e0ce-727.html">&#160;Section 18.15.5.2,&#160;“Filtering&#160;Events”).&#160;</a>The&#160;complement flag&#160;is&#160;<br/>not active&#160;unless the&#160;compare flag is&#160;set.</p>
+<p style="position:absolute;top:819px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:819px;left:95px;white-space:nowrap" class="ft09"><b>Threshold field, bits&#160;20&#160;through 23&#160;—&#160;</b>Selects the&#160;threshold&#160;value&#160;to be used for comparisons. The&#160;<br/>processor&#160;examines&#160;this field only&#160;when the&#160;compare flag is&#160;set, and uses&#160;the complement&#160;flag setting to&#160;<br/>determine the type of threshold comparison to&#160;be made.&#160;The useful range of&#160;values that&#160;can be entered in this&#160;<br/>field&#160;depend on&#160;the type of event being&#160;count<a href="o_fe12b1e2a880e0ce-727.html">ed (see Section 18.15.5.2,&#160;“Filtering&#160;Events”).</a></p>
+<p style="position:absolute;top:891px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:891px;left:95px;white-space:nowrap" class="ft09"><b>Edge&#160;flag, bit 24&#160;—&#160;</b>When&#160;set,&#160;enables rising edge&#160;(false-to-true) edge&#160;detection of the&#160;threshold&#160;comparison&#160;<br/>output for filtering event counts; when clear,&#160;rising edge&#160;detection is&#160;disabled. This flag is&#160;active&#160;only when the&#160;<br/>compare&#160;flag is&#160;set.</p>
+<p style="position:absolute;top:235px;left:201px;white-space:nowrap" class="ft06">Figure&#160;18-44. &#160;Performance Counter&#160;(Pentium 4 and&#160;Intel&#160;Xeon&#160;Processors)</p>
+<p style="position:absolute;top:178px;left:254px;white-space:nowrap" class="ft07">63</p>
+<p style="position:absolute;top:178px;left:645px;white-space:nowrap" class="ft07">32</p>
+<p style="position:absolute;top:199px;left:377px;white-space:nowrap" class="ft08">Reserved</p>
+<p style="position:absolute;top:123px;left:254px;white-space:nowrap" class="ft07">31</p>
+<p style="position:absolute;top:123px;left:645px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:138px;left:435px;white-space:nowrap" class="ft08">Counter</p>
+<p style="position:absolute;top:179px;left:543px;white-space:nowrap" class="ft07">39</p>
+<p style="position:absolute;top:192px;left:579px;white-space:nowrap" class="ft08">Counter</p>
+</div>
+</body>
+</html>

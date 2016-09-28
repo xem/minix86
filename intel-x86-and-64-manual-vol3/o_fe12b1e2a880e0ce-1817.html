@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1817</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1817-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1817.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-7</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">ENCLU—Execute an Enclave User Function of&#160;Specified Leaf Number&#160;</p>
+<p style="position:absolute;top:248px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:333px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft06">The&#160;ENCLU instruction invokes the&#160;specified non-privileged&#160;Intel&#160;SGX leaf&#160;functions. Software specifies the&#160;leaf&#160;<br/>function by setting the appropriate value in the register&#160;EAX as input.&#160;The registers RBX,&#160;RCX,&#160;and RDX&#160;have&#160;leaf-<br/>specific&#160;purpose, and may act as&#160;input,&#160;as output,&#160;or&#160;may be unused. In 64-bit mode, the instruction&#160;ignores upper&#160;<br/>32 bits of the&#160;RAX&#160;register.<br/>The ENCLU&#160;instruction&#160;produces an invalid-opcode exception (#UD) if CR0.PE&#160;=&#160;0 or&#160;RFLAGS.VM&#160;=&#160;1,&#160;or if&#160;it is&#160;<br/>executed&#160;in&#160;system-management mode&#160;(SMM).&#160;Additionally,&#160;any&#160;attempt&#160;to execute&#160;this&#160;instruction when CPL &lt; 3&#160;<br/>results in&#160;#UD.&#160;The instruction produces a&#160;general-protection&#160;exception (#GP) if either CR0.PG or&#160;CR0.NE is&#160;0,&#160;or&#160;<br/>if&#160;an attempt is made to&#160;invoke&#160;an undefined leaf function. The ENCLU instruction&#160;produces a&#160;device not&#160;available&#160;<br/>exception (#NM) if&#160;CR0.TS&#160;=&#160;1.<br/>Addresses&#160;and operands&#160;are 32 bits outside 64-bit&#160;mode&#160;(IA32_EFER.LMA&#160;=&#160;0&#160;or CS.L&#160;= 0)&#160;and&#160;are 64&#160;bits in&#160;64-<br/>bit mode&#160;(IA32_EFER.LMA&#160;= 1&#160;and&#160;CS.L&#160;=&#160;1). CS.D&#160;value has no impact on address&#160;calculation.&#160;The DS&#160;segment&#160;<br/>is used&#160;to&#160;create&#160;linear addresses.<br/>Segment&#160;override prefixes and&#160;address-size&#160;override&#160;prefixes&#160;are ignored,&#160;and is&#160;the&#160;REX prefix&#160;in 64-bit&#160;mode.</p>
+<p style="position:absolute;top:606px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft07">IN_64BIT_MODE&#160;0;<br/>IF&#160;TSX_ACTIVE</p>
+<p style="position:absolute;top:664px;left:89px;white-space:nowrap" class="ft04">THEN GOTO&#160;TSX_ABORT_PROCESSING; FI;</p>
+<p style="position:absolute;top:700px;left:69px;white-space:nowrap" class="ft04">IF&#160;CR0.PE= 0&#160;or RFLAGS.VM = 1&#160;or in&#160;SMM&#160;or CPUID.SGX_LEAF.0:EAX.SE1&#160;= 0</p>
+<p style="position:absolute;top:718px;left:89px;white-space:nowrap" class="ft04">THEN #UD; FI;</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft04">IF&#160;CR0.TS = 1</p>
+<p style="position:absolute;top:772px;left:89px;white-space:nowrap" class="ft04">THEN #NM; FI;</p>
+<p style="position:absolute;top:808px;left:69px;white-space:nowrap" class="ft04">IF&#160;CPL &lt;&#160;3</p>
+<p style="position:absolute;top:826px;left:89px;white-space:nowrap" class="ft04">THEN #UD; FI;</p>
+<p style="position:absolute;top:862px;left:69px;white-space:nowrap" class="ft04">IF&#160;IA32_FEATURE_CONTROL.LOCK = 0 or&#160;IA32_FEATURE_CONTROL.SGX_ENABLE = 0</p>
+<p style="position:absolute;top:880px;left:89px;white-space:nowrap" class="ft04">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:916px;left:69px;white-space:nowrap" class="ft04">IF EAX&#160;is invalid&#160;leaf&#160;number</p>
+<p style="position:absolute;top:934px;left:89px;white-space:nowrap" class="ft04">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:970px;left:69px;white-space:nowrap" class="ft04">IF&#160;CR0.PG&#160;= 0&#160;or CR0.NE&#160;= 0</p>
+<p style="position:absolute;top:988px;left:89px;white-space:nowrap" class="ft04">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1024px;left:69px;white-space:nowrap" class="ft07">IN_64BIT_MODE&#160;&#160;IA32_EFER.LMA AND CS.L ? 1 : 0;<br/>(* Check not in 16-bit mode and&#160;DS&#160;is not a&#160;16-bit segment *)<br/>IF not in&#160;64-bit mode&#160;and (CS.D =&#160;0 or DS.B = 0)&#160;</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:260px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:316px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:316px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:316px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:389px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:389px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:456px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">&#160;0F&#160;01&#160;D7&#160;</p>
+<p style="position:absolute;top:175px;left:260px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:175px;left:316px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:389px;white-space:nowrap" class="ft04">SGX1</p>
+<p style="position:absolute;top:175px;left:456px;white-space:nowrap" class="ft04">This instruction&#160;is&#160;used&#160;to&#160;execute non-privileged&#160;Intel SGX leaf&#160;</p>
+<p style="position:absolute;top:191px;left:456px;white-space:nowrap" class="ft04">functions.</p>
+<p style="position:absolute;top:195px;left:78px;white-space:nowrap" class="ft04">ENCLU</p>
+<p style="position:absolute;top:271px;left:97px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:271px;left:209px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:271px;left:371px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:271px;left:540px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:271px;left:672px;white-space:nowrap" class="ft04">Implicit Register&#160;Operands</p>
+<p style="position:absolute;top:295px;left:106px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:295px;left:230px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:392px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:562px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:698px;white-space:nowrap" class="ft04">Se<a href="o_fe12b1e2a880e0ce-1874.html">e Section 41.4</a></p>
+</div>
+</body>
+</html>

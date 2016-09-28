@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 266</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page266-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a266.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">11-12&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® STREAMING&#160;SIMD&#160;EXTENSIONS&#160;2 (INTEL® SSE2)</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">11.4.4&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Cacheability Control and Memory Ordering Instructions</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft05">SSE2 extensions&#160;that&#160;give&#160;programs&#160;more&#160;control&#160;over&#160;the caching, loading,&#160;and&#160;storing of data.&#160;are described&#160;<br/>below.</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft04">11.4.4.1 &#160;&#160;FLUSH Cache Line</p>
+<p style="position:absolute;top:218px;left:68px;white-space:nowrap" class="ft05">The CLFLUSH&#160;(flush&#160;cache line) instruction writes and invalidates the&#160;cache&#160;line associated&#160;with a&#160;specified linear&#160;<br/>address.&#160;The&#160;invalidation is&#160;for all&#160;levels of the&#160;processor’s cache&#160;hierarchy,&#160;and it&#160;is broadcast throughout the&#160;<br/>cache coherency domain.</p>
+<p style="position:absolute;top:286px;left:432px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:311px;left:120px;white-space:nowrap" class="ft05">CLFLUSH&#160;was introduced with the&#160;SSE2&#160;extensions.&#160;However,&#160;the instruction can&#160;be&#160;implemented&#160;<br/>in IA-32 processors that do&#160;not implement&#160;the SSE2 extensions. Detect&#160;CLFLUSH using&#160;the feature&#160;<br/>bit (if CPUID.01H:EDX.CLFSH[bit&#160;19] = 1).</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft04">11.4.4.2 &#160;&#160;Cacheability Control Instructions</p>
+<p style="position:absolute;top:417px;left:68px;white-space:nowrap" class="ft05">The&#160;following four instructions enable data from&#160;XMM and&#160;general-purpose registers to be stored to&#160;memory using&#160;<br/>a non-temporal&#160;hint. The&#160;non-temporal hint directs the processor to store data&#160;to&#160;memory without writing the data&#160;<br/>into the cache&#160;hierarchy.&#160;Se<a href="o_7281d5ea06a5b67a-248.html">e Section 10.4.6.2,&#160;“Caching of&#160;Temporal vs. Non-Temporal Data,”</a>&#160;for more information&#160;<br/>about non-temporal stores&#160;and hints.<br/>The&#160;MOVNTDQ (store double quadword using&#160;non-temporal&#160;hint)&#160;instruction&#160;stores&#160;packed integer&#160;data from an&#160;<br/>XMM register&#160;to memory,&#160;using a&#160;non-temporal hint.<br/>The MOVNTPD (store packed&#160;double-precision&#160;floating-point values&#160;using non-temporal&#160;hint) instruction stores&#160;<br/>packed double-precision floating-point&#160;data&#160;from an&#160;XMM register&#160;to memory, using a non-temporal hint.<br/>The MOVNTI&#160;(store doubleword using&#160;non-temporal hint)&#160;instruction&#160;stores integer&#160;data from a&#160;general-purpose&#160;<br/>register to&#160;memory, using&#160;a non-temporal&#160;hint.<br/>The&#160;MASKMOVDQU (store&#160;selected&#160;bytes of double quadword) instruction stores&#160;selected&#160;byte&#160;integers from an&#160;<br/>XMM register to&#160;memory, using a byte mask&#160;to selectively&#160;write&#160;the&#160;individual&#160;bytes. The memory location does not&#160;<br/>need to be aligned&#160;on a natural&#160;boundary.&#160;This&#160;instruction&#160;also uses&#160;a non-temporal&#160;hint.&#160;</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft04">11.4.4.3 &#160;&#160;Memory Ordering Instructions</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft05">SSE2 extensions introduce two new fence&#160;instructions&#160;(LFENCE and&#160;MFENCE)&#160;as companions to&#160;the SFENCE&#160;<br/>instruction introduced with SSE&#160;extensions.&#160;<br/>The LFENCE instruction establishes&#160;a memory&#160;fence&#160;for&#160;loads. It&#160;guarantees ordering between two loads and&#160;<br/>prevents speculative&#160;loads&#160;from&#160;passing&#160;the load&#160;fence&#160;(that is, no speculative&#160;loads&#160;are&#160;allowed until all loads&#160;<br/>specified before the&#160;load&#160;fence have&#160;been carried&#160;out).<br/>The MFENCE&#160;instruction combines&#160;the functions of&#160;LFENCE&#160;and&#160;SFENCE&#160;by&#160;establishing a&#160;memory&#160;fence for both&#160;<br/>loads and stores.&#160;It guarantees that&#160;all loads and stores specified before the fence are globally observable&#160;prior&#160;to&#160;<br/>any loads or stores being carried&#160;out&#160;after the&#160;fence.</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft04">11.4.4.4 &#160;&#160;Pause</p>
+<p style="position:absolute;top:921px;left:68px;white-space:nowrap" class="ft05">The PAUSE instruction&#160;is provided to improve&#160;the performance of “spin-wait loops” executed on a Pentium 4 or Intel&#160;<br/>Xeon processor.&#160;On&#160;a&#160;Pentium&#160;4&#160;processor,&#160;it also&#160;provides&#160;the added benefit of reducing processor power&#160;<br/>consumption&#160;while&#160;executing a spin-wait&#160;loop. It&#160;is&#160;recommended&#160;that a&#160;PAUSE instruction always be included&#160;in&#160;<br/>the code sequence&#160;for&#160;a spin-wait&#160;loop.</p>
+</div>
+</body>
+</html>

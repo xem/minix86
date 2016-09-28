@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1772</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1772-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1772.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">38-2&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE ACCESS&#160;CONTROL&#160;AND DATA STRUCTURES</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07">—&#160;Instruction&#160;fetches from an EPC page&#160;are&#160;allowed if the&#160;EPCM allows execute access.<br/>—&#160;Target&#160;page must not&#160;have&#160;a&#160;restricted page&#160;type</p>
+<p style="position:absolute;top:122px;left:452px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:124px;left:458px;white-space:nowrap" class="ft02">&#160;(PT_SECS,&#160;PT_TCS, PT_VA,&#160;or PT_TRIM).</p>
+<p style="position:absolute;top:148px;left:93px;white-space:nowrap" class="ft07">—&#160;The EPC page&#160;must&#160;not be BLOCKED.&#160;<br/>—&#160;The EPC page&#160;must&#160;not be&#160;PENDING.&#160;<br/>—&#160;The EPC page&#160;must&#160;not be MODIFIED.&#160;</p>
+<p style="position:absolute;top:252px;left:68px;white-space:nowrap" class="ft04">38.4&#160;</p>
+<p style="position:absolute;top:252px;left:147px;white-space:nowrap" class="ft04">SEGMENT-BASED ACCESS CONTROL</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft09">Intel SGX architecture does&#160;not modify&#160;the segment checks&#160;performed by a logical processor.&#160;All memory accesses&#160;<br/>arising from&#160;a logical processor in&#160;protected mode&#160;(including&#160;enclave&#160;access) are&#160;subject to&#160;segmentation&#160;checks&#160;<br/>with the&#160;applicable&#160;segment register.&#160;<br/>To&#160;ensure that outside entities do not modify the enclave's&#160;logical-to-linear address&#160;translation in an&#160;unexpected&#160;<br/>fashion, ENCLU[EENTER]&#160;and ENCLU[ERESUME] check&#160;that CS,&#160;DS, ES,&#160;and SS,&#160;if usable (i.e.,&#160;not null), have&#160;<br/>segment base value&#160;of&#160;zero. A non-zero segment base&#160;value&#160;for these&#160;registers results in a&#160;#GP(0).<br/>On enclave&#160;entry either via EENTER&#160;or&#160;ERESUME,&#160;the processor saves the&#160;contents of the external FS and GS&#160;regis-<br/>ters, and loads these&#160;registers with&#160;values&#160;stored&#160;in the TCS&#160;at build time to enable&#160;the enclave’s use of these regis-<br/>ters for accessing&#160;the thread-local storage&#160;inside the&#160;enclave. On&#160;EEXIT&#160;and AEX, the contents at time&#160;of entry are&#160;<br/>restored.&#160;On&#160;AEX,&#160;the&#160;values&#160;of&#160;FS&#160;and&#160;GS&#160;are&#160;saved&#160;in&#160;the&#160;SSA&#160;frame.&#160;On&#160;ERESUME,&#160;FS&#160;and&#160;GS&#160;are&#160;restored&#160;from&#160;<br/>the SSA&#160;frame. The details of these operations can&#160;be&#160;found&#160;in the&#160;descriptions of EENTER,&#160;ERESUME, EEXIT,&#160;and&#160;<br/>AEX&#160;flows.</p>
+<p style="position:absolute;top:535px;left:68px;white-space:nowrap" class="ft04">38.5 PAGE-BASED&#160;</p>
+<p style="position:absolute;top:535px;left:273px;white-space:nowrap" class="ft04">ACCESS&#160;</p>
+<p style="position:absolute;top:535px;left:349px;white-space:nowrap" class="ft04">CONTROL</p>
+<p style="position:absolute;top:598px;left:68px;white-space:nowrap" class="ft05">38.5.1&#160;</p>
+<p style="position:absolute;top:598px;left:148px;white-space:nowrap" class="ft05">Access-control for Accesses that Originate from non-SGX Instructions</p>
+<p style="position:absolute;top:627px;left:68px;white-space:nowrap" class="ft09">Intel SGX builds on the processor's&#160;paging mechanism&#160;to&#160;provide&#160;page-granular access-control for enclave&#160;pages.&#160;<br/>Enclave pages&#160;are only accessible&#160;from&#160;inside&#160;the&#160;currently&#160;executing enclave if they&#160;belong&#160;to&#160;that&#160;enclave.&#160;In&#160;<br/>addition, enclave&#160;accesses must&#160;conform to the access control requirements described<a href="o_fe12b1e2a880e0ce-1771.html">&#160;in Section 38.3. or through&#160;<br/></a>certain Intel SGX&#160;instructions. Attempts to&#160;execute, read&#160;or write to&#160;linear&#160;addresses mapped&#160;to EPC pages&#160;using&#160;<br/>non-enclave&#160;access results in undefined&#160;behavior.</p>
+<p style="position:absolute;top:743px;left:68px;white-space:nowrap" class="ft05">38.5.2&#160;</p>
+<p style="position:absolute;top:743px;left:148px;white-space:nowrap" class="ft05">Memory Accesses that Split across ELRANGE</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft09">Memory data accesses are allowed to split across ELRANGE (i.e.,&#160;a part&#160;of the access&#160;is&#160;inside ELRANGE&#160;and a part&#160;<br/>of the access&#160;is&#160;outside ELRANGE) while&#160;the&#160;processor is&#160;inside an&#160;enclave.&#160;If an access splits across ELRANGE, the&#160;<br/>processor splits the access into two sub-accesses (one&#160;inside&#160;ELRANGE and&#160;the&#160;other outside ELRANGE),&#160;and each&#160;<br/>access is&#160;evaluated. A code-fetch access that splits across&#160;ELRANGE&#160;results&#160;in&#160;a #GP&#160;due&#160;to the&#160;portion that lies&#160;<br/>outside of the&#160;ELRANGE.</p>
+<p style="position:absolute;top:889px;left:68px;white-space:nowrap" class="ft05">38.5.3&#160;</p>
+<p style="position:absolute;top:889px;left:148px;white-space:nowrap" class="ft05">Implicit vs. Explicit Accesses</p>
+<p style="position:absolute;top:918px;left:68px;white-space:nowrap" class="ft09">Memory accesses originating&#160;from Intel&#160;SGX instruction&#160;leaf&#160;functions are&#160;categorized as either explicit&#160;accesses&#160;or&#160;<br/><a href="o_fe12b1e2a880e0ce-1773.html">implicit accesses.&#160;Table&#160;38-1 lists&#160;</a>the implicit and&#160;explicit memory&#160;accesses made&#160;by Intel&#160;SGX leaf functions.</p>
+<p style="position:absolute;top:979px;left:68px;white-space:nowrap" class="ft06">38.5.3.1 &#160;&#160;Explicit Accesses</p>
+<p style="position:absolute;top:1006px;left:68px;white-space:nowrap" class="ft09">Accesses to&#160;memory locations&#160;provided&#160;as explicit operands&#160;to&#160;Intel SGX instruction leaf&#160;functions,&#160;or their&#160;linked&#160;<br/>data&#160;structures&#160;are&#160;called explicit accesses.&#160;</p>
+<p style="position:absolute;top:1059px;left:68px;white-space:nowrap" class="ft02">1.&#160;EPCM&#160;may allow write,&#160;read&#160;or&#160;execute&#160;access only&#160;for pages with&#160;page type PT_REG.</p>
+</div>
+</body>
+</html>

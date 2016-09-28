@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1928</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1928-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1928.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">42-10&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® SGX INTERACTIONS WITH IA32 AND INTEL® 64&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:97px;left:68px;white-space:nowrap" class="ft02">42.9&#160;</p>
+<p style="position:absolute;top:97px;left:147px;white-space:nowrap" class="ft02">INTERACTIONS OF&#160;INIT, SIPI,&#160;AND WAIT-FOR-SIPI WITH INTEL® SGX</p>
+<p style="position:absolute;top:132px;left:68px;white-space:nowrap" class="ft08">INIT&#160;received inside an&#160;enclave, while&#160;the logical processor is not&#160;in&#160;VMX operation, causes the&#160;logical&#160;processor&#160;to&#160;<br/>exit the&#160;enclave&#160;asynchronously.&#160;After the&#160;AEX,&#160;the processor's architectural state is initialized&#160;to&#160;“Power-on” state&#160;<br/>(Table 9.1&#160;in&#160;<a href="��"><i>Intel® 64&#160;and IA-32&#160;Architectures&#160;Software&#160;Developer’s Manual,&#160;Volume&#160;3A</i>). If&#160;</a>the logical processor&#160;<br/>is BSP,&#160;then it&#160;proceeds&#160;to execute&#160;the&#160;BIOS initialization&#160;code. If&#160;the logical processor is&#160;an&#160;AP,&#160;it enters wait-for-<br/>SIPI&#160;state.&#160;<br/>INIT received inside an&#160;enclave,&#160;while the&#160;logical&#160;processor (LP)&#160;is in VMX root operation, follows&#160;regular&#160;Intel&#160;<br/>Architecture&#160;behavior and is&#160;blocked.<br/>INIT received inside an&#160;enclave,&#160;while the&#160;logical&#160;processor is&#160;in VMX non-root&#160;operation, causes&#160;an&#160;AEX. Subse-<br/>quent to the&#160;AEX, the INIT&#160;causes a&#160;VM exit&#160;with the Enclave&#160;Interruption bit in the&#160;exit-reason field&#160;in&#160;the&#160;VMCS.&#160;<br/>A processor cannot be inside an&#160;enclave&#160;in the&#160;wait-for-SIPI state.&#160;Consequently, a&#160;SIPI received while inside an&#160;<br/>enclave is&#160;lost.<br/>Intel&#160;SGX does not change the&#160;behavior of the&#160;processor&#160;in the&#160;wait-for-SIPI&#160;state.<br/>The&#160;SGX-related processor states&#160;after&#160;INIT-SIPI-SIPI is&#160;as follows:</p>
+<p style="position:absolute;top:382px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:382px;left:93px;white-space:nowrap" class="ft03">EPC Settings:&#160;Unchanged</p>
+<p style="position:absolute;top:404px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:405px;left:93px;white-space:nowrap" class="ft03">EPCM: Unchanged</p>
+<p style="position:absolute;top:427px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:427px;left:93px;white-space:nowrap" class="ft03">CPUID.LEAF_12H.*: Unchanged</p>
+<p style="position:absolute;top:449px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:450px;left:93px;white-space:nowrap" class="ft03">ENCLAVE_MODE:&#160;0 (LP&#160;exits enclave asynchronously)</p>
+<p style="position:absolute;top:472px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:472px;left:93px;white-space:nowrap" class="ft03">MEE state:&#160;Unchanged</p>
+<p style="position:absolute;top:495px;left:68px;white-space:nowrap" class="ft07">Software&#160;should be&#160;aware&#160;that following INIT-SIPI-SIPI,&#160;the EPC might&#160;contain&#160;valid pages and should take appro-<br/>priate&#160;measures such&#160;as&#160;initialize the EPC with the&#160;EREMOVE leaf&#160;function.&#160;</p>
+<p style="position:absolute;top:567px;left:68px;white-space:nowrap" class="ft02">42.10 INTERACTIONS&#160;</p>
+<p style="position:absolute;top:567px;left:291px;white-space:nowrap" class="ft02">WITH&#160;</p>
+<p style="position:absolute;top:567px;left:347px;white-space:nowrap" class="ft02">DMA</p>
+<p style="position:absolute;top:601px;left:68px;white-space:nowrap" class="ft03">DMA&#160;is not allowed&#160;to access any&#160;Processor&#160;Reserved Memory.</p>
+<p style="position:absolute;top:657px;left:68px;white-space:nowrap" class="ft02">42.11 INTERACTIONS&#160;</p>
+<p style="position:absolute;top:657px;left:291px;white-space:nowrap" class="ft02">WITH&#160;</p>
+<p style="position:absolute;top:657px;left:347px;white-space:nowrap" class="ft02">TXT</p>
+<p style="position:absolute;top:719px;left:68px;white-space:nowrap" class="ft06">42.11.1&#160;&#160;Enclaves Created Prior to&#160;Execution of&#160;GETSEC</p>
+<p style="position:absolute;top:748px;left:68px;white-space:nowrap" class="ft07">Enclaves which have&#160;been&#160;created before the&#160;GETSEC[SENTER] leaf&#160;function&#160;are available&#160;for execution&#160;after the&#160;<br/>successful completion&#160;of GETSEC[SENTER] and the&#160;corresponding SINIT&#160;ACM. Actions&#160;that a&#160;TXT Launched Envi-<br/>ronment performs&#160;in preparation&#160;to execute code in the&#160;Launched&#160;Environment,&#160;also applies&#160;to enclave code that&#160;<br/>would&#160;run after GETSEC[SENTER].</p>
+<p style="position:absolute;top:848px;left:68px;white-space:nowrap" class="ft06">42.11.2&#160;&#160;Interaction of&#160;GETSEC with Intel® SGX</p>
+<p style="position:absolute;top:877px;left:68px;white-space:nowrap" class="ft08">All leaf functions of the GETSEC instruction are illegal inside&#160;an&#160;enclave, and results in an invalid-opcode&#160;exception&#160;<br/>(#UD).<br/>Responding&#160;Logical Processors (RLP) which are&#160;executing&#160;inside&#160;an enclave at&#160;the time&#160;a GETSEC[SENTER]&#160;event&#160;<br/>occurs&#160;perform an&#160;AEX&#160;from&#160;the&#160;enclave&#160;and&#160;then enter&#160;the Wait-for-SIPI state.&#160;<br/>RLP executing inside&#160;an&#160;enclave&#160;at&#160;the time&#160;of GETSEC[SEXIT], behave as&#160;defined for&#160;GETSEC[SEXIT]-that&#160;is, the&#160;<br/>RLPs pause during&#160;execution of&#160;SEXIT and&#160;resume after&#160;the completion of SEXIT.<br/>The execution&#160;of&#160;a TXT&#160;launch&#160;does not affect&#160;Intel SGX&#160;configuration or&#160;security&#160;parameters.</p>
+</div>
+</body>
+</html>

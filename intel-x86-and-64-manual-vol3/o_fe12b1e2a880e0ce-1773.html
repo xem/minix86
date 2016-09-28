@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1773</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1773-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1773.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;38-3</p>
+<p style="position:absolute;top:47px;left:534px;white-space:nowrap" class="ft01">ENCLAVE ACCESS&#160;CONTROL AND DATA STRUCTURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">Explicit accesses are&#160;always made&#160;using&#160;logical addresses. These accesses&#160;are subject&#160;to segmentation,&#160;paging,&#160;<br/>extended paging, and APIC-virtualization checks, and&#160;trigger&#160;any faults/exit associated with these checks when the&#160;<br/>access is&#160;made.<br/>The&#160;interaction of explicit memory accesses with data breakpoints&#160;is leaf-function-specific, and is&#160;documented&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-1936.html">Section 43.3.4.</a></p>
+<p style="position:absolute;top:217px;left:69px;white-space:nowrap" class="ft03">38.5.3.2 &#160;&#160;Implicit Accesses</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft05">Accesses to&#160;data&#160;structures&#160;whose physical addresses are&#160;cached&#160;by&#160;the processor are&#160;called implicit accesses.&#160;<br/>These addresses are&#160;not passed&#160;as operands&#160;of&#160;the instruction&#160;but are&#160;implied by&#160;use&#160;of the&#160;instruction.&#160;<br/>These&#160;accesses do&#160;not trigger any&#160;access-control faults/exits&#160;or data&#160;<a href="o_fe12b1e2a880e0ce-1773.html">breakpoints. Table&#160;38-1 lists&#160;</a>memory&#160;objects&#160;<br/>that&#160;Intel SGX instruction leaf&#160;functions access either by explicit&#160;access&#160;or implicit&#160;access. The addresses of explicit&#160;<br/>access objects&#160;are&#160;passed via register&#160;operands with&#160;the&#160;second through&#160;fourth<a href="o_fe12b1e2a880e0ce-1773.html">&#160;column of Table 38-1&#160;</a>matching&#160;<br/>implicitly&#160;encoded registers&#160;RBX, RCX, RDX.<br/>Physical&#160;addresses&#160;used&#160;in&#160;different implicit accesses are&#160;cached via different instructions and&#160;for&#160;different dura-<br/>tions. The&#160;physical address&#160;of SECS associated with each&#160;EPC page is&#160;cached at the time&#160;the page is added to the&#160;<br/>enclave&#160;via&#160;ENCLS[EADD] or ENCLS[EAUG], or when the&#160;page&#160;is loaded&#160;to EPC via ENCLS[ELDB] or ENCLS[ELDU].&#160;<br/>This binding&#160;is severed&#160;when&#160;the&#160;corresponding&#160;page&#160;is&#160;removed from&#160;the EPC via&#160;ENCLS[EREMOVE] or&#160;<br/>ENCLS[EWB]. Physical addresses of&#160;TCS and SSA&#160;pages&#160;are&#160;cached&#160;at&#160;the time of most-recent enclave&#160;entry.&#160;Exit&#160;<br/>from an enclave&#160;(ENCLU[EEXIT] or AEX) flushes this caching. Details of Asynchronous Enclave&#160;Exit is described&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-1803.html">Chapter 40</a>.<br/>The&#160;physical&#160;addresses that&#160;are cached&#160;for&#160;use&#160;by implicit accesses are&#160;derived from&#160;logical&#160;(or linear)&#160;addresses&#160;<br/>after&#160;checks such&#160;as&#160;segmentation, paging, EPT,&#160;and&#160;APIC virtualization&#160;checks. These&#160;checks&#160;may&#160;trigger excep-<br/>tions&#160;or VM exits. Note,&#160;however,&#160;that such exception&#160;or&#160;VM exits may&#160;not occur after&#160;a physical&#160;address is&#160;cached&#160;<br/>and used&#160;for an&#160;implicit access.&#160;</p>
+<p style="position:absolute;top:567px;left:152px;white-space:nowrap" class="ft04">Table 38-1.&#160;&#160;List&#160;of&#160;Implicit&#160;and Explicit&#160;Memory&#160;Access&#160;by&#160;Intel®&#160;SGX Enclave&#160;Instructions</p>
+<p style="position:absolute;top:588px;left:99px;white-space:nowrap" class="ft02">Instr.&#160;Leaf</p>
+<p style="position:absolute;top:588px;left:220px;white-space:nowrap" class="ft02">Enum.</p>
+<p style="position:absolute;top:588px;left:382px;white-space:nowrap" class="ft02">Explicit 1</p>
+<p style="position:absolute;top:588px;left:563px;white-space:nowrap" class="ft02">Explicit&#160;2</p>
+<p style="position:absolute;top:588px;left:672px;white-space:nowrap" class="ft02">Explicit 3</p>
+<p style="position:absolute;top:588px;left:775px;white-space:nowrap" class="ft02">Implicit&#160;</p>
+<p style="position:absolute;top:611px;left:70px;white-space:nowrap" class="ft02">EACCEPT</p>
+<p style="position:absolute;top:611px;left:198px;white-space:nowrap" class="ft02">SGX2</p>
+<p style="position:absolute;top:611px;left:290px;white-space:nowrap" class="ft02">SECINFO</p>
+<p style="position:absolute;top:611px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:611px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:633px;left:70px;white-space:nowrap" class="ft02">EACCEPTCOPY</p>
+<p style="position:absolute;top:633px;left:198px;white-space:nowrap" class="ft02">SGX2</p>
+<p style="position:absolute;top:633px;left:290px;white-space:nowrap" class="ft02">SECINFO</p>
+<p style="position:absolute;top:633px;left:540px;white-space:nowrap" class="ft02">EPCPAGE&#160;(Src)</p>
+<p style="position:absolute;top:633px;left:651px;white-space:nowrap" class="ft02">EPCPAGE (Dst)</p>
+<p style="position:absolute;top:656px;left:70px;white-space:nowrap" class="ft02">EADD</p>
+<p style="position:absolute;top:656px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:656px;left:290px;white-space:nowrap" class="ft02">PAGEINFO&#160;and&#160;linked&#160;structures</p>
+<p style="position:absolute;top:656px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:678px;left:70px;white-space:nowrap" class="ft02">EAUG</p>
+<p style="position:absolute;top:678px;left:198px;white-space:nowrap" class="ft02">SGX2</p>
+<p style="position:absolute;top:678px;left:290px;white-space:nowrap" class="ft02">PAGEINFO&#160;and&#160;linked&#160;structures</p>
+<p style="position:absolute;top:678px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:678px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:701px;left:70px;white-space:nowrap" class="ft02">EBLOCK</p>
+<p style="position:absolute;top:701px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:701px;left:290px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:701px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:723px;left:70px;white-space:nowrap" class="ft02">ECREATE</p>
+<p style="position:absolute;top:723px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:723px;left:290px;white-space:nowrap" class="ft02">PAGEINFO and&#160;linked&#160;structures</p>
+<p style="position:absolute;top:723px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:746px;left:70px;white-space:nowrap" class="ft02">EDBGRD</p>
+<p style="position:absolute;top:746px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:746px;left:290px;white-space:nowrap" class="ft02">EPCADDR</p>
+<p style="position:absolute;top:746px;left:540px;white-space:nowrap" class="ft02">Destination</p>
+<p style="position:absolute;top:746px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:768px;left:70px;white-space:nowrap" class="ft02">EDBGWR</p>
+<p style="position:absolute;top:768px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:768px;left:290px;white-space:nowrap" class="ft02">EPCADDR</p>
+<p style="position:absolute;top:768px;left:540px;white-space:nowrap" class="ft02">Source</p>
+<p style="position:absolute;top:768px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:791px;left:70px;white-space:nowrap" class="ft02">EENTER</p>
+<p style="position:absolute;top:791px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:791px;left:290px;white-space:nowrap" class="ft02">TCS and&#160;linked SSA</p>
+<p style="position:absolute;top:791px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:813px;left:70px;white-space:nowrap" class="ft02">EEXIT</p>
+<p style="position:absolute;top:813px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:813px;left:758px;white-space:nowrap" class="ft02">SECS,&#160;TCS</p>
+<p style="position:absolute;top:836px;left:70px;white-space:nowrap" class="ft02">EEXTEND</p>
+<p style="position:absolute;top:836px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:836px;left:290px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:836px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:858px;left:70px;white-space:nowrap" class="ft02">EGETKEY</p>
+<p style="position:absolute;top:858px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:858px;left:290px;white-space:nowrap" class="ft02">KEYREQUEST</p>
+<p style="position:absolute;top:858px;left:540px;white-space:nowrap" class="ft02">KEY</p>
+<p style="position:absolute;top:858px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:881px;left:70px;white-space:nowrap" class="ft02">EINIT</p>
+<p style="position:absolute;top:881px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:881px;left:290px;white-space:nowrap" class="ft02">SIGSTRUCT</p>
+<p style="position:absolute;top:881px;left:540px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:881px;left:651px;white-space:nowrap" class="ft02">EINITTOKEN</p>
+<p style="position:absolute;top:903px;left:70px;white-space:nowrap" class="ft02">ELDB/ELDU</p>
+<p style="position:absolute;top:903px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:903px;left:290px;white-space:nowrap" class="ft02">PAGEINFO and&#160;linked&#160;structures, PCMD</p>
+<p style="position:absolute;top:903px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:903px;left:651px;white-space:nowrap" class="ft02">VAPAGE</p>
+<p style="position:absolute;top:926px;left:70px;white-space:nowrap" class="ft02">EMODPE</p>
+<p style="position:absolute;top:926px;left:198px;white-space:nowrap" class="ft02">SGX2</p>
+<p style="position:absolute;top:926px;left:290px;white-space:nowrap" class="ft02">SECINFO</p>
+<p style="position:absolute;top:926px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:948px;left:70px;white-space:nowrap" class="ft02">EMODPR</p>
+<p style="position:absolute;top:948px;left:198px;white-space:nowrap" class="ft02">SGX2</p>
+<p style="position:absolute;top:948px;left:290px;white-space:nowrap" class="ft02">SECINFO</p>
+<p style="position:absolute;top:948px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:948px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:971px;left:70px;white-space:nowrap" class="ft02">EMODT</p>
+<p style="position:absolute;top:971px;left:198px;white-space:nowrap" class="ft02">SGX2</p>
+<p style="position:absolute;top:971px;left:290px;white-space:nowrap" class="ft02">SECINFO</p>
+<p style="position:absolute;top:971px;left:540px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:971px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:993px;left:70px;white-space:nowrap" class="ft02">EPA</p>
+<p style="position:absolute;top:993px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:993px;left:290px;white-space:nowrap" class="ft02">EPCADDR</p>
+<p style="position:absolute;top:1016px;left:70px;white-space:nowrap" class="ft02">EREMOVE</p>
+<p style="position:absolute;top:1016px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:1016px;left:290px;white-space:nowrap" class="ft02">EPCPAGE</p>
+<p style="position:absolute;top:1016px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+<p style="position:absolute;top:1038px;left:70px;white-space:nowrap" class="ft02">EREPORT</p>
+<p style="position:absolute;top:1038px;left:198px;white-space:nowrap" class="ft02">SGX1</p>
+<p style="position:absolute;top:1038px;left:290px;white-space:nowrap" class="ft02">TARGETINFO</p>
+<p style="position:absolute;top:1038px;left:540px;white-space:nowrap" class="ft02">REPORTDATA</p>
+<p style="position:absolute;top:1038px;left:651px;white-space:nowrap" class="ft02">OUTPUTDATA</p>
+<p style="position:absolute;top:1038px;left:758px;white-space:nowrap" class="ft02">SECS</p>
+</div>
+</body>
+</html>

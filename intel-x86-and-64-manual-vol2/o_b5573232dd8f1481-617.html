@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 617</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page617-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481617.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">JMP—Jump</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-489</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">Note that when you execute at task&#160;switch with a JMP instruction, the&#160;nested&#160;task&#160;flag (NT)&#160;is not set in the EFLAGS&#160;<br/>register&#160;and&#160;the new TSS’s&#160;previous task&#160;link&#160;field is&#160;not&#160;loaded with&#160;the&#160;old task’s&#160;TSS&#160;selector. A return&#160;to&#160;the&#160;<br/>previous task&#160;can&#160;thus not be carried out&#160;by&#160;executing&#160;the IRET&#160;instruction. Switching tasks with the&#160;JMP&#160;instruc-<br/>tion&#160;differs in this regard from&#160;the CALL instruction which&#160;does set the NT flag&#160;and&#160;save the previous&#160;task link infor-<br/>mation, allowing&#160;a return to&#160;the calling task with an&#160;IRET instruction.<br/><b>In&#160;64-Bit&#160;Mode&#160;</b>— The instruction’s&#160;operation size is fixed at 64 bits. If a selector points to a gate, then RIP equals&#160;<br/>the 64-bit&#160;displacement taken&#160;from gate; else RIP equals&#160;the zero-extended offset&#160;from&#160;the far pointer referenced&#160;<br/>in the&#160;instruction.&#160;<br/>See the&#160;summary chart&#160;at the&#160;beginning of this section for encoding data and&#160;limits.&#160;</p>
+<p style="position:absolute;top:281px;left:69px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:312px;left:69px;white-space:nowrap" class="ft02">IF&#160;near jump</p>
+<p style="position:absolute;top:330px;left:89px;white-space:nowrap" class="ft09">IF 64-bit Mode<br/>&#160;THEN&#160;</p>
+<p style="position:absolute;top:366px;left:143px;white-space:nowrap" class="ft09">IF near&#160;relative&#160;jump<br/>&#160;THEN</p>
+<p style="position:absolute;top:402px;left:170px;white-space:nowrap" class="ft02">tempRIP&#160;←&#160;RIP&#160;+&#160;DEST; (* RIP is&#160;instruction following&#160;JMP&#160;instruction*)</p>
+<p style="position:absolute;top:420px;left:143px;white-space:nowrap" class="ft02">&#160;ELSE (* Near absolute&#160;jump *)</p>
+<p style="position:absolute;top:438px;left:170px;white-space:nowrap" class="ft02">tempRIP&#160;←&#160;DEST;</p>
+<p style="position:absolute;top:456px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:474px;left:116px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:492px;left:143px;white-space:nowrap" class="ft09">IF near&#160;relative&#160;jump<br/>&#160;THEN</p>
+<p style="position:absolute;top:528px;left:170px;white-space:nowrap" class="ft02">tempEIP&#160;←&#160;EIP&#160;+&#160;DEST; (* EIP is&#160;instruction following&#160;JMP&#160;instruction*)</p>
+<p style="position:absolute;top:546px;left:143px;white-space:nowrap" class="ft02">&#160;ELSE (* Near absolute&#160;jump *)</p>
+<p style="position:absolute;top:564px;left:170px;white-space:nowrap" class="ft02">tempEIP&#160;←&#160;DEST;</p>
+<p style="position:absolute;top:582px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:600px;left:89px;white-space:nowrap" class="ft09">FI;<br/>IF (IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:616px;left:201px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:618px;left:210px;white-space:nowrap" class="ft02">&#160;0 or target&#160;mode&#160;</p>
+<p style="position:absolute;top:616px;left:314px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:618px;left:323px;white-space:nowrap" class="ft02">&#160;Compatibility mode)&#160;</p>
+<p style="position:absolute;top:634px;left:89px;white-space:nowrap" class="ft02">and tempEIP&#160;outside&#160;code&#160;segment limit&#160;</p>
+<p style="position:absolute;top:652px;left:116px;white-space:nowrap" class="ft02">THEN #GP(0); FI</p>
+<p style="position:absolute;top:670px;left:89px;white-space:nowrap" class="ft02">IF 64-bit&#160;mode&#160;and tempRIP is&#160;not canonical</p>
+<p style="position:absolute;top:688px;left:116px;white-space:nowrap" class="ft02">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:706px;left:89px;white-space:nowrap" class="ft09">FI;<br/>IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:722px;left:178px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:724px;left:187px;white-space:nowrap" class="ft02">&#160;32</p>
+<p style="position:absolute;top:742px;left:116px;white-space:nowrap" class="ft02">&#160;THEN&#160;</p>
+<p style="position:absolute;top:760px;left:143px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP;&#160;</p>
+<p style="position:absolute;top:778px;left:116px;white-space:nowrap" class="ft02">&#160;ELSE&#160;</p>
+<p style="position:absolute;top:796px;left:143px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:794px;left:232px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:796px;left:241px;white-space:nowrap" class="ft02">&#160;16</p>
+<p style="position:absolute;top:814px;left:170px;white-space:nowrap" class="ft02">THEN&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:812px;left:294px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:814px;left:303px;white-space:nowrap" class="ft02">&#160;16&#160;*)</p>
+<p style="position:absolute;top:832px;left:197px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP AND 0000FFFFH;</p>
+<p style="position:absolute;top:850px;left:170px;white-space:nowrap" class="ft02">&#160;ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:848px;left:293px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:850px;left:302px;white-space:nowrap" class="ft02">&#160;64)</p>
+<p style="position:absolute;top:868px;left:170px;white-space:nowrap" class="ft02">&#160;RIP&#160;</p>
+<p style="position:absolute;top:869px;left:220px;white-space:nowrap" class="ft02">←&#160;tempRIP;</p>
+<p style="position:absolute;top:886px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:904px;left:89px;white-space:nowrap" class="ft02">&#160;FI;</p>
+<p style="position:absolute;top:922px;left:69px;white-space:nowrap" class="ft09">FI;<br/>IF&#160;far jump&#160;and (PE&#160;</p>
+<p style="position:absolute;top:938px;left:179px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:940px;left:188px;white-space:nowrap" class="ft02">&#160;0 or&#160;(PE&#160;</p>
+<p style="position:absolute;top:938px;left:240px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:940px;left:249px;white-space:nowrap" class="ft02">&#160;1 AND VM&#160;</p>
+<p style="position:absolute;top:938px;left:314px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:940px;left:323px;white-space:nowrap" class="ft02">&#160;1)) (* Real-address or&#160;virtual-8086 mode *)</p>
+<p style="position:absolute;top:958px;left:89px;white-space:nowrap" class="ft02">&#160;THEN</p>
+<p style="position:absolute;top:976px;left:116px;white-space:nowrap" class="ft02">&#160;tempEIP&#160;←&#160;DEST(Offset); (* DEST&#160;is&#160;<i>ptr16:32</i>&#160;or&#160;[<i>m16:32</i>] *)</p>
+<p style="position:absolute;top:994px;left:116px;white-space:nowrap" class="ft02">&#160;IF tempEIP is beyond&#160;code segment limit&#160;</p>
+<p style="position:absolute;top:1012px;left:143px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1030px;left:116px;white-space:nowrap" class="ft02">&#160;CS&#160;←&#160;DEST(segment selector); (* DEST is&#160;<i>ptr16:32</i>&#160;or [<i>m16:32</i>] *)</p>
+<p style="position:absolute;top:1048px;left:116px;white-space:nowrap" class="ft02">&#160;IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:1046px;left:208px;white-space:nowrap" class="ft05">=</p>
+<p style="position:absolute;top:1048px;left:217px;white-space:nowrap" class="ft02">&#160;32</p>
+</div>
+</body>
+</html>

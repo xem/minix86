@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1930</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1930-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1930.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">42-12&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® SGX INTERACTIONS WITH IA32 AND INTEL® 64&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">4. If an RTM transaction is executing inside an&#160;enclave and there is a data&#160;access to an&#160;address within&#160;the enclave&#160;<br/>that&#160;denied due to&#160;EPCM&#160;content (e.g.,&#160;to&#160;a page&#160;belonging to&#160;a&#160;different&#160;enclave), the&#160;transaction is&#160;aborted and&#160;<br/>control&#160;is transferred to&#160;the fallback&#160;handler.&#160;No #GP is&#160;delivered.<br/>5.&#160;If an&#160;RTM transaction&#160;executing&#160;inside&#160;an enclave aborts and&#160;the address&#160;of the&#160;fallback handler is&#160;outside&#160;the&#160;<br/>enclave,&#160;a&#160;#GP is&#160;delivered&#160;after&#160;the abort&#160;(EIP&#160;reported is&#160;that&#160;of the&#160;fallback handler).</p>
+<p style="position:absolute;top:223px;left:68px;white-space:nowrap" class="ft03">42.13.1&#160;&#160;HLE and RTM Debug</p>
+<p style="position:absolute;top:252px;left:68px;white-space:nowrap" class="ft06">RTM debug will be&#160;suppressed&#160;on opt-out&#160;enclave entry.&#160;After opt-out entry,&#160;the&#160;logical processor will behave as&#160;if&#160;<br/>IA32_DEBUG_CTL[15]=0. Any #DB&#160;detected&#160;inside&#160;an RTM transaction&#160;region will just cause&#160;an abort with&#160;no&#160;<br/>exception delivered.&#160;<br/>After&#160;opt-in entry,&#160;if either DR7[11] = 0&#160;OR IA32_DEBUGCTL[15] = 0, any&#160;#DB or #BP&#160;detected&#160;inside&#160;an&#160;RTM&#160;<br/>transaction region will just cause&#160;an abort&#160;with&#160;no&#160;exception delivered.&#160;<br/>After opt-in entry,&#160;if DR7[11] = 1 AND&#160;IA32_DEBUGCTL[15]&#160;= 1, any #DB&#160;or #BP&#160;detected inside an&#160;RTM transla-<br/>tion will&#160;</p>
+<p style="position:absolute;top:385px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:385px;left:93px;white-space:nowrap" class="ft02">terminate speculative execution,&#160;</p>
+<p style="position:absolute;top:407px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:408px;left:93px;white-space:nowrap" class="ft02">set RIP&#160;to the&#160;address of the&#160;XBEGIN&#160;instruction,&#160;and&#160;</p>
+<p style="position:absolute;top:430px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:430px;left:93px;white-space:nowrap" class="ft02">be delivered&#160;as #DB (implying&#160;an Intel&#160;SGX AEX;&#160;any #BP is&#160;converted&#160;to #DB).&#160;</p>
+<p style="position:absolute;top:452px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:453px;left:93px;white-space:nowrap" class="ft06">DR6[16] will be cleared, indicating RTM&#160;debug (if&#160;the #DB&#160;causes&#160;a&#160;VM&#160;exit,&#160;DR6 is&#160;not modified&#160;but bit 16&#160;of&#160;<br/>the pending&#160;debug exceptions&#160;field in the&#160;VMCS will be set).</p>
+<p style="position:absolute;top:525px;left:68px;white-space:nowrap" class="ft05">42.14&#160;&#160;INTEL® SGX INTERACTIONS WITH S STATES</p>
+<p style="position:absolute;top:559px;left:68px;white-space:nowrap" class="ft06">Whenever an Intel&#160;SGX enabled&#160;processor&#160;enters S3-S5 state,&#160;enclaves&#160;are destroyed.&#160;This is due to the&#160;EPC&#160;being&#160;<br/>destroyed&#160;when power&#160;down occurs. It is&#160;the application runtime’s responsibility to re-instantiate&#160;an enclave&#160;after&#160;<br/>a power&#160;transition for which&#160;the enclaves were&#160;destroyed.</p>
+<p style="position:absolute;top:648px;left:68px;white-space:nowrap" class="ft05">42.15&#160;&#160;INTEL® SGX INTERACTIONS WITH&#160;MACHINE CHECK ARCHITECTURE&#160;(MCA)</p>
+<p style="position:absolute;top:710px;left:68px;white-space:nowrap" class="ft03">42.15.1&#160;&#160;Interactions with MCA Events</p>
+<p style="position:absolute;top:739px;left:68px;white-space:nowrap" class="ft06">All architecturally visible&#160;machine check&#160;events (#MC&#160;and CMCI) that are detected&#160;while inside&#160;an&#160;enclave cause an&#160;<br/>asynchronous enclave exit.<br/>Any machine&#160;check&#160;exception (#MC) that occurs&#160;after Intel&#160;SGX is&#160;first&#160;enables causes&#160;Intel SGX to be&#160;disabled,&#160;<br/>(CPUID.SGX_Leaf.0:EAX[SGX1]&#160;== 0).&#160;It cannot be enabled&#160;until after&#160;the next reset.</p>
+<p style="position:absolute;top:845px;left:68px;white-space:nowrap" class="ft03">42.15.2&#160;&#160;Machine Check Enables (IA32_MCi_CTL)</p>
+<p style="position:absolute;top:874px;left:68px;white-space:nowrap" class="ft06">All&#160;supported&#160;IA32_MCi_CTL&#160;bits for all&#160;the machine check&#160;banks must be set for Intel&#160;SGX to&#160;be&#160;available&#160;<br/>(CPUID.SGX_Leaf.0:EAX[SGX1]&#160;== 1).&#160;Any&#160;act of clearing bits from&#160;'1&#160;to&#160;'0 in&#160;any of the&#160;IA32_MCi_CTL register&#160;<br/>may disable&#160;Intel SGX&#160;(set&#160;CPUID.SGX_Leaf.0:EAX[SGX1] to&#160;0) until&#160;the next reset.</p>
+<p style="position:absolute;top:958px;left:68px;white-space:nowrap" class="ft03">42.15.3 CR4.MCE</p>
+<p style="position:absolute;top:987px;left:68px;white-space:nowrap" class="ft02">CR4.MCE can&#160;be&#160;set or&#160;cleared with no interactions with Intel&#160;SGX.</p>
+</div>
+</body>
+</html>

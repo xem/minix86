@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 157</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page157-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a157.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;6-13</p>
+<p style="position:absolute;top:47px;left:541px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft09">2.&#160;Restores&#160;the&#160;CS&#160;and EIP&#160;registers to&#160;their values&#160;prior to&#160;the interrupt&#160;or exception.<br/>3.&#160;Restores the&#160;EFLAGS register.<br/>4.&#160;Restores&#160;the&#160;SS&#160;and ESP registers&#160;to their&#160;values&#160;prior&#160;to&#160;the&#160;interrupt or&#160;exception, resulting in&#160;a stack switch&#160;</p>
+<p style="position:absolute;top:165px;left:95px;white-space:nowrap" class="ft02">back&#160;to&#160;the stack of&#160;the interrupted procedure.</p>
+<p style="position:absolute;top:189px;left:69px;white-space:nowrap" class="ft02">5.&#160;Resumes&#160;execution of&#160;the interrupted procedure.</p>
+<p style="position:absolute;top:239px;left:69px;white-space:nowrap" class="ft03">6.4.2&#160;</p>
+<p style="position:absolute;top:239px;left:149px;white-space:nowrap" class="ft03">Calls to&#160;Interrupt&#160;or Exception Handler Tasks</p>
+<p style="position:absolute;top:270px;left:69px;white-space:nowrap" class="ft010">Interrupt&#160;and exception&#160;handler routines&#160;can also be&#160;executed&#160;in a&#160;separate task. Here, an interrupt or&#160;exception&#160;<br/>causes a&#160;task switch to&#160;a handler&#160;task.&#160;The handler task is&#160;given its&#160;own address&#160;space&#160;and&#160;(optionally) can&#160;<br/>execute at&#160;a higher protection&#160;level than application&#160;programs&#160;or&#160;tasks.&#160;<br/>The switch to&#160;the handler&#160;task is&#160;accomplished&#160;with an implicit task call&#160;that references a&#160;<b>task gate descriptor</b>.&#160;<br/>The task gate provides access to&#160;the address&#160;space&#160;for the&#160;handler task. As part&#160;of&#160;the task&#160;switch,&#160;the&#160;processor&#160;<br/>saves&#160;complete&#160;state information for the interrupted program&#160;or&#160;task.&#160;Upon&#160;returning from&#160;the handler&#160;task, the&#160;<br/>state&#160;of&#160;the interrupted&#160;program&#160;or&#160;task&#160;is&#160;restored and&#160;execution continue<a href="˛ˇ">s. See&#160;Chapter 6, ‚ÄúInterrupt and Excep-<br/>tion Handling,‚Äù in&#160;</a>the<a href="˛ˇ">&#160;<i>Intel¬Æ 64 and IA-32 Architectures&#160;Software Developer‚Äôs&#160;Manual, Volume 3A,</i></a>&#160;for&#160;more infor-<br/>mation&#160;on&#160;handling interrupts&#160;and&#160;exceptions&#160;through&#160;handler tasks.</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft03">6.4.3&#160;</p>
+<p style="position:absolute;top:460px;left:150px;white-space:nowrap" class="ft03">Interrupt&#160;and Exception Handling in Real-Address Mode</p>
+<p style="position:absolute;top:490px;left:69px;white-space:nowrap" class="ft011">When operating&#160;in real-address mode, the processor responds&#160;to&#160;an interrupt or&#160;exception with&#160;an implicit far&#160;call&#160;<br/>to an interrupt&#160;or exception handler.&#160;The&#160;processor&#160;uses the interrupt or exception vector as&#160;an index into an&#160;inter-<br/>rupt&#160;table.&#160;The interrupt table contains instruction&#160;pointers to&#160;the interrupt and&#160;exception handler&#160;procedures.<br/>The&#160;processor&#160;saves&#160;the&#160;state&#160;of the&#160;EFLAGS register, the&#160;EIP register,&#160;the CS&#160;register, and an optional&#160;error code&#160;<br/>on&#160;the stack before switching to&#160;the handler procedure.<br/>A&#160;return from&#160;the interrupt or exception&#160;handler&#160;is carried out with the&#160;IRET&#160;<br/>instruction.&#160;<br/>Se<a href="˛ˇ">e Chapter&#160;20, ‚Äú8086 Emulation,‚Äù&#160;</a>in the&#160;<i>Intel¬Æ 64 and IA-32 Architectures Software Developer‚Äôs Manual,&#160;Volume&#160;<br/>3B,</i>&#160;for more&#160;information on&#160;handling interrupts and&#160;exceptions in&#160;real-address mode.</p>
+<p style="position:absolute;top:695px;left:69px;white-space:nowrap" class="ft03">6.4.4 INT&#160;</p>
+<p style="position:absolute;top:695px;left:181px;white-space:nowrap" class="ft06"><i>n</i>, INTO,&#160;INT 3,&#160;and BOUND Instructions</p>
+<p style="position:absolute;top:726px;left:69px;white-space:nowrap" class="ft010">The INT&#160;<i>n</i>, INTO, INT 3, and&#160;BOUND instructions&#160;allow&#160;a program or&#160;task&#160;to&#160;explicitly call&#160;an interrupt&#160;or exception&#160;<br/>handler.&#160;The INT&#160;<i>n</i>&#160;instruction uses&#160;a vector&#160;as&#160;an argument, which&#160;allows a&#160;program&#160;to&#160;call&#160;any interrupt&#160;handler.<br/>The INTO&#160;instruction explicitly&#160;calls&#160;the overflow exception (#OF) handler&#160;if the&#160;overflow&#160;flag (OF)&#160;in the&#160;EFLAGS&#160;<br/>register&#160;is set. The&#160;OF flag&#160;indicates&#160;overflow on arithmetic&#160;instructions, but it&#160;does&#160;not&#160;automatically raise an over-<br/>flow&#160;exception.&#160;An overflow exception&#160;can only&#160;be&#160;raised&#160;explicitly in either of the&#160;following&#160;ways:</p>
+<p style="position:absolute;top:821px;left:69px;white-space:nowrap" class="ft07">‚Ä¢</p>
+<p style="position:absolute;top:822px;left:95px;white-space:nowrap" class="ft02">Execute&#160;the&#160;INTO&#160;instruction.</p>
+<p style="position:absolute;top:844px;left:69px;white-space:nowrap" class="ft07">‚Ä¢</p>
+<p style="position:absolute;top:844px;left:95px;white-space:nowrap" class="ft010">Test the&#160;OF&#160;flag and&#160;execute&#160;the INT&#160;<i>n</i>&#160;instruction with an argument of 4 (the&#160;vector of the overflow exception)&#160;<br/>if&#160;the flag is&#160;set.</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft010">Both the methods of dealing with overflow conditions allow&#160;a&#160;program&#160;to&#160;test&#160;for&#160;overflow&#160;at&#160;specific&#160;places&#160;in&#160;the&#160;<br/>instruction stream.<br/>The&#160;INT 3&#160;instruction explicitly&#160;calls&#160;the breakpoint&#160;exception (#BP) handler.<br/>The BOUND&#160;instruction&#160;explicitly&#160;calls the BOUND-range exceeded&#160;exception (#BR) handler if&#160;an operand&#160;is found&#160;<br/>to be not within predefined boundaries in memory.&#160;This instruction is&#160;provided for checking&#160;references&#160;to arrays&#160;<br/>and&#160;other data structures. Like&#160;the overflow exception,&#160;the BOUND-range exceeded&#160;exception can only be&#160;raised&#160;<br/>explicitly with the&#160;BOUND instruction or&#160;the&#160;INT&#160;<i>n</i>&#160;instruction with an argument&#160;of 5&#160;(the vector of the&#160;bounds-<br/>check exception). The processor&#160;does not implicitly perform&#160;bounds&#160;checks and raise the BOUND-range exceeded&#160;<br/>exception.</p>
+</div>
+</body>
+</html>

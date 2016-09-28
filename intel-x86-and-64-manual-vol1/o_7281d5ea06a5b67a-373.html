@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 373</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page373-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a373.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;15-9</p>
+<p style="position:absolute;top:47px;left:618px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL®&#160;AVX-512</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">15.6.1&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">OPMASK Register to&#160;Predicate Vector Data Processing</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft07">AVX-512 instructions using EVEX&#160;encode&#160;a predicate&#160;operand&#160;to conditionally control per-element computational&#160;<br/>operation&#160;and updating of the&#160;result&#160;to&#160;the destination&#160;operand.&#160;The predicate&#160;operand is&#160;known as&#160;the opmask&#160;<br/>register. The opmask is a set of eight architectural registers&#160;of size MAX_KL&#160;(64-bit). Note that from&#160;this set of eight&#160;<br/>architectural registers, only k1 through&#160;k7&#160;can&#160;be addressed as a&#160;predicate&#160;operand.&#160;k0 can be used as&#160;a regular&#160;<br/>source or&#160;destination but cannot be encoded&#160;as a&#160;predicate operand.&#160;Note&#160;also&#160;that a predicate operand&#160;can be&#160;<br/>used&#160;to enable memory fault-suppression&#160;for some instructions&#160;with&#160;a memory operand&#160;(source or&#160;destination).&#160;<br/>As a&#160;predicate operand,&#160;the opmask registers contain one bit to govern&#160;the operation/update&#160;to each data&#160;element&#160;<br/>of a vector register.&#160;In general, opmask&#160;registers can&#160;support instructions&#160;with&#160;all element sizes:&#160;byte (int8), word&#160;<br/>(int16), single-precision&#160;floating-point (float32),&#160;integer doubleword(int32), double-precision&#160;floating-point&#160;<br/>(float64),&#160;integer quadword&#160;(int64).&#160;Therefore,&#160;a ZMM&#160;vector&#160;register&#160;can hold&#160;8,&#160;16,&#160;32, or 64 elements in&#160;prin-<br/>ciple.&#160;The length of an opmask register, MAX_KL,&#160;is sufficient to handle&#160;up&#160;to 64&#160;elements&#160;with&#160;one&#160;bit&#160;per&#160;element,&#160;<br/>i.e., 64&#160;bits. Masking is supported&#160;in most of the AVX-512 instructions. For a given&#160;vector length, each instruction&#160;<br/>accesses only&#160;the&#160;number of least significant mask bits&#160;that are&#160;needed&#160;based on its data&#160;type.&#160;For&#160;example,&#160;AVX-<br/>512&#160;Foundation instructions operating&#160;on 64-bit data elements with a&#160;512-bit vector length,&#160;only&#160;use the&#160;8 least&#160;<br/>significant bits of the&#160;opmask register.<br/>An&#160;opmask&#160;register affects an&#160;AVX-512 instruction at&#160;per-element&#160;granularity.&#160;Any numeric or&#160;non-numeric oper-<br/>ation&#160;of&#160;each&#160;data element and&#160;per-element&#160;updates of intermediate results to&#160;the destination&#160;operand are predi-<br/>cated on&#160;the corresponding&#160;bit of the&#160;opmask register.&#160;<br/>An opmask serving&#160;as a&#160;predicate&#160;operand&#160;in AVX-512&#160;obeys&#160;the following properties:</p>
+<p style="position:absolute;top:464px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:465px;left:95px;white-space:nowrap" class="ft06">The&#160;instruction’s operation is&#160;not performed for an element if&#160;the corresponding opmask&#160;bit is&#160;not set.&#160;This&#160;<br/>implies that no&#160;exception or violation can&#160;be&#160;caused&#160;by&#160;an operation on&#160;a masked-off&#160;element.&#160;Consequently,&#160;<br/>no MXCSR exception flag is&#160;updated as&#160;a&#160;result of a&#160;masked-off operation.</p>
+<p style="position:absolute;top:520px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:520px;left:95px;white-space:nowrap" class="ft06">A destination&#160;element&#160;is not&#160;updated with the&#160;result of&#160;the operation&#160;if&#160;the corresponding&#160;writemask bit is&#160;not&#160;<br/>set.&#160;Instead,&#160;the&#160;destination element value&#160;must&#160;be&#160;preserved&#160;(merging-masking) or&#160;it must be zeroed out&#160;<br/>(zeroing-masking).&#160;</p>
+<p style="position:absolute;top:575px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:576px;left:95px;white-space:nowrap" class="ft06">For some instructions&#160;with a&#160;memory&#160;operand,&#160;memory faults&#160;are suppressed for elements with a&#160;mask&#160;bit of&#160;<br/>0.</p>
+<p style="position:absolute;top:615px;left:69px;white-space:nowrap" class="ft07">Note that this&#160;feature provides a&#160;versatile construct to&#160;implement&#160;control-flow predication as&#160;the mask in&#160;effect&#160;<br/>provides&#160;a merging&#160;behavior&#160;for&#160;AVX-512 vector register&#160;destinations. As&#160;an alternative&#160;the masking can&#160;be&#160;used&#160;<br/>for&#160;zeroing instead of&#160;merging, so that&#160;the masked out&#160;elements are&#160;updated with 0 instead of preserving the&#160;old&#160;<br/>value.&#160;The zeroing&#160;behavior is provided to&#160;remove&#160;the&#160;implicit&#160;dependency on the&#160;old value&#160;when it&#160;is not needed.<br/>Most instructions&#160;with masking enabled accept both forms&#160;of masking. Instructions that must have EVEX.aaa bits&#160;<br/>different than&#160;0 (gather and&#160;scatter)&#160;and instructions&#160;that&#160;write to memory only accept merging-masking.&#160;<br/>It’s&#160;important to note&#160;that the per-element&#160;destination update rule also applies when the destination operand is&#160;a&#160;<br/>memory&#160;location. Vectors are&#160;written on a&#160;per&#160;element&#160;basis, based&#160;on&#160;the opmask&#160;register&#160;used as a&#160;predicate&#160;<br/>operand.&#160;<br/>The value of&#160;an&#160;opmask register can&#160;be:</p>
+<p style="position:absolute;top:803px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:804px;left:95px;white-space:nowrap" class="ft03">Generated as a&#160;result&#160;of&#160;a vector instruction (e.g.,&#160;CMP,&#160;FPCLASS,&#160;etc.).</p>
+<p style="position:absolute;top:826px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:826px;left:95px;white-space:nowrap" class="ft03">Loaded&#160;from&#160;memory.</p>
+<p style="position:absolute;top:848px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:849px;left:95px;white-space:nowrap" class="ft03">Loaded from a&#160;GPR&#160;register.</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:871px;left:95px;white-space:nowrap" class="ft03">Modified by mask-to-mask operations.</p>
+<p style="position:absolute;top:894px;left:69px;white-space:nowrap" class="ft06">Opmask&#160;registers&#160;can be used for purposes outside of&#160;predication. For example,&#160;they&#160;can be used to&#160;manipulate&#160;<br/>sparse&#160;sets of elements from a vector, or used to&#160;set the EFLAGS&#160;based on the&#160;0/0xFFFFFFFFFFFFFFFF/other status&#160;<br/>of&#160;the OR&#160;of two opmask registers.</p>
+<p style="position:absolute;top:971px;left:69px;white-space:nowrap" class="ft05">15.6.1.1 &#160;&#160;Opmask Register K0</p>
+<p style="position:absolute;top:998px;left:69px;white-space:nowrap" class="ft06">The only exception to&#160;the&#160;opmask rules&#160;described above is&#160;that opmask k0 can not be used as a predicate operand.&#160;<br/>Opmask k0 cannot be&#160;encoded as a predicate operand for a&#160;vector operation; the encoding value that would select&#160;<br/>opmask&#160;k0&#160;will instead select an&#160;implicit opmask&#160;value of 0xFFFFFFFFFFFFFFFF,&#160;thereby effectively disabling&#160;</p>
+</div>
+</body>
+</html>

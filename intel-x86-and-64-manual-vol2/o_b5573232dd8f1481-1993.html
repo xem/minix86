@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1993</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1993-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811993.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">GETSEC[EXITAC]—Exit Authenticated Code Execution Mode</p>
+<p style="position:absolute;top:47px;left:615px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2D&#160;6-19</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">if REX.W precedes&#160;GETSEC[EXITAC]. Otherwise RBX is treated as&#160;32 bits even&#160;while&#160;in 64-bit mode.&#160;Conventional&#160;<br/>CS&#160;limit checking&#160;is performed as&#160;part&#160;of&#160;this&#160;control transfer. Any&#160;exception conditions&#160;generated&#160;as part of this&#160;<br/>control&#160;transfer&#160;will&#160;be&#160;directed&#160;to&#160;the existing IDT;&#160;thus&#160;it is&#160;recommended&#160;that an IDTR should&#160;also be established&#160;<br/>prior to&#160;execution&#160;of&#160;the EXITAC function&#160;if&#160;there is a&#160;need for fault&#160;handling. In&#160;addition, any segmentation related&#160;<br/>(and paging)&#160;data&#160;structures to be&#160;used after&#160;EXITAC should be re-established or&#160;validated by the&#160;authenticated&#160;<br/>code prior&#160;to&#160;EXITAC.&#160;<br/>In addition,&#160;any segmentation&#160;related (and paging) data structures&#160;to be&#160;used&#160;after EXITAC&#160;need&#160;to be&#160;re-estab-<br/>lished and&#160;mapped outside of the authenticated RAM designated area by the&#160;authenticated&#160;code&#160;prior&#160;to&#160;EXITAC.&#160;<br/>Any data structure&#160;held within the&#160;authenticated&#160;RAM allocated area&#160;will no longer be accessible&#160;after completion&#160;<br/>by EXITAC.</p>
+<p style="position:absolute;top:293px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:313px;left:69px;white-space:nowrap" class="ft06">(* The&#160;state&#160;of the internal flag ACMODEFLAG&#160;and SENTERFLAG&#160;persist across instruction&#160;boundary&#160;*)<br/>IF&#160;(CR4.SMXE=0)</p>
+<p style="position:absolute;top:349px;left:89px;white-space:nowrap" class="ft02">THEN&#160;#UD;</p>
+<p style="position:absolute;top:367px;left:69px;white-space:nowrap" class="ft02">ELSIF ( in&#160;VMX non-root operation)</p>
+<p style="position:absolute;top:385px;left:89px;white-space:nowrap" class="ft02">THEN VM&#160;Exit (reason=”GETSEC&#160;instruction”);</p>
+<p style="position:absolute;top:403px;left:69px;white-space:nowrap" class="ft02">ELSIF&#160;(GETSEC leaf&#160;unsupported)</p>
+<p style="position:absolute;top:421px;left:89px;white-space:nowrap" class="ft02">THEN&#160;#UD;</p>
+<p style="position:absolute;top:439px;left:69px;white-space:nowrap" class="ft02">ELSIF&#160;((in VMX operation)&#160;or&#160;( (in 64-bit mode)&#160;and ( RBX is&#160;non-canonical) )</p>
+<p style="position:absolute;top:457px;left:89px;white-space:nowrap" class="ft06">(CR0.PE=0)&#160;or (CPL&gt;0) or (EFLAGS.VM=1) or<br/>(ACMODEFLAG=0) or (IN_SMM=1)) or (EDX&#160;≠&#160;0))<br/>THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:511px;left:69px;white-space:nowrap" class="ft02">IF (OperandSize&#160;= 32)</p>
+<p style="position:absolute;top:529px;left:89px;white-space:nowrap" class="ft02">THEN tempEIP←&#160;EBX;</p>
+<p style="position:absolute;top:547px;left:69px;white-space:nowrap" class="ft02">ELSIF (OperandSize&#160;= 64)</p>
+<p style="position:absolute;top:565px;left:89px;white-space:nowrap" class="ft02">THEN tempEIP←&#160;RBX;</p>
+<p style="position:absolute;top:583px;left:69px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:601px;left:89px;white-space:nowrap" class="ft02">tempEIP←&#160;EBX AND 0000FFFFH;</p>
+<p style="position:absolute;top:619px;left:69px;white-space:nowrap" class="ft02">IF&#160;(tempEIP &gt; code&#160;segment limit)</p>
+<p style="position:absolute;top:637px;left:89px;white-space:nowrap" class="ft02">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:655px;left:69px;white-space:nowrap" class="ft06">Invalidate&#160;ACRAM&#160;contents;<br/>Invalidate processor TLB(s);<br/>Drain outgoing messages;<br/>SignalTXTMsg(CloseLocality3);<br/>SignalTXTMsg(LockSMRAM);<br/>SignalTXTMsg(ProcessorRelease);<br/>Unmask INIT;<br/>IF (SENTERFLAG=0)</p>
+<p style="position:absolute;top:799px;left:89px;white-space:nowrap" class="ft02">THEN&#160;Unmask&#160;SMI,&#160;INIT, NMI,&#160;and&#160;A20M pin event;</p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft02">ELSEIF&#160;(IA32_SMM_MONITOR_CTL[0] = 0)</p>
+<p style="position:absolute;top:835px;left:89px;white-space:nowrap" class="ft02">THEN&#160;Unmask&#160;SMI&#160;pin&#160;event;</p>
+<p style="position:absolute;top:853px;left:69px;white-space:nowrap" class="ft02">ACMODEFLAG←&#160;0;</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft02">EIP←&#160;tempEIP;</p>
+<p style="position:absolute;top:889px;left:69px;white-space:nowrap" class="ft02">END;</p>
+<p style="position:absolute;top:926px;left:69px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:952px;left:69px;white-space:nowrap" class="ft02">None.</p>
+<p style="position:absolute;top:989px;left:69px;white-space:nowrap" class="ft03">Use of&#160;Prefixes</p>
+<p style="position:absolute;top:1012px;left:69px;white-space:nowrap" class="ft02">LOCK</p>
+<p style="position:absolute;top:1012px;left:207px;white-space:nowrap" class="ft02">Causes&#160;#UD.</p>
+<p style="position:absolute;top:1033px;left:69px;white-space:nowrap" class="ft02">REP*</p>
+<p style="position:absolute;top:1033px;left:207px;white-space:nowrap" class="ft02">Cause&#160;#UD&#160;(includes REPNE/REPNZ and&#160;REP/REPE/REPZ).</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">Operand size</p>
+<p style="position:absolute;top:1054px;left:207px;white-space:nowrap" class="ft02">Causes #UD.</p>
+</div>
+</body>
+</html>

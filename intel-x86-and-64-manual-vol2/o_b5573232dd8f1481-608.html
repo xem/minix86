@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 608</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page608-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481608.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:686px;white-space:nowrap" class="ft00">IRET/IRETD—Interrupt Return</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-480&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Flags Affected</p>
+<p style="position:absolute;top:124px;left:68px;white-space:nowrap" class="ft04">All the flags and fields&#160;in&#160;the EFLAGS register are potentially modified, depending on the mode of operation of the&#160;<br/>processor.&#160;If performing&#160;a return&#160;from&#160;a nested task to&#160;a previous&#160;task,&#160;the&#160;EFLAGS&#160;register will be modified&#160;<br/>according to&#160;the EFLAGS&#160;image&#160;stored&#160;in&#160;the previous&#160;task’s&#160;TSS.</p>
+<p style="position:absolute;top:191px;left:68px;white-space:nowrap" class="ft02">Protected Mode Exceptions</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft03">#GP(0)</p>
+<p style="position:absolute;top:214px;left:206px;white-space:nowrap" class="ft05">If the&#160;return code&#160;or&#160;stack segment selector is&#160;NULL.<br/>If the&#160;return instruction pointer is&#160;not&#160;within&#160;the return code segment limit.</p>
+<p style="position:absolute;top:256px;left:68px;white-space:nowrap" class="ft03">#GP(selector)</p>
+<p style="position:absolute;top:256px;left:206px;white-space:nowrap" class="ft05">If&#160;a segment selector index&#160;is outside its&#160;descriptor table limits.<br/>If the&#160;return code segment selector RPL&#160;is less&#160;than the&#160;CPL.<br/>If&#160;the DPL of&#160;a&#160;conforming-code&#160;segment is&#160;greater than the return code segment selector&#160;</p>
+<p style="position:absolute;top:315px;left:205px;white-space:nowrap" class="ft03">RPL.</p>
+<p style="position:absolute;top:336px;left:206px;white-space:nowrap" class="ft03">If the&#160;DPL&#160;for&#160;a nonconforming-code segment is&#160;not equal to&#160;the RPL&#160;of&#160;the code segment&#160;</p>
+<p style="position:absolute;top:352px;left:205px;white-space:nowrap" class="ft03">selector.</p>
+<p style="position:absolute;top:373px;left:206px;white-space:nowrap" class="ft03">If the&#160;stack segment descriptor DPL is&#160;not&#160;equal&#160;to the&#160;RPL of the&#160;return code segment&#160;</p>
+<p style="position:absolute;top:390px;left:205px;white-space:nowrap" class="ft03">selector.</p>
+<p style="position:absolute;top:411px;left:206px;white-space:nowrap" class="ft05">If the&#160;stack segment is&#160;not&#160;a writable data&#160;segment.<br/>If the&#160;stack segment selector RPL is&#160;not equal to&#160;the RPL of&#160;the return code segment selector.<br/>If&#160;the segment descriptor&#160;for&#160;a code segment&#160;does not&#160;indicate&#160;it is&#160;a code segment.<br/>If&#160;the segment selector for a&#160;TSS has its&#160;local/global bit&#160;set&#160;for&#160;local.<br/>If a&#160;TSS&#160;segment&#160;descriptor specifies that&#160;the TSS is&#160;not busy.<br/>If a&#160;TSS&#160;segment&#160;descriptor specifies that&#160;the TSS is&#160;not available.</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft03">#SS(0)</p>
+<p style="position:absolute;top:537px;left:206px;white-space:nowrap" class="ft03">If the&#160;top&#160;bytes of stack are not within stack limits.</p>
+<p style="position:absolute;top:558px;left:68px;white-space:nowrap" class="ft03">#NP(selector)</p>
+<p style="position:absolute;top:558px;left:206px;white-space:nowrap" class="ft03">If&#160;the return&#160;code&#160;or stack segment is&#160;not present.</p>
+<p style="position:absolute;top:579px;left:68px;white-space:nowrap" class="ft03">#PF(fault-code)</p>
+<p style="position:absolute;top:579px;left:206px;white-space:nowrap" class="ft03">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:600px;left:68px;white-space:nowrap" class="ft03">#AC(0)</p>
+<p style="position:absolute;top:600px;left:206px;white-space:nowrap" class="ft03">If&#160;an&#160;unaligned memory&#160;reference occurs&#160;when&#160;the&#160;CPL&#160;is&#160;3 and&#160;alignment checking&#160;is&#160;</p>
+<p style="position:absolute;top:616px;left:205px;white-space:nowrap" class="ft03">enabled.</p>
+<p style="position:absolute;top:637px;left:68px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:637px;left:206px;white-space:nowrap" class="ft03">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:671px;left:68px;white-space:nowrap" class="ft02">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft03">#GP</p>
+<p style="position:absolute;top:694px;left:206px;white-space:nowrap" class="ft03">If the&#160;return instruction pointer is&#160;not&#160;within&#160;the return code segment limit.</p>
+<p style="position:absolute;top:715px;left:68px;white-space:nowrap" class="ft03">#SS</p>
+<p style="position:absolute;top:715px;left:206px;white-space:nowrap" class="ft03">If the&#160;top&#160;bytes of stack are not within stack limits.</p>
+<p style="position:absolute;top:749px;left:68px;white-space:nowrap" class="ft02">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft03">#GP(0)</p>
+<p style="position:absolute;top:772px;left:206px;white-space:nowrap" class="ft06">If the&#160;return instruction pointer is&#160;not&#160;within&#160;the return code segment limit.<br/>IF&#160;IOPL&#160;not equal&#160;to 3.</p>
+<p style="position:absolute;top:814px;left:68px;white-space:nowrap" class="ft03">#PF(fault-code)</p>
+<p style="position:absolute;top:814px;left:206px;white-space:nowrap" class="ft03">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:835px;left:68px;white-space:nowrap" class="ft03">#SS(0)</p>
+<p style="position:absolute;top:835px;left:206px;white-space:nowrap" class="ft03">If the&#160;top&#160;bytes of stack are not within stack limits.</p>
+<p style="position:absolute;top:856px;left:68px;white-space:nowrap" class="ft03">#AC(0)</p>
+<p style="position:absolute;top:856px;left:206px;white-space:nowrap" class="ft03">If&#160;an&#160;unaligned memory&#160;reference occurs&#160;and alignment&#160;checking is&#160;enabled.</p>
+<p style="position:absolute;top:877px;left:68px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:877px;left:206px;white-space:nowrap" class="ft03">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:911px;left:68px;white-space:nowrap" class="ft02">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft03">#GP(0)</p>
+<p style="position:absolute;top:934px;left:206px;white-space:nowrap" class="ft03">If&#160;EFLAGS.NT[bit 14] = 1.</p>
+<p style="position:absolute;top:955px;left:68px;white-space:nowrap" class="ft03">Other exceptions&#160;same as&#160;in Protected&#160;Mode.</p>
+</div>
+</body>
+</html>

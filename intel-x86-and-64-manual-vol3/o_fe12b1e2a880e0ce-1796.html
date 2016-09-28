@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1796</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1796-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1796.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">39-8&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft06">PROVISIONING&#160;Key&#160;and&#160;PROVISIONING&#160;SEAL&#160;Key:&#160;These&#160;keys&#160;are&#160;used&#160;by&#160;attestation&#160;key&#160;provisioning&#160;<br/>software to&#160;prove&#160;to remote&#160;parties that the&#160;processor is&#160;genuine&#160;and identify the currently executing TCB.&#160;<br/>These keys&#160;are&#160;only&#160;available to&#160;enclaves&#160;with&#160;ATTRIBUTE.PROVISIONKEY set to 1.</p>
+<p style="position:absolute;top:178px;left:68px;white-space:nowrap" class="ft04">39.4.3.1 &#160;&#160;Sealing Enclave Data</p>
+<p style="position:absolute;top:205px;left:68px;white-space:nowrap" class="ft06">Enclaves&#160;can protect persistent&#160;data using&#160;Seal keys&#160;to&#160;provide encryption&#160;and/or integrity&#160;protection. EGETKEY&#160;<br/>provides two types of Seal&#160;keys specified&#160;in KEYREQUEST.KEYPOLICY&#160;field: MRENCLAVE-based&#160;key&#160;and&#160;<br/>MRSIGNER-based key.&#160;<br/>The MRENCLAVE-based&#160;keys&#160;are available only to&#160;enclave&#160;instances sharing&#160;the same&#160;MRENCLAVE. If a&#160;new&#160;<br/>version of the enclave is released, the Seal keys will be different.&#160;Retrieving&#160;previous data requires&#160;additional soft-<br/>ware&#160;support.<br/>The MRSIGNER-based&#160;keys are bound&#160;to the 3 tuple&#160;(MRSIGNER,&#160;ISVPRODID,&#160;ISVSVN).&#160;These keys are available&#160;<br/>to any enclave with the same MRSIGNER&#160;and ISVPRODID and&#160;an ISVSVN equal to or greater than&#160;the key in&#160;ques-<br/>tions. This&#160;is valuable for allowing new versions&#160;of&#160;the same&#160;software to&#160;retrieve&#160;keys&#160;created before an&#160;upgrade.</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft04">39.4.3.2 &#160;&#160;Using REPORTs&#160;for Local Attestation</p>
+<p style="position:absolute;top:420px;left:68px;white-space:nowrap" class="ft09">SGX provides a&#160;means for enclaves&#160;to&#160;securely&#160;identify one&#160;another,&#160;this&#160;is referred to&#160;as “Local&#160;Attestation”. SGX&#160;<br/>provides a&#160;hardware&#160;assertion, REPORT&#160;that contains calling enclaves&#160;Attributes, Measurements and User&#160;supplied&#160;<br/>data (described in&#160;detail&#160;<a href="o_fe12b1e2a880e0ce-1784.html">in Section 38.15).&#160;</a><a href="o_fe12b1e2a880e0ce-1796.html">Figure&#160;39-3 shows th</a>e&#160;basic&#160;flow of&#160;information.<br/>1.&#160;The&#160;source enclave determines&#160;the identity&#160;of&#160;the target enclave to&#160;populate&#160;TARGETINFO.&#160;<br/>2.&#160;The&#160;source enclave calls&#160;EREPORT&#160;instruction&#160;to generate a&#160;REPORT&#160;structure.&#160;The&#160;EREPORT instruction&#160;</p>
+<p style="position:absolute;top:517px;left:93px;white-space:nowrap" class="ft09">conducts the&#160;following:<br/>—&#160;Populates&#160;the&#160;REPORT&#160;with identify&#160;information about&#160;the calling enclave.&#160;<br/>—&#160;Derives the Report Key&#160;that&#160;is returned when the&#160;target enclave executes&#160;the&#160;EGETKEY.&#160;TARGETINFO&#160;</p>
+<p style="position:absolute;top:582px;left:119px;white-space:nowrap" class="ft03">provides information&#160;about the&#160;target.</p>
+<p style="position:absolute;top:606px;left:93px;white-space:nowrap" class="ft03">—&#160;Computes a&#160;MAC over the&#160;REPORT&#160;using&#160;derived&#160;target enclave Report&#160;Key.</p>
+<p style="position:absolute;top:630px;left:68px;white-space:nowrap" class="ft09">3.&#160;Non-enclave&#160;software copies the&#160;REPORT&#160;from source&#160;to&#160;destination.&#160;<br/>4.&#160;The&#160;target&#160;enclave&#160;executes&#160;the EGETKEY instruction to&#160;request its&#160;REPORT&#160;key,&#160;which&#160;is the&#160;same&#160;key used&#160;by&#160;</p>
+<p style="position:absolute;top:670px;left:93px;white-space:nowrap" class="ft03">EREPORT at&#160;the source.&#160;</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft03">5.&#160;The target enclave verifies the&#160;MAC&#160;and can&#160;then inspect the&#160;REPORT&#160;to&#160;identify the&#160;source.</p>
+<p style="position:absolute;top:1017px;left:332px;white-space:nowrap" class="ft05">Figure&#160;39-3. &#160;&#160;SGX Local&#160;Attestation</p>
+<p style="position:absolute;top:846px;left:190px;white-space:nowrap" class="ft03">EREPORT</p>
+<p style="position:absolute;top:924px;left:403px;white-space:nowrap" class="ft03">REPORT</p>
+<p style="position:absolute;top:974px;left:239px;white-space:nowrap" class="ft03">Software</p>
+<p style="position:absolute;top:945px;left:643px;white-space:nowrap" class="ft03">Verify REPORT</p>
+<p style="position:absolute;top:863px;left:176px;white-space:nowrap" class="ft03">(Symmetric Key)</p>
+<p style="position:absolute;top:771px;left:148px;white-space:nowrap" class="ft03">Source Enclave</p>
+<p style="position:absolute;top:844px;left:589px;white-space:nowrap" class="ft03">Destination&#160;Enclave</p>
+<p style="position:absolute;top:872px;left:653px;white-space:nowrap" class="ft03">EGETKEY</p>
+<p style="position:absolute;top:889px;left:640px;white-space:nowrap" class="ft03">REPORT&#160;KEY</p>
+<p style="position:absolute;top:959px;left:640px;white-space:nowrap" class="ft03">(Symmetric&#160;Key)</p>
+<p style="position:absolute;top:973px;left:135px;white-space:nowrap" class="ft03">Hardware</p>
+<p style="position:absolute;top:939px;left:116px;white-space:nowrap" class="ft03">Legend:</p>
+<p style="position:absolute;top:793px;left:239px;white-space:nowrap" class="ft00">TARGETINFO</p>
+</div>
+</body>
+</html>

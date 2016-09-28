@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 193</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page193-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce193.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;6-7</p>
+<p style="position:absolute;top:47px;left:609px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND&#160;EXCEPTION HANDLING</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">The fact that&#160;the group of maskable&#160;hardware interrupts includes&#160;the reserved&#160;interrupt and&#160;exception vectors 0&#160;<br/>through 32 can&#160;potentially&#160;cause confusion. Architecturally,&#160;when the&#160;IF&#160;flag is&#160;set, an interrupt for any&#160;of&#160;the&#160;<br/>vectors from&#160;0 through&#160;32&#160;can be&#160;delivered&#160;to the&#160;processor&#160;through&#160;the INTR&#160;pin and&#160;any of&#160;the vectors from&#160;16&#160;<br/>through 32 can&#160;be&#160;delivered through the local&#160;APIC. The&#160;processor will then&#160;generate an&#160;interrupt and call&#160;the&#160;<br/>interrupt or&#160;exception handler&#160;pointed to&#160;by&#160;the vector number.&#160;So for example,&#160;it is&#160;possible to&#160;invoke&#160;the&#160;page-<br/>fault handler through the&#160;INTR&#160;pin&#160;(by&#160;means&#160;of vector 14); however,&#160;this is&#160;not a&#160;true page-fault exception. It&#160;is&#160;<br/>an interrupt. As with the&#160;INT&#160;<i>n</i><a href="o_fe12b1e2a880e0ce-190.html">&#160;instruction (see Section&#160;6.4.2, “Software-Generated Exceptions”),&#160;</a>when&#160;an&#160;inter-<br/>rupt is&#160;generated through the&#160;INTR&#160;pin to&#160;an exception vector,&#160;the processor does not push&#160;an error&#160;code&#160;on the&#160;<br/>stack, so&#160;the exception&#160;handler may&#160;not operate&#160;correctly.<br/>The&#160;IF flag&#160;can be set or cleared&#160;with&#160;the STI&#160;(set interrupt-enable&#160;flag) and CLI&#160;(clear interrupt-enable&#160;flag)&#160;<br/>instructions,&#160;respectively. These instructions&#160;may be executed only if the&#160;CPL&#160;is equal&#160;to or&#160;less than&#160;the&#160;IOPL.&#160;A&#160;<br/>general-protection exception&#160;(#GP) is generated if&#160;they are executed&#160;when&#160;the CPL is greater&#160;than the&#160;IOPL.&#160;(The&#160;<br/>effect of the&#160;IOPL on these instructions is&#160;modified&#160;slightly when the&#160;virtual&#160;mode&#160;extension&#160;is enabled by setting&#160;<br/>the VME flag&#160;in control register&#160;CR4:&#160;see<a href="o_fe12b1e2a880e0ce-987.html">&#160;Section 20.3,&#160;“Interrupt and&#160;Exception Handling&#160;in Virtual-8086&#160;Mode.”&#160;<br/></a>Behavior is&#160;also impacted by&#160;the PVI flag:&#160;s<a href="o_fe12b1e2a880e0ce-996.html">ee&#160;Section 20.4, “Protected-Mode&#160;Virtual Interrupts.”<br/></a>The IF&#160;flag is&#160;also&#160;affected by the following&#160;operations:</p>
+<p style="position:absolute;top:385px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:385px;left:95px;white-space:nowrap" class="ft06">The&#160;PUSHF instruction&#160;stores&#160;all&#160;flags on&#160;the&#160;stack,&#160;where&#160;they can be&#160;examined&#160;and&#160;modified. The POPF&#160;<br/>instruction&#160;can be used&#160;to load the&#160;modified&#160;flags back&#160;into the&#160;EFLAGS register.</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:424px;left:95px;white-space:nowrap" class="ft06">Task switches and the&#160;POPF&#160;and IRET&#160;instructions&#160;load&#160;the&#160;EFLAGS&#160;register;&#160;therefore,&#160;they&#160;can be&#160;used&#160;to&#160;<br/>modify&#160;the setting of&#160;the IF&#160;flag.</p>
+<p style="position:absolute;top:463px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:463px;left:95px;white-space:nowrap" class="ft06">When&#160;an interrupt&#160;is handled through an&#160;interrupt gate, the&#160;IF flag&#160;is automatically cleared, which disables&#160;<br/>maskable hardware interrupts. (If&#160;an&#160;interrupt&#160;is handled&#160;through a trap&#160;gate, the&#160;IF flag is&#160;not&#160;cleared.)</p>
+<p style="position:absolute;top:504px;left:69px;white-space:nowrap" class="ft06">See the descriptions of the CLI,&#160;STI,&#160;PUSHF,&#160;POPF,&#160;and IRET&#160;instructions<a href="��">&#160;in Chapter 3, “Instruction Set Reference,&#160;<br/>A-L,”</a>&#160;in&#160;the<a href="��">&#160;<i>Intel®&#160;64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume&#160;2A</i></a>, and&#160;<a href="��">Chapter 4, “Instruc-<br/>tion&#160;Set Reference, M-U,” in th</a>e&#160;<a href="��"><i>Intel® 64&#160;and IA-32 Architectures Software Developer’s Manual,&#160;Volume 2B</i>, for&#160;</a>a&#160;<br/>detailed description of&#160;the operations these instructions&#160;are allowed to perform&#160;on the&#160;IF flag.</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft05">6.8.2&#160;</p>
+<p style="position:absolute;top:604px;left:149px;white-space:nowrap" class="ft05">Masking Instruction Breakpoints</p>
+<p style="position:absolute;top:634px;left:69px;white-space:nowrap" class="ft06">The RF (resume) flag&#160;in the EFLAGS&#160;register controls&#160;the&#160;response of the processor to&#160;instruction-breakpoint&#160;condi-<br/>tions (see the&#160;description of the&#160;<a href="o_fe12b1e2a880e0ce-71.html">RF flag in Section 2.3,&#160;“System Flags and&#160;Fields in&#160;the&#160;EFLAGS&#160;Register”).&#160;<br/></a>When&#160;set, it&#160;prevents&#160;an&#160;instruction breakpoint from&#160;generating a debug&#160;exception (#DB); when clear,&#160;instruction&#160;<br/>breakpoints will generate debug&#160;exceptions.&#160;The primary&#160;function&#160;of the&#160;RF&#160;flag is&#160;to prevent&#160;the processor from&#160;<br/>going&#160;into&#160;a debug&#160;exception loop&#160;on an&#160;instruction-breakpoint. See&#160;<a href="o_fe12b1e2a880e0ce-582.html">Section 17.3.1.1,&#160;“Instruction-Breakpoint&#160;<br/>Exception&#160;Condition,” for more&#160;</a>information&#160;on the&#160;use of&#160;this&#160;flag.</p>
+<p style="position:absolute;top:775px;left:69px;white-space:nowrap" class="ft05">6.8.3&#160;</p>
+<p style="position:absolute;top:775px;left:149px;white-space:nowrap" class="ft05">Masking Exceptions and Interrupts When Switching Stacks</p>
+<p style="position:absolute;top:805px;left:69px;white-space:nowrap" class="ft02">To&#160;switch to&#160;a different&#160;stack segment,&#160;software&#160;often uses&#160;a&#160;pair of instructions, for example:</p>
+<p style="position:absolute;top:826px;left:89px;white-space:nowrap" class="ft09">MOV SS,&#160;AX<br/>MOV ESP, StackTop</p>
+<p style="position:absolute;top:868px;left:69px;white-space:nowrap" class="ft06">If an interrupt or exception&#160;occurs after&#160;the&#160;segment selector has been&#160;loaded into the&#160;SS&#160;register but&#160;before&#160;the&#160;<br/>ESP&#160;register&#160;has been&#160;loaded,&#160;these two parts of the&#160;logical&#160;address into the&#160;stack space are&#160;inconsistent&#160;for&#160;the&#160;<br/>duration of&#160;the interrupt&#160;or exception&#160;handler.<br/>To&#160;prevent&#160;this situation, the processor inhibits interrupts, debug exceptions, and single-step trap exceptions after&#160;<br/>either&#160;a MOV to&#160;SS&#160;instruction or&#160;a POP to&#160;SS&#160;instruction, until the&#160;instruction&#160;boundary following the&#160;next&#160;instruc-<br/>tion is&#160;reached. All other&#160;faults&#160;may&#160;still be generated.&#160;If&#160;the LSS instruction&#160;is used&#160;to modify&#160;the contents&#160;of&#160;the&#160;<br/>SS&#160;register (which is&#160;the recommended method of&#160;modifying&#160;this&#160;register),&#160;this problem does not occur.</p>
+</div>
+</body>
+</html>

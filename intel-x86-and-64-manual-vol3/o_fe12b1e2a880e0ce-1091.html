@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1091</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1091-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1091.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;25-17</p>
+<p style="position:absolute;top:47px;left:673px;white-space:nowrap" class="ft01">VMX&#160;NON-ROOT&#160;OPERATION</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft010">(#DF) is generated. See<a href="o_fe12b1e2a880e0ce-187.html">&#160;Chapter 6, “Inte</a><a href="o_fe12b1e2a880e0ce-214.html">rrupt 8—Double&#160;Fault Exception (#DF)”</a>&#160;<a href="��">in&#160;<i>Intel® 64&#160;and IA-32&#160;Archi-<br/>tectures&#160;Software Developer’s&#160;Manual,&#160;Volume&#160;3A</i></a>.<br/>It is not possible for a virtualization exception to be encountered while delivering another exception (see<br/><a href="o_fe12b1e2a880e0ce-1089.html">Section 25.5.6.1).</a></p>
+<p style="position:absolute;top:180px;left:69px;white-space:nowrap" class="ft010">If a&#160;virtualization exception causes&#160;a&#160;VM&#160;exit&#160;directly (because&#160;bit&#160;20&#160;is 1&#160;in the&#160;exception bitmap),&#160;information&#160;<br/>about&#160;the exception&#160;is saved&#160;normally in&#160;the VM-exit interruption information field&#160;in the&#160;VMCS (see<a href="o_fe12b1e2a880e0ce-1128.html">&#160;Section&#160;<br/>27.2.2). S</a>pecifically,&#160;the&#160;event is reported as a hardware&#160;exception with vector&#160;20 and no error code. Bit&#160;12 of the&#160;<br/>field (NMI unblocking due to&#160;IRET) is&#160;set&#160;normally.<br/>If&#160;a virtualization exception causes a VM&#160;exit indirectly (because bit&#160;20&#160;is 0 in&#160;the exception bitmap and&#160;delivery of&#160;<br/>the&#160;exception generates an&#160;event&#160;that causes a&#160;VM&#160;exit),&#160;information&#160;about the&#160;exception is&#160;saved normally in&#160;the&#160;<br/>IDT-vectoring&#160;information field in&#160;the VMCS&#160;(see<a href="o_fe12b1e2a880e0ce-1129.html">&#160;Section 27.2.3).</a>&#160;Specifically,&#160;the&#160;event is&#160;reported&#160;as&#160;a hardware&#160;<br/>exception with vector 20&#160;and&#160;no&#160;error code.</p>
+<p style="position:absolute;top:358px;left:69px;white-space:nowrap" class="ft04">25.6 UNRESTRICTED&#160;</p>
+<p style="position:absolute;top:358px;left:298px;white-space:nowrap" class="ft04">GUESTS</p>
+<p style="position:absolute;top:394px;left:69px;white-space:nowrap" class="ft010">The&#160;first&#160;processors&#160;to support VMX operation require&#160;CR0.PE and&#160;CR0.PG&#160;to be&#160;1 in&#160;VMX operation (s<a href="o_fe12b1e2a880e0ce-1045.html">ee&#160;Section&#160;<br/>23.8). This&#160;</a>restriction implies that&#160;guest&#160;software&#160;cannot be run in&#160;unpaged protected&#160;mode or&#160;in real-address&#160;<br/>mode.&#160;Later processors support a VM-execution control called “unrestricted guest”.</p>
+<p style="position:absolute;top:425px;left:622px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:427px;left:629px;white-space:nowrap" class="ft02">&#160;If this control is 1, CR0.PE and&#160;</p>
+<p style="position:absolute;top:444px;left:69px;white-space:nowrap" class="ft010">CR0.PG&#160;may be 0 in&#160;VMX non-root operation.&#160;Such&#160;processors allow guest software&#160;to run in&#160;unpaged&#160;protected&#160;<br/>mode or&#160;in&#160;real-address&#160;mode. The following&#160;items&#160;describe the&#160;behavior of such&#160;software:</p>
+<p style="position:absolute;top:482px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:483px;left:95px;white-space:nowrap" class="ft010">The&#160;MOV CR0 instructions&#160;does&#160;not&#160;cause a&#160;general-protection&#160;exception simply because&#160;it would set either&#160;<br/>CR0.PE and&#160;CR0.PG&#160;to 0.&#160;See<a href="o_fe12b1e2a880e0ce-1080.html">&#160;Section 25.3</a>&#160;for details.</p>
+<p style="position:absolute;top:521px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:522px;left:95px;white-space:nowrap" class="ft010">A&#160;logical processor treats the&#160;values of CR0.PE&#160;and&#160;CR0.PG in&#160;VMX non-root operation just as&#160;it does outside&#160;<br/>VMX operation. Thus,&#160;if&#160;CR0.PE&#160;= 0,&#160;the processor operates as&#160;it does normally in real-address&#160;mode (for&#160;<br/>example,&#160;it&#160;uses&#160;the&#160;16-bit&#160;<b>interrupt table</b>&#160;to deliver interrupts and exceptions). If CR0.PG&#160;= 0, the processor&#160;<br/>operates as&#160;it does normally when&#160;paging is&#160;disabled.</p>
+<p style="position:absolute;top:593px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:594px;left:95px;white-space:nowrap" class="ft012">Processor&#160;operation&#160;is modified by the&#160;fact that the&#160;processor&#160;is in&#160;VMX&#160;non-root operation&#160;and by the&#160;settings&#160;<br/>of the&#160;VM-execution&#160;controls just as it&#160;is&#160;in protected&#160;mode or when paging&#160;is&#160;enabled. Instructions, interrupts,&#160;<br/>and&#160;exceptions that&#160;cause&#160;VM&#160;exits in protected mode&#160;or when paging is&#160;enabled&#160;also do&#160;so in real-address&#160;<br/>mode&#160;or when paging is&#160;disabled.&#160;The&#160;following&#160;examples&#160;should be&#160;noted:<br/>—&#160;If&#160;CR0.PG&#160;= 0,&#160;page faults do&#160;not occur and&#160;thus cannot cause&#160;VM&#160;exits.<br/>—&#160;If&#160;CR0.PE&#160;=&#160;0, invalid-TSS&#160;exceptions do&#160;not occur and thus cannot cause VM&#160;exits.<br/>—&#160;If CR0.PE&#160;= 0,&#160;the following instructions cause&#160;invalid-opcode&#160;exceptions&#160;and do&#160;not cause&#160;VM&#160;exits:&#160;</p>
+<p style="position:absolute;top:732px;left:120px;white-space:nowrap" class="ft010">INVEPT, INVVPID,&#160;LLDT, LTR,&#160;SLDT, STR,&#160;VMCLEAR,&#160;VMLAUNCH,&#160;VMPTRLD,&#160;VMPTRST,&#160;VMREAD,&#160;<br/>VMRESUME,&#160;VMWRITE,&#160;VMXOFF,&#160;and&#160;VMXON.</p>
+<p style="position:absolute;top:770px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:771px;left:95px;white-space:nowrap" class="ft010">If CR0.PG&#160;= 0, each&#160;linear address&#160;is passed directly&#160;to&#160;the EPT mechanism for translation&#160;to a&#160;physical&#160;<br/>address.</p>
+<p style="position:absolute;top:785px;left:152px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:787px;left:159px;white-space:nowrap" class="ft02">&#160;The&#160;guest memory&#160;type&#160;passed on&#160;to&#160;the&#160;EPT mechanism is&#160;WB (writeback).</p>
+<p style="position:absolute;top:1017px;left:69px;white-space:nowrap" class="ft02">1.&#160;“Unrestricted guest”&#160;is a secondary processor-based VM-execution&#160;control.&#160;If bit&#160;31&#160;of&#160;the&#160;primary processor-based&#160;VM-execution&#160;</p>
+<p style="position:absolute;top:1033px;left:91px;white-space:nowrap" class="ft02">controls&#160;is 0, VMX non-root&#160;operation functions as&#160;if&#160;the&#160;“unrestricted guest”&#160;VM-execution&#160;control&#160;were&#160;0.&#160;Se<a href="o_fe12b1e2a880e0ce-1055.html">e Section 24.6.2.</a></p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">2.&#160;As&#160;noted in&#160;<a href="o_fe12b1e2a880e0ce-1094.html">Section 26.2.1.1,</a>&#160;the&#160;“enable EPT”&#160;VM-execution&#160;control must be&#160;1 if&#160;the “unrestricted guest”&#160;VM-execution control is&#160;1.</p>
+</div>
+</body>
+</html>

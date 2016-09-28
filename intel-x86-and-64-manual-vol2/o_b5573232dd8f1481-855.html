@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 855</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page855-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481855.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">OUT—Output to Port</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-175</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft03">IF&#160;((PE&#160;</p>
+<p style="position:absolute;top:125px;left:108px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:126px;left:117px;white-space:nowrap" class="ft03">&#160;1) and&#160;((CPL&#160;&gt;&#160;IOPL) or (VM&#160;</p>
+<p style="position:absolute;top:125px;left:277px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:126px;left:285px;white-space:nowrap" class="ft03">&#160;1)))</p>
+<p style="position:absolute;top:144px;left:89px;white-space:nowrap" class="ft03">THEN&#160;(* Protected mode&#160;with&#160;CPL&#160;&gt;&#160;IOPL or virtual-8086 mode&#160;*)</p>
+<p style="position:absolute;top:161px;left:116px;white-space:nowrap" class="ft03">IF (Any I/O Permission&#160;Bit&#160;for I/O&#160;port being accessed&#160;</p>
+<p style="position:absolute;top:161px;left:421px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:162px;left:433px;white-space:nowrap" class="ft03">1)</p>
+<p style="position:absolute;top:180px;left:143px;white-space:nowrap" class="ft03">THEN&#160;(* I/O operation&#160;is&#160;not allowed *)</p>
+<p style="position:absolute;top:197px;left:170px;white-space:nowrap" class="ft03">#GP(0);</p>
+<p style="position:absolute;top:215px;left:143px;white-space:nowrap" class="ft03">ELSE ( * I/O&#160;operation is&#160;allowed *)&#160;</p>
+<p style="position:absolute;top:233px;left:170px;white-space:nowrap" class="ft03">DEST&#160;←&#160;SRC;&#160;(* Writes to selected I/O port *)</p>
+<p style="position:absolute;top:251px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:269px;left:89px;white-space:nowrap" class="ft03">ELSE (Real Mode&#160;or Protected Mode&#160;with&#160;CPL&#160;≤&#160;IOPL *)</p>
+<p style="position:absolute;top:287px;left:116px;white-space:nowrap" class="ft03">DEST&#160;←&#160;SRC;&#160;(* Writes to selected I/O port *)</p>
+<p style="position:absolute;top:305px;left:69px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:343px;left:69px;white-space:nowrap" class="ft02">Flags Affected</p>
+<p style="position:absolute;top:369px;left:69px;white-space:nowrap" class="ft03">None</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft02">Protected Mode Exceptions</p>
+<p style="position:absolute;top:429px;left:69px;white-space:nowrap" class="ft03">#GP(0)</p>
+<p style="position:absolute;top:429px;left:207px;white-space:nowrap" class="ft03">If&#160;the CPL is&#160;greater&#160;than (has less privilege) the&#160;I/O privilege&#160;level (IOPL) and&#160;any of the&#160;</p>
+<p style="position:absolute;top:445px;left:207px;white-space:nowrap" class="ft03">corresponding&#160;I/O permission&#160;bits&#160;in TSS for the&#160;I/O port&#160;being accessed&#160;is 1.</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:466px;left:207px;white-space:nowrap" class="ft03">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:503px;left:69px;white-space:nowrap" class="ft02">Real-Address Mode&#160;Exceptions</p>
+<p style="position:absolute;top:526px;left:69px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:526px;left:207px;white-space:nowrap" class="ft03">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:563px;left:69px;white-space:nowrap" class="ft02">Virtual-8086 Mode&#160;Exceptions</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft03">#GP(0)</p>
+<p style="position:absolute;top:586px;left:207px;white-space:nowrap" class="ft03">If any&#160;of&#160;the I/O&#160;permission bits in&#160;the TSS for the&#160;I/O port being accessed&#160;is 1.</p>
+<p style="position:absolute;top:607px;left:69px;white-space:nowrap" class="ft03">#PF(fault-code)</p>
+<p style="position:absolute;top:607px;left:207px;white-space:nowrap" class="ft03">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:628px;left:207px;white-space:nowrap" class="ft03">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:665px;left:69px;white-space:nowrap" class="ft02">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:688px;left:69px;white-space:nowrap" class="ft03">Same as&#160;protected mode exceptions.</p>
+<p style="position:absolute;top:725px;left:69px;white-space:nowrap" class="ft02">64-Bit Mode Exceptions</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft03">Same as&#160;protected mode exceptions.</p>
+</div>
+</body>
+</html>

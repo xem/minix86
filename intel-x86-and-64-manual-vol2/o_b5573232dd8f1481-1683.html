@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1683</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1683-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811683.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPBLENDMD/VPBLENDMQ—Blend Int32/Int64 Vectors Using an OpMask Control</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-297</p>
+<p style="position:absolute;top:100px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;SRC2[31:0]</p>
+<p style="position:absolute;top:118px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:136px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;SRC2[i+31:i]</p>
+<p style="position:absolute;top:154px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:172px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:190px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:190px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:208px;left:170px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;SRC1[i+31:i]<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:226px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:244px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:262px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0;</p>
+<p style="position:absolute;top:352px;left:69px;white-space:nowrap" class="ft03">VPBLENDMD&#160;(EVEX encoded versions)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no controlmask*</p>
+<p style="position:absolute;top:442px;left:116px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:460px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:478px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:496px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;SRC2[31:0]</p>
+<p style="position:absolute;top:514px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:532px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;SRC2[i+31:i]</p>
+<p style="position:absolute;top:550px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:568px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:586px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:586px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:604px;left:170px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;SRC1[i+31:i]<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:622px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:640px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:658px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:676px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:746px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:769px;left:69px;white-space:nowrap" class="ft03">VPBLENDMD __m512i _mm512_mask_blend_epi32(__mmask16&#160;k, __m512i a,&#160;__m512i&#160;b);<br/>VPBLENDMD __m256i _mm256_mask_blend_epi32(__mmask8 m,&#160;__m256i a, __m256i b);<br/>VPBLENDMD __m128i _mm_mask_blend_epi32(__mmask8 m,&#160;__m128i a, __m128i&#160;b);<br/>VPBLENDMQ __m512i _mm512_mask_blend_epi64(__mmask8&#160;k, __m512i a,&#160;__m512i&#160;b);<br/>VPBLENDMQ __m256i _mm256_mask_blend_epi64(__mmask8&#160;m, __m256i a, __m256i b);<br/>VPBLENDMQ __m128i _mm_mask_blend_epi64(__mmask8&#160;m, __m128i a, __m128i b);</p>
+<p style="position:absolute;top:894px;left:69px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:916px;left:69px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:951px;left:69px;white-space:nowrap" class="ft01">Other Exceptions</p>
+<p style="position:absolute;top:973px;left:69px;white-space:nowrap" class="ft02">See&#160;Exceptions Type&#160;E4.</p>
+</div>
+</body>
+</html>

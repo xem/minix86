@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1162</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1162-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1162.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">28-14&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX SUPPORT&#160;FOR&#160;ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">—&#160;Guest-physical paging-structure-cache&#160;entries. Each of these is&#160;a mapping from&#160;the&#160;upper&#160;portion&#160;of&#160;a&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft08">guest-physical&#160;address to&#160;the physical address&#160;of the&#160;EPT paging&#160;structure&#160;used&#160;to translate the&#160;corre-<br/>sponding region&#160;of the&#160;guest-physical address&#160;space,&#160;along with information&#160;about access privileges.</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft08">The&#160;information&#160;in&#160;guest-physical mappings about access&#160;privileges and memory&#160;typing&#160;is derived from EPT&#160;<br/>paging structures.</p>
+<p style="position:absolute;top:194px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:195px;left:93px;white-space:nowrap" class="ft04"><b>Combined&#160;mappings</b>.</p>
+<p style="position:absolute;top:192px;left:251px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:195px;left:258px;white-space:nowrap" class="ft02">&#160;There&#160;are two kinds:</p>
+<p style="position:absolute;top:219px;left:93px;white-space:nowrap" class="ft02">—&#160;Combined&#160;translations. Each&#160;of these is a mapping&#160;from&#160;a&#160;linear page number to the physical page frame to&#160;</p>
+<p style="position:absolute;top:235px;left:119px;white-space:nowrap" class="ft02">which&#160;it translates,&#160;along with&#160;information about&#160;access&#160;privileges and memory&#160;typing.</p>
+<p style="position:absolute;top:259px;left:93px;white-space:nowrap" class="ft02">—&#160;Combined paging-structure-cache&#160;entries. Each of these&#160;is&#160;a mapping&#160;from&#160;the upper&#160;portion of a&#160;linear&#160;</p>
+<p style="position:absolute;top:276px;left:119px;white-space:nowrap" class="ft08">address&#160;to the&#160;physical&#160;address of&#160;the&#160;paging structure used to&#160;translate&#160;the corresponding&#160;region&#160;of the&#160;<br/>linear-address space,&#160;along with information&#160;about access privileges.</p>
+<p style="position:absolute;top:315px;left:93px;white-space:nowrap" class="ft08">The&#160;information in combined mappings about access privileges and memory typing&#160;is derived from both guest&#160;<br/>paging structures&#160;and EPT&#160;paging structures.</p>
+<p style="position:absolute;top:382px;left:68px;white-space:nowrap" class="ft06">28.3.2&#160;</p>
+<p style="position:absolute;top:382px;left:148px;white-space:nowrap" class="ft06">Creating and Using Cached Translation Information</p>
+<p style="position:absolute;top:412px;left:68px;white-space:nowrap" class="ft02">The following items&#160;detail&#160;the creation&#160;of the&#160;mappings described&#160;in&#160;the previous&#160;section:</p>
+<p style="position:absolute;top:410px;left:670px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:434px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:435px;left:93px;white-space:nowrap" class="ft09">The&#160;following items describe the&#160;creation of&#160;mappings&#160;while EPT&#160;is not&#160;in use&#160;(including&#160;execution&#160;outside&#160;VMX&#160;<br/>non-root operation):<br/>—&#160;Linear&#160;mappings&#160;may be&#160;created.&#160;They&#160;are&#160;derived&#160;from the&#160;paging structures&#160;referenced&#160;(directly or&#160;</p>
+<p style="position:absolute;top:492px;left:119px;white-space:nowrap" class="ft02">indirectly) by the&#160;current value&#160;of&#160;CR3&#160;and&#160;are&#160;associated with the&#160;current VPID&#160;and&#160;the current&#160;PCID.</p>
+<p style="position:absolute;top:516px;left:93px;white-space:nowrap" class="ft02">—&#160;No&#160;linear mappings are created with information derived from&#160;paging-structure entries that are not present&#160;</p>
+<p style="position:absolute;top:532px;left:119px;white-space:nowrap" class="ft08">(bit&#160;0 is&#160;0) or that set reserved&#160;bits.&#160;For&#160;example,&#160;if&#160;a PTE is not present,&#160;no linear mapping are&#160;created&#160;for&#160;<br/>any linear&#160;page number whose&#160;translation would use&#160;that PTE.</p>
+<p style="position:absolute;top:573px;left:93px;white-space:nowrap" class="ft02">—&#160;No&#160;guest-physical&#160;or combined mappings are created&#160;while&#160;EPT is&#160;not in&#160;use.</p>
+<p style="position:absolute;top:595px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:595px;left:93px;white-space:nowrap" class="ft09">The&#160;following&#160;items describe&#160;the&#160;creation&#160;of mappings&#160;while&#160;EPT is&#160;in use:<br/>—&#160;Guest-physical mappings may be created. They&#160;are derived from&#160;the&#160;EPT paging&#160;structures referenced&#160;</p>
+<p style="position:absolute;top:636px;left:119px;white-space:nowrap" class="ft08">(directly&#160;or indirectly) by bits&#160;51:12 of the&#160;current EPTP. These 40 bits contain&#160;the address&#160;of&#160;the&#160;EPT-PML4-<br/>table. (the&#160;notation&#160;<b>EP4TA</b>&#160;refers to those 40 bits).&#160;Newly&#160;created guest-physical&#160;mappings are&#160;associated&#160;<br/>with the current EP4TA.</p>
+<p style="position:absolute;top:693px;left:93px;white-space:nowrap" class="ft02">—&#160;Combined&#160;mappings may be created.&#160;They&#160;are derived&#160;from the&#160;EPT&#160;paging structures referenced (directly&#160;</p>
+<p style="position:absolute;top:709px;left:119px;white-space:nowrap" class="ft08">or indirectly) by the&#160;current EP4TA.&#160;If&#160;CR0.PG&#160;= 1,&#160;they are&#160;also derived from the&#160;paging&#160;structures&#160;<br/>referenced (directly or&#160;indirectly) by&#160;the current&#160;value&#160;of&#160;CR3.&#160;They&#160;are associated with the&#160;current VPID,&#160;<br/>the current PCID, and&#160;the&#160;current&#160;EP4TA.</p>
+<p style="position:absolute;top:740px;left:396px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:742px;left:403px;white-space:nowrap" class="ft02">&#160;No&#160;combined&#160;paging-structure-cache&#160;entries are&#160;created&#160;if&#160;</p>
+<p style="position:absolute;top:759px;left:119px;white-space:nowrap" class="ft02">CR0.PG&#160;= 0.</p>
+<p style="position:absolute;top:756px;left:203px;white-space:nowrap" class="ft05">4</p>
+<p style="position:absolute;top:783px;left:93px;white-space:nowrap" class="ft02">—&#160;No guest-physical mappings or combined&#160;mappings&#160;are created with information derived&#160;from EPT&#160;paging-</p>
+<p style="position:absolute;top:799px;left:119px;white-space:nowrap" class="ft02">structure entries&#160;that are&#160;not present (bits&#160;2:0&#160;are all 0) or that&#160;are misconfigured<a href="o_fe12b1e2a880e0ce-1155.html">&#160;(see Section 28.2.3.1)</a>.</p>
+<p style="position:absolute;top:823px;left:93px;white-space:nowrap" class="ft02">—&#160;No combined&#160;mappings are&#160;created with information&#160;derived from&#160;guest&#160;paging-structure entries that are&#160;</p>
+<p style="position:absolute;top:840px;left:119px;white-space:nowrap" class="ft02">not present or&#160;that set&#160;reserved&#160;bits.</p>
+<p style="position:absolute;top:864px;left:93px;white-space:nowrap" class="ft02">—&#160;No&#160;linear mappings are&#160;created while&#160;EPT is&#160;in use.</p>
+<p style="position:absolute;top:909px;left:68px;white-space:nowrap" class="ft010">1.&#160;Earlier versions of&#160;this manual&#160;used&#160;the&#160;term “dual-tagged” to&#160;identify combined&#160;mappings.<br/>2.&#160;This section associated cached&#160;information with the current VPID and PCID.&#160;If&#160;PCIDs are&#160;not supported or&#160;are&#160;not being used&#160;(e.g.,&#160;</p>
+<p style="position:absolute;top:946px;left:89px;white-space:nowrap" class="ft02">because CR4.PCIDE&#160;=&#160;0), all the&#160;information is&#160;implicitly associated with&#160;PCID 000H; see<a href="o_fe12b1e2a880e0ce-139.html">&#160;Section&#160;4.10.1, “Process-Context Identifiers&#160;</a></p>
+<p style="position:absolute;top:963px;left:89px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-139.html">(PCIDs),”&#160;in&#160;</a><a href="��"><i>Intel® 64&#160;and&#160;IA-32 Architectures&#160;Software&#160;Developer’s Manual,&#160;Volume&#160;3A</i></a>.</p>
+<p style="position:absolute;top:984px;left:68px;white-space:nowrap" class="ft02">3.&#160;At&#160;any given&#160;time, a logical processor may be&#160;caching combined&#160;mappings&#160;for a VPID and&#160;a PCID that&#160;are&#160;associated&#160;with different&#160;</p>
+<p style="position:absolute;top:1000px;left:89px;white-space:nowrap" class="ft02">EP4TAs.&#160;Similarly,&#160;it may be&#160;caching&#160;combined&#160;mappings for&#160;an&#160;EP4TA that&#160;are&#160;associated&#160;with&#160;different VPIDs and&#160;PCIDs.</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft02">4.&#160;If&#160;the capability MSR IA32_VMX_CR0_FIXED0 reports that&#160;CR0.PG&#160;must&#160;be 1 in VMX operation, CR0.PG can&#160;be&#160;0 in&#160;VMX non-root&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft02">operation&#160;only if&#160;the&#160;“unrestricted&#160;guest”&#160;VM-execution&#160;control&#160;and&#160;bit&#160;31&#160;of&#160;the&#160;primary&#160;processor-based&#160;VM-execution&#160;controls&#160;are&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">both&#160;1.</p>
+</div>
+</body>
+</html>

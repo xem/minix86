@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 390</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:3px;font-family:Times;color:#000000;}
+	.ft09{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page390-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce390.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-28&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">4.&#160;When interrupts are pending in the IRR register,&#160;the&#160;local APIC dispatches them to the processor one at a time,&#160;</p>
+<p style="position:absolute;top:117px;left:93px;white-space:nowrap" class="ft010">based on&#160;their&#160;priority&#160;and the current processor priority&#160;in&#160;the&#160;<a href="o_fe12b1e2a880e0ce-390.html">PPR (see Section&#160;10.8.3.1, “Task and Processor&#160;<br/>Priorities”).</a></p>
+<p style="position:absolute;top:157px;left:68px;white-space:nowrap" class="ft02">5.&#160;When a&#160;fixed interrupt has&#160;been&#160;dispatched to&#160;the processor core&#160;for handling, the&#160;completion&#160;of&#160;the handler&#160;</p>
+<p style="position:absolute;top:174px;left:93px;white-space:nowrap" class="ft010">routine is indicated with an instruction in the instruction handler code that writes to the&#160;end-of-interrupt (EOI)&#160;<br/>register&#160;in&#160;the&#160;local APIC (see<a href="o_fe12b1e2a880e0ce-392.html">&#160;Section 10.8.5,&#160;“Signaling Interrupt Servicing Completion”).&#160;</a>The&#160;act of&#160;writing&#160;to&#160;<br/>the&#160;EOI&#160;register causes the local APIC to delete the interrupt from&#160;its queue&#160;and (for level-triggered interrupts)&#160;<br/>send&#160;a&#160;message&#160;on the&#160;bus indicating&#160;that&#160;the interrupt&#160;handling has&#160;been&#160;completed.&#160;(A&#160;write&#160;to&#160;the&#160;EOI&#160;<br/>register must not be included&#160;in&#160;the&#160;handler routine&#160;for an NMI,&#160;SMI,&#160;INIT,&#160;ExtINT, or&#160;SIPI.)</p>
+<p style="position:absolute;top:264px;left:68px;white-space:nowrap" class="ft010">The following sections&#160;describe the acceptance of&#160;interrupts and&#160;their&#160;handling by the&#160;local APIC and&#160;processor&#160;in&#160;<br/>greater detail.&#160;</p>
+<p style="position:absolute;top:331px;left:68px;white-space:nowrap" class="ft03">10.8.3&#160;</p>
+<p style="position:absolute;top:331px;left:148px;white-space:nowrap" class="ft03">Interrupt, Task, and Processor Priority</p>
+<p style="position:absolute;top:361px;left:68px;white-space:nowrap" class="ft010">Each&#160;interrupt delivered to the processor through the local&#160;APIC has a priority based on its vector number.&#160;The&#160;local&#160;<br/>APIC&#160;uses this&#160;priority&#160;to&#160;determine when&#160;to service the&#160;interrupt relative&#160;to the&#160;other activities&#160;of the&#160;processor,&#160;<br/>including&#160;the&#160;servicing&#160;of other interrupts.&#160;<br/>Each&#160;interrupt vector is&#160;an 8-bit value.&#160;The&#160;<b>interrupt-priority&#160;class</b>&#160;is the&#160;value&#160;of bits&#160;7:4 of the interrupt vector.&#160;<br/>The lowest&#160;interrupt-priority class is&#160;1 and&#160;the&#160;highest is&#160;15; interrupts with vectors in the range 0–15&#160;(with&#160;inter-<br/>rupt-priority class 0)&#160;are&#160;illegal and&#160;are&#160;never delivered. Because vectors 0–31 are&#160;reserved&#160;for&#160;dedicated uses by&#160;<br/>the Intel&#160;64 and&#160;IA-32 architectures,&#160;software&#160;should configure&#160;interrupt vectors to use&#160;interrupt-priority&#160;classes&#160;in&#160;<br/>the range&#160;2–15.<br/>Each&#160;interrupt-priority class encompasses 16&#160;vectors. The relative priority&#160;of&#160;interrupts within an&#160;interrupt-priority&#160;<br/>class is&#160;determined by&#160;the value&#160;of&#160;bits&#160;3:0 of the vector&#160;number. The&#160;higher the&#160;value of those bits,&#160;the higher the&#160;<br/>priority&#160;within&#160;that interrupt-priority class. Thus, each&#160;interrupt vector comprises&#160;two&#160;parts, with the&#160;high 4&#160;bits&#160;<br/>indicating&#160;its interrupt-priority&#160;class&#160;and&#160;the&#160;low 4&#160;bits&#160;indicating&#160;its ranking&#160;within the&#160;interrupt-priority class.</p>
+<p style="position:absolute;top:602px;left:68px;white-space:nowrap" class="ft05">10.8.3.1 &#160;&#160;Task and&#160;Processor&#160;Priorities</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft010">The&#160;local APIC&#160;also defines a&#160;<b>task&#160;priority</b>&#160;and&#160;a&#160;<b>processor priority</b>&#160;that determine the&#160;order in&#160;which interrupts&#160;<br/>are handled.&#160;The&#160;<b>task-priority class</b>&#160;is the&#160;value&#160;of bits&#160;7:4 of the&#160;task-priority register (TPR), which&#160;can be&#160;<br/>written by software&#160;(TPR&#160;is a&#160;read/write&#160;register);&#160;se<a href="o_fe12b1e2a880e0ce-390.html">e Figure&#160;10-18.</a>&#160;</p>
+<p style="position:absolute;top:877px;left:432px;white-space:nowrap" class="ft05">NOTE</p>
+<p style="position:absolute;top:903px;left:120px;white-space:nowrap" class="ft010">In this discussion,&#160;the term&#160;“task” refers to&#160;a&#160;software defined&#160;task, process, thread, program, or&#160;<br/>routine that is&#160;dispatched&#160;to run on&#160;the&#160;processor&#160;by&#160;the&#160;operating system.&#160;It does not&#160;refer to&#160;an&#160;<br/>IA-32&#160;architecture&#160;defined task as&#160;descr<a href="o_fe12b1e2a880e0ce-239.html">ibed in Chapter&#160;7, “Task&#160;Management.”</a></p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft010">The task&#160;priority&#160;allows&#160;software to set&#160;a priority&#160;threshold<i>&#160;</i>for interrupting&#160;the processor.&#160;This&#160;mechanism&#160;enables&#160;<br/>the operating&#160;system to&#160;temporarily block&#160;low&#160;priority&#160;interrupts from disturbing&#160;high-priority&#160;work that&#160;the&#160;<br/>processor&#160;is doing.&#160;The&#160;ability to&#160;block such interrupts using&#160;task priority&#160;results&#160;from&#160;the way that the&#160;TPR controls&#160;<br/>the value&#160;of&#160;the processor-priority register (PPR).</p>
+<p style="position:absolute;top:1006px;left:401px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:703px;left:171px;white-space:nowrap" class="ft08">&#160;</p>
+<p style="position:absolute;top:833px;left:309px;white-space:nowrap" class="ft09">Figure&#160;10-18.&#160;&#160;Task-Priority&#160;Register (TPR)</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft02">5.&#160;The TPR also determines&#160;the&#160;arbitration priority of&#160;the local&#160;processor; se<a href="o_fe12b1e2a880e0ce-386.html">e Section 10.6.2.4, “Lowest Priority&#160;Delivery Mode.”</a></p>
+<p style="position:absolute;top:715px;left:252px;white-space:nowrap" class="ft07">31</p>
+<p style="position:absolute;top:715px;left:650px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:715px;left:557px;white-space:nowrap" class="ft07">7</p>
+<p style="position:absolute;top:715px;left:547px;white-space:nowrap" class="ft07">8</p>
+<p style="position:absolute;top:738px;left:389px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:794px;left:253px;white-space:nowrap" class="ft012">Address: FEE0 0080H<br/>Value after reset: 0H</p>
+<p style="position:absolute;top:791px;left:444px;white-space:nowrap" class="ft00">Task-Priority Sub-Class</p>
+<p style="position:absolute;top:774px;left:408px;white-space:nowrap" class="ft00">Task-Priority Class</p>
+<p style="position:absolute;top:715px;left:597px;white-space:nowrap" class="ft07">4&#160;3</p>
+</div>
+</body>
+</html>

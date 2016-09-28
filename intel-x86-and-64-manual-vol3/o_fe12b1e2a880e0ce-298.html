@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 298</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page298-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce298.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-42&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:104px;left:68px;white-space:nowrap" class="ft02"><b>d.</b></p>
+<p style="position:absolute;top:104px;left:100px;white-space:nowrap" class="ft02"><b>Find the width of an extraction bitmask&#160;from the&#160;maximum count&#160;of the bit-field (address size).</b></p>
+<p style="position:absolute;top:133px;left:68px;white-space:nowrap" class="ft06">// Returns the&#160;mask&#160;bit width&#160;of&#160;a&#160;bit field from&#160;the&#160;maximum&#160;count that bit field can represent.<br/>// This algorithm does&#160;not assume&#160;‘address size’&#160;to have&#160;a&#160;value&#160;equal to power of&#160;2.<br/>// Address size for SMT_ID can be calculated&#160;from MaxLPIDsPerPackage()/MaxCoreIDsPerPackage()<br/>// Then&#160;use&#160;the routine below to derive the&#160;corresponding width&#160;of SMT extraction bitmask<br/>//&#160;Address size&#160;for CORE_ID&#160;is&#160;MaxCoreIDsPerPackage(),&#160;<br/>// Derive the&#160;bitwidth for CORE&#160;extraction mask similarly</p>
+<p style="position:absolute;top:259px;left:68px;white-space:nowrap" class="ft06">unsigned&#160;FindMaskWidth(Unsigned&#160;Max_Count)<br/>{unsigned&#160;int mask_width,&#160;cnt&#160;= Max_Count;</p>
+<p style="position:absolute;top:295px;left:88px;white-space:nowrap" class="ft03">__asm {</p>
+<p style="position:absolute;top:313px;left:142px;white-space:nowrap" class="ft06">mov eax, cnt<br/>mov ecx,&#160;0<br/>mov mask_width, ecx<br/>dec eax<br/>bsr cx, ax<br/>jz&#160;next<br/>inc cx<br/>mov &#160;mask_width, ecx<br/>next: &#160;<br/>mov eax, mask_width</p>
+<p style="position:absolute;top:493px;left:115px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:511px;left:88px;white-space:nowrap" class="ft03">return mask_width;</p>
+<p style="position:absolute;top:529px;left:68px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft02"><b>e.</b></p>
+<p style="position:absolute;top:556px;left:100px;white-space:nowrap" class="ft02"><b>Extract&#160;a&#160;sub&#160;ID from&#160;an&#160;8-bit&#160;full ID, using address&#160;size of the&#160;sub&#160;ID and shift&#160;count.</b></p>
+<p style="position:absolute;top:584px;left:68px;white-space:nowrap" class="ft06">// The&#160;routine below can&#160;extract SMT_ID,&#160;CORE_ID,&#160;and PACKAGE_ID respectively from the init&#160;APIC_ID<br/>// To extract SMT_ID, MaxSubIDvalue is set to&#160;the address size&#160;of&#160;SMT_ID,&#160;Shift_Count = 0<br/>// To extract CORE_ID,&#160;MaxSubIDvalue is&#160;the&#160;address&#160;size of&#160;CORE_ID, Shift_Count&#160;is width of SMT extraction bitmask.<br/>// Returns the&#160;value of the&#160;sub ID,&#160;this is not a zero-based value&#160;</p>
+<p style="position:absolute;top:674px;left:68px;white-space:nowrap" class="ft06">Unsigned&#160;char&#160;GetSubID(unsigned char&#160;Full_ID, unsigned&#160;char&#160;MaxSubIDvalue,&#160;unsigned&#160;char&#160;Shift_Count)<br/>{</p>
+<p style="position:absolute;top:710px;left:88px;white-space:nowrap" class="ft06">MaskWidth = FindMaskWidth(MaxSubIDValue);<br/>MaskBits = ((uchar) (FFH &lt;&lt;&#160;Shift_Count)) ^ ((uchar) (FFH&#160;&lt;&lt; Shift_Count + MaskWidth)) ;<br/>SubID = Full_ID &amp; MaskBits;<br/>Return&#160;SubID;</p>
+<p style="position:absolute;top:782px;left:68px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft08">Software must&#160;not assume local APIC_ID values&#160;in an MP&#160;system are consecutive.&#160;Non-consecutive local APIC_IDs&#160;<br/>may be the&#160;result of&#160;hardware configurations&#160;or&#160;debug features&#160;implemented in the&#160;BIOS&#160;or&#160;OS.<br/>An identifier for each&#160;hierarchical&#160;level can be&#160;extracted from an&#160;8-bit&#160;APIC_ID using&#160;the support routines&#160;illus-<br/>trated&#160;<a href="o_fe12b1e2a880e0ce-296.html">in Example 8-20</a>. The&#160;appropriate&#160;bit mask and shift value to&#160;construct the&#160;appropriate bit mask for each&#160;<br/>level must be determined dynamically&#160;at runtime.&#160;</p>
+<p style="position:absolute;top:949px;left:68px;white-space:nowrap" class="ft04">8.9.5&#160;</p>
+<p style="position:absolute;top:949px;left:148px;white-space:nowrap" class="ft04">Identifying Topological Relationships in a MP System</p>
+<p style="position:absolute;top:979px;left:68px;white-space:nowrap" class="ft08">To&#160;detect&#160;the number of physical&#160;packages,&#160;processor&#160;cores,&#160;or&#160;other topological&#160;relationships&#160;in&#160;a MP system, the&#160;<br/>following procedures&#160;are recommended:</p>
+<p style="position:absolute;top:1018px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1018px;left:93px;white-space:nowrap" class="ft08">Extract&#160;the three-level identifiers from the&#160;APIC&#160;ID&#160;of&#160;each&#160;logical processor enabled&#160;by&#160;system software. The&#160;<br/>sequence is&#160;as follows&#160;(See the&#160;pseudo code shown&#160;in<a href="o_fe12b1e2a880e0ce-299.html">&#160;Example 8-21&#160;</a>and support&#160;routines shown&#160;in<a href="o_fe12b1e2a880e0ce-295.html">&#160;Example&#160;<br/>8-18</a>):</p>
+</div>
+</body>
+</html>

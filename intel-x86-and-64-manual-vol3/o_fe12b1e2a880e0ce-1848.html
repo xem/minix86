@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1848</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1848-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1848.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-38&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">IF (&#160;(DS:RCX.ATTRIBUTES&#160;&amp; TMP_SIG.ATTRIBUTEMASK)&#160;≠&#160;(TMP_SIG.ATTRIBUTE &amp; TMP_SIG.ATTRIBUTEMASK)&#160;)</p>
+<p style="position:absolute;top:118px;left:88px;white-space:nowrap" class="ft03">RFLAG.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_ATTRIBUTE;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:208px;left:68px;white-space:nowrap" class="ft03">( *Verify SIGSTRUCT.MISCSELECT&#160;requirements&#160;are met *)<br/>IF (&#160;(DS:RCX.MISCSELECT&#160;&amp; TMP_SIG.MISCMASK)&#160;≠&#160;(TMP_SIG.MISCSELECT &amp; TMP_SIG.MISCMASK)&#160;)</p>
+<p style="position:absolute;top:244px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:262px;left:115px;white-space:nowrap" class="ft03">RFLAGS.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_ATTRIBUTE;</p>
+<p style="position:absolute;top:298px;left:88px;white-space:nowrap" class="ft02">GOTO EXIT</p>
+<p style="position:absolute;top:316px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:352px;left:68px;white-space:nowrap" class="ft03">(* if EINITTOKEN.VALID[0] is 0, verify the&#160;enclave is&#160;signed&#160;by an&#160;authorized&#160;key *)<br/>IF&#160;(TMP_TOKEN.VALID[0] = 0)</p>
+<p style="position:absolute;top:388px;left:88px;white-space:nowrap" class="ft02">IF (TMP_MRSIGNER&#160;≠&#160;IA32_SGXLEPUBKEYHASH)</p>
+<p style="position:absolute;top:406px;left:115px;white-space:nowrap" class="ft03">RFLAG.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_EINITTOKEN;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:460px;left:88px;white-space:nowrap" class="ft03">FI;<br/>GOTO COMMIT;</p>
+<p style="position:absolute;top:496px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:532px;left:68px;white-space:nowrap" class="ft03">(* Debug Launch&#160;Enclave cannot&#160;launch Production&#160;Enclaves&#160;*)<br/>IF (&#160;(DS:RDX.MASKEDATTRIBUTESLE.DEBUG = 1) and (DS:RCX.ATTRIBUTES.DEBUG = 0)&#160;)</p>
+<p style="position:absolute;top:568px;left:88px;white-space:nowrap" class="ft03">RFLAG.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_EINITTOKEN;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:622px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft03">(* Check reserve&#160;space in&#160;EINIT token includes&#160;reserved&#160;regions&#160;and upper bits in&#160;valid field *)<br/>IF (TMP_TOKEN&#160;reserved space&#160;is not&#160;clear)</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft03">RFLAG.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_EINITTOKEN;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:748px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:784px;left:68px;white-space:nowrap" class="ft03">(* EINIT token must be&#160;≤&#160;CR_CPUSVN *)<br/>IF&#160;(TMP_TOKEN.CPUSVN &gt;&#160;CR_CPUSVN)</p>
+<p style="position:absolute;top:820px;left:88px;white-space:nowrap" class="ft03">RFLAG.ZF&#160;&#160;1;<br/>RAX&#160;&#160;SGX_INVALID_CPUSVN;<br/>GOTO EXIT;</p>
+<p style="position:absolute;top:874px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft03">(* Derive&#160;Launch key used&#160;to calculate EINITTOKEN.MAC *)<br/>HARDCODED_PKCS1_5_PADDING[15:0]&#160;&#160;0100H;<br/>HARDCODED_PKCS1_5_PADDING[2655:16]&#160;&#160;SignExtend330Byte(-1); // 330 bytes of&#160;0FFH<br/>HARDCODED_PKCS1_5_PADDING[2815:2656]&#160;&#160;2004000501020403650148866009060D30313000H;</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft03">TMP_KEYDEPENDENCIES.KEYNAME&#160;&#160;EINITTOKEN_KEY;<br/>TMP_KEYDEPENDENCIES.ISVPRODID&#160;&#160;TMP_TOKEN.ISVPRODIDLE;<br/>TMP_KEYDEPENDENCIES.ISVSVN&#160;&#160;TMP_TOKEN.ISVSVN;<br/>TMP_KEYDEPENDENCIES.OWNEREPOCH&#160;&#160;CSR_SGXOWNEREPOCH;</p>
+</div>
+</body>
+</html>

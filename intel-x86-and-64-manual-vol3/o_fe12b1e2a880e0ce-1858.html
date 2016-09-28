@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1858</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1858-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1858.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-48&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:136px;left:68px;white-space:nowrap" class="ft02">IF&#160;(EPCM(DS:RCX).PT&#160;is&#160;not PT_REG)</p>
+<p style="position:absolute;top:154px;left:88px;white-space:nowrap" class="ft02">THEN #PF(DS:RCX); FI;</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft02">TMP_SECS&#160;&#160;GET_SECS_ADDRESS</p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft03">IF (TMP_SECS.ATTRIBUTES.INIT = 0)<br/>&#160; THEN #GP(0);&#160;FI;</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft03">(* Set the PR&#160;bit to indicate that&#160;permission restriction&#160;is&#160;in progress&#160;*)<br/>EPCM(DS:RCX).PR&#160;&#160;1;</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft03">(* Update EPCM&#160;permissions *)<br/>EPCM(DS:RCX).R&#160;&#160;EPCM(DS:RCX).R&#160;&amp; SCRATCH_SECINFO.FLAGS.R;<br/>EPCM(DS:RCX).W&#160;&#160;EPCM(DS:RCX).W&#160;&amp; SCRATCH_SECINFO.FLAGS.W;<br/>EPCM(DS:RCX).X&#160;&#160;EPCM(DS:RCX).X&#160;&amp; SCRATCH_SECINFO.FLAGS.X;</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft03">RFLAGS.ZF&#160;&#160;0;<br/>RAX&#160;&#160;0;</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft03">DONE:<br/>RFLAGS.CF,PF,AF,OF,SF&#160;&#160;0;</p>
+<p style="position:absolute;top:549px;left:68px;white-space:nowrap" class="ft01">Flags Affected</p>
+<p style="position:absolute;top:571px;left:68px;white-space:nowrap" class="ft04">Sets ZF if page&#160;is not modifiable or&#160;if&#160;other SGX2&#160;instructions&#160;are executing concurrently,&#160;otherwise cleared.&#160;Clears&#160;<br/>CF, PF,&#160;AF, OF,&#160;SF.</p>
+<p style="position:absolute;top:622px;left:68px;white-space:nowrap" class="ft01">Protected Mode&#160;Exceptions</p>
+<p style="position:absolute;top:645px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:645px;left:206px;white-space:nowrap" class="ft06">If a&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;DS segment limit.<br/>If&#160;a memory operand is&#160;not properly&#160;aligned.<br/>If&#160;a memory operand is&#160;locked.</p>
+<p style="position:absolute;top:708px;left:68px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:708px;left:206px;white-space:nowrap" class="ft05">If a&#160;page&#160;fault occurs&#160;in&#160;accessing memory&#160;operands.<br/>If&#160;a memory operand is&#160;not an&#160;EPC&#160;page.</p>
+<p style="position:absolute;top:763px;left:68px;white-space:nowrap" class="ft01">64-Bit Mode&#160;Exceptions</p>
+<p style="position:absolute;top:786px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:786px;left:206px;white-space:nowrap" class="ft05">If&#160;a memory operand is&#160;non-canonical&#160;form.<br/>If&#160;a memory operand is&#160;not properly&#160;aligned.<br/>If&#160;a memory operand is&#160;locked.</p>
+<p style="position:absolute;top:849px;left:68px;white-space:nowrap" class="ft02">#PF(error code)</p>
+<p style="position:absolute;top:849px;left:206px;white-space:nowrap" class="ft05">If a&#160;page&#160;fault occurs&#160;in&#160;accessing memory&#160;operands.<br/>If&#160;a memory operand is&#160;not an&#160;EPC&#160;page.</p>
+</div>
+</body>
+</html>

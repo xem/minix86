@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1690</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1690-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1690.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">36-6&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® PROCESSOR TRACE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">Note&#160;that&#160;some packets, such as&#160;MTC&#160;<a href="o_fe12b1e2a880e0ce-1717.html">(Section&#160;36.3.7</a>)&#160;and other&#160;timing packets, do&#160;not depend&#160;on FilterEn. For&#160;<br/>details on which packets depend&#160;on FilterEn, and hence are&#160;impacted by IP filtering, see<a href="o_fe12b1e2a880e0ce-1719.html">&#160;Section&#160;36.4.1.</a></p>
+<p style="position:absolute;top:152px;left:68px;white-space:nowrap" class="ft03">TraceStop</p>
+<p style="position:absolute;top:177px;left:68px;white-space:nowrap" class="ft07">The&#160;ADDRn ranges&#160;can also be configured to&#160;cause tracing to&#160;be disabled&#160;upon entry to&#160;the specified&#160;region. This&#160;is&#160;<br/>intended&#160;for cases where&#160;unexpected&#160;code&#160;is executed,&#160;and&#160;the&#160;user&#160;wishes to&#160;immediately stop&#160;generating&#160;<br/>packets&#160;in order&#160;to avoid overwriting&#160;previously&#160;written packets.<br/>The TraceStop&#160;mechanism&#160;works much the&#160;same way that&#160;IP&#160;filtering&#160;does,&#160;and&#160;uses&#160;the same&#160;address comparison&#160;<br/>logic. The&#160;TraceStop region base and limit values&#160;are programmed&#160;into one&#160;or&#160;more ADDRn ranges,&#160;but&#160;<br/>IA32_RTIT_CTL.ADDRn_CFG is configured&#160;with the TraceStop encoding.&#160;Like&#160;FilterEn, TraceStop is&#160;detected when&#160;<br/>a taken branch&#160;or event lands in a&#160;TraceStop region.<br/>Further,&#160;TraceStop requires&#160;that&#160;TriggerEn=1 at&#160;the&#160;beginning of the&#160;branch/event,&#160;and ContextEn=1 upon&#160;<br/>completion of&#160;the&#160;branch/event. When&#160;this happens,&#160;the CPU will set IA32_RTIT_STATUS.Stopped,&#160;thereby&#160;<br/>clearing TriggerEn&#160;and hence disabling&#160;packet&#160;generation.&#160;This may generate&#160;a TIP.PGD&#160;packet with the&#160;target&#160;IP&#160;<br/>of the branch&#160;or event that&#160;entered the&#160;TraceStop region.&#160;Finally, a&#160;TraceStop packet will&#160;be&#160;inserted, to&#160;indicate&#160;<br/>that the&#160;condition was&#160;hit.&#160;<br/>If a&#160;TraceStop condition is&#160;encountered during&#160;buffer&#160;over<a href="o_fe12b1e2a880e0ce-1718.html">flow (Section 36.3.8), it&#160;</a>will&#160;not be dropped,&#160;but will&#160;<br/>instead be signaled&#160;once the&#160;overflow has resolved.<br/>Note that a&#160;TraceStop event&#160;does&#160;not&#160;guarantee that all&#160;internally&#160;buffered packets are flushed&#160;out&#160;of internal&#160;<br/>buffers.&#160;To&#160;ensure&#160;that this&#160;has occurred, the&#160;user&#160;should clear&#160;TraceEn.<br/>To&#160;resume&#160;tracing&#160;after a TraceStop event,&#160;the user&#160;must&#160;first&#160;disable&#160;Intel PT&#160;by clearing&#160;IA32_RTIT_CTL.TraceEn&#160;<br/>before the&#160;IA32_RTIT_STATUS.Stopped&#160;bit&#160;can be cleared.&#160;At&#160;this point Intel&#160;PT&#160;can be&#160;reconfigured,&#160;and tracing&#160;<br/>resumed.<br/>Note that the&#160;IA32_RTIT_STATUS.Stopped bit&#160;can also&#160;be&#160;set using&#160;the&#160;ToPA&#160;STOP&#160;bit.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-1693.html">Section&#160;36.2.6.2.</a></p>
+<p style="position:absolute;top:561px;left:68px;white-space:nowrap" class="ft03">IP&#160;Filtering&#160;Example</p>
+<p style="position:absolute;top:586px;left:68px;white-space:nowrap" class="ft06">The following table gives&#160;an example of IP filtering behavior.&#160;Assume that IA32_RTIT_ADDRn_A&#160;= the IP of Range-<br/>Base, and that IA32_RTIT_ADDRn_B = the&#160;IP&#160;of&#160;RangeLimit,&#160;while IA32_RTIT_CTL.ADDRn_CFG&#160;=&#160;0x1&#160;(enable&#160;<br/>ADDRn range as&#160;a FilterEn&#160;range).</p>
+<p style="position:absolute;top:890px;left:68px;white-space:nowrap" class="ft03">IP&#160;Filtering and&#160;TraceStop</p>
+<p style="position:absolute;top:915px;left:68px;white-space:nowrap" class="ft06">It is&#160;possible for the&#160;user&#160;to configure IP&#160;filter&#160;range(s)&#160;and&#160;TraceStop range(s) that&#160;overlap.&#160;In this&#160;case, code&#160;<br/>executing in&#160;the non-overlapping&#160;portion of either range will behave&#160;as would be expected&#160;from&#160;that range.&#160;Code&#160;<br/>executing in&#160;the overlapping range will get TraceStop&#160;behavior.</p>
+<p style="position:absolute;top:998px;left:68px;white-space:nowrap" class="ft04">36.2.5&#160;</p>
+<p style="position:absolute;top:998px;left:148px;white-space:nowrap" class="ft04">Packet&#160;Generation Enable Controls</p>
+<p style="position:absolute;top:1027px;left:68px;white-space:nowrap" class="ft06">Intel Processor&#160;Trace&#160;includes a variety of controls that determine&#160;whether a packet is generated.&#160;In general, most&#160;<br/>packets are&#160;sent&#160;only if&#160;Packet Enable&#160;(<b>PacketEn</b>) is&#160;set. PacketEn is&#160;an internal&#160;state&#160;maintained in hardware in&#160;</p>
+<p style="position:absolute;top:650px;left:319px;white-space:nowrap" class="ft03">Table&#160;36-2.&#160;IP&#160;Filtering Packet&#160;Example&#160;</p>
+<p style="position:absolute;top:675px;left:260px;white-space:nowrap" class="ft02">Code&#160;Flow</p>
+<p style="position:absolute;top:675px;left:650px;white-space:nowrap" class="ft02">Packets</p>
+<p style="position:absolute;top:704px;left:74px;white-space:nowrap" class="ft02">Bar:</p>
+<p style="position:absolute;top:722px;left:102px;white-space:nowrap" class="ft02">jmp&#160;RangeBase // jump&#160;into filter range</p>
+<p style="position:absolute;top:740px;left:74px;white-space:nowrap" class="ft02">RangeBase:</p>
+<p style="position:absolute;top:758px;left:102px;white-space:nowrap" class="ft02">jcc&#160;Foo // not taken</p>
+<p style="position:absolute;top:776px;left:102px;white-space:nowrap" class="ft02">add eax,&#160;1</p>
+<p style="position:absolute;top:794px;left:74px;white-space:nowrap" class="ft02">Foo:</p>
+<p style="position:absolute;top:812px;left:102px;white-space:nowrap" class="ft02">jmp&#160;RangeLimit+1 // jump out&#160;of filter range</p>
+<p style="position:absolute;top:830px;left:74px;white-space:nowrap" class="ft02">RangeLimit:</p>
+<p style="position:absolute;top:848px;left:102px;white-space:nowrap" class="ft02">nop</p>
+<p style="position:absolute;top:866px;left:102px;white-space:nowrap" class="ft02">jcc Bar</p>
+<p style="position:absolute;top:699px;left:521px;white-space:nowrap" class="ft09">TIP.PGE(RangeBase)<br/>TNT(0)<br/>TIP.PGD(RangeLimit+1)</p>
+</div>
+</body>
+</html>

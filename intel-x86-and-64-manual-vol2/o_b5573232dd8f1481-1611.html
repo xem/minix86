@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1611</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1611-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811611.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VFPCLASSSS—Tests&#160;Types&#160;Of&#160;a Scalar&#160;Float32 Values</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-225</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VFPCLASSSS—Tests Types Of&#160;a Scalar Float32 Values</p>
+<p style="position:absolute;top:275px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:360px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:382px;left:69px;white-space:nowrap" class="ft06">The&#160;FPCLASSSS instruction checks&#160;the&#160;low single-precision&#160;floating&#160;point value in&#160;the source&#160;operand for special&#160;<br/>categories, specified&#160;by&#160;the&#160;set bits in&#160;the imm8 byte. Each&#160;set bit in imm8&#160;specifies&#160;a category of floating-point&#160;<br/>values that the&#160;input data&#160;element&#160;is classified against. The&#160;classified results of all specified categories&#160;of&#160;an input&#160;<br/>value are&#160;ORed together to&#160;form&#160;the final boolean result&#160;for&#160;the input&#160;element. The result&#160;is written to&#160;the low bit&#160;<br/>in a&#160;mask&#160;register&#160;k2 according to&#160;the writemask k1. Bits&#160;</p>
+<p style="position:absolute;top:448px;left:458px;white-space:nowrap" class="ft04">MAX_KL-1: 1 of&#160;the destination are&#160;cleared.</p>
+<p style="position:absolute;top:471px;left:69px;white-space:nowrap" class="ft07">The classification&#160;categories specified&#160;by imm8 are shown&#160;in<a href="o_b5573232dd8f1481-1604.html">&#160;Figure&#160;5-13.&#160;</a>The&#160;classification test for each&#160;category&#160;<br/>is&#160;liste<a href="o_b5573232dd8f1481-1604.html">d in Table 5-6.<br/></a>EVEX.vvvv&#160;is reserved&#160;and must be&#160;1111b otherwise instructions will&#160;#UD.</p>
+<p style="position:absolute;top:544px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft04">CheckFPClassSP&#160;</p>
+<p style="position:absolute;top:566px;left:183px;white-space:nowrap" class="ft05">(tsrc[31:0], imm8[7:0]){</p>
+<p style="position:absolute;top:607px;left:89px;white-space:nowrap" class="ft08">//* Start checking&#160;the source&#160;operand&#160;for special type&#160;*//<br/>NegNum&#160;&#160;&#160;</p>
+<p style="position:absolute;top:624px;left:163px;white-space:nowrap" class="ft05">tsrc</p>
+<p style="position:absolute;top:625px;left:187px;white-space:nowrap" class="ft04">[31];</p>
+<p style="position:absolute;top:643px;left:89px;white-space:nowrap" class="ft04">IF (</p>
+<p style="position:absolute;top:642px;left:107px;white-space:nowrap" class="ft05">tsrc</p>
+<p style="position:absolute;top:643px;left:131px;white-space:nowrap" class="ft04">[30:23]=0FFh) Then ExpAllOnes&#160;&#160;1; FI;</p>
+<p style="position:absolute;top:661px;left:89px;white-space:nowrap" class="ft04">IF (</p>
+<p style="position:absolute;top:660px;left:107px;white-space:nowrap" class="ft05">tsrc</p>
+<p style="position:absolute;top:661px;left:131px;white-space:nowrap" class="ft04">[30:23]=0h) Then ExpAllZeros&#160;&#160;1;</p>
+<p style="position:absolute;top:679px;left:89px;white-space:nowrap" class="ft04">IF (ExpAllZeros AND MXCSR.DAZ) Then&#160;</p>
+<p style="position:absolute;top:697px;left:116px;white-space:nowrap" class="ft04">MantAllZeros&#160;&#160;1;</p>
+<p style="position:absolute;top:715px;left:89px;white-space:nowrap" class="ft04">ELSIF&#160;(</p>
+<p style="position:absolute;top:714px;left:128px;white-space:nowrap" class="ft05">tsrc</p>
+<p style="position:absolute;top:715px;left:152px;white-space:nowrap" class="ft04">[22:0]=0h)&#160;Then</p>
+<p style="position:absolute;top:733px;left:116px;white-space:nowrap" class="ft04">MantAllZeros&#160;&#160;1;</p>
+<p style="position:absolute;top:751px;left:89px;white-space:nowrap" class="ft08">FI;<br/>ZeroNumber= ExpAllZeros&#160;AND MantAllZeros<br/>SignalingBit=&#160;</p>
+<p style="position:absolute;top:786px;left:167px;white-space:nowrap" class="ft05">tsrc</p>
+<p style="position:absolute;top:787px;left:191px;white-space:nowrap" class="ft04">[22];</p>
+<p style="position:absolute;top:823px;left:89px;white-space:nowrap" class="ft08">sNaN_res&#160;&#160;ExpAllOnes AND&#160;&#160;NOT(MantAllZeros) AND NOT(SignalingBit) ; // sNaN<br/>qNaN_res&#160;&#160;ExpAllOnes AND&#160;&#160;NOT(MantAllZeros) AND SignalingBit;; // qNaN<br/>Pzero_res&#160;&#160;NOT(NegNum) AND ExpAllZeros&#160;AND&#160;MantAllZeros;;&#160;// +0<br/>Nzero_res&#160;&#160;NegNum AND&#160;ExpAllZeros&#160;AND MantAllZeros;; //&#160;-0<br/>PInf_res&#160;&#160;NOT(NegNum) AND ExpAllOnes&#160;AND MantAllZeros;; //&#160;+Inf<br/>NInf_res&#160;&#160;NegNum&#160;AND ExpAllOnes&#160;AND MantAllZeros;; // -Inf<br/>Denorm_res&#160;&#160;ExpAllZeros&#160;AND&#160;&#160;NOT(MantAllZeros);;&#160;// denorm<br/>FinNeg_res&#160;&#160;NegNum AND&#160;NOT(ExpAllOnes)&#160;AND&#160;NOT(ZeroNumber);; // -finite</p>
+<p style="position:absolute;top:985px;left:89px;white-space:nowrap" class="ft04">bResult = ( imm8[0] AND&#160;qNaN_res&#160;) OR (imm8[1] AND Pzero_res ) OR</p>
+<p style="position:absolute;top:1003px;left:143px;white-space:nowrap" class="ft08">(&#160;imm8[2] AND Nzero_res ) OR&#160;( imm8[3] AND PInf_res ) OR<br/>(&#160;imm8[4] AND NInf_res ) OR&#160;( imm8[5] AND Denorm_res&#160;)&#160;OR<br/>(&#160;imm8[6] AND FinNeg_res ) OR&#160;( imm8[7] AND sNaN_res&#160;)&#160;;</p>
+<p style="position:absolute;top:1057px;left:89px;white-space:nowrap" class="ft04">Return bResult;</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:268px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:137px;left:268px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:312px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:312px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:152px;left:312px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:385px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:385px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:385px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:470px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:78px;white-space:nowrap" class="ft04">EVEX.LIG.66.0F3A.W0&#160;67 /r&#160;</p>
+<p style="position:absolute;top:172px;left:268px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:172px;left:312px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:385px;white-space:nowrap" class="ft04">AVX512DQ</p>
+<p style="position:absolute;top:172px;left:470px;white-space:nowrap" class="ft04">Tests the&#160;input for the following categories:&#160;NaN,&#160;+0, -0,&#160;</p>
+<p style="position:absolute;top:188px;left:470px;white-space:nowrap" class="ft04">+Infinity,&#160;-Infinity,&#160;denormal,&#160;finite negative. The immediate&#160;</p>
+<p style="position:absolute;top:205px;left:470px;white-space:nowrap" class="ft04">field provides a&#160;mask&#160;bit for each of&#160;these&#160;category&#160;tests.&#160;The&#160;</p>
+<p style="position:absolute;top:222px;left:470px;white-space:nowrap" class="ft04">masked&#160;test&#160;results are OR-ed together to&#160;form a mask result.</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">VFPCLASSSS&#160;k2&#160;{k1},&#160;</p>
+<p style="position:absolute;top:208px;left:78px;white-space:nowrap" class="ft04">xmm2/m32, imm8</p>
+<p style="position:absolute;top:298px;left:133px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:298px;left:272px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:298px;left:441px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:298px;left:610px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:298px;left:744px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:322px;left:139px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:322px;left:259px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:322px;left:430px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:322px;left:631px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:322px;left:765px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

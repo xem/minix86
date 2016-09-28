@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1122</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1122-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1122.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">27-4&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;EXITS</p>
+<p style="position:absolute;top:97px;left:68px;white-space:nowrap" class="ft02">27.2&#160;</p>
+<p style="position:absolute;top:97px;left:147px;white-space:nowrap" class="ft02">RECORDING VM-EXIT INFORMATION&#160;AND&#160;UPDATING&#160;VM-ENTRY&#160;CONTROL&#160;</p>
+<p style="position:absolute;top:123px;left:146px;white-space:nowrap" class="ft02">FIELDS</p>
+<p style="position:absolute;top:159px;left:68px;white-space:nowrap" class="ft09">VM&#160;exits&#160;begin by recording&#160;information about&#160;the nature&#160;of&#160;and reason&#160;for&#160;the VM&#160;exit in&#160;the VM-exit&#160;information&#160;<br/>fields.<a href="o_fe12b1e2a880e0ce-1122.html">&#160;Section 27.2.1&#160;</a>to&#160;<a href="o_fe12b1e2a880e0ce-1130.html">Section 27.2.4</a>&#160;detail the&#160;use of these fields.<br/>In&#160;addition&#160;to updating&#160;the VM-exit information fields,&#160;the valid&#160;bit&#160;(bit&#160;31) is&#160;cleared in&#160;the VM-entry interruption-<br/>information field.&#160;If bit&#160;5&#160;of the&#160;IA32_VMX_MISC MSR&#160;(index&#160;485H)&#160;is read as&#160;<a href="o_fe12b1e2a880e0ce-1947.html">1 (see Appendix A.6), the&#160;</a>value of&#160;<br/>IA32_EFER.LMA&#160;is stored&#160;into&#160;the “IA-32e mode&#160;guest”&#160;VM-entry control.</p>
+<p style="position:absolute;top:230px;left:562px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:283px;left:68px;white-space:nowrap" class="ft05">27.2.1&#160;</p>
+<p style="position:absolute;top:283px;left:148px;white-space:nowrap" class="ft05">Basic VM-Exit Information</p>
+<p style="position:absolute;top:313px;left:68px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-1067.html">Section&#160;24.9.1 d</a>efines the&#160;basic&#160;VM-exit information&#160;fields. The&#160;following&#160;items detail&#160;their use.</p>
+<p style="position:absolute;top:335px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:336px;left:93px;white-space:nowrap" class="ft011"><b>Exit reason.<br/></b>—&#160;Bits&#160;15:0 of this field contain the&#160;basic exit reason. It is&#160;loaded&#160;with a number indicating the general cause&#160;</p>
+<p style="position:absolute;top:376px;left:119px;white-space:nowrap" class="ft03">of&#160;the&#160;VM&#160;exit.&#160;<a href="o_fe12b1e2a880e0ce-1961.html">Appendix C lis</a>ts the&#160;numbers used and&#160;their meaning.</p>
+<p style="position:absolute;top:400px;left:93px;white-space:nowrap" class="ft03">—&#160;Bit&#160;27&#160;of this&#160;field is&#160;set&#160;to 1&#160;if the&#160;VM&#160;exit&#160;occurred while&#160;the logical processor was&#160;in enclave&#160;mode.</p>
+<p style="position:absolute;top:424px;left:119px;white-space:nowrap" class="ft09">Such&#160;VM&#160;exits includes those&#160;caused&#160;by&#160;interrupts, non-maskable interrupts,&#160;system-management&#160;<br/>interrupts, INIT signals,&#160;and exceptions&#160;occurring&#160;in&#160;enclave mode as&#160;well as&#160;exceptions&#160;encountered&#160;<br/>during the&#160;delivery of such&#160;events incident to&#160;enclave&#160;mode.<br/>A VM exit&#160;also sets this&#160;bit if&#160;it is&#160;incident&#160;to delivery of an&#160;event&#160;injected&#160;by&#160;VM&#160;entry and&#160;the&#160;guest inter-<br/>ruptibility-state&#160;field&#160;indicates&#160;an enclave interrupt (bit&#160;4&#160;of&#160;the field is&#160;1).</p>
+<p style="position:absolute;top:522px;left:93px;white-space:nowrap" class="ft03">—&#160;The remainder of the field (bits&#160;31:28 and bits&#160;26:16)&#160;is cleared to 0 (certain&#160;SMM VM&#160;exits may set some&#160;</p>
+<p style="position:absolute;top:538px;left:119px;white-space:nowrap" class="ft03">of these bits;&#160;se<a href="o_fe12b1e2a880e0ce-1270.html">e Section 34.15.2.3).</a></p>
+<p style="position:absolute;top:536px;left:371px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:560px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:561px;left:93px;white-space:nowrap" class="ft010"><b>Exit qualification.</b>&#160;This&#160;field&#160;is saved for VM&#160;exits due to&#160;the following causes:&#160;debug exceptions;&#160;page-fault&#160;<br/>exceptions;&#160;start-up IPIs (SIPIs);&#160;system-management&#160;interrupts&#160;(SMIs) that arrive&#160;immediately after&#160;the&#160;<br/>retirement&#160;of&#160;I/O instructions; task switches;&#160;INVEPT; INVLPG; INVPCID;&#160;INVVPID; LGDT; LIDT;&#160;LLDT; LTR;&#160;<br/>SGDT; SIDT;&#160;SLDT;&#160;STR;&#160;VMCLEAR; VMPTRLD; VMPTRST;&#160;VMREAD; VMWRITE;&#160;VMXON;&#160;XRSTORS; XSAVES;&#160;<br/>control-register accesses;&#160;MOV&#160;DR;&#160;I/O instructions; MWAIT;&#160;accesses to&#160;the&#160;APIC-access page&#160;<a href="o_fe12b1e2a880e0ce-1171.html">(see&#160;Section&#160;<br/>29.4);&#160;</a>EPT violations; EOI virtualization&#160;(see<a href="o_fe12b1e2a880e0ce-1169.html">&#160;Section 29.1.4);&#160;</a>APIC-write emulation&#160;(see<a href="o_fe12b1e2a880e0ce-1175.html">&#160;Section&#160;29.4.3.3);&#160;<br/></a>and page-mod<a href="o_fe12b1e2a880e0ce-1159.html">ification log full (see Section 28.2.5).</a>&#160;For all&#160;other VM&#160;exits,&#160;this&#160;field&#160;is cleared. The&#160;following&#160;<br/>items provide details:<br/>—&#160;For a&#160;debug exception, the&#160;exit qualification&#160;contains&#160;information about the&#160;debug exception. The&#160;</p>
+<p style="position:absolute;top:717px;left:119px;white-space:nowrap" class="ft03">information has the format&#160;give<a href="o_fe12b1e2a880e0ce-1122.html">n in Table&#160;27-1.</a></p>
+<p style="position:absolute;top:1017px;left:68px;white-space:nowrap" class="ft03">1.&#160;Bit&#160;5&#160;of&#160;the IA32_VMX_MISC MSR is&#160;read&#160;as&#160;1 on any logical processor that&#160;supports&#160;the 1-setting of&#160;the “unrestricted guest” VM-</p>
+<p style="position:absolute;top:1033px;left:89px;white-space:nowrap" class="ft03">execution control.</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft03">2.&#160;Bit&#160;31 of&#160;this field is&#160;set&#160;on&#160;certain VM-entry&#160;failures;&#160;se<a href="o_fe12b1e2a880e0ce-1117.html">e Section 26.7</a>.</p>
+<p style="position:absolute;top:750px;left:277px;white-space:nowrap" class="ft08">Table&#160;27-1.&#160;&#160;Exit&#160;Qualification&#160;for&#160;Debug&#160;Exceptions</p>
+<p style="position:absolute;top:784px;left:77px;white-space:nowrap" class="ft03">Bit Position(s)</p>
+<p style="position:absolute;top:784px;left:219px;white-space:nowrap" class="ft03">Contents</p>
+<p style="position:absolute;top:813px;left:77px;white-space:nowrap" class="ft03">3:0</p>
+<p style="position:absolute;top:813px;left:219px;white-space:nowrap" class="ft03">B3&#160;– B0. When&#160;set, each of&#160;these&#160;bits indicates&#160;that&#160;the corresponding&#160;breakpoint&#160;condition was&#160;met. Any of&#160;</p>
+<p style="position:absolute;top:829px;left:219px;white-space:nowrap" class="ft03">these bits may be set even if its corresponding enabling&#160;bit in&#160;DR7&#160;is not set.</p>
+<p style="position:absolute;top:858px;left:77px;white-space:nowrap" class="ft03">12:4</p>
+<p style="position:absolute;top:858px;left:219px;white-space:nowrap" class="ft03">Reserved&#160;(cleared&#160;to&#160;0).</p>
+<p style="position:absolute;top:886px;left:77px;white-space:nowrap" class="ft03">13</p>
+<p style="position:absolute;top:886px;left:219px;white-space:nowrap" class="ft03">BD. When set,&#160;this bit indicates that&#160;the cause&#160;of&#160;the&#160;debug exception is&#160;“debug&#160;register&#160;access detected.”</p>
+<p style="position:absolute;top:915px;left:77px;white-space:nowrap" class="ft03">14</p>
+<p style="position:absolute;top:915px;left:219px;white-space:nowrap" class="ft03">BS.&#160;When set, this bit&#160;indicates&#160;that&#160;the cause&#160;of&#160;the&#160;debug exception is&#160;either&#160;the execution&#160;of&#160;a single&#160;</p>
+<p style="position:absolute;top:931px;left:219px;white-space:nowrap" class="ft03">instruction&#160;(if RFLAGS.TF&#160;=&#160;1 and&#160;IA32_DEBUGCTL.BTF&#160;=&#160;0)&#160;or a&#160;taken branch (if&#160;</p>
+<p style="position:absolute;top:948px;left:219px;white-space:nowrap" class="ft03">RFLAGS.TF&#160;=&#160;DEBUGCTL.BTF&#160;=&#160;1).</p>
+<p style="position:absolute;top:976px;left:77px;white-space:nowrap" class="ft03">63:15</p>
+<p style="position:absolute;top:976px;left:219px;white-space:nowrap" class="ft03">Reserved&#160;(cleared&#160;to&#160;0).&#160;Bits 63:32 exist only&#160;on&#160;processors&#160;that&#160;support Intel 64 architecture.</p>
+</div>
+</body>
+</html>

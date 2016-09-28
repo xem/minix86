@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 435</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page435-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a435.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 1&#160;D-13</p>
+<p style="position:absolute;top:47px;left:500px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87&#160;FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">save&#160;the full&#160;x87 FPU&#160;state and then to load a new control&#160;word&#160;in the&#160;prologue. Note&#160;that&#160;considerable care&#160;should&#160;<br/>be taken when designing&#160;an&#160;exception handler&#160;of this type&#160;to prevent&#160;the handler from&#160;being reentered&#160;endlessly.</p>
+<p style="position:absolute;top:158px;left:69px;white-space:nowrap" class="ft01">Example D-3. &#160;Full-State&#160;Exception Handler</p>
+<p style="position:absolute;top:188px;left:69px;white-space:nowrap" class="ft04">SAVE_ALL&#160;PROC<br/>;<br/>;SAVE&#160;REGISTERS,&#160;ALLOCATE&#160;STACK&#160;SPACE FOR&#160;x87&#160;FPU&#160;STATE IMAGE</p>
+<p style="position:absolute;top:242px;left:89px;white-space:nowrap" class="ft02">PUSH</p>
+<p style="position:absolute;top:242px;left:143px;white-space:nowrap" class="ft02">EBP</p>
+<p style="position:absolute;top:260px;left:89px;white-space:nowrap" class="ft04">.<br/>.<br/>MOV EBP,&#160;</p>
+<p style="position:absolute;top:296px;left:172px;white-space:nowrap" class="ft02">ESP</p>
+<p style="position:absolute;top:314px;left:89px;white-space:nowrap" class="ft02">SUB&#160;</p>
+<p style="position:absolute;top:314px;left:143px;white-space:nowrap" class="ft02">ESP, 108&#160;; ALLOCATES&#160;108 BYTES&#160;(32-bit PROTECTED MODE SIZE)</p>
+<p style="position:absolute;top:332px;left:69px;white-space:nowrap" class="ft02">;SAVE FULL x87 FPU&#160;STATE,&#160;RESTORE INTERRUPT ENABLE FLAG (IF)</p>
+<p style="position:absolute;top:350px;left:89px;white-space:nowrap" class="ft04">FNSAVE&#160;[EBP-108]<br/>PUSH&#160;</p>
+<p style="position:absolute;top:368px;left:143px;white-space:nowrap" class="ft02">[EBP + OFFSET_TO_EFLAGS]&#160;; COPY&#160;OLD EFLAGS TO&#160;STACK TOP</p>
+<p style="position:absolute;top:386px;left:89px;white-space:nowrap" class="ft02">POPFD&#160;;RESTORE&#160;IF&#160;TO&#160;VALUE BEFORE&#160;x87&#160;FPU EXCEPTION</p>
+<p style="position:absolute;top:404px;left:69px;white-space:nowrap" class="ft04">;<br/>;APPLICATION-DEPENDENT EXCEPTION&#160;HANDLING&#160;CODE&#160;GOES&#160;HERE<br/>;<br/>;CLEAR EXCEPTION FLAGS&#160;IN STATUS&#160;WORD&#160;(WHICH&#160;IS IN MEMORY)<br/>;RESTORE MODIFIED&#160;STATE&#160;IMAGE</p>
+<p style="position:absolute;top:494px;left:89px;white-space:nowrap" class="ft02">MOV</p>
+<p style="position:absolute;top:494px;left:143px;white-space:nowrap" class="ft02">BYTE&#160;PTR [EBP-104], 0H</p>
+<p style="position:absolute;top:512px;left:89px;white-space:nowrap" class="ft02">FRSTOR&#160;[EBP-108]</p>
+<p style="position:absolute;top:530px;left:69px;white-space:nowrap" class="ft02">;DE-ALLOCATE&#160;STACK&#160;SPACE,&#160;RESTORE&#160;REGISTERS</p>
+<p style="position:absolute;top:548px;left:89px;white-space:nowrap" class="ft02">MOV</p>
+<p style="position:absolute;top:548px;left:143px;white-space:nowrap" class="ft02">ESP,&#160;EBP</p>
+<p style="position:absolute;top:566px;left:89px;white-space:nowrap" class="ft04">.<br/>.<br/>POP</p>
+<p style="position:absolute;top:602px;left:143px;white-space:nowrap" class="ft02">EBP</p>
+<p style="position:absolute;top:620px;left:69px;white-space:nowrap" class="ft04">;<br/>;RETURN&#160;TO INTERRUPTED CALCULATION</p>
+<p style="position:absolute;top:656px;left:89px;white-space:nowrap" class="ft04">IRETD<br/>SAVE_ALL ENDP</p>
+<p style="position:absolute;top:715px;left:69px;white-space:nowrap" class="ft01">Example D-4. &#160;Reduced-Latency Exception Handler</p>
+<p style="position:absolute;top:745px;left:69px;white-space:nowrap" class="ft04">SAVE_ENVIRONMENTPROC<br/>;<br/>;SAVE REGISTERS, ALLOCATE STACK SPACE&#160;FOR x87 FPU ENVIRONMENT&#160;</p>
+<p style="position:absolute;top:799px;left:89px;white-space:nowrap" class="ft02">PUSH</p>
+<p style="position:absolute;top:799px;left:143px;white-space:nowrap" class="ft02">EBP</p>
+<p style="position:absolute;top:817px;left:89px;white-space:nowrap" class="ft04">.<br/>.<br/>MOV EBP,&#160;</p>
+<p style="position:absolute;top:853px;left:172px;white-space:nowrap" class="ft02">ESP</p>
+<p style="position:absolute;top:871px;left:89px;white-space:nowrap" class="ft02">SUB&#160;</p>
+<p style="position:absolute;top:871px;left:143px;white-space:nowrap" class="ft02">ESP, 28 &#160;&#160;;ALLOCATES&#160;28 BYTES (32-bit PROTECTED MODE&#160;SIZE)</p>
+<p style="position:absolute;top:889px;left:69px;white-space:nowrap" class="ft02">;SAVE ENVIRONMENT, RESTORE INTERRUPT ENABLE FLAG (IF)</p>
+<p style="position:absolute;top:907px;left:89px;white-space:nowrap" class="ft02">FNSTENV</p>
+<p style="position:absolute;top:907px;left:170px;white-space:nowrap" class="ft02">[EBP - 28]</p>
+<p style="position:absolute;top:925px;left:89px;white-space:nowrap" class="ft02">PUSH&#160;</p>
+<p style="position:absolute;top:925px;left:170px;white-space:nowrap" class="ft02">[EBP + OFFSET_TO_EFLAGS] &#160;; COPY&#160;OLD EFLAGS TO&#160;STACK TOP</p>
+<p style="position:absolute;top:943px;left:89px;white-space:nowrap" class="ft02">POPFD&#160;;RESTORE&#160;IF&#160;TO&#160;VALUE BEFORE&#160;x87&#160;FPU EXCEPTION</p>
+<p style="position:absolute;top:961px;left:69px;white-space:nowrap" class="ft04">;<br/>;APPLICATION-DEPENDENT EXCEPTION&#160;HANDLING&#160;CODE&#160;GOES&#160;HERE<br/>;<br/>;CLEAR EXCEPTION FLAGS&#160;IN STATUS&#160;WORD&#160;(WHICH&#160;IS IN MEMORY)<br/>;RESTORE MODIFIED&#160;ENVIRONMENT IMAGE</p>
+<p style="position:absolute;top:1051px;left:89px;white-space:nowrap" class="ft02">MOV&#160;</p>
+<p style="position:absolute;top:1051px;left:143px;white-space:nowrap" class="ft02">BYTE&#160;PTR&#160;[EBP-24],&#160;0H</p>
+</div>
+</body>
+</html>

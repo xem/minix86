@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1470</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1470-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811470.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:560px;white-space:nowrap" class="ft00">VERR/VERW—Verify a Segment for Reading or Writing</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-84&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VERR/VERW—Verify a Segment for Reading or Writing</p>
+<p style="position:absolute;top:272px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:359px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:385px;left:68px;white-space:nowrap" class="ft010">Verifies&#160;whether&#160;the code&#160;or&#160;data segment specified&#160;with&#160;the source&#160;operand is&#160;readable (VERR) or writable (VERW)&#160;<br/>from&#160;the&#160;current privilege&#160;level&#160;(CPL). The source&#160;operand&#160;is a&#160;16-bit register or&#160;a memory location that&#160;contains&#160;<br/>the segment selector for&#160;the segment to be&#160;verified. If&#160;the segment is&#160;accessible and readable&#160;(VERR)&#160;or writable&#160;<br/>(VERW),&#160;the&#160;ZF&#160;flag&#160;is set;&#160;otherwise,&#160;the ZF&#160;flag&#160;is&#160;cleared.&#160;Code&#160;segments are&#160;never verified&#160;as writable.&#160;This&#160;<br/>check cannot be performed on&#160;system&#160;segments.&#160;<br/>To&#160;set the&#160;ZF&#160;flag, the&#160;following&#160;conditions must be met:</p>
+<p style="position:absolute;top:497px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:498px;left:93px;white-space:nowrap" class="ft04">The&#160;segment selector is&#160;not&#160;NULL.</p>
+<p style="position:absolute;top:520px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:520px;left:93px;white-space:nowrap" class="ft04">The selector must denote a&#160;descriptor within&#160;the bounds of the&#160;descriptor table (GDT&#160;or LDT).</p>
+<p style="position:absolute;top:542px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:543px;left:93px;white-space:nowrap" class="ft04">The&#160;selector must denote the&#160;descriptor of a&#160;code&#160;or&#160;data segment (not that&#160;of&#160;a system segment or&#160;gate).</p>
+<p style="position:absolute;top:565px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:565px;left:93px;white-space:nowrap" class="ft04">For the&#160;VERR instruction, the&#160;segment must be readable.</p>
+<p style="position:absolute;top:587px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:588px;left:93px;white-space:nowrap" class="ft04">For the&#160;VERW instruction, the&#160;segment must be a&#160;writable data segment.</p>
+<p style="position:absolute;top:610px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:610px;left:93px;white-space:nowrap" class="ft09">If the segment is&#160;not&#160;a conforming code segment,&#160;the&#160;segment’s DPL must be greater&#160;than&#160;or equal&#160;to (have&#160;<br/>less or the&#160;same&#160;privilege&#160;as) both the&#160;CPL and the&#160;segment&#160;selector's&#160;RPL.</p>
+<p style="position:absolute;top:651px;left:68px;white-space:nowrap" class="ft010">The validation&#160;performed&#160;is the&#160;same as&#160;is performed when&#160;a segment selector&#160;is&#160;loaded into&#160;the&#160;DS, ES,&#160;FS, or&#160;GS&#160;<br/>register, and the&#160;indicated access&#160;(read or write)&#160;is performed.&#160;The&#160;segment&#160;selector's&#160;value cannot result&#160;in a&#160;<br/>protection exception, enabling the&#160;software to&#160;anticipate&#160;possible segment access problems.<br/>This instruction’s operation is&#160;the&#160;same in non-64-bit modes and 64-bit mode.&#160;The&#160;operand size&#160;is fixed&#160;at 16&#160;bits.</p>
+<p style="position:absolute;top:745px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:771px;left:68px;white-space:nowrap" class="ft04">IF&#160;SRC(Offset)&#160;&gt;&#160;(GDTR(Limit)&#160;or&#160;(LDTR(Limit))</p>
+<p style="position:absolute;top:789px;left:88px;white-space:nowrap" class="ft04">THEN&#160;ZF&#160;←&#160;0; FI;</p>
+<p style="position:absolute;top:819px;left:68px;white-space:nowrap" class="ft04">Read&#160;segment descriptor;</p>
+<p style="position:absolute;top:849px;left:68px;white-space:nowrap" class="ft04">IF&#160;SegmentDescriptor(DescriptorType)&#160;</p>
+<p style="position:absolute;top:847px;left:290px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:847px;left:299px;white-space:nowrap" class="ft07">&#160;</p>
+<p style="position:absolute;top:849px;left:303px;white-space:nowrap" class="ft04">0 (* System segment *)</p>
+<p style="position:absolute;top:867px;left:68px;white-space:nowrap" class="ft04">or&#160;(SegmentDescriptor(Type)&#160;</p>
+<p style="position:absolute;top:865px;left:237px;white-space:nowrap" class="ft06">≠</p>
+<p style="position:absolute;top:867px;left:246px;white-space:nowrap" class="ft04">&#160;conforming code&#160;segment)&#160;</p>
+<p style="position:absolute;top:885px;left:68px;white-space:nowrap" class="ft04">and (CPL&#160;&gt;&#160;DPL) or (RPL&#160;&gt;&#160;DPL)</p>
+<p style="position:absolute;top:903px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:921px;left:115px;white-space:nowrap" class="ft04">ZF&#160;←&#160;0;</p>
+<p style="position:absolute;top:939px;left:88px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:957px;left:115px;white-space:nowrap" class="ft04">IF ((Instruction</p>
+<p style="position:absolute;top:955px;left:198px;white-space:nowrap" class="ft07">&#160;</p>
+<p style="position:absolute;top:955px;left:202px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:957px;left:211px;white-space:nowrap" class="ft04">&#160;VERR) and (Segment&#160;readable))</p>
+<p style="position:absolute;top:975px;left:115px;white-space:nowrap" class="ft04">or ((Instruction&#160;</p>
+<p style="position:absolute;top:973px;left:203px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:973px;left:212px;white-space:nowrap" class="ft07">&#160;</p>
+<p style="position:absolute;top:975px;left:216px;white-space:nowrap" class="ft04">VERW) and (Segment writable))</p>
+<p style="position:absolute;top:993px;left:142px;white-space:nowrap" class="ft04">THEN&#160;</p>
+<p style="position:absolute;top:1011px;left:169px;white-space:nowrap" class="ft04">ZF&#160;←&#160;1;</p>
+<p style="position:absolute;top:1029px;left:115px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:1047px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:219px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:384px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:384px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:421px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:421px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:494px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:494px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:564px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F&#160;00&#160;/4</p>
+<p style="position:absolute;top:160px;left:219px;white-space:nowrap" class="ft04">VERR&#160;<i>r/m16</i></p>
+<p style="position:absolute;top:160px;left:384px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:160px;left:421px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:494px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:564px;white-space:nowrap" class="ft04">Set&#160;ZF=1&#160;if&#160;segment specified with&#160;<i>r/m16</i>&#160;can&#160;</p>
+<p style="position:absolute;top:177px;left:564px;white-space:nowrap" class="ft04">be&#160;read.</p>
+<p style="position:absolute;top:199px;left:73px;white-space:nowrap" class="ft04">0F&#160;00&#160;/5</p>
+<p style="position:absolute;top:199px;left:219px;white-space:nowrap" class="ft04">VERW<i>&#160;r/m16</i></p>
+<p style="position:absolute;top:199px;left:384px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:199px;left:421px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:199px;left:494px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:199px;left:564px;white-space:nowrap" class="ft04">Set&#160;ZF=1&#160;if&#160;segment specified with&#160;<i>r/m16</i>&#160;can&#160;</p>
+<p style="position:absolute;top:215px;left:564px;white-space:nowrap" class="ft04">be&#160;written.</p>
+<p style="position:absolute;top:295px;left:84px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:295px;left:194px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:295px;left:369px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:295px;left:542px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:295px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:319px;left:96px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:319px;left:183px;white-space:nowrap" class="ft04">ModRM:r/m&#160;&#160;(r)</p>
+<p style="position:absolute;top:319px;left:390px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:319px;left:563px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:319px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

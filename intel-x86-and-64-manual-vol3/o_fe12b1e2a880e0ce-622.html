@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 622</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page622-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce622.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-48&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07">Thread access to the&#160;IA32_QM_EVTSEL&#160;and IA32_QM_CTR MSR pair should be serialized&#160;to avoid situations&#160;<br/>where one&#160;thread changes the&#160;RMID/EvtID just&#160;before&#160;another thread reads monitoring data from&#160;<br/>IA32_QM_CTR.</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft07">IA32_QM_CTR: This&#160;MSR reports monitored&#160;data&#160;when&#160;available. It&#160;contains three&#160;bit&#160;fields. If software&#160;<br/>configures an unsupported RMID&#160;or&#160;event type in IA32_QM_EVTSEL, then&#160;IA32_QM_CTR.Error&#160;(bit 63) will be&#160;<br/>set,&#160;indicating there is&#160;no valid&#160;data to&#160;report. If&#160;IA32_QM_CTR.Unavailable&#160;(bit 62) is&#160;set, it&#160;indicates&#160;<br/>monitored data for&#160;the RMID is not available, and IA32_QM_CTR.data (bits&#160;61:0) should&#160;be ignored.&#160;Therefore,&#160;<br/>IA32_QM_CTR.data&#160;(bits&#160;61:0)&#160;is&#160;valid only if bit 63 and&#160;62&#160;are&#160;both clear.&#160;For Cache&#160;Monitoring&#160;Technology,&#160;<br/>software&#160;can convert IA32_QM_CTR.data into&#160;cache occupancy or bandwidth metrics&#160;expressed in&#160;bytes by&#160;<br/>multiplying&#160;with the&#160;conversion factor from CPUID.(EAX=0FH, ECX=1H).EBX.</p>
+<p style="position:absolute;top:552px;left:68px;white-space:nowrap" class="ft04">17.16.8&#160;&#160;Monitoring Programming Considerations</p>
+<p style="position:absolute;top:583px;left:68px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-621.html">Figure 17-23&#160;</a>illustrates how&#160;system software&#160;can program IA32_QOSEVTSEL&#160;and&#160;IA32_QM_CTR to&#160;perform&#160;<br/>resource monitoring.</p>
+<p style="position:absolute;top:902px;left:68px;white-space:nowrap" class="ft07">Though&#160;the field provided&#160;in IA32_QM_CTR allows&#160;for&#160;up to 62&#160;bits of&#160;data to&#160;be&#160;returned, often&#160;a subset of bits are&#160;<br/>used. With Cache Monitoring&#160;Technology for instance, the number of bits used will&#160;be proportional&#160;to&#160;the base-two&#160;<br/>logarithm of the&#160;total cache size&#160;divided by the&#160;Upscaling&#160;Factor&#160;from&#160;CPUID.<br/>In Memory&#160;Bandwidth Monitoring the&#160;initial&#160;counter size&#160;is&#160;24&#160;bits, and retrieving the value&#160;at 1Hz&#160;or faster is&#160;suffi-<br/>cient to&#160;ensure at&#160;most&#160;one rollover per sampling period.&#160;Any future changes to&#160;counter width will be enumerated&#160;<br/>to software.&#160;</p>
+<p style="position:absolute;top:508px;left:258px;white-space:nowrap" class="ft05">Figure&#160;17-24.&#160;&#160;IA32_QM_EVTSEL and&#160;IA32_QM_CTR MSRs</p>
+<p style="position:absolute;top:848px;left:243px;white-space:nowrap" class="ft05">Figure&#160;17-25.&#160;&#160;Software&#160;Usage of&#160;Cache Monitoring&#160;Resources</p>
+<p style="position:absolute;top:428px;left:608px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:428px;left:210px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:446px;left:644px;white-space:nowrap" class="ft06">IA32_QM_CTR</p>
+<p style="position:absolute;top:450px;left:227px;white-space:nowrap" class="ft06">U</p>
+<p style="position:absolute;top:427px;left:241px;white-space:nowrap" class="ft06">61</p>
+<p style="position:absolute;top:449px;left:211px;white-space:nowrap" class="ft06">E</p>
+<p style="position:absolute;top:449px;left:385px;white-space:nowrap" class="ft06">Resource Monitoring Data</p>
+<p style="position:absolute;top:358px;left:603px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:358px;left:412px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:358px;left:205px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:378px;left:351px;white-space:nowrap" class="ft06">RMID</p>
+<p style="position:absolute;top:358px;left:531px;white-space:nowrap" class="ft06">7</p>
+<p style="position:absolute;top:378px;left:238px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:376px;left:640px;white-space:nowrap" class="ft06">IA32_QM_EVTSEL</p>
+<p style="position:absolute;top:378px;left:454px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:358px;left:309px;white-space:nowrap" class="ft06">41</p>
+<p style="position:absolute;top:358px;left:398px;white-space:nowrap" class="ft06">32</p>
+<p style="position:absolute;top:358px;left:296px;white-space:nowrap" class="ft06">42</p>
+<p style="position:absolute;top:358px;left:521px;white-space:nowrap" class="ft06">8</p>
+<p style="position:absolute;top:378px;left:557px;white-space:nowrap" class="ft06">EvtID</p>
+<p style="position:absolute;top:707px;left:261px;white-space:nowrap" class="ft06">RMID</p>
+<p style="position:absolute;top:756px;left:755px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:756px;left:584px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:776px;left:640px;white-space:nowrap" class="ft06">Monitoring&#160;Data</p>
+<p style="position:absolute;top:729px;left:590px;white-space:nowrap" class="ft00">IA32_QM_CTR MSR</p>
+<p style="position:absolute;top:756px;left:598px;white-space:nowrap" class="ft06">62</p>
+<p style="position:absolute;top:803px;left:630px;white-space:nowrap" class="ft00">Availability</p>
+<p style="position:absolute;top:816px;left:631px;white-space:nowrap" class="ft00">Error</p>
+<p style="position:absolute;top:756px;left:349px;white-space:nowrap" class="ft06">7</p>
+<p style="position:absolute;top:756px;left:173px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:778px;left:295px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:756px;left:224px;white-space:nowrap" class="ft06">41</p>
+<p style="position:absolute;top:778px;left:237px;white-space:nowrap" class="ft00">RMID</p>
+<p style="position:absolute;top:820px;left:259px;white-space:nowrap" class="ft00">Resource Monitoring&#160;ID</p>
+<p style="position:absolute;top:756px;left:380px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:778px;left:355px;white-space:nowrap" class="ft06">EvtID</p>
+<p style="position:absolute;top:756px;left:271px;white-space:nowrap" class="ft06">32</p>
+<p style="position:absolute;top:778px;left:175px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:805px;left:398px;white-space:nowrap" class="ft00">Event ID</p>
+<p style="position:absolute;top:729px;left:196px;white-space:nowrap" class="ft00">IA32_QOSEVTSEL MSR</p>
+<p style="position:absolute;top:676px;left:420px;white-space:nowrap" class="ft00">System Software</p>
+<p style="position:absolute;top:707px;left:380px;white-space:nowrap" class="ft06">Event ID</p>
+<p style="position:absolute;top:710px;left:653px;white-space:nowrap" class="ft06">Counter&#160;Data</p>
+</div>
+</body>
+</html>

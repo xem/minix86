@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 2020</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page2020-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14812020.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">A-4&#160;Vol. 2D</p>
+<p style="position:absolute;top:47px;left:67px;white-space:nowrap" class="ft01">OPCODE&#160;MAP</p>
+<p style="position:absolute;top:100px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft06">Use of the&#160;ModR/M&#160;byte&#160;is reserved or undefined. This applies to entries that represent an instruction prefix or&#160;<br/>entries&#160;for instructions without&#160;operands that&#160;use&#160;ModR/M&#160;(for&#160;example:&#160;60H,&#160;PUSHA; 06H,&#160;PUSH&#160;ES).</p>
+<p style="position:absolute;top:158px;left:67px;white-space:nowrap" class="ft01">Example A-1. &#160;Look-up&#160;Example for 1-Byte Opcodes</p>
+<p style="position:absolute;top:182px;left:67px;white-space:nowrap" class="ft03">Opcode 030500000000H for an&#160;ADD&#160;instruction is&#160;interpreted&#160;using the 1-byte opcode&#160;<a href="o_b5573232dd8f1481-2023.html">map (Table A-2) as follows:</a></p>
+<p style="position:absolute;top:204px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:205px;left:93px;white-space:nowrap" class="ft06">The&#160;first digit (0)&#160;of&#160;the opcode indicates the&#160;table&#160;row&#160;and the second&#160;digit (3)&#160;indicates&#160;the table column. This&#160;<br/>locates&#160;an opcode for&#160;ADD with two operands.&#160;</p>
+<p style="position:absolute;top:243px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:244px;left:93px;white-space:nowrap" class="ft06">The first operand (type Gv) indicates a general register that is a word or doubleword depending on the operand-<br/>size&#160;attribute.&#160;The&#160;second&#160;operand&#160;(type Ev) indicates a&#160;ModR/M byte follows that&#160;specifies&#160;whether the&#160;<br/>operand is&#160;a word&#160;or doubleword&#160;general-purpose register or&#160;a memory address.</p>
+<p style="position:absolute;top:298px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:299px;left:93px;white-space:nowrap" class="ft06">The ModR/M&#160;byte for this&#160;instruction&#160;is 05H, indicating that&#160;a 32-bit displacement&#160;follows&#160;(00000000H). The&#160;<br/>reg/opcode&#160;portion of the&#160;ModR/M byte&#160;(bits&#160;3-5)&#160;is 000,&#160;indicating&#160;the&#160;EAX&#160;register.&#160;</p>
+<p style="position:absolute;top:340px;left:67px;white-space:nowrap" class="ft06">The instruction for this&#160;opcode&#160;is ADD EAX,&#160;mem_op,&#160;and&#160;the&#160;offset&#160;of mem_op&#160;is 00000000H.<br/>Some 1-&#160;and 2-byte opcodes&#160;point to&#160;group numbers&#160;(shaded entries&#160;in the&#160;opcode map&#160;table). Group&#160;numbers&#160;<br/>indicate that the instruction uses the reg/opcode bits in&#160;the ModR/M&#160;byte&#160;as an opcode&#160;extension (refer<a href="o_b5573232dd8f1481-2033.html">&#160;to Section&#160;<br/>A.4).</a></p>
+<p style="position:absolute;top:441px;left:67px;white-space:nowrap" class="ft04">A.2.4.2&#160;&#160;</p>
+<p style="position:absolute;top:441px;left:151px;white-space:nowrap" class="ft04">Two-Byte Opcode&#160;Instructions</p>
+<p style="position:absolute;top:469px;left:67px;white-space:nowrap" class="ft06">The two-byte&#160;opcode&#160;map shown&#160;<a href="o_b5573232dd8f1481-2025.html">in&#160;Table A-3 i</a>ncludes primary opcodes that are&#160;either two bytes or three&#160;bytes in&#160;<br/>length. Primary opcodes that are 2 bytes&#160;in length begin&#160;with an escape&#160;opcode&#160;0FH.&#160;The&#160;upper and&#160;lower four&#160;bits&#160;<br/>of the&#160;second&#160;opcode byte&#160;are used to&#160;index a&#160;particular row and&#160;column&#160;<a href="o_b5573232dd8f1481-2025.html">in Table&#160;A-3.&#160;<br/></a>Two-byte&#160;opcodes that are 3&#160;bytes in&#160;length&#160;begin&#160;with&#160;a mandatory prefix (66H, F2H,&#160;or&#160;F3H)&#160;and&#160;the&#160;escape&#160;<br/>opcode&#160;(0FH).&#160;The&#160;upper&#160;and lower four bits of the&#160;third byte are used&#160;to index&#160;a particular row&#160;and&#160;column&#160;in&#160;<a href="o_b5573232dd8f1481-2025.html">Table&#160;<br/>A-3 (e</a>xcept&#160;when&#160;the second&#160;opcode&#160;byte&#160;is&#160;the&#160;3-byte&#160;escape opcodes&#160;38H or 3AH; in this&#160;situation refer&#160;to&#160;<br/><a href="o_b5573232dd8f1481-2021.html">Section A.2.4.3</a>).&#160;<br/>For&#160;each entry in&#160;the opcode&#160;map,&#160;the rules&#160;for&#160;interpreting the&#160;byte&#160;following&#160;the primary&#160;opcode&#160;fall into&#160;one&#160;of&#160;<br/>the following&#160;cases:</p>
+<p style="position:absolute;top:638px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:639px;left:93px;white-space:nowrap" class="ft06">A ModR/M&#160;byte is&#160;required and&#160;is interpreted according to&#160;the abbreviations listed in&#160;<a href="o_b5573232dd8f1481-2017.html">Section&#160;A.1 and&#160;</a><a href="��">Chapter&#160;<br/>2, “Instruction Format,”</a>&#160;of&#160;the&#160;<a href="��"><i>Intel®&#160;64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume&#160;2A</i>.&#160;<br/></a>The&#160;operand types are listed according&#160;to no<a href="o_b5573232dd8f1481-2017.html">tations listed in&#160;Section&#160;A.2.</a></p>
+<p style="position:absolute;top:694px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:694px;left:93px;white-space:nowrap" class="ft06">A ModR/M byte is required and&#160;includes an opcode&#160;extension in the reg field in the ModR/M byte.<a href="o_b5573232dd8f1481-2034.html">&#160;Use Table A-6&#160;<br/></a>when&#160;interpreting&#160;the ModR/M&#160;byte.</p>
+<p style="position:absolute;top:733px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:733px;left:93px;white-space:nowrap" class="ft06">Use&#160;of&#160;the&#160;ModR/M&#160;byte&#160;is&#160;reserved&#160;or&#160;undefined.&#160;This&#160;applies&#160;to entries that&#160;represent&#160;an instruction&#160;without&#160;<br/>operands&#160;that are encoded&#160;using ModR/M (for&#160;example: 0F77H,&#160;EMMS).</p>
+<p style="position:absolute;top:791px;left:67px;white-space:nowrap" class="ft01">Example A-2. &#160;Look-up&#160;Example for 2-Byte Opcodes</p>
+<p style="position:absolute;top:815px;left:67px;white-space:nowrap" class="ft03">Look-up&#160;opcode&#160;0FA4050000000003H for a&#160;SHLD<a href="o_b5573232dd8f1481-2025.html">&#160;instruction using&#160;Table A-3</a>.</p>
+<p style="position:absolute;top:837px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:838px;left:93px;white-space:nowrap" class="ft07">The opcode&#160;is&#160;located in&#160;row A,&#160;column&#160;4. The&#160;location indicates a SHLD&#160;instruction&#160;with operands&#160;Ev, Gv, and&#160;<br/>Ib. Interpret&#160;the operands&#160;as follows:<br/>—&#160;Ev: The ModR/M byte&#160;follows&#160;the opcode&#160;to specify&#160;a&#160;word&#160;or doubleword operand.<br/>—&#160;Gv:&#160;The reg field of the&#160;ModR/M byte&#160;selects a&#160;general-purpose&#160;register.<br/>—&#160;Ib:&#160;Immediate&#160;data is&#160;encoded&#160;in the&#160;subsequent byte&#160;of&#160;the instruction.</p>
+<p style="position:absolute;top:948px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:949px;left:93px;white-space:nowrap" class="ft06">The third&#160;byte is&#160;the&#160;ModR/M&#160;byte (05H). The mod&#160;and&#160;opcode/reg&#160;fields&#160;of&#160;ModR/M&#160;indicate&#160;that a&#160;32-bit&#160;<br/>displacement is&#160;used&#160;to locate&#160;the&#160;first&#160;operand in&#160;memory&#160;and eAX&#160;as the second&#160;operand.</p>
+<p style="position:absolute;top:987px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:988px;left:93px;white-space:nowrap" class="ft06">The next part of the opcode&#160;is the 32-bit displacement for the destination memory operand (00000000H).&#160;The&#160;<br/>last byte&#160;stores immediate byte&#160;that&#160;provides&#160;the count of the&#160;shift (03H).</p>
+<p style="position:absolute;top:1026px;left:67px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:1027px;left:93px;white-space:nowrap" class="ft06">By&#160;this breakdown,&#160;it&#160;has been&#160;shown that&#160;this opcode represents&#160;the instruction: SHLD&#160;DS:00000000H,&#160;EAX,&#160;<br/>3.</p>
+</div>
+</body>
+</html>

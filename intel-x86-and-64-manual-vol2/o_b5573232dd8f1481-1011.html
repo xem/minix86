@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1011</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1011-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811011.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PMINUB/PMINUW—Minimum of&#160;Packed Unsigned Integers</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-331</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft03">(*&#160;Repeat&#160;operation for 2nd&#160;through 15th&#160;bytes in&#160;source and&#160;destination operands&#160;*)<br/>IF&#160;SRC1[127:120] &lt;&#160;SRC2[127:120] THEN</p>
+<p style="position:absolute;top:136px;left:116px;white-space:nowrap" class="ft02">DEST[127:120]&#160;&#160;SRC1[127:120];</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:172px;left:116px;white-space:nowrap" class="ft02">DEST[127:120]&#160;&#160;SRC2[127:120]; FI;</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft02">VPMINUB (VEX.256 encoded&#160;version)</p>
+<p style="position:absolute;top:244px;left:89px;white-space:nowrap" class="ft02">IF SRC1[7:0] &lt;&#160;SRC2[7:0] THEN</p>
+<p style="position:absolute;top:262px;left:116px;white-space:nowrap" class="ft02">DEST[7:0]&#160;&#160;SRC1[7:0];</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:298px;left:116px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC2[7:0]; FI;</p>
+<p style="position:absolute;top:316px;left:89px;white-space:nowrap" class="ft03">(*&#160;Repeat operation&#160;for 2nd through&#160;31st bytes&#160;in&#160;source&#160;and destination&#160;operands *)<br/>IF&#160;SRC1[255:248] &lt;&#160;SRC2[255:248] THEN</p>
+<p style="position:absolute;top:352px;left:116px;white-space:nowrap" class="ft02">DEST[255:248]&#160;&#160;SRC1[255:248];</p>
+<p style="position:absolute;top:370px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:388px;left:116px;white-space:nowrap" class="ft02">DEST[255:248]&#160;&#160;SRC2[255:248]; FI;</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:256]&#160;&#160;0</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft03">VPMINUB (EVEX encoded&#160;versions)<br/>(KL, VL) = (16, 128), (32, 256), (64,&#160;512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:496px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 8<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:532px;left:116px;white-space:nowrap" class="ft02">IF SRC1[i+7:i]&#160;&lt; SRC2[i+7:i]&#160;</p>
+<p style="position:absolute;top:550px;left:143px;white-space:nowrap" class="ft03">THEN DEST[i+7:i]&#160;&#160;SRC1[i+7:i];<br/>ELSE DEST[i+7:i]&#160;&#160;SRC2[i+7:i];&#160;</p>
+<p style="position:absolute;top:586px;left:116px;white-space:nowrap" class="ft03">FI;<br/>ELSE&#160;</p>
+<p style="position:absolute;top:622px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:622px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:640px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+7:i] remains&#160;unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:658px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:676px;left:197px;white-space:nowrap" class="ft02">DEST[i+7:i]&#160;&#160;0</p>
+<p style="position:absolute;top:694px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:712px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft02">PMINUW instruction for&#160;128-bit operands:</p>
+<p style="position:absolute;top:802px;left:89px;white-space:nowrap" class="ft02">IF DEST[15:0] &lt;&#160;SRC[15:0] THEN</p>
+<p style="position:absolute;top:820px;left:116px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;DEST[15:0];</p>
+<p style="position:absolute;top:838px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:856px;left:116px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC[15:0]; FI;</p>
+<p style="position:absolute;top:874px;left:89px;white-space:nowrap" class="ft03">(*&#160;Repeat&#160;operation for 2nd&#160;through 7th&#160;words in&#160;source&#160;and destination&#160;operands *)<br/>IF DEST[127:112] &lt;&#160;SRC[127:112] THEN</p>
+<p style="position:absolute;top:910px;left:116px;white-space:nowrap" class="ft02">DEST[127:112]&#160;&#160;DEST[127:112];</p>
+<p style="position:absolute;top:928px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:946px;left:116px;white-space:nowrap" class="ft02">DEST[127:112]&#160;&#160;SRC[127:112]; FI;</p>
+<p style="position:absolute;top:964px;left:69px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft02">VPMINUW (VEX.128 encoded&#160;version)</p>
+<p style="position:absolute;top:1018px;left:89px;white-space:nowrap" class="ft02">IF&#160;SRC1[15:0] &lt;&#160;SRC2[15:0] THEN</p>
+<p style="position:absolute;top:1036px;left:116px;white-space:nowrap" class="ft02">DEST[15:0]&#160;&#160;SRC1[15:0];</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+</div>
+</body>
+</html>

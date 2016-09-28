@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1247</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1247-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1247.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;33-9</p>
+<p style="position:absolute;top:47px;left:436px;white-space:nowrap" class="ft01">HANDLING&#160;BOUNDARY&#160;CONDITIONS&#160;IN A VIRTUAL MACHINE MONITOR</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft02">b.&#160;Normal delivery&#160;after VM&#160;entry.&#160;If&#160;CR4.MCE&#160;=&#160;1 after&#160;VM&#160;entry,&#160;delivery of&#160;a machine-check exception&#160;</p>
+<p style="position:absolute;top:117px;left:120px;white-space:nowrap" class="ft06">(#MC) through the guest IDT&#160;occurs&#160;(alternatively,&#160;this&#160;exception may cause&#160;a VM&#160;exit).&#160;If CR4.MCE&#160;=&#160;0,&#160;<br/>the processor goes&#160;to shutdown state.</p>
+<p style="position:absolute;top:157px;left:95px;white-space:nowrap" class="ft02">c.&#160;Load&#160;state from the&#160;host-state&#160;area of the working VMCS as&#160;if&#160;a&#160;VM&#160;exit&#160;had occurred (see&#160;<a href="o_fe12b1e2a880e0ce-1117.html">Section 26.7).</a>&#160;</p>
+<p style="position:absolute;top:174px;left:120px;white-space:nowrap" class="ft02">The basic exit&#160;reason will be “VM-entry failure due to&#160;machine-check&#160;event.”&#160;</p>
+<p style="position:absolute;top:196px;left:95px;white-space:nowrap" class="ft06">If the&#160;machine-check event occurs&#160;after any&#160;guest state&#160;has&#160;been&#160;loaded,&#160;<a href="o_fe12b1e2a880e0ce-1246.html">option a&#160;</a>above&#160;will not be used; it&#160;<br/>may be used if&#160;the machine-check event occurs&#160;while&#160;checking&#160;host state and&#160;VMX controls&#160;(or while reporting&#160;<br/>a&#160;failure&#160;due&#160;to such checks). An implementation&#160;may&#160;use&#160;option&#160;<a href="o_fe12b1e2a880e0ce-1247.html">b only if al</a>l guest&#160;state&#160;has been loaded&#160;<br/>properly.</p>
+<p style="position:absolute;top:268px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:268px;left:95px;white-space:nowrap" class="ft08">VM&#160;exit:&#160;<br/>If a&#160;machine-check event occurs during&#160;VM exit,&#160;one&#160;of the&#160;following three treatments&#160;must&#160;occur:<br/>a.&#160;Normal delivery&#160;before VM&#160;exit.&#160;If CR4.MCE&#160;=&#160;1&#160;before&#160;the&#160;VM&#160;exit,&#160;delivery of a&#160;machine-check exception&#160;</p>
+<p style="position:absolute;top:331px;left:120px;white-space:nowrap" class="ft06">(#MC) through the guest IDT&#160;(alternatively, this may&#160;cause&#160;a VM&#160;exit). If&#160;CR4.MCE&#160;=&#160;0,&#160;the processor goes&#160;<br/>to shutdown&#160;state.</p>
+<p style="position:absolute;top:372px;left:95px;white-space:nowrap" class="ft02">b.&#160;Normal&#160;delivery after&#160;VM&#160;exit.&#160;If CR4.MCE&#160;=&#160;1&#160;after&#160;the&#160;VM&#160;exit, delivery&#160;of a machine-check&#160;exception&#160;</p>
+<p style="position:absolute;top:388px;left:120px;white-space:nowrap" class="ft02">(#MC) through the&#160;host IDT.&#160;If CR4.MCE&#160;=&#160;0,&#160;the processor goes to&#160;shutdown state.</p>
+<p style="position:absolute;top:412px;left:95px;white-space:nowrap" class="ft02">c.&#160;Fail&#160;the VM&#160;exit.&#160;If the&#160;VM&#160;exit is&#160;to VMX root&#160;operation,&#160;a VMX abort&#160;will result;&#160;it will&#160;block events as&#160;done&#160;</p>
+<p style="position:absolute;top:429px;left:120px;white-space:nowrap" class="ft06">normally in&#160;VMX abort.&#160;The VMX abort&#160;indicator&#160;will&#160;show&#160;that a machine-check event&#160;induced&#160;the abort&#160;<br/>operation.</p>
+<p style="position:absolute;top:468px;left:95px;white-space:nowrap" class="ft06">If a machine-check event is&#160;induced by an action&#160;in&#160;VMX non-root operation before any determination is&#160;made&#160;<br/>that the inducing&#160;action may&#160;cause a&#160;VM exit, that machine-check event should&#160;be&#160;considered as&#160;happening&#160;<br/>during guest execution&#160;in&#160;VMX&#160;non-root operation.&#160;This&#160;is&#160;the case&#160;even if the&#160;part of the&#160;action&#160;that caused&#160;the&#160;<br/>machine-check event was VMX-specific (for example,&#160;the&#160;processor’s consulting an I/O bitmap). If a machine-<br/>check exception occurs and if bit 12H of the exception bitmap is cleared to 0, the exception is delivered to&#160;the&#160;<br/>guest through gate 12H&#160;of&#160;its IDT;&#160;if&#160;the bit is&#160;set to&#160;1, the&#160;machine-check&#160;exception causes&#160;a VM&#160;exit.</p>
+<p style="position:absolute;top:585px;left:433px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:610px;left:122px;white-space:nowrap" class="ft06">The state&#160;saved in&#160;the guest-state&#160;area on VM&#160;exits&#160;due&#160;to machine-check exceptions&#160;should be&#160;<br/>considered&#160;suspect. A VMM&#160;should consult the&#160;RIPV&#160;and EIPV bits in&#160;the IA32_MCG_STATUS&#160;MSR&#160;<br/>before&#160;resuming&#160;a guest that caused&#160;a&#160;VM exit&#160;due to&#160;a machine-check exception.</p>
+<p style="position:absolute;top:694px;left:69px;white-space:nowrap" class="ft05">33.4.3&#160;</p>
+<p style="position:absolute;top:694px;left:149px;white-space:nowrap" class="ft05">MCA Error Handling Guidelines&#160;for VMM</p>
+<p style="position:absolute;top:724px;left:69px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-1246.html">Section&#160;33.4.2&#160;cov</a>ers general&#160;requirements for VMMs to&#160;handle machine-check&#160;exceptions, when normal operation&#160;<br/>of the guest machine&#160;and/or&#160;the VMM is&#160;no longer possible.&#160;enhancements of machine-check&#160;architecture&#160;in newer&#160;<br/>processors may support&#160;software recovery of uncorrected&#160;MC errors&#160;(UCR)&#160;signaled through either machine-check&#160;<br/>exceptions or&#160;corrected&#160;machine-check interrupt (CMCI).&#160;<a href="o_fe12b1e2a880e0ce-519.html">Section&#160;15.5&#160;and</a>&#160;<a href="o_fe12b1e2a880e0ce-521.html">Section 15.6 de</a>scribes details of these&#160;<br/>more&#160;recent enhancements of&#160;machine-check&#160;architecture.<br/>In general, Virtual Machine&#160;Monitor&#160;(VMM)&#160;error&#160;handling should follow&#160;the recommendations for OS error&#160;handling&#160;<br/>described in&#160;<a href="o_fe12b1e2a880e0ce-508.html">Section&#160;15.3</a><a href="o_fe12b1e2a880e0ce-521.html">, Section 15.6, Se</a><a href="o_fe12b1e2a880e0ce-526.html">ction&#160;15.9,&#160;</a><a href="o_fe12b1e2a880e0ce-532.html">and&#160;Section&#160;15.10.</a>&#160;This&#160;section&#160;describes additional guide-<br/>lines for hosted and native&#160;hypervisor-based&#160;VMM implementations to&#160;support&#160;corrected MC&#160;errors and recoverable&#160;<br/>uncorrected MC&#160;errors.<br/>Because&#160;a hosted VMM&#160;provides&#160;virtualization services in the&#160;context of an&#160;existing standard host OS, the&#160;host&#160;OS&#160;<br/>controls&#160;platform&#160;hardware through the&#160;host OS services such&#160;as&#160;the&#160;standard OS device&#160;drivers.&#160;In hosted VMMs.&#160;<br/>MCA&#160;errors will be handled by&#160;the&#160;host OS error&#160;handling software.<br/>In native&#160;VMMs, the&#160;hypervisor runs&#160;on&#160;the hardware directly,&#160;and may provide&#160;only&#160;a limited&#160;set of platform&#160;<br/>services&#160;for&#160;guest&#160;VMs. Most platform services&#160;may&#160;instead be&#160;provided&#160;by&#160;a “control OS”.&#160;In hypervisor-based&#160;<br/>VMMs,&#160;MCA&#160;errors will either&#160;be&#160;delivered&#160;directly to&#160;the&#160;VMM MCA handler&#160;(when&#160;the error is&#160;signaled while in&#160;the&#160;<br/>VMM&#160;context)&#160;or&#160;cause&#160;by&#160;a&#160;VM&#160;exit&#160;from&#160;a&#160;guest&#160;VM&#160;or&#160;be&#160;delivered&#160;to the&#160;MCA&#160;intercept handler.&#160;There&#160;are&#160;two&#160;<br/>general approaches&#160;the hypervisor&#160;can use&#160;to handle&#160;the&#160;MCA&#160;error: either within&#160;the hypervisor itself&#160;or by&#160;<br/>forwarding the error&#160;to&#160;the control&#160;OS.&#160;</p>
+</div>
+</body>
+</html>

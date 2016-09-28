@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1173</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1173-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1173.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;29-7</p>
+<p style="position:absolute;top:47px;left:549px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND VIRTUAL&#160;INTERRUPTS</p>
+<p style="position:absolute;top:100px;left:94px;white-space:nowrap" class="ft08">—&#160;020H–023H&#160;(local APIC ID);<br/>—&#160;030H–033H&#160;(local APIC version);<br/>—&#160;080H–083H (task&#160;priority);<br/>—&#160;0B0H–0B3H (end of interrupt);<br/>—&#160;0D0H–0D3H (logical destination);<br/>—&#160;0E0H–0E3H&#160;(destination&#160;format);<br/>—&#160;0F0H–0F3H (spurious-interrupt&#160;vector);<br/>—&#160;100H–103H,&#160;110H–113H,&#160;120H–123H,&#160;130H–133H, 140H–143H, 150H–153H, 160H–163H, or 170H–</p>
+<p style="position:absolute;top:285px;left:120px;white-space:nowrap" class="ft02">173H (in-service);</p>
+<p style="position:absolute;top:309px;left:94px;white-space:nowrap" class="ft02">—&#160;180H–183H,&#160;190H–193H,&#160;1A0H–1A3H,&#160;1B0H–1B3H,&#160;1C0H–1C3H, 1D0H–1D3H,&#160;1E0H–1E3H, or&#160;1F0H–</p>
+<p style="position:absolute;top:325px;left:120px;white-space:nowrap" class="ft02">1F3H (trigger mode);</p>
+<p style="position:absolute;top:349px;left:94px;white-space:nowrap" class="ft02">—&#160;200H–203H,&#160;210H–213H,&#160;220H–223H,&#160;230H–233H, 240H–243H, 250H–253H, 260H–263H, or 270H–</p>
+<p style="position:absolute;top:366px;left:120px;white-space:nowrap" class="ft02">273H (interrupt&#160;request);</p>
+<p style="position:absolute;top:390px;left:94px;white-space:nowrap" class="ft010">—&#160;280H–283H (error&#160;status);<br/>—&#160;300H–303H or&#160;310H–313H (interrupt&#160;command);<br/>—&#160;320H–323H,&#160;330H–333H,&#160;340H–343H,&#160;350H–353H,&#160;360H–363H, or&#160;370H–373H (LVT&#160;entries);<br/>—&#160;380H–383H&#160;(initial count); or<br/>—&#160;3E0H–3E3H&#160;(divide configuration).<br/>In all other&#160;cases, the access causes an APIC-access VM&#160;exit.</p>
+<p style="position:absolute;top:532px;left:69px;white-space:nowrap" class="ft011">A read access&#160;from&#160;the APIC-access page&#160;that&#160;is virtualized&#160;returns data from&#160;the corresponding page&#160;offset&#160;on&#160;the&#160;<br/>virtual-APIC page.</p>
+<p style="position:absolute;top:546px;left:192px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:599px;left:69px;white-space:nowrap" class="ft04">29.4.3 Virtualizing&#160;</p>
+<p style="position:absolute;top:599px;left:246px;white-space:nowrap" class="ft04">Writes&#160;to&#160;the APIC-Access Page</p>
+<p style="position:absolute;top:630px;left:69px;white-space:nowrap" class="ft011">Whether a&#160;write&#160;access to the&#160;APIC-access&#160;page&#160;is virtualized depends on the settings of the VM-execution controls&#160;<br/>and the&#160;page&#160;offset&#160;of&#160;the access.&#160;<a href="o_fe12b1e2a880e0ce-1173.html">Section&#160;29.4.3.1 details when APIC</a>-write&#160;virtualization&#160;occurs.<br/>Unlike reads, writes&#160;to&#160;the local APIC have&#160;side effects;&#160;because&#160;of this,&#160;virtualization of writes to&#160;the&#160;APIC-access&#160;<br/>page&#160;may&#160;require&#160;emulation specific to&#160;the access’s&#160;page&#160;offset&#160;(which&#160;identifies&#160;the&#160;APIC register&#160;being accessed).&#160;<br/><a href="o_fe12b1e2a880e0ce-1174.html">Section&#160;29.4.3.2&#160;d</a>escribes&#160;this&#160;<b>APIC-write emulation</b>.<br/>For some&#160;page offsets, it is&#160;necessary for&#160;software to&#160;complete the&#160;virtualization&#160;after a&#160;write completes. In&#160;these&#160;<br/>cases,&#160;the processor causes&#160;an&#160;<b>APIC-write&#160;VM&#160;exit</b>&#160;to&#160;invoke&#160;VMM softwa<a href="o_fe12b1e2a880e0ce-1175.html">re. Section&#160;29.4.3.3&#160;</a>discusses APIC-<br/>write&#160;VM&#160;exits.</p>
+<p style="position:absolute;top:805px;left:69px;white-space:nowrap" class="ft06">29.4.3.1 &#160;&#160;Determining Whether&#160;a Write&#160;Access is Virtualized</p>
+<p style="position:absolute;top:833px;left:69px;white-space:nowrap" class="ft02">A write&#160;access to&#160;the APIC-access&#160;page causes&#160;an APIC-access VM&#160;exit if&#160;any of&#160;the&#160;following&#160;are true:</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:856px;left:95px;white-space:nowrap" class="ft02">The&#160;“use TPR shadow” VM-execution&#160;control&#160;is 0.</p>
+<p style="position:absolute;top:877px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:878px;left:95px;white-space:nowrap" class="ft02">The&#160;access&#160;is more&#160;than 32&#160;bits&#160;in size.</p>
+<p style="position:absolute;top:900px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:901px;left:95px;white-space:nowrap" class="ft011">The&#160;access&#160;is part&#160;of&#160;an&#160;operation for which the processor has already virtualized a write&#160;(with a&#160;different page&#160;<br/>offset or&#160;a different&#160;size) to&#160;the APIC-access&#160;page.</p>
+<p style="position:absolute;top:939px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:940px;left:95px;white-space:nowrap" class="ft011">The access&#160;is not&#160;entirely contained within&#160;the low 4 bytes of&#160;a&#160;naturally&#160;aligned 16-byte region.&#160;That is, bits&#160;<br/>3:2&#160;of the&#160;access’s address are&#160;0, and the&#160;same&#160;is&#160;true of the address of&#160;the highest&#160;byte accessed.</p>
+<p style="position:absolute;top:980px;left:69px;white-space:nowrap" class="ft011">If none of the above are true, whether a&#160;write access&#160;is&#160;virtualized&#160;depends on&#160;the settings of the&#160;“APIC-register&#160;<br/>virtualization” and&#160;“virtual-interrupt&#160;delivery”&#160;VM-execution&#160;controls:</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft02">4.&#160;The memory type&#160;used&#160;for accesses that&#160;read&#160;from the&#160;virtual-APIC&#160;page&#160;is&#160;reported&#160;in&#160;bits&#160;53:50&#160;of&#160;the&#160;IA32_VMX_BASIC&#160;MSR&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">(see<a href="o_fe12b1e2a880e0ce-1943.html">&#160;Appendix A.1)</a>.</p>
+</div>
+</body>
+</html>

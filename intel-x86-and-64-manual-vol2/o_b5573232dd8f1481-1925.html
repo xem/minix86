@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1925</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1925-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811925.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">XACQUIRE/XRELEASE — Hardware Lock Elision&#160;Prefix Hints</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-539</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft03">Serve&#160;as&#160;SIMD&#160;prefix&#160;for legacy SIMD&#160;instructions operating&#160;on XMM&#160;register</p>
+<p style="position:absolute;top:122px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:123px;left:95px;white-space:nowrap" class="ft03">Cause #UD&#160;if&#160;prepending&#160;the&#160;VEX prefix.</p>
+<p style="position:absolute;top:145px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:145px;left:95px;white-space:nowrap" class="ft03">Undefined for&#160;non-string&#160;instructions&#160;or other&#160;situations.</p>
+<p style="position:absolute;top:182px;left:69px;white-space:nowrap" class="ft04">Operation</p>
+<p style="position:absolute;top:202px;left:69px;white-space:nowrap" class="ft05">XACQUIRE<br/>IF&#160;XACQUIRE-enabled&#160;instruction</p>
+<p style="position:absolute;top:238px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:256px;left:116px;white-space:nowrap" class="ft03">IF&#160;(HLE_NEST_COUNT&#160;&lt;&#160;MAX_HLE_NEST_COUNT) THEN</p>
+<p style="position:absolute;top:274px;left:143px;white-space:nowrap" class="ft05">HLE_NEST_COUNT++<br/>IF&#160;(HLE_NEST_COUNT = 1)&#160;THEN</p>
+<p style="position:absolute;top:310px;left:170px;white-space:nowrap" class="ft03">HLE_ACTIVE&#160;←&#160;1</p>
+<p style="position:absolute;top:328px;left:170px;white-space:nowrap" class="ft03">IF 64-bit mode</p>
+<p style="position:absolute;top:346px;left:197px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:364px;left:224px;white-space:nowrap" class="ft03">restartRIP&#160;←&#160;instruction pointer&#160;of the XACQUIRE-enabled&#160;instruction</p>
+<p style="position:absolute;top:382px;left:197px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:400px;left:224px;white-space:nowrap" class="ft03">restartEIP&#160;←&#160;instruction&#160;pointer of&#160;the XACQUIRE-enabled&#160;instruction</p>
+<p style="position:absolute;top:418px;left:170px;white-space:nowrap" class="ft05">FI;<br/>Enter HLE Execution&#160;(* record register&#160;state, start tracking&#160;memory state *)</p>
+<p style="position:absolute;top:454px;left:143px;white-space:nowrap" class="ft05">FI; (* HLE_NEST_COUNT = 1*)<br/>IF&#160;ElisionBufferAvailable&#160;</p>
+<p style="position:absolute;top:490px;left:170px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:508px;left:197px;white-space:nowrap" class="ft05">Allocate elision buffer<br/>Record address and data&#160;for forwarding&#160;and commit checking<br/>Perform elision</p>
+<p style="position:absolute;top:562px;left:170px;white-space:nowrap" class="ft03">ELSE&#160;</p>
+<p style="position:absolute;top:580px;left:197px;white-space:nowrap" class="ft03">Perform lock acquire operation&#160;transactionally but without elision</p>
+<p style="position:absolute;top:598px;left:143px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:616px;left:116px;white-space:nowrap" class="ft03">ELSE&#160;(* HLE_NEST_COUNT&#160;= MAX_HLE_NEST_COUNT&#160;*)</p>
+<p style="position:absolute;top:634px;left:170px;white-space:nowrap" class="ft03">GOTO HLE_ABORT_PROCESSING</p>
+<p style="position:absolute;top:652px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:670px;left:89px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:688px;left:116px;white-space:nowrap" class="ft03">Treat instruction as&#160;non-XACQUIRE&#160;F2H&#160;prefixed&#160;legacy instruction</p>
+<p style="position:absolute;top:706px;left:69px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:742px;left:69px;white-space:nowrap" class="ft03">XRELEASE</p>
+<p style="position:absolute;top:778px;left:69px;white-space:nowrap" class="ft03">IF XRELEASE-enabled&#160;instruction&#160;</p>
+<p style="position:absolute;top:796px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:814px;left:116px;white-space:nowrap" class="ft03">IF&#160;(HLE_NEST_COUNT&#160;&gt;&#160;0)&#160;</p>
+<p style="position:absolute;top:832px;left:143px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:850px;left:170px;white-space:nowrap" class="ft05">HLE_NEST_COUNT--<br/>IF lock address matches&#160;in&#160;elision buffer&#160;THEN</p>
+<p style="position:absolute;top:886px;left:197px;white-space:nowrap" class="ft03">IF lock satisfies address&#160;and value&#160;requirements THEN</p>
+<p style="position:absolute;top:904px;left:224px;white-space:nowrap" class="ft03">Deallocate&#160;elision buffer</p>
+<p style="position:absolute;top:922px;left:197px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:940px;left:224px;white-space:nowrap" class="ft03">GOTO HLE_ABORT_PROCESSING</p>
+<p style="position:absolute;top:958px;left:197px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:976px;left:170px;white-space:nowrap" class="ft05">FI;<br/>IF (HLE_NEST_COUNT = 0)&#160;</p>
+<p style="position:absolute;top:1012px;left:197px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:1030px;left:224px;white-space:nowrap" class="ft03">IF NoAllocatedElisionBuffer&#160;</p>
+<p style="position:absolute;top:1048px;left:251px;white-space:nowrap" class="ft03">THEN</p>
+</div>
+</body>
+</html>

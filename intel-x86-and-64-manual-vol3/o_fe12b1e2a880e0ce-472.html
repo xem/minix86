@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 472</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page472-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce472.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">14-6&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">POWER AND THERMAL&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">When HWP&#160;is enabled, the&#160;processor autonomously selects performance&#160;states&#160;as deemed&#160;appropriate&#160;for&#160;the&#160;<br/>applied workload and with&#160;consideration&#160;of constraining&#160;hints that are programmed&#160;by the&#160;OS.&#160;These OS-provided&#160;<br/>hints&#160;include minimum&#160;and maximum&#160;performance limits, preference&#160;towards energy&#160;efficiency or&#160;performance,&#160;<br/>and the&#160;specification&#160;of a relevant workload&#160;history&#160;observation time&#160;window. The&#160;means for the&#160;OS&#160;to override&#160;<br/>HWP's autonomous&#160;selection&#160;of&#160;performance state with a&#160;specific&#160;desired&#160;performance target is&#160;also provided,&#160;<br/>however,&#160;the effective frequency&#160;delivered is&#160;subject to&#160;the&#160;result of energy&#160;efficiency and performance&#160;optimiza-<br/>tions.</p>
+<p style="position:absolute;top:250px;left:68px;white-space:nowrap" class="ft03">14.4.1&#160;</p>
+<p style="position:absolute;top:250px;left:148px;white-space:nowrap" class="ft03">HWP Programming Interfaces&#160;</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft02">The programming interfaces&#160;provided by HWP&#160;include&#160;the following:</p>
+<p style="position:absolute;top:302px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:303px;left:93px;white-space:nowrap" class="ft07">The&#160;CPUID instruction allows software&#160;to discover the&#160;presence&#160;of HWP&#160;support in&#160;an Intel&#160;processor.&#160;Specifi-<br/>cally, execute&#160;CPUID instruction with EAX=06H as input&#160;will&#160;return 5&#160;bit flags covering the&#160;following aspects&#160;in&#160;<br/>bits&#160;7 through 11 of&#160;CPUID.06H:EAX:<br/>—&#160;Availability of&#160;HWP baseline&#160;resource and&#160;capability, CPUID.06H:EAX[bit&#160;7]: If this bit&#160;is set, HWP provides&#160;</p>
+<p style="position:absolute;top:376px;left:119px;white-space:nowrap" class="ft06">several new architectural MSRs:&#160;IA32_PM_ENABLE, IA32_HWP_CAPABILITIES,&#160;IA32_HWP_REQUEST,&#160;<br/>IA32_HWP_STATUS.&#160;</p>
+<p style="position:absolute;top:417px;left:93px;white-space:nowrap" class="ft02">—&#160;Availability of HWP&#160;Notification&#160;upon dynamic Guaranteed Performance change, CPUID.06H:EAX[bit 8]:&#160;If&#160;</p>
+<p style="position:absolute;top:433px;left:119px;white-space:nowrap" class="ft06">this bit is&#160;set, HWP&#160;provides&#160;IA32_HWP_INTERRUPT MSR to&#160;enable interrupt&#160;generation due&#160;to dynamic&#160;<br/>Performance changes&#160;and excursions.</p>
+<p style="position:absolute;top:474px;left:93px;white-space:nowrap" class="ft02">—&#160;Availability of HWP&#160;Activity&#160;window control, CPUID.06H:EAX[bit 9]: If this&#160;bit&#160;is set,&#160;HWP allows software&#160;to&#160;</p>
+<p style="position:absolute;top:490px;left:119px;white-space:nowrap" class="ft02">program activity window&#160;in&#160;the IA32_HWP_REQUEST&#160;MSR.</p>
+<p style="position:absolute;top:514px;left:93px;white-space:nowrap" class="ft02">—&#160;Availability of HWP energy/performance preference control, CPUID.06H:EAX[bit 10]: If this bit is set, HWP&#160;</p>
+<p style="position:absolute;top:531px;left:119px;white-space:nowrap" class="ft02">allows&#160;software to set an&#160;energy/performance&#160;preference&#160;hint in the&#160;IA32_HWP_REQUEST&#160;MSR.</p>
+<p style="position:absolute;top:555px;left:93px;white-space:nowrap" class="ft02">—&#160;Availability of HWP&#160;package&#160;level control,&#160;CPUID.06H:EAX[bit 11]:If&#160;this bit is&#160;set, HWP provides the&#160;</p>
+<p style="position:absolute;top:571px;left:119px;white-space:nowrap" class="ft06">IA32_HWP_REQUEST_PKG&#160;MSR to convey&#160;OS&#160;Power Management’s&#160;control hints for&#160;all logical processors&#160;<br/>in&#160;the physical package.</p>
+<p style="position:absolute;top:962px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:963px;left:93px;white-space:nowrap" class="ft06">Additionally, HWP may provide&#160;a&#160;non-architectural&#160;MSR,&#160;MSR_PPERF,&#160;which&#160;provides a&#160;quantitative&#160;metric&#160;to&#160;<br/>software of hardware’s&#160;view of&#160;workload scalability. This hardware’s&#160;view of workload&#160;scalability is&#160;implemen-<br/>tation specific.</p>
+<p style="position:absolute;top:619px;left:213px;white-space:nowrap" class="ft05">Table&#160;14-1.&#160;&#160;Architectural and Non-Architectural MSRs&#160;Related&#160;to&#160;HWP</p>
+<p style="position:absolute;top:643px;left:76px;white-space:nowrap" class="ft02">Address&#160;Archite</p>
+<p style="position:absolute;top:660px;left:145px;white-space:nowrap" class="ft02">ctural</p>
+<p style="position:absolute;top:643px;left:254px;white-space:nowrap" class="ft02">Register&#160;Name</p>
+<p style="position:absolute;top:643px;left:584px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:684px;left:84px;white-space:nowrap" class="ft02">770H</p>
+<p style="position:absolute;top:684px;left:159px;white-space:nowrap" class="ft02">Y</p>
+<p style="position:absolute;top:684px;left:247px;white-space:nowrap" class="ft02">IA32_PM_ENABLE</p>
+<p style="position:absolute;top:684px;left:411px;white-space:nowrap" class="ft02">Enable/Disable HWP.</p>
+<p style="position:absolute;top:708px;left:84px;white-space:nowrap" class="ft02">771H</p>
+<p style="position:absolute;top:708px;left:159px;white-space:nowrap" class="ft02">Y</p>
+<p style="position:absolute;top:708px;left:226px;white-space:nowrap" class="ft02">IA32_HWP_CAPABILITIES</p>
+<p style="position:absolute;top:708px;left:410px;white-space:nowrap" class="ft02">Enumerates&#160;the&#160;HWP performance range&#160;(static and dynamic).&#160;</p>
+<p style="position:absolute;top:732px;left:84px;white-space:nowrap" class="ft02">772H</p>
+<p style="position:absolute;top:732px;left:159px;white-space:nowrap" class="ft02">Y</p>
+<p style="position:absolute;top:732px;left:223px;white-space:nowrap" class="ft02">IA32_HWP_REQUEST_PKG</p>
+<p style="position:absolute;top:732px;left:411px;white-space:nowrap" class="ft02">Conveys OSPM's control hints (Min, Max, Activity Window, Energy&#160;</p>
+<p style="position:absolute;top:748px;left:411px;white-space:nowrap" class="ft02">Performance Preference,&#160;Desired)&#160;for all logical processor&#160;in&#160;the&#160;physical&#160;</p>
+<p style="position:absolute;top:765px;left:411px;white-space:nowrap" class="ft02">package.</p>
+<p style="position:absolute;top:789px;left:84px;white-space:nowrap" class="ft02">773H</p>
+<p style="position:absolute;top:789px;left:159px;white-space:nowrap" class="ft02">Y</p>
+<p style="position:absolute;top:789px;left:231px;white-space:nowrap" class="ft02">IA32_HWP_INTERRUPT</p>
+<p style="position:absolute;top:789px;left:411px;white-space:nowrap" class="ft02">Controls HWP native&#160;interrupt generation (Guaranteed Performance&#160;</p>
+<p style="position:absolute;top:805px;left:411px;white-space:nowrap" class="ft02">changes, excursions).</p>
+<p style="position:absolute;top:829px;left:84px;white-space:nowrap" class="ft02">774H</p>
+<p style="position:absolute;top:829px;left:159px;white-space:nowrap" class="ft02">Y</p>
+<p style="position:absolute;top:829px;left:237px;white-space:nowrap" class="ft02">IA32_HWP_REQUEST</p>
+<p style="position:absolute;top:829px;left:410px;white-space:nowrap" class="ft02">Conveys OSPM's control hints (Min, Max, Activity Window, Energy&#160;</p>
+<p style="position:absolute;top:846px;left:411px;white-space:nowrap" class="ft02">Performance Preference, Desired) for a single logical processor.</p>
+<p style="position:absolute;top:870px;left:84px;white-space:nowrap" class="ft02">777H</p>
+<p style="position:absolute;top:870px;left:159px;white-space:nowrap" class="ft02">Y</p>
+<p style="position:absolute;top:870px;left:242px;white-space:nowrap" class="ft02">IA32_HWP_STATUS</p>
+<p style="position:absolute;top:870px;left:411px;white-space:nowrap" class="ft02">Status&#160;bits indicating&#160;changes to Guaranteed&#160;Performance&#160;and&#160;</p>
+<p style="position:absolute;top:886px;left:411px;white-space:nowrap" class="ft02">excursions&#160;to&#160;Minimum&#160;Performance.&#160;</p>
+<p style="position:absolute;top:910px;left:84px;white-space:nowrap" class="ft02">19CH</p>
+<p style="position:absolute;top:910px;left:159px;white-space:nowrap" class="ft02">Y</p>
+<p style="position:absolute;top:910px;left:202px;white-space:nowrap" class="ft02">IA32_THERM_STATUS[bits 15:12]&#160;Conveys reasons&#160;for performance excursions</p>
+<p style="position:absolute;top:934px;left:84px;white-space:nowrap" class="ft02">64EH</p>
+<p style="position:absolute;top:934px;left:158px;white-space:nowrap" class="ft02">N</p>
+<p style="position:absolute;top:934px;left:264px;white-space:nowrap" class="ft02">MSR_PPERF</p>
+<p style="position:absolute;top:934px;left:411px;white-space:nowrap" class="ft02">Productive&#160;Performance Count.</p>
+</div>
+</body>
+</html>

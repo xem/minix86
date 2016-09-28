@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 346</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page346-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce346.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-34&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">procedure&#160;treats all DWORDs&#160;as&#160;unsigned. Microcode updates with a header version equal to 00000001H must sum&#160;<br/>all&#160;DWORDs that comprise the&#160;microcode&#160;update. A valid checksum check&#160;will&#160;yield&#160;a value of 00000000H. Any&#160;<br/>other value&#160;indicates&#160;the microcode&#160;update is&#160;corrupt and should not&#160;be&#160;loaded.<br/>The checksum algorithm&#160;shown by the&#160;pseudo&#160;code<a href="o_fe12b1e2a880e0ce-346.html">&#160;in Example&#160;9-7 treats the&#160;</a>microcode update&#160;as an&#160;array&#160;of&#160;<br/>unsigned DWORDs.&#160;If&#160;the&#160;data&#160;size DWORD field at&#160;byte&#160;offset 32 equals 00000000H,&#160;the&#160;size of the&#160;encrypted&#160;<br/>data is&#160;2000 bytes, resulting in&#160;500&#160;DWORDs.&#160;Otherwise the&#160;microcode&#160;update&#160;size&#160;in DWORDs&#160;= (<i>Total Size&#160;/&#160;4</i>),&#160;<br/>where&#160;the total&#160;size is&#160;a multiple of 1024&#160;bytes (1&#160;KBytes).</p>
+<p style="position:absolute;top:248px;left:68px;white-space:nowrap" class="ft01">Example 9-7.&#160;&#160;Pseudo&#160;Code&#160;Example&#160;of&#160;Checksum&#160;Test</p>
+<p style="position:absolute;top:277px;left:68px;white-space:nowrap" class="ft02">N&#160;</p>
+<p style="position:absolute;top:273px;left:84px;white-space:nowrap" class="ft02">←&#160;512</p>
+<p style="position:absolute;top:310px;left:68px;white-space:nowrap" class="ft02">If (Update.DataSize&#160;</p>
+<p style="position:absolute;top:305px;left:229px;white-space:nowrap" class="ft02">≠&#160;00000000H)</p>
+<p style="position:absolute;top:327px;left:95px;white-space:nowrap" class="ft02">N&#160;</p>
+<p style="position:absolute;top:322px;left:111px;white-space:nowrap" class="ft02">←&#160;Update.TotalSize&#160;/ 4</p>
+<p style="position:absolute;top:360px;left:68px;white-space:nowrap" class="ft02">ChkSum&#160;</p>
+<p style="position:absolute;top:355px;left:124px;white-space:nowrap" class="ft02">←&#160;0</p>
+<p style="position:absolute;top:376px;left:68px;white-space:nowrap" class="ft02">For&#160;(I&#160;</p>
+<p style="position:absolute;top:372px;left:124px;white-space:nowrap" class="ft02">←&#160;0;&#160;I &lt; N;&#160;I++)</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft02">{</p>
+<p style="position:absolute;top:409px;left:95px;white-space:nowrap" class="ft02">ChkSum&#160;</p>
+<p style="position:absolute;top:405px;left:151px;white-space:nowrap" class="ft02">←&#160;ChkSum + MicrocodeUpdate[I]</p>
+<p style="position:absolute;top:426px;left:68px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:459px;left:68px;white-space:nowrap" class="ft02">If&#160;(ChkSum =&#160;00000000H)</p>
+<p style="position:absolute;top:475px;left:95px;white-space:nowrap" class="ft02">Success</p>
+<p style="position:absolute;top:492px;left:68px;white-space:nowrap" class="ft02">Else</p>
+<p style="position:absolute;top:508px;left:95px;white-space:nowrap" class="ft02">Fail</p>
+<p style="position:absolute;top:554px;left:68px;white-space:nowrap" class="ft04">9.11.6&#160;</p>
+<p style="position:absolute;top:554px;left:148px;white-space:nowrap" class="ft04">Microcode Update Loader</p>
+<p style="position:absolute;top:584px;left:68px;white-space:nowrap" class="ft05">This section describes an update&#160;loader used to&#160;load an update into a P6 family or later processors. It also discusses&#160;<br/>the requirements placed&#160;on the&#160;BIOS to&#160;ensure&#160;proper loading. The update loader&#160;described&#160;contains&#160;the&#160;minimal&#160;<br/>instructions needed to&#160;load an&#160;update. The specific instruction&#160;sequence&#160;that is&#160;required&#160;to&#160;load&#160;an&#160;update&#160;is&#160;<br/>dependent upon&#160;the loader revision&#160;field contained within&#160;the&#160;update&#160;header.&#160;This revision is&#160;expected&#160;to change&#160;<br/>infrequently (potentially, only when new processor models are&#160;introduced).<br/><a href="o_fe12b1e2a880e0ce-346.html">Example&#160;9-8 b</a>elow&#160;represents the&#160;update&#160;loader with a&#160;loader revision of&#160;00000001H. Note&#160;that the&#160;microcode&#160;<br/>update&#160;must be&#160;aligned&#160;on&#160;a 16-byte boundary&#160;and&#160;the&#160;size&#160;of the microcode&#160;update must be 1-KByte granular.</p>
+<p style="position:absolute;top:732px;left:68px;white-space:nowrap" class="ft01">Example 9-8. &#160;Assembly Code Example of&#160;Simple&#160;Microcode&#160;Update&#160;Loader</p>
+<p style="position:absolute;top:761px;left:68px;white-space:nowrap" class="ft02">mov</p>
+<p style="position:absolute;top:761px;left:108px;white-space:nowrap" class="ft02">ecx,79h</p>
+<p style="position:absolute;top:761px;left:270px;white-space:nowrap" class="ft02">; MSR to write in ECX</p>
+<p style="position:absolute;top:779px;left:68px;white-space:nowrap" class="ft02">xor</p>
+<p style="position:absolute;top:779px;left:108px;white-space:nowrap" class="ft02">eax,eax</p>
+<p style="position:absolute;top:779px;left:270px;white-space:nowrap" class="ft02">; clear EAX</p>
+<p style="position:absolute;top:797px;left:68px;white-space:nowrap" class="ft02">xor</p>
+<p style="position:absolute;top:797px;left:108px;white-space:nowrap" class="ft02">ebx,ebx</p>
+<p style="position:absolute;top:797px;left:270px;white-space:nowrap" class="ft02">; clear EBX</p>
+<p style="position:absolute;top:815px;left:68px;white-space:nowrap" class="ft02">mov</p>
+<p style="position:absolute;top:815px;left:108px;white-space:nowrap" class="ft02">ax,cs</p>
+<p style="position:absolute;top:815px;left:270px;white-space:nowrap" class="ft02">; Segment of&#160;microcode update</p>
+<p style="position:absolute;top:833px;left:68px;white-space:nowrap" class="ft02">shl</p>
+<p style="position:absolute;top:833px;left:108px;white-space:nowrap" class="ft02">eax,4</p>
+<p style="position:absolute;top:851px;left:68px;white-space:nowrap" class="ft02">mov</p>
+<p style="position:absolute;top:851px;left:108px;white-space:nowrap" class="ft02">bx,offset Update</p>
+<p style="position:absolute;top:851px;left:270px;white-space:nowrap" class="ft02">;&#160;Offset of&#160;microcode update</p>
+<p style="position:absolute;top:869px;left:68px;white-space:nowrap" class="ft02">add</p>
+<p style="position:absolute;top:869px;left:108px;white-space:nowrap" class="ft02">eax,ebx</p>
+<p style="position:absolute;top:869px;left:270px;white-space:nowrap" class="ft02">; Linear Address of&#160;Update&#160;in EAX</p>
+<p style="position:absolute;top:887px;left:68px;white-space:nowrap" class="ft02">add</p>
+<p style="position:absolute;top:887px;left:108px;white-space:nowrap" class="ft02">eax,48d</p>
+<p style="position:absolute;top:887px;left:270px;white-space:nowrap" class="ft02">; Offset of&#160;the Update Data&#160;within the Update</p>
+<p style="position:absolute;top:905px;left:68px;white-space:nowrap" class="ft02">xor</p>
+<p style="position:absolute;top:905px;left:108px;white-space:nowrap" class="ft02">edx,edx</p>
+<p style="position:absolute;top:905px;left:270px;white-space:nowrap" class="ft02">; Zero in EDX</p>
+<p style="position:absolute;top:923px;left:68px;white-space:nowrap" class="ft02">WRMSR</p>
+<p style="position:absolute;top:923px;left:262px;white-space:nowrap" class="ft02">; microcode&#160;update trigger</p>
+<p style="position:absolute;top:958px;left:68px;white-space:nowrap" class="ft06">The loader shown&#160;<a href="o_fe12b1e2a880e0ce-346.html">in Example&#160;9-8</a>&#160;assumes that&#160;<i>update&#160;</i>is&#160;the address&#160;of&#160;a microcode update (header&#160;and data)&#160;<br/>embedded&#160;within the&#160;code segment of the BIOS.&#160;It also assumes that the&#160;processor is&#160;operating in real mode. The&#160;<br/>data may reside anywhere in memory, aligned&#160;on&#160;a&#160;16-byte boundary, that is&#160;accessible&#160;by the processor within its&#160;<br/>current operating&#160;mode.<br/>Before the&#160;BIOS executes&#160;the&#160;microcode&#160;update&#160;trigger (WRMSR) instruction,&#160;the&#160;following must be&#160;true:</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 438</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page438-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a438.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">D-16&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87 FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">3.&#160;There are conditions under which spurious floating-point exception interrupts are generated,&#160;which the kernel&#160;</p>
+<p style="position:absolute;top:117px;left:93px;white-space:nowrap" class="ft02">must recognize&#160;and&#160;discard.</p>
+<p style="position:absolute;top:161px;left:68px;white-space:nowrap" class="ft03">D.3.6.1 &#160;</p>
+<p style="position:absolute;top:161px;left:152px;white-space:nowrap" class="ft03">Speculatively&#160;Deferring&#160;x87&#160;FPU&#160;Saves, General Overview</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft08">In order to support multitasking, each&#160;thread&#160;in&#160;the system&#160;needs&#160;a save area&#160;for the&#160;general-purpose&#160;registers,&#160;<br/>and each&#160;task that is&#160;allowed to use floating-point&#160;needs&#160;an&#160;x87 FPU save&#160;area large enough to hold&#160;the&#160;entire x87&#160;<br/>FPU stack and associated x87 FPU state such as the control word and&#160;status word.&#160;(See<a href="o_7281d5ea06a5b67a-201.html">&#160;Section 8.1.10,&#160;“Saving&#160;the&#160;<br/>x87&#160;FPU’s State&#160;with FSTENV/FNSTENV and&#160;FSAVE/FNSAVE,” for a&#160;</a>complete&#160;description&#160;of the&#160;x87&#160;FPU save&#160;<br/>image.) If&#160;the&#160;processor and&#160;the operating&#160;system support Streaming&#160;SIMD Extensions,&#160;the save&#160;area&#160;should be&#160;<br/>large&#160;enough and aligned correctly&#160;to hold&#160;x87 FPU and&#160;Streaming&#160;SIMD Extensions state.<br/>On a task switch,&#160;the&#160;general-purpose&#160;registers are&#160;swapped out&#160;to their save&#160;area&#160;for&#160;the suspending&#160;thread, and&#160;<br/>the&#160;registers of the resuming&#160;thread are loaded. The&#160;x87&#160;FPU&#160;state does not&#160;need&#160;to be saved&#160;at this point.&#160;If&#160;the&#160;<br/>resuming thread does not&#160;use the x87&#160;FPU&#160;before&#160;it is itself suspended,&#160;then both a&#160;save&#160;and a&#160;load&#160;of the&#160;x87 FPU&#160;<br/>state&#160;has been avoided. It&#160;is often&#160;the&#160;case&#160;that several threads&#160;may&#160;be&#160;executed&#160;without&#160;any usage&#160;of the&#160;x87&#160;<br/>FPU.<br/>The processor&#160;supports&#160;speculative&#160;deferral of x87 FPU&#160;saves via interrupt 7&#160;“Device Not&#160;Available”&#160;(DNA), used&#160;in&#160;<br/>conjunction&#160;with CR0&#160;bit&#160;3, the “Task Switched” bit&#160;(TS). (See&#160;“Control&#160;Registers”&#160;in<a href="��">&#160;Chapter 2&#160;</a>of&#160;the&#160;<i>Intel®&#160;64&#160;and&#160;<br/>IA-32 Architectures&#160;Software&#160;Developer’s&#160;Manual, Volume&#160;3A.</i>)&#160;Every task&#160;switch via&#160;the hardware supported&#160;task&#160;<br/>switching mechanism (see&#160;“Task&#160;Switching”&#160;in<a href="��">&#160;Chapter&#160;7</a>&#160;of&#160;the&#160;<i>Intel®&#160;64&#160;and IA-32 Architectures Software&#160;Devel-<br/>oper’s&#160;Manual, Volume&#160;3A)</i>&#160;sets TS. Multi-threaded kernels that&#160;use software&#160;task&#160;switching</p>
+<p style="position:absolute;top:449px;left:684px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:452px;left:691px;white-space:nowrap" class="ft02">&#160;can&#160;set the&#160;TS bit by&#160;</p>
+<p style="position:absolute;top:469px;left:68px;white-space:nowrap" class="ft02">reading CR0,&#160;ORing a “1” into</p>
+<p style="position:absolute;top:466px;left:266px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:469px;left:273px;white-space:nowrap" class="ft02">&#160;bit&#160;3, and writing back CR0. Any subsequent floating-point instructions (now&#160;being&#160;</p>
+<p style="position:absolute;top:485px;left:68px;white-space:nowrap" class="ft06">executed in&#160;a new thread context) will&#160;fault via&#160;interrupt 7&#160;before&#160;execution.&#160;<br/>This allows&#160;a DNA handler to&#160;save&#160;the old&#160;floating-point context&#160;and reload the&#160;x87&#160;FPU state&#160;for the&#160;current&#160;<br/>thread.&#160;The&#160;handler should&#160;clear&#160;the TS&#160;bit before exit&#160;using&#160;the CLTS&#160;instruction.&#160;On&#160;return from the&#160;handler the&#160;<br/>faulting thread will proceed&#160;with&#160;its&#160;floating-point computation.<br/>Some operating&#160;systems save&#160;the&#160;x87 FPU&#160;context on every&#160;task&#160;switch, typically because they&#160;also change&#160;the&#160;<br/>linear&#160;address space&#160;between&#160;tasks. The problem and&#160;solution discussed in&#160;the following sections&#160;apply&#160;to these&#160;<br/>operating systems&#160;also.</p>
+<p style="position:absolute;top:643px;left:68px;white-space:nowrap" class="ft03">D.3.6.2 &#160;</p>
+<p style="position:absolute;top:643px;left:152px;white-space:nowrap" class="ft03">Tracking x87 FPU Ownership</p>
+<p style="position:absolute;top:672px;left:68px;white-space:nowrap" class="ft09">Since the contents of&#160;the x87&#160;FPU may not belong&#160;to&#160;the&#160;currently executing thread, the thread&#160;identifier&#160;for the&#160;<br/>last x87&#160;FPU&#160;user needs to&#160;be&#160;tracked separately.&#160;This is&#160;not complicated;&#160;the kernel should&#160;simply provide a&#160;vari-<br/>able to store the&#160;thread identifier of&#160;the x87&#160;FPU owner,&#160;separate from the&#160;variable&#160;that&#160;stores&#160;the identifier for the&#160;<br/>currently executing thread.&#160;This&#160;variable is&#160;updated in&#160;the DNA&#160;exception handler,&#160;and&#160;is used by the&#160;DNA excep-<br/>tion handler&#160;to find&#160;the x87&#160;FPU save areas of the&#160;old and&#160;new&#160;threads. A simplified flow&#160;for a&#160;DNA&#160;exception&#160;<br/>handler is&#160;then:<br/>1.&#160;Use&#160;the&#160;“x87&#160;FPU Owner”&#160;variable&#160;to find&#160;the x87&#160;FPU save area&#160;of&#160;the last thread&#160;to use&#160;the&#160;x87 FPU.<br/>2.&#160;Save the&#160;x87 FPU&#160;contents to&#160;the old thread’s&#160;save&#160;area,&#160;typically using an FNSAVE or FXSAVE&#160;instruction.<br/>3.&#160;Set the x87&#160;FPU Owner variable to the&#160;identify&#160;the currently&#160;executing thread.<br/>4.&#160;Reload&#160;the x87&#160;FPU&#160;contents&#160;from&#160;the new thread’s&#160;save&#160;area,&#160;typically using an FRSTOR or FXSTOR&#160;</p>
+<p style="position:absolute;top:867px;left:93px;white-space:nowrap" class="ft02">instruction.</p>
+<p style="position:absolute;top:891px;left:68px;white-space:nowrap" class="ft06">5.&#160;Clear TS&#160;using&#160;the CLTS instruction and&#160;exit the&#160;DNA exception&#160;handler.<br/>While&#160;this&#160;flow&#160;covers&#160;the basic requirements for speculatively deferred&#160;x87&#160;FPU state swaps,&#160;there are some&#160;addi-<br/>tional subtleties&#160;that&#160;need to be&#160;handled in a&#160;robust&#160;implementation.</p>
+<p style="position:absolute;top:987px;left:68px;white-space:nowrap" class="ft02">1&#160;&#160;In a software&#160;task switch, the operating system uses a sequence&#160;of&#160;instructions&#160;to&#160;save&#160;the&#160;suspending&#160;thread’s&#160;state&#160;and&#160;restore</p>
+<p style="position:absolute;top:1003px;left:82px;white-space:nowrap" class="ft02">the&#160;resuming thread’s state,&#160;instead&#160;of&#160;the&#160;single&#160;long&#160;non-interruptible task switch operation&#160;provided&#160;by the IA-32 architecture.</p>
+<p style="position:absolute;top:1023px;left:68px;white-space:nowrap" class="ft02">2&#160;&#160;Although&#160;CR0,&#160;bit 2,&#160;the&#160;emulation flag&#160;(EM), also&#160;causes a DNA&#160;exception,&#160;do not&#160;use&#160;the EM bit as a surrogate&#160;for TS. EM means&#160;that</p>
+<p style="position:absolute;top:1039px;left:82px;white-space:nowrap" class="ft02">no&#160;x87&#160;FPU&#160;is&#160;available&#160;and&#160;that&#160;floating-point&#160;instructions&#160;must&#160;be&#160;emulated.&#160;Using&#160;EM&#160;to&#160;trap&#160;on&#160;task&#160;switches&#160;is&#160;not&#160;compatible</p>
+<p style="position:absolute;top:1056px;left:82px;white-space:nowrap" class="ft02">with the MMX technology. If the EM&#160;flag&#160;is&#160;set,&#160;MMX instructions raise the&#160;invalid opcode&#160;exception.</p>
+</div>
+</body>
+</html>

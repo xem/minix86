@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 645</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft013{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page645-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481645.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">LDDQU—Load Unaligned Integer 128 Bits</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-517</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">LDDQU—Load Unaligned Integer 128 Bits</p>
+<p style="position:absolute;top:340px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft07">The instruction is&#160;<i>functionally&#160;similar&#160;</i>to&#160;(V)MOVDQU ymm/xmm,&#160;m256/m128 for loading from memory.&#160;That is:&#160;<br/>32/16&#160;bytes of data starting at an&#160;address&#160;specified by&#160;the source&#160;memory operand (second operand) are&#160;fetched&#160;<br/>from&#160;memory and placed&#160;in&#160;a destination register&#160;(first&#160;operand). The source&#160;operand need not be&#160;aligned&#160;on&#160;a&#160;<br/>32/16-byte boundary.&#160;Up&#160;to 64/32&#160;bytes may&#160;be&#160;loaded&#160;from memory;&#160;this is&#160;implementation dependent.<br/>This instruction may improve&#160;performance&#160;relative&#160;to&#160;(V)MOVDQU if the&#160;source&#160;operand&#160;crosses&#160;a cache&#160;line&#160;<br/>boundary.&#160;In situations that require the data loaded by (V)LDDQU be&#160;modified&#160;and&#160;stored to the&#160;same&#160;location,&#160;use&#160;<br/>(V)MOVDQU or&#160;(V)MOVDQA instead of (V)LDDQU. To&#160;move a&#160;double quadword&#160;to or&#160;from memory locations&#160;that&#160;<br/>are known to&#160;be&#160;aligned on 16-byte boundaries, use&#160;the (V)MOVDQA&#160;instruction.</p>
+<p style="position:absolute;top:605px;left:69px;white-space:nowrap" class="ft03">Implementation Notes</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:628px;left:95px;white-space:nowrap" class="ft07">If the&#160;source is&#160;aligned to&#160;a 32/16-byte&#160;boundary,&#160;based&#160;on the&#160;implementation,&#160;the&#160;32/16&#160;bytes&#160;may be&#160;<br/>loaded&#160;more&#160;than once. For that reason, the&#160;usage&#160;of&#160;(V)LDDQU&#160;should&#160;be&#160;avoided&#160;when&#160;using uncached&#160;or&#160;<br/>write-combining (WC) memory regions. For uncached&#160;or WC&#160;memory&#160;regions,&#160;keep using&#160;(V)MOVDQU.</p>
+<p style="position:absolute;top:683px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:684px;left:95px;white-space:nowrap" class="ft07">This&#160;instruction is&#160;a replacement for (V)MOVDQU (load) in&#160;situations where cache&#160;line splits significantly affect&#160;<br/>performance. It&#160;should not be used in&#160;situations&#160;where store-load forwarding&#160;is performance&#160;critical. If&#160;<br/>performance&#160;of&#160;store-load forwarding&#160;is critical&#160;to the application,&#160;use (V)MOVDQA&#160;store-load pairs when&#160;data&#160;<br/>is&#160;256/128-bit aligned or&#160;(V)MOVDQU store-load pairs when data is&#160;256/128-bit unaligned.</p>
+<p style="position:absolute;top:755px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:756px;left:95px;white-space:nowrap" class="ft07">If the&#160;memory&#160;address is&#160;not aligned on&#160;32/16-byte&#160;boundary,&#160;some implementations may&#160;load&#160;up&#160;to&#160;64/32&#160;<br/>bytes and return&#160;32/16 bytes&#160;in the&#160;destination. Some&#160;processor&#160;implementations may issue multiple loads to&#160;<br/>access the&#160;appropriate 32/16&#160;bytes. Developers&#160;of&#160;multi-threaded&#160;or multi-processor software&#160;should be&#160;aware&#160;<br/>that on&#160;these&#160;processors&#160;the&#160;loads&#160;will be&#160;performed in a&#160;non-atomic way.</p>
+<p style="position:absolute;top:827px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:828px;left:95px;white-space:nowrap" class="ft07">If alignment&#160;checking is&#160;enabled&#160;(CR0.AM&#160;=&#160;1,&#160;RFLAGS.AC&#160;=&#160;1,&#160;and&#160;CPL&#160;=&#160;3),&#160;an&#160;alignment-check exception&#160;<br/>(#AC) may&#160;or may&#160;not be&#160;generated (depending on processor implementation) when&#160;the&#160;memory address&#160;is&#160;<br/>not&#160;aligned on&#160;an&#160;8-byte boundary.</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft09">In 64-bit&#160;mode,&#160;use of the&#160;REX.R&#160;prefix&#160;permits this&#160;instruction&#160;to access additional registers&#160;(XMM8-XMM15).<br/>Note: In VEX-encoded&#160;versions, VEX.vvvv&#160;is reserved&#160;and&#160;must be&#160;1111b&#160;otherwise&#160;instructions&#160;will&#160;#UD.</p>
+<p style="position:absolute;top:941px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:964px;left:69px;white-space:nowrap" class="ft010">LDDQU (128-bit Legacy&#160;SSE&#160;version)<br/>DEST[127:0]&#160;&#160;SRC[127:0]<br/>DEST[VLMAX-1:128] (Unmodified)</p>
+<p style="position:absolute;top:123px;left:76px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:76px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:386px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:386px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:423px;white-space:nowrap" class="ft04">64/32-bit&#160;</p>
+<p style="position:absolute;top:137px;left:423px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:495px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:495px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:495px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:566px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:76px;white-space:nowrap" class="ft011">F2 0F F0 /<i>r<br/></i>LDDQU&#160;<i>xmm1</i>,&#160;<i>mem</i></p>
+<p style="position:absolute;top:175px;left:386px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:423px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:495px;white-space:nowrap" class="ft04">SSE3</p>
+<p style="position:absolute;top:175px;left:566px;white-space:nowrap" class="ft04">Load&#160;unaligned data&#160;from&#160;<i>mem</i>&#160;and return&#160;</p>
+<p style="position:absolute;top:191px;left:566px;white-space:nowrap" class="ft04">double&#160;quadword&#160;in&#160;<i>xmm1</i>.</p>
+<p style="position:absolute;top:218px;left:76px;white-space:nowrap" class="ft012">VEX.128.F2.0F.WIG F0&#160;/r<br/>VLDDQU xmm1,&#160;m128</p>
+<p style="position:absolute;top:218px;left:386px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:218px;left:423px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:218px;left:495px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:218px;left:566px;white-space:nowrap" class="ft04">Load&#160;unaligned packed&#160;integer values from&#160;</p>
+<p style="position:absolute;top:235px;left:566px;white-space:nowrap" class="ft04">mem to&#160;xmm1.</p>
+<p style="position:absolute;top:262px;left:76px;white-space:nowrap" class="ft013">VEX.256.F2.0F.WIG F0&#160;/r<br/>VLDDQU ymm1, m256</p>
+<p style="position:absolute;top:262px;left:386px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:262px;left:423px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:262px;left:495px;white-space:nowrap" class="ft04">AVX</p>
+<p style="position:absolute;top:262px;left:566px;white-space:nowrap" class="ft04">Load&#160;unaligned packed&#160;integer values from&#160;</p>
+<p style="position:absolute;top:279px;left:566px;white-space:nowrap" class="ft04">mem to&#160;ymm1.</p>
+<p style="position:absolute;top:362px;left:91px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:362px;left:203px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:362px;left:377px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:362px;left:550px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:362px;left:720px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:387px;left:99px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:387px;left:190px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:387px;left:367px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:387px;left:571px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:387px;left:742px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

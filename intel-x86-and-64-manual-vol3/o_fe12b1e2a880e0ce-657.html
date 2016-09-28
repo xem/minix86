@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 657</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page657-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce657.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-21</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">18.4.4.1 &#160;&#160;Setting&#160;up the PEBS Buffer</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft06">For&#160;processors&#160;based on Intel Core&#160;microarchitecture, PEBS is&#160;available&#160;using IA32_PMC0 only.&#160;Use the&#160;following&#160;<br/>procedure&#160;to&#160;set up&#160;the&#160;processor&#160;and&#160;IA32_PMC0 counter&#160;for&#160;PEBS:&#160;<br/>1.&#160;Set up the precise&#160;event buffering facilities.&#160;Place values&#160;in&#160;the&#160;precise event buffer&#160;base,&#160;precise event index,&#160;</p>
+<p style="position:absolute;top:184px;left:95px;white-space:nowrap" class="ft05">precise event absolute maximum,&#160;precise event&#160;interrupt&#160;threshold,&#160;and precise&#160;event&#160;counter reset fields of&#160;<br/>the&#160;DS&#160;buffer management area.&#160;In processors based on&#160;Intel Core microarchitecture, PEBS&#160;records consist of&#160;<br/>64-bit&#160;address&#160;entries.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-595.html">Figure&#160;17-8 to&#160;</a>set&#160;up&#160;the&#160;precise event records buffer&#160;in memory.</p>
+<p style="position:absolute;top:241px;left:69px;white-space:nowrap" class="ft06">2.&#160;Enable PEBS.&#160;Set the&#160;Enable PEBS on PMC0&#160;flag&#160;(bit 0)&#160;in IA32_PEBS_ENABLE MSR.<br/>3.&#160;Set&#160;up the IA32_PMC0 performance&#160;counter and&#160;IA32_PERFEVTSEL0&#160;for&#160;an event liste<a href="o_fe12b1e2a880e0ce-656.html">d in&#160;Table&#160;18-10</a>.</p>
+<p style="position:absolute;top:310px;left:69px;white-space:nowrap" class="ft02">18.4.4.2 &#160;&#160;PEBS Record&#160;Format</p>
+<p style="position:absolute;top:338px;left:69px;white-space:nowrap" class="ft05">The&#160;PEBS&#160;record&#160;format may&#160;be&#160;extended across&#160;different processor implementations.&#160;The&#160;<br/>IA32_PERF_CAPABILITES MSR defines a mechanism&#160;for software&#160;to handle the evolution of&#160;PEBS&#160;record format in&#160;<br/>processors&#160;that support architectural&#160;performance monitoring&#160;with version id&#160;equals 2&#160;or higher.&#160;The&#160;bit&#160;fields&#160;of&#160;<br/>IA32_PERF_CAPABILITES&#160;are define<a href="o_fe12b1e2a880e0ce-1283.html">d in Table&#160;35-2&#160;</a><a href="��">of Chapter&#160;35,&#160;“Model-Specific Registers (MSRs)”. T</a>he&#160;relevant&#160;<br/>bit fields that governs&#160;PEBS are:</p>
+<p style="position:absolute;top:426px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:427px;left:95px;white-space:nowrap" class="ft05">PEBSTrap [bit 6]: When set, PEBS recording is&#160;trap-like.&#160;After the PEBS-enabled&#160;counter has overflowed,&#160;PEBS&#160;<br/>record is&#160;recorded for the next PEBS-able event at&#160;the&#160;completion of the&#160;sampled instruction&#160;causing the PEBS&#160;<br/>event.&#160;When clear,&#160;PEBS&#160;recording&#160;is&#160;fault-like.&#160;The&#160;PEBS record is&#160;recorded&#160;before the&#160;sampled instruction&#160;<br/>causing&#160;the PEBS&#160;event.</p>
+<p style="position:absolute;top:498px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:499px;left:95px;white-space:nowrap" class="ft05">PEBSSaveArchRegs [bit 7]: When set, PEBS will save&#160;architectural register and state&#160;information according to&#160;<br/>the encoded value&#160;of the PEBSRecordFormat field.&#160;When clear,&#160;only the return instruction pointer&#160;and flags are&#160;<br/>recorded. On processors based&#160;on Intel&#160;Core&#160;microarchitecture,&#160;this bit is&#160;always&#160;1</p>
+<p style="position:absolute;top:553px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:554px;left:95px;white-space:nowrap" class="ft07">PEBSRecordFormat [bits&#160;11:8]: Valid encodings are:<br/>—&#160;0000B: Only&#160;general-purpose registers, instruction pointer and&#160;RFLAGS&#160;registers are saved in&#160;each PEBS&#160;</p>
+<p style="position:absolute;top:595px;left:120px;white-space:nowrap" class="ft03">record&#160;(see<a href="o_fe12b1e2a880e0ce-734.html">Section 18.15.7)</a>.&#160;</p>
+<p style="position:absolute;top:619px;left:95px;white-space:nowrap" class="ft03">—&#160;0001B:&#160;PEBS record includes additional&#160;information&#160;of IA32_PERF_GLOBAL_STATUS&#160;and&#160;load&#160;latency&#160;data.&#160;</p>
+<p style="position:absolute;top:635px;left:120px;white-space:nowrap" class="ft03">(s<a href="o_fe12b1e2a880e0ce-671.html">eeSection 18.8.1.1</a>).&#160;</p>
+<p style="position:absolute;top:659px;left:95px;white-space:nowrap" class="ft03">—&#160;0010B:&#160;PEBS record includes additional information&#160;of IA32_PERF_GLOBAL_STATUS,&#160;load&#160;latency data,&#160;</p>
+<p style="position:absolute;top:676px;left:120px;white-space:nowrap" class="ft03">and TSX tuning information.<a href="o_fe12b1e2a880e0ce-701.html">&#160;(seeSection 18.11.2).&#160;</a></p>
+<p style="position:absolute;top:700px;left:95px;white-space:nowrap" class="ft03">—&#160;0011B:&#160;PEBS record includes additional&#160;information&#160;of&#160;load latency data, TSX&#160;tuning information, TSC&#160;data,&#160;</p>
+<p style="position:absolute;top:716px;left:120px;white-space:nowrap" class="ft05">and&#160;the applicable counter field replaces&#160;IA32_PERF_GLOBAL_STATUS&#160;at&#160;offset&#160;90H.&#160;(see<a href="o_fe12b1e2a880e0ce-711.html">&#160;Section&#160;<br/>18.13.1.1).&#160;</a></p>
+<p style="position:absolute;top:777px;left:69px;white-space:nowrap" class="ft02">18.4.4.3 &#160;&#160;Writing a&#160;PEBS&#160;Interrupt Service Routine</p>
+<p style="position:absolute;top:805px;left:69px;white-space:nowrap" class="ft05">The PEBS facilities share the&#160;same interrupt vector&#160;and interrupt service routine (called&#160;the DS&#160;ISR) with the Inter-<br/>rupt-based&#160;event&#160;sampling and BTS&#160;facilities. To&#160;handle PEBS interrupts, PEBS&#160;handler code must be&#160;included&#160;in&#160;<br/>the&#160;DS&#160;ISR.&#160;S<a href="o_fe12b1e2a880e0ce-594.html">ee Section 17.4.9.1, “64 Bit Format of the&#160;DS&#160;Save&#160;Area,”&#160;for guidelines&#160;</a>when writing&#160;the DS&#160;ISR.<br/>The service&#160;routine can&#160;query MSR_PERF_GLOBAL_STATUS&#160;to&#160;determine which&#160;counter(s) caused of overflow&#160;<br/>condition. The service&#160;routine should&#160;clear&#160;overflow&#160;indicator by writing&#160;to MSR_PERF_GLOBAL_OVF_CTL.&#160;</p>
+</div>
+</body>
+</html>

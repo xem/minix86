@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1160</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1160-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1160.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">28-12&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX SUPPORT&#160;FOR&#160;ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft010">not in the&#160;range&#160;0–511,&#160;there is&#160;a&#160;<b>page-modification log-full event</b>&#160;and&#160;a VM exit&#160;occurs.&#160;In this&#160;case,&#160;the&#160;<br/>accessed&#160;or dirty&#160;flag&#160;is not set,&#160;and the&#160;guest-physical access that&#160;triggered&#160;the event does not&#160;occur.<br/>If instead&#160;the&#160;PML&#160;index&#160;is in&#160;the&#160;range 0–511,&#160;the&#160;processor&#160;proceeds to&#160;update&#160;accessed or&#160;dirty flags for EPT&#160;as&#160;<br/>descri<a href="o_fe12b1e2a880e0ce-1159.html">bed in Section 28.2.4</a>.&#160;If the processor updated a&#160;dirty&#160;flag&#160;for EPT (changing it&#160;from&#160;0&#160;to 1),&#160;it&#160;then operates&#160;<br/>as follows:<br/>1.&#160;The guest-physical address&#160;of&#160;the access&#160;is written to&#160;the&#160;page-modification log. Specifically, the guest-physical&#160;</p>
+<p style="position:absolute;top:214px;left:93px;white-space:nowrap" class="ft09">address is&#160;written&#160;to physical address&#160;determined by&#160;adding&#160;8 times the&#160;PML index&#160;to the&#160;PML address.&#160;<br/>Bits&#160;11:0&#160;of the&#160;value&#160;written are&#160;always 0&#160;(the guest-physical&#160;address written is&#160;thus 4-KByte aligned).</p>
+<p style="position:absolute;top:255px;left:68px;white-space:nowrap" class="ft09">2.&#160;The&#160;PML&#160;index is&#160;decremented by&#160;1 (this&#160;may cause&#160;the&#160;value&#160;to transition&#160;from&#160;0 to&#160;FFFFH).<br/>Because the&#160;processor decrements the PML index with&#160;each&#160;log entry,&#160;the value may&#160;transition from&#160;0&#160;to FFFFH.&#160;At&#160;<br/>that&#160;point,&#160;no further logging will occur,&#160;as&#160;the processor will determine that&#160;the PML&#160;index is&#160;not in&#160;the range 0–<br/>511&#160;and will generate a&#160;page-modification&#160;log-full event (see above).</p>
+<p style="position:absolute;top:362px;left:68px;white-space:nowrap" class="ft04">28.2.6&#160;</p>
+<p style="position:absolute;top:362px;left:148px;white-space:nowrap" class="ft04">EPT and Memory Typing</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft09">This section specifies how a&#160;logical&#160;processor determines&#160;the memory type use&#160;for&#160;a memory access while EPT&#160;is in&#160;<br/>use.&#160;(See<a href="��">&#160;Chapter 11,&#160;“Memory&#160;Cache&#160;Control” of&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;Architectures&#160;Software&#160;Developer’s Manual,&#160;<br/>Volume 3A</i></a>&#160;for details of memory typing in&#160;the Intel&#160;64&#160;architec<a href="o_fe12b1e2a880e0ce-1160.html">ture.) Section 28.2.6.1&#160;</a>explains how the&#160;memory&#160;<br/>type&#160;is determined&#160;for accesses to&#160;the EPT paging struct<a href="o_fe12b1e2a880e0ce-1160.html">ures. Section 28.2.6.2&#160;</a>explains how the&#160;memory&#160;type&#160;is&#160;<br/>determined&#160;for&#160;an access using&#160;a guest-physical&#160;address that&#160;is translated using&#160;EPT.</p>
+<p style="position:absolute;top:503px;left:68px;white-space:nowrap" class="ft06">28.2.6.1 &#160;&#160;Memory Type Used for Accessing EPT&#160;Paging Structures</p>
+<p style="position:absolute;top:532px;left:68px;white-space:nowrap" class="ft09">This section explains&#160;how&#160;the&#160;memory&#160;type&#160;is&#160;determined&#160;for accesses to&#160;the EPT paging structures. The&#160;determi-<br/>nation is&#160;based&#160;first on the&#160;value of bit&#160;30&#160;(cache&#160;disable—CD)&#160;in&#160;control register CR0:</p>
+<p style="position:absolute;top:570px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:571px;left:93px;white-space:nowrap" class="ft09">If CR0.CD&#160;= 0,&#160;the memory type used for any such reference is the&#160;EPT&#160;paging-structure memory type,&#160;which&#160;<br/>is specified&#160;in bits&#160;2:0 of the&#160;extended-page-table pointer (EPTP),&#160;a VM-execution&#160;control field&#160;<a href="o_fe12b1e2a880e0ce-1061.html">(see&#160;Section&#160;<br/>24.6.11)</a>. A&#160;value of 0 indicates the&#160;uncacheable&#160;type&#160;(UC),&#160;while&#160;a value of&#160;6 indicates the&#160;write-back type&#160;<br/>(WB).&#160;Other values are reserved.</p>
+<p style="position:absolute;top:642px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:643px;left:93px;white-space:nowrap" class="ft02">If CR0.CD&#160;=&#160;1,&#160;the memory type&#160;used&#160;for&#160;any such&#160;reference&#160;is uncacheable (UC).</p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft02">The MTRRs have&#160;no&#160;effect&#160;on the&#160;memory&#160;type&#160;used for&#160;an&#160;access&#160;to an&#160;EPT paging&#160;structure.</p>
+<p style="position:absolute;top:711px;left:68px;white-space:nowrap" class="ft06">28.2.6.2 &#160;&#160;Memory Type Used for Translated Guest-Physical Addresses</p>
+<p style="position:absolute;top:739px;left:68px;white-space:nowrap" class="ft09">The&#160;<b>effective memory&#160;type</b>&#160;of&#160;a memory&#160;access&#160;using a&#160;guest-physical address&#160;(an access&#160;that is&#160;translated&#160;<br/>using EPT) is&#160;the memory type that is used to access memory. The&#160;effective&#160;memory type&#160;is based on the value of&#160;<br/>bit&#160;30&#160;(cache&#160;disable—CD) in control register CR0; the&#160;<b>last</b>&#160;EPT paging-structure entry used to translate the guest-<br/>physical&#160;address (either an EPT PDE with bit&#160;7&#160;set&#160;to 1&#160;or an EPT&#160;PTE);&#160;and&#160;the&#160;PAT&#160;memory type&#160;(see&#160;below):</p>
+<p style="position:absolute;top:811px;left:68px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:811px;left:93px;white-space:nowrap" class="ft010">The&#160;<b>PAT memory&#160;type</b>&#160;depends on the&#160;value of CR0.PG:<br/>—&#160;If&#160;CR0.PG&#160;= 0,&#160;the PAT&#160;memory type&#160;is&#160;WB&#160;(writeback).</p>
+<p style="position:absolute;top:833px;left:496px;white-space:nowrap" class="ft08">1</p>
+<p style="position:absolute;top:859px;left:93px;white-space:nowrap" class="ft02">—&#160;If&#160;CR0.PG&#160;= 1,&#160;the PAT&#160;memory type&#160;is&#160;the memory type&#160;selected&#160;from&#160;the IA32_PAT&#160;MSR&#160;as&#160;specified in&#160;</p>
+<p style="position:absolute;top:876px;left:119px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-447.html">Section&#160;11.12.3,&#160;“Selecting a&#160;Memory Type&#160;from the&#160;PAT”.</a></p>
+<p style="position:absolute;top:873px;left:512px;white-space:nowrap" class="ft08">2</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft02">1.&#160;If&#160;the capability MSR IA32_VMX_CR0_FIXED0 reports that&#160;CR0.PG&#160;must&#160;be 1 in VMX operation, CR0.PG can&#160;be&#160;0 in&#160;VMX non-root&#160;</p>
+<p style="position:absolute;top:951px;left:89px;white-space:nowrap" class="ft02">operation&#160;only if&#160;the&#160;“unrestricted&#160;guest”&#160;VM-execution&#160;control&#160;and&#160;bit&#160;31&#160;of&#160;the&#160;primary&#160;processor-based&#160;VM-execution&#160;controls&#160;are&#160;</p>
+<p style="position:absolute;top:967px;left:89px;white-space:nowrap" class="ft02">both&#160;1.</p>
+<p style="position:absolute;top:988px;left:68px;white-space:nowrap" class="ft02">2.&#160;<a href="o_fe12b1e2a880e0ce-447.html">Table&#160;11-11&#160;in&#160;Section 11.12.3, “Selecting&#160;a Memory Type&#160;from&#160;the PAT” illu</a>strates&#160;how the&#160;PAT&#160;memory type&#160;is&#160;selected&#160;based on&#160;</p>
+<p style="position:absolute;top:1005px;left:89px;white-space:nowrap" class="ft02">the values&#160;of&#160;the PAT,&#160;PCD,&#160;and PWT&#160;bits&#160;in&#160;a page-table&#160;entry&#160;(or page-directory&#160;entry with PS&#160;= 1).&#160;For accesses to&#160;a&#160;guest paging-</p>
+<p style="position:absolute;top:1021px;left:89px;white-space:nowrap" class="ft02">structure entry&#160;X,&#160;the PAT&#160;memory&#160;type&#160;is&#160;selected&#160;from the table by&#160;using&#160;a value of&#160;0&#160;for&#160;the&#160;PAT&#160;bit with&#160;the&#160;values&#160;of&#160;PCD and&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft02">PWT from the paging-structure&#160;entry&#160;Y&#160;that&#160;references X (or&#160;from&#160;CR3&#160;if&#160;X&#160;is&#160;in&#160;the&#160;root&#160;paging&#160;structure). With&#160;PAE paging,&#160;the&#160;PAT&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">memory type for accesses&#160;to&#160;the PDPTEs is WB.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1280</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1280-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811280.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:606px;white-space:nowrap" class="ft00">SGDT—Store Global&#160;Descriptor Table&#160;Register</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-600&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">SGDT—Store&#160;Global Descriptor Table Register</p>
+<p style="position:absolute;top:262px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:349px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:375px;left:68px;white-space:nowrap" class="ft07">Stores&#160;the content of&#160;the global descriptor&#160;table&#160;register (GDTR) in the&#160;destination operand.&#160;The&#160;destination&#160;<br/>operand specifies&#160;a memory&#160;location.&#160;<br/>In legacy&#160;or compatibility mode, the&#160;destination operand&#160;is&#160;a&#160;6-byte memory location.&#160;If the operand-size&#160;attribute&#160;<br/>is 16 bits, the limit&#160;is&#160;stored&#160;in&#160;the&#160;low 2 bytes and the&#160;24-bit&#160;base address&#160;is&#160;stored&#160;in&#160;bytes 3-5, and byte 6 is zero-<br/>filled. If the operand-size attribute is 32&#160;bits, the 16-bit limit&#160;field of the register is&#160;stored&#160;in&#160;the&#160;low 2 bytes&#160;of the&#160;<br/>memory location&#160;and the&#160;32-bit base address&#160;is stored in&#160;the high&#160;4 bytes.<br/>In IA-32e&#160;mode,&#160;the&#160;operand&#160;size&#160;is&#160;fixed at&#160;8+2&#160;bytes.&#160;The instruction stores&#160;an 8-byte&#160;base and&#160;a 2-byte&#160;limit.<br/>SGDT&#160;is useful only by operating-system software. However,&#160;it can be used in application programs without&#160;causing&#160;<br/>an exception to be&#160;generated if CR4.UMIP&#160;= 0.&#160;See<a href="o_b5573232dd8f1481-657.html">&#160;“LGDT/LIDT—Load&#160;Global/Interrupt Descriptor Table&#160;Register”&#160;<br/></a><a href="o_b5573232dd8f1481-129.html">in Chapter&#160;3,&#160;</a><a href="��"><i>Intel® 64&#160;and IA-32 Architectures Software&#160;Developer’s Manual, Volume&#160;2A</i>, for inform</a>ation&#160;on&#160;<br/>loading&#160;the GDTR and&#160;IDTR.</p>
+<p style="position:absolute;top:599px;left:68px;white-space:nowrap" class="ft03">IA-32 Architecture&#160;Compatibility</p>
+<p style="position:absolute;top:625px;left:68px;white-space:nowrap" class="ft07">The 16-bit form of the SGDT&#160;is compatible with the Intel&#160;286 processor if the upper 8 bits are&#160;not referenced.&#160;The&#160;<br/>Intel 286 processor fills&#160;these&#160;bits with&#160;1s; processor generations&#160;later&#160;than&#160;the Intel 286 processor fill&#160;these bits&#160;<br/>with&#160;0s.</p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:721px;left:68px;white-space:nowrap" class="ft04">IF&#160;instruction&#160;is SGDT</p>
+<p style="position:absolute;top:739px;left:115px;white-space:nowrap" class="ft04">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:739px;left:204px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:739px;left:212px;white-space:nowrap" class="ft04">&#160;16</p>
+<p style="position:absolute;top:757px;left:142px;white-space:nowrap" class="ft04">THEN&#160;</p>
+<p style="position:absolute;top:775px;left:169px;white-space:nowrap" class="ft04">DEST[0:15]&#160;←&#160;GDTR(Limit);</p>
+<p style="position:absolute;top:793px;left:169px;white-space:nowrap" class="ft04">DEST[16:39]&#160;←&#160;GDTR(Base); (* 24 bits&#160;of base&#160;address stored&#160;*)</p>
+<p style="position:absolute;top:811px;left:169px;white-space:nowrap" class="ft04">DEST[40:47]&#160;←&#160;0;</p>
+<p style="position:absolute;top:829px;left:142px;white-space:nowrap" class="ft04">ELSE&#160;IF&#160;(32-bit Operand Size)</p>
+<p style="position:absolute;top:847px;left:169px;white-space:nowrap" class="ft04">DEST[0:15]&#160;←&#160;GDTR(Limit);</p>
+<p style="position:absolute;top:865px;left:169px;white-space:nowrap" class="ft04">DEST[16:47]&#160;←&#160;GDTR(Base); (* Full 32-bit base&#160;address&#160;stored *)</p>
+<p style="position:absolute;top:883px;left:169px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:901px;left:142px;white-space:nowrap" class="ft04">ELSE (* 64-bit Operand Size *)</p>
+<p style="position:absolute;top:919px;left:169px;white-space:nowrap" class="ft04">DEST[0:15]&#160;←&#160;GDTR(Limit);</p>
+<p style="position:absolute;top:937px;left:169px;white-space:nowrap" class="ft04">DEST[16:79]&#160;←&#160;GDTR(Base); (* Full 64-bit base&#160;address&#160;stored *)</p>
+<p style="position:absolute;top:955px;left:115px;white-space:nowrap" class="ft04">FI;&#160;</p>
+<p style="position:absolute;top:973px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:1010px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft04">None.</p>
+<p style="position:absolute;top:128px;left:74px;white-space:nowrap" class="ft04">Opcode*</p>
+<p style="position:absolute;top:128px;left:222px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:128px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:143px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:128px;left:426px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:143px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:128px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:143px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:128px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:166px;left:74px;white-space:nowrap" class="ft04">0F&#160;01 /0</p>
+<p style="position:absolute;top:166px;left:222px;white-space:nowrap" class="ft04">SGDT&#160;<i>m</i></p>
+<p style="position:absolute;top:166px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:166px;left:426px;white-space:nowrap" class="ft04">Valid&#160;</p>
+<p style="position:absolute;top:166px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:568px;white-space:nowrap" class="ft04">Store&#160;GDTR&#160;to&#160;<i>m.</i></p>
+<p style="position:absolute;top:189px;left:74px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:208px;left:74px;white-space:nowrap" class="ft04">*&#160;See&#160;IA-32 Architecture&#160;Compatibility&#160;section&#160;below.</p>
+<p style="position:absolute;top:285px;left:86px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:285px;left:199px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:285px;left:373px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:285px;left:547px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:285px;left:721px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:308px;left:98px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:308px;left:185px;white-space:nowrap" class="ft04">ModRM:r/m (w)</p>
+<p style="position:absolute;top:308px;left:394px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:568px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:742px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

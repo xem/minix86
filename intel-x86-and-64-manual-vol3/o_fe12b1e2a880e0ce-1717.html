@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1717</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1717-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1717.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-33</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL®&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:311px;left:69px;white-space:nowrap" class="ft02">36.3.6.3 &#160;&#160;Cycle Thresholds</p>
+<p style="position:absolute;top:338px;left:69px;white-space:nowrap" class="ft06">Software&#160;can opt&#160;to reduce the&#160;frequency of cycle&#160;packets,&#160;a&#160;trade-off&#160;to save&#160;bandwidth&#160;and intrusion at&#160;the&#160;<br/>expense of&#160;precision. This&#160;is done by utilizing&#160;a cycle&#160;threshold (see<a href="o_fe12b1e2a880e0ce-1700.html">&#160;Section 36.2.7.2).<br/></a>IA32_RTIT_CTL.CycThresh indicates to&#160;the processor the&#160;minimum&#160;number of cycles&#160;that&#160;must pass&#160;before&#160;the&#160;<br/>next&#160;CYC packet should&#160;be sent. If&#160;this value&#160;is 0, no threshold is used,&#160;and CYC packets can&#160;be&#160;sent&#160;every&#160;cycle in&#160;<br/>which a&#160;CYC-eligible packet&#160;is generated. If&#160;this value&#160;is&#160;greater&#160;than 0, the hardware will wait until&#160;the associated&#160;<br/>number of cycles&#160;have passed&#160;since the&#160;last&#160;CYC packet&#160;before sending another.&#160;CPUID provides the&#160;threshold&#160;<br/>options for CycThresh, se<a href="o_fe12b1e2a880e0ce-1709.html">e Section 36.3.1.<br/></a>Note that the&#160;cycle threshold&#160;does&#160;not dictate how frequently&#160;a CYC packet will&#160;be&#160;posted,&#160;it merely assigns the&#160;<br/>maximum frequency.&#160;If the&#160;cycle threshold&#160;is 16,&#160;a CYC packet can&#160;be&#160;posted no more&#160;frequently than every 16&#160;<br/>cycles. However,&#160;once that threshold of&#160;16&#160;cycles&#160;has passed, it still requires&#160;a&#160;new CYC-eligible packet to be gener-<br/>ated&#160;before&#160;a CYC will be&#160;inserted<a href="o_fe12b1e2a880e0ce-1717.html">.&#160;Table&#160;36-14&#160;</a>illustrates&#160;the threshold behavior.</p>
+<p style="position:absolute;top:831px;left:69px;white-space:nowrap" class="ft04">36.3.7&#160;</p>
+<p style="position:absolute;top:831px;left:149px;white-space:nowrap" class="ft04">Decoder Synchronization (PSB+)</p>
+<p style="position:absolute;top:860px;left:69px;white-space:nowrap" class="ft06">The&#160;PSB&#160;pack<a href="o_fe12b1e2a880e0ce-1738.html">et (Section 36.4.2.17)</a>&#160;serves&#160;as&#160;a&#160;synchronization&#160;point for&#160;a trace-packet decoder.&#160;It&#160;is&#160;a&#160;pattern&#160;in&#160;<br/>the trace log for which the&#160;decoder can&#160;quickly&#160;scan to align packet boundaries. No legal&#160;packet&#160;combination can&#160;<br/>result&#160;in such&#160;a&#160;byte sequence. As such,&#160;it serves&#160;as the&#160;starting&#160;point for packet&#160;decode.&#160;To&#160;decode a&#160;trace&#160;log&#160;<br/>properly, the&#160;decoder&#160;needs&#160;more&#160;than simply&#160;to be&#160;aligned: it&#160;needs to know&#160;some state&#160;and&#160;potentially&#160;some&#160;<br/>timing information&#160;as well. The&#160;decoder&#160;should never need&#160;to retain&#160;any information&#160;(e.g.,&#160;LastIP, call&#160;stack,&#160;<br/>compound&#160;packet event) across&#160;a PSB; all&#160;compound packet&#160;events will be completed&#160;before&#160;a PSB,&#160;and&#160;any&#160;<br/>compression state will be reset.<br/>When a&#160;PSB packet&#160;is&#160;generated,&#160;it is followed by a PSBEND&#160;pack<a href="o_fe12b1e2a880e0ce-1739.html">et (Section 36.4.2.18</a>). One or more&#160;packets may&#160;<br/>be generated in&#160;between&#160;those two packets,&#160;and these inform&#160;the&#160;decoder of&#160;the current&#160;state of&#160;the processor.&#160;<br/>These packets, known&#160;collectively&#160;as PSB+, should&#160;be&#160;interpreted&#160;as “status only”,&#160;since&#160;they do&#160;not imply any&#160;<br/>change of&#160;state at&#160;the time&#160;of&#160;the PSB,&#160;nor are&#160;they associated directly with any instruction or&#160;event.&#160;Thus, the&#160;</p>
+<p style="position:absolute;top:106px;left:69px;white-space:nowrap" class="ft01">Example 36-2. &#160;An Example&#160;of&#160;CYC in the Presence&#160;of&#160;Multi-Packet&#160;Operations</p>
+<p style="position:absolute;top:128px;left:86px;white-space:nowrap" class="ft03">Time&#160;(cycles)</p>
+<p style="position:absolute;top:128px;left:207px;white-space:nowrap" class="ft03">Instruction Snapshot</p>
+<p style="position:absolute;top:128px;left:541px;white-space:nowrap" class="ft03">Generated&#160;Packets</p>
+<p style="position:absolute;top:153px;left:75px;white-space:nowrap" class="ft03">x</p>
+<p style="position:absolute;top:153px;left:188px;white-space:nowrap" class="ft03">jnz&#160;Foo (not&#160;taken)</p>
+<p style="position:absolute;top:153px;left:365px;white-space:nowrap" class="ft03">CYC(?),&#160;</p>
+<p style="position:absolute;top:177px;left:75px;white-space:nowrap" class="ft03">x + 2</p>
+<p style="position:absolute;top:177px;left:188px;white-space:nowrap" class="ft03">ret&#160;(compressed)</p>
+<p style="position:absolute;top:200px;left:75px;white-space:nowrap" class="ft03">x + 8</p>
+<p style="position:absolute;top:200px;left:188px;white-space:nowrap" class="ft03">jnz&#160;Bar (taken)</p>
+<p style="position:absolute;top:225px;left:75px;white-space:nowrap" class="ft03">x + 9</p>
+<p style="position:absolute;top:225px;left:188px;white-space:nowrap" class="ft03">jmp&#160;%eax&#160;</p>
+<p style="position:absolute;top:225px;left:365px;white-space:nowrap" class="ft03">TNT,&#160;CYC(9), TIP</p>
+<p style="position:absolute;top:249px;left:75px;white-space:nowrap" class="ft03">x + 12</p>
+<p style="position:absolute;top:249px;left:188px;white-space:nowrap" class="ft03">jnz Bar (not&#160;taken)</p>
+<p style="position:absolute;top:249px;left:365px;white-space:nowrap" class="ft03">CYC(3)</p>
+<p style="position:absolute;top:272px;left:75px;white-space:nowrap" class="ft03">x + 32</p>
+<p style="position:absolute;top:272px;left:188px;white-space:nowrap" class="ft03">int3 (task gate)</p>
+<p style="position:absolute;top:272px;left:365px;white-space:nowrap" class="ft03">TNT, FUP,&#160;CYC(10), PIP,&#160;CYC(20), MODE.Exec, TIP</p>
+<p style="position:absolute;top:546px;left:292px;white-space:nowrap" class="ft05">Table 36-14. An&#160;Illustrative&#160;CYC Packet&#160;Example</p>
+<p style="position:absolute;top:582px;left:85px;white-space:nowrap" class="ft03">Time&#160;(cycles)</p>
+<p style="position:absolute;top:582px;left:199px;white-space:nowrap" class="ft03">Instruction Snapshot</p>
+<p style="position:absolute;top:570px;left:561px;white-space:nowrap" class="ft03">Threshold</p>
+<p style="position:absolute;top:594px;left:351px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:594px;left:482px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:594px;left:603px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:594px;left:723px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:618px;left:75px;white-space:nowrap" class="ft03">x</p>
+<p style="position:absolute;top:618px;left:185px;white-space:nowrap" class="ft03">jmp&#160;%eax</p>
+<p style="position:absolute;top:618px;left:351px;white-space:nowrap" class="ft03">CYC,&#160;TIP</p>
+<p style="position:absolute;top:618px;left:482px;white-space:nowrap" class="ft03">CYC,&#160;TIP</p>
+<p style="position:absolute;top:618px;left:603px;white-space:nowrap" class="ft03">CYC,&#160;TIP</p>
+<p style="position:absolute;top:618px;left:723px;white-space:nowrap" class="ft03">CYC,&#160;TIP</p>
+<p style="position:absolute;top:642px;left:75px;white-space:nowrap" class="ft03">x + 9</p>
+<p style="position:absolute;top:642px;left:185px;white-space:nowrap" class="ft03">call %ebx</p>
+<p style="position:absolute;top:642px;left:351px;white-space:nowrap" class="ft03">CYC, TIP</p>
+<p style="position:absolute;top:642px;left:482px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:642px;left:603px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:642px;left:723px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:666px;left:75px;white-space:nowrap" class="ft03">x + 15</p>
+<p style="position:absolute;top:666px;left:185px;white-space:nowrap" class="ft03">call %ecx</p>
+<p style="position:absolute;top:666px;left:351px;white-space:nowrap" class="ft03">CYC, TIP</p>
+<p style="position:absolute;top:666px;left:482px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:666px;left:603px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:666px;left:723px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:690px;left:75px;white-space:nowrap" class="ft03">x + 30</p>
+<p style="position:absolute;top:690px;left:185px;white-space:nowrap" class="ft03">jmp %edx</p>
+<p style="position:absolute;top:690px;left:351px;white-space:nowrap" class="ft03">CYC, TIP</p>
+<p style="position:absolute;top:690px;left:482px;white-space:nowrap" class="ft03">CYC,&#160;TIP</p>
+<p style="position:absolute;top:690px;left:603px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:690px;left:723px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:714px;left:75px;white-space:nowrap" class="ft03">x + 38</p>
+<p style="position:absolute;top:714px;left:185px;white-space:nowrap" class="ft03">mov cr3, %eax</p>
+<p style="position:absolute;top:714px;left:351px;white-space:nowrap" class="ft03">CYC, PIP</p>
+<p style="position:absolute;top:714px;left:482px;white-space:nowrap" class="ft03">PIP</p>
+<p style="position:absolute;top:714px;left:603px;white-space:nowrap" class="ft03">CYC, PIP</p>
+<p style="position:absolute;top:714px;left:723px;white-space:nowrap" class="ft03">PIP</p>
+<p style="position:absolute;top:738px;left:75px;white-space:nowrap" class="ft03">x + 46</p>
+<p style="position:absolute;top:738px;left:185px;white-space:nowrap" class="ft03">jmp [%eax]</p>
+<p style="position:absolute;top:738px;left:351px;white-space:nowrap" class="ft03">CYC, TIP</p>
+<p style="position:absolute;top:738px;left:482px;white-space:nowrap" class="ft03">CYC, TIP</p>
+<p style="position:absolute;top:738px;left:603px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:738px;left:723px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:762px;left:75px;white-space:nowrap" class="ft03">x + 64</p>
+<p style="position:absolute;top:762px;left:185px;white-space:nowrap" class="ft03">call %edx</p>
+<p style="position:absolute;top:762px;left:351px;white-space:nowrap" class="ft03">CYC, TIP</p>
+<p style="position:absolute;top:762px;left:482px;white-space:nowrap" class="ft03">CYC, TIP</p>
+<p style="position:absolute;top:762px;left:603px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:762px;left:723px;white-space:nowrap" class="ft03">CYC,TIP</p>
+<p style="position:absolute;top:786px;left:75px;white-space:nowrap" class="ft03">x&#160;+ 71</p>
+<p style="position:absolute;top:786px;left:185px;white-space:nowrap" class="ft03">jmp&#160;%edx</p>
+<p style="position:absolute;top:786px;left:351px;white-space:nowrap" class="ft03">CYC,&#160;TIP</p>
+<p style="position:absolute;top:786px;left:482px;white-space:nowrap" class="ft03">TIP</p>
+<p style="position:absolute;top:786px;left:603px;white-space:nowrap" class="ft03">CYC,TIP</p>
+<p style="position:absolute;top:786px;left:723px;white-space:nowrap" class="ft03">TIP</p>
+</div>
+</body>
+</html>

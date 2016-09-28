@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1477</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1477-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811477.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VEXTRACTF128/VEXTRACTF32x4/VEXTRACTF64x2/VEXTRACTF32x8/VEXTRACTF64x4—Extract Packed Floating-Point Values</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:771px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-91</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">VEX.vvvv and&#160;EVEX.vvvv are reserved and&#160;must&#160;be&#160;1111b&#160;otherwise instructions will #UD.<br/>The high&#160;6 bits of the&#160;immediate&#160;are&#160;ignored.<br/>If&#160;VEXTRACTF128 is&#160;encoded with VEX.L= 0,&#160;an attempt&#160;to execute the&#160;instruction encoded&#160;with&#160;VEX.L= 0 will&#160;<br/>cause&#160;an #UD exception.</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:218px;left:69px;white-space:nowrap" class="ft05">VEXTRACTF32x4&#160;(EVEX&#160;encoded versions) when destination is&#160;a register<br/>VL&#160;= 256, 512<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:272px;left:89px;white-space:nowrap" class="ft02">CASE (imm8[0]) OF</p>
+<p style="position:absolute;top:290px;left:116px;white-space:nowrap" class="ft05">0: TMP_DEST[127:0]&#160;&#160;SRC1[127:0]<br/>1: TMP_DEST[127:0]&#160;&#160;SRC1[255:128]</p>
+<p style="position:absolute;top:326px;left:89px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:344px;left:69px;white-space:nowrap" class="ft05">FI;<br/>IF&#160;VL = 512&#160;</p>
+<p style="position:absolute;top:381px;left:89px;white-space:nowrap" class="ft02">CASE (imm8[1:0]) OF</p>
+<p style="position:absolute;top:399px;left:116px;white-space:nowrap" class="ft05">00: TMP_DEST[127:0]&#160;&#160;SRC1[127:0]<br/>01: TMP_DEST[127:0]&#160;&#160;SRC1[255:128]<br/>10: TMP_DEST[127:0]&#160;&#160;SRC1[383:256]<br/>11: TMP_DEST[127:0]&#160;&#160;SRC1[511:384]</p>
+<p style="position:absolute;top:471px;left:89px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:489px;left:69px;white-space:nowrap" class="ft05">FI;<br/>FOR j&#160;&#160;0 TO 3</p>
+<p style="position:absolute;top:525px;left:89px;white-space:nowrap" class="ft05">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:561px;left:116px;white-space:nowrap" class="ft05">THEN DEST[i+31:i]&#160;&#160;TMP_DEST[i+31:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:597px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:597px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:615px;left:170px;white-space:nowrap" class="ft05">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:633px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:651px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:669px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:687px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:705px;left:69px;white-space:nowrap" class="ft05">ENDFOR<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:759px;left:69px;white-space:nowrap" class="ft05">VEXTRACTF32x4&#160;(EVEX&#160;encoded&#160;versions) when destination is&#160;memory<br/>VL&#160;= 256, 512<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:813px;left:89px;white-space:nowrap" class="ft02">CASE (imm8[0]) OF</p>
+<p style="position:absolute;top:831px;left:116px;white-space:nowrap" class="ft05">0: TMP_DEST[127:0]&#160;&#160;SRC1[127:0]<br/>1: TMP_DEST[127:0]&#160;&#160;SRC1[255:128]</p>
+<p style="position:absolute;top:867px;left:89px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft05">FI;<br/>IF&#160;VL = 512&#160;</p>
+<p style="position:absolute;top:921px;left:89px;white-space:nowrap" class="ft02">CASE (imm8[1:0]) OF</p>
+<p style="position:absolute;top:939px;left:116px;white-space:nowrap" class="ft05">00: TMP_DEST[127:0]&#160;&#160;SRC1[127:0]<br/>01: TMP_DEST[127:0]&#160;&#160;SRC1[255:128]<br/>10: TMP_DEST[127:0]&#160;&#160;SRC1[383:256]<br/>11: TMP_DEST[127:0]&#160;&#160;SRC1[511:384]</p>
+<p style="position:absolute;top:1011px;left:89px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:1029px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+</div>
+</body>
+</html>

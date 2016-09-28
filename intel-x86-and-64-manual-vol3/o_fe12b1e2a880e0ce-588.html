@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 588</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page588-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce588.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-14&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">17.4.6&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">CPL-Qualified Branch Trace Mechanism</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft07">CPL-qualified&#160;branch trace mechanism is&#160;available&#160;to a&#160;subset&#160;of&#160;Intel 64 and IA-32 processors that support the&#160;<br/>branch trace storing&#160;mechanism. The processor supports the&#160;CPL-qualified branch trace mechanism if&#160;<br/>CPUID.01H:ECX[bit&#160;4]&#160;=&#160;1.<br/>The CPL-qualified branch trace mechanism is described in&#160;Section&#160;<a href="o_fe12b1e2a880e0ce-598.html">17.4.9.4. S</a>ystem software&#160;can&#160;selectively&#160;specify&#160;<br/>CPL&#160;qualification to&#160;not send/store Branch&#160;Trace Messages associated with a&#160;specified privilege level. Two&#160;bit&#160;fields,&#160;<br/>BTS_OFF_USR (bit&#160;10)&#160;and BTS_OFF_OS (bit 9), are provided&#160;in the&#160;debug&#160;control register&#160;to specify the&#160;CPL of&#160;<br/>BTMs that&#160;will&#160;not be&#160;logged&#160;in&#160;the BTS&#160;buffer or&#160;sent on the&#160;bus.</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft02">17.4.7&#160;</p>
+<p style="position:absolute;top:286px;left:148px;white-space:nowrap" class="ft02">Freezing LBR and Performance Counters on PMI&#160;</p>
+<p style="position:absolute;top:316px;left:68px;white-space:nowrap" class="ft07">Many&#160;issues&#160;may generate a&#160;performance&#160;monitoring interrupt (PMI); a&#160;PMI&#160;service handler will need&#160;to&#160;determine&#160;<br/>cause to&#160;handle the&#160;situation.&#160;Two capabilities&#160;that allow a&#160;PMI&#160;service&#160;routine&#160;to improve branch tracing and&#160;<br/>performance monitoring are available for&#160;processors supporting architectural performance monitoring version&#160;2&#160;or&#160;<br/>greater (i.e. CPUID.0AH:EAX[7:0]&#160;&gt; 1). These capabilities&#160;provides&#160;the following interface&#160;in IA32_DEBUGCTL&#160;to&#160;<br/>reduce&#160;runtime&#160;overhead of&#160;PMI servicing,&#160;profiler-contributed skew&#160;effects on&#160;analysis&#160;or counter&#160;metrics:</p>
+<p style="position:absolute;top:404px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:405px;left:93px;white-space:nowrap" class="ft08"><b>Freezing&#160;LBRs&#160;on&#160;PMI&#160;(bit&#160;11)</b>— Allows&#160;the PMI&#160;service routine&#160;to ensure the&#160;content in&#160;the LBR&#160;stack are&#160;<br/>associated with the&#160;target workload and&#160;not&#160;polluted by&#160;the&#160;branch&#160;flows of handling&#160;the&#160;PMI. Depending on&#160;the&#160;<br/>version ID enumerated by&#160;CPUID.0AH:EAX.ArchPerfMonVerID[bits&#160;7:0],&#160;two flavors&#160;are supported:<br/>—&#160;Legacy&#160;Freeze_LBR_on_PMI is&#160;supported&#160;for&#160;ArchPerfMonVerID&#160;&lt;= 3&#160;and&#160;ArchPerfMonVerID &gt;1. If&#160;</p>
+<p style="position:absolute;top:478px;left:119px;white-space:nowrap" class="ft07">IA32_DEBUGCTL.Freeze_LBR_On_PMI&#160;= 1,&#160;the LBR is&#160;frozen&#160;on&#160;the overflowed condition&#160;of&#160;the buffer&#160;<br/>area,&#160;the processor clears the&#160;LBR&#160;bit (bit 0)&#160;in&#160;IA32_DEBUGCTL. Software&#160;must then&#160;re-enable&#160;<br/>IA32_DEBUGCTL.LBR to&#160;resume&#160;recording&#160;branches.&#160;When&#160;using&#160;this feature, software&#160;should be careful&#160;<br/>about writes to&#160;IA32_DEBUGCTL&#160;to&#160;avoid&#160;re-enabling&#160;LBRs&#160;by accident if&#160;they&#160;were just disabled.</p>
+<p style="position:absolute;top:552px;left:93px;white-space:nowrap" class="ft03">—&#160;Streamlined&#160;Freeze_LBR_on_PMI&#160;is supported for ArchPerfMonVerID&#160;&gt;= 4. If&#160;</p>
+<p style="position:absolute;top:568px;left:119px;white-space:nowrap" class="ft03">IA32_DEBUGCTL.Freeze_LBR_On_PMI&#160;= 1,&#160;the processor behaves&#160;as follows:</p>
+<p style="position:absolute;top:594px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:592px;left:144px;white-space:nowrap" class="ft03">sets&#160;IA32_PERF_GLOBAL_STATUS.LBR_Frz =1 to&#160;disable&#160;recording,&#160;but does not change the&#160;LBR&#160;bit&#160;</p>
+<p style="position:absolute;top:609px;left:143px;white-space:nowrap" class="ft03">(bit 0) in IA32_DEBUGCTL.&#160;The&#160;LBRs are frozen&#160;on&#160;the overflowed condition of&#160;the buffer area.</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:631px;left:93px;white-space:nowrap" class="ft08"><b>Freezing&#160;PMCs on PMI&#160;</b>(bit 12) —&#160;Allows the&#160;PMI&#160;service&#160;routine to ensure the&#160;content in the performance&#160;<br/>counters are&#160;associated with&#160;the&#160;target&#160;workload and not polluted&#160;by&#160;the PMI and activities&#160;within&#160;the PMI&#160;<br/>service routine. Depending on&#160;the version ID enumerated&#160;by CPUID.0AH:EAX.ArchPerfMonVerID[bits 7:0], two&#160;<br/>flavors are&#160;supported:<br/>—&#160;Legacy&#160;Freeze_Perfmon_on_PMI is&#160;supported&#160;for ArchPerfMonVerID&#160;&lt;= 3&#160;and&#160;ArchPerfMonVerID &gt;1.&#160;If&#160;</p>
+<p style="position:absolute;top:721px;left:119px;white-space:nowrap" class="ft07">IA32_DEBUGCTL.Freeze_Perfmon_On_PMI = 1,&#160;the performance counters&#160;are frozen on the&#160;counter&#160;<br/>overflowed condition when&#160;the&#160;processor&#160;clears the IA32_PERF_GLOBAL_CTRL MSR (see<a href="o_fe12b1e2a880e0ce-643.html">&#160;Figure&#160;18-3</a>). The&#160;<br/>PMCs affected&#160;include&#160;both general-purpose&#160;counters&#160;and&#160;fixed-function&#160;counters&#160;(see<a href="o_fe12b1e2a880e0ce-653.html">&#160;Section 18.4.1,&#160;<br/>“Fixed-function Performance Counters”). Softw</a>are must re-enable&#160;counts&#160;by writing 1s to&#160;the&#160;corre-<br/>sponding enable bits in IA32_PERF_GLOBAL_CTRL&#160;before&#160;leaving&#160;a PMI service routine to continue&#160;counter&#160;<br/>operation.</p>
+<p style="position:absolute;top:828px;left:93px;white-space:nowrap" class="ft03">—&#160;Streamlined&#160;Freeze_Perfmon_on_PMI is&#160;supported&#160;for&#160;ArchPerfMonVerID&#160;&gt;= 4. The&#160;processor behaves as&#160;</p>
+<p style="position:absolute;top:844px;left:119px;white-space:nowrap" class="ft03">follows:</p>
+<p style="position:absolute;top:870px;left:119px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:868px;left:144px;white-space:nowrap" class="ft03">sets IA32_PERF_GLOBAL_STATUS.CTR_Frz =1 to&#160;disable counting&#160;on&#160;a counter overflow&#160;condition,&#160;but&#160;</p>
+<p style="position:absolute;top:885px;left:143px;white-space:nowrap" class="ft03">does&#160;not change&#160;the&#160;IA32_PERF_GLOBAL_CTRL&#160;MSR.&#160;</p>
+<p style="position:absolute;top:909px;left:68px;white-space:nowrap" class="ft03">Freezing LBRs and PMCs on PMIs&#160;(both legacy and streamlined&#160;operation)&#160;occur when one of the following applies:</p>
+<p style="position:absolute;top:931px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:931px;left:93px;white-space:nowrap" class="ft08">A&#160;performance counter&#160;had an overflow&#160;and was&#160;programmed to&#160;signal a&#160;PMI&#160;in case of an&#160;overflow.<br/>—&#160;For the&#160;general-purpose&#160;counters;&#160;enabling&#160;PMI&#160;is&#160;done&#160;by setting bit 20&#160;of the&#160;IA32_PERFEVTSELx&#160;</p>
+<p style="position:absolute;top:972px;left:119px;white-space:nowrap" class="ft03">register.</p>
+<p style="position:absolute;top:996px;left:93px;white-space:nowrap" class="ft03">—&#160;For the fixed-function&#160;counters; enabling PMI&#160;is done&#160;by&#160;setting&#160;the 3rd bit in&#160;the&#160;corresponding 4-bit&#160;</p>
+<p style="position:absolute;top:1012px;left:119px;white-space:nowrap" class="ft07">control&#160;field&#160;of&#160;the MSR_PERF_FIXED_CTR_CTRL register&#160;(see<a href="o_fe12b1e2a880e0ce-639.html">&#160;Figure&#160;18-1</a>)&#160;or IA32_FIXED_CTR_CTRL&#160;MSR&#160;<br/><a href="o_fe12b1e2a880e0ce-643.html">(see Figure 18-2).</a></p>
+<p style="position:absolute;top:1051px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1051px;left:93px;white-space:nowrap" class="ft03">The&#160;PEBS buffer&#160;is almost full and reaches&#160;the&#160;interrupt threshold.</p>
+</div>
+</body>
+</html>

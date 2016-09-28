@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 436</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page436-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce436.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">11-24&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MEMORY&#160;CACHE CONTROL</p>
+<p style="position:absolute;top:637px;left:68px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-437.html">Figure&#160;11-7 shows flags&#160;</a>and fields in&#160;these&#160;registers.&#160;The functions of these&#160;flags&#160;and fields are:</p>
+<p style="position:absolute;top:659px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:660px;left:93px;white-space:nowrap" class="ft06"><b>Type field, bits 0 through&#160;7&#160;</b>— Specifies the&#160;memory type&#160;for the range (see<a href="o_fe12b1e2a880e0ce-433.html">&#160;Table 11-8</a>&#160;for the encoding of&#160;<br/>this field).</p>
+<p style="position:absolute;top:698px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:699px;left:93px;white-space:nowrap" class="ft06"><b>PhysBase&#160;field,&#160;bits&#160;12&#160;through (MAXPHYADDR-1)&#160;</b>— Specifies&#160;the base&#160;address of the&#160;address range.&#160;<br/>This 24-bit value,&#160;in&#160;the case where&#160;MAXPHYADDR&#160;is 36 bits,&#160;is extended&#160;by 12&#160;bits&#160;at the low end to&#160;form&#160;the&#160;<br/>base address&#160;(this automatically aligns&#160;the&#160;address on&#160;a 4-KByte boundary).</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:754px;left:93px;white-space:nowrap" class="ft07"><b>PhysMask&#160;field, bits&#160;12&#160;through&#160;(MAXPHYADDR-1)&#160;</b>—&#160;Specifies&#160;a mask (24 bits if the&#160;maximum physical&#160;<br/>address&#160;size is&#160;36&#160;bits, 28 bits if&#160;the maximum&#160;physical&#160;address&#160;size is&#160;40&#160;bits). The mask determines the range&#160;<br/>of&#160;the region being mapped, according to&#160;the following relationships:<br/>—&#160;Address_Within_Range&#160;AND PhysMask = PhysBase AND&#160;PhysMask<br/>—&#160;This value is&#160;extended&#160;by 12&#160;bits&#160;at the&#160;low&#160;end to&#160;form the&#160;mask&#160;value. For more in<a href="o_fe12b1e2a880e0ce-438.html">formation: see Section&#160;</a></p>
+<p style="position:absolute;top:852px;left:119px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-438.html">11.11.3, “Example Base&#160;and&#160;Mask Calculations.”</a></p>
+<p style="position:absolute;top:876px;left:93px;white-space:nowrap" class="ft02">—&#160;The width&#160;of&#160;the PhysMask field&#160;depends&#160;on the&#160;maximum physical address&#160;size supported&#160;by the&#160;</p>
+<p style="position:absolute;top:892px;left:119px;white-space:nowrap" class="ft02">processor.&#160;</p>
+<p style="position:absolute;top:925px;left:119px;white-space:nowrap" class="ft06">CPUID.80000008H reports the&#160;maximum physical&#160;address size supported&#160;by&#160;the processor.&#160;If&#160;<br/>CPUID.80000008H&#160;is not available,&#160;software&#160;may&#160;assume&#160;that&#160;the processor supports a&#160;36-bit physical&#160;<br/>address&#160;size&#160;(then PhysMask&#160;is 24&#160;bits wide&#160;and&#160;the upper 28 bits of IA32_MTRR_PHYSMASKn&#160;are&#160;<br/>reserved).&#160;See&#160;the Note&#160;below.</p>
+<p style="position:absolute;top:997px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:997px;left:93px;white-space:nowrap" class="ft04"><b>V&#160;(valid) flag,&#160;bit&#160;11&#160;</b>— Enables&#160;the register&#160;pair&#160;when&#160;set; disables&#160;register pair when clear.</p>
+<p style="position:absolute;top:118px;left:270px;white-space:nowrap" class="ft05">Table 11-9.&#160;&#160;Address Mapping&#160;for&#160;Fixed-Range MTRRs</p>
+<p style="position:absolute;top:139px;left:75px;white-space:nowrap" class="ft02">Address Range (hexadecimal)</p>
+<p style="position:absolute;top:139px;left:707px;white-space:nowrap" class="ft02">MTRR</p>
+<p style="position:absolute;top:162px;left:75px;white-space:nowrap" class="ft02">63 &#160; 56</p>
+<p style="position:absolute;top:162px;left:154px;white-space:nowrap" class="ft02">55 &#160; &#160;48</p>
+<p style="position:absolute;top:162px;left:233px;white-space:nowrap" class="ft02">47 &#160; &#160;40</p>
+<p style="position:absolute;top:162px;left:312px;white-space:nowrap" class="ft02">39 &#160; &#160;32</p>
+<p style="position:absolute;top:162px;left:391px;white-space:nowrap" class="ft02">31 &#160; &#160; 24</p>
+<p style="position:absolute;top:162px;left:470px;white-space:nowrap" class="ft02">23 &#160; &#160; 16</p>
+<p style="position:absolute;top:162px;left:549px;white-space:nowrap" class="ft02">15 &#160; &#160; 8</p>
+<p style="position:absolute;top:162px;left:628px;white-space:nowrap" class="ft02">7&#160; &#160; &#160; 0</p>
+<p style="position:absolute;top:184px;left:75px;white-space:nowrap" class="ft02">70000-</p>
+<p style="position:absolute;top:200px;left:75px;white-space:nowrap" class="ft02">7FFFF</p>
+<p style="position:absolute;top:184px;left:154px;white-space:nowrap" class="ft02">60000-</p>
+<p style="position:absolute;top:200px;left:154px;white-space:nowrap" class="ft02">6FFFF</p>
+<p style="position:absolute;top:184px;left:233px;white-space:nowrap" class="ft02">50000-</p>
+<p style="position:absolute;top:200px;left:233px;white-space:nowrap" class="ft02">5FFFF</p>
+<p style="position:absolute;top:184px;left:312px;white-space:nowrap" class="ft02">40000-</p>
+<p style="position:absolute;top:200px;left:312px;white-space:nowrap" class="ft02">4FFFF</p>
+<p style="position:absolute;top:184px;left:391px;white-space:nowrap" class="ft02">30000-</p>
+<p style="position:absolute;top:200px;left:391px;white-space:nowrap" class="ft02">3FFFF</p>
+<p style="position:absolute;top:184px;left:470px;white-space:nowrap" class="ft02">20000-</p>
+<p style="position:absolute;top:200px;left:470px;white-space:nowrap" class="ft02">2FFFF</p>
+<p style="position:absolute;top:184px;left:549px;white-space:nowrap" class="ft02">10000-</p>
+<p style="position:absolute;top:200px;left:549px;white-space:nowrap" class="ft02">1FFFF</p>
+<p style="position:absolute;top:184px;left:628px;white-space:nowrap" class="ft02">00000-</p>
+<p style="position:absolute;top:200px;left:628px;white-space:nowrap" class="ft02">0FFFF</p>
+<p style="position:absolute;top:184px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:200px;left:707px;white-space:nowrap" class="ft02">FIX64K_00000</p>
+<p style="position:absolute;top:223px;left:75px;white-space:nowrap" class="ft02">9C000</p>
+<p style="position:absolute;top:240px;left:75px;white-space:nowrap" class="ft02">9FFFF</p>
+<p style="position:absolute;top:223px;left:154px;white-space:nowrap" class="ft02">98000-</p>
+<p style="position:absolute;top:240px;left:154px;white-space:nowrap" class="ft02">9BFFF</p>
+<p style="position:absolute;top:223px;left:233px;white-space:nowrap" class="ft02">94000-</p>
+<p style="position:absolute;top:240px;left:233px;white-space:nowrap" class="ft02">97FFF</p>
+<p style="position:absolute;top:223px;left:312px;white-space:nowrap" class="ft02">90000-</p>
+<p style="position:absolute;top:240px;left:312px;white-space:nowrap" class="ft02">93FFF</p>
+<p style="position:absolute;top:223px;left:391px;white-space:nowrap" class="ft02">8C000-</p>
+<p style="position:absolute;top:240px;left:391px;white-space:nowrap" class="ft02">8FFFF</p>
+<p style="position:absolute;top:223px;left:470px;white-space:nowrap" class="ft02">88000-</p>
+<p style="position:absolute;top:240px;left:470px;white-space:nowrap" class="ft02">8BFFF</p>
+<p style="position:absolute;top:223px;left:549px;white-space:nowrap" class="ft02">84000-</p>
+<p style="position:absolute;top:240px;left:549px;white-space:nowrap" class="ft02">87FFF</p>
+<p style="position:absolute;top:223px;left:628px;white-space:nowrap" class="ft02">80000-</p>
+<p style="position:absolute;top:240px;left:628px;white-space:nowrap" class="ft02">83FFF</p>
+<p style="position:absolute;top:223px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:240px;left:707px;white-space:nowrap" class="ft02">FIX16K_80000</p>
+<p style="position:absolute;top:262px;left:75px;white-space:nowrap" class="ft02">BC000</p>
+<p style="position:absolute;top:279px;left:75px;white-space:nowrap" class="ft02">BFFFF</p>
+<p style="position:absolute;top:262px;left:154px;white-space:nowrap" class="ft02">B8000-</p>
+<p style="position:absolute;top:279px;left:154px;white-space:nowrap" class="ft02">BBFFF</p>
+<p style="position:absolute;top:262px;left:233px;white-space:nowrap" class="ft02">B4000-</p>
+<p style="position:absolute;top:279px;left:233px;white-space:nowrap" class="ft02">B7FFF</p>
+<p style="position:absolute;top:262px;left:312px;white-space:nowrap" class="ft02">B0000-</p>
+<p style="position:absolute;top:279px;left:312px;white-space:nowrap" class="ft02">B3FFF</p>
+<p style="position:absolute;top:262px;left:391px;white-space:nowrap" class="ft02">AC000-</p>
+<p style="position:absolute;top:279px;left:391px;white-space:nowrap" class="ft02">AFFFF</p>
+<p style="position:absolute;top:262px;left:470px;white-space:nowrap" class="ft02">A8000-</p>
+<p style="position:absolute;top:279px;left:470px;white-space:nowrap" class="ft02">ABFFF</p>
+<p style="position:absolute;top:262px;left:549px;white-space:nowrap" class="ft02">A4000-</p>
+<p style="position:absolute;top:279px;left:549px;white-space:nowrap" class="ft02">A7FFF</p>
+<p style="position:absolute;top:262px;left:628px;white-space:nowrap" class="ft02">A0000-</p>
+<p style="position:absolute;top:279px;left:628px;white-space:nowrap" class="ft02">A3FFF</p>
+<p style="position:absolute;top:262px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:279px;left:707px;white-space:nowrap" class="ft02">FIX16K_A0000</p>
+<p style="position:absolute;top:301px;left:75px;white-space:nowrap" class="ft02">C7000</p>
+<p style="position:absolute;top:317px;left:75px;white-space:nowrap" class="ft02">C7FFF</p>
+<p style="position:absolute;top:301px;left:154px;white-space:nowrap" class="ft02">C6000-</p>
+<p style="position:absolute;top:317px;left:154px;white-space:nowrap" class="ft02">C6FFF</p>
+<p style="position:absolute;top:301px;left:233px;white-space:nowrap" class="ft02">C5000-</p>
+<p style="position:absolute;top:317px;left:233px;white-space:nowrap" class="ft02">C5FFF</p>
+<p style="position:absolute;top:301px;left:312px;white-space:nowrap" class="ft02">C4000-</p>
+<p style="position:absolute;top:317px;left:312px;white-space:nowrap" class="ft02">C4FFF</p>
+<p style="position:absolute;top:301px;left:391px;white-space:nowrap" class="ft02">C3000-</p>
+<p style="position:absolute;top:317px;left:391px;white-space:nowrap" class="ft02">C3FFF</p>
+<p style="position:absolute;top:301px;left:470px;white-space:nowrap" class="ft02">C2000-</p>
+<p style="position:absolute;top:317px;left:470px;white-space:nowrap" class="ft02">C2FFF</p>
+<p style="position:absolute;top:301px;left:549px;white-space:nowrap" class="ft02">C1000-</p>
+<p style="position:absolute;top:317px;left:549px;white-space:nowrap" class="ft02">C1FFF</p>
+<p style="position:absolute;top:301px;left:628px;white-space:nowrap" class="ft02">C0000-</p>
+<p style="position:absolute;top:317px;left:628px;white-space:nowrap" class="ft02">C0FFF</p>
+<p style="position:absolute;top:301px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:317px;left:707px;white-space:nowrap" class="ft02">FIX4K_C0000</p>
+<p style="position:absolute;top:340px;left:75px;white-space:nowrap" class="ft02">CF000</p>
+<p style="position:absolute;top:357px;left:75px;white-space:nowrap" class="ft02">CFFFF</p>
+<p style="position:absolute;top:340px;left:154px;white-space:nowrap" class="ft02">CE000-</p>
+<p style="position:absolute;top:357px;left:154px;white-space:nowrap" class="ft02">CEFFF</p>
+<p style="position:absolute;top:340px;left:233px;white-space:nowrap" class="ft02">CD000-</p>
+<p style="position:absolute;top:357px;left:233px;white-space:nowrap" class="ft02">CDFFF</p>
+<p style="position:absolute;top:340px;left:312px;white-space:nowrap" class="ft02">CC000-</p>
+<p style="position:absolute;top:357px;left:312px;white-space:nowrap" class="ft02">CCFFF</p>
+<p style="position:absolute;top:340px;left:391px;white-space:nowrap" class="ft02">CB000-</p>
+<p style="position:absolute;top:357px;left:391px;white-space:nowrap" class="ft02">CBFFF</p>
+<p style="position:absolute;top:340px;left:470px;white-space:nowrap" class="ft02">CA000-</p>
+<p style="position:absolute;top:357px;left:470px;white-space:nowrap" class="ft02">CAFFF</p>
+<p style="position:absolute;top:340px;left:549px;white-space:nowrap" class="ft02">C9000-</p>
+<p style="position:absolute;top:357px;left:549px;white-space:nowrap" class="ft02">C9FFF</p>
+<p style="position:absolute;top:340px;left:628px;white-space:nowrap" class="ft02">C8000-</p>
+<p style="position:absolute;top:357px;left:628px;white-space:nowrap" class="ft02">C8FFF</p>
+<p style="position:absolute;top:340px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:357px;left:707px;white-space:nowrap" class="ft02">FIX4K_C8000</p>
+<p style="position:absolute;top:379px;left:75px;white-space:nowrap" class="ft02">D7000</p>
+<p style="position:absolute;top:396px;left:75px;white-space:nowrap" class="ft02">D7FFF</p>
+<p style="position:absolute;top:379px;left:154px;white-space:nowrap" class="ft02">D6000-</p>
+<p style="position:absolute;top:396px;left:154px;white-space:nowrap" class="ft02">D6FFF</p>
+<p style="position:absolute;top:379px;left:233px;white-space:nowrap" class="ft02">D5000-</p>
+<p style="position:absolute;top:396px;left:233px;white-space:nowrap" class="ft02">D5FFF</p>
+<p style="position:absolute;top:379px;left:312px;white-space:nowrap" class="ft02">D4000-</p>
+<p style="position:absolute;top:396px;left:312px;white-space:nowrap" class="ft02">D4FFF</p>
+<p style="position:absolute;top:379px;left:391px;white-space:nowrap" class="ft02">D3000-</p>
+<p style="position:absolute;top:396px;left:391px;white-space:nowrap" class="ft02">D3FFF</p>
+<p style="position:absolute;top:379px;left:470px;white-space:nowrap" class="ft02">D2000-</p>
+<p style="position:absolute;top:396px;left:470px;white-space:nowrap" class="ft02">D2FFF</p>
+<p style="position:absolute;top:379px;left:549px;white-space:nowrap" class="ft02">D1000-</p>
+<p style="position:absolute;top:396px;left:549px;white-space:nowrap" class="ft02">D1FFF</p>
+<p style="position:absolute;top:379px;left:628px;white-space:nowrap" class="ft02">D0000-</p>
+<p style="position:absolute;top:396px;left:628px;white-space:nowrap" class="ft02">D0FFF</p>
+<p style="position:absolute;top:379px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:396px;left:707px;white-space:nowrap" class="ft02">FIX4K_D0000</p>
+<p style="position:absolute;top:418px;left:75px;white-space:nowrap" class="ft02">DF000</p>
+<p style="position:absolute;top:435px;left:75px;white-space:nowrap" class="ft02">DFFFF</p>
+<p style="position:absolute;top:418px;left:154px;white-space:nowrap" class="ft02">DE000-</p>
+<p style="position:absolute;top:435px;left:154px;white-space:nowrap" class="ft02">DEFFF</p>
+<p style="position:absolute;top:418px;left:233px;white-space:nowrap" class="ft02">DD000-</p>
+<p style="position:absolute;top:435px;left:233px;white-space:nowrap" class="ft02">DDFFF</p>
+<p style="position:absolute;top:418px;left:312px;white-space:nowrap" class="ft02">DC000-</p>
+<p style="position:absolute;top:435px;left:312px;white-space:nowrap" class="ft02">DCFFF</p>
+<p style="position:absolute;top:418px;left:391px;white-space:nowrap" class="ft02">DB000-</p>
+<p style="position:absolute;top:435px;left:391px;white-space:nowrap" class="ft02">DBFFF</p>
+<p style="position:absolute;top:418px;left:470px;white-space:nowrap" class="ft02">DA000-</p>
+<p style="position:absolute;top:435px;left:470px;white-space:nowrap" class="ft02">DAFFF</p>
+<p style="position:absolute;top:418px;left:549px;white-space:nowrap" class="ft02">D9000-</p>
+<p style="position:absolute;top:435px;left:549px;white-space:nowrap" class="ft02">D9FFF</p>
+<p style="position:absolute;top:418px;left:628px;white-space:nowrap" class="ft02">D8000-</p>
+<p style="position:absolute;top:435px;left:628px;white-space:nowrap" class="ft02">D8FFF</p>
+<p style="position:absolute;top:418px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:435px;left:707px;white-space:nowrap" class="ft02">FIX4K_D8000</p>
+<p style="position:absolute;top:457px;left:75px;white-space:nowrap" class="ft02">E7000</p>
+<p style="position:absolute;top:474px;left:75px;white-space:nowrap" class="ft02">E7FFF</p>
+<p style="position:absolute;top:457px;left:154px;white-space:nowrap" class="ft02">E6000-</p>
+<p style="position:absolute;top:474px;left:154px;white-space:nowrap" class="ft02">E6FFF</p>
+<p style="position:absolute;top:457px;left:233px;white-space:nowrap" class="ft02">E5000-</p>
+<p style="position:absolute;top:474px;left:233px;white-space:nowrap" class="ft02">E5FFF</p>
+<p style="position:absolute;top:457px;left:312px;white-space:nowrap" class="ft02">E4000-</p>
+<p style="position:absolute;top:474px;left:312px;white-space:nowrap" class="ft02">E4FFF</p>
+<p style="position:absolute;top:457px;left:391px;white-space:nowrap" class="ft02">E3000-</p>
+<p style="position:absolute;top:474px;left:391px;white-space:nowrap" class="ft02">E3FFF</p>
+<p style="position:absolute;top:457px;left:470px;white-space:nowrap" class="ft02">E2000-</p>
+<p style="position:absolute;top:474px;left:470px;white-space:nowrap" class="ft02">E2FFF</p>
+<p style="position:absolute;top:457px;left:549px;white-space:nowrap" class="ft02">E1000-</p>
+<p style="position:absolute;top:474px;left:549px;white-space:nowrap" class="ft02">E1FFF</p>
+<p style="position:absolute;top:457px;left:628px;white-space:nowrap" class="ft02">E0000-</p>
+<p style="position:absolute;top:474px;left:628px;white-space:nowrap" class="ft02">E0FFF</p>
+<p style="position:absolute;top:457px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:474px;left:707px;white-space:nowrap" class="ft02">FIX4K_E0000</p>
+<p style="position:absolute;top:496px;left:75px;white-space:nowrap" class="ft02">EF000</p>
+<p style="position:absolute;top:513px;left:75px;white-space:nowrap" class="ft02">EFFFF</p>
+<p style="position:absolute;top:496px;left:154px;white-space:nowrap" class="ft02">EE000-</p>
+<p style="position:absolute;top:513px;left:154px;white-space:nowrap" class="ft02">EEFFF</p>
+<p style="position:absolute;top:496px;left:233px;white-space:nowrap" class="ft02">ED000-</p>
+<p style="position:absolute;top:513px;left:233px;white-space:nowrap" class="ft02">EDFFF</p>
+<p style="position:absolute;top:496px;left:312px;white-space:nowrap" class="ft02">EC000-</p>
+<p style="position:absolute;top:513px;left:312px;white-space:nowrap" class="ft02">ECFFF</p>
+<p style="position:absolute;top:496px;left:391px;white-space:nowrap" class="ft02">EB000-</p>
+<p style="position:absolute;top:513px;left:391px;white-space:nowrap" class="ft02">EBFFF</p>
+<p style="position:absolute;top:496px;left:470px;white-space:nowrap" class="ft02">EA000-</p>
+<p style="position:absolute;top:513px;left:470px;white-space:nowrap" class="ft02">EAFFF</p>
+<p style="position:absolute;top:496px;left:549px;white-space:nowrap" class="ft02">E9000-</p>
+<p style="position:absolute;top:513px;left:549px;white-space:nowrap" class="ft02">E9FFF</p>
+<p style="position:absolute;top:496px;left:628px;white-space:nowrap" class="ft02">E8000-</p>
+<p style="position:absolute;top:513px;left:628px;white-space:nowrap" class="ft02">E8FFF</p>
+<p style="position:absolute;top:496px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:513px;left:707px;white-space:nowrap" class="ft02">FIX4K_E8000</p>
+<p style="position:absolute;top:535px;left:75px;white-space:nowrap" class="ft02">F7000</p>
+<p style="position:absolute;top:552px;left:75px;white-space:nowrap" class="ft02">F7FFF</p>
+<p style="position:absolute;top:535px;left:154px;white-space:nowrap" class="ft02">F6000-</p>
+<p style="position:absolute;top:552px;left:154px;white-space:nowrap" class="ft02">F6FFF</p>
+<p style="position:absolute;top:535px;left:233px;white-space:nowrap" class="ft02">F5000-</p>
+<p style="position:absolute;top:552px;left:233px;white-space:nowrap" class="ft02">F5FFF</p>
+<p style="position:absolute;top:535px;left:312px;white-space:nowrap" class="ft02">F4000-</p>
+<p style="position:absolute;top:552px;left:312px;white-space:nowrap" class="ft02">F4FFF</p>
+<p style="position:absolute;top:535px;left:391px;white-space:nowrap" class="ft02">F3000-</p>
+<p style="position:absolute;top:552px;left:391px;white-space:nowrap" class="ft02">F3FFF</p>
+<p style="position:absolute;top:535px;left:470px;white-space:nowrap" class="ft02">F2000-</p>
+<p style="position:absolute;top:552px;left:470px;white-space:nowrap" class="ft02">F2FFF</p>
+<p style="position:absolute;top:535px;left:549px;white-space:nowrap" class="ft02">F1000-</p>
+<p style="position:absolute;top:552px;left:549px;white-space:nowrap" class="ft02">F1FFF</p>
+<p style="position:absolute;top:535px;left:628px;white-space:nowrap" class="ft02">F0000-</p>
+<p style="position:absolute;top:552px;left:628px;white-space:nowrap" class="ft02">F0FFF</p>
+<p style="position:absolute;top:535px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:552px;left:707px;white-space:nowrap" class="ft02">FIX4K_F0000</p>
+<p style="position:absolute;top:574px;left:75px;white-space:nowrap" class="ft02">FF000</p>
+<p style="position:absolute;top:591px;left:75px;white-space:nowrap" class="ft02">FFFFF</p>
+<p style="position:absolute;top:574px;left:154px;white-space:nowrap" class="ft02">FE000-</p>
+<p style="position:absolute;top:591px;left:154px;white-space:nowrap" class="ft02">FEFFF</p>
+<p style="position:absolute;top:574px;left:233px;white-space:nowrap" class="ft02">FD000-</p>
+<p style="position:absolute;top:591px;left:233px;white-space:nowrap" class="ft02">FDFFF</p>
+<p style="position:absolute;top:574px;left:312px;white-space:nowrap" class="ft02">FC000-</p>
+<p style="position:absolute;top:591px;left:312px;white-space:nowrap" class="ft02">FCFFF</p>
+<p style="position:absolute;top:574px;left:391px;white-space:nowrap" class="ft02">FB000-</p>
+<p style="position:absolute;top:591px;left:391px;white-space:nowrap" class="ft02">FBFFF</p>
+<p style="position:absolute;top:574px;left:470px;white-space:nowrap" class="ft02">FA000-</p>
+<p style="position:absolute;top:591px;left:470px;white-space:nowrap" class="ft02">FAFFF</p>
+<p style="position:absolute;top:574px;left:549px;white-space:nowrap" class="ft02">F9000-</p>
+<p style="position:absolute;top:591px;left:549px;white-space:nowrap" class="ft02">F9FFF</p>
+<p style="position:absolute;top:574px;left:628px;white-space:nowrap" class="ft02">F8000-</p>
+<p style="position:absolute;top:591px;left:628px;white-space:nowrap" class="ft02">F8FFF</p>
+<p style="position:absolute;top:574px;left:707px;white-space:nowrap" class="ft02">IA32_MTRR_</p>
+<p style="position:absolute;top:591px;left:707px;white-space:nowrap" class="ft02">FIX4K_F8000</p>
+</div>
+</body>
+</html>

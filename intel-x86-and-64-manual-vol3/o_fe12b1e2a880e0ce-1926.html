@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1926</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1926-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1926.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">42-8&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® SGX INTERACTIONS WITH IA32 AND INTEL® 64&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">42.7.5&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">Processor Extended States and AEX</p>
+<p style="position:absolute;top:149px;left:68px;white-space:nowrap" class="ft03">42.7.5.1 &#160;&#160;State Saving</p>
+<p style="position:absolute;top:176px;left:68px;white-space:nowrap" class="ft06">On&#160;an AEX,&#160;processor&#160;extended&#160;states&#160;are&#160;saved&#160;into the&#160;XSAVE&#160;area of the&#160;SSA&#160;frame&#160;in a compatible&#160;format with&#160;<br/>XSAVE that was executed with EDX:EAX&#160;=&#160;SECS.ATTRIBUTES.XFRM, with the&#160;memory&#160;operand being the&#160;XSAVE&#160;<br/>area, and (for&#160;64-bit enclaves) as if REX.W=1. The&#160;XSTATE_BV part of the XSAVE header is saved with 0&#160;for every&#160;<br/>bit&#160;that is&#160;0 in&#160;XFRM.&#160;Other bits may&#160;be&#160;saved as&#160;0 if&#160;the&#160;state&#160;saved is&#160;initialized.<br/>Note&#160;that&#160;enclave entry ensures&#160;that if CR4.OSXSAVE&#160;is&#160;set to&#160;0, then&#160;SECS.ATTRIBUTES.XFRM is&#160;set&#160;to 3. It&#160;<br/>should&#160;also&#160;be&#160;noted&#160;that&#160;it&#160;is not possible&#160;to enter an enclave with FXSAVE&#160;disabled.&#160;</p>
+<p style="position:absolute;top:309px;left:68px;white-space:nowrap" class="ft03">42.7.5.2 &#160;&#160;State Synthesis</p>
+<p style="position:absolute;top:336px;left:68px;white-space:nowrap" class="ft06">After saving the extended&#160;state,&#160;the processor restores XCR0&#160;to the&#160;value&#160;it held at&#160;the time&#160;of the&#160;most&#160;recent&#160;<br/>enclave entry.<br/>The state of&#160;features&#160;corresponding to&#160;bits set in&#160;XFRM&#160;is&#160;synthesized. In general, these states&#160;are&#160;initialized.&#160;<br/>Details of state&#160;synthesis on&#160;AEX&#160;are docume<a href="o_fe12b1e2a880e0ce-1805.html">nted in Section&#160;40.3.1</a>.</p>
+<p style="position:absolute;top:442px;left:68px;white-space:nowrap" class="ft02">42.7.6&#160;</p>
+<p style="position:absolute;top:442px;left:148px;white-space:nowrap" class="ft02">Processor Extended States and ENCLU[ERESUME]</p>
+<p style="position:absolute;top:493px;left:68px;white-space:nowrap" class="ft03">42.7.6.1 &#160;&#160;Fault Checking</p>
+<p style="position:absolute;top:520px;left:68px;white-space:nowrap" class="ft06">The ERESUME leaf&#160;function&#160;of&#160;the ENCLU&#160;instruction&#160;enforces a&#160;number of consistency&#160;requirements&#160;described&#160;<br/>earlier.&#160;Specifically, the&#160;ENCLU[ERESUME]&#160;leaf function&#160;results&#160;in a&#160;#GP(0) in&#160;any of the&#160;following&#160;cases:&#160;</p>
+<p style="position:absolute;top:558px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:559px;left:93px;white-space:nowrap" class="ft04">CR4.OSFXSR=0.</p>
+<p style="position:absolute;top:580px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:581px;left:93px;white-space:nowrap" class="ft09">The&#160;processor supports&#160;XSAVE and&#160;either&#160;of&#160;the following&#160;is&#160;true:<br/>—&#160;CR4.OSXSAVE=0 and&#160;SECS.ATTRIBUTES.XFRM&#160;is not&#160;3.&#160;<br/>—&#160;(SECS.ATTRIBUTES.XFRM &amp;&#160;XCR0) != SECS.ATTRIBUTES.XFRM.</p>
+<p style="position:absolute;top:652px;left:68px;white-space:nowrap" class="ft06">A successful execution&#160;of ENCLU[ERESUME] loads state&#160;from&#160;the&#160;XSAVE area&#160;of&#160;the&#160;SSA&#160;frame&#160;in a&#160;fashion similar&#160;<br/>to that&#160;used&#160;by&#160;the XRSTOR&#160;instruction. Data in the XSAVE area that would&#160;cause the&#160;XRSTOR&#160;instruction to fault&#160;<br/>will&#160;cause&#160;the ENCLU[ERESUME]&#160;leaf function&#160;to fault.&#160;Examples include,&#160;but are&#160;not restricted to&#160;the following:</p>
+<p style="position:absolute;top:706px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:707px;left:93px;white-space:nowrap" class="ft04">A bit&#160;is set in&#160;the XSTATE_BV field and&#160;clear&#160;in&#160;XFRM.&#160;</p>
+<p style="position:absolute;top:729px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:730px;left:93px;white-space:nowrap" class="ft04">The required&#160;bytes in&#160;the&#160;header are&#160;not clear.&#160;</p>
+<p style="position:absolute;top:751px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:752px;left:93px;white-space:nowrap" class="ft04">Loading data&#160;would set&#160;a reserved bit in MXCSR.</p>
+<p style="position:absolute;top:775px;left:68px;white-space:nowrap" class="ft04">Any of these conditions&#160;will&#160;cause&#160;ERESUME to fault, even if CR4.OSXSAVE=0.&#160;</p>
+<p style="position:absolute;top:819px;left:68px;white-space:nowrap" class="ft03">42.7.6.2 &#160;&#160;State Loading</p>
+<p style="position:absolute;top:846px;left:68px;white-space:nowrap" class="ft06">If ENCLU[ERESUME] is&#160;successful,&#160;the current&#160;value&#160;of XCR0&#160;is&#160;saved internally by&#160;the&#160;processor and&#160;replaced&#160;by&#160;<br/>SECS.ATTRIBUTES.XFRM.<br/>State is&#160;loaded from&#160;the XSAVE&#160;area of&#160;the SSA&#160;frame as&#160;if the&#160;XRSTOR&#160;instruction were&#160;executed&#160;with&#160;<br/>XCR0=XFRM,&#160;EDX:EAX&#160;=&#160;XFRM,&#160;with the memory&#160;operand&#160;being&#160;the XSAVE area,&#160;and&#160;(for 64-bit&#160;enclaves)&#160;as&#160;if&#160;<br/>REX.W=1.&#160;<br/>ENCLU[ERESUME] ensures that&#160;a subsequent execution of&#160;XSAVEOPT inside the enclave&#160;will operate properly (e.g.,&#160;<br/>by marking all&#160;state as&#160;modified).</p>
+<p style="position:absolute;top:1007px;left:68px;white-space:nowrap" class="ft02">42.7.7&#160;</p>
+<p style="position:absolute;top:1007px;left:148px;white-space:nowrap" class="ft02">Processor Extended States and ENCLU[EEXIT]</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft06">The&#160;ENCLU[EEXIT]&#160;leaf function does not perform&#160;any X-feature specific consistency&#160;checks,&#160;nor&#160;performs any&#160;<br/>state&#160;synthesis. It&#160;is&#160;the&#160;responsibility of&#160;enclave&#160;software&#160;to&#160;clear any&#160;sensitive&#160;data from&#160;the registers&#160;before&#160;</p>
+</div>
+</body>
+</html>

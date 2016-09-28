@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 590</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page590-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce590.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-16&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft09"><a href="��">Registers (MSRs)” of&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual,&#160;Volume 3C</i></a>&#160;for model-<br/>specific MSR&#160;addresses).&#160;</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft010"><b>Last Branch Record (LBR) Stack —&#160;</b>The LBR&#160;consists of N&#160;pairs&#160;of&#160;MSRs (N&#160;is listed&#160;in&#160;the LBR stack size&#160;<br/><a href="o_fe12b1e2a880e0ce-589.html">column of Table&#160;17-4)&#160;</a>that&#160;store&#160;source&#160;and&#160;destination&#160;address of recent branches&#160;(see<a href="o_fe12b1e2a880e0ce-586.html">&#160;Figure&#160;17-3):&#160;<br/></a>—&#160;MSR_LASTBRANCH_0_FROM_IP&#160;(address&#160;is model specific) through the&#160;next consecutive (N-1) MSR&#160;</p>
+<p style="position:absolute;top:196px;left:119px;white-space:nowrap" class="ft02">address&#160;store&#160;source&#160;addresses.</p>
+<p style="position:absolute;top:220px;left:93px;white-space:nowrap" class="ft02">—&#160;MSR_LASTBRANCH_0_TO_IP (address is model specific&#160;) through the&#160;next&#160;consecutive (N-1) MSR&#160;address&#160;</p>
+<p style="position:absolute;top:237px;left:119px;white-space:nowrap" class="ft02">store&#160;destination addresses.</p>
+<p style="position:absolute;top:259px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:259px;left:93px;white-space:nowrap" class="ft09"><b>Last Branch Record Top-of-Stack (TOS) Pointer&#160;</b>—&#160;The&#160;lowest&#160;significant M bits of the&#160;TOS Pointer MSR&#160;<br/>(MSR_LASTBRANCH_TOS,&#160;address is model specific) contains&#160;an M-bit pointer to the MSR in the&#160;LBR stack that&#160;<br/>contains the&#160;most recent branch, interrupt,&#160;or&#160;exception&#160;recorded.&#160;The&#160;valid range of&#160;the M-bit POS pointer is&#160;<br/>give<a href="o_fe12b1e2a880e0ce-589.html">n in&#160;Table&#160;17-4</a>.</p>
+<p style="position:absolute;top:353px;left:68px;white-space:nowrap" class="ft06">17.4.8.1 &#160;&#160;LBR&#160;Stack and&#160;Intel® 64 Processors&#160;</p>
+<p style="position:absolute;top:382px;left:68px;white-space:nowrap" class="ft09">LBR MSRs are 64-bits. In 64-bit mode, last branch records&#160;store the full address. Outside of 64-bit mode, the upper&#160;<br/>32-bits of branch addresses&#160;will be&#160;stored as&#160;0.&#160;</p>
+<p style="position:absolute;top:657px;left:68px;white-space:nowrap" class="ft02">Software should&#160;query an&#160;architectural MSR&#160;IA32_PERF_CAPABILITIES[5:0] about&#160;the format of the&#160;address that&#160;</p>
+<p style="position:absolute;top:673px;left:68px;white-space:nowrap" class="ft02">is stored in&#160;the LBR&#160;stack.&#160;Four formats are defined by the following&#160;encoding:</p>
+<p style="position:absolute;top:697px;left:93px;white-space:nowrap" class="ft010">—&#160;<b>000000B (32-bit record&#160;format) —&#160;</b>Stores&#160;32-bit&#160;offset&#160;in current&#160;CS&#160;of respective source/destination,<br/>—&#160;<b>000001B (64-bit LIP&#160;record&#160;format)&#160;—&#160;</b>Stores&#160;64-bit linear&#160;address of respective source/destination,<br/>—&#160;<b>000010B (64-bit EIP record&#160;format) —&#160;</b>Stores 64-bit offset&#160;(effective&#160;address) of respective&#160;</p>
+<p style="position:absolute;top:762px;left:119px;white-space:nowrap" class="ft02">source/destination.</p>
+<p style="position:absolute;top:786px;left:93px;white-space:nowrap" class="ft02">—&#160;<b>000011B (64-bit&#160;EIP&#160;record&#160;format)&#160;and&#160;Flags</b>&#160;— Stores&#160;64-bit offset (effective&#160;address)&#160;of respective&#160;</p>
+<p style="position:absolute;top:802px;left:119px;white-space:nowrap" class="ft09">source/destination.&#160;Misprediction&#160;info&#160;is reported in&#160;the&#160;upper bit of 'FROM' registers in the LBR stack. See&#160;<br/>LBR stack&#160;details&#160;below for flag&#160;support&#160;and&#160;definition.</p>
+<p style="position:absolute;top:843px;left:93px;white-space:nowrap" class="ft02">—&#160;<b>000100B (64-bit EIP record&#160;format),&#160;Flags and TSX&#160;</b>— Stores 64-bit&#160;offset&#160;(effective&#160;address)&#160;of&#160;</p>
+<p style="position:absolute;top:859px;left:119px;white-space:nowrap" class="ft09">respective&#160;source/destination. Misprediction and TSX info&#160;are reported in the upper bits of ‘FROM’ registers&#160;<br/>in&#160;the LBR stack.&#160;</p>
+<p style="position:absolute;top:900px;left:93px;white-space:nowrap" class="ft02">—&#160;<b>000101B (64-bit EIP record&#160;format),&#160;Flags, TSX,&#160;LBR_INFO&#160;</b>— Stores 64-bit&#160;offset&#160;(effective&#160;</p>
+<p style="position:absolute;top:916px;left:119px;white-space:nowrap" class="ft09">address)&#160;of respective source/destination. Misprediction, TSX, and elapsed cycles since the last LBR update&#160;<br/>are&#160;reported in&#160;the LBR_INFO&#160;MSR&#160;stack.&#160;</p>
+<p style="position:absolute;top:957px;left:93px;white-space:nowrap" class="ft02">—&#160;<b>000110B (64-bit EIP record&#160;format),&#160;Flags, Cycles&#160;</b>—&#160;Stores&#160;64-bit linear address (CS.Base&#160;+&#160;</p>
+<p style="position:absolute;top:973px;left:119px;white-space:nowrap" class="ft09">effective&#160;address) of respective source/destination.&#160;Misprediction info is&#160;reported&#160;in&#160;the upper&#160;bits of&#160;<br/>'FROM'&#160;registers in&#160;the&#160;LBR stack.&#160;Elapsed cycles since the last LBR update are reported&#160;in&#160;the upper&#160;16&#160;bits&#160;<br/>of&#160;the&#160;'TO'&#160;registers in&#160;the&#160;LBR&#160;stack (see<a href="o_fe12b1e2a880e0ce-600.html">&#160;Section 17.6).&#160;</a></p>
+<p style="position:absolute;top:1029px;left:68px;white-space:nowrap" class="ft09">Processor’s support for the&#160;architectural&#160;MSR&#160;IA32_PERF_CAPABILITIES&#160;is&#160;provided&#160;by&#160;<br/>CPUID.01H:ECX[PERF_CAPAB_MSR] (bit 15).</p>
+<p style="position:absolute;top:611px;left:292px;white-space:nowrap" class="ft07">Figure&#160;17-4. &#160;64-bit Address Layout of&#160;LBR MSR&#160;</p>
+<p style="position:absolute;top:484px;left:239px;white-space:nowrap" class="ft08">63</p>
+<p style="position:absolute;top:505px;left:494px;white-space:nowrap" class="ft00">Source Address</p>
+<p style="position:absolute;top:484px;left:639px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:547px;left:637px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:547px;left:237px;white-space:nowrap" class="ft08">63</p>
+<p style="position:absolute;top:566px;left:495px;white-space:nowrap" class="ft00">Destination&#160;Address</p>
+<p style="position:absolute;top:465px;left:238px;white-space:nowrap" class="ft00">MSR_LASTBRANCH_0_FROM_IP&#160;through MSR_LASTBRANCH_(N-1)_FROM_IP</p>
+<p style="position:absolute;top:533px;left:237px;white-space:nowrap" class="ft00">MSR_LASTBRANCH_0_TO_IP through MSR_LASTBRANCH_(N-1)_TO_IP</p>
+</div>
+</body>
+</html>

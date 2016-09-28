@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 397</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:15px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page397-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce397.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3A&#160;10-35</p>
+<p style="position:absolute;top:47px;left:484px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE&#160;INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:94px;white-space:nowrap" class="ft06">each local&#160;APIC. The details are&#160;similar to&#160;those described&#160;<a href="o_fe12b1e2a880e0ce-384.html">in Section 10.6.2, “Determining IPI Destination.” If&#160;<br/></a>RH is&#160;0,&#160;then the&#160;DM&#160;bit is&#160;ignored&#160;and the&#160;message&#160;is&#160;sent ahead&#160;independent of whether the&#160;physical&#160;or&#160;<br/>logical&#160;destination mode is&#160;used.</p>
+<p style="position:absolute;top:184px;left:69px;white-space:nowrap" class="ft03">10.11.2&#160;&#160;Message Data Register Format</p>
+<p style="position:absolute;top:214px;left:69px;white-space:nowrap" class="ft02">The&#160;layout of the&#160;Message&#160;Data Register is&#160;shown&#160;<a href="o_fe12b1e2a880e0ce-397.html">in&#160;Figure&#160;10-25.</a></p>
+<p style="position:absolute;top:718px;left:69px;white-space:nowrap" class="ft07">Reserved&#160;fields&#160;are&#160;not assumed&#160;to be any value.&#160;Software must preserve&#160;their&#160;contents on&#160;writes.&#160;Other fields in&#160;<br/>the Message&#160;Data Register&#160;are&#160;described&#160;below.<br/>1.&#160;<b>Vector</b>&#160;— This 8-bit field&#160;contains the&#160;interrupt&#160;vector&#160;associated&#160;with&#160;the message.&#160;Values&#160;range&#160;from&#160;010H&#160;</p>
+<p style="position:absolute;top:775px;left:95px;white-space:nowrap" class="ft02">to&#160;0FEH. Software must guarantee that&#160;the field is&#160;not&#160;programmed with vector 00H&#160;to 0FH.</p>
+<p style="position:absolute;top:799px;left:69px;white-space:nowrap" class="ft02">2.&#160;<b>Delivery Mode</b>&#160;— This&#160;3-bit field&#160;specifies how the interrupt receipt is handled. Delivery&#160;Modes operate&#160;only in&#160;</p>
+<p style="position:absolute;top:816px;left:95px;white-space:nowrap" class="ft08">conjunction with&#160;specified Trigger Modes. Correct Trigger Modes must be&#160;guaranteed&#160;by software. Restrictions&#160;<br/>are&#160;indicated&#160;below:<br/>a.&#160;<b>000B (Fixed&#160;Mode)</b>&#160;— Deliver the signal&#160;to all the agents&#160;listed in the destination.&#160;The Trigger Mode for</p>
+<p style="position:absolute;top:873px;left:120px;white-space:nowrap" class="ft02">fixed&#160;delivery mode can be edge or level.</p>
+<p style="position:absolute;top:897px;left:95px;white-space:nowrap" class="ft02">b.&#160;<b>001B (Lowest Priority)</b>&#160;— Deliver&#160;the&#160;signal to&#160;the agent that&#160;is executing at&#160;the lowest&#160;priority&#160;of all&#160;</p>
+<p style="position:absolute;top:913px;left:120px;white-space:nowrap" class="ft02">agents listed&#160;in the&#160;destination field.&#160;The&#160;trigger mode&#160;can be&#160;edge&#160;or level.</p>
+<p style="position:absolute;top:937px;left:95px;white-space:nowrap" class="ft02">c.&#160;<b>010B&#160;(System&#160;Management&#160;Interrupt or&#160;SMI)</b>&#160;—&#160;The&#160;delivery mode is edge only.&#160;For&#160;systems that rely&#160;</p>
+<p style="position:absolute;top:954px;left:120px;white-space:nowrap" class="ft02">on SMI&#160;semantics,&#160;the vector field is ignored but must&#160;be programmed&#160;to all zeroes for future&#160;compatibility.&#160;</p>
+<p style="position:absolute;top:978px;left:95px;white-space:nowrap" class="ft02">d.&#160;<b>100B (NMI)</b>&#160;—&#160;Deliver the&#160;signal to all the agents listed in the destination field. The&#160;vector&#160;information is&#160;</p>
+<p style="position:absolute;top:994px;left:120px;white-space:nowrap" class="ft02">ignored.&#160;NMI&#160;is&#160;an&#160;edge&#160;triggered interrupt&#160;regardless of&#160;the Trigger Mode Setting.</p>
+<p style="position:absolute;top:1018px;left:95px;white-space:nowrap" class="ft02">e.&#160;<b>101B (INIT)</b>&#160;— Deliver this&#160;signal to&#160;all the&#160;agents&#160;listed in&#160;the&#160;destination&#160;field. The&#160;vector information&#160;is&#160;</p>
+<p style="position:absolute;top:1035px;left:120px;white-space:nowrap" class="ft02">ignored.&#160;INIT&#160;is an edge&#160;triggered interrupt regardless&#160;of the&#160;Trigger&#160;Mode&#160;Setting.</p>
+<p style="position:absolute;top:672px;left:265px;white-space:nowrap" class="ft05">Figure&#160;10-25.&#160;&#160;Layout&#160;of&#160;the MSI Message Data&#160;Register</p>
+<p style="position:absolute;top:317px;left:219px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:385px;left:219px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:385px;left:438px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:385px;left:608px;white-space:nowrap" class="ft02">Vector</p>
+<p style="position:absolute;top:476px;left:520px;white-space:nowrap" class="ft02">Delivery Mode</p>
+<p style="position:absolute;top:508px;left:527px;white-space:nowrap" class="ft09">001&#160;- Lowest Priority<br/>010 -&#160;SMI<br/>011 - Reserved</p>
+<p style="position:absolute;top:568px;left:527px;white-space:nowrap" class="ft09">101 -&#160;INIT<br/>110 - Reserved<br/>111&#160;-&#160;ExtINT</p>
+<p style="position:absolute;top:476px;left:250px;white-space:nowrap" class="ft02">Trigger Mode</p>
+<p style="position:absolute;top:491px;left:257px;white-space:nowrap" class="ft09">0 - Edge<br/>1 - Level</p>
+<p style="position:absolute;top:544px;left:250px;white-space:nowrap" class="ft02">Level&#160;for Trigger&#160;Mode = 0</p>
+<p style="position:absolute;top:559px;left:257px;white-space:nowrap" class="ft02">X&#160;- Don’t care</p>
+<p style="position:absolute;top:574px;left:250px;white-space:nowrap" class="ft02">Level&#160;for Trigger&#160;Mode = 1</p>
+<p style="position:absolute;top:589px;left:257px;white-space:nowrap" class="ft09">0 - Deassert<br/>1 - Assert</p>
+<p style="position:absolute;top:491px;left:527px;white-space:nowrap" class="ft02">000 -&#160;Fixed</p>
+<p style="position:absolute;top:553px;left:527px;white-space:nowrap" class="ft02">100&#160;-&#160;NMI</p>
+<p style="position:absolute;top:367px;left:223px;white-space:nowrap" class="ft00">31</p>
+<p style="position:absolute;top:367px;left:329px;white-space:nowrap" class="ft00">16</p>
+<p style="position:absolute;top:367px;left:366px;white-space:nowrap" class="ft00">&#160;15</p>
+<p style="position:absolute;top:367px;left:409px;white-space:nowrap" class="ft00">14</p>
+<p style="position:absolute;top:367px;left:443px;white-space:nowrap" class="ft00">13</p>
+<p style="position:absolute;top:367px;left:509px;white-space:nowrap" class="ft00">11&#160;10</p>
+<p style="position:absolute;top:367px;left:596px;white-space:nowrap" class="ft00">8</p>
+<p style="position:absolute;top:367px;left:616px;white-space:nowrap" class="ft00">7</p>
+<p style="position:absolute;top:367px;left:676px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:299px;left:223px;white-space:nowrap" class="ft00">63</p>
+<p style="position:absolute;top:299px;left:668px;white-space:nowrap" class="ft00">32</p>
+</div>
+</body>
+</html>

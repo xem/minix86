@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1044</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:15px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1044-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1044.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">23-2&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTRODUCTION&#160;TO&#160;VIRTUAL MACHINE EXTENSIONS</p>
+<p style="position:absolute;top:97px;left:68px;white-space:nowrap" class="ft02">23.4&#160;</p>
+<p style="position:absolute;top:97px;left:147px;white-space:nowrap" class="ft02">LIFE&#160;CYCLE OF&#160;VMM SOFTWARE</p>
+<p style="position:absolute;top:133px;left:68px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-1044.html">Figure&#160;23-1 il</a>lustrates&#160;the life&#160;cycle of&#160;a VMM&#160;and&#160;its guest software&#160;as well&#160;as the interactions between them. The&#160;<br/>following&#160;items summarize&#160;that&#160;life&#160;cycle:</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft04">‚Ä¢</p>
+<p style="position:absolute;top:172px;left:93px;white-space:nowrap" class="ft03">Software&#160;enters&#160;VMX&#160;operation&#160;by executing&#160;a VMXON instruction.</p>
+<p style="position:absolute;top:194px;left:68px;white-space:nowrap" class="ft04">‚Ä¢</p>
+<p style="position:absolute;top:195px;left:93px;white-space:nowrap" class="ft08">Using VM entries,&#160;a VMM&#160;can&#160;then&#160;enter guests into&#160;virtual&#160;machines&#160;(one at&#160;a time). The VMM&#160;effects a&#160;<br/>VM&#160;entry&#160;using instructions VMLAUNCH&#160;and VMRESUME;&#160;it regains control using&#160;VM&#160;exits.&#160;</p>
+<p style="position:absolute;top:233px;left:68px;white-space:nowrap" class="ft04">‚Ä¢</p>
+<p style="position:absolute;top:234px;left:93px;white-space:nowrap" class="ft08">VM&#160;exits transfer&#160;control&#160;to an&#160;entry&#160;point specified by&#160;the&#160;VMM.&#160;The&#160;VMM can take action&#160;appropriate to&#160;the&#160;<br/>cause&#160;of the&#160;VM&#160;exit and can then&#160;return to&#160;the virtual machine using a VM&#160;entry.</p>
+<p style="position:absolute;top:272px;left:68px;white-space:nowrap" class="ft04">‚Ä¢</p>
+<p style="position:absolute;top:273px;left:93px;white-space:nowrap" class="ft08">Eventually,&#160;the VMM&#160;may decide&#160;to&#160;shut&#160;itself down and leave&#160;VMX operation.&#160;It&#160;does&#160;so by executing&#160;the&#160;<br/>VMXOFF instruction.</p>
+<p style="position:absolute;top:637px;left:68px;white-space:nowrap" class="ft02">23.5&#160;</p>
+<p style="position:absolute;top:637px;left:147px;white-space:nowrap" class="ft02">VIRTUAL-MACHINE CONTROL STRUCTURE</p>
+<p style="position:absolute;top:673px;left:68px;white-space:nowrap" class="ft08">VMX non-root operation and&#160;VMX&#160;transitions are&#160;controlled&#160;by&#160;a data structure&#160;called&#160;a virtual-machine control&#160;<br/>structure (VMCS).<br/>Access to&#160;the&#160;VMCS is&#160;managed through a&#160;component&#160;of processor&#160;state called&#160;the VMCS pointer (one&#160;per&#160;logical&#160;<br/>processor). The value of the&#160;VMCS pointer is the 64-bit address of the VMCS.&#160;The VMCS pointer is read and written&#160;<br/>using the&#160;instructions&#160;VMPTRST&#160;and&#160;VMPTRLD.&#160;The&#160;VMM&#160;configures&#160;a VMCS&#160;using the&#160;VMREAD, VMWRITE,&#160;and&#160;<br/>VMCLEAR instructions.<br/>A VMM&#160;could use&#160;a different VMCS for each&#160;virtual machine&#160;that it&#160;supports. For a virtual&#160;machine&#160;with&#160;multiple&#160;<br/>logical processors (virtual processors),&#160;the VMM&#160;could use&#160;a different&#160;VMCS for each&#160;virtual&#160;processor.</p>
+<p style="position:absolute;top:859px;left:68px;white-space:nowrap" class="ft02">23.6&#160;</p>
+<p style="position:absolute;top:859px;left:147px;white-space:nowrap" class="ft02">DISCOVERING SUPPORT FOR VMX</p>
+<p style="position:absolute;top:895px;left:68px;white-space:nowrap" class="ft08">Before&#160;system&#160;software&#160;enters&#160;into&#160;VMX&#160;operation,&#160;it&#160;must discover the presence of VMX&#160;support in the processor.&#160;<br/>System&#160;software can&#160;determine&#160;whether a&#160;processor&#160;supports VMX operation using&#160;CPUID.&#160;If&#160;<br/>CPUID.1:ECX.VMX[bit 5]&#160;=&#160;1,&#160;then VMX operation is supported.<a href="˛ˇ">&#160;See Chapter 3, ‚ÄúInstruction Set&#160;Reference, A-L‚Äù</a>&#160;of&#160;<br/><a href="˛ˇ"><i>Intel¬Æ 64&#160;and&#160;IA-32 Architectures Software&#160;Developer‚Äôs&#160;Manual, Volume&#160;2A</i>.<br/></a>The&#160;VMX architecture is&#160;designed&#160;to be&#160;extensible so&#160;that future processors in&#160;VMX operation&#160;can&#160;support&#160;addi-<br/>tional features&#160;not present in&#160;first-generation&#160;implementations of the&#160;VMX&#160;architecture. The&#160;availability of&#160;exten-<br/>sible&#160;VMX&#160;features is&#160;reported&#160;to&#160;software using&#160;a set&#160;of VMX capability MSRs&#160;(see&#160;<a href="˛ˇ">Appendix&#160;A, ‚ÄúVMX&#160;Capability&#160;<br/>Reporting Facility‚Äù).</a></p>
+<p style="position:absolute;top:579px;left:234px;white-space:nowrap" class="ft06">Figure&#160;23-1.&#160;&#160;Interaction of&#160;a&#160;Virtual-Machine Monitor&#160;and&#160;Guests</p>
+<p style="position:absolute;top:520px;left:401px;white-space:nowrap" class="ft07">VM&#160;Monitor</p>
+<p style="position:absolute;top:379px;left:274px;white-space:nowrap" class="ft07">Guest 0</p>
+<p style="position:absolute;top:379px;left:555px;white-space:nowrap" class="ft07">Guest 1</p>
+<p style="position:absolute;top:458px;left:240px;white-space:nowrap" class="ft07">VM Exit</p>
+<p style="position:absolute;top:458px;left:591px;white-space:nowrap" class="ft07">VM Exit</p>
+<p style="position:absolute;top:454px;left:412px;white-space:nowrap" class="ft07">VM&#160;Entry</p>
+<p style="position:absolute;top:520px;left:593px;white-space:nowrap" class="ft07">VMXOFF</p>
+<p style="position:absolute;top:520px;left:229px;white-space:nowrap" class="ft07">VMXON</p>
+</div>
+</body>
+</html>

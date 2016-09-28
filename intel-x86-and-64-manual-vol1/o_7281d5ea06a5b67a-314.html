@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 314</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page314-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a314.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">13-8&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MANAGING STATE&#160;USING THE XSAVE FEATURE SET</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">—&#160;All bits in XCOMP_BV&#160;should&#160;be 0 if the processor does not support the compaction extensions to the XSAVE&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft02">feature&#160;set.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft02">Bytes&#160;63:16&#160;of the&#160;XSAVE header are&#160;reserved.</p>
+<p style="position:absolute;top:163px;left:68px;white-space:nowrap" class="ft010"><a href="o_7281d5ea06a5b67a-320.html">Section 13.7 throug</a><a href="o_7281d5ea06a5b67a-322.html">h Section 13.9 provid</a>e details of&#160;how instructions in&#160;the XSAVE feature set&#160;use the&#160;XSAVE&#160;<br/>header of an XSAVE&#160;area.</p>
+<p style="position:absolute;top:230px;left:68px;white-space:nowrap" class="ft04">13.4.3&#160;</p>
+<p style="position:absolute;top:230px;left:148px;white-space:nowrap" class="ft04">Extended Region of&#160;an XSAVE Area</p>
+<p style="position:absolute;top:261px;left:68px;white-space:nowrap" class="ft011">The&#160;extended&#160;region&#160;of an XSAVE&#160;area starts&#160;at&#160;byte offset&#160;576&#160;from&#160;the area’s&#160;base address. The size&#160;of&#160;the&#160;<br/>extended&#160;region&#160;is determined&#160;by which state components&#160;the processor supports and which&#160;bits&#160;have&#160;been set&#160;in&#160;<br/>XCR0&#160;| IA32_XSS<a href="o_7281d5ea06a5b67a-310.html">&#160;(see Section 13.3).<br/></a>The XSAVE feature&#160;set uses&#160;the extended&#160;area&#160;for each state&#160;component&#160;<i>i</i>,&#160;where&#160;<i>i&#160;</i>≥&#160;2.&#160;The following&#160;state&#160;compo-</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft012">nents are currently&#160;supported in the extended&#160;area: state component&#160;2&#160;contains AVX state; state&#160;components 5–7&#160;<br/>contain AVX-512&#160;state; and state&#160;component&#160;9&#160;contains&#160;PKRU&#160;state.<br/>The extended&#160;region of the an XSAVE&#160;area may have&#160;one of two formats. The&#160;<b>standard&#160;format</b>&#160;is supported&#160;by all&#160;<br/>processors that&#160;support&#160;the XSAVE feature set;&#160;the&#160;<b>compacted format</b>&#160;is&#160;supported by those&#160;processors&#160;that&#160;<br/>support&#160;the compaction&#160;extensions to the XSAVE feature&#160;<a href="o_7281d5ea06a5b67a-308.html">set (see Section 13.2).</a>&#160;Bit&#160;63 of the&#160;XCOMP_BV&#160;field&#160;in&#160;<br/>the&#160;XSAV<a href="o_7281d5ea06a5b67a-313.html">E header (see Section&#160;13.4.2) ind</a>icates which&#160;format&#160;is used.<br/>The following items&#160;describe the&#160;two&#160;possible formats of the&#160;extended region:</p>
+<p style="position:absolute;top:470px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:471px;left:93px;white-space:nowrap" class="ft06"><b>Standard&#160;format.</b>&#160;Each state&#160;component&#160;<i>i</i>&#160;(<i>i&#160;</i>≥&#160;2) is&#160;located&#160;at the&#160;byte offset from the&#160;base&#160;address of&#160;the&#160;</p>
+<p style="position:absolute;top:487px;left:93px;white-space:nowrap" class="ft010">XSAVE area enumerated&#160;in&#160;CPUID.(EAX=0DH,ECX=<i>i</i>):EBX. (CPUID.(EAX=0DH,ECX=<i>i</i>):EAX enumerates&#160;the&#160;<br/>number of bytes&#160;required for state component&#160;<i>i</i>.</p>
+<p style="position:absolute;top:526px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:526px;left:93px;white-space:nowrap" class="ft06"><b>Compacted format.</b>&#160;Each state component&#160;<i>i</i>&#160;(<i>i&#160;</i>≥&#160;2) is&#160;located at&#160;a byte offset&#160;from the&#160;base&#160;address&#160;of&#160;the&#160;</p>
+<p style="position:absolute;top:543px;left:93px;white-space:nowrap" class="ft012">XSAVE area&#160;based&#160;on&#160;the XCOMP_BV&#160;field&#160;in&#160;the&#160;XSAVE header:<br/>—&#160;If&#160;&#160;XCOMP_BV[<i>i</i>]&#160;=&#160;0, state&#160;component&#160;<i>i</i>&#160;is&#160;not in&#160;the XSAVE area.<br/>—&#160;If&#160;&#160;XCOMP_BV[<i>i</i>]&#160;=&#160;1, state&#160;component&#160;<i>i</i>&#160;is&#160;located at&#160;a byte&#160;offset&#160;<i>location</i></p>
+<p style="position:absolute;top:597px;left:616px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:591px;left:620px;white-space:nowrap" class="ft02">&#160;from the&#160;base&#160;address of&#160;the&#160;</p>
+<p style="position:absolute;top:607px;left:119px;white-space:nowrap" class="ft02">XSAVE area,&#160;where&#160;<i>location</i></p>
+<p style="position:absolute;top:614px;left:305px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:607px;left:310px;white-space:nowrap" class="ft02">&#160;is&#160;determined by the&#160;following&#160;items:</p>
+<p style="position:absolute;top:633px;left:119px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:631px;left:144px;white-space:nowrap" class="ft02">If XCOMP_BV[<i>j</i>]&#160;=&#160;0 for every&#160;<i>j</i>, 2&#160;≤&#160;<i>j&#160;</i>&lt;&#160;<i>i</i>,&#160;<i>location</i></p>
+<p style="position:absolute;top:638px;left:478px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:631px;left:483px;white-space:nowrap" class="ft02">&#160;is 576. (This&#160;item applies&#160;if&#160;<i>i</i>&#160;is&#160;the first&#160;bit set in&#160;</p>
+<p style="position:absolute;top:648px;left:144px;white-space:nowrap" class="ft010">bits&#160;62:2&#160;of the&#160;XCOMP_BV;&#160;it implies that state component&#160;<i>i</i>&#160;is&#160;located at&#160;the beginning of&#160;the&#160;<br/>extended&#160;region.)&#160;</p>
+<p style="position:absolute;top:690px;left:119px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:688px;left:144px;white-space:nowrap" class="ft02">Otherwise,&#160;let&#160;<i>j</i>, 2&#160;≤&#160;<i>j&#160;</i>&lt;&#160;<i>i</i>,&#160;be&#160;the&#160;greatest value such&#160;that&#160;XCOMP_BV[<i>j</i>]&#160;=&#160;1. Then&#160;<i>location</i></p>
+<p style="position:absolute;top:695px;left:754px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:688px;left:759px;white-space:nowrap" class="ft02">&#160;is&#160;</p>
+<p style="position:absolute;top:705px;left:144px;white-space:nowrap" class="ft02">determined by the&#160;following&#160;values:&#160;<i>location</i></p>
+<p style="position:absolute;top:711px;left:442px;white-space:nowrap" class="ft07"><i>J</i></p>
+<p style="position:absolute;top:705px;left:447px;white-space:nowrap" class="ft02">;&#160;<i>size</i></p>
+<p style="position:absolute;top:711px;left:483px;white-space:nowrap" class="ft07"><i>J</i></p>
+<p style="position:absolute;top:705px;left:488px;white-space:nowrap" class="ft02">, as&#160;enumerated in&#160;CPUID.(EAX=0DH,ECX=<i>j</i>):EAX;&#160;</p>
+<p style="position:absolute;top:721px;left:144px;white-space:nowrap" class="ft02">and the&#160;value of&#160;<i>align</i></p>
+<p style="position:absolute;top:728px;left:290px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:721px;left:294px;white-space:nowrap" class="ft02">,&#160;as enumerated in&#160;CPUID.(EAX=0DH,ECX=<i>i</i>):ECX[1]:</p>
+<p style="position:absolute;top:747px;left:144px;white-space:nowrap" class="ft08">—</p>
+<p style="position:absolute;top:745px;left:170px;white-space:nowrap" class="ft02">If&#160;<i>align</i></p>
+<p style="position:absolute;top:752px;left:217px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:745px;left:226px;white-space:nowrap" class="ft02">= 0,&#160;<i>location</i></p>
+<p style="position:absolute;top:752px;left:312px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:745px;left:321px;white-space:nowrap" class="ft02">=&#160;<i>location</i></p>
+<p style="position:absolute;top:752px;left:389px;white-space:nowrap" class="ft07"><i>J</i></p>
+<p style="position:absolute;top:745px;left:394px;white-space:nowrap" class="ft05"><i>&#160;</i>+&#160;<i>size</i></p>
+<p style="position:absolute;top:752px;left:439px;white-space:nowrap" class="ft07"><i>J</i></p>
+<p style="position:absolute;top:745px;left:444px;white-space:nowrap" class="ft02">. (This&#160;item implies that&#160;state&#160;component&#160;<i>i</i>&#160;is&#160;located&#160;</p>
+<p style="position:absolute;top:762px;left:170px;white-space:nowrap" class="ft02">immediately following&#160;the&#160;preceding&#160;state&#160;component whose bit is&#160;set in XCOMP_BV.)</p>
+<p style="position:absolute;top:787px;left:144px;white-space:nowrap" class="ft08">—</p>
+<p style="position:absolute;top:786px;left:170px;white-space:nowrap" class="ft02">If&#160;<i>align</i></p>
+<p style="position:absolute;top:792px;left:217px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:786px;left:226px;white-space:nowrap" class="ft02">= 1,&#160;<i>location</i></p>
+<p style="position:absolute;top:792px;left:312px;white-space:nowrap" class="ft07"><i>I</i></p>
+<p style="position:absolute;top:786px;left:321px;white-space:nowrap" class="ft02">= ceiling(<i>location</i></p>
+<p style="position:absolute;top:792px;left:438px;white-space:nowrap" class="ft07"><i>J</i></p>
+<p style="position:absolute;top:786px;left:443px;white-space:nowrap" class="ft05"><i>&#160;</i>+&#160;<i>size</i></p>
+<p style="position:absolute;top:792px;left:489px;white-space:nowrap" class="ft07"><i>J</i></p>
+<p style="position:absolute;top:786px;left:493px;white-space:nowrap" class="ft02">, 64).&#160;(This&#160;item implies that state component&#160;<i>i</i>&#160;is&#160;</p>
+<p style="position:absolute;top:802px;left:170px;white-space:nowrap" class="ft010">located on&#160;the next 64-byte boundary&#160;following&#160;the preceding&#160;state&#160;component whose bit is&#160;set in&#160;<br/>XCOMP_BV.)</p>
+<p style="position:absolute;top:874px;left:68px;white-space:nowrap" class="ft09">13.5 XSAVE-MANAGED&#160;</p>
+<p style="position:absolute;top:874px;left:316px;white-space:nowrap" class="ft09">STATE</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft010">The section provides details regarding how the XSAVE feature&#160;set interacts with&#160;the various&#160;XSAVE-managed state&#160;<br/>components.<br/>Unless otherwise&#160;state,&#160;the state pertaining to&#160;a particular state&#160;component is&#160;saved beginning at&#160;byte&#160;0 of the&#160;<br/>section of&#160;the&#160;XSAVE are&#160;corresponding to&#160;that state&#160;component.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 150</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page150-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481150.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:652px;white-space:nowrap" class="ft00">AAM—ASCII Adjust AX After Multiply</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-22&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">AAM—ASCII Adjust AX After Multiply</p>
+<p style="position:absolute;top:255px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:364px;left:68px;white-space:nowrap" class="ft07">Adjusts the&#160;result of the&#160;multiplication&#160;of two&#160;unpacked BCD values&#160;to create&#160;a pair of&#160;unpacked (base&#160;10)&#160;BCD&#160;<br/>values.&#160;The&#160;AX register is&#160;the&#160;implied&#160;source and destination&#160;operand for this&#160;instruction. The&#160;AAM&#160;instruction&#160;is&#160;<br/>only&#160;useful when it&#160;follows&#160;an MUL instruction that&#160;multiplies (binary&#160;multiplication)&#160;two unpacked&#160;BCD&#160;values and&#160;<br/>stores a word&#160;result&#160;in the AX register. The AAM instruction&#160;then&#160;adjusts the contents of&#160;the AX register to&#160;contain&#160;<br/>the correct 2-digit&#160;unpacked&#160;(base&#160;10) BCD&#160;result.&#160;<br/>The generalized version&#160;of this instruction allows&#160;adjustment of the&#160;contents of the&#160;AX to&#160;create&#160;two&#160;unpacked&#160;<br/>digits of any&#160;number base (see the&#160;“Operation” section below). Here, the&#160;<i>imm8</i>&#160;byte&#160;is set to&#160;the selected&#160;number&#160;<br/>base&#160;(for example,&#160;08H for octal,&#160;0AH&#160;for decimal,&#160;or&#160;0CH for base 12 numbers). The AAM mnemonic&#160;is&#160;interpreted&#160;<br/>by&#160;all assemblers to&#160;mean adjust to&#160;ASCII (base 10) values.&#160;To&#160;adjust&#160;to&#160;values&#160;in&#160;another&#160;number&#160;base,&#160;the&#160;<br/>instruction&#160;must&#160;be&#160;hand coded&#160;in machine code (D4&#160;<i>imm8</i>).<br/>This&#160;instruction executes as&#160;described&#160;in compatibility mode and&#160;legacy&#160;mode. It&#160;is not valid&#160;in 64-bit&#160;mode.</p>
+<p style="position:absolute;top:578px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:609px;left:68px;white-space:nowrap" class="ft04">IF&#160;64-Bit Mode</p>
+<p style="position:absolute;top:625px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:642px;left:115px;white-space:nowrap" class="ft04">#UD;</p>
+<p style="position:absolute;top:658px;left:88px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:675px;left:115px;white-space:nowrap" class="ft04">tempAL&#160;←&#160;AL;</p>
+<p style="position:absolute;top:693px;left:115px;white-space:nowrap" class="ft04">AH&#160;←&#160;tempAL&#160;/&#160;<i>imm8</i>; (*&#160;<i>imm8</i>&#160;is set to 0AH for&#160;the AAM mnemonic *)</p>
+<p style="position:absolute;top:711px;left:115px;white-space:nowrap" class="ft04">AL&#160;←&#160;tempAL MOD&#160;<i>imm8</i>;</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft08">FI;<br/>The immediate value&#160;(<i>imm8</i>) is&#160;taken&#160;from the second&#160;byte of the instruction.</p>
+<p style="position:absolute;top:786px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:811px;left:68px;white-space:nowrap" class="ft06">The SF,&#160;ZF,&#160;and PF flags&#160;are&#160;set according to&#160;the resulting&#160;binary value&#160;in&#160;the AL&#160;register. The OF, AF,&#160;and&#160;CF&#160;flags&#160;<br/>are undefined.</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:885px;left:68px;white-space:nowrap" class="ft04">#DE</p>
+<p style="position:absolute;top:885px;left:206px;white-space:nowrap" class="ft04">If&#160;an immediate value of 0 is&#160;used.</p>
+<p style="position:absolute;top:906px;left:68px;white-space:nowrap" class="ft04">#UD&#160;</p>
+<p style="position:absolute;top:906px;left:206px;white-space:nowrap" class="ft04">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:940px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:963px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as protected&#160;mode.</p>
+<p style="position:absolute;top:997px;left:68px;white-space:nowrap" class="ft03">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:1020px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as protected&#160;mode.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:427px;white-space:nowrap" class="ft04">64-bit&#160;</p>
+<p style="position:absolute;top:137px;left:427px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:499px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:499px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:569px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">D4&#160;0A</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">AAM</p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:427px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:160px;left:499px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:569px;white-space:nowrap" class="ft04">ASCII adjust AX&#160;after&#160;multiply.</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft04">D4&#160;<i>ib</i></p>
+<p style="position:absolute;top:182px;left:221px;white-space:nowrap" class="ft04">AAM imm8</p>
+<p style="position:absolute;top:182px;left:389px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:182px;left:427px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:182px;left:499px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:569px;white-space:nowrap" class="ft04">Adjust&#160;AX after multiply to number&#160;base&#160;</p>
+<p style="position:absolute;top:199px;left:569px;white-space:nowrap" class="ft05"><i>imm8.</i></p>
+<p style="position:absolute;top:279px;left:83px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:279px;left:189px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:279px;left:365px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:279px;left:540px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:279px;left:716px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:303px;left:92px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:303px;left:210px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:386px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:561px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:737px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

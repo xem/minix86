@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 149</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:9px;font-family:Times;color:#000000;}
+	.ft08{font-size:9px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+	.ft013{font-size:9px;line-height:16px;font-family:Times;color:#000000;}
+	.ft014{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft015{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page149-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a149.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:782px;white-space:nowrap" class="ft00">Vol. 1&#160;6-5</p>
+<p style="position:absolute;top:47px;left:541px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft010">1.&#160;Pops&#160;the top-of-stack&#160;value (the&#160;return instruction pointer)&#160;into the&#160;EIP register.<br/>2.&#160;Pops the top-of-stack value (the segment selector for the code&#160;segment being returned&#160;to) into the CS register.<br/>3.&#160;If the&#160;RET instruction has&#160;an optional&#160;<i>n</i>&#160;argument, increments&#160;the stack pointer by the&#160;number of bytes&#160;</p>
+<p style="position:absolute;top:165px;left:94px;white-space:nowrap" class="ft02">specified with the&#160;<i>n</i>&#160;operand&#160;to release&#160;parameters from&#160;the stack.</p>
+<p style="position:absolute;top:189px;left:69px;white-space:nowrap" class="ft02">4.&#160;Resumes execution&#160;of the&#160;calling procedure.</p>
+<p style="position:absolute;top:688px;left:69px;white-space:nowrap" class="ft04">6.3.3 Parameter&#160;</p>
+<p style="position:absolute;top:688px;left:238px;white-space:nowrap" class="ft04">Passing</p>
+<p style="position:absolute;top:718px;left:69px;white-space:nowrap" class="ft011">Parameters can&#160;be&#160;passed between procedures in&#160;any of&#160;three ways: through&#160;general-purpose&#160;registers,&#160;in&#160;an&#160;<br/>argument&#160;list,&#160;or on&#160;the stack.</p>
+<p style="position:absolute;top:779px;left:69px;white-space:nowrap" class="ft05">6.3.3.1&#160;&#160;</p>
+<p style="position:absolute;top:779px;left:153px;white-space:nowrap" class="ft05">Passing&#160;Parameters Through the General-Purpose&#160;Registers</p>
+<p style="position:absolute;top:807px;left:69px;white-space:nowrap" class="ft011">The processor&#160;does not save&#160;the&#160;state of the general-purpose registers&#160;on procedure calls.&#160;A calling procedure&#160;can&#160;<br/>thus&#160;pass up&#160;to six&#160;parameters to&#160;the&#160;called procedure&#160;by copying&#160;the&#160;parameters&#160;into&#160;any of these registers&#160;<br/>(except the ESP and EBP registers) prior to executing the CALL instruction. The called procedure can likewise&#160;pass&#160;<br/>parameters&#160;back to&#160;the calling procedure&#160;through general-purpose registers.</p>
+<p style="position:absolute;top:901px;left:69px;white-space:nowrap" class="ft05">6.3.3.2&#160;&#160;</p>
+<p style="position:absolute;top:901px;left:153px;white-space:nowrap" class="ft05">Passing&#160;Parameters on the Stack</p>
+<p style="position:absolute;top:930px;left:69px;white-space:nowrap" class="ft010">To&#160;pass a&#160;large&#160;number of parameters&#160;to the&#160;called procedure, the parameters can&#160;be&#160;placed on&#160;the stack,&#160;in the&#160;<br/>stack&#160;frame for&#160;the calling procedure. Here,&#160;it is useful to&#160;use&#160;the&#160;stack-frame&#160;base pointer (in&#160;the&#160;EBP&#160;register)&#160;to&#160;<br/>make&#160;a&#160;frame boundary&#160;for&#160;easy access to&#160;the parameters.<br/>The stack can&#160;also be used to&#160;pass&#160;parameters&#160;back&#160;from&#160;the called&#160;procedure&#160;to the&#160;calling&#160;procedure.</p>
+<p style="position:absolute;top:644px;left:322px;white-space:nowrap" class="ft06">Figure&#160;6-2.&#160;&#160;Stack on&#160;Near&#160;and&#160;Far&#160;Calls</p>
+<p style="position:absolute;top:307px;left:265px;white-space:nowrap" class="ft012">Param 1<br/>Param 2</p>
+<p style="position:absolute;top:338px;left:366px;white-space:nowrap" class="ft00">ESP Before Call</p>
+<p style="position:absolute;top:253px;left:253px;white-space:nowrap" class="ft07"><b>Stack During</b></p>
+<p style="position:absolute;top:268px;left:264px;white-space:nowrap" class="ft07"><b>Near Call</b></p>
+<p style="position:absolute;top:253px;left:500px;white-space:nowrap" class="ft07"><b>Stack During</b></p>
+<p style="position:absolute;top:265px;left:515px;white-space:nowrap" class="ft07"><b>Far Call</b></p>
+<p style="position:absolute;top:355px;left:509px;white-space:nowrap" class="ft00">Calling CS</p>
+<p style="position:absolute;top:308px;left:515px;white-space:nowrap" class="ft012">Param 1<br/>Param 2</p>
+<p style="position:absolute;top:371px;left:508px;white-space:nowrap" class="ft00">Calling EIP</p>
+<p style="position:absolute;top:339px;left:265px;white-space:nowrap" class="ft00">Param 3</p>
+<p style="position:absolute;top:339px;left:515px;white-space:nowrap" class="ft00">Param 3</p>
+<p style="position:absolute;top:458px;left:362px;white-space:nowrap" class="ft00">ESP&#160;After Return</p>
+<p style="position:absolute;top:522px;left:510px;white-space:nowrap" class="ft00">Calling CS</p>
+<p style="position:absolute;top:474px;left:515px;white-space:nowrap" class="ft012">Param 1<br/>Param 2</p>
+<p style="position:absolute;top:538px;left:508px;white-space:nowrap" class="ft00">Calling EIP</p>
+<p style="position:absolute;top:506px;left:515px;white-space:nowrap" class="ft00">Param 3</p>
+<p style="position:absolute;top:474px;left:267px;white-space:nowrap" class="ft013">Param 1<br/>Param 2<br/>Param 3</p>
+<p style="position:absolute;top:584px;left:240px;white-space:nowrap" class="ft00">Note: On&#160;a near or&#160;far&#160;return, parameters are</p>
+<p style="position:absolute;top:354px;left:257px;white-space:nowrap" class="ft00">Calling EIP</p>
+<p style="position:absolute;top:354px;left:366px;white-space:nowrap" class="ft00">ESP After Call</p>
+<p style="position:absolute;top:417px;left:251px;white-space:nowrap" class="ft07"><b>Stack During</b></p>
+<p style="position:absolute;top:429px;left:254px;white-space:nowrap" class="ft07"><b>Near Return</b></p>
+<p style="position:absolute;top:520px;left:258px;white-space:nowrap" class="ft00">Calling&#160;EIP</p>
+<p style="position:absolute;top:598px;left:273px;white-space:nowrap" class="ft014">released from the stack based&#160;on the<br/>optional&#160;<i>n</i>&#160;operand in the RET&#160;<i>n</i>&#160;instruction.</p>
+<p style="position:absolute;top:522px;left:363px;white-space:nowrap" class="ft00">ESP Before Return</p>
+<p style="position:absolute;top:340px;left:613px;white-space:nowrap" class="ft00">ESP Before Call</p>
+<p style="position:absolute;top:371px;left:613px;white-space:nowrap" class="ft00">ESP After Call</p>
+<p style="position:absolute;top:536px;left:610px;white-space:nowrap" class="ft00">ESP Before&#160;Return</p>
+<p style="position:absolute;top:458px;left:612px;white-space:nowrap" class="ft00">ESP After Return</p>
+<p style="position:absolute;top:420px;left:499px;white-space:nowrap" class="ft07"><b>Stack During</b></p>
+<p style="position:absolute;top:432px;left:505px;white-space:nowrap" class="ft07"><b>Far Return</b></p>
+<p style="position:absolute;top:275px;left:439px;white-space:nowrap" class="ft015">Stack<br/>Frame<br/>Before<br/>Call</p>
+<p style="position:absolute;top:269px;left:193px;white-space:nowrap" class="ft015">Stack<br/>Frame<br/>Before<br/>Call</p>
+<p style="position:absolute;top:360px;left:193px;white-space:nowrap" class="ft015">Stack<br/>Frame<br/>After<br/>Call</p>
+<p style="position:absolute;top:372px;left:440px;white-space:nowrap" class="ft015">Stack<br/>Frame<br/>After<br/>Call</p>
+</div>
+</body>
+</html>

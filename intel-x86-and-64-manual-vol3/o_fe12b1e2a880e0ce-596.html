@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 596</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page596-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce596.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-22&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft08">Fields&#160;in the&#160;buffer management&#160;area&#160;of&#160;a DS&#160;save&#160;area are&#160;described<a href="o_fe12b1e2a880e0ce-591.html">&#160;in&#160;Section&#160;17.4.9.&#160;<br/></a>The format of a branch trace record and a PEBS&#160;record are&#160;the&#160;same as the 64-bit&#160;<a href="o_fe12b1e2a880e0ce-595.html">record formats shown in Figures&#160;<br/>17-9 and</a><a href="o_fe12b1e2a880e0ce-596.html">&#160;Figures&#160;17-10,</a>&#160;with&#160;the exception&#160;that the&#160;branch&#160;predicted bit is not supported by Intel Core microarchi-<br/>tecture or&#160;Intel Atom&#160;microarchitecture. The 64-bit&#160;record&#160;formats&#160;for&#160;BTS and&#160;PEBS&#160;apply to&#160;DS save&#160;area&#160;for all&#160;<br/>operating modes.&#160;<br/>The procedures&#160;used to&#160;program IA32_DEBUGCTL&#160;MSR to set up a BTS buffer or a CPL-qualified BTS are described&#160;<br/><a href="o_fe12b1e2a880e0ce-597.html">in Section 17.4.9.3</a>&#160;and<a href="o_fe12b1e2a880e0ce-598.html">&#160;Section 17.4.9.4</a>.<br/>Required elements for writing a DS interrupt service routine are largely the same on processors that support using&#160;<br/>DS Save&#160;area for BTS or PEBS records.&#160;However,&#160;on processors based&#160;on Intel&#160;NetBurst</p>
+<p style="position:absolute;top:689px;left:658px;white-space:nowrap" class="ft03">®</p>
+<p style="position:absolute;top:692px;left:669px;white-space:nowrap" class="ft02">&#160;microarchitecture,&#160;re-</p>
+<p style="position:absolute;top:708px;left:68px;white-space:nowrap" class="ft08">enabling counting requires writing to CCCRs.&#160;But a DS interrupt service routine on processors supporting architec-<br/>tural performance monitoring&#160;should:</p>
+<p style="position:absolute;top:746px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:747px;left:93px;white-space:nowrap" class="ft02">Re-enable&#160;the&#160;enable&#160;bits&#160;in IA32_PERF_GLOBAL_CTRL&#160;MSR&#160;if it&#160;is servicing an overflow PMI&#160;due to&#160;PEBS.</p>
+<p style="position:absolute;top:769px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:770px;left:93px;white-space:nowrap" class="ft08">Clear overflow indications&#160;by&#160;writing to&#160;IA32_PERF_GLOBAL_OVF_CTRL&#160;when a&#160;counting&#160;configuration is&#160;<br/>changed.&#160;This includes bit 62&#160;(ClrOvfBuffer)&#160;and the&#160;overflow indication&#160;of&#160;counters used in either PEBS&#160;or&#160;<br/>general-purpose counting&#160;(specifically: bits 0&#160;or 1;&#160;see<a href="o_fe12b1e2a880e0ce-643.html">&#160;Figures 18-3).</a></p>
+<p style="position:absolute;top:847px;left:68px;white-space:nowrap" class="ft05">17.4.9.2 &#160;&#160;Setting&#160;Up the DS Save&#160;Area</p>
+<p style="position:absolute;top:875px;left:68px;white-space:nowrap" class="ft07">To&#160;save branch records with the&#160;BTS buffer,&#160;the DS&#160;save&#160;area must first be set up&#160;in&#160;memory&#160;as&#160;described&#160;in&#160;the&#160;<br/>following procedure&#160;(S<a href="o_fe12b1e2a880e0ce-657.html">ee Section 18.4.4.1,&#160;“Setting up&#160;the PEBS&#160;Buffer,”&#160;for</a>&#160;instructions&#160;for&#160;setting&#160;up a&#160;PEBS&#160;<br/>buffer,&#160;respectively,&#160;in the&#160;DS&#160;save&#160;area):<br/>1.&#160;Create&#160;the DS&#160;buffer management&#160;information area&#160;in&#160;memory&#160;(see<a href="o_fe12b1e2a880e0ce-591.html">&#160;Section&#160;17.4.9,&#160;“BTS&#160;and&#160;DS&#160;Save&#160;Area,”&#160;</a></p>
+<p style="position:absolute;top:949px;left:93px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-594.html">and Section 17.4.9.1, “64 Bit Format&#160;of the&#160;DS&#160;Save&#160;Area”). Also se</a>e the&#160;additional notes&#160;in&#160;this section.</p>
+<p style="position:absolute;top:973px;left:68px;white-space:nowrap" class="ft09">2.&#160;Write&#160;the base linear address&#160;of&#160;the DS&#160;buffer&#160;management area&#160;into&#160;the&#160;IA32_DS_AREA&#160;MSR.&#160;<br/>3.&#160;Set up the&#160;performance counter entry&#160;in the&#160;xAPIC LVT&#160;for&#160;fixed delivery&#160;and edge&#160;sensitive. See&#160;<a href="o_fe12b1e2a880e0ce-374.html">Section&#160;</a></p>
+<p style="position:absolute;top:1013px;left:93px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-374.html">10.5.1,&#160;“Local&#160;Vector&#160;Table.”</a></p>
+<p style="position:absolute;top:1037px;left:68px;white-space:nowrap" class="ft02">4.&#160;Establish&#160;an interrupt&#160;handler in&#160;the IDT for the&#160;vector&#160;associated with&#160;the&#160;performance counter&#160;entry&#160;in&#160;the&#160;</p>
+<p style="position:absolute;top:1054px;left:93px;white-space:nowrap" class="ft02">xAPIC&#160;LVT.</p>
+<p style="position:absolute;top:467px;left:312px;white-space:nowrap" class="ft06">Figure&#160;17-10.&#160;&#160;64-bit PEBS Record&#160;Format</p>
+<p style="position:absolute;top:148px;left:409px;white-space:nowrap" class="ft00">RFLAGS</p>
+<p style="position:absolute;top:148px;left:613px;white-space:nowrap" class="ft00">0H</p>
+<p style="position:absolute;top:172px;left:613px;white-space:nowrap" class="ft00">8H</p>
+<p style="position:absolute;top:195px;left:609px;white-space:nowrap" class="ft00">10H</p>
+<p style="position:absolute;top:128px;left:604px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:125px;left:259px;white-space:nowrap" class="ft00">63</p>
+<p style="position:absolute;top:173px;left:423px;white-space:nowrap" class="ft00">RIP</p>
+<p style="position:absolute;top:242px;left:609px;white-space:nowrap" class="ft00">20H</p>
+<p style="position:absolute;top:289px;left:609px;white-space:nowrap" class="ft00">30H</p>
+<p style="position:absolute;top:266px;left:609px;white-space:nowrap" class="ft00">28H</p>
+<p style="position:absolute;top:313px;left:609px;white-space:nowrap" class="ft00">38H</p>
+<p style="position:absolute;top:337px;left:609px;white-space:nowrap" class="ft00">40H</p>
+<p style="position:absolute;top:360px;left:609px;white-space:nowrap" class="ft00">48H</p>
+<p style="position:absolute;top:219px;left:609px;white-space:nowrap" class="ft00">18H</p>
+<p style="position:absolute;top:196px;left:420px;white-space:nowrap" class="ft00">RAX</p>
+<p style="position:absolute;top:218px;left:420px;white-space:nowrap" class="ft00">RBX</p>
+<p style="position:absolute;top:241px;left:420px;white-space:nowrap" class="ft00">RCX</p>
+<p style="position:absolute;top:265px;left:420px;white-space:nowrap" class="ft00">RDX</p>
+<p style="position:absolute;top:288px;left:423px;white-space:nowrap" class="ft00">RSI</p>
+<p style="position:absolute;top:311px;left:422px;white-space:nowrap" class="ft00">RDI</p>
+<p style="position:absolute;top:334px;left:420px;white-space:nowrap" class="ft00">RBP</p>
+<p style="position:absolute;top:358px;left:420px;white-space:nowrap" class="ft00">RSP</p>
+<p style="position:absolute;top:381px;left:425px;white-space:nowrap" class="ft00">R8</p>
+<p style="position:absolute;top:404px;left:428px;white-space:nowrap" class="ft00">...</p>
+<p style="position:absolute;top:427px;left:422px;white-space:nowrap" class="ft00">R15</p>
+<p style="position:absolute;top:384px;left:609px;white-space:nowrap" class="ft00">50H</p>
+<p style="position:absolute;top:407px;left:615px;white-space:nowrap" class="ft00">...</p>
+<p style="position:absolute;top:431px;left:609px;white-space:nowrap" class="ft00">88H</p>
+</div>
+</body>
+</html>

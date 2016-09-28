@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1453</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1453-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811453.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VCVTUDQ2PS—Convert Packed Unsigned Doubleword Integers to Packed Single-Precision Floating-Point Values</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:771px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-67</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VCVTUDQ2PS—Convert Packed Unsigned Doubleword&#160;Integers to&#160;Packed Single-Precision&#160;</p>
+<p style="position:absolute;top:119px;left:69px;white-space:nowrap" class="ft02">Floating-Point&#160;Values</p>
+<p style="position:absolute;top:440px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:525px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:547px;left:69px;white-space:nowrap" class="ft06">Converts&#160;packed&#160;unsigned doubleword integers in&#160;the&#160;source&#160;operand (second operand)&#160;to single-precision&#160;<br/>floating-point values&#160;in the&#160;destination operand&#160;(first operand).&#160;<br/>The source operand is a ZMM/YMM/XMM register,&#160;a 512/256/128-bit memory location or a 512/256/128-bit vector&#160;<br/>broadcasted from&#160;a 32-bit&#160;memory&#160;location. The destination&#160;operand is&#160;a ZMM/YMM/XMM register&#160;conditionally&#160;<br/>updated with writemask k1.&#160;<br/>Note: EVEX.vvvv is&#160;reserved&#160;and must be&#160;1111b, otherwise instructions will&#160;#UD.</p>
+<p style="position:absolute;top:676px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:699px;left:69px;white-space:nowrap" class="ft07">VCVTUDQ2PS (EVEX&#160;encoded&#160;version) when src&#160;operand&#160;is a register<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>IF&#160;(VL =&#160;512)&#160;AND (EVEX.b&#160;= 1)&#160;</p>
+<p style="position:absolute;top:753px;left:89px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:771px;left:116px;white-space:nowrap" class="ft04">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:789px;left:89px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:807px;left:116px;white-space:nowrap" class="ft04">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:825px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:861px;left:69px;white-space:nowrap" class="ft04">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:879px;left:89px;white-space:nowrap" class="ft07">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:915px;left:116px;white-space:nowrap" class="ft04">THEN DEST[i+31:i]&#160;</p>
+<p style="position:absolute;top:933px;left:143px;white-space:nowrap" class="ft04">Convert_UInteger_To_Single_Precision_Floating_Point(SRC[i+31:i])</p>
+<p style="position:absolute;top:951px;left:116px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:969px;left:143px;white-space:nowrap" class="ft04">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:969px;left:359px;white-space:nowrap" class="ft04">;&#160;merging-masking</p>
+<p style="position:absolute;top:987px;left:170px;white-space:nowrap" class="ft07">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:1005px;left:365px;white-space:nowrap" class="ft04">zeroing-masking</p>
+<p style="position:absolute;top:1023px;left:197px;white-space:nowrap" class="ft04">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:1041px;left:143px;white-space:nowrap" class="ft04">FI</p>
+<p style="position:absolute;top:1059px;left:89px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:143px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:159px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:143px;left:312px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:159px;left:312px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:143px;left:357px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:159px;left:357px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:173px;left:357px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:143px;left:430px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:159px;left:430px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:173px;left:430px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:143px;left:514px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:193px;left:78px;white-space:nowrap" class="ft04">EVEX.128.F2.0F.W0&#160;7A&#160;/r</p>
+<p style="position:absolute;top:193px;left:313px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:193px;left:357px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:193px;left:430px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:193px;left:514px;white-space:nowrap" class="ft04">Convert&#160;four packed unsigned&#160;doubleword&#160;integers from&#160;</p>
+<p style="position:absolute;top:209px;left:514px;white-space:nowrap" class="ft04">xmm2/m128/m32bcst to&#160;packed&#160;single-precision&#160;</p>
+<p style="position:absolute;top:226px;left:514px;white-space:nowrap" class="ft04">floating-point&#160;values&#160;in&#160;xmm1&#160;with&#160;writemask k1.</p>
+<p style="position:absolute;top:213px;left:78px;white-space:nowrap" class="ft04">VCVTUDQ2PS&#160;xmm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:229px;left:78px;white-space:nowrap" class="ft04">xmm2/m128/m32bcst&#160;</p>
+<p style="position:absolute;top:213px;left:430px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:265px;left:78px;white-space:nowrap" class="ft04">EVEX.256.F2.0F.W0&#160;7A /r</p>
+<p style="position:absolute;top:265px;left:313px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:265px;left:357px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:265px;left:430px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:265px;left:514px;white-space:nowrap" class="ft04">Convert eight packed&#160;unsigned doubleword&#160;integers&#160;</p>
+<p style="position:absolute;top:281px;left:514px;white-space:nowrap" class="ft04">from ymm2/m256/m32bcst&#160;to&#160;packed&#160;single-precision&#160;</p>
+<p style="position:absolute;top:298px;left:514px;white-space:nowrap" class="ft04">floating-point&#160;values&#160;in&#160;zmm1 with&#160;writemask k1.</p>
+<p style="position:absolute;top:285px;left:78px;white-space:nowrap" class="ft04">VCVTUDQ2PS ymm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:301px;left:78px;white-space:nowrap" class="ft04">ymm2/m256/m32bcst&#160;</p>
+<p style="position:absolute;top:285px;left:430px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:337px;left:78px;white-space:nowrap" class="ft04">EVEX.512.F2.0F.W0&#160;7A /r</p>
+<p style="position:absolute;top:337px;left:313px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:337px;left:357px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:337px;left:430px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:337px;left:514px;white-space:nowrap" class="ft04">Convert sixteen packed&#160;unsigned&#160;doubleword&#160;integers&#160;</p>
+<p style="position:absolute;top:353px;left:514px;white-space:nowrap" class="ft04">from zmm2/m512/m32bcst to&#160;sixteen&#160;packed single-</p>
+<p style="position:absolute;top:370px;left:514px;white-space:nowrap" class="ft04">precision floating-point&#160;values in zmm1 with writemask&#160;</p>
+<p style="position:absolute;top:386px;left:514px;white-space:nowrap" class="ft04">k1.</p>
+<p style="position:absolute;top:357px;left:78px;white-space:nowrap" class="ft04">VCVTUDQ2PS zmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:373px;left:78px;white-space:nowrap" class="ft04">zmm2/m512/m32bcst{er}&#160;</p>
+<p style="position:absolute;top:463px;left:101px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:463px;left:220px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:463px;left:387px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:463px;left:556px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:463px;left:724px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:487px;left:110px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:487px;left:207px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:487px;left:377px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:487px;left:577px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:487px;left:745px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

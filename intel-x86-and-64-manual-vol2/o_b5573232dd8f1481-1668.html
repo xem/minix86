@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1668</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1668-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811668.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:244px;white-space:nowrap" class="ft00">VINSERTF128/VINSERTF32x4/VINSERTF64x2/VINSERTF32x8/VINSERTF64x4—Insert&#160;Packed Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-282&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">location. The high&#160;7 bits of the&#160;immediate&#160;are&#160;ignored.&#160;The destination operand&#160;is a&#160;ZMM register&#160;and updated&#160;at&#160;<br/>32/64-bit granularity according to&#160;the&#160;writemask.</p>
+<p style="position:absolute;top:151px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:173px;left:68px;white-space:nowrap" class="ft04">VINSERTF32x4 (EVEX encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (8,&#160;256), (16,&#160;512)<br/>TEMP_DEST[VL-1:0]&#160;&#160;SRC1[VL-1:0]<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:245px;left:88px;white-space:nowrap" class="ft02">CASE (imm8[0]) OF</p>
+<p style="position:absolute;top:263px;left:115px;white-space:nowrap" class="ft02">0: TMP_DEST[127:0]&#160;</p>
+<p style="position:absolute;top:265px;left:250px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:263px;left:263px;white-space:nowrap" class="ft02">&#160;SRC2[127:0]</p>
+<p style="position:absolute;top:281px;left:115px;white-space:nowrap" class="ft02">1:&#160;TMP_DEST[255:128]&#160;</p>
+<p style="position:absolute;top:283px;left:266px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:281px;left:279px;white-space:nowrap" class="ft02">&#160;SRC2[127:0]</p>
+<p style="position:absolute;top:299px;left:88px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:317px;left:68px;white-space:nowrap" class="ft04">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:353px;left:88px;white-space:nowrap" class="ft02">CASE (imm8[1:0]) OF</p>
+<p style="position:absolute;top:371px;left:115px;white-space:nowrap" class="ft04">00: TMP_DEST[127:0]&#160;&#160;SRC2[127:0]<br/>01:&#160;TMP_DEST[255:128]&#160;&#160;SRC2[127:0]<br/>10:&#160;TMP_DEST[383:256]&#160;&#160;SRC2[127:0]<br/>11:&#160;TMP_DEST[511:384]&#160;&#160;SRC2[127:0]</p>
+<p style="position:absolute;top:444px;left:88px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:462px;left:68px;white-space:nowrap" class="ft04">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:498px;left:88px;white-space:nowrap" class="ft04">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:534px;left:115px;white-space:nowrap" class="ft04">THEN DEST[i+31:i]&#160;&#160;TMP_DEST[i+31:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:570px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:570px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:588px;left:169px;white-space:nowrap" class="ft04">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:606px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:624px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:642px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:660px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:678px;left:68px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:732px;left:68px;white-space:nowrap" class="ft04">VINSERTF64x2 (EVEX encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (4, 256), (8, 512)<br/>TEMP_DEST[VL-1:0]&#160;&#160;SRC1[VL-1:0]<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:804px;left:88px;white-space:nowrap" class="ft02">CASE (imm8[0]) OF</p>
+<p style="position:absolute;top:822px;left:115px;white-space:nowrap" class="ft02">0: TMP_DEST[127:0]&#160;</p>
+<p style="position:absolute;top:823px;left:250px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:822px;left:263px;white-space:nowrap" class="ft02">&#160;SRC2[127:0]</p>
+<p style="position:absolute;top:840px;left:115px;white-space:nowrap" class="ft02">1:&#160;TMP_DEST[255:128]&#160;</p>
+<p style="position:absolute;top:841px;left:266px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:840px;left:279px;white-space:nowrap" class="ft02">&#160;SRC2[127:0]</p>
+<p style="position:absolute;top:858px;left:88px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:876px;left:68px;white-space:nowrap" class="ft04">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:912px;left:88px;white-space:nowrap" class="ft02">CASE (imm8[1:0]) OF</p>
+<p style="position:absolute;top:930px;left:115px;white-space:nowrap" class="ft04">00: TMP_DEST[127:0]&#160;&#160;SRC2[127:0]<br/>01:&#160;TMP_DEST[255:128]&#160;&#160;SRC2[127:0]<br/>10:&#160;TMP_DEST[383:256]&#160;&#160;SRC2[127:0]<br/>11:&#160;TMP_DEST[511:384]&#160;&#160;SRC2[127:0]</p>
+<p style="position:absolute;top:1002px;left:88px;white-space:nowrap" class="ft02">ESAC.</p>
+<p style="position:absolute;top:1020px;left:68px;white-space:nowrap" class="ft04">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:1056px;left:88px;white-space:nowrap" class="ft02">i&#160;&#160;j * 64</p>
+</div>
+</body>
+</html>

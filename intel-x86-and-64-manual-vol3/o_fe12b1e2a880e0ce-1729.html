@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1729</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1729-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1729.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-45</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL®&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">36.4.2.7 &#160;&#160;Paging&#160;Information (PIP)&#160;Packet</p>
+<p style="position:absolute;top:142px;left:338px;white-space:nowrap" class="ft03">Table&#160;36-24.&#160;PIP&#160;Packet&#160;Definition</p>
+<p style="position:absolute;top:166px;left:75px;white-space:nowrap" class="ft04">Name</p>
+<p style="position:absolute;top:166px;left:178px;white-space:nowrap" class="ft04">Paging Information&#160;(PIP) Packet</p>
+<p style="position:absolute;top:190px;left:75px;white-space:nowrap" class="ft04">Packet&#160;Format</p>
+<p style="position:absolute;top:423px;left:75px;white-space:nowrap" class="ft04">Dependencies</p>
+<p style="position:absolute;top:423px;left:178px;white-space:nowrap" class="ft04">TriggerEn &amp;&amp; ContextEn &amp;&amp;&#160;</p>
+<p style="position:absolute;top:440px;left:178px;white-space:nowrap" class="ft04">IA32_RTIT_CTL.OS</p>
+<p style="position:absolute;top:423px;left:413px;white-space:nowrap" class="ft04">Generation&#160;</p>
+<p style="position:absolute;top:440px;left:413px;white-space:nowrap" class="ft04">Scenario</p>
+<p style="position:absolute;top:423px;left:509px;white-space:nowrap" class="ft04">MOV&#160;CR3, Task switch, INIT, SIPI, PSB+;</p>
+<p style="position:absolute;top:440px;left:509px;white-space:nowrap" class="ft04">If IA32_VMX_MISC[bit 14] reports 1: VM&#160;exit,&#160;VM&#160;entry</p>
+<p style="position:absolute;top:464px;left:75px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:464px;left:178px;white-space:nowrap" class="ft04">The&#160;CR3 payload shown includes only the address portion&#160;of&#160;the CR3&#160;value.&#160;For&#160;PAE paging, CR3[11:5] are thus&#160;</p>
+<p style="position:absolute;top:480px;left:178px;white-space:nowrap" class="ft04">included.&#160;For other page&#160;modes (32-bit and IA-32e&#160;paging), these bits are 0.</p>
+<p style="position:absolute;top:497px;left:178px;white-space:nowrap" class="ft04">This packet&#160;holds the CR3&#160;address&#160;value.&#160;It will&#160;be&#160;generated&#160;on&#160;operations that&#160;modify CR3:</p>
+<p style="position:absolute;top:513px;left:178px;white-space:nowrap" class="ft04">•&#160;MOV&#160;&#160;CR3&#160;&#160;operation</p>
+<p style="position:absolute;top:528px;left:178px;white-space:nowrap" class="ft04">•&#160;Task&#160;&#160;Switch</p>
+<p style="position:absolute;top:543px;left:178px;white-space:nowrap" class="ft04">•&#160;INIT&#160;&#160;and&#160;&#160;SIPI</p>
+<p style="position:absolute;top:558px;left:178px;white-space:nowrap" class="ft04">•&#160;VM&#160;exit&#160;and&#160;VM&#160;entry,&#160;if&#160;appropriate controls in&#160;the&#160;VMCS&#160;are clear&#160;(see<a href="o_fe12b1e2a880e0ce-1746.html">&#160;Section&#160;36.5.1</a>)</p>
+<p style="position:absolute;top:573px;left:178px;white-space:nowrap" class="ft04">PIPs are&#160;not generated, despite changes to&#160;CR3, on&#160;SMI and&#160;RSM.&#160;This is due&#160;to&#160;the special behavior on these&#160;oper-</p>
+<p style="position:absolute;top:590px;left:178px;white-space:nowrap" class="ft04">atio<a href="o_fe12b1e2a880e0ce-1708.html">ns, see Section &#160;f</a>or details. Note that, for some&#160;cases&#160;of&#160;task switch where CR3 is&#160;not modified,&#160;no PIP will&#160;be&#160;</p>
+<p style="position:absolute;top:606px;left:178px;white-space:nowrap" class="ft04">produced.</p>
+<p style="position:absolute;top:623px;left:178px;white-space:nowrap" class="ft04">The purpose of&#160;the PIP is to&#160;indicate to&#160;the&#160;decoder&#160;which&#160;application is&#160;running,&#160;so that&#160;it&#160;can apply the&#160;proper&#160;</p>
+<p style="position:absolute;top:639px;left:178px;white-space:nowrap" class="ft04">binaries&#160;to&#160;the linear addresses&#160;that&#160;are&#160;being traced.&#160;</p>
+<p style="position:absolute;top:656px;left:178px;white-space:nowrap" class="ft04">The PIP packet&#160;contains&#160;the new CR3&#160;value when&#160;CR3&#160;is written.</p>
+<p style="position:absolute;top:672px;left:178px;white-space:nowrap" class="ft04">PIPs generated by VM entries set the NR&#160;bit.&#160;PIPs generated in VMX non-root&#160;operation set the NR&#160;bit if the “con-</p>
+<p style="position:absolute;top:689px;left:178px;white-space:nowrap" class="ft04">ceal&#160;VMX non-root&#160;operation from&#160;Intel PT” VM-execution control is 0. All other PIPs clear the NR&#160;bit.&#160;</p>
+<p style="position:absolute;top:713px;left:75px;white-space:nowrap" class="ft04">Application</p>
+<p style="position:absolute;top:713px;left:178px;white-space:nowrap" class="ft04">The&#160;purpose of&#160;the PIP&#160;packet&#160;is&#160;to&#160;help&#160;the&#160;decoder&#160;uniquely identify&#160;what&#160;software&#160;is running&#160;at&#160;any given&#160;time.</p>
+<p style="position:absolute;top:729px;left:178px;white-space:nowrap" class="ft04">When&#160;a&#160;PIP is&#160;encountered, a decoder should do&#160;the&#160;following:</p>
+<p style="position:absolute;top:746px;left:178px;white-space:nowrap" class="ft04">1) If there was a prior&#160;unbound FUP (that is, a FUP not preceded by a packet&#160;such as&#160;MODE.TSX&#160;that&#160;consumes&#160;it,&#160;</p>
+<p style="position:absolute;top:762px;left:178px;white-space:nowrap" class="ft04">and it&#160;hence&#160;pairs&#160;with&#160;a&#160;TIP&#160;that&#160;has&#160;not&#160;yet&#160;been&#160;seen),&#160;then&#160;this&#160;PIP&#160;is&#160;part&#160;of&#160;a&#160;compound&#160;packet&#160;event&#160;(<a href="o_fe12b1e2a880e0ce-1719.html">Section&#160;</a></p>
+<p style="position:absolute;top:779px;left:178px;white-space:nowrap" class="ft04"><a href="o_fe12b1e2a880e0ce-1719.html">36.4.1).</a>&#160;Find&#160;the ending&#160;TIP and apply the&#160;new&#160;CR3/NR&#160;values to&#160;the TIP payload&#160;IP.</p>
+<p style="position:absolute;top:795px;left:178px;white-space:nowrap" class="ft04">2)&#160;Otherwise,&#160;look&#160;for the next&#160;MOV&#160;CR3,&#160;far branch,&#160;or&#160;VMRESUME/VMLAUNCH&#160;in&#160;the disassembly,&#160;and apply the&#160;</p>
+<p style="position:absolute;top:812px;left:178px;white-space:nowrap" class="ft04">new CR3 to&#160;the next (or target) IP.</p>
+<p style="position:absolute;top:828px;left:178px;white-space:nowrap" class="ft04">For&#160;examples&#160;of&#160;the&#160;packets&#160;generated&#160;by these&#160;flows,&#160;see<a href="o_fe12b1e2a880e0ce-1749.html">&#160;Section&#160;36.7</a>.</p>
+<p style="position:absolute;top:215px;left:247px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:215px;left:309px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:215px;left:372px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:215px;left:434px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:215px;left:496px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:215px;left:558px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:215px;left:620px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:215px;left:682px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:185px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:247px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:309px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:372px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:434px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:496px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:558px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:236px;left:620px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:236px;left:682px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:257px;left:185px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:257px;left:247px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:257px;left:309px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:257px;left:372px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:257px;left:434px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:257px;left:496px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:257px;left:558px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:257px;left:620px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:257px;left:682px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:278px;left:185px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:278px;left:247px;white-space:nowrap" class="ft04">CR3[11:5]&#160;or 0</p>
+<p style="position:absolute;top:278px;left:682px;white-space:nowrap" class="ft04">RSVD/NR</p>
+<p style="position:absolute;top:299px;left:185px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:299px;left:247px;white-space:nowrap" class="ft04">CR3[19:12]</p>
+<p style="position:absolute;top:320px;left:185px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:320px;left:247px;white-space:nowrap" class="ft04">CR3[27:20]</p>
+<p style="position:absolute;top:341px;left:185px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:341px;left:247px;white-space:nowrap" class="ft04">CR3[35:28]</p>
+<p style="position:absolute;top:362px;left:185px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:362px;left:247px;white-space:nowrap" class="ft04">CR3[43:36]</p>
+<p style="position:absolute;top:383px;left:185px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:383px;left:247px;white-space:nowrap" class="ft04">CR3[51:44]</p>
+</div>
+</body>
+</html>

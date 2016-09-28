@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 723</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page723-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481723.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">MOV—Move to/from Debug Registers</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-43</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">MOV—Move&#160;to/from Debug Registers</p>
+<p style="position:absolute;top:368px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:479px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft07">Moves the&#160;contents of a&#160;debug&#160;register&#160;(DR0,&#160;DR1,&#160;DR2,&#160;DR3,&#160;DR4, DR5,&#160;DR6,&#160;or DR7)&#160;to a&#160;general-purpose&#160;<br/>register&#160;or&#160;vice versa. The&#160;operand size for these instructions is always 32&#160;bits in&#160;non-64-bit modes, regardless of&#160;<br/>the operand-size&#160;attribute.&#160;(See&#160;<a href="��">Section 17.2,&#160;“Debug Registers”, of&#160;the&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;Architectures Soft-<br/>ware Developer’s Manual, Volume&#160;3A</i>,</a>&#160;for a&#160;detailed&#160;description of the&#160;flags and&#160;fields&#160;in the&#160;debug&#160;registers.)<br/>The instructions must be executed&#160;at privilege&#160;level&#160;0 or&#160;in real-address mode.<br/>When the&#160;debug extension&#160;(DE) flag&#160;in register&#160;CR4&#160;is&#160;clear,&#160;these&#160;instructions&#160;operate&#160;on debug&#160;registers in&#160;a&#160;<br/>manner&#160;that is&#160;compatible&#160;with&#160;Intel386&#160;and Intel486&#160;processors.&#160;In&#160;this mode,&#160;references&#160;to DR4 and DR5 refer&#160;<br/>to DR6&#160;and&#160;DR7,&#160;respectively.&#160;When&#160;the DE&#160;flag&#160;in CR4 is&#160;set,&#160;attempts&#160;to reference DR4&#160;and DR5&#160;result in&#160;an&#160;<br/>undefined&#160;opcode&#160;(#UD) exception.&#160;(The&#160;CR4 register&#160;was added&#160;to the&#160;IA-32&#160;Architecture&#160;beginning&#160;with the&#160;<br/>Pentium processor.)<br/>At&#160;the&#160;opcode&#160;level, the&#160;<i>reg</i>&#160;field within the&#160;ModR/M byte&#160;specifies&#160;which of the&#160;debug registers&#160;is loaded&#160;or&#160;read.&#160;<br/>The two bits&#160;in the&#160;<i>mod&#160;</i>field&#160;are ignored.&#160;The&#160;<i>r/m</i>&#160;field&#160;specifies the&#160;general-purpose&#160;register loaded&#160;or read.<br/>In 64-bit&#160;mode,&#160;the instruction’s&#160;default operation size&#160;is&#160;64 bits. Use&#160;of&#160;the&#160;REX.B&#160;prefix&#160;permits access&#160;to addi-<br/>tional registers&#160;(R8–R15).&#160;Use of the&#160;REX.W or&#160;66H prefix&#160;is ignored.&#160;Use of&#160;the&#160;REX.R prefix&#160;causes an&#160;invalid-<br/>opcode&#160;exception. See the&#160;summary&#160;chart&#160;at the&#160;beginning of this&#160;section for encoding data and&#160;limits.&#160;</p>
+<p style="position:absolute;top:803px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:829px;left:69px;white-space:nowrap" class="ft04">IF&#160;((DE&#160;</p>
+<p style="position:absolute;top:827px;left:109px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:829px;left:118px;white-space:nowrap" class="ft04">&#160;1) and (SRC or DEST&#160;</p>
+<p style="position:absolute;top:827px;left:239px;white-space:nowrap" class="ft06">=&#160;</p>
+<p style="position:absolute;top:829px;left:252px;white-space:nowrap" class="ft04">DR4 or&#160;DR5))</p>
+<p style="position:absolute;top:846px;left:89px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:862px;left:116px;white-space:nowrap" class="ft04">#UD;</p>
+<p style="position:absolute;top:879px;left:89px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:895px;left:116px;white-space:nowrap" class="ft04">DEST&#160;←&#160;SRC;</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:962px;left:69px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:988px;left:69px;white-space:nowrap" class="ft04">The&#160;OF,&#160;SF, ZF, AF, PF,&#160;and CF flags are&#160;undefined.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:73px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft011">0F&#160;21/<i>r<br/></i>MOV&#160;<i>r32,&#160;</i>DR0–DR7</p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Move&#160;debug register&#160;to&#160;<i>r32</i>.</p>
+<p style="position:absolute;top:204px;left:73px;white-space:nowrap" class="ft012">0F&#160;21/<i>r<br/></i>MOV&#160;<i>r64,&#160;</i>DR0–DR7</p>
+<p style="position:absolute;top:204px;left:389px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:204px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:204px;left:498px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:204px;left:568px;white-space:nowrap" class="ft04">Move extended&#160;debug&#160;register&#160;to&#160;<i>r64</i>.&#160;</p>
+<p style="position:absolute;top:247px;left:73px;white-space:nowrap" class="ft012">0F&#160;23&#160;/<i>r<br/></i>MOV DR0–DR7,&#160;<i>r32</i></p>
+<p style="position:absolute;top:247px;left:389px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:247px;left:426px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:247px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:247px;left:568px;white-space:nowrap" class="ft04">Move&#160;<i>r32</i>&#160;to&#160;debug&#160;register.</p>
+<p style="position:absolute;top:290px;left:73px;white-space:nowrap" class="ft011">0F&#160;23&#160;/<i>r<br/></i>MOV DR0–DR7,&#160;<i>r64</i></p>
+<p style="position:absolute;top:290px;left:389px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:290px;left:426px;white-space:nowrap" class="ft04">Valid N.E.</p>
+<p style="position:absolute;top:290px;left:568px;white-space:nowrap" class="ft04">Move&#160;</p>
+<p style="position:absolute;top:290px;left:603px;white-space:nowrap" class="ft05"><i>r64</i>&#160;to&#160;extended&#160;debug&#160;register.&#160;</p>
+<p style="position:absolute;top:391px;left:88px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:391px;left:196px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:391px;left:372px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:391px;left:546px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:391px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:415px;left:97px;white-space:nowrap" class="ft04">MR</p>
+<p style="position:absolute;top:415px;left:183px;white-space:nowrap" class="ft04">ModRM:r/m (w)</p>
+<p style="position:absolute;top:415px;left:362px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r)</p>
+<p style="position:absolute;top:415px;left:567px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:415px;left:739px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:439px;left:97px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:439px;left:184px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:439px;left:361px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:439px;left:567px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:439px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

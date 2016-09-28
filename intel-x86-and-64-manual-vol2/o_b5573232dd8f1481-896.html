@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 896</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page896-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481896.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:434px;white-space:nowrap" class="ft00">PADDUSB/PADDUSW‚ÄîAdd Packed Unsigned Integers with&#160;Unsigned Saturation</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-216&#160;Vol. 2B</p>
+<p style="position:absolute;top:284px;left:353px;white-space:nowrap" class="ft02">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:419px;left:68px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:445px;left:68px;white-space:nowrap" class="ft05">Performs&#160;a&#160;SIMD&#160;add&#160;of&#160;the&#160;packed&#160;unsigned&#160;integers&#160;from the source operand (second operand) and the destina-<br/>tion&#160;operand (first operand), and stores the packed integer&#160;results in the destination operand. See Figure 9-4&#160;in the&#160;<br/><a href="˛ˇ"><i>Intel¬Æ 64&#160;and IA-32 Architectures Software Developer‚Äôs Manual, Volume 1</i></a>,&#160;for an illustration of&#160;a SIMD operation.&#160;<br/>Overflow&#160;is handled with unsigned&#160;saturation, as&#160;described in the&#160;following&#160;paragraphs.<br/>(V)PADDUSB&#160;performs&#160;a SIMD&#160;add of the&#160;packed unsigned integers with saturation from the&#160;first source&#160;operand&#160;<br/>and second source&#160;operand and&#160;stores&#160;the packed&#160;integer&#160;results&#160;in the&#160;destination operand. When&#160;an individual&#160;<br/>byte result&#160;is beyond&#160;the range of an&#160;unsigned&#160;byte integer (that is, greater&#160;than&#160;FFH),&#160;the saturated value&#160;of&#160;FFH&#160;<br/>is written&#160;to&#160;the destination operand.<br/>(V)PADDUSW&#160;performs&#160;a SIMD&#160;add of the&#160;packed&#160;unsigned&#160;word&#160;integers with saturation&#160;from&#160;the&#160;first source&#160;<br/>operand and&#160;second&#160;source operand&#160;and stores&#160;the&#160;packed&#160;integer results in the&#160;destination&#160;operand.&#160;When an&#160;<br/>individual word result is beyond&#160;the range&#160;of an unsigned word&#160;integer (that&#160;is, greater than&#160;FFFFH), the&#160;saturated&#160;<br/>value&#160;of FFFFH&#160;is written to&#160;the destination operand.<br/>EVEX&#160;encoded versions: The&#160;first source&#160;operand is&#160;an&#160;ZMM/YMM/XMM register.&#160;The&#160;second source&#160;operand is&#160;an&#160;<br/>ZMM/YMM/XMM&#160;register or&#160;a 512/256/128-bit memory location.&#160;The destination is&#160;an ZMM/YMM/XMM register.<br/>VEX.256 encoded version: The&#160;first source operand is a YMM register. The second&#160;source&#160;operand is a YMM register&#160;<br/>or a&#160;256-bit memory location.&#160;The&#160;destination&#160;operand&#160;is&#160;a YMM&#160;register.&#160;<br/>VEX.128&#160;encoded version: The first source&#160;operand is&#160;an XMM&#160;register. The second source&#160;operand is&#160;an&#160;XMM&#160;<br/>register&#160;or 128-bit&#160;memory&#160;location. The destination operand&#160;is an&#160;XMM register.&#160;The&#160;upper bits&#160;(MAX_VL-1:128)&#160;<br/>of the corresponding destination register&#160;destination&#160;are zeroed.<br/>128-bit Legacy SSE&#160;version:&#160;The first&#160;source operand&#160;is an&#160;XMM register.&#160;The&#160;second operand&#160;can be an&#160;XMM&#160;<br/>register or&#160;an&#160;128-bit&#160;memory location. The&#160;destination&#160;is not&#160;distinct from the&#160;first source&#160;XMM register&#160;and the&#160;<br/>upper bits&#160;(</p>
+<p style="position:absolute;top:828px;left:146px;white-space:nowrap" class="ft03">MAX_VL-1:128) of the&#160;corresponding register&#160;destination are unmodified.</p>
+<p style="position:absolute;top:865px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:891px;left:68px;white-space:nowrap" class="ft03">PADDUSB (with 64-bit operands)</p>
+<p style="position:absolute;top:909px;left:88px;white-space:nowrap" class="ft03">DEST[7:0]&#160;‚Üê&#160;SaturateToUnsignedByte(DEST[7:0]&#160;+&#160;SRC (7:0] );</p>
+<p style="position:absolute;top:926px;left:88px;white-space:nowrap" class="ft07">(* Repeat add operation&#160;for 2nd through 7th&#160;bytes *)<br/>DEST[63:56]&#160;‚Üê&#160;SaturateToUnsignedByte(DEST[63:56]&#160;+&#160;SRC[63:56]&#160;</p>
+<p style="position:absolute;top:975px;left:68px;white-space:nowrap" class="ft03">PADDUSB (with 128-bit operands)</p>
+<p style="position:absolute;top:993px;left:88px;white-space:nowrap" class="ft03">DEST[7:0]&#160;‚Üê&#160;SaturateToUnsignedByte (DEST[7:0]&#160;+&#160;SRC[7:0]);</p>
+<p style="position:absolute;top:1011px;left:88px;white-space:nowrap" class="ft07">(* Repeat add operation&#160;for 2nd through 14th bytes *)<br/>DEST[127:120]&#160;‚Üê&#160;SaturateToUnSignedByte&#160;(DEST[127:120]&#160;+</p>
+<p style="position:absolute;top:1030px;left:449px;white-space:nowrap" class="ft00">&#160;</p>
+<p style="position:absolute;top:1029px;left:452px;white-space:nowrap" class="ft03">SRC[127:120]);</p>
+<p style="position:absolute;top:105px;left:70px;white-space:nowrap" class="ft03">EVEX.NDS.512.66.0F.WIG DD /r</p>
+<p style="position:absolute;top:105px;left:372px;white-space:nowrap" class="ft03">FVM&#160;V/V</p>
+<p style="position:absolute;top:105px;left:482px;white-space:nowrap" class="ft03">AVX512BW</p>
+<p style="position:absolute;top:105px;left:570px;white-space:nowrap" class="ft03">Add packed&#160;unsigned word&#160;integers from&#160;</p>
+<p style="position:absolute;top:121px;left:570px;white-space:nowrap" class="ft03">zmm2,&#160;and&#160;<i>zmm3/m512</i>&#160;and store the&#160;</p>
+<p style="position:absolute;top:137px;left:570px;white-space:nowrap" class="ft03">saturated results in zmm1 under writemask&#160;</p>
+<p style="position:absolute;top:154px;left:570px;white-space:nowrap" class="ft03">k1.</p>
+<p style="position:absolute;top:127px;left:70px;white-space:nowrap" class="ft03">VPADDUSW&#160;<i>zmm1 {k1}{z}, zmm2, zmm3/m512</i></p>
+<p style="position:absolute;top:177px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:198px;left:70px;white-space:nowrap" class="ft03">1.&#160;See note&#160;in<a href="o_b5573232dd8f1481-81.html">&#160;Section&#160;2.4,&#160;‚ÄúAVX&#160;and&#160;SSE Instruction Exception Specification‚Äù i</a>n&#160;th<a href="˛ˇ">e&#160;<i>Intel¬Æ&#160;64&#160;and&#160;IA-32 Architectures Software&#160;</i></a></p>
+<p style="position:absolute;top:214px;left:70px;white-space:nowrap" class="ft04"><a href="˛ˇ"><i>Developer‚Äôs&#160;Manual, Volume 2A</i></a>&#160;an<a href="˛ˇ">d Section 22.25.3,&#160;‚ÄúException&#160;Conditions&#160;of&#160;Legacy SIMD Instructions Operating&#160;on&#160;MMX&#160;Registers‚Äù&#160;</a></p>
+<p style="position:absolute;top:231px;left:70px;white-space:nowrap" class="ft03">in<a href="˛ˇ">&#160;the&#160;<i>Intel¬Æ 64 and IA-32 Architectures Software&#160;Developer‚Äôs Manual, Volume 3A</i></a>.</p>
+<p style="position:absolute;top:307px;left:86px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:307px;left:192px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:307px;left:362px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:307px;left:539px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:307px;left:718px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:331px;left:95px;white-space:nowrap" class="ft03">RM</p>
+<p style="position:absolute;top:331px;left:174px;white-space:nowrap" class="ft03">ModRM:reg (r,&#160;w)</p>
+<p style="position:absolute;top:331px;left:351px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:331px;left:560px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:331px;left:739px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:355px;left:91px;white-space:nowrap" class="ft03">RVM</p>
+<p style="position:absolute;top:355px;left:179px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:355px;left:356px;white-space:nowrap" class="ft03">VEX.vvvv&#160;(r)</p>
+<p style="position:absolute;top:355px;left:529px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:355px;left:739px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:379px;left:91px;white-space:nowrap" class="ft03">FVM</p>
+<p style="position:absolute;top:379px;left:179px;white-space:nowrap" class="ft03">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:379px;left:353px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:379px;left:529px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:379px;left:739px;white-space:nowrap" class="ft03">NA</p>
+</div>
+</body>
+</html>

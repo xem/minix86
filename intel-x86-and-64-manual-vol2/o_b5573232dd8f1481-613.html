@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 613</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page613-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481613.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">Jcc—Jump if&#160;Condition Is Met</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-485</p>
+<p style="position:absolute;top:257px;left:354px;white-space:nowrap" class="ft02">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:341px;left:69px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:366px;left:69px;white-space:nowrap" class="ft06">Checks the&#160;state of one&#160;or&#160;more&#160;of the status flags&#160;in the&#160;EFLAGS&#160;register (CF,&#160;OF, PF,&#160;SF, and&#160;ZF)&#160;and, if&#160;the flags&#160;<br/>are in the&#160;specified&#160;state (condition), performs&#160;a jump&#160;to the&#160;target&#160;instruction&#160;specified by the&#160;destination&#160;<br/>operand. A condition&#160;code&#160;(<i>cc</i>)&#160;is associated&#160;with each&#160;instruction to indicate the&#160;condition being&#160;tested for.&#160;If&#160;the&#160;<br/>condition is&#160;not&#160;satisfied, the&#160;jump&#160;is not performed and execution&#160;continues&#160;with&#160;the instruction following the&#160;J<i>cc</i>&#160;<br/>instruction.&#160;<br/>The target instruction is&#160;specified with a&#160;relative&#160;offset (a&#160;signed offset relative&#160;to the&#160;current value of&#160;the instruc-<br/>tion pointer in the EIP register). A relative&#160;offset (<i>rel8</i>,&#160;<i>rel16,</i>&#160;or&#160;<i>rel32</i>) is generally specified as a label in assembly&#160;<br/>code, but&#160;at the&#160;machine code level, it&#160;is encoded&#160;as a&#160;signed,&#160;8-bit&#160;or 32-bit immediate value,&#160;which is&#160;added&#160;to&#160;<br/>the instruction pointer.&#160;Instruction&#160;coding&#160;is most&#160;efficient for offsets of&#160;–128&#160;to&#160;+127. If&#160;the operand-size&#160;attribute&#160;</p>
+<p style="position:absolute;top:522px;left:69px;white-space:nowrap" class="ft06">is&#160;16, the upper two bytes&#160;of&#160;the&#160;EIP register&#160;are cleared,&#160;resulting in&#160;a maximum instruction&#160;pointer size of&#160;16 bits.&#160;<br/>The conditions&#160;for each&#160;J<i>cc</i>&#160;mnemonic&#160;are&#160;given in the “Description” column&#160;of the&#160;table on the preceding page. The&#160;<br/>terms “less” and “greater”&#160;are&#160;used&#160;for comparisons&#160;of signed integers and&#160;the&#160;terms&#160;“above” and “below” are used&#160;<br/>for unsigned integers.<br/>Because&#160;a&#160;particular state of&#160;the&#160;status flags&#160;can sometimes be interpreted in two ways,&#160;two&#160;mnemonics&#160;are&#160;<br/>defined&#160;for some&#160;opcodes.&#160;For example,&#160;the JA&#160;(jump if&#160;above)&#160;instruction and&#160;the&#160;JNBE (jump if not&#160;below or&#160;<br/>equal)&#160;instruction&#160;are alternate mnemonics for the&#160;opcode&#160;77H.<br/>The J<i>cc</i>&#160;instruction does not support&#160;far jumps (jumps&#160;to other code&#160;segments).&#160;When the target for the conditional&#160;<br/>jump is&#160;in a&#160;different segment,&#160;use the&#160;opposite&#160;condition&#160;from the&#160;condition being&#160;tested for the&#160;J<i>cc</i>&#160;instruction,&#160;<br/>and then access the target with&#160;an&#160;unconditional far jump&#160;(JMP instruction)&#160;to&#160;the other segment. For example, the&#160;<br/>following&#160;conditional far jump is&#160;illegal:</p>
+<p style="position:absolute;top:730px;left:89px;white-space:nowrap" class="ft03">JZ&#160;FARLABEL;</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft03">To&#160;accomplish this&#160;far&#160;jump, use&#160;the following two instructions:</p>
+<p style="position:absolute;top:775px;left:89px;white-space:nowrap" class="ft09">JNZ&#160;BEYOND;<br/>JMP FARLABEL;<br/>BEYOND:</p>
+<p style="position:absolute;top:835px;left:69px;white-space:nowrap" class="ft06">The JRCXZ, JECXZ&#160;and JCXZ instructions differ from other&#160;J<i>cc</i>&#160;instructions&#160;because&#160;they do not&#160;check status&#160;flags.&#160;<br/>Instead,&#160;they&#160;check RCX,&#160;ECX&#160;or CX&#160;for&#160;0.&#160;The&#160;register checked&#160;is determined&#160;by the&#160;address-size&#160;attribute.&#160;These&#160;<br/>instructions are useful when used at&#160;the beginning of&#160;a loop&#160;that terminates&#160;with a&#160;conditional loop&#160;instruction&#160;<br/>(such as&#160;LOOPNE). They&#160;can be used to prevent&#160;an instruction&#160;sequence from&#160;entering&#160;a loop when RCX, ECX&#160;or&#160;<br/>CX&#160;is&#160;0.&#160;This&#160;would&#160;cause&#160;the&#160;loop&#160;to&#160;execute&#160;2</p>
+<p style="position:absolute;top:899px;left:386px;white-space:nowrap" class="ft05">64</p>
+<p style="position:absolute;top:901px;left:400px;white-space:nowrap" class="ft03">, 2</p>
+<p style="position:absolute;top:899px;left:417px;white-space:nowrap" class="ft05">32</p>
+<p style="position:absolute;top:901px;left:431px;white-space:nowrap" class="ft03">&#160;or 64K times&#160;(not zero times).</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft06">All conditional jumps are converted to code&#160;fetches of one&#160;or two&#160;cache&#160;lines, regardless of jump address or cache-<br/>ability.<br/>In&#160;64-bit mode,&#160;operand size is fixed at&#160;64&#160;bits. JMP Short&#160;is&#160;RIP&#160;= RIP + 8-bit&#160;offset sign extended&#160;to 64 bits. JMP&#160;<br/>Near&#160;is RIP&#160;= RIP&#160;+ 32-bit offset&#160;sign extended&#160;to 64-bits.</p>
+<p style="position:absolute;top:142px;left:73px;white-space:nowrap" class="ft03">0F&#160;88&#160;<i>cd</i></p>
+<p style="position:absolute;top:142px;left:222px;white-space:nowrap" class="ft03">JS&#160;<i>rel32</i></p>
+<p style="position:absolute;top:142px;left:390px;white-space:nowrap" class="ft03">D</p>
+<p style="position:absolute;top:142px;left:427px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:142px;left:499px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:142px;left:569px;white-space:nowrap" class="ft03">Jump&#160;near&#160;if&#160;sign&#160;(SF=1).</p>
+<p style="position:absolute;top:164px;left:73px;white-space:nowrap" class="ft03">0F&#160;84&#160;<i>cw</i></p>
+<p style="position:absolute;top:164px;left:222px;white-space:nowrap" class="ft03">JZ&#160;<i>rel16</i></p>
+<p style="position:absolute;top:164px;left:390px;white-space:nowrap" class="ft03">D</p>
+<p style="position:absolute;top:164px;left:427px;white-space:nowrap" class="ft03">N.S.</p>
+<p style="position:absolute;top:164px;left:499px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:164px;left:570px;white-space:nowrap" class="ft03">Jump&#160;near&#160;if&#160;0&#160;(ZF=1).&#160;Not&#160;supported&#160;in&#160;64-bit&#160;</p>
+<p style="position:absolute;top:181px;left:570px;white-space:nowrap" class="ft03">mode.</p>
+<p style="position:absolute;top:204px;left:73px;white-space:nowrap" class="ft03">0F&#160;84&#160;<i>cd</i></p>
+<p style="position:absolute;top:204px;left:222px;white-space:nowrap" class="ft03">JZ&#160;<i>rel32</i></p>
+<p style="position:absolute;top:204px;left:390px;white-space:nowrap" class="ft03">D</p>
+<p style="position:absolute;top:204px;left:427px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:204px;left:499px;white-space:nowrap" class="ft03">Valid</p>
+<p style="position:absolute;top:204px;left:569px;white-space:nowrap" class="ft03">Jump&#160;near&#160;if&#160;0 (ZF=1).</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:280px;left:199px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:280px;left:367px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:280px;left:540px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:280px;left:718px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:304px;left:102px;white-space:nowrap" class="ft03">D</p>
+<p style="position:absolute;top:304px;left:210px;white-space:nowrap" class="ft03">Offset</p>
+<p style="position:absolute;top:304px;left:388px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:304px;left:561px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:304px;left:739px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:105px;left:73px;white-space:nowrap" class="ft03">Opcode</p>
+<p style="position:absolute;top:105px;left:222px;white-space:nowrap" class="ft03">Instruction</p>
+<p style="position:absolute;top:105px;left:390px;white-space:nowrap" class="ft03">Op/&#160;</p>
+<p style="position:absolute;top:119px;left:390px;white-space:nowrap" class="ft03">En</p>
+<p style="position:absolute;top:105px;left:427px;white-space:nowrap" class="ft03">64-Bit&#160;</p>
+<p style="position:absolute;top:119px;left:427px;white-space:nowrap" class="ft03">Mode</p>
+<p style="position:absolute;top:105px;left:499px;white-space:nowrap" class="ft03">Compat/</p>
+<p style="position:absolute;top:119px;left:499px;white-space:nowrap" class="ft03">Leg Mode</p>
+<p style="position:absolute;top:105px;left:570px;white-space:nowrap" class="ft03">Description</p>
+</div>
+</body>
+</html>

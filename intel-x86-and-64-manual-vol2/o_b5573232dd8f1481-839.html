@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 839</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page839-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481839.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">MWAIT—Monitor Wait</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-159</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">MWAIT for&#160;Power Management</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft06">MWAIT&#160;accepts a&#160;hint&#160;and optional&#160;extension to&#160;the processor that&#160;it can enter a&#160;specified target C state while&#160;<br/>waiting for an event or a&#160;store operation&#160;to the address range armed by&#160;MONITOR.&#160;Support for&#160;MWAIT extensions&#160;<br/>for power&#160;management is&#160;indicated by&#160;CPUID.05H:ECX[bit 0]&#160;reporting 1.&#160;<br/>EAX&#160;and ECX are used to&#160;communicate the additional information&#160;to the&#160;MWAIT&#160;instruction, such&#160;as&#160;the&#160;kind&#160;of&#160;<br/>optimized state the processor should&#160;enter.&#160;ECX&#160;specifies&#160;optional extensions for the MWAIT instruction. EAX may&#160;<br/>contain&#160;hints&#160;such as&#160;the preferred optimized state the&#160;processor&#160;should enter.&#160;Implementation-specific&#160;conditions&#160;<br/>may cause a&#160;processor&#160;to&#160;ignore the hint&#160;and enter&#160;a different optimized state.&#160;Future&#160;processor&#160;implementations&#160;<br/>may implement several optimized “waiting” states&#160;and will&#160;select among those states based on the&#160;hint&#160;argument.<br/><a href="o_b5573232dd8f1481-839.html">Table&#160;4-10&#160;describe</a>s&#160;the&#160;meaning of ECX&#160;and EAX registers&#160;for&#160;MWAIT&#160;extensions.</p>
+<p style="position:absolute;top:666px;left:69px;white-space:nowrap" class="ft08">Note that&#160;if&#160;MWAIT is&#160;used&#160;to enter any of&#160;the C-states&#160;that are&#160;numerically higher than C1, a&#160;store to&#160;the address&#160;<br/>range&#160;armed by the&#160;MONITOR instruction will cause&#160;the processor&#160;to exit MWAIT only if the&#160;store was originated by&#160;<br/>other processor agents.&#160;A&#160;store from non-processor&#160;agent&#160;might not cause&#160;the processor to&#160;exit MWAIT in&#160;such&#160;<br/>cases.<br/>For&#160;additional&#160;details&#160;of MWAIT&#160;extensions,&#160;see<a href="��">&#160;Chapter&#160;14,&#160;“Power&#160;and Thermal Management,”</a>&#160;of&#160;<a href="��"><i>Intel® 64 and&#160;<br/>IA-32&#160;Architectures&#160;Software Developer’s Manual, Volume&#160;3A</i></a>.</p>
+<p style="position:absolute;top:793px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:819px;left:69px;white-space:nowrap" class="ft03">(* MWAIT&#160;takes the argument in EAX as a&#160;hint extension and&#160;is architected to take the argument in&#160;ECX as an instruction extension&#160;</p>
+<p style="position:absolute;top:835px;left:69px;white-space:nowrap" class="ft09">MWAIT EAX, ECX *)<br/>{<br/>WHILE ( (“Monitor Hardware&#160;is&#160;in armed&#160;state”)) {</p>
+<p style="position:absolute;top:889px;left:89px;white-space:nowrap" class="ft03">implementation_dependent_optimized_state(EAX,&#160;ECX); }</p>
+<p style="position:absolute;top:907px;left:69px;white-space:nowrap" class="ft09">Set the state of&#160;Monitor Hardware&#160;as triggered;<br/>}</p>
+<p style="position:absolute;top:962px;left:69px;white-space:nowrap" class="ft02">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:990px;left:69px;white-space:nowrap" class="ft03">MWAIT:</p>
+<p style="position:absolute;top:990px;left:162px;white-space:nowrap" class="ft03">void&#160;_mm_mwait(unsigned&#160;extensions, unsigned&#160;hints)</p>
+<p style="position:absolute;top:314px;left:303px;white-space:nowrap" class="ft02">Table&#160;4-10. &#160;MWAIT&#160;Extension Register&#160;(ECX)</p>
+<p style="position:absolute;top:335px;left:123px;white-space:nowrap" class="ft03">Bits</p>
+<p style="position:absolute;top:335px;left:484px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:360px;left:75px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:358px;left:205px;white-space:nowrap" class="ft03">Treat interrupts as&#160;break&#160;events even&#160;if&#160;masked&#160;(e.g.,&#160;even&#160;if&#160;EFLAGS.IF=0).&#160;May be&#160;set only if&#160;</p>
+<p style="position:absolute;top:375px;left:205px;white-space:nowrap" class="ft03">CPUID.05H:ECX[bit 1] = 1.</p>
+<p style="position:absolute;top:399px;left:75px;white-space:nowrap" class="ft03">31:&#160;1</p>
+<p style="position:absolute;top:397px;left:205px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:453px;left:318px;white-space:nowrap" class="ft02">Table 4-11.&#160;&#160;MWAIT Hints Register&#160;(EAX)</p>
+<p style="position:absolute;top:475px;left:123px;white-space:nowrap" class="ft03">Bits</p>
+<p style="position:absolute;top:475px;left:484px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:499px;left:75px;white-space:nowrap" class="ft03">3 : 0</p>
+<p style="position:absolute;top:498px;left:205px;white-space:nowrap" class="ft03">Sub&#160;C-state within&#160;a C-state,&#160;indicated&#160;by bits&#160;[7:4]</p>
+<p style="position:absolute;top:522px;left:75px;white-space:nowrap" class="ft03">7 : 4</p>
+<p style="position:absolute;top:520px;left:205px;white-space:nowrap" class="ft010">Target C-state*<br/>Value&#160;of&#160;0 means C1; 1 means C2&#160;and so&#160;on<br/>Value of&#160;01111B&#160;means&#160;C0</p>
+<p style="position:absolute;top:604px;left:205px;white-space:nowrap" class="ft03">Note: Target&#160;C states for MWAIT&#160;extensions&#160;are processor-specific C-states, not ACPI C-states</p>
+<p style="position:absolute;top:628px;left:75px;white-space:nowrap" class="ft03">31:&#160;8</p>
+<p style="position:absolute;top:627px;left:205px;white-space:nowrap" class="ft03">Reserved</p>
+</div>
+</body>
+</html>

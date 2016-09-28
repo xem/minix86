@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1172</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1172-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1172.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">29-6&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND&#160;VIRTUAL INTERRUPTS</p>
+<p style="position:absolute;top:100px;left:120px;white-space:nowrap" class="ft07">all the virtual processors)&#160;while giving each virtual&#160;processor its own virtual&#160;APIC (the VMCS of each&#160;<br/>virtual processor will have&#160;a&#160;unique&#160;virtual-APIC address).</p>
+<p style="position:absolute;top:162px;left:68px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-1172.html">Section&#160;29.4.2&#160;</a>discusses when and&#160;how the&#160;processor&#160;may virtualize read accesses&#160;from the&#160;APIC-access page.&#160;<br/><a href="o_fe12b1e2a880e0ce-1173.html">Section&#160;29.4.3 does</a>&#160;the same for write accesses. When&#160;virtualizing a&#160;write to&#160;the APIC-access page, the processor&#160;<br/>typically&#160;takes&#160;actions in&#160;addition&#160;to passing the&#160;write through to&#160;the virtual-APIC page.<br/>The discussion in those sections uses the concept of an&#160;<b>operation&#160;</b>within which these&#160;memory accesses may occur.&#160;<br/>For&#160;those discussions, an&#160;“operation” can&#160;be&#160;an iteration of&#160;a&#160;REP-prefixed&#160;string&#160;instruction, an execution of any&#160;<br/>other instruction,&#160;or delivery&#160;of&#160;an event through the&#160;IDT.<br/>The 1-setting&#160;of&#160;the “virtualize APIC&#160;accesses”&#160;VM-execution&#160;control may also&#160;affect&#160;accesses to&#160;the APIC-access&#160;<br/>page that&#160;do not&#160;result directly from&#160;linear&#160;addresses. This&#160;is discussed&#160;<a href="o_fe12b1e2a880e0ce-1176.html">in Section 29.4.6.<br/></a>Special treatment&#160;may apply to&#160;Intel SGX&#160;instructions&#160;or&#160;if the&#160;logical&#160;processor&#160;is in enclave mode.&#160;See<a href="o_fe12b1e2a880e0ce-1922.html">&#160;Section&#160;<br/>42.5.3 for&#160;</a>details.</p>
+<p style="position:absolute;top:383px;left:68px;white-space:nowrap" class="ft04">29.4.1&#160;</p>
+<p style="position:absolute;top:383px;left:148px;white-space:nowrap" class="ft04">Priority of&#160;APIC-Access VM&#160;Exits</p>
+<p style="position:absolute;top:414px;left:68px;white-space:nowrap" class="ft02">The&#160;following&#160;items specify the&#160;priority&#160;of APIC-access&#160;VM&#160;exits&#160;relative&#160;to other&#160;events.</p>
+<p style="position:absolute;top:436px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:436px;left:93px;white-space:nowrap" class="ft07">The&#160;priority&#160;of an&#160;APIC-access VM&#160;exit due to a&#160;memory&#160;access is&#160;below&#160;that of any page fault or EPT violation&#160;<br/>that that access may incur.&#160;That is, an&#160;access does not&#160;cause an&#160;APIC-access&#160;VM&#160;exit&#160;if it&#160;would&#160;cause a&#160;page&#160;<br/>fault&#160;or an&#160;EPT violation.</p>
+<p style="position:absolute;top:491px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:492px;left:93px;white-space:nowrap" class="ft07">A&#160;memory access does not&#160;cause an&#160;APIC-access&#160;VM&#160;exit&#160;until after the&#160;accessed flags&#160;are set in&#160;the&#160;paging&#160;<br/>structures&#160;(including EPT paging structures, if&#160;enabled).</p>
+<p style="position:absolute;top:530px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:531px;left:93px;white-space:nowrap" class="ft07">A&#160;write access does&#160;not cause an&#160;APIC-access VM&#160;exit until&#160;after&#160;the dirty flags are set in&#160;the&#160;appropriate&#160;paging&#160;<br/>structure&#160;and EPT paging structure&#160;(if enabled).</p>
+<p style="position:absolute;top:569px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:570px;left:93px;white-space:nowrap" class="ft07">With respect&#160;to all other&#160;events, any APIC-access VM&#160;exit due&#160;to a memory access&#160;has the same&#160;priority&#160;as&#160;any&#160;<br/>page fault or&#160;EPT violation that the&#160;access could cause. (This item&#160;applies to other&#160;events&#160;that the access may&#160;<br/>generate as&#160;well as&#160;events that may be generated by other&#160;accesses by the&#160;same operation.)</p>
+<p style="position:absolute;top:627px;left:68px;white-space:nowrap" class="ft07">These&#160;principles imply,&#160;among&#160;other things, that an&#160;APIC-access&#160;VM&#160;exit may occur&#160;during the&#160;execution&#160;of a&#160;<br/>repeated&#160;string instruction (including&#160;INS and&#160;OUTS). Suppose, for example,&#160;that the&#160;first&#160;<i>n</i>&#160;iterations (<i>n</i>&#160;may&#160;be&#160;<br/>0) of such an&#160;instruction&#160;do&#160;not access the APIC-access page and that the next&#160;iteration does access that&#160;page. As&#160;<br/>a result, the first&#160;<i>n</i>&#160;iterations&#160;may complete and be&#160;followed by an&#160;APIC-access&#160;VM&#160;exit.&#160;The instruction pointer&#160;<br/>saved in the VMCS references the&#160;repeated&#160;string&#160;instruction&#160;and the&#160;values of the&#160;general-purpose registers&#160;<br/>reflect the&#160;completion&#160;of&#160;<i>n</i>&#160;iterations.</p>
+<p style="position:absolute;top:760px;left:68px;white-space:nowrap" class="ft04">29.4.2&#160;</p>
+<p style="position:absolute;top:760px;left:148px;white-space:nowrap" class="ft04">Virtualizing Reads from the APIC-Access Page</p>
+<p style="position:absolute;top:790px;left:68px;white-space:nowrap" class="ft02">A read access from the&#160;APIC-access&#160;page causes an&#160;APIC-access&#160;VM&#160;exit&#160;if&#160;any of the&#160;following&#160;are&#160;true:</p>
+<p style="position:absolute;top:812px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:813px;left:93px;white-space:nowrap" class="ft02">The&#160;“use TPR&#160;shadow” VM-execution&#160;control&#160;is 0.</p>
+<p style="position:absolute;top:835px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:835px;left:93px;white-space:nowrap" class="ft02">The&#160;access is&#160;for an&#160;instruction&#160;fetch.</p>
+<p style="position:absolute;top:857px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:858px;left:93px;white-space:nowrap" class="ft02">The&#160;access&#160;is more&#160;than 32&#160;bits&#160;in size.</p>
+<p style="position:absolute;top:880px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:880px;left:93px;white-space:nowrap" class="ft07">The&#160;access&#160;is part of an&#160;operation&#160;for&#160;which&#160;the&#160;processor has already virtualized&#160;a write to&#160;the APIC-access&#160;<br/>page.</p>
+<p style="position:absolute;top:919px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:919px;left:93px;white-space:nowrap" class="ft07">The access&#160;is not&#160;entirely contained within&#160;the low 4 bytes&#160;of&#160;a naturally aligned&#160;16-byte&#160;region. That&#160;is,&#160;bits&#160;<br/>3:2&#160;of the&#160;access’s address&#160;are 0,&#160;and the&#160;same is&#160;true of the&#160;address of&#160;the&#160;highest&#160;byte accessed.</p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft07">If none of&#160;the above are true, whether a&#160;read&#160;access&#160;is&#160;virtualized depends on&#160;the&#160;setting&#160;of the&#160;“APIC-register&#160;<br/>virtualization” VM-execution&#160;control:</p>
+<p style="position:absolute;top:998px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:999px;left:93px;white-space:nowrap" class="ft07">If “APIC-register&#160;virtualization” is&#160;0,&#160;a&#160;read&#160;access&#160;is&#160;virtualized if its&#160;page offset&#160;is 080H&#160;(task priority);&#160;<br/>otherwise,&#160;the access causes&#160;an APIC-access VM&#160;exit.</p>
+<p style="position:absolute;top:1037px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1038px;left:93px;white-space:nowrap" class="ft07">If “APIC-register&#160;virtualization is 1, a read access is&#160;virtualized if&#160;it is entirely&#160;within&#160;one the&#160;following&#160;ranges&#160;of&#160;<br/>offsets:</p>
+</div>
+</body>
+</html>

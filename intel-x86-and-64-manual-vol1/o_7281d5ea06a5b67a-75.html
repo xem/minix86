@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 75</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page75-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a075.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;3-15</p>
+<p style="position:absolute;top:47px;left:645px;white-space:nowrap" class="ft01">BASIC EXECUTION ENVIRONMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">segment.&#160;Unlike&#160;the CS&#160;register,&#160;the&#160;SS&#160;register&#160;can be&#160;loaded&#160;explicitly,&#160;which permits application programs to set&#160;<br/>up multiple&#160;stacks and switch among them.<br/>Se<a href="o_7281d5ea06a5b67a-66.html">e Section 3.3,&#160;“Memory Organization,”&#160;for an&#160;</a>overview&#160;of&#160;how&#160;the segment registers are used in real-address&#160;<br/>mode.<br/>The four segment registers CS, DS, SS,&#160;and ES are&#160;the&#160;same as the segment registers found in the Intel 8086 and&#160;<br/>Intel&#160;286 processors and&#160;the FS&#160;and GS registers&#160;were introduced into the&#160;IA-32&#160;Architecture&#160;with the Intel386™&#160;<br/>family of&#160;processors.</p>
+<p style="position:absolute;top:259px;left:69px;white-space:nowrap" class="ft03">3.4.2.1&#160;&#160;</p>
+<p style="position:absolute;top:259px;left:153px;white-space:nowrap" class="ft03">Segment Registers&#160;in 64-Bit&#160;Mode</p>
+<p style="position:absolute;top:287px;left:69px;white-space:nowrap" class="ft07">In 64-bit mode: CS, DS,&#160;ES,&#160;SS&#160;are&#160;treated&#160;as if each segment base&#160;is 0,&#160;regardless of the value of the associated&#160;<br/>segment&#160;descriptor base.&#160;This creates&#160;a flat address&#160;space for&#160;code, data, and stack.&#160;FS and GS are&#160;exceptions.&#160;<br/>Both segment registers&#160;may be used as&#160;additional&#160;base registers&#160;in&#160;linear&#160;address&#160;calculations (in&#160;the addressing&#160;<br/>of&#160;local data and&#160;certain&#160;operating system data structures).&#160;<br/>Even though&#160;segmentation is&#160;generally disabled, segment&#160;register loads may&#160;cause&#160;the processor to&#160;perform&#160;<br/>segment access assists. During these&#160;activities, enabled processors will still perform most of the legacy checks on&#160;<br/>loaded values&#160;(even if the checks are not applicable&#160;in&#160;64-bit mode).&#160;Such&#160;checks&#160;are needed&#160;because a segment&#160;<br/>register&#160;loaded in&#160;64-bit&#160;mode&#160;may be used by&#160;an application running in&#160;compatibility&#160;mode.&#160;<br/>Limit checks for&#160;CS,&#160;DS, ES, SS,&#160;FS,&#160;and&#160;GS&#160;are disabled in 64-bit&#160;mode.</p>
+<p style="position:absolute;top:485px;left:69px;white-space:nowrap" class="ft04">3.4.3 EFLAGS&#160;</p>
+<p style="position:absolute;top:485px;left:215px;white-space:nowrap" class="ft04">Register</p>
+<p style="position:absolute;top:515px;left:69px;white-space:nowrap" class="ft05">The 32-bit EFLAGS register contains a group of&#160;status&#160;flags,&#160;a control flag, and a group of<a href="o_7281d5ea06a5b67a-76.html">&#160;system flags. Figure&#160;3-8</a>&#160;<br/>defines&#160;the flags&#160;within this&#160;register. Following initialization of the processor (either by asserting the&#160;RESET pin or&#160;<br/>the INIT&#160;pin),&#160;the&#160;state&#160;of the&#160;EFLAGS&#160;register&#160;is 00000002H.&#160;Bits 1,&#160;3,&#160;5,&#160;15,&#160;and&#160;22&#160;through 31&#160;of this&#160;register&#160;<br/>are reserved. Software should&#160;not use&#160;or&#160;depend&#160;on&#160;the&#160;states of&#160;any of&#160;these bits.<br/>Some of the flags in the EFLAGS register can be&#160;modified&#160;directly, using special-purpose&#160;instructions (described&#160;in&#160;<br/>the&#160;following&#160;sections).&#160;There are&#160;no instructions that&#160;allow&#160;the whole register&#160;to be examined&#160;or modified directly.&#160;<br/>The&#160;following&#160;instructions&#160;can&#160;be&#160;used&#160;to&#160;move&#160;groups&#160;of&#160;flags to and from the procedure stack or&#160;the&#160;EAX register:&#160;<br/>LAHF,&#160;SAHF, PUSHF,&#160;PUSHFD, POPF, and POPFD.&#160;After the contents of the EFLAGS register have been transferred&#160;to&#160;<br/>the procedure stack or&#160;EAX register,&#160;the&#160;flags can be examined&#160;and modified&#160;using&#160;the&#160;processor’s bit manipulation&#160;<br/>instructions&#160;(BT,&#160;BTS,&#160;BTR,&#160;and BTC).<br/>When suspending a task (using the processor’s multitasking facilities), the&#160;processor automatically saves the state&#160;<br/>of&#160;the EFLAGS&#160;register&#160;in the task state&#160;segment&#160;(TSS)&#160;for&#160;the&#160;task being suspended. When binding itself to a new&#160;<br/>task,&#160;the&#160;processor loads&#160;the EFLAGS register&#160;with data from the&#160;new&#160;task’s&#160;TSS.<br/>When a call is made to an&#160;interrupt&#160;or exception handler procedure,&#160;the&#160;processor automatically saves&#160;the&#160;state of&#160;<br/>the EFLAGS&#160;registers on&#160;the procedure&#160;stack.&#160;When&#160;an interrupt&#160;or exception&#160;is handled with a&#160;task&#160;switch, the&#160;<br/>state&#160;of&#160;the EFLAGS register is&#160;saved in&#160;the&#160;TSS for the&#160;task being suspended.</p>
+</div>
+</body>
+</html>

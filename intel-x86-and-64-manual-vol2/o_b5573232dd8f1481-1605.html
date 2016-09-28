@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1605</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1605-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811605.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VFPCLASSPD—Tests Types&#160;Of a Packed Float64&#160;Values</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-219</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:123px;left:69px;white-space:nowrap" class="ft02">CheckFPClassDP&#160;</p>
+<p style="position:absolute;top:121px;left:165px;white-space:nowrap" class="ft03">(tsrc[63:0], imm8[7:0]){</p>
+<p style="position:absolute;top:159px;left:89px;white-space:nowrap" class="ft04">//* Start checking&#160;the source&#160;operand&#160;for special type&#160;*//<br/>NegNum&#160;&#160;&#160;</p>
+<p style="position:absolute;top:175px;left:163px;white-space:nowrap" class="ft03">tsrc</p>
+<p style="position:absolute;top:177px;left:187px;white-space:nowrap" class="ft02">[63];</p>
+<p style="position:absolute;top:195px;left:89px;white-space:nowrap" class="ft02">IF (</p>
+<p style="position:absolute;top:193px;left:107px;white-space:nowrap" class="ft03">tsrc</p>
+<p style="position:absolute;top:195px;left:131px;white-space:nowrap" class="ft02">[62:52]=07FFh) Then ExpAllOnes&#160;&#160;1; FI;</p>
+<p style="position:absolute;top:213px;left:89px;white-space:nowrap" class="ft02">IF (</p>
+<p style="position:absolute;top:211px;left:107px;white-space:nowrap" class="ft03">tsrc</p>
+<p style="position:absolute;top:213px;left:131px;white-space:nowrap" class="ft02">[62:52]=0h) Then ExpAllZeros&#160;&#160;1;</p>
+<p style="position:absolute;top:231px;left:89px;white-space:nowrap" class="ft02">IF (ExpAllZeros AND MXCSR.DAZ) Then&#160;</p>
+<p style="position:absolute;top:249px;left:116px;white-space:nowrap" class="ft02">MantAllZeros&#160;&#160;1;</p>
+<p style="position:absolute;top:267px;left:89px;white-space:nowrap" class="ft02">ELSIF&#160;(</p>
+<p style="position:absolute;top:265px;left:128px;white-space:nowrap" class="ft03">tsrc</p>
+<p style="position:absolute;top:267px;left:152px;white-space:nowrap" class="ft02">[51:0]=0h)&#160;Then</p>
+<p style="position:absolute;top:285px;left:116px;white-space:nowrap" class="ft02">MantAllZeros&#160;&#160;1;</p>
+<p style="position:absolute;top:303px;left:89px;white-space:nowrap" class="ft04">FI;<br/>ZeroNumber&#160;&#160;ExpAllZeros AND MantAllZeros<br/>SignalingBit&#160;&#160;</p>
+<p style="position:absolute;top:337px;left:176px;white-space:nowrap" class="ft03">tsrc</p>
+<p style="position:absolute;top:339px;left:200px;white-space:nowrap" class="ft02">[51];</p>
+<p style="position:absolute;top:375px;left:89px;white-space:nowrap" class="ft04">sNaN_res&#160;&#160;ExpAllOnes AND&#160;&#160;NOT(MantAllZeros) AND NOT(SignalingBit) ; // sNaN<br/>qNaN_res&#160;&#160;ExpAllOnes AND&#160;&#160;NOT(MantAllZeros) AND SignalingBit;; // qNaN<br/>Pzero_res&#160;&#160;NOT(NegNum) AND ExpAllZeros&#160;AND&#160;MantAllZeros;;&#160;// +0<br/>Nzero_res&#160;&#160;NegNum AND&#160;ExpAllZeros&#160;AND MantAllZeros;; //&#160;-0<br/>PInf_res&#160;&#160;NOT(NegNum) AND ExpAllOnes&#160;AND MantAllZeros;; //&#160;+Inf<br/>NInf_res&#160;&#160;NegNum&#160;AND ExpAllOnes&#160;AND MantAllZeros;; // -Inf<br/>Denorm_res&#160;&#160;ExpAllZeros&#160;AND&#160;&#160;NOT(MantAllZeros);;&#160;// denorm<br/>FinNeg_res&#160;&#160;NegNum AND&#160;NOT(ExpAllOnes)&#160;AND&#160;NOT(ZeroNumber);; // -finite</p>
+<p style="position:absolute;top:537px;left:89px;white-space:nowrap" class="ft02">bResult = ( imm8[0] AND&#160;qNaN_res&#160;) OR (imm8[1] AND Pzero_res ) OR</p>
+<p style="position:absolute;top:555px;left:143px;white-space:nowrap" class="ft04">(&#160;imm8[2] AND Nzero_res ) OR&#160;( imm8[3] AND PInf_res ) OR<br/>(&#160;imm8[4] AND NInf_res ) OR&#160;( imm8[5] AND Denorm_res&#160;)&#160;OR<br/>(&#160;imm8[6] AND FinNeg_res ) OR&#160;( imm8[7] AND sNaN_res&#160;)&#160;;</p>
+<p style="position:absolute;top:609px;left:89px;white-space:nowrap" class="ft02">Return bResult;</p>
+<p style="position:absolute;top:627px;left:69px;white-space:nowrap" class="ft02">} //* end of&#160;CheckFPClassDP() *//</p>
+<p style="position:absolute;top:663px;left:69px;white-space:nowrap" class="ft04">VFPCLASSPD&#160;(EVEX Encoded versions)<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:717px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:753px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:771px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b ==&#160;1) AND (SRC *is memory*)</p>
+<p style="position:absolute;top:789px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:807px;left:197px;white-space:nowrap" class="ft02">DEST[j]&#160;&#160;CheckFPClassDP(SRC1[63:0], imm8[7:0]);</p>
+<p style="position:absolute;top:825px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:843px;left:197px;white-space:nowrap" class="ft02">DEST[j]&#160;&#160;CheckFPClassDP(SRC1[i+63:i], imm8[7:0]);</p>
+<p style="position:absolute;top:861px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:879px;left:116px;white-space:nowrap" class="ft02">ELSE DEST[j]&#160;&#160;0</p>
+<p style="position:absolute;top:879px;left:305px;white-space:nowrap" class="ft02">;&#160;zeroing-masking only</p>
+<p style="position:absolute;top:897px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:915px;left:69px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_KL-1:KL]&#160;&#160;0</p>
+<p style="position:absolute;top:967px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:989px;left:69px;white-space:nowrap" class="ft04">VFPCLASSPD __mmask8 _mm512_fpclass_pd_mask( __m512d a, int c);<br/>VFPCLASSPD __mmask8 _mm512_mask_fpclass_pd_mask( __mmask8&#160;m, __m512d&#160;a, int c)<br/>VFPCLASSPD __mmask8 _mm256_fpclass_pd_mask( __m256d a, int c)<br/>VFPCLASSPD __mmask8 _mm256_mask_fpclass_pd_mask( __mmask8&#160;m, __m256d&#160;a, int c)<br/>VFPCLASSPD __mmask8 _mm_fpclass_pd_mask( __m128d&#160;a, int c)</p>
+</div>
+</body>
+</html>

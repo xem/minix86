@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1685</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:18px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft013{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1685-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1685.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;36-1</p>
+<p style="position:absolute;top:47px;left:685px;white-space:nowrap" class="ft01">INTEL®&#160;PROCESSOR TRACE</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft02">CHAPTER 36</p>
+<p style="position:absolute;top:120px;left:554px;white-space:nowrap" class="ft02">INTEL® PROCESSOR TRACE</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft03">36.1 OVERVIEW</p>
+<p style="position:absolute;top:231px;left:69px;white-space:nowrap" class="ft04">Intel</p>
+<p style="position:absolute;top:228px;left:100px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:231px;left:111px;white-space:nowrap" class="ft04">&#160;Processor Trace (<b>Intel PT</b>) is an extension of Intel</p>
+<p style="position:absolute;top:228px;left:455px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:231px;left:465px;white-space:nowrap" class="ft04">&#160;Architecture that captures&#160;information&#160;about&#160;software&#160;</p>
+<p style="position:absolute;top:247px;left:69px;white-space:nowrap" class="ft010">execution&#160;using dedicated&#160;hardware facilities that&#160;cause&#160;only&#160;minimal&#160;performance&#160;perturbation to the&#160;software&#160;<br/>being traced. This&#160;information is&#160;collected in&#160;<b>data packets</b>.&#160;The initial&#160;implementations&#160;of&#160;Intel PT offer&#160;<b>control&#160;<br/>flow tracing</b>, which generates&#160;a variety&#160;of&#160;packets to&#160;be&#160;processed by&#160;a software&#160;decoder.&#160;The&#160;packets&#160;include&#160;<br/>timing,&#160;program&#160;flow information (e.g. branch&#160;targets,&#160;branch&#160;taken/not taken indications)&#160;and program-induced&#160;<br/>mode related&#160;information (e.g. Intel TSX&#160;state&#160;transitions,&#160;CR3&#160;changes). These packets&#160;may be buffered internally&#160;<br/>before being sent&#160;to the memory subsystem&#160;or&#160;other output mechanism&#160;available in the platform. Debug software&#160;<br/>can process the&#160;trace&#160;data&#160;and reconstruct&#160;the program flow.<br/>Later generations include&#160;additional trace sources, including&#160;software trace instrumentation using&#160;PTWRITE, and&#160;<br/>Power Event&#160;tracing.</p>
+<p style="position:absolute;top:436px;left:69px;white-space:nowrap" class="ft07">36.1.1&#160;</p>
+<p style="position:absolute;top:436px;left:149px;white-space:nowrap" class="ft07">Features and Capabilities</p>
+<p style="position:absolute;top:465px;left:69px;white-space:nowrap" class="ft010">Intel PT’s&#160;control flow trace&#160;generates a variety&#160;of&#160;packets&#160;that,&#160;when combined&#160;with the&#160;binaries of a&#160;program by&#160;<br/>a post-processing&#160;tool, can&#160;be used&#160;to&#160;produce an&#160;exact&#160;execution&#160;trace.&#160;The packets record flow information such&#160;<br/>as instruction pointers&#160;(IP), indirect branch targets, and&#160;directions of conditional branches within&#160;contiguous code&#160;<br/>regions (basic blocks).<br/>Intel PT&#160;can&#160;also be configured to&#160;log software-generated&#160;packets&#160;using PTWRITE, and&#160;packets describing&#160;<br/>processor power&#160;management events.<br/>In addition, the packets record other contextual, timing, and bookkeeping information that enables&#160;both functional&#160;<br/>and performance&#160;debugging of applications. Intel&#160;PT has several control and&#160;filtering&#160;capabilities available to&#160;<br/>customize the tracing information&#160;collected and&#160;to append&#160;other processor state and&#160;timing information to&#160;enable&#160;<br/>debugging.&#160;For example,&#160;there are&#160;modes&#160;that allow packets&#160;to be&#160;filtered based&#160;on&#160;the current&#160;privilege level&#160;<br/>(CPL) or the&#160;value of CR3.<br/>Configuration of&#160;the&#160;packet generation and&#160;filtering&#160;capabilities are programmed&#160;via&#160;a set of&#160;MSRs. The&#160;MSRs&#160;<br/>generally follow&#160;the naming convention of&#160;IA32_RTIT_*.&#160;The capability provided&#160;by&#160;these&#160;configuration MSRs are&#160;<br/>enumerated&#160;by&#160;CPUID,<a href="o_fe12b1e2a880e0ce-1709.html">&#160;see Section 36.3.</a>&#160;Details of the&#160;MSRs for configuring&#160;Intel PT are&#160;described<a href="o_fe12b1e2a880e0ce-1699.html">&#160;in Section&#160;<br/>36.2.7.</a></p>
+<p style="position:absolute;top:758px;left:69px;white-space:nowrap" class="ft08">36.1.1.1 &#160;&#160;Packet&#160;Summary</p>
+<p style="position:absolute;top:785px;left:69px;white-space:nowrap" class="ft010">After a&#160;tracing tool&#160;has&#160;enabled and configured the appropriate MSRs, the processor will collect&#160;and generate trace&#160;<br/>information in&#160;the&#160;following categories of&#160;packets&#160;(for more details&#160;on&#160;the packets, se<a href="o_fe12b1e2a880e0ce-1719.html">e Section 36.4):</a></p>
+<p style="position:absolute;top:823px;left:69px;white-space:nowrap" class="ft09">•</p>
+<p style="position:absolute;top:824px;left:95px;white-space:nowrap" class="ft013">Packets&#160;about basic information&#160;on program execution:&#160;These&#160;include:<br/>—&#160;Packet Stream Boundary&#160;(<b>PSB</b>)&#160;packets: PSB packets act as&#160;‘heartbeats’ that&#160;are generated&#160;at regular&#160;</p>
+<p style="position:absolute;top:865px;left:120px;white-space:nowrap" class="ft010">intervals&#160;(e.g.,&#160;every 4K&#160;trace&#160;packet&#160;bytes).&#160;These&#160;packets&#160;allow&#160;the&#160;packet decoder to find&#160;the packet&#160;<br/>boundaries within the output data stream; a PSB packet should&#160;be the&#160;first&#160;packet that a decoder&#160;looks for&#160;<br/>when beginning&#160;to decode&#160;a trace.</p>
+<p style="position:absolute;top:922px;left:95px;white-space:nowrap" class="ft04">—&#160;Paging Information&#160;Packet (<b>PIP</b>):&#160;PIPs record modifications made to&#160;the CR3 register. This&#160;information,&#160;</p>
+<p style="position:absolute;top:938px;left:120px;white-space:nowrap" class="ft010">along with&#160;information from the&#160;operating system&#160;on&#160;the&#160;CR3&#160;value of each&#160;process,&#160;allows&#160;the debugger&#160;<br/>to attribute linear&#160;addresses&#160;to their&#160;correct application&#160;source.</p>
+<p style="position:absolute;top:979px;left:95px;white-space:nowrap" class="ft04">—&#160;Time-Stamp Counter (<b>TSC</b>) packets: TSC packets aid in tracking wall-clock time, and contain some portion&#160;</p>
+<p style="position:absolute;top:995px;left:120px;white-space:nowrap" class="ft04">of&#160;the software-visible time-stamp&#160;counter.</p>
+<p style="position:absolute;top:1019px;left:95px;white-space:nowrap" class="ft04">—&#160;Core Bus Ratio&#160;(<b>CBR</b>) packets: CBR packets&#160;contain&#160;the core:bus clock&#160;ratio.</p>
+</div>
+</body>
+</html>

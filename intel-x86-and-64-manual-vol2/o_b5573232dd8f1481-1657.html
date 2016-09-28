@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1657</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1657-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811657.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VGETMANTPD—Extract&#160;Float64 Vector of Normalized Mantissas from&#160;Float64 Vector</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-271</p>
+<p style="position:absolute;top:105px;left:69px;white-space:nowrap" class="ft02">If i</p>
+<p style="position:absolute;top:106px;left:89px;white-space:nowrap" class="ft03">nterv != 0&#160;then k = -1,&#160;otherwise&#160;K = 0.&#160;The encoded&#160;value&#160;of imm8[1:0] and&#160;sign control&#160;are shown&#160;in&#160;</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft07"><a href="o_b5573232dd8f1481-1656.html">Figure&#160;5-15.<br/></a>Each&#160;converted DP FP result is encoded according to the&#160;sign control, the unbiased exponent k&#160;(adding bias) and a&#160;<br/>mantissa&#160;normalized&#160;to&#160;the range&#160;specified by interv.<br/>The GetMant() function&#160;<a href="o_b5573232dd8f1481-1657.html">follows&#160;Table 5-9 whe</a>n&#160;dealing&#160;with&#160;floating-point special numbers.<br/>This instruction is&#160;writemasked, so&#160;only&#160;those elements with the&#160;corresponding bit&#160;set&#160;in vector mask&#160;register k1&#160;<br/>are computed and stored&#160;into&#160;the&#160;destination. Elements in&#160;zmm1&#160;with the corresponding&#160;bit clear in&#160;k1 retain&#160;their&#160;<br/>previous values.</p>
+<p style="position:absolute;top:264px;left:74px;white-space:nowrap" class="ft03">Note: EVEX.vvvv is&#160;reserved and&#160;must be 1111b;&#160;otherwise instructions will&#160;#UD.</p>
+<p style="position:absolute;top:591px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:613px;left:69px;white-space:nowrap" class="ft09">GetNormalizeMantissaDP(SRC[63:0], SignCtrl[1:0], Interv[1:0])<br/>{</p>
+<p style="position:absolute;top:649px;left:89px;white-space:nowrap" class="ft09">//&#160;Extracting the&#160;SRC&#160;sign, exponent&#160;and mantissa&#160;fields<br/>Dst.sign&#160;&#160;SignCtrl[0] ? 0 : Src[63];</p>
+<p style="position:absolute;top:667px;left:386px;white-space:nowrap" class="ft03">// Get sign bit</p>
+<p style="position:absolute;top:685px;left:89px;white-space:nowrap" class="ft09">Dst.exp&#160;&#160;SRC[62:52];&#160;;&#160;Get original exponent value<br/>Dst.fraction&#160;&#160;SRC[51:0];; Get original fraction&#160;value<br/>ZeroOperand&#160;&#160;(Dst.exp = 0) AND&#160;(Dst.fraction = 0);<br/>DenormOperand&#160;&#160;(Dst.exp = 0h) AND (Dst.fraction != 0);<br/>InfiniteOperand&#160;&#160;(Dst.exp = 07FFh) AND&#160;(Dst.fraction = 0);<br/>NaNOperand&#160;&#160;(Dst.exp = 07FFh) AND (Dst.fraction !=&#160;0);<br/>//&#160;Check&#160;for NAN operand<br/>IF (NaNOperand)&#160;<br/>{&#160;</p>
+<p style="position:absolute;top:829px;left:116px;white-space:nowrap" class="ft09">IF (SRC = SNaN) {Set #IE;}<br/>Return&#160;QNAN(SRC);</p>
+<p style="position:absolute;top:865px;left:89px;white-space:nowrap" class="ft09">}<br/>//&#160;Check&#160;for Zero and Infinite&#160;operands<br/>IF ((ZeroOperand) OR&#160;(InfiniteOperand)&#160;<br/>{</p>
+<p style="position:absolute;top:919px;left:116px;white-space:nowrap" class="ft03">Dst.exp&#160;&#160;03FFh;</p>
+<p style="position:absolute;top:919px;left:332px;white-space:nowrap" class="ft03">// Override&#160;exponent&#160;with&#160;BIAS</p>
+<p style="position:absolute;top:937px;left:116px;white-space:nowrap" class="ft03">Return ((Dst.sign&lt;&lt;63) | (Dst.exp&lt;&lt;52) | (Dst.fraction));</p>
+<p style="position:absolute;top:955px;left:89px;white-space:nowrap" class="ft09">}<br/>// Check for&#160;negative&#160;operand&#160;(including -0.0)<br/>IF ((Src[63] = 1) AND SignCtrl[1])&#160;<br/>{</p>
+<p style="position:absolute;top:1009px;left:116px;white-space:nowrap" class="ft09">Set&#160;&#160;#IE;<br/>Return&#160;QNaN_Indefinite;</p>
+<p style="position:absolute;top:1045px;left:89px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:302px;left:283px;white-space:nowrap" class="ft04">Table 5-9. GetMant()&#160;Special Float Values Behavior</p>
+<p style="position:absolute;top:327px;left:160px;white-space:nowrap" class="ft03">Input</p>
+<p style="position:absolute;top:327px;left:233px;white-space:nowrap" class="ft03">Result</p>
+<p style="position:absolute;top:327px;left:552px;white-space:nowrap" class="ft03">Exceptions /&#160;Comments</p>
+<p style="position:absolute;top:351px;left:160px;white-space:nowrap" class="ft03">NaN</p>
+<p style="position:absolute;top:351px;left:233px;white-space:nowrap" class="ft03">QNaN(SRC)</p>
+<p style="position:absolute;top:351px;left:552px;white-space:nowrap" class="ft03">Ignore&#160;<i>interv</i></p>
+<p style="position:absolute;top:367px;left:552px;white-space:nowrap" class="ft03">If (SRC&#160;= SNaN) then #IE</p>
+<p style="position:absolute;top:391px;left:160px;white-space:nowrap" class="ft03">+∞</p>
+<p style="position:absolute;top:391px;left:233px;white-space:nowrap" class="ft03">1.0</p>
+<p style="position:absolute;top:391px;left:552px;white-space:nowrap" class="ft03">Ignore&#160;<i>interv</i></p>
+<p style="position:absolute;top:415px;left:160px;white-space:nowrap" class="ft03">+0</p>
+<p style="position:absolute;top:415px;left:233px;white-space:nowrap" class="ft03">1.0 Ignore&#160;</p>
+<p style="position:absolute;top:415px;left:591px;white-space:nowrap" class="ft05"><i>interv</i></p>
+<p style="position:absolute;top:439px;left:160px;white-space:nowrap" class="ft03">-0</p>
+<p style="position:absolute;top:439px;left:233px;white-space:nowrap" class="ft03">IF (SC[0]) THEN +1.0</p>
+<p style="position:absolute;top:456px;left:233px;white-space:nowrap" class="ft03">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; ELSE -1.0</p>
+<p style="position:absolute;top:439px;left:552px;white-space:nowrap" class="ft03">Ignore&#160;<i>interv</i></p>
+<p style="position:absolute;top:480px;left:160px;white-space:nowrap" class="ft03">-∞</p>
+<p style="position:absolute;top:480px;left:233px;white-space:nowrap" class="ft03">IF (SC[1]) THEN {QNaN_Indefinite}&#160;</p>
+<p style="position:absolute;top:496px;left:233px;white-space:nowrap" class="ft03">ELSE&#160;{</p>
+<p style="position:absolute;top:513px;left:233px;white-space:nowrap" class="ft03">&#160; &#160;IF (SC[0]) THEN +1.0</p>
+<p style="position:absolute;top:529px;left:233px;white-space:nowrap" class="ft03">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;ELSE -1.0</p>
+<p style="position:absolute;top:480px;left:552px;white-space:nowrap" class="ft03">Ignore&#160;<i>interv</i></p>
+<p style="position:absolute;top:496px;left:552px;white-space:nowrap" class="ft03">If&#160;(SC[1]) then&#160;#IE</p>
+<p style="position:absolute;top:553px;left:160px;white-space:nowrap" class="ft03">negative</p>
+<p style="position:absolute;top:553px;left:233px;white-space:nowrap" class="ft03">SC[1] ? QNaN_Indefinite :&#160;Getmant(SRC)</p>
+<p style="position:absolute;top:553px;left:552px;white-space:nowrap" class="ft03">If (SC[1])&#160;then #IE</p>
+</div>
+</body>
+</html>

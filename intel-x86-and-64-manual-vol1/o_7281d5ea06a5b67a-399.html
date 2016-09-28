@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 399</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page399-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a399.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;17-11</p>
+<p style="position:absolute;top:47px;left:590px;white-space:nowrap" class="ft01">INTEL®&#160;MEMORY PROTECTION EXTENSIONS</p>
+<p style="position:absolute;top:419px;left:69px;white-space:nowrap" class="ft02">17.5.4&#160;</p>
+<p style="position:absolute;top:419px;left:149px;white-space:nowrap" class="ft02">BOUND Instruction and Intel MPX</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft07">If Intel&#160;MPX in enabled&#160;<a href="o_7281d5ea06a5b67a-314.html">(see&#160;Section&#160;13.5) and a #BR w</a>as caused&#160;due to a&#160;BOUND instruction, then&#160;BOUND instruc-<br/>tion will write zero&#160;to the&#160;BNDSTATUS register. In all&#160;other&#160;situations,&#160;BOUND instruction will not modify&#160;<br/>BNDSTATUS.&#160;Specifically, the&#160;operation&#160;of the&#160;BOUND&#160;instruction can be described&#160;as:<br/>IF ( (&#160;BOUND instruction&#160;caused&#160;#BR) AND ( CR4.OXXSAVE =1&#160;AND XCR0.BNDREGS=1 AND XCR0.BNDCSR =1) AND&#160;</p>
+<p style="position:absolute;top:519px;left:89px;white-space:nowrap" class="ft08">( (CPL=3&#160;AND BNDCFGU.ENABLE&#160;=&#160;1)&#160;OR&#160;(CPL&#160;&lt; 3 AND BNDCFGS.ENABLE = 1) ) ) THEN<br/>BNDSTATUS&#160;&#160;0;&#160;</p>
+<p style="position:absolute;top:555px;left:69px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:573px;left:89px;white-space:nowrap" class="ft03">BNDSTATUS is&#160;not modified;</p>
+<p style="position:absolute;top:591px;left:69px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:641px;left:69px;white-space:nowrap" class="ft02">17.5.5 Programming&#160;</p>
+<p style="position:absolute;top:641px;left:262px;white-space:nowrap" class="ft02">Considerations</p>
+<p style="position:absolute;top:670px;left:69px;white-space:nowrap" class="ft06">Intel MPX&#160;instruction set does&#160;not&#160;dictate&#160;any calling convention, but allows&#160;the&#160;calling convention extensions to be&#160;<br/>interoperable with legacy code by making use&#160;of the&#160;of&#160;the&#160;bound registers&#160;and&#160;the&#160;bound&#160;tables&#160;to convey argu-<br/>ments and&#160;return values.&#160;</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft02">17.5.6&#160;</p>
+<p style="position:absolute;top:754px;left:149px;white-space:nowrap" class="ft02">Intel MPX and System Manage Mode</p>
+<p style="position:absolute;top:783px;left:69px;white-space:nowrap" class="ft06">Upon delivery of an SMI to a processor supporting&#160;Intel MPX,&#160;the contents of IA32_BNDCFGS&#160;is saved&#160;to SMM&#160;state&#160;<br/>save&#160;map (at offset 7ED0H) and the register&#160;is then cleared&#160;when entering into SMM.&#160;RSM&#160;restores IA32_BNDCFGS&#160;<br/>from the&#160;SMM state save&#160;map.&#160;The instruction&#160;forces&#160;the&#160;reserved bits (11:2)&#160;to&#160;0&#160;and sign-extends the&#160;highest&#160;<br/>implemented&#160;bit of the&#160;linear address&#160;to guarantee the&#160;canonicality of this&#160;address (regardless of what&#160;is&#160;in&#160;SMM&#160;<br/>state save&#160;map).<br/>The&#160;content of IA32_BNDCFGS&#160;is&#160;cleared after&#160;entering&#160;into SMM.&#160;Thus,&#160;Intel&#160;MPX is&#160;disabled&#160;inside&#160;an SMM&#160;<br/>handler until&#160;SMM code&#160;enables it explicitly.&#160;This&#160;will prevent the&#160;side-effect of&#160;INIT-ing&#160;bound registers by legacy&#160;<br/>CALL/RET/JMP/Jcc in&#160;SMM code.</p>
+<p style="position:absolute;top:955px;left:69px;white-space:nowrap" class="ft02">17.5.7&#160;</p>
+<p style="position:absolute;top:955px;left:149px;white-space:nowrap" class="ft02">Support of&#160;Intel MPX in VMCS</p>
+<p style="position:absolute;top:984px;left:69px;white-space:nowrap" class="ft03">A&#160;new&#160;guest-state&#160;field&#160;for IA32_BNDCFGS&#160;is&#160;added&#160;to&#160;the VMCS. In&#160;addition, two new controls&#160;are added:&#160;</p>
+<p style="position:absolute;top:1006px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1006px;left:95px;white-space:nowrap" class="ft03">a VM-exit control&#160;called&#160;“clear BNDCFGS”&#160;</p>
+<p style="position:absolute;top:1028px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1029px;left:95px;white-space:nowrap" class="ft03">a VM-entry control called&#160;“load BNDCFGS.”&#160;</p>
+<p style="position:absolute;top:116px;left:159px;white-space:nowrap" class="ft05">Table&#160;17-4.&#160;&#160;&#160;Bounds&#160;Register&#160;INIT&#160;Behavior&#160;Due&#160;to&#160;BND&#160;Prefix&#160;with&#160;Branch&#160;Instructions</p>
+<p style="position:absolute;top:141px;left:130px;white-space:nowrap" class="ft03">Instruction&#160;</p>
+<p style="position:absolute;top:141px;left:254px;white-space:nowrap" class="ft03">Branch&#160;Instruction&#160;Opcodes&#160;</p>
+<p style="position:absolute;top:141px;left:478px;white-space:nowrap" class="ft03">BNDPRESERVE =&#160;0</p>
+<p style="position:absolute;top:141px;left:661px;white-space:nowrap" class="ft03">BNDPRESERVE&#160;=&#160;1</p>
+<p style="position:absolute;top:164px;left:149px;white-space:nowrap" class="ft03">CALL</p>
+<p style="position:absolute;top:164px;left:313px;white-space:nowrap" class="ft03">E8,&#160;FF/2</p>
+<p style="position:absolute;top:164px;left:449px;white-space:nowrap" class="ft03">Init BND0-BND3</p>
+<p style="position:absolute;top:164px;left:632px;white-space:nowrap" class="ft03">BND0-BND3&#160;unchanged</p>
+<p style="position:absolute;top:189px;left:129px;white-space:nowrap" class="ft03">BND + CALL</p>
+<p style="position:absolute;top:189px;left:295px;white-space:nowrap" class="ft03">F2&#160;E8,&#160;F2&#160;FF/2</p>
+<p style="position:absolute;top:189px;left:449px;white-space:nowrap" class="ft03">BND0-BND3&#160;unchanged</p>
+<p style="position:absolute;top:189px;left:632px;white-space:nowrap" class="ft03">BND0-BND3&#160;unchanged</p>
+<p style="position:absolute;top:213px;left:152px;white-space:nowrap" class="ft03">RET</p>
+<p style="position:absolute;top:213px;left:319px;white-space:nowrap" class="ft03">C2,&#160;C3</p>
+<p style="position:absolute;top:213px;left:449px;white-space:nowrap" class="ft03">Init BND0-BND3</p>
+<p style="position:absolute;top:213px;left:632px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:236px;left:132px;white-space:nowrap" class="ft03">BND + RET</p>
+<p style="position:absolute;top:236px;left:301px;white-space:nowrap" class="ft03">F2&#160;C2, F2&#160;C3</p>
+<p style="position:absolute;top:236px;left:449px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:236px;left:632px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:260px;left:153px;white-space:nowrap" class="ft03">JMP</p>
+<p style="position:absolute;top:260px;left:313px;white-space:nowrap" class="ft03">E9,&#160;FF/4</p>
+<p style="position:absolute;top:260px;left:449px;white-space:nowrap" class="ft03">Init BND0-BND3</p>
+<p style="position:absolute;top:260px;left:632px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:285px;left:133px;white-space:nowrap" class="ft03">BND + JMP</p>
+<p style="position:absolute;top:285px;left:295px;white-space:nowrap" class="ft03">F2&#160;E9,&#160;F2&#160;FF/4</p>
+<p style="position:absolute;top:285px;left:449px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:285px;left:632px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:317px;left:156px;white-space:nowrap" class="ft03">Jcc</p>
+<p style="position:absolute;top:308px;left:295px;white-space:nowrap" class="ft03">70&#160;through 7F,&#160;</p>
+<p style="position:absolute;top:325px;left:277px;white-space:nowrap" class="ft03">0F&#160;80&#160;through 0F&#160;8F</p>
+<p style="position:absolute;top:317px;left:449px;white-space:nowrap" class="ft03">Init BND0-BND3</p>
+<p style="position:absolute;top:317px;left:632px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:357px;left:136px;white-space:nowrap" class="ft03">BND&#160;+ Jcc</p>
+<p style="position:absolute;top:349px;left:276px;white-space:nowrap" class="ft03">F2&#160;70&#160;through F2&#160;7F,&#160;</p>
+<p style="position:absolute;top:366px;left:259px;white-space:nowrap" class="ft03">F2&#160;0F&#160;80&#160;through F2&#160;0F&#160;8F</p>
+<p style="position:absolute;top:357px;left:449px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+<p style="position:absolute;top:357px;left:632px;white-space:nowrap" class="ft03">BND0-BND3 unchanged</p>
+</div>
+</body>
+</html>

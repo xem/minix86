@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 175</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page175-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce175.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;5-23</p>
+<p style="position:absolute;top:47px;left:763px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:485px;left:69px;white-space:nowrap" class="ft08">The SYSCALL instruction&#160;does not save&#160;the&#160;stack&#160;pointer,&#160;and the SYSRET instruction&#160;does&#160;not restore&#160;it.&#160;It is&#160;likely&#160;<br/>that&#160;the OS system-call handler will change&#160;the&#160;stack pointer from the&#160;user stack to&#160;the OS stack. If so, it&#160;is the&#160;<br/>responsibility of software&#160;first&#160;to save the&#160;user stack&#160;pointer.&#160;This&#160;might be done by user&#160;code,&#160;prior to&#160;executing&#160;<br/>SYSCALL,&#160;or&#160;by&#160;the&#160;OS&#160;system-call&#160;handler after&#160;SYSCALL.<br/>Because the&#160;SYSRET&#160;instruction&#160;does not modify the&#160;stack pointer,&#160;it is necessary&#160;for software&#160;to switch back to the&#160;<br/>user stack. The OS&#160;may&#160;load the user&#160;stack&#160;pointer&#160;(if it&#160;was saved&#160;after SYSCALL)&#160;before&#160;executing&#160;SYSRET; alter-<br/>natively, user&#160;code&#160;may load the&#160;stack pointer&#160;(if it&#160;was saved before SYSCALL)&#160;after receiving control from&#160;<br/>SYSRET.<br/>If&#160;the OS&#160;loads&#160;the stack&#160;pointer before executing SYSRET, it&#160;must&#160;ensure that&#160;the handler of&#160;any&#160;interrupt or&#160;<br/>exception delivered&#160;between restoring the&#160;stack pointer and&#160;successful&#160;execution of&#160;SYSRET&#160;is not invoked with the&#160;<br/>user stack. It&#160;can do&#160;so using&#160;approaches&#160;such as&#160;the&#160;following:</p>
+<p style="position:absolute;top:687px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:688px;left:95px;white-space:nowrap" class="ft08">External interrupts. The OS can prevent&#160;an external&#160;interrupt from being delivered&#160;by&#160;clearing EFLAGS.IF&#160;<br/>before&#160;loading the&#160;user&#160;stack pointer.</p>
+<p style="position:absolute;top:726px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:727px;left:95px;white-space:nowrap" class="ft08">Nonmaskable&#160;interrupts (NMIs).&#160;The&#160;OS&#160;can&#160;ensure that&#160;the NMI handler&#160;is invoked with the&#160;correct stack&#160;by&#160;<br/>using&#160;the&#160;interrupt&#160;stack table (IST)&#160;mechanism&#160;for&#160;gate&#160;2&#160;(NMI) in&#160;the IDT&#160;(see<a href="o_fe12b1e2a880e0ce-205.html">&#160;Section 6.14.5,&#160;“Interrupt&#160;<br/>Stack&#160;Table”).</a></p>
+<p style="position:absolute;top:782px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:782px;left:95px;white-space:nowrap" class="ft010">General-protection&#160;exceptions (#GP). The&#160;SYSRET&#160;instruction&#160;generates #GP(0)&#160;if the&#160;value&#160;of RCX is&#160;not&#160;<br/>canonical. The OS can&#160;address&#160;this possibility&#160;using&#160;one&#160;or&#160;more of the&#160;following&#160;approaches:<br/>—&#160;Confirming that&#160;the value&#160;of&#160;RCX&#160;is canonical before executing SYSRET.<br/>—&#160;Using paging&#160;to ensure&#160;that the&#160;SYSCALL instruction will never save&#160;a&#160;non-canonical&#160;value&#160;into RCX.<br/>—&#160;Using the&#160;IST mechanism for gate 13 (#GP)&#160;in the&#160;IDT.</p>
+<p style="position:absolute;top:926px;left:69px;white-space:nowrap" class="ft04">5.9 PRIVILEGED&#160;</p>
+<p style="position:absolute;top:926px;left:265px;white-space:nowrap" class="ft04">INSTRUCTIONS</p>
+<p style="position:absolute;top:962px;left:69px;white-space:nowrap" class="ft08">Some&#160;of&#160;the&#160;system instructions (called “privileged&#160;instructions”)&#160;are&#160;protected from&#160;use by application programs.&#160;<br/>The privileged&#160;instructions&#160;control system&#160;functions (such&#160;as&#160;the loading of&#160;system&#160;registers).&#160;They&#160;can&#160;be&#160;<br/>executed&#160;only when&#160;the&#160;CPL&#160;is&#160;0&#160;(most&#160;privileged).&#160;If one&#160;of&#160;these instructions is&#160;executed when the&#160;CPL&#160;is not 0,&#160;<br/>a general-protection exception&#160;(#GP)&#160;is generated. The&#160;following system&#160;instructions&#160;are privileged instructions:</p>
+<p style="position:absolute;top:1034px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1034px;left:95px;white-space:nowrap" class="ft02">LGDT&#160;— Load GDT&#160;register.</p>
+<p style="position:absolute;top:1056px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:1057px;left:95px;white-space:nowrap" class="ft02">LLDT&#160;— Load&#160;LDT&#160;register.</p>
+<p style="position:absolute;top:430px;left:288px;white-space:nowrap" class="ft05">Figure&#160;5-14. &#160;MSRs&#160;Used&#160;by&#160;SYSCALL and&#160;SYSRET</p>
+<p style="position:absolute;top:329px;left:253px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:329px;left:444px;white-space:nowrap" class="ft06">32&#160;31</p>
+<p style="position:absolute;top:329px;left:652px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:153px;left:250px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:154px;left:650px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:235px;left:252px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:235px;left:651px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:262px;left:368px;white-space:nowrap" class="ft07">Target&#160;RIP for 64-bit Mode&#160;Calling Program</p>
+<p style="position:absolute;top:360px;left:258px;white-space:nowrap" class="ft06">SYSRET&#160;CS&#160;and SS</p>
+<p style="position:absolute;top:360px;left:355px;white-space:nowrap" class="ft06">SYSCALL CS&#160;and SS</p>
+<p style="position:absolute;top:330px;left:337px;white-space:nowrap" class="ft06">48&#160;47</p>
+<p style="position:absolute;top:398px;left:430px;white-space:nowrap" class="ft06">IA32_STAR</p>
+<p style="position:absolute;top:302px;left:428px;white-space:nowrap" class="ft06">IA32_LSTAR</p>
+<p style="position:absolute;top:220px;left:424px;white-space:nowrap" class="ft06">IA32_FMASK</p>
+<p style="position:absolute;top:155px;left:444px;white-space:nowrap" class="ft06">32&#160;31</p>
+<p style="position:absolute;top:183px;left:491px;white-space:nowrap" class="ft06">SYSCALL&#160;EFLAGS&#160;Mask</p>
+<p style="position:absolute;top:186px;left:328px;white-space:nowrap" class="ft06">Reserved</p>
+<p style="position:absolute;top:360px;left:529px;white-space:nowrap" class="ft06">Reserved</p>
+</div>
+</body>
+</html>

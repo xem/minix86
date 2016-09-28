@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 268</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page268-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce268.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-12&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft08">Because the&#160;Intel-64 memory-ordering&#160;model prevents&#160;loads from being reordered&#160;(see<a href="o_fe12b1e2a880e0ce-265.html">&#160;Section 8.2.3.2),&#160;<br/></a>processor&#160;3’s&#160;loads occur in&#160;order&#160;and,&#160;therefore, processor&#160;1’s&#160;XCHG&#160;occurs before&#160;processor&#160;3’s&#160;load from&#160;x.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft08">Since processor&#160;0’s&#160;XCHG&#160;into x occurs&#160;before&#160;processor&#160;1’s&#160;XCHG (by assumption), it&#160;occurs before&#160;<br/>processor&#160;3’s&#160;load from x.&#160;Thus,&#160;r6&#160;=&#160;1.</p>
+<p style="position:absolute;top:180px;left:68px;white-space:nowrap" class="ft08">A&#160;similar argument&#160;(referring instead to&#160;processor&#160;2’s&#160;loads) applies&#160;if processor&#160;1’s&#160;XCHG&#160;occurs before&#160;<br/>processor&#160;0’s&#160;XCHG.</p>
+<p style="position:absolute;top:241px;left:68px;white-space:nowrap" class="ft04">8.2.3.9&#160;&#160;</p>
+<p style="position:absolute;top:241px;left:152px;white-space:nowrap" class="ft04">Loads and&#160;Stores Are&#160;Not Reordered&#160;with Locked Instructions</p>
+<p style="position:absolute;top:269px;left:68px;white-space:nowrap" class="ft09">The memory-ordering model&#160;prevents&#160;loads&#160;and stores from&#160;being reordered with locked&#160;instructions that execute&#160;<br/>earlier or later.&#160;The examples in this section illustrate&#160;only&#160;cases in which a locked instruction is executed before a&#160;<br/>load or a&#160;store.&#160;The reader should note&#160;that&#160;reordering is&#160;prevented also if the locked instruction is executed&#160;after&#160;<br/>a load or a&#160;store.<br/>The first example illustrates that&#160;loads&#160;may not&#160;be&#160;reordered with earlier locked&#160;instructions:</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft010">As&#160;explained<a href="o_fe12b1e2a880e0ce-267.html">&#160;in Section 8.2.3.8,</a>&#160;there&#160;is a&#160;total order of&#160;the&#160;executions of locked&#160;instructions. Without loss&#160;of&#160;<br/>generality,&#160;suppose&#160;that processor&#160;0’s&#160;XCHG occurs first.<br/>Because the&#160;Intel-64&#160;memory-ordering model prevents&#160;processor&#160;1’s&#160;load from&#160;being&#160;reordered with&#160;its&#160;earlier&#160;<br/>XCHG, processor&#160;0’s&#160;XCHG&#160;occurs before&#160;processor&#160;1’s&#160;load.&#160;This implies r4&#160;= 1.<br/>A&#160;similar argument&#160;(referring instead to&#160;processor&#160;2’s&#160;accesses) applies&#160;if processor&#160;1’s&#160;XCHG&#160;occurs before&#160;<br/>processor&#160;0’s&#160;XCHG.<br/>The second example&#160;illustrates that&#160;a store&#160;may&#160;not&#160;be&#160;reordered&#160;with&#160;an earlier locked instruction:</p>
+<p style="position:absolute;top:806px;left:68px;white-space:nowrap" class="ft03">Assume r2&#160;= 1.</p>
+<p style="position:absolute;top:828px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:829px;left:93px;white-space:nowrap" class="ft03">Because r2&#160;= 1,&#160;processor&#160;0’s&#160;store&#160;to&#160;y occurs before processor&#160;1’s&#160;load from y.</p>
+<p style="position:absolute;top:850px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:851px;left:93px;white-space:nowrap" class="ft08">Because&#160;the memory-ordering model prevents a&#160;store from&#160;being reordered&#160;with an earlier locked instruction,&#160;<br/>processor&#160;0’s&#160;XCHG into&#160;x&#160;occurs before its&#160;store to&#160;y.&#160;Thus, processor&#160;0’s&#160;XCHG into x occurs&#160;before&#160;<br/>processor&#160;1’s&#160;load from y.</p>
+<p style="position:absolute;top:906px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:907px;left:93px;white-space:nowrap" class="ft08">Because the memory-ordering model prevents loads from&#160;being&#160;reordere<a href="o_fe12b1e2a880e0ce-265.html">d (see Section&#160;8.2.3.2),</a>&#160;processor&#160;1’s&#160;<br/>loads occur in&#160;order and,&#160;therefore,&#160;processor&#160;1’s&#160;XCHG&#160;into&#160;x occurs before&#160;processor&#160;1’s&#160;load from x.&#160;Thus,&#160;<br/>r3&#160;= 1.</p>
+<p style="position:absolute;top:990px;left:68px;white-space:nowrap" class="ft05">8.2.4&#160;</p>
+<p style="position:absolute;top:990px;left:148px;white-space:nowrap" class="ft05">Fast-String Operation and Out-of-Order Stores</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft08"><a href="��">Section&#160;7.3.9.3&#160;of&#160;<i>Intel® 64&#160;and IA-32&#160;Architectures Software Developer’s Manual, Volume 1</i>&#160;de</a>scribed an optimi-<br/>zation&#160;of&#160;repeated&#160;string&#160;operations&#160;called&#160;<b>fast-string&#160;operation</b>.</p>
+<p style="position:absolute;top:365px;left:67px;white-space:nowrap" class="ft01">Example&#160;8-9.&#160;&#160;Loads Are&#160;not Reordered with&#160;Locks</p>
+<p style="position:absolute;top:384px;left:224px;white-space:nowrap" class="ft03">Processor&#160;0</p>
+<p style="position:absolute;top:384px;left:609px;white-space:nowrap" class="ft03">Processor&#160;1</p>
+<p style="position:absolute;top:407px;left:72px;white-space:nowrap" class="ft03">xchg [ _x], r1</p>
+<p style="position:absolute;top:407px;left:457px;white-space:nowrap" class="ft03">xchg [ _y], r3</p>
+<p style="position:absolute;top:429px;left:72px;white-space:nowrap" class="ft03">mov r2, [ _y]</p>
+<p style="position:absolute;top:429px;left:457px;white-space:nowrap" class="ft03">mov&#160;r4,&#160;[ _x]</p>
+<p style="position:absolute;top:452px;left:72px;white-space:nowrap" class="ft011">Initially x = y = 0, r1&#160;=&#160;r3 = 1<br/>r2&#160;= 0 and r4 = 0 is&#160;not&#160;allowed</p>
+<p style="position:absolute;top:657px;left:68px;white-space:nowrap" class="ft01">Example 8-10.&#160;&#160;Stores&#160;Are&#160;not&#160;Reordered with&#160;Locks</p>
+<p style="position:absolute;top:677px;left:225px;white-space:nowrap" class="ft03">Processor 0</p>
+<p style="position:absolute;top:677px;left:609px;white-space:nowrap" class="ft03">Processor&#160;1</p>
+<p style="position:absolute;top:699px;left:72px;white-space:nowrap" class="ft03">xchg [ _x], r1</p>
+<p style="position:absolute;top:699px;left:457px;white-space:nowrap" class="ft03">mov r2, [ _y]</p>
+<p style="position:absolute;top:722px;left:72px;white-space:nowrap" class="ft03">mov [ _y], 1</p>
+<p style="position:absolute;top:722px;left:457px;white-space:nowrap" class="ft03">mov&#160;r3, [ _x]</p>
+<p style="position:absolute;top:744px;left:72px;white-space:nowrap" class="ft011">Initially x = y =&#160;0,&#160;r1&#160;= 1<br/>r2 = 1 and r3 = 0 is not allowed</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1043</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1043-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1043.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;23-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 23</p>
+<p style="position:absolute;top:120px;left:285px;white-space:nowrap" class="ft01">INTRODUCTION TO&#160;VIRTUAL MACHINE EXTENSIONS</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft02">23.1 OVERVIEW</p>
+<p style="position:absolute;top:232px;left:68px;white-space:nowrap" class="ft09">This chapter&#160;describes the basics of virtual machine&#160;architecture and&#160;an overview&#160;of the virtual-machine extensions&#160;<br/>(VMX) that support virtualization&#160;of processor&#160;hardware for&#160;multiple software&#160;environments.<br/>Information&#160;about VMX instructions is provided&#160;<a href="��">in&#160;<i>Intel® 64&#160;and IA-32&#160;Architectures&#160;Software&#160;Developer’s&#160;Manual,&#160;<br/>Volume&#160;2B</i>. Other&#160;</a>aspects&#160;of VMX and&#160;system programming&#160;considerations are described in&#160;chapters&#160;of&#160;<a href="��"><i>Intel® 64&#160;<br/>and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume 3B</i>.</a></p>
+<p style="position:absolute;top:361px;left:68px;white-space:nowrap" class="ft02">23.2&#160;</p>
+<p style="position:absolute;top:361px;left:147px;white-space:nowrap" class="ft02">VIRTUAL MACHINE ARCHITECTURE</p>
+<p style="position:absolute;top:397px;left:68px;white-space:nowrap" class="ft07">Virtual-machine extensions define processor-level support for virtual&#160;machines on&#160;IA-32&#160;processors.&#160;Two principal&#160;<br/>classes of software&#160;are&#160;supported:</p>
+<p style="position:absolute;top:436px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:436px;left:93px;white-space:nowrap" class="ft07"><b>Virtual-machine monitors&#160;(VMM)</b>&#160;<b>—&#160;</b>A VMM&#160;acts as a&#160;host and has full control of the processor(s) and other&#160;<br/>platform&#160;hardware.&#160;A&#160;VMM presents guest software&#160;(see&#160;next paragraph) with&#160;an abstraction of a&#160;virtual&#160;<br/>processor&#160;and allows it&#160;to execute directly on a&#160;logical&#160;processor.&#160;A&#160;VMM is&#160;able&#160;to retain selective&#160;control of&#160;<br/>processor resources, physical memory,&#160;interrupt&#160;management,&#160;and I/O.</p>
+<p style="position:absolute;top:508px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:508px;left:93px;white-space:nowrap" class="ft07"><b>Guest software —&#160;</b>Each virtual machine (VM) is a guest&#160;software&#160;environment that supports&#160;a stack consisting&#160;<br/>of operating&#160;system (OS) and&#160;application software. Each operates independently&#160;of&#160;other virtual&#160;machines and&#160;<br/>uses&#160;on the&#160;same&#160;interface to&#160;processor(s), memory,&#160;storage, graphics, and I/O&#160;provided&#160;by&#160;a&#160;physical&#160;<br/>platform. The software&#160;stack acts&#160;as if it&#160;were running&#160;on&#160;a platform with no VMM. Software executing in&#160;a&#160;<br/>virtual&#160;machine&#160;must operate&#160;with reduced privilege so&#160;that the&#160;VMM can&#160;retain control of platform&#160;resources.</p>
+<p style="position:absolute;top:630px;left:68px;white-space:nowrap" class="ft02">23.3&#160;</p>
+<p style="position:absolute;top:630px;left:147px;white-space:nowrap" class="ft02">INTRODUCTION TO&#160;VMX OPERATION</p>
+<p style="position:absolute;top:666px;left:68px;white-space:nowrap" class="ft07">Processor support for virtualization&#160;is provided&#160;by&#160;a form&#160;of processor operation called VMX operation.&#160;There&#160;are&#160;<br/>two&#160;kinds of VMX operation: VMX&#160;root operation and&#160;VMX&#160;non-root operation.&#160;In general, a&#160;VMM will run in&#160;VMX&#160;<br/>root&#160;operation&#160;and guest software will run in&#160;VMX non-root&#160;operation. Transitions between VMX&#160;root operation and&#160;<br/>VMX non-root&#160;operation are&#160;called&#160;VMX&#160;transitions.&#160;There&#160;are two kinds of&#160;VMX transitions. Transitions&#160;into&#160;VMX&#160;<br/>non-root operation&#160;are called VM&#160;entries. Transitions from&#160;VMX non-root operation to VMX root operation are called&#160;<br/>VM&#160;exits.<br/>Processor behavior in VMX root operation&#160;is very much as&#160;it is outside VMX operation. The&#160;principal differences are&#160;<br/>that a&#160;set of new instructions (the VMX instructions)&#160;is available&#160;and that the values&#160;that&#160;can be&#160;loaded into certain&#160;<br/>control&#160;registers are limit<a href="o_fe12b1e2a880e0ce-1045.html">ed (see Section 23.8).</a>&#160;<br/>Processor behavior&#160;in VMX non-root operation is&#160;restricted&#160;and modified&#160;to facilitate virtualization. Instead of&#160;their&#160;<br/>ordinary operation, certain&#160;instructions&#160;(including&#160;the new VMCALL instruction) and events cause&#160;VM&#160;exits&#160;to the&#160;<br/>VMM.&#160;Because these VM&#160;exits replace ordinary behavior, the functionality of software in&#160;VMX&#160;non-root operation&#160;is&#160;<br/>limited. It&#160;is this&#160;limitation&#160;that allows the&#160;VMM&#160;to retain&#160;control of processor resources.<br/>There is&#160;no software-visible&#160;bit&#160;whose&#160;setting indicates whether a&#160;logical&#160;processor&#160;is in VMX non-root operation.&#160;<br/>This fact&#160;may allow a&#160;VMM to&#160;prevent guest software&#160;from&#160;determining that it&#160;is&#160;running in&#160;a&#160;virtual&#160;machine.&#160;<br/>Because&#160;VMX operation&#160;places&#160;restrictions even&#160;on&#160;software running with current&#160;privilege&#160;level (CPL) 0, guest&#160;<br/>software&#160;can run at&#160;the privilege&#160;level for which&#160;it was&#160;originally designed.&#160;This capability may&#160;simplify the&#160;devel-<br/>opment&#160;of a VMM.</p>
+</div>
+</body>
+</html>

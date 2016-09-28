@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 290</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:0px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page290-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481290.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:514px;white-space:nowrap" class="ft00">CMPPS—Compare Packed Single-Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-162&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">VEX.128&#160;encoded version: The first source&#160;operand (second operand)&#160;is an&#160;XMM register.&#160;The&#160;second source&#160;<br/>operand&#160;(third&#160;operand) can&#160;be&#160;an XMM&#160;register&#160;or a&#160;128-bit&#160;memory location.&#160;Bits (MAX_VL-1:128)&#160;of the&#160;desti-<br/>nation&#160;ZMM register&#160;are zeroed.&#160;Four&#160;comparisons&#160;are&#160;performed&#160;with&#160;results written to&#160;bits 127:0&#160;of the&#160;destina-<br/>tion operand.<br/>The&#160;comparison predicate&#160;operand is&#160;an 8-bit immediate:&#160;</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:196px;left:93px;white-space:nowrap" class="ft07">For instructions encoded&#160;using the&#160;VEX&#160;prefix and EVEX&#160;prefix, bits 4:0 define the&#160;type&#160;of&#160;comparison to&#160;be&#160;<br/>performed&#160;(see<a href="o_b5573232dd8f1481-283.html">&#160;Table&#160;3-1).&#160;</a>Bits 5&#160;through 7&#160;of the&#160;immediate&#160;are reserved.&#160;</p>
+<p style="position:absolute;top:235px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:235px;left:93px;white-space:nowrap" class="ft07">For instruction encodings&#160;that do&#160;not&#160;use VEX prefix, bits&#160;2:0 define&#160;the type of comparison to&#160;be&#160;made (see the&#160;<br/>first 8 rows<a href="o_b5573232dd8f1481-283.html">&#160;of Table 3-1)</a>.&#160;Bits&#160;3&#160;through&#160;7&#160;of&#160;the immediate are&#160;reserved.&#160;</p>
+<p style="position:absolute;top:274px;left:68px;white-space:nowrap" class="ft07">The unordered relationship is&#160;true when at&#160;least&#160;one&#160;of&#160;the&#160;two source&#160;operands being compared&#160;is&#160;a NaN; the&#160;<br/>ordered relationship is&#160;true when neither&#160;source operand&#160;is a&#160;NaN.&#160;<br/>A&#160;subsequent computational instruction that&#160;uses&#160;the&#160;mask&#160;result in&#160;the destination operand&#160;as an input&#160;operand&#160;<br/>will&#160;not&#160;generate&#160;an&#160;exception,&#160;because&#160;a&#160;mask&#160;of&#160;all&#160;0s&#160;corresponds&#160;to&#160;a&#160;floating-point&#160;value&#160;of&#160;+0.0&#160;and&#160;a&#160;mask&#160;<br/>of all 1s&#160;corresponds&#160;to a&#160;QNaN.&#160;<br/>Note that processors with “CPUID.1H:ECX.AVX =0” do&#160;not&#160;implement&#160;the “greater-than”, “greater-than-or-equal”,&#160;<br/>“not-greater than”,&#160;and&#160;“not-greater-than-or-equal&#160;relations” predicates.&#160;These&#160;comparisons&#160;can be made either&#160;<br/>by using&#160;the&#160;inverse&#160;relationship&#160;(that&#160;is, use&#160;the&#160;“not-less-than-or-equal” to make&#160;a&#160;“greater-than”&#160;comparison)&#160;<br/>or by using&#160;software emulation. When&#160;using software&#160;emulation,&#160;the program must&#160;swap the&#160;operands (copying&#160;<br/>registers when necessary&#160;to protect the&#160;data&#160;that will now be in&#160;the destination),&#160;and then&#160;perform the&#160;compare&#160;<br/>using&#160;a different&#160;predicate. The predicate&#160;to be used for these emulations is&#160;listed in&#160;the first 8 rows&#160;of Table&#160;3-7&#160;<br/>(<i>Intel 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual Volume&#160;2A</i>) under the&#160;heading&#160;Emulation.&#160;<br/>Compilers and assemblers may implement the&#160;following two-operand pseudo-ops in addition to the&#160;three-operand&#160;<br/>CMPPS&#160;instruction, for processors with&#160;“CPUID.1H:ECX.AVX&#160;=0”.&#160;See<a href="o_b5573232dd8f1481-290.html">&#160;Table 3-4.</a>&#160;Compiler should&#160;treat reserved&#160;<br/>Imm8&#160;values as&#160;illegal syntax.</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft05">:</p>
+<p style="position:absolute;top:799px;left:68px;white-space:nowrap" class="ft07">The greater-than&#160;relations that the processor does not implement require more than one instruction to emulate&#160;in&#160;<br/>software and therefore should&#160;not be&#160;implemented&#160;as pseudo-ops.&#160;(For these,&#160;the programmer should reverse the&#160;<br/>operands of the&#160;corresponding&#160;less than relations&#160;and&#160;use&#160;move&#160;instructions&#160;to ensure&#160;that the&#160;mask&#160;is moved to&#160;<br/>the correct destination&#160;register and&#160;that&#160;the&#160;source operand&#160;is left&#160;intact.)&#160;<br/>Processors with&#160;“CPUID.1H:ECX.AVX =1”&#160;implement&#160;the full complement&#160;of 32&#160;predicates&#160;shown&#160;<a href="o_b5573232dd8f1481-291.html">in&#160;Table 3-5,&#160;</a>soft-<br/>ware emulation is&#160;no longer&#160;needed. Compilers&#160;and assemblers may implement&#160;the&#160;following three-operand&#160;<br/>pseudo-ops&#160;in addition to the four-operand&#160;VCMPPS&#160;instruction. S<a href="o_b5573232dd8f1481-291.html">ee Table 3-5,</a>&#160;where the notation of reg1&#160;and reg2&#160;<br/>represent&#160;either&#160;XMM registers&#160;or YMM registers. Compiler&#160;should treat reserved Imm8 values&#160;as illegal syntax.&#160;<br/>Alternately,&#160;intrinsics can&#160;map the&#160;pseudo-ops to&#160;pre-defined&#160;constants&#160;to support a&#160;simpler&#160;intrinsic&#160;interface.&#160;<br/>Compilers and assemblers may implement&#160;three-operand&#160;pseudo-ops for EVEX encoded&#160;VCMPPS instructions&#160;in a&#160;<br/>similar fashion by extending th<a href="o_b5573232dd8f1481-291.html">e syntax listed in&#160;Table&#160;3-5.</a></p>
+<p style="position:absolute;top:997px;left:68px;white-space:nowrap" class="ft05">:</p>
+<p style="position:absolute;top:548px;left:286px;white-space:nowrap" class="ft06">Table 3-4. Pseudo-Op&#160;and CMPPS&#160;Implementation</p>
+<p style="position:absolute;top:573px;left:75px;white-space:nowrap" class="ft02">Pseudo-Op</p>
+<p style="position:absolute;top:573px;left:467px;white-space:nowrap" class="ft02">CMPPS Implementation</p>
+<p style="position:absolute;top:597px;left:75px;white-space:nowrap" class="ft02">CMPEQPS x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:597px;left:467px;white-space:nowrap" class="ft02">CMPPS&#160;<i>xmm1, xmm2, 0</i></p>
+<p style="position:absolute;top:621px;left:75px;white-space:nowrap" class="ft02">CMPLTPS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:621px;left:467px;white-space:nowrap" class="ft02">CMPPS&#160;<i>xmm1, xmm2, 1</i></p>
+<p style="position:absolute;top:645px;left:75px;white-space:nowrap" class="ft02">CMPLEPS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:645px;left:467px;white-space:nowrap" class="ft02">CMPPS&#160;<i>xmm1, xmm2, 2</i></p>
+<p style="position:absolute;top:669px;left:75px;white-space:nowrap" class="ft02">CMPUNORDPS x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:669px;left:467px;white-space:nowrap" class="ft02">CMPPS&#160;<i>xmm1, xmm2, 3</i></p>
+<p style="position:absolute;top:692px;left:75px;white-space:nowrap" class="ft02">CMPNEQPS&#160;x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:692px;left:467px;white-space:nowrap" class="ft02">CMPPS<i>&#160;xmm1, xmm2, 4</i></p>
+<p style="position:absolute;top:717px;left:75px;white-space:nowrap" class="ft02">CMPNLTPS x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:717px;left:467px;white-space:nowrap" class="ft02">CMPPS&#160;<i>xmm1, xmm2, 5</i></p>
+<p style="position:absolute;top:741px;left:75px;white-space:nowrap" class="ft02">CMPNLEPS x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:741px;left:467px;white-space:nowrap" class="ft02">CMPPS&#160;<i>xmm1, xmm2, 6</i></p>
+<p style="position:absolute;top:764px;left:75px;white-space:nowrap" class="ft02">CMPORDPS x<i>mm1, xmm2</i></p>
+<p style="position:absolute;top:764px;left:467px;white-space:nowrap" class="ft02">CMPPS&#160;<i>xmm1, xmm2, 7</i></p>
+</div>
+</body>
+</html>

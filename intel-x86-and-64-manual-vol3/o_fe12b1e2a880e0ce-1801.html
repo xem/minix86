@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1801</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1801-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1801.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;39-13</p>
+<p style="position:absolute;top:47px;left:713px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">39.5.11&#160;&#160;Extending the EPCM Permissions of&#160;a Page&#160;</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft08">On&#160;processors&#160;that support SGX2,&#160;extending&#160;the EPCM&#160;permissions associated&#160;with an&#160;enclave&#160;page&#160;is&#160;accom-<br/>plished directly be&#160;the&#160;enclave&#160;using the&#160;EMODPE&#160;leaf function. After performing&#160;the&#160;EPCM permission&#160;extension,&#160;<br/>the enclave requests&#160;the OS to update&#160;the page&#160;table&#160;permissions&#160;to match the&#160;extended permission. Security&#160;<br/>wise, permission extension&#160;does not require&#160;enclave threads&#160;to leave the enclave&#160;as TLBs with stale&#160;references to&#160;<br/>the more&#160;restrictive permissions&#160;will be flushed&#160;on&#160;demand, but to allow forward&#160;progress,&#160;an OS&#160;needs&#160;to be&#160;<br/>aware&#160;that an application&#160;might signal&#160;a page&#160;fault.&#160;<br/>The typical process for extending the&#160;permissions&#160;of&#160;an&#160;enclave page is&#160;as&#160;follows:<br/>1.&#160;Enclave invokes EMODPE to&#160;extend&#160;the&#160;EPCM permissions associated&#160;with&#160;an EPC page (EMODPE may only be&#160;</p>
+<p style="position:absolute;top:273px;left:94px;white-space:nowrap" class="ft03">called&#160;on VALID pages).</p>
+<p style="position:absolute;top:297px;left:69px;white-space:nowrap" class="ft08">2.&#160;Enclave&#160;requests&#160;that OS&#160;update&#160;the&#160;page&#160;tables&#160;to match&#160;the new EPCM permissions.&#160;<br/>3.&#160;Enclave code resumes.</p>
+<p style="position:absolute;top:345px;left:94px;white-space:nowrap" class="ft03">a.&#160;If&#160;cached linear-address&#160;to physical-address&#160;translations&#160;are present to&#160;the more&#160;restrictive permissions,&#160;</p>
+<p style="position:absolute;top:361px;left:120px;white-space:nowrap" class="ft06">the&#160;enclave thread will&#160;page&#160;fault. The&#160;SGX2-aware OS&#160;will see&#160;that the page tables&#160;permit the access and&#160;<br/>resume&#160;the thread,&#160;which can&#160;now successfully access the&#160;page because&#160;exiting cleared&#160;the TLB.&#160;</p>
+<p style="position:absolute;top:402px;left:94px;white-space:nowrap" class="ft03">b.&#160;If&#160;cached linear-address to physical-address translations are not present, access to&#160;the&#160;page with the new&#160;</p>
+<p style="position:absolute;top:418px;left:120px;white-space:nowrap" class="ft03">permissions will succeed&#160;without an&#160;enclave&#160;exit.&#160;</p>
+<p style="position:absolute;top:474px;left:69px;white-space:nowrap" class="ft04">39.6&#160;</p>
+<p style="position:absolute;top:474px;left:148px;white-space:nowrap" class="ft04">CHANGES TO&#160;INSTRUCTION BEHAVIOR INSIDE AN ENCLAVE</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft03">This section covers instructions whose&#160;behavior&#160;changes when executed&#160;in&#160;enclave&#160;mode.</p>
+<p style="position:absolute;top:559px;left:69px;white-space:nowrap" class="ft02">39.6.1 Illegal&#160;</p>
+<p style="position:absolute;top:559px;left:202px;white-space:nowrap" class="ft02">Instructions</p>
+<p style="position:absolute;top:588px;left:69px;white-space:nowrap" class="ft06">The instructions listed in<a href="o_fe12b1e2a880e0ce-1801.html">&#160;Table 39-1&#160;</a>are ring&#160;3 instructions&#160;which become illegal when&#160;executed inside an&#160;enclave.&#160;<br/>Executing these&#160;instructions inside&#160;an enclave&#160;will&#160;generate an&#160;exception.&#160;<br/><a href="o_fe12b1e2a880e0ce-1801.html">The first row of Table 39-1&#160;</a>enumerates&#160;instructions&#160;that&#160;may cause&#160;a VM&#160;exit&#160;for VMM&#160;emulation.&#160;Since a&#160;VMM&#160;<br/>cannot emulate enclave execution, execution&#160;of&#160;any these&#160;instructions&#160;inside&#160;an enclave results&#160;in an&#160;invalid-<br/>opcode&#160;exception (#UD)&#160;and no VM&#160;exit.<br/>The second row<a href="o_fe12b1e2a880e0ce-1801.html">&#160;of&#160;Table 39-1 enumer</a>ates&#160;I/O instructions&#160;that may cause a&#160;fault or&#160;a VM&#160;exit for&#160;emulation.&#160;Again,&#160;<br/>enclave execution&#160;cannot be emulated,&#160;so execution&#160;of&#160;any these instructions inside an&#160;enclave&#160;results in&#160;#UD.<br/>The&#160;third<a href="o_fe12b1e2a880e0ce-1801.html">&#160;row of Table&#160;39-1</a>&#160;enumerates&#160;instructions that load descriptors from the&#160;GDT or the LDT or that&#160;change&#160;<br/>privilege&#160;level. The&#160;former&#160;class&#160;is disallowed because&#160;enclave software&#160;should not depend on&#160;the&#160;contents of the&#160;<br/>descriptor tables and the latter because enclave&#160;execution&#160;must be&#160;entirely&#160;with CPL = 3.&#160;Again, execution of&#160;any&#160;<br/>these instructions inside an&#160;enclave&#160;results in&#160;#UD.&#160;<br/>The&#160;<a href="o_fe12b1e2a880e0ce-1801.html">fourth row of Table&#160;39-1 e</a>numerates&#160;instructions&#160;that provide access to&#160;kernel&#160;information&#160;from user&#160;mode&#160;<br/>and&#160;can be used to&#160;aid&#160;kernel&#160;exploits from within&#160;enclave.&#160;Execution of any&#160;these instructions&#160;inside&#160;an&#160;enclave&#160;<br/>results in&#160;#UD</p>
+<p style="position:absolute;top:868px;left:289px;white-space:nowrap" class="ft05">Table 39-1. &#160;Illegal Instructions Inside an&#160;Enclave</p>
+<p style="position:absolute;top:889px;left:221px;white-space:nowrap" class="ft03">&#160;Instructions</p>
+<p style="position:absolute;top:889px;left:461px;white-space:nowrap" class="ft03">Result</p>
+<p style="position:absolute;top:889px;left:646px;white-space:nowrap" class="ft03">Comment</p>
+<p style="position:absolute;top:912px;left:71px;white-space:nowrap" class="ft03">CPUID, GETSEC, RDPMC, SGDT, SIDT, SLDT, STR, VMCALL, VMFUNC&#160;#UD</p>
+<p style="position:absolute;top:912px;left:514px;white-space:nowrap" class="ft03">Might&#160;cause VM&#160;exit.</p>
+<p style="position:absolute;top:934px;left:71px;white-space:nowrap" class="ft03">IN, INS/INSB/INSW/INSD,&#160;OUT,&#160;OUTS/OUTSB/OUTSW/OUTSD&#160;</p>
+<p style="position:absolute;top:934px;left:456px;white-space:nowrap" class="ft03">#UD</p>
+<p style="position:absolute;top:934px;left:513px;white-space:nowrap" class="ft03">I/O&#160;fault may not safely recover.&#160;May require&#160;emulation.</p>
+<p style="position:absolute;top:957px;left:71px;white-space:nowrap" class="ft03">Far call, Far jump, Far Ret, INT n/INTO,&#160;IRET, LDS/LES/LFS/LGS/LSS,&#160;</p>
+<p style="position:absolute;top:973px;left:71px;white-space:nowrap" class="ft03">MOV to&#160;DS/ES/SS/FS/GS,&#160;POP DS/ES/SS/FS/GS,&#160;SYSCALL,&#160;</p>
+<p style="position:absolute;top:990px;left:71px;white-space:nowrap" class="ft03">SYSENTER&#160;</p>
+<p style="position:absolute;top:957px;left:456px;white-space:nowrap" class="ft03">#UD</p>
+<p style="position:absolute;top:957px;left:513px;white-space:nowrap" class="ft03">Access segment register could change&#160;privilege&#160;level.</p>
+<p style="position:absolute;top:1012px;left:71px;white-space:nowrap" class="ft03">SMSW</p>
+<p style="position:absolute;top:1012px;left:456px;white-space:nowrap" class="ft03">#UD</p>
+<p style="position:absolute;top:1012px;left:513px;white-space:nowrap" class="ft03">Might&#160;provide access to&#160;kernel&#160;information.</p>
+<p style="position:absolute;top:1035px;left:71px;white-space:nowrap" class="ft03">ENCLU[EENTER], ENCLU[ERESUME]</p>
+<p style="position:absolute;top:1035px;left:456px;white-space:nowrap" class="ft03">#GP</p>
+<p style="position:absolute;top:1035px;left:514px;white-space:nowrap" class="ft03">Cannot enter an&#160;enclave from&#160;within&#160;an&#160;enclave.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 202</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:7px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft013{font-size:7px;line-height:8px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page202-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce202.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-16&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND EXCEPTION&#160;HANDLING</p>
+<p style="position:absolute;top:237px;left:68px;white-space:nowrap" class="ft010">The&#160;segment&#160;selector&#160;index field provides&#160;an index into&#160;the IDT,&#160;GDT,&#160;or&#160;current LDT to&#160;the segment or&#160;gate&#160;<br/>selector&#160;being referenced&#160;by the error code. In some&#160;cases the error code&#160;is null (all bits are clear except possibly&#160;<br/>EXT). A null error code indicates that&#160;the error&#160;was not caused&#160;by&#160;a reference to&#160;a specific&#160;segment or that&#160;a null&#160;<br/>segment selector&#160;was&#160;referenced in&#160;an&#160;operation.<br/>The format of&#160;the error code is different for page-fault&#160;exceptions (#PF). S<a href="o_fe12b1e2a880e0ce-226.html">ee the “Interrupt&#160;14—Page-Fault&#160;Excep-<br/>tion (#PF)” se</a>ction in this&#160;chapter.<br/>The error&#160;code&#160;is pushed on&#160;the stack as&#160;a doubleword or&#160;word (depending on&#160;the default&#160;interrupt, trap, or&#160;task&#160;<br/>gate&#160;size). To&#160;keep&#160;the stack aligned for doubleword&#160;pushes, the upper half of&#160;the error&#160;code&#160;is reserved. Note&#160;that&#160;<br/>the&#160;error&#160;code&#160;is not popped when the&#160;IRET instruction is&#160;executed to&#160;return&#160;from&#160;an exception handler,&#160;so&#160;the&#160;<br/>handler must remove&#160;the&#160;error code before executing a&#160;return.<br/>Error codes are not pushed on&#160;the stack for&#160;exceptions&#160;that are&#160;generated externally (with the&#160;INTR&#160;or LINT[1:0]&#160;<br/>pins) or the&#160;INT&#160;<i>n</i>&#160;instruction, even if&#160;an&#160;error code is&#160;normally&#160;produced&#160;for&#160;those exceptions.</p>
+<p style="position:absolute;top:497px;left:68px;white-space:nowrap" class="ft04">6.14&#160;</p>
+<p style="position:absolute;top:497px;left:147px;white-space:nowrap" class="ft04">EXCEPTION AND INTERRUPT&#160;HANDLING IN 64-BIT MODE</p>
+<p style="position:absolute;top:533px;left:68px;white-space:nowrap" class="ft010">In 64-bit&#160;mode,&#160;interrupt and exception handling is&#160;similar&#160;to&#160;what&#160;has been described for non-64-bit modes.&#160;The&#160;<br/>following&#160;are the&#160;exceptions:</p>
+<p style="position:absolute;top:571px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:572px;left:93px;white-space:nowrap" class="ft02">All interrupt&#160;handlers&#160;pointed&#160;by the&#160;IDT are&#160;in 64-bit&#160;code&#160;(this does&#160;not apply to&#160;the&#160;SMI handler).</p>
+<p style="position:absolute;top:594px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:594px;left:93px;white-space:nowrap" class="ft02">The&#160;size of interrupt-stack&#160;pushes&#160;is fixed&#160;at 64 bits; and&#160;the processor uses&#160;8-byte, zero&#160;extended stores.</p>
+<p style="position:absolute;top:616px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:617px;left:93px;white-space:nowrap" class="ft010">The&#160;stack pointer (SS:RSP)&#160;is pushed&#160;unconditionally on&#160;interrupts. In&#160;legacy modes,&#160;this push&#160;is conditional&#160;<br/>and&#160;based on a&#160;change&#160;in current privilege&#160;level (CPL).</p>
+<p style="position:absolute;top:655px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:656px;left:93px;white-space:nowrap" class="ft02">The&#160;new&#160;SS&#160;is&#160;set&#160;to NULL if there is&#160;a change&#160;in CPL.</p>
+<p style="position:absolute;top:678px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:678px;left:93px;white-space:nowrap" class="ft02">IRET behavior&#160;changes.</p>
+<p style="position:absolute;top:700px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:701px;left:93px;white-space:nowrap" class="ft02">There is&#160;a new interrupt stack-switch&#160;mechanism.</p>
+<p style="position:absolute;top:723px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:723px;left:93px;white-space:nowrap" class="ft02">The&#160;alignment of interrupt&#160;stack frame&#160;is different.</p>
+<p style="position:absolute;top:774px;left:68px;white-space:nowrap" class="ft06">6.14.1&#160;</p>
+<p style="position:absolute;top:774px;left:148px;white-space:nowrap" class="ft06">64-Bit Mode IDT</p>
+<p style="position:absolute;top:804px;left:68px;white-space:nowrap" class="ft010">Interrupt&#160;and trap&#160;gates are 16 bytes&#160;in length&#160;to provide&#160;a&#160;64-bit&#160;offset&#160;for the&#160;instruction&#160;pointer&#160;(RIP).&#160;The&#160;64-<br/>bit&#160;RIP&#160;referenced&#160;by interrupt-gate&#160;descriptors allows an&#160;interrupt&#160;service routine&#160;to be located anywhere&#160;in&#160;the&#160;<br/>linear-address space.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-203.html">Figure&#160;6-7.</a></p>
+<p style="position:absolute;top:191px;left:377px;white-space:nowrap" class="ft07">Figure&#160;6-6. &#160;Error&#160;Code</p>
+<p style="position:absolute;top:131px;left:249px;white-space:nowrap" class="ft08">31</p>
+<p style="position:absolute;top:132px;left:645px;white-space:nowrap" class="ft08">0</p>
+<p style="position:absolute;top:156px;left:324px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:149px;left:634px;white-space:nowrap" class="ft09">I</p>
+<p style="position:absolute;top:157px;left:632px;white-space:nowrap" class="ft013">D<br/>T</p>
+<p style="position:absolute;top:153px;left:620px;white-space:nowrap" class="ft09">T</p>
+<p style="position:absolute;top:161px;left:621px;white-space:nowrap" class="ft09">I</p>
+<p style="position:absolute;top:132px;left:632px;white-space:nowrap" class="ft08">1</p>
+<p style="position:absolute;top:132px;left:620px;white-space:nowrap" class="ft08">2</p>
+<p style="position:absolute;top:132px;left:608px;white-space:nowrap" class="ft08">3</p>
+<p style="position:absolute;top:156px;left:464px;white-space:nowrap" class="ft00">Segment Selector Index</p>
+<p style="position:absolute;top:149px;left:645px;white-space:nowrap" class="ft013">E<br/>X<br/>T</p>
+</div>
+</body>
+</html>

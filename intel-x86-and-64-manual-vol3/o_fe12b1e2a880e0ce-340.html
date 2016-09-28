@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 340</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page340-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce340.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-28&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:363px;left:68px;white-space:nowrap" class="ft02">9.11.1 Microcode&#160;</p>
+<p style="position:absolute;top:363px;left:234px;white-space:nowrap" class="ft02">Update</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft07">A microcode update consists&#160;of&#160;an Intel-supplied binary that contains a descriptive header and data. No executable&#160;<br/>code&#160;resides within the&#160;update. Each microcode&#160;update is&#160;tailored for a&#160;specific&#160;list of processor signatures.&#160;A&#160;<br/>mismatch&#160;of the&#160;processor’s signature with the&#160;signature&#160;contained in&#160;the update will&#160;result&#160;in a failure&#160;to load.&#160;A&#160;<br/>processor signature includes&#160;the&#160;extended&#160;family, extended&#160;model,&#160;type,&#160;family,&#160;model,&#160;and stepping&#160;of the&#160;<br/>processor (starting&#160;with processor family 0fH, model 03H,&#160;a given microcode update may be associated with&#160;one of&#160;<br/>multiple processor signatures;&#160;se<a href="o_fe12b1e2a880e0ce-343.html">e Section 9.11.2&#160;</a>for&#160;detail).<br/>Microcode updates are composed of a&#160;multi-byte&#160;header, followed&#160;by&#160;encrypted data&#160;and then&#160;by an optional&#160;<br/>extended&#160;signature&#160;tabl<a href="o_fe12b1e2a880e0ce-340.html">e. Table&#160;9-7</a>&#160;provides a&#160;definition&#160;of the&#160;fiel<a href="o_fe12b1e2a880e0ce-342.html">ds; Table&#160;9-8&#160;</a>shows the&#160;format&#160;of an update.&#160;<br/>The&#160;header&#160;is 48 bytes. The first 4 bytes&#160;of&#160;the header&#160;contain the&#160;header&#160;version. The update header&#160;and its&#160;<br/>reserved&#160;fields&#160;are interpreted by software&#160;based upon&#160;the header version.&#160;An encoding scheme&#160;guards against&#160;<br/>tampering and provides a&#160;means for determining the authenticity of&#160;any given&#160;update. For microcode updates with&#160;<br/>a data size field&#160;equal to 00000000H,&#160;the size of the microcode&#160;update is 2048 bytes.&#160;The first 48 bytes contain the&#160;<br/>microcode update header.&#160;The&#160;remaining 2000&#160;bytes contain encrypted&#160;data.&#160;<br/>For microcode&#160;updates with a&#160;data size&#160;not equal to&#160;00000000H,&#160;the&#160;total&#160;size&#160;field&#160;specifies the&#160;size of the&#160;micro-<br/>code update. The&#160;first 48 bytes&#160;contain&#160;the&#160;microcode update&#160;header. The&#160;second part&#160;of the&#160;microcode update&#160;is&#160;<br/>the encrypted&#160;data.&#160;&#160;The data size&#160;field of the microcode&#160;update&#160;header&#160;specifies the&#160;encrypted data&#160;size, its&#160;value&#160;<br/>must&#160;be a multiple&#160;of the&#160;size&#160;of&#160;DWORD.&#160;The total&#160;size&#160;field of&#160;the microcode&#160;update header specifies&#160;the&#160;<br/>encrypted&#160;data&#160;size plus the&#160;header&#160;size; its&#160;value must&#160;be&#160;in&#160;multiples of 1024&#160;bytes (1&#160;KBytes).&#160;The optional&#160;<br/>extended&#160;signature&#160;table&#160;if implemented&#160;follows&#160;the&#160;encrypted&#160;data, and&#160;its size&#160;is calculated by (Total&#160;Size – (Data&#160;<br/>Size + 48)).&#160;</p>
+<p style="position:absolute;top:764px;left:432px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:789px;left:120px;white-space:nowrap" class="ft03">The&#160;optional&#160;extended signature table is&#160;supported starting&#160;with&#160;processor&#160;family 0FH,&#160;model&#160;03H.</p>
+<p style="position:absolute;top:813px;left:68px;white-space:nowrap" class="ft05"><i>.</i>&#160;</p>
+<p style="position:absolute;top:310px;left:317px;white-space:nowrap" class="ft06">Figure&#160;9-7.&#160; Applying&#160;Microcode Updates</p>
+<p style="position:absolute;top:830px;left:295px;white-space:nowrap" class="ft06">Table&#160;9-7.&#160;&#160;Microcode Update Field&#160;Definitions</p>
+<p style="position:absolute;top:855px;left:74px;white-space:nowrap" class="ft03">Field Name</p>
+<p style="position:absolute;top:855px;left:225px;white-space:nowrap" class="ft03">Offset&#160;(bytes)</p>
+<p style="position:absolute;top:855px;left:337px;white-space:nowrap" class="ft03">Length&#160;</p>
+<p style="position:absolute;top:870px;left:337px;white-space:nowrap" class="ft03">(bytes)</p>
+<p style="position:absolute;top:855px;left:434px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:894px;left:74px;white-space:nowrap" class="ft03">Header&#160;Version</p>
+<p style="position:absolute;top:894px;left:225px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:894px;left:337px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:894px;left:434px;white-space:nowrap" class="ft03">Version&#160;number&#160;of&#160;the&#160;update header.</p>
+<p style="position:absolute;top:918px;left:74px;white-space:nowrap" class="ft03">Update&#160;Revision</p>
+<p style="position:absolute;top:918px;left:225px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:918px;left:337px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:918px;left:434px;white-space:nowrap" class="ft03">Unique&#160;version&#160;number&#160;for the update,&#160;the basis for the update&#160;</p>
+<p style="position:absolute;top:934px;left:434px;white-space:nowrap" class="ft03">signature provided&#160;by the&#160;processor&#160;to&#160;indicate&#160;the current update&#160;</p>
+<p style="position:absolute;top:951px;left:434px;white-space:nowrap" class="ft03">functioning within the processor.&#160; Used by&#160;the BIOS to&#160;authenticate&#160;</p>
+<p style="position:absolute;top:967px;left:434px;white-space:nowrap" class="ft03">the update and&#160;verify that&#160;the&#160;processor&#160;loads successfully. &#160;The&#160;</p>
+<p style="position:absolute;top:984px;left:434px;white-space:nowrap" class="ft03">value in&#160;this&#160;field&#160;cannot&#160;be&#160;used&#160;for&#160;processor stepping&#160;identification&#160;</p>
+<p style="position:absolute;top:1000px;left:434px;white-space:nowrap" class="ft03">alone. &#160;This is a signed 32-bit number.</p>
+<p style="position:absolute;top:1024px;left:74px;white-space:nowrap" class="ft03">Date</p>
+<p style="position:absolute;top:1024px;left:225px;white-space:nowrap" class="ft03">8</p>
+<p style="position:absolute;top:1024px;left:337px;white-space:nowrap" class="ft03">4</p>
+<p style="position:absolute;top:1024px;left:434px;white-space:nowrap" class="ft03">Date of&#160;the update creation&#160;in binary format:&#160;mmddyyyy (e.g.&#160;</p>
+<p style="position:absolute;top:1041px;left:434px;white-space:nowrap" class="ft03">07/18/98&#160;is 07181998H).</p>
+<p style="position:absolute;top:218px;left:574px;white-space:nowrap" class="ft00">CPU</p>
+<p style="position:absolute;top:269px;left:436px;white-space:nowrap" class="ft00">BIOS</p>
+<p style="position:absolute;top:211px;left:435px;white-space:nowrap" class="ft00">Update</p>
+<p style="position:absolute;top:224px;left:437px;white-space:nowrap" class="ft00">Blocks</p>
+<p style="position:absolute;top:218px;left:284px;white-space:nowrap" class="ft00">New Update</p>
+<p style="position:absolute;top:149px;left:527px;white-space:nowrap" class="ft09">Update<br/>Loader</p>
+</div>
+</body>
+</html>

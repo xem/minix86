@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 196</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page196-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481196.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:444px;white-space:nowrap" class="ft00">ANDPS—Bitwise Logical&#160;AND of&#160;Packed Single Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-68&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:123px;left:68px;white-space:nowrap" class="ft04">VANDPS&#160;(EVEX&#160;encoded&#160;versions)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:177px;left:88px;white-space:nowrap" class="ft04">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:213px;left:142px;white-space:nowrap" class="ft03">IF (EVEX.b ==&#160;1) AND (SRC2 *is memory*)</p>
+<p style="position:absolute;top:231px;left:169px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:249px;left:196px;white-space:nowrap" class="ft03">DEST[i+63:i]&#160;&#160;SRC1[i+31:i]&#160;BITWISE AND SRC2[31:0]</p>
+<p style="position:absolute;top:267px;left:169px;white-space:nowrap" class="ft03">ELSE&#160;</p>
+<p style="position:absolute;top:285px;left:196px;white-space:nowrap" class="ft03">DEST[i+31:i]&#160;&#160;SRC1[i+31:i]&#160;BITWISE AND SRC2[i+31:i]</p>
+<p style="position:absolute;top:303px;left:142px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:321px;left:115px;white-space:nowrap" class="ft03">ELSE&#160;</p>
+<p style="position:absolute;top:339px;left:142px;white-space:nowrap" class="ft03">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:339px;left:358px;white-space:nowrap" class="ft03">;&#160;merging-masking</p>
+<p style="position:absolute;top:357px;left:169px;white-space:nowrap" class="ft04">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:375px;left:364px;white-space:nowrap" class="ft03">zeroing-masking</p>
+<p style="position:absolute;top:393px;left:196px;white-space:nowrap" class="ft03">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:411px;left:142px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:429px;left:88px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:447px;left:68px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0;</p>
+<p style="position:absolute;top:501px;left:68px;white-space:nowrap" class="ft04">VANDPS&#160;(VEX.256 encoded&#160;version)<br/>DEST[31:0]&#160;&#160;SRC1[31:0]&#160;BITWISE AND SRC2[31:0]<br/>DEST[63:32]&#160;&#160;SRC1[63:32]&#160;BITWISE&#160;AND SRC2[63:32]<br/>DEST[95:64]&#160;&#160;SRC1[95:64]&#160;BITWISE&#160;AND SRC2[95:64]<br/>DEST[127:96]&#160;&#160;SRC1[127:96] BITWISE&#160;AND SRC2[127:96]<br/>DEST[159:128]&#160;&#160;SRC1[159:128] BITWISE AND SRC2[159:128]<br/>DEST[191:160]&#160;&#160;SRC1[191:160] BITWISE AND SRC2[191:160]<br/>DEST[223:192]&#160;&#160;SRC1[223:192] BITWISE AND SRC2[223:192]<br/>DEST[255:224]&#160;&#160;SRC1[255:224] BITWISE AND SRC2[255:224].<br/>DEST[MAX_VL-1:256]&#160;&#160;0;</p>
+<p style="position:absolute;top:699px;left:68px;white-space:nowrap" class="ft04">VANDPS&#160;(VEX.128 encoded&#160;version)<br/>DEST[31:0]&#160;&#160;SRC1[31:0]&#160;BITWISE AND SRC2[31:0]<br/>DEST[63:32]&#160;&#160;SRC1[63:32]&#160;BITWISE&#160;AND SRC2[63:32]<br/>DEST[95:64]&#160;&#160;SRC1[95:64]&#160;BITWISE&#160;AND SRC2[95:64]<br/>DEST[127:96]&#160;&#160;SRC1[127:96] BITWISE&#160;AND SRC2[127:96]<br/>DEST[MAX_VL-1:128]&#160;&#160;0;</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft04">ANDPS&#160;(128-bit Legacy&#160;SSE&#160;version)<br/>DEST[31:0]&#160;&#160;DEST[31:0] BITWISE&#160;AND SRC[31:0]<br/>DEST[63:32]&#160;&#160;DEST[63:32] BITWISE AND SRC[63:32]<br/>DEST[95:64]&#160;&#160;DEST[95:64] BITWISE AND SRC[95:64]<br/>DEST[127:96]&#160;&#160;DEST[127:96]&#160;BITWISE AND SRC[127:96]<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+</div>
+</body>
+</html>

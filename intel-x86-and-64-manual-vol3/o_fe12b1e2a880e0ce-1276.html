@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1276</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1276-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1276.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">34-26&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft09">Bytes&#160;7:4&#160;contain the&#160;<b>SMM-transfer monitor features</b>&#160;field.&#160;Bits&#160;31:1 of this&#160;field&#160;are reserved&#160;and&#160;must&#160;be&#160;<br/>zero.&#160;Bit&#160;0&#160;of the field is&#160;the&#160;<b>IA-32e&#160;mode&#160;SMM feature&#160;bit</b>. It&#160;indicates whether the&#160;logical processor will&#160;be&#160;<br/>in IA-32e mode&#160;after the STM&#160;is activated&#160;(see<a href="o_fe12b1e2a880e0ce-1276.html">&#160;Section 34.15.6).</a></p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft09">Bytes&#160;31:8&#160;contain fields&#160;that determine how processor state is loaded&#160;when&#160;the STM is activated<a href="o_fe12b1e2a880e0ce-1277.html">&#160;(see Section&#160;<br/>34.15.6.6).</a>&#160;SMM&#160;code&#160;should&#160;establish these fields&#160;so that activating&#160;of the STM invokes the STM’s initialization&#160;<br/>code.&#160;</p>
+<p style="position:absolute;top:239px;left:68px;white-space:nowrap" class="ft05">34.15.6&#160;&#160;Activating the Dual-Monitor Treatment</p>
+<p style="position:absolute;top:270px;left:68px;white-space:nowrap" class="ft09">The dual-monitor treatment may&#160;be&#160;enabled&#160;by&#160;SMM code as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-1274.html">in&#160;Section&#160;34.15.5. The dual</a>-monitor treat-<br/>ment is&#160;activated only if it&#160;is enabled and&#160;only by the&#160;executive monitor.&#160;The executive&#160;monitor activates the&#160;dual-<br/>monitor treatment&#160;by executing VMCALL in&#160;VMX root&#160;operation.<br/>When VMCALL activates the&#160;dual-monitor&#160;treatment, it&#160;causes&#160;an&#160;SMM VM&#160;exit. Differences&#160;between&#160;this&#160;SMM&#160;<br/>VM&#160;exit&#160;and other&#160;SMM VM&#160;exits are&#160;<a href="o_fe12b1e2a880e0ce-1276.html">discussed in Sections&#160;34.15.6.1</a>&#160;throug<a href="o_fe12b1e2a880e0ce-1279.html">h&#160;34.15.6.7</a>.&#160;See also “VMCALL—Call to&#160;<br/>VM&#160;Monitor”<a href="��">&#160;in&#160;Chapter 30.</a></p>
+<p style="position:absolute;top:404px;left:68px;white-space:nowrap" class="ft06">34.15.6.1&#160;&#160;&#160;Initial&#160;Checks</p>
+<p style="position:absolute;top:433px;left:68px;white-space:nowrap" class="ft09">An&#160;execution of VMCALL attempts to&#160;activate the&#160;dual-monitor treatment&#160;if&#160;(1)&#160;the processor supports the&#160;dual-<br/>monitor treatment;</p>
+<p style="position:absolute;top:447px;left:197px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:449px;left:204px;white-space:nowrap" class="ft03">&#160;(2)&#160;the logical processor is&#160;in VMX root operation; (3)&#160;the&#160;logical processor is&#160;outside&#160;SMM and&#160;</p>
+<p style="position:absolute;top:466px;left:68px;white-space:nowrap" class="ft011">the valid bit is set in the IA32_SMM_MONITOR_CTL MSR;&#160;(4)&#160;the logical processor is not&#160;in&#160;virtual-8086 mode and&#160;<br/>not in compatibility mode; (5)&#160;CPL&#160;= 0;&#160;and&#160;(6)&#160;the&#160;dual-monitor treatment&#160;is not&#160;active.<br/>The&#160;VMCS&#160;that manages&#160;SMM VM&#160;exit caused&#160;by&#160;this&#160;VMCALL is&#160;the current VMCS&#160;established by&#160;the executive&#160;<br/>monitor.&#160;The VMCALL performs&#160;the following checks&#160;on the&#160;current VMCS&#160;in&#160;the order indicated:<br/>1.&#160;There must be&#160;a&#160;current VMCS pointer.<br/>2.&#160;The&#160;launch state&#160;of the&#160;current&#160;VMCS must be clear.<br/>3.&#160;Reserved bits&#160;in&#160;the VM-exit controls in&#160;the&#160;current&#160;VMCS must be set properly. Software&#160;may consult&#160;the&#160;VMX&#160;</p>
+<p style="position:absolute;top:611px;left:93px;white-space:nowrap" class="ft03">capability&#160;MSR IA32_VMX_EXIT_CTLS to&#160;determine the&#160;proper settings (see<a href="o_fe12b1e2a880e0ce-1946.html">&#160;Appendix A.4).</a></p>
+<p style="position:absolute;top:635px;left:68px;white-space:nowrap" class="ft011">If any of these checks&#160;fail, subsequent checks&#160;are skipped&#160;and VMCALL fails. If all&#160;these checks&#160;succeed, the&#160;logical&#160;<br/>processor&#160;uses the&#160;IA32_SMM_MONITOR_CTL&#160;MSR to&#160;determine the&#160;base&#160;address of MSEG.&#160;The following checks&#160;<br/>are performed in the&#160;order&#160;indicated:<br/>1.&#160;The&#160;logical processor reads&#160;the 32 bits&#160;at the base&#160;of&#160;MSEG&#160;and compares&#160;them to&#160;the processor’s&#160;MSEG&#160;</p>
+<p style="position:absolute;top:709px;left:93px;white-space:nowrap" class="ft03">revision identifier.</p>
+<p style="position:absolute;top:733px;left:68px;white-space:nowrap" class="ft03">2.&#160;The&#160;logical&#160;processor&#160;reads&#160;the&#160;SMM-transfer&#160;monitor features&#160;field:</p>
+<p style="position:absolute;top:757px;left:93px;white-space:nowrap" class="ft03">—&#160;Bit&#160;0 of the&#160;field&#160;is the&#160;IA-32e mode&#160;SMM feature&#160;bit,&#160;and it&#160;indicates whether the&#160;logical&#160;processor&#160;will&#160;be&#160;</p>
+<p style="position:absolute;top:773px;left:119px;white-space:nowrap" class="ft03">in&#160;IA-32e&#160;mode after&#160;the SMM-transfer monitor (STM)&#160;is activated.</p>
+<p style="position:absolute;top:799px;left:119px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:797px;left:144px;white-space:nowrap" class="ft03">If the VMCALL&#160;is executed&#160;on a processor that does not support Intel 64 architecture, the&#160;IA-32e mode&#160;</p>
+<p style="position:absolute;top:814px;left:143px;white-space:nowrap" class="ft03">SMM&#160;feature&#160;bit&#160;must&#160;be&#160;0.</p>
+<p style="position:absolute;top:839px;left:119px;white-space:nowrap" class="ft08">•</p>
+<p style="position:absolute;top:838px;left:144px;white-space:nowrap" class="ft03">If the&#160;VMCALL&#160;is executed&#160;in 64-bit mode,&#160;the IA-32e&#160;mode&#160;SMM&#160;feature bit must be&#160;1.</p>
+<p style="position:absolute;top:862px;left:93px;white-space:nowrap" class="ft03">—&#160;Bits&#160;31:1&#160;of this field are&#160;currently reserved and&#160;must&#160;be&#160;zero.</p>
+<p style="position:absolute;top:886px;left:68px;white-space:nowrap" class="ft03">If&#160;any of these checks fail, subsequent&#160;checks are&#160;skipped&#160;and the&#160;VMCALL&#160;fails.</p>
+<p style="position:absolute;top:930px;left:68px;white-space:nowrap" class="ft06">34.15.6.2&#160;&#160;&#160;MSEG Checking</p>
+<p style="position:absolute;top:958px;left:68px;white-space:nowrap" class="ft09">SMM VM&#160;exits that&#160;activate&#160;the&#160;dual-monitor treatment&#160;check&#160;the following before updating the current-VMCS&#160;<br/>pointer&#160;and the&#160;executive-VMCS pointer field&#160;(see<a href="o_fe12b1e2a880e0ce-1270.html">&#160;Section 34.15.2.2</a>):</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">1.&#160;Software&#160;should&#160;consult the VMX capability MSR IA32_VMX_BASIC&#160;(see<a href="o_fe12b1e2a880e0ce-1943.html">&#160;Appendix&#160;A.1)</a>&#160;to&#160;determine&#160;whether the dual-monitor&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">treatment is supported.</p>
+</div>
+</body>
+</html>

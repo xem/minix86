@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1310</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1310-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811310.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:658px;white-space:nowrap" class="ft00">SMSW—Store Machine&#160;Status Word</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-630&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">SMSW—Store&#160;Machine Status Word</p>
+<p style="position:absolute;top:327px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:415px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:441px;left:68px;white-space:nowrap" class="ft09">Stores&#160;the&#160;machine&#160;status&#160;word (bits 0 through 15 of control register CR0)&#160;into the&#160;destination operand. The desti-<br/>nation operand can&#160;be&#160;a general-purpose register&#160;or a&#160;memory location.<br/>In non-64-bit modes,&#160;when the&#160;destination&#160;operand&#160;is&#160;a 32-bit register,&#160;the low-order 16 bits of register&#160;CR0&#160;are&#160;<br/>copied&#160;into&#160;the&#160;low-order 16&#160;bits&#160;of the&#160;register&#160;and&#160;the&#160;high-order&#160;16&#160;bits&#160;are&#160;undefined.&#160;When&#160;the&#160;destination&#160;<br/>operand is&#160;a memory location,&#160;the&#160;low-order 16&#160;bits of register&#160;CR0 are&#160;written to memory as&#160;a 16-bit&#160;quantity,&#160;<br/>regardless of the&#160;operand size.<br/>In&#160;64-bit mode, the&#160;behavior of the&#160;SMSW&#160;instruction is&#160;defined by the&#160;following&#160;examples:</p>
+<p style="position:absolute;top:577px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:577px;left:93px;white-space:nowrap" class="ft04">SMSW&#160;r16&#160;operand size&#160;16,&#160;store&#160;CR0[15:0] in&#160;r16</p>
+<p style="position:absolute;top:599px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:600px;left:93px;white-space:nowrap" class="ft04">SMSW&#160;r32&#160;operand size&#160;32,&#160;zero-extend&#160;CR0[31:0],&#160;and&#160;store in&#160;r32</p>
+<p style="position:absolute;top:622px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:622px;left:93px;white-space:nowrap" class="ft04">SMSW&#160;r64&#160;operand size&#160;64,&#160;zero-extend&#160;CR0[63:0],&#160;and&#160;store in&#160;r64</p>
+<p style="position:absolute;top:644px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:645px;left:93px;white-space:nowrap" class="ft04">SMSW&#160;m16&#160;operand&#160;size&#160;16,&#160;store&#160;CR0[15:0]&#160;in m16</p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:667px;left:93px;white-space:nowrap" class="ft04">SMSW&#160;m16&#160;operand&#160;size&#160;32,&#160;store&#160;CR0[15:0]&#160;in m16 (not m32)</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:690px;left:93px;white-space:nowrap" class="ft04">SMSW&#160;m16&#160;operands&#160;size&#160;64,&#160;store&#160;CR0[15:0]&#160;in&#160;m16 (not&#160;m64)</p>
+<p style="position:absolute;top:714px;left:68px;white-space:nowrap" class="ft07">SMSW is&#160;only&#160;useful&#160;in operating-system&#160;software. However,&#160;it&#160;is&#160;not&#160;a privileged instruction and&#160;can be&#160;used in&#160;<br/>application&#160;programs if CR4.UMIP&#160;=&#160;0. It&#160;is provided&#160;for compatibility with the&#160;Intel&#160;286&#160;processor.&#160;Programs and&#160;<br/>procedures&#160;intended&#160;to run on IA-32 and&#160;Intel&#160;64&#160;processors&#160;beginning&#160;with&#160;the Intel386&#160;processors&#160;should use&#160;the&#160;<br/>MOV&#160;CR&#160;instruction to load the&#160;machine&#160;status&#160;word.<br/>See “Changes to Instruction Behavior in VMX&#160;Non-Root Oper<a href="��">ation” in Chapter 25&#160;of the&#160;<i>Intel® 64&#160;and IA-32&#160;Archi-<br/>tectures&#160;Software Developer’s Manual, Volume&#160;3C</i>, for mo</a>re&#160;information about&#160;the behavior&#160;of&#160;this instruction in&#160;<br/>VMX&#160;non-root operation.</p>
+<p style="position:absolute;top:857px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:883px;left:68px;white-space:nowrap" class="ft04">DEST&#160;←&#160;CR0[15:0];&#160;</p>
+<p style="position:absolute;top:901px;left:68px;white-space:nowrap" class="ft04">(* Machine status word *)</p>
+<p style="position:absolute;top:938px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft04">None.</p>
+<p style="position:absolute;top:123px;left:74px;white-space:nowrap" class="ft04">Opcode*</p>
+<p style="position:absolute;top:123px;left:222px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F&#160;01 /4</p>
+<p style="position:absolute;top:160px;left:222px;white-space:nowrap" class="ft04">SMSW&#160;<i>r/m16</i></p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft04">Valid&#160;</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Store&#160;machine status&#160;word&#160;to&#160;<i>r/m16</i>.</p>
+<p style="position:absolute;top:182px;left:74px;white-space:nowrap" class="ft04">0F&#160;01 /4</p>
+<p style="position:absolute;top:182px;left:222px;white-space:nowrap" class="ft04">SMSW&#160;<i>r32/m16</i></p>
+<p style="position:absolute;top:182px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:182px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:568px;white-space:nowrap" class="ft04">Store&#160;machine&#160;status word&#160;in&#160;low-order 16&#160;</p>
+<p style="position:absolute;top:199px;left:568px;white-space:nowrap" class="ft04">bits&#160;of&#160;<i>r32/m16</i>; high-order 16&#160;bits&#160;of&#160;<i>r32</i>&#160;are&#160;</p>
+<p style="position:absolute;top:216px;left:568px;white-space:nowrap" class="ft04">undefined.</p>
+<p style="position:absolute;top:238px;left:74px;white-space:nowrap" class="ft04">REX.W + 0F 01 /4</p>
+<p style="position:absolute;top:238px;left:222px;white-space:nowrap" class="ft04">SMSW&#160;<i>r64/m16</i></p>
+<p style="position:absolute;top:238px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:238px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:238px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:238px;left:568px;white-space:nowrap" class="ft04">Store&#160;machine&#160;status word&#160;in&#160;low-order 16&#160;</p>
+<p style="position:absolute;top:254px;left:568px;white-space:nowrap" class="ft04">bits&#160;of&#160;<i>r64/m16</i>; high-order 16&#160;bits&#160;of&#160;<i>r32</i>&#160;are&#160;</p>
+<p style="position:absolute;top:271px;left:568px;white-space:nowrap" class="ft04">undefined.</p>
+<p style="position:absolute;top:351px;left:86px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:351px;left:195px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:351px;left:366px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:351px;left:541px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:351px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:375px;left:98px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:375px;left:181px;white-space:nowrap" class="ft04">ModRM:r/m&#160;&#160;(w)</p>
+<p style="position:absolute;top:375px;left:387px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:375px;left:562px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:375px;left:740px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

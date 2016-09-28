@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 188</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page188-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce188.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-2&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND EXCEPTION&#160;HANDLING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-188.html">Table&#160;6-1&#160;</a>shows vector number&#160;assignments for architecturally&#160;defined exceptions and&#160;for&#160;the NMI interrupt. This&#160;<br/>table&#160;gives the&#160;exception type (see<a href="o_fe12b1e2a880e0ce-190.html">&#160;Section 6.5,&#160;“Exception Classifications”) a</a>nd indicates whether an error code&#160;is&#160;<br/>saved on the&#160;stack for the&#160;exception.&#160;The&#160;source&#160;of each&#160;predefined&#160;exception and&#160;the&#160;NMI interrupt&#160;is also&#160;given.</p>
+<p style="position:absolute;top:189px;left:68px;white-space:nowrap" class="ft03">6.3 SOURCES&#160;</p>
+<p style="position:absolute;top:189px;left:240px;white-space:nowrap" class="ft03">OF&#160;</p>
+<p style="position:absolute;top:189px;left:270px;white-space:nowrap" class="ft03">INTERRUPTS</p>
+<p style="position:absolute;top:225px;left:68px;white-space:nowrap" class="ft02">The processor receives&#160;interrupts&#160;from two sources:</p>
+<p style="position:absolute;top:247px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:247px;left:93px;white-space:nowrap" class="ft02">External (hardware generated) interrupts.</p>
+<p style="position:absolute;top:269px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:270px;left:93px;white-space:nowrap" class="ft02">Software-generated interrupts.</p>
+<p style="position:absolute;top:320px;left:68px;white-space:nowrap" class="ft05">6.3.1 External&#160;</p>
+<p style="position:absolute;top:320px;left:220px;white-space:nowrap" class="ft05">Interrupts</p>
+<p style="position:absolute;top:351px;left:68px;white-space:nowrap" class="ft08">External interrupts&#160;are received through pins on&#160;the processor or&#160;through the local APIC. The primary interrupt pins&#160;<br/>on Pentium 4,&#160;Intel&#160;Xeon,&#160;P6&#160;family,&#160;and&#160;Pentium processors are&#160;the LINT[1:0] pins,&#160;which are&#160;connected&#160;to the&#160;<br/><a href="��">local APIC (see Chapter&#160;10, “Advanced Programmable&#160;Interrupt Controller (APIC)”)</a>. When&#160;the&#160;local APIC is&#160;<br/>enabled,&#160;the LINT[1:0] pins can be programmed&#160;through the&#160;APIC’s&#160;local vector table (LVT)&#160;to be associated&#160;with&#160;<br/>any of the&#160;processor’s exception&#160;or interrupt&#160;vectors.<br/>When the&#160;local APIC is&#160;global/hardware disabled,&#160;these&#160;pins are configured&#160;as INTR and NMI&#160;pins, respectively.&#160;<br/>Asserting&#160;the&#160;INTR&#160;pin signals the&#160;processor that&#160;an&#160;external interrupt has&#160;occurred. The processor&#160;reads&#160;from&#160;the&#160;<br/>system bus the interrupt vector number&#160;provided by an external interrupt controller,&#160;such as an 8259A<a href="o_fe12b1e2a880e0ce-187.html">&#160;(see Section&#160;<br/>6.2, “Exception&#160;and&#160;Interrupt Vectors”). Asse</a>rting&#160;the NMI pin&#160;signals&#160;a non-maskable interrupt (NMI),&#160;which is&#160;<br/>assigned to&#160;interrupt vector 2.</p>
+<p style="position:absolute;top:548px;left:269px;white-space:nowrap" class="ft06">Table 6-1. &#160;Protected-Mode&#160;Exceptions&#160;and&#160;Interrupts&#160;</p>
+<p style="position:absolute;top:573px;left:74px;white-space:nowrap" class="ft02">Vector</p>
+<p style="position:absolute;top:573px;left:146px;white-space:nowrap" class="ft02">Mne-</p>
+<p style="position:absolute;top:588px;left:146px;white-space:nowrap" class="ft02">monic</p>
+<p style="position:absolute;top:573px;left:211px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:573px;left:433px;white-space:nowrap" class="ft02">Type</p>
+<p style="position:absolute;top:573px;left:525px;white-space:nowrap" class="ft02">Error&#160;</p>
+<p style="position:absolute;top:588px;left:525px;white-space:nowrap" class="ft02">Code</p>
+<p style="position:absolute;top:573px;left:587px;white-space:nowrap" class="ft02">Source</p>
+<p style="position:absolute;top:612px;left:74px;white-space:nowrap" class="ft02">&#160;0</p>
+<p style="position:absolute;top:612px;left:146px;white-space:nowrap" class="ft02">#DE</p>
+<p style="position:absolute;top:612px;left:211px;white-space:nowrap" class="ft02">Divide Error</p>
+<p style="position:absolute;top:612px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:612px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:612px;left:587px;white-space:nowrap" class="ft02">DIV and IDIV instructions.</p>
+<p style="position:absolute;top:636px;left:74px;white-space:nowrap" class="ft02">&#160;1</p>
+<p style="position:absolute;top:636px;left:146px;white-space:nowrap" class="ft02">#DB</p>
+<p style="position:absolute;top:636px;left:211px;white-space:nowrap" class="ft02">Debug&#160;Exception</p>
+<p style="position:absolute;top:636px;left:433px;white-space:nowrap" class="ft02">Fault/ Trap</p>
+<p style="position:absolute;top:636px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:636px;left:587px;white-space:nowrap" class="ft02">Instruction,&#160;data,&#160;and I/O&#160;breakpoints;&#160;</p>
+<p style="position:absolute;top:652px;left:587px;white-space:nowrap" class="ft02">single-step;&#160;and others.</p>
+<p style="position:absolute;top:676px;left:74px;white-space:nowrap" class="ft02">&#160;2</p>
+<p style="position:absolute;top:676px;left:146px;white-space:nowrap" class="ft02">—</p>
+<p style="position:absolute;top:676px;left:211px;white-space:nowrap" class="ft02">NMI Interrupt</p>
+<p style="position:absolute;top:676px;left:433px;white-space:nowrap" class="ft02">Interrupt</p>
+<p style="position:absolute;top:676px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:676px;left:587px;white-space:nowrap" class="ft02">Nonmaskable external interrupt.</p>
+<p style="position:absolute;top:700px;left:74px;white-space:nowrap" class="ft02">&#160;3</p>
+<p style="position:absolute;top:700px;left:146px;white-space:nowrap" class="ft02">#BP</p>
+<p style="position:absolute;top:700px;left:211px;white-space:nowrap" class="ft02">Breakpoint</p>
+<p style="position:absolute;top:700px;left:433px;white-space:nowrap" class="ft02">Trap</p>
+<p style="position:absolute;top:700px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:700px;left:587px;white-space:nowrap" class="ft02">INT 3 instruction.</p>
+<p style="position:absolute;top:724px;left:74px;white-space:nowrap" class="ft02">&#160;4</p>
+<p style="position:absolute;top:724px;left:146px;white-space:nowrap" class="ft02">#OF</p>
+<p style="position:absolute;top:724px;left:211px;white-space:nowrap" class="ft02">Overflow</p>
+<p style="position:absolute;top:724px;left:433px;white-space:nowrap" class="ft02">Trap</p>
+<p style="position:absolute;top:724px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:724px;left:587px;white-space:nowrap" class="ft02">INTO&#160;instruction.</p>
+<p style="position:absolute;top:748px;left:74px;white-space:nowrap" class="ft02">&#160;5</p>
+<p style="position:absolute;top:748px;left:146px;white-space:nowrap" class="ft02">#BR</p>
+<p style="position:absolute;top:748px;left:211px;white-space:nowrap" class="ft02">BOUND Range Exceeded</p>
+<p style="position:absolute;top:748px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:748px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:748px;left:587px;white-space:nowrap" class="ft02">BOUND instruction.</p>
+<p style="position:absolute;top:772px;left:74px;white-space:nowrap" class="ft02">&#160;6</p>
+<p style="position:absolute;top:772px;left:146px;white-space:nowrap" class="ft02">#UD</p>
+<p style="position:absolute;top:772px;left:211px;white-space:nowrap" class="ft02">Invalid Opcode&#160;(Undefined&#160;Opcode)</p>
+<p style="position:absolute;top:772px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:772px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:772px;left:587px;white-space:nowrap" class="ft02">UD2 instruction or&#160;reserved&#160;opcode.</p>
+<p style="position:absolute;top:769px;left:792px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:796px;left:74px;white-space:nowrap" class="ft02">&#160;7</p>
+<p style="position:absolute;top:796px;left:146px;white-space:nowrap" class="ft02">#NM</p>
+<p style="position:absolute;top:796px;left:211px;white-space:nowrap" class="ft02">Device&#160;Not Available&#160;(No Math&#160;</p>
+<p style="position:absolute;top:813px;left:211px;white-space:nowrap" class="ft02">Coprocessor)</p>
+<p style="position:absolute;top:796px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:796px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:796px;left:587px;white-space:nowrap" class="ft02">Floating-point&#160;or&#160;WAIT/FWAIT instruction.</p>
+<p style="position:absolute;top:837px;left:74px;white-space:nowrap" class="ft02">&#160;8</p>
+<p style="position:absolute;top:837px;left:146px;white-space:nowrap" class="ft02">#DF</p>
+<p style="position:absolute;top:837px;left:211px;white-space:nowrap" class="ft02">Double Fault</p>
+<p style="position:absolute;top:837px;left:433px;white-space:nowrap" class="ft02">Abort</p>
+<p style="position:absolute;top:837px;left:525px;white-space:nowrap" class="ft02">Yes&#160;</p>
+<p style="position:absolute;top:853px;left:525px;white-space:nowrap" class="ft02">(zero)</p>
+<p style="position:absolute;top:837px;left:587px;white-space:nowrap" class="ft02">Any instruction that&#160;can&#160;generate an&#160;</p>
+<p style="position:absolute;top:853px;left:587px;white-space:nowrap" class="ft02">exception,&#160;an&#160;NMI, or an INTR.</p>
+<p style="position:absolute;top:877px;left:74px;white-space:nowrap" class="ft02">&#160;9</p>
+<p style="position:absolute;top:877px;left:211px;white-space:nowrap" class="ft02">Coprocessor&#160;Segment Overrun&#160;</p>
+<p style="position:absolute;top:894px;left:211px;white-space:nowrap" class="ft02">(reserved)</p>
+<p style="position:absolute;top:877px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:877px;left:525px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:877px;left:587px;white-space:nowrap" class="ft02">Floating-point&#160;instruction.</p>
+<p style="position:absolute;top:874px;left:733px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:918px;left:74px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:918px;left:146px;white-space:nowrap" class="ft02">#TS</p>
+<p style="position:absolute;top:918px;left:211px;white-space:nowrap" class="ft02">Invalid&#160;TSS</p>
+<p style="position:absolute;top:918px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:918px;left:525px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:918px;left:587px;white-space:nowrap" class="ft02">Task switch or TSS access.</p>
+<p style="position:absolute;top:942px;left:74px;white-space:nowrap" class="ft02">11</p>
+<p style="position:absolute;top:942px;left:146px;white-space:nowrap" class="ft02">#NP</p>
+<p style="position:absolute;top:942px;left:211px;white-space:nowrap" class="ft02">Segment&#160;Not Present</p>
+<p style="position:absolute;top:942px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:942px;left:525px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:942px;left:587px;white-space:nowrap" class="ft02">Loading&#160;segment registers or&#160;accessing&#160;</p>
+<p style="position:absolute;top:958px;left:587px;white-space:nowrap" class="ft02">system&#160;segments.</p>
+<p style="position:absolute;top:982px;left:74px;white-space:nowrap" class="ft02">12</p>
+<p style="position:absolute;top:982px;left:146px;white-space:nowrap" class="ft02">#SS</p>
+<p style="position:absolute;top:982px;left:212px;white-space:nowrap" class="ft02">Stack-Segment&#160;Fault</p>
+<p style="position:absolute;top:982px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:982px;left:525px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:982px;left:587px;white-space:nowrap" class="ft02">Stack&#160;operations&#160;and SS register loads.</p>
+<p style="position:absolute;top:1006px;left:74px;white-space:nowrap" class="ft02">13</p>
+<p style="position:absolute;top:1006px;left:146px;white-space:nowrap" class="ft02">#GP</p>
+<p style="position:absolute;top:1006px;left:211px;white-space:nowrap" class="ft02">General&#160;Protection</p>
+<p style="position:absolute;top:1006px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:1006px;left:525px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:1006px;left:587px;white-space:nowrap" class="ft02">Any memory&#160;reference and other&#160;</p>
+<p style="position:absolute;top:1023px;left:587px;white-space:nowrap" class="ft02">protection&#160;checks.</p>
+<p style="position:absolute;top:1047px;left:74px;white-space:nowrap" class="ft02">14</p>
+<p style="position:absolute;top:1047px;left:146px;white-space:nowrap" class="ft02">#PF</p>
+<p style="position:absolute;top:1047px;left:211px;white-space:nowrap" class="ft02">Page Fault</p>
+<p style="position:absolute;top:1047px;left:433px;white-space:nowrap" class="ft02">Fault</p>
+<p style="position:absolute;top:1047px;left:525px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:1047px;left:587px;white-space:nowrap" class="ft02">Any&#160;memory&#160;reference.</p>
+</div>
+</body>
+</html>

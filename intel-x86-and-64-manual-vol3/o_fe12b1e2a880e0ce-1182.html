@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1182</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1182-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1182.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">30-2&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft06"><b>VMFUNC —&#160;</b>This instruction allows software&#160;in VMX&#160;non-root operation to&#160;invoke&#160;a&#160;VM&#160;function&#160;(processor&#160;<br/>functionality&#160;enabled&#160;and&#160;configured by&#160;software&#160;in&#160;VMX&#160;root operation)&#160;without a&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft05">30.2 CONVENTIONS</p>
+<p style="position:absolute;top:208px;left:68px;white-space:nowrap" class="ft06">The operation sections&#160;for the&#160;VMX instructions&#160;in&#160;<a href="o_fe12b1e2a880e0ce-1182.html">Section 30.3 use&#160;</a>the pseudo-function&#160;VMexit, which indicates&#160;<br/>that&#160;the logical processor performs&#160;a VM exit.<br/>The operation sections&#160;also&#160;use the&#160;pseudo-functions&#160;VMsucceed,&#160;VMfail, VMfailInvalid, and&#160;VMfailValid. These&#160;<br/>pseudo-functions signal&#160;instruction success or failure by setting&#160;or clearing bits in&#160;RFLAGS and, in some&#160;cases, by&#160;<br/>writing the&#160;VM-instruction error&#160;field. The&#160;following&#160;pseudocode fragments&#160;detail these functions:</p>
+<p style="position:absolute;top:312px;left:88px;white-space:nowrap" class="ft04">VMsucceed:</p>
+<p style="position:absolute;top:330px;left:115px;white-space:nowrap" class="ft04">CF&#160;←&#160;0;</p>
+<p style="position:absolute;top:348px;left:115px;white-space:nowrap" class="ft04">PF&#160;←&#160;0;</p>
+<p style="position:absolute;top:366px;left:115px;white-space:nowrap" class="ft04">AF&#160;←&#160;0;</p>
+<p style="position:absolute;top:384px;left:115px;white-space:nowrap" class="ft04">ZF&#160;←&#160;0;</p>
+<p style="position:absolute;top:402px;left:115px;white-space:nowrap" class="ft04">SF&#160;←&#160;0;</p>
+<p style="position:absolute;top:420px;left:115px;white-space:nowrap" class="ft04">OF&#160;←&#160;0;</p>
+<p style="position:absolute;top:449px;left:88px;white-space:nowrap" class="ft04">VMfail(ErrorNumber):</p>
+<p style="position:absolute;top:467px;left:115px;white-space:nowrap" class="ft04">IF VMCS pointer is valid</p>
+<p style="position:absolute;top:485px;left:142px;white-space:nowrap" class="ft08">THEN VMfailValid(ErrorNumber);<br/>ELSE VMfailInvalid;</p>
+<p style="position:absolute;top:521px;left:115px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:552px;left:88px;white-space:nowrap" class="ft04">VMfailInvalid:</p>
+<p style="position:absolute;top:570px;left:115px;white-space:nowrap" class="ft04">CF&#160;←&#160;1;</p>
+<p style="position:absolute;top:588px;left:115px;white-space:nowrap" class="ft04">PF&#160;←&#160;0;</p>
+<p style="position:absolute;top:606px;left:115px;white-space:nowrap" class="ft04">AF&#160;←&#160;0;</p>
+<p style="position:absolute;top:624px;left:115px;white-space:nowrap" class="ft04">ZF&#160;←&#160;0;</p>
+<p style="position:absolute;top:642px;left:115px;white-space:nowrap" class="ft04">SF&#160;←&#160;0;</p>
+<p style="position:absolute;top:660px;left:115px;white-space:nowrap" class="ft04">OF&#160;←&#160;0;</p>
+<p style="position:absolute;top:690px;left:88px;white-space:nowrap" class="ft04">VMfailValid(ErrorNumber):// executed only if&#160;there is a current VMCS</p>
+<p style="position:absolute;top:708px;left:115px;white-space:nowrap" class="ft04">CF&#160;←&#160;0;</p>
+<p style="position:absolute;top:726px;left:115px;white-space:nowrap" class="ft04">PF&#160;←&#160;0;</p>
+<p style="position:absolute;top:744px;left:115px;white-space:nowrap" class="ft04">AF&#160;←&#160;0;</p>
+<p style="position:absolute;top:762px;left:115px;white-space:nowrap" class="ft04">ZF&#160;←&#160;1;</p>
+<p style="position:absolute;top:780px;left:115px;white-space:nowrap" class="ft04">SF&#160;←&#160;0;</p>
+<p style="position:absolute;top:798px;left:115px;white-space:nowrap" class="ft04">OF&#160;←&#160;0;</p>
+<p style="position:absolute;top:816px;left:115px;white-space:nowrap" class="ft04">Set the VM-instruction error&#160;field&#160;to&#160;ErrorNumber;</p>
+<p style="position:absolute;top:840px;left:68px;white-space:nowrap" class="ft04">The&#160;different VM-instruction error&#160;numbers are&#160;enumerated&#160;<a href="o_fe12b1e2a880e0ce-1209.html">in Section 30.4, “VM Instruction&#160;Error Numbers”.</a></p>
+<p style="position:absolute;top:895px;left:68px;white-space:nowrap" class="ft05">30.3 VMX&#160;</p>
+<p style="position:absolute;top:895px;left:196px;white-space:nowrap" class="ft05">INSTRUCTIONS</p>
+<p style="position:absolute;top:931px;left:68px;white-space:nowrap" class="ft04">This section provides&#160;detailed&#160;descriptions of the&#160;VMX&#160;instructions.</p>
+</div>
+</body>
+</html>

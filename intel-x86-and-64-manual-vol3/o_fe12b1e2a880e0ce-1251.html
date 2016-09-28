@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1251</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1251-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1251.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 34</p>
+<p style="position:absolute;top:120px;left:518px;white-space:nowrap" class="ft01">SYSTEM MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft08">This chapter describes aspects of&#160;IA-64 and IA-32&#160;architecture&#160;used&#160;in system&#160;management&#160;mode&#160;(SMM).<br/>SMM provides an&#160;alternate&#160;operating&#160;environment that&#160;can be used to&#160;monitor and&#160;manage&#160;various&#160;system&#160;<br/>resources for more&#160;efficient energy&#160;usage, to&#160;control&#160;system hardware,&#160;and/or to run&#160;proprietary&#160;code. It&#160;was&#160;<br/>introduced into&#160;the IA-32 architecture&#160;in the&#160;Intel386 SL&#160;processor (a&#160;mobile specialized&#160;version&#160;of the&#160;Intel386&#160;<br/>processor).&#160;It is&#160;also available&#160;in the&#160;Pentium&#160;M, Pentium 4, Intel Xeon, P6 family,&#160;and Pentium and&#160;Intel486&#160;<br/>processors (beginning&#160;with the enhanced&#160;versions&#160;of&#160;the Intel486&#160;SL&#160;and Intel486&#160;processors).&#160;</p>
+<p style="position:absolute;top:336px;left:68px;white-space:nowrap" class="ft03">34.1&#160;</p>
+<p style="position:absolute;top:336px;left:147px;white-space:nowrap" class="ft03">SYSTEM MANAGEMENT&#160;MODE OVERVIEW</p>
+<p style="position:absolute;top:372px;left:68px;white-space:nowrap" class="ft09">SMM is&#160;a special-purpose operating&#160;mode provided&#160;for&#160;handling&#160;system-wide functions like power&#160;management,&#160;<br/>system hardware control, or proprietary OEM-designed&#160;code.&#160;It is intended&#160;for&#160;use only by system firmware, not by&#160;<br/>applications&#160;software or&#160;general-purpose systems&#160;software. The main benefit of SMM is that&#160;it offers a distinct&#160;and&#160;<br/>easily&#160;isolated&#160;processor environment that&#160;operates transparently&#160;to the&#160;operating&#160;system&#160;or&#160;executive&#160;and&#160;soft-<br/>ware&#160;applications.&#160;<br/>When&#160;SMM is&#160;invoked&#160;through a&#160;system management&#160;interrupt&#160;(SMI), the processor saves the current&#160;state&#160;of the&#160;<br/>processor (the&#160;processor’s context), then switches&#160;to a&#160;separate operating environment&#160;defined by&#160;a new&#160;address&#160;<br/>space.&#160;The system&#160;management software&#160;executive (SMI handler)&#160;starts execution&#160;in that environment, and&#160;the&#160;<br/>critical&#160;code&#160;and&#160;data of&#160;the&#160;SMI handler reside&#160;in&#160;a physical memory region&#160;(SMRAM)&#160;within that&#160;address space.&#160;<br/>While&#160;in SMM, the processor&#160;executes SMI handler code&#160;to&#160;perform operations&#160;such as&#160;powering&#160;down&#160;unused&#160;disk&#160;<br/>drives&#160;or monitors,&#160;executing&#160;proprietary code,&#160;or placing the&#160;whole&#160;system in&#160;a suspended&#160;state. When&#160;the SMI&#160;<br/>handler has completed&#160;its operations, it executes&#160;a resume&#160;(RSM)&#160;instruction.&#160;This instruction causes&#160;the processor&#160;<br/>to reload the&#160;saved context of the&#160;processor,&#160;switch back&#160;to protected&#160;or real&#160;mode, and&#160;resume executing the&#160;<br/>interrupted&#160;application&#160;or operating-system program or&#160;task.<br/>The&#160;following SMM mechanisms&#160;make&#160;it&#160;transparent&#160;to applications programs and operating&#160;systems:</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:640px;left:93px;white-space:nowrap" class="ft02">The only way to&#160;enter&#160;SMM&#160;is&#160;by&#160;means of an&#160;SMI.</p>
+<p style="position:absolute;top:662px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:663px;left:93px;white-space:nowrap" class="ft08">The processor executes&#160;SMM code&#160;in a&#160;separate&#160;address space&#160;that&#160;can&#160;be&#160;made&#160;inaccessible from the&#160;other&#160;<br/>operating modes.</p>
+<p style="position:absolute;top:701px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:702px;left:93px;white-space:nowrap" class="ft02">Upon&#160;entering SMM, the&#160;processor&#160;saves&#160;the&#160;context of the&#160;interrupted program or&#160;task.</p>
+<p style="position:absolute;top:724px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:724px;left:93px;white-space:nowrap" class="ft02">All&#160;interrupts normally handled by the&#160;operating system&#160;are disabled&#160;upon&#160;entry&#160;into SMM.</p>
+<p style="position:absolute;top:746px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:747px;left:93px;white-space:nowrap" class="ft02">The RSM&#160;instruction&#160;can be&#160;executed&#160;only in&#160;SMM.</p>
+<p style="position:absolute;top:771px;left:68px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-1252.html">Section 34.3&#160;de</a>scribes&#160;transitions into&#160;and out&#160;of&#160;SMM.&#160;The execution&#160;environment&#160;after entering SMM&#160;is in&#160;real-<br/>address mode with paging&#160;disabled&#160;(CR0.PE&#160;=&#160;CR0.PG&#160;=&#160;0).&#160;In this&#160;initial execution environment, the&#160;SMI handler&#160;<br/>can address&#160;up to&#160;4&#160;GBytes of memory and&#160;can execute all I/O&#160;and system&#160;<a href="o_fe12b1e2a880e0ce-1259.html">instructions. Section&#160;34.5 de</a>scribes in&#160;<br/>detail the&#160;initial&#160;SMM execution&#160;environment&#160;for an SMI&#160;handler and&#160;operation within&#160;that environment.&#160;The&#160;SMI&#160;<br/>handler&#160;may subsequently switch to&#160;other&#160;operating modes&#160;while&#160;remaining in&#160;SMM.</p>
+<p style="position:absolute;top:871px;left:428px;white-space:nowrap" class="ft05">NOTES</p>
+<p style="position:absolute;top:897px;left:120px;white-space:nowrap" class="ft08">Software&#160;developers&#160;should be aware that, even if&#160;a logical&#160;processor&#160;was using the&#160;physical-<br/>address&#160;extension&#160;(PAE) mechanism (introduced in&#160;the P6 family processors) or was&#160;in&#160;IA-32e&#160;<br/>mode before an SMI, this will not be the case&#160;after the SMI is delivered. This is because&#160;delivery&#160;of&#160;<br/>an SMI&#160;disa<a href="o_fe12b1e2a880e0ce-1259.html">bles paging (see Table&#160;34-4). (This&#160;</a>does&#160;not apply if the dual-monitor treatment&#160;of&#160;SMIs&#160;<br/>and&#160;SMM&#160;is active; see&#160;<a href="o_fe12b1e2a880e0ce-1269.html">Section&#160;34.15.</a>)</p>
+<p style="position:absolute;top:1013px;left:68px;white-space:nowrap" class="ft06">34.1.1&#160;</p>
+<p style="position:absolute;top:1013px;left:148px;white-space:nowrap" class="ft06">System Management Mode and VMX Operation</p>
+<p style="position:absolute;top:1044px;left:68px;white-space:nowrap" class="ft08">Traditionally, SMM services&#160;system&#160;management interrupts and&#160;then&#160;resumes program execution (back to the&#160;soft-<br/>ware&#160;stack consisting&#160;of executive and application&#160;softwa<a href="o_fe12b1e2a880e0ce-1252.html">re; see Section 34.2 through Sect</a><a href="o_fe12b1e2a880e0ce-1266.html">ion 34.13).</a>&#160;</p>
+</div>
+</body>
+</html>

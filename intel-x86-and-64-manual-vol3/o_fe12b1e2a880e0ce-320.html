@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 320</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page320-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce320.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-8&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">Lists of&#160;available performance-monitoring&#160;events are&#160;<a href="��">given in&#160;Chapter&#160;19,&#160;“Performance&#160;Monitoring Events”,</a>&#160;and&#160;<br/>lists of&#160;available MSRs&#160;are given&#160;<a href="��">in Chapter 35, “Model-Specific Registers&#160;(MSRs)” The&#160;</a>references earlier in&#160;this&#160;<br/>section show where&#160;the functions&#160;of the&#160;various&#160;groups&#160;of MSRs are described in&#160;this&#160;manual.</p>
+<p style="position:absolute;top:189px;left:68px;white-space:nowrap" class="ft03">9.5&#160;</p>
+<p style="position:absolute;top:189px;left:147px;white-space:nowrap" class="ft03">MEMORY TYPE&#160;RANGE REGISTERS (MTRRS)</p>
+<p style="position:absolute;top:225px;left:68px;white-space:nowrap" class="ft06">Memory type range registers (MTRRs)&#160;were introduced into the&#160;IA-32 architecture with&#160;the Pentium Pro&#160;processor.&#160;<br/>They allow the&#160;type&#160;of caching&#160;(or no caching)&#160;to be specified&#160;in system memory for selected physical address&#160;<br/>ranges.&#160;They allow memory&#160;accesses to be&#160;optimized for various types of&#160;memory such&#160;as&#160;RAM,&#160;ROM, frame&#160;buffer&#160;<br/>memory,&#160;and memory-mapped I/O&#160;devices.<br/>In general, initializing the&#160;MTRRs&#160;is normally handled by the software initialization code or BIOS&#160;and is not an oper-<br/>ating system&#160;or&#160;executive function. At&#160;the very least,&#160;all the&#160;MTRRs must be cleared&#160;to 0,&#160;which selects the&#160;<br/>uncached&#160;(UC)&#160;memory type.&#160;Se<a href="o_fe12b1e2a880e0ce-432.html">e Section 11.11,&#160;“Memory&#160;Type&#160;Range Registers&#160;(MTRRs),” for de</a>tailed informa-<br/>tion on the&#160;MTRRs.</p>
+<p style="position:absolute;top:403px;left:68px;white-space:nowrap" class="ft03">9.6 INITIALIZING&#160;</p>
+<p style="position:absolute;top:403px;left:270px;white-space:nowrap" class="ft03">SSE/SSE2/SSE3/SSSE3&#160;</p>
+<p style="position:absolute;top:403px;left:490px;white-space:nowrap" class="ft03">EXTENSIONS</p>
+<p style="position:absolute;top:439px;left:68px;white-space:nowrap" class="ft07">For&#160;processors&#160;that contain SSE/SSE2/SSE3/SSSE3&#160;extensions, steps must be taken when initializing the&#160;<br/>processor to&#160;allow&#160;execution of these instructions.<br/>1.&#160;Check the&#160;CPUID&#160;feature&#160;flags for the&#160;presence of&#160;the SSE/SSE2/SSE3/SSSE3 extensions&#160;(respectively:&#160;EDX&#160;</p>
+<p style="position:absolute;top:496px;left:93px;white-space:nowrap" class="ft06">bits&#160;25&#160;and&#160;26, ECX&#160;bit&#160;0&#160;and 9) and support for the FXSAVE&#160;and FXRSTOR instructions (EDX&#160;bit 24).&#160;Also&#160;check&#160;<br/>for support for the&#160;CLFLUSH instruction (EDX&#160;bit&#160;19).&#160;The&#160;CPUID&#160;feature flags&#160;are&#160;loaded&#160;in the&#160;EDX and&#160;ECX&#160;<br/>registers when the&#160;CPUID instruction is&#160;executed with&#160;a 1 in&#160;the EAX register.</p>
+<p style="position:absolute;top:553px;left:68px;white-space:nowrap" class="ft02">2.&#160;Set the&#160;OSFXSR flag&#160;(bit&#160;9 in&#160;control&#160;register&#160;CR4)&#160;to&#160;indicate&#160;that&#160;the operating&#160;system supports saving and&#160;</p>
+<p style="position:absolute;top:570px;left:93px;white-space:nowrap" class="ft06">restoring&#160;the SSE/SSE2/SSE3/SSSE3 execution&#160;environment&#160;(XMM and MXCSR registers)&#160;with&#160;the&#160;FXSAVE and&#160;<br/>FXRSTOR&#160;instructions, respectively.&#160;See<a href="o_fe12b1e2a880e0ce-75.html">&#160;Section 2.5, “Control&#160;Registers,” for&#160;</a>a description of the&#160;OSFXSR flag.</p>
+<p style="position:absolute;top:610px;left:68px;white-space:nowrap" class="ft02">3.&#160;Set the&#160;OSXMMEXCPT&#160;flag (bit 10&#160;in control&#160;register&#160;CR4) to&#160;indicate&#160;that the&#160;operating system supports the&#160;</p>
+<p style="position:absolute;top:627px;left:93px;white-space:nowrap" class="ft06">handling&#160;of&#160;SSE/SSE2/SSE3 SIMD&#160;floating-point&#160;exceptions&#160;(#XM).&#160;Se<a href="o_fe12b1e2a880e0ce-75.html">e Section&#160;2.5,&#160;“Control&#160;Registers,” for a&#160;<br/></a>description of&#160;the OSXMMEXCPT&#160;flag.</p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft02">4.&#160;Set the mask&#160;bits&#160;and flags in the MXCSR&#160;register&#160;according&#160;to the&#160;mode&#160;of&#160;operation&#160;desired&#160;for&#160;</p>
+<p style="position:absolute;top:684px;left:93px;white-space:nowrap" class="ft08">SSE/SSE2/SSE3&#160;SIMD&#160;floating-point&#160;instructions.&#160;See&#160;“MXCSR&#160;Control&#160;and Status Register<a href="��">” in Chapter&#160;10,&#160;<br/>“Programming with&#160;Streaming SIMD Extensions (SSE),”&#160;of&#160;the&#160;<i>Intel® 64 and IA-32 Architectures&#160;Software&#160;<br/>Developer’s Manual, Volume&#160;1</i>,</a>&#160;for&#160;a detailed description of the bits and flags&#160;in the&#160;MXCSR register.</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft03">9.7&#160;</p>
+<p style="position:absolute;top:772px;left:147px;white-space:nowrap" class="ft03">SOFTWARE&#160;INITIALIZATION FOR REAL-ADDRESS MODE OPERATION</p>
+<p style="position:absolute;top:808px;left:68px;white-space:nowrap" class="ft06">Following a hardware reset (either through a power-up or the assertion of the RESET# pin) the processor is placed&#160;<br/>in real-address mode&#160;and&#160;begins executing software&#160;initialization code from&#160;physical address&#160;FFFFFFF0H. Software&#160;<br/>initialization&#160;code&#160;must&#160;first set up&#160;the&#160;necessary&#160;data&#160;structures&#160;for handling&#160;basic&#160;system functions, such&#160;as a&#160;<br/>real-mode IDT for handling interrupts and exceptions. If the processor is to remain in real-address mode,&#160;software&#160;<br/>must then&#160;load additional operating-system or executive code modules and data structures to allow reliable&#160;execu-<br/>tion of application programs in&#160;real-address mode.<br/>If&#160;the processor is going to operate in&#160;protected mode,&#160;software must load the&#160;necessary&#160;data&#160;structures to&#160;operate&#160;<br/>in&#160;protected mode and&#160;then switch to&#160;protected mode. The&#160;protected-mode&#160;data structures&#160;that must be&#160;loaded&#160;<br/>are&#160;described&#160;<a href="o_fe12b1e2a880e0ce-321.html">in Section 9.8,&#160;“Software&#160;Initialization for Protected-Mode&#160;Operation.”</a></p>
+<p style="position:absolute;top:998px;left:68px;white-space:nowrap" class="ft05">9.7.1&#160;</p>
+<p style="position:absolute;top:998px;left:148px;white-space:nowrap" class="ft05">Real-Address Mode IDT</p>
+<p style="position:absolute;top:1029px;left:68px;white-space:nowrap" class="ft06">In real-address mode,&#160;the&#160;only system data&#160;structure&#160;that&#160;must be loaded into memory is the IDT (also called the&#160;<br/>“interrupt vector table”). By default,&#160;the address&#160;of&#160;the base of the&#160;IDT is&#160;physical address&#160;0H. This&#160;address can&#160;be&#160;</p>
+</div>
+</body>
+</html>

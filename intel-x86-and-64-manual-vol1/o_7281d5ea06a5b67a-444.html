@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 444</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page444-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a444.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">E-2&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">In most cases (and this&#160;applies also to&#160;SSE/SSE2/SSE3 instructions), there&#160;will&#160;be&#160;three main components of a&#160;low-<br/>level floating-point&#160;exception handler:&#160;a prologue, a body,&#160;and an&#160;epilogue.<br/>The&#160;prologue&#160;performs functions&#160;that must be protected from&#160;possible interruption&#160;by higher-priority sources&#160;-&#160;<br/>typically saving registers&#160;and&#160;transferring diagnostic&#160;information from the processor to&#160;memory. When&#160;the critical&#160;<br/>processing&#160;has been&#160;completed,&#160;the&#160;prologue&#160;may&#160;re-enable interrupts to&#160;allow&#160;higher-priority interrupt&#160;handlers&#160;<br/>to preempt&#160;the exception&#160;handler (assuming&#160;that the&#160;interrupt handler was&#160;called&#160;through an interrupt&#160;gate,&#160;<br/>meaning that&#160;the processor cleared&#160;the interrupt&#160;enable (IF)&#160;flag&#160;in the&#160;EFLAGS&#160;register&#160;<a href="o_7281d5ea06a5b67a-154.html">- refer to Section&#160;6.4.1,&#160;<br/>“Call&#160;and Return Operation for Interrupt or Exception Handling&#160;Procedures”).<br/></a>The&#160;body of the&#160;exception handler examines&#160;the&#160;diagnostic&#160;information&#160;and makes a&#160;response&#160;that is&#160;application-<br/>dependent.&#160;It may range from halting&#160;execution,&#160;to displaying&#160;a message,&#160;to attempting&#160;to&#160;fix&#160;the problem and&#160;<br/>then&#160;proceeding with normal&#160;execution, to&#160;setting up&#160;a data structure, calling a higher-level user&#160;exception handler&#160;<br/>and continuing execution upon&#160;return from it. This latter&#160;case will be&#160;assumed&#160;<a href="o_7281d5ea06a5b67a-445.html">in Section E.4, “SIMD&#160;Floating-Point&#160;<br/>Exceptions and&#160;the IEEE&#160;Standard 754” below</a>.<br/>Finally, the&#160;epilogue essentially reverses&#160;the actions&#160;of&#160;the prologue,&#160;restoring&#160;the processor state so&#160;that&#160;normal&#160;<br/>execution&#160;can be resumed.<br/>The&#160;following example represents&#160;a typical exception handler.&#160;To<a href="o_7281d5ea06a5b67a-459.html">&#160;link it with Example E-2&#160;</a>that&#160;will&#160;follo<a href="o_7281d5ea06a5b67a-457.html">w in&#160;Section&#160;<br/>E.4.3, “Example&#160;SIMD&#160;Floating-Point&#160;Emulation&#160;Implementation,”&#160;ass</a>ume&#160;that&#160;the&#160;body of&#160;the handler (not shown&#160;<br/>here in detail) passes the saved state to&#160;a routine that will&#160;examine in&#160;turn all the sub-operands of the excepting&#160;<br/>instruction,&#160;invoking&#160;a&#160;user&#160;floating-point&#160;exception handler&#160;if&#160;a&#160;particular&#160;set&#160;of&#160;sub-operands&#160;raises&#160;an&#160;unmasked&#160;<br/>(enabled)&#160;exception,&#160;or&#160;emulating the&#160;instruction otherwise.</p>
+<p style="position:absolute;top:485px;left:68px;white-space:nowrap" class="ft01">Example E-1.&#160;&#160;SIMD Floating-Point&#160;Exception Handler</p>
+<p style="position:absolute;top:509px;left:68px;white-space:nowrap" class="ft02">SIMD_FP_EXC_HANDLER PROC</p>
+<p style="position:absolute;top:545px;left:68px;white-space:nowrap" class="ft05">;PROLOGUE<br/>;SAVE REGISTERS&#160;THAT MIGHT BE&#160;USED BY&#160;THE EXCEPTION&#160;HANDLER<br/>&#160; &#160; PUSH EBP</p>
+<p style="position:absolute;top:581px;left:304px;white-space:nowrap" class="ft02">;SAVE EBP</p>
+<p style="position:absolute;top:599px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; PUSH&#160;EAX</p>
+<p style="position:absolute;top:599px;left:304px;white-space:nowrap" class="ft02">;SAVE&#160;EAX</p>
+<p style="position:absolute;top:617px;left:68px;white-space:nowrap" class="ft05">&#160; &#160; ...<br/>&#160; &#160; MOV EBP, ESP</p>
+<p style="position:absolute;top:635px;left:304px;white-space:nowrap" class="ft02">;SAVE ESP in EBP</p>
+<p style="position:absolute;top:653px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; SUB ESP, 512</p>
+<p style="position:absolute;top:653px;left:304px;white-space:nowrap" class="ft02">;ALLOCATE 512 BYTES</p>
+<p style="position:absolute;top:671px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; AND ESP, 0fffffff0h</p>
+<p style="position:absolute;top:671px;left:304px;white-space:nowrap" class="ft02">;MAKE THE ADDRESS 16-BYTE ALIGNED</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; FXSAVE [ESP]</p>
+<p style="position:absolute;top:689px;left:304px;white-space:nowrap" class="ft02">;SAVE&#160;FP, MMX,&#160;AND SIMD&#160;FP STATE</p>
+<p style="position:absolute;top:707px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; PUSH&#160;[EBP+EFLAGS_OFFSET]</p>
+<p style="position:absolute;top:707px;left:304px;white-space:nowrap" class="ft02">;COPY OLD EFLAGS&#160;TO&#160;STACK&#160;TOP</p>
+<p style="position:absolute;top:725px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; POPFD</p>
+<p style="position:absolute;top:725px;left:304px;white-space:nowrap" class="ft05">;RESTORE THE INTERRUPT ENABLE FLAG IF<br/>;TO&#160;VALUE BEFORE SIMD&#160;FP EXCEPTION</p>
+<p style="position:absolute;top:779px;left:68px;white-space:nowrap" class="ft05">;BODY<br/>;APPLICATION-DEPENDENT EXCEPTION&#160;HANDLING&#160;CODE GOES&#160;HERE<br/>&#160; &#160; LDMXCSR&#160;LOCAL_MXCSR</p>
+<p style="position:absolute;top:815px;left:304px;white-space:nowrap" class="ft02">;LOAD&#160;LOCAL MXCSR VALUE IF NEEDED</p>
+<p style="position:absolute;top:833px;left:68px;white-space:nowrap" class="ft05">&#160; &#160; ...<br/>&#160; &#160; ...<br/>;EPILOGUE<br/>&#160; &#160; FXRSTOR&#160;[ESP]</p>
+<p style="position:absolute;top:887px;left:304px;white-space:nowrap" class="ft02">;RESTORE MODIFIED STATE IMAGE</p>
+<p style="position:absolute;top:905px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; MOV&#160;ESP, EBP</p>
+<p style="position:absolute;top:905px;left:304px;white-space:nowrap" class="ft02">;DE-ALLOCATE STACK&#160;SPACE</p>
+<p style="position:absolute;top:923px;left:68px;white-space:nowrap" class="ft05">&#160; &#160; ...<br/>&#160; &#160; POP EAX</p>
+<p style="position:absolute;top:941px;left:304px;white-space:nowrap" class="ft02">;RESTORE EAX</p>
+<p style="position:absolute;top:959px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; POP EBP</p>
+<p style="position:absolute;top:959px;left:304px;white-space:nowrap" class="ft02">;RESTORE EBP</p>
+<p style="position:absolute;top:977px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; IRET</p>
+<p style="position:absolute;top:977px;left:304px;white-space:nowrap" class="ft02">;RETURN TO&#160;INTERRUPTED CALCULATION</p>
+<p style="position:absolute;top:995px;left:68px;white-space:nowrap" class="ft02">SIMD_FP_EXC_HANDLER ENDP</p>
+</div>
+</body>
+</html>

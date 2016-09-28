@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1883</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1883-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1883.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-73</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">EENTER—Enters an Enclave</p>
+<p style="position:absolute;top:248px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:349px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:372px;left:69px;white-space:nowrap" class="ft06">The ENCLU[EENTER] instruction&#160;transfers execution&#160;to an&#160;enclave. At&#160;the end of the&#160;instruction,&#160;the&#160;logical&#160;<br/>processor is executing in enclave mode&#160;at the RIP&#160;computed&#160;as&#160;EnclaveBase&#160;+ TCS.OENTRY.&#160;If the target&#160;address&#160;<br/>is not&#160;within the&#160;CS segment&#160;(32-bit)&#160;or is&#160;not&#160;canonical (64-bit), a #GP(0)&#160;results.</p>
+<p style="position:absolute;top:451px;left:324px;white-space:nowrap" class="ft03">EENTER&#160;Memory Parameter Semantics</p>
+<p style="position:absolute;top:535px;left:69px;white-space:nowrap" class="ft04">EENTER&#160;is a&#160;serializing instruction. The&#160;instruction&#160;faults&#160;if any&#160;of&#160;the following occurs:&#160;</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft04">The&#160;following operations&#160;are performed by EENTER:</p>
+<p style="position:absolute;top:776px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:777px;left:95px;white-space:nowrap" class="ft06">RSP and&#160;RBP&#160;are saved&#160;in the&#160;current SSA&#160;frame&#160;on&#160;EENTER&#160;and are automatically restored on&#160;EEXIT or&#160;<br/>interrupt.</p>
+<p style="position:absolute;top:815px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:816px;left:95px;white-space:nowrap" class="ft06">The&#160;AEP contained in&#160;RCX&#160;is&#160;stored&#160;into the&#160;TCS for use by&#160;AEXs.FS&#160;and GS (including&#160;hidden&#160;portions)&#160;are&#160;<br/>saved and new values are constructed&#160;using&#160;TCS.OFSBASE/GSBASE (32 and&#160;64-bit&#160;mode) and&#160;<br/>TCS.OFSLIMIT/GSLIMIT&#160;(32-bit mode&#160;only). The resulting segments must&#160;be&#160;a subset&#160;of the&#160;DS segment.&#160;</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:871px;left:95px;white-space:nowrap" class="ft07">If CR4.OSXSAVE == 1,&#160;XCR0 is&#160;saved and&#160;replaced&#160;by SECS.ATTRIBUTES.XFRM.&#160;The&#160;effect of RFLAGS.TF&#160;<br/>depends&#160;on whether the&#160;enclave&#160;entry is&#160;opt-in or&#160;opt-<a href="o_fe12b1e2a880e0ce-1933.html">out (see Section 43.1.2):<br/></a>—&#160;On opt-out&#160;entry,&#160;TF is&#160;saved&#160;and cleared&#160;(it is&#160;restored on EEXIT or AEX). Any attempt to&#160;set TF via a&#160;POPF&#160;</p>
+<p style="position:absolute;top:928px;left:120px;white-space:nowrap" class="ft04">instruction while&#160;inside&#160;the enclave clears TF&#160;(see<a href="o_fe12b1e2a880e0ce-1935.html">&#160;Section 43.2.5).</a></p>
+<p style="position:absolute;top:952px;left:95px;white-space:nowrap" class="ft04">—&#160;On&#160;opt-in entry,&#160;a&#160;single-step debug&#160;exception is&#160;pended&#160;on&#160;the instruction boundary&#160;immediately after&#160;</p>
+<p style="position:absolute;top:969px;left:120px;white-space:nowrap" class="ft04">EENTER&#160;(see<a href="o_fe12b1e2a880e0ce-1933.html">&#160;Section 43.2.2)</a>.&#160;</p>
+<p style="position:absolute;top:991px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:991px;left:95px;white-space:nowrap" class="ft06">All code breakpoints that do not overlap&#160;with&#160;ELRANGE&#160;are&#160;also&#160;suppressed. If&#160;the entry is&#160;an opt-out&#160;entry,&#160;all&#160;<br/>code&#160;and data breakpoints that overlap with the&#160;ELRANGE&#160;are suppressed.</p>
+<p style="position:absolute;top:1030px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:1030px;left:95px;white-space:nowrap" class="ft06">On opt-out&#160;entry,&#160;a number&#160;of&#160;performance&#160;monitoring&#160;counters&#160;and behaviors&#160;are modified or&#160;suppressed&#160;<br/>(see<a href="o_fe12b1e2a880e0ce-1934.html">&#160;Section 43.2.3):</a></p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:260px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:316px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:316px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:316px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:389px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:389px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:456px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">&#160;EAX = 02H</p>
+<p style="position:absolute;top:175px;left:260px;white-space:nowrap" class="ft04">IR</p>
+<p style="position:absolute;top:175px;left:316px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:389px;white-space:nowrap" class="ft04">SGX1</p>
+<p style="position:absolute;top:175px;left:456px;white-space:nowrap" class="ft04">This leaf&#160;function is&#160;used&#160;to&#160;enter&#160;an&#160;enclave.</p>
+<p style="position:absolute;top:195px;left:78px;white-space:nowrap" class="ft04">ENCLU[EENTER]</p>
+<p style="position:absolute;top:271px;left:95px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:271px;left:259px;white-space:nowrap" class="ft04">EAX</p>
+<p style="position:absolute;top:271px;left:447px;white-space:nowrap" class="ft04">RBX</p>
+<p style="position:absolute;top:271px;left:672px;white-space:nowrap" class="ft04">RCX</p>
+<p style="position:absolute;top:303px;left:106px;white-space:nowrap" class="ft04">IR</p>
+<p style="position:absolute;top:303px;left:166px;white-space:nowrap" class="ft04">EENTER (In)</p>
+<p style="position:absolute;top:295px;left:255px;white-space:nowrap" class="ft04">Content&#160;of&#160;RBX.CSSA&#160;</p>
+<p style="position:absolute;top:312px;left:301px;white-space:nowrap" class="ft04">(Out)</p>
+<p style="position:absolute;top:303px;left:400px;white-space:nowrap" class="ft04">Address of&#160;a&#160;TCS (In)</p>
+<p style="position:absolute;top:303px;left:553px;white-space:nowrap" class="ft04">Address of&#160;AEP (In)</p>
+<p style="position:absolute;top:295px;left:695px;white-space:nowrap" class="ft04">Address&#160;of&#160;IP following&#160;</p>
+<p style="position:absolute;top:312px;left:721px;white-space:nowrap" class="ft04">EENTER&#160;(Out)</p>
+<p style="position:absolute;top:474px;left:442px;white-space:nowrap" class="ft04">TCS</p>
+<p style="position:absolute;top:498px;left:409px;white-space:nowrap" class="ft04">&#160;Enclave access</p>
+<p style="position:absolute;top:588px;left:75px;white-space:nowrap" class="ft04">Address in&#160;RBX is&#160;not properly aligned.</p>
+<p style="position:absolute;top:588px;left:377px;white-space:nowrap" class="ft04">Any TCS.FLAGS’s must-be-zero&#160;bit is not zero.</p>
+<p style="position:absolute;top:612px;left:75px;white-space:nowrap" class="ft04">TCS pointed to&#160;by RBX is&#160;not valid or available&#160;or&#160;</p>
+<p style="position:absolute;top:628px;left:75px;white-space:nowrap" class="ft04">locked.</p>
+<p style="position:absolute;top:612px;left:377px;white-space:nowrap" class="ft04">Current 32/64 mode&#160;does not match&#160;the&#160;enclave mode&#160;in&#160;</p>
+<p style="position:absolute;top:628px;left:377px;white-space:nowrap" class="ft04">SECS.ATTRIBUTES.MODE64.</p>
+<p style="position:absolute;top:652px;left:75px;white-space:nowrap" class="ft04">The&#160;SECS&#160;is&#160;in&#160;use.</p>
+<p style="position:absolute;top:652px;left:377px;white-space:nowrap" class="ft04">Either&#160;of&#160;TCS-specified FS&#160;and&#160;GS segment is&#160;not a subsets of&#160;the&#160;current DS&#160;</p>
+<p style="position:absolute;top:669px;left:377px;white-space:nowrap" class="ft04">segment.</p>
+<p style="position:absolute;top:693px;left:75px;white-space:nowrap" class="ft04">Any one of&#160;DS, ES, CS, SS&#160;is&#160;not zero.</p>
+<p style="position:absolute;top:693px;left:377px;white-space:nowrap" class="ft04">If XSAVE&#160;available, CR4.OSXSAVE&#160;= 0,&#160;but SECS.ATTRIBUTES.XFRM&#160;≠&#160;3.</p>
+<p style="position:absolute;top:717px;left:75px;white-space:nowrap" class="ft04">CR4.OSFXSR&#160;≠&#160;1.</p>
+<p style="position:absolute;top:717px;left:377px;white-space:nowrap" class="ft04">If&#160;CR4.OSXSAVE =&#160;1,&#160;SECS.ATTRIBUTES.XFRM is&#160;not a&#160;subset&#160;of&#160;XCR0.</p>
+</div>
+</body>
+</html>

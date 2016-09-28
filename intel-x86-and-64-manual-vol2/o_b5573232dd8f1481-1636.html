@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1636</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1636-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811636.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:354px;white-space:nowrap" class="ft00">VPGATHERDD/VPGATHERDQ—Gather&#160;Packed Dword,&#160;Packed Qword&#160;with Signed Dword Indices</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-250&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft04">instruction is repeatable - given&#160;the&#160;same input&#160;values&#160;and architectural state, the same&#160;set of elements to the&#160;<br/>left&#160;of&#160;the faulting&#160;one&#160;will be gathered.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft02">This instruction does not&#160;perform&#160;AC&#160;checks,&#160;and so&#160;will&#160;never deliver&#160;an AC&#160;fault.</p>
+<p style="position:absolute;top:161px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:162px;left:93px;white-space:nowrap" class="ft02">Not&#160;valid with 16-bit effective&#160;addresses. Will&#160;deliver a&#160;#UD fault.</p>
+<p style="position:absolute;top:184px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:184px;left:93px;white-space:nowrap" class="ft02">These instructions do not accept&#160;zeroing-masking&#160;since&#160;the 0&#160;values&#160;in&#160;k1&#160;are&#160;used&#160;to&#160;determine completion.</p>
+<p style="position:absolute;top:207px;left:68px;white-space:nowrap" class="ft04">Note&#160;that&#160;the presence of VSIB byte&#160;is enforced in this&#160;instruction. Hence, the&#160;instruction&#160;will&#160;#UD fault if&#160;<br/>ModRM.rm is&#160;different&#160;than&#160;100b.<br/>This instruction&#160;has&#160;the same&#160;disp8*N&#160;and alignment rules&#160;as for scalar&#160;instructions&#160;(Tuple 1).<br/>The instruction will #UD fault&#160;if&#160;the destination vector zmm1 is&#160;the same&#160;as index&#160;vector&#160;VINDEX. The instruction&#160;<br/>will&#160;#UD fault if the&#160;k0 mask register&#160;is specified.<br/>The&#160;scaled&#160;index may require more&#160;bits&#160;to represent than&#160;the address&#160;bits used by&#160;the processor (e.g.,&#160;in&#160;32-bit&#160;<br/>mode, if the scale is greater than one). In this case, the most significant bits beyond the&#160;number&#160;of&#160;address&#160;bits are&#160;<br/>ignored.</p>
+<p style="position:absolute;top:375px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:397px;left:68px;white-space:nowrap" class="ft06">BASE_ADDR&#160;stands&#160;for&#160;the&#160;memory&#160;operand base&#160;address&#160;(a GPR); may not exist<br/>VINDEX&#160;stands&#160;for the memory&#160;operand&#160;vector of&#160;indices (a&#160;ZMM register)<br/>SCALE&#160;stands for&#160;the&#160;memory&#160;operand scalar&#160;(1,&#160;2,&#160;4 or&#160;8)<br/>DISP&#160;is&#160;the&#160;optional 1,&#160;2&#160;or 4 byte&#160;displacement</p>
+<p style="position:absolute;top:487px;left:68px;white-space:nowrap" class="ft06">VPGATHERDD&#160;(EVEX encoded version)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:541px;left:88px;white-space:nowrap" class="ft06">i&#160;&#160;j * 32<br/>IF k1[j]</p>
+<p style="position:absolute;top:577px;left:115px;white-space:nowrap" class="ft02">THEN DEST[i+31:i]&#160;&#160;MEM[BASE_ADDR +</p>
+<p style="position:absolute;top:594px;left:196px;white-space:nowrap" class="ft02">SignExtend(VINDEX[i+31:i]) * SCALE + DISP]), 1)</p>
+<p style="position:absolute;top:611px;left:142px;white-space:nowrap" class="ft02">k1[j]&#160;&#160;0</p>
+<p style="position:absolute;top:629px;left:115px;white-space:nowrap" class="ft02">ELSE *DEST[i+31:i]&#160;&#160;remains&#160;unchanged*&#160;&#160;</p>
+<p style="position:absolute;top:629px;left:412px;white-space:nowrap" class="ft02">; Only merging masking is&#160;allowed</p>
+<p style="position:absolute;top:647px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:665px;left:68px;white-space:nowrap" class="ft06">ENDFOR<br/>k1[MAX_KL-1:KL]&#160;&#160;0<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:737px;left:68px;white-space:nowrap" class="ft06">VPGATHERDQ (EVEX encoded&#160;version)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:791px;left:88px;white-space:nowrap" class="ft06">i&#160;&#160;j * 64<br/>k&#160;&#160;j * 32<br/>IF k1[j]</p>
+<p style="position:absolute;top:845px;left:115px;white-space:nowrap" class="ft02">THEN DEST[i+63:i]&#160;&#160;</p>
+<p style="position:absolute;top:863px;left:142px;white-space:nowrap" class="ft06">MEM[BASE_ADDR&#160;+&#160;SignExtend(VINDEX[k+31:k])&#160;* SCALE + DISP])<br/>k1[j]&#160;&#160;0</p>
+<p style="position:absolute;top:899px;left:115px;white-space:nowrap" class="ft02">ELSE *DEST[i+63:i]&#160;&#160;remains&#160;unchanged*&#160;&#160;</p>
+<p style="position:absolute;top:899px;left:412px;white-space:nowrap" class="ft02">; Only merging masking is&#160;allowed</p>
+<p style="position:absolute;top:917px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:935px;left:68px;white-space:nowrap" class="ft06">ENDFOR<br/>k1[MAX_KL-1:KL]&#160;&#160;0<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

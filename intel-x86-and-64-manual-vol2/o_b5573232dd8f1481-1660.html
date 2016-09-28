@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1660</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:6px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1660-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811660.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:405px;white-space:nowrap" class="ft00">VGETMANTPS—Extract&#160;Float32 Vector of Normalized Mantissas from Float32 Vector</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-274&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VGETMANTPS—Extract Float32 Vector of&#160;Normalized Mantissas from Float32 Vector</p>
+<p style="position:absolute;top:422px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:507px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:529px;left:68px;white-space:nowrap" class="ft09">Convert single-precision&#160;floating values in&#160;the source&#160;operand&#160;(the second&#160;operand)&#160;to SP&#160;FP&#160;values&#160;with the&#160;<br/>mantissa&#160;normalization and&#160;sign&#160;control&#160;specified by the&#160;imm8 byte<a href="o_b5573232dd8f1481-1656.html">, see Figure&#160;5-15</a>. The converted results&#160;are&#160;<br/>written to the destination operand (the first operand) using&#160;writemask k1. The normalized mantissa is&#160;specified by&#160;<br/>interv (imm8[1:0])&#160;and&#160;the&#160;sign&#160;control (sc)&#160;is&#160;specified by bits 3:2 of the&#160;immediate&#160;byte.&#160;<br/>The destination operand&#160;is a ZMM/YMM/XMM register updated&#160;under the writemask. The&#160;source&#160;operand can be&#160;a&#160;<br/>ZMM/YMM/XMM register,&#160;a 512/256/128-bit memory&#160;location,&#160;or a 512/256/128-bit vector broadcasted from&#160;a 32-<br/>bit&#160;memory&#160;location.<br/>For&#160;each input&#160;SP&#160;FP&#160;value x,&#160;The&#160;conversion&#160;operation is:</p>
+<p style="position:absolute;top:684px;left:122px;white-space:nowrap" class="ft05"><i>GetMant</i>(<i>x</i>) =&#160;<i>±</i>2</p>
+<p style="position:absolute;top:686px;left:251px;white-space:nowrap" class="ft07"><i>k</i></p>
+<p style="position:absolute;top:684px;left:256px;white-space:nowrap" class="ft05"><i>|x.significand|</i></p>
+<p style="position:absolute;top:707px;left:68px;white-space:nowrap" class="ft04">where:</p>
+<p style="position:absolute;top:734px;left:122px;white-space:nowrap" class="ft06">1&#160;<i>&lt;</i>=&#160;<i>|x.significand| &lt;&#160;</i>2</p>
+<p style="position:absolute;top:784px;left:68px;white-space:nowrap" class="ft08">Unbiased exponent&#160;k depends&#160;on the&#160;interval range defined&#160;by interv and&#160;whether the&#160;exponent of the&#160;source&#160;is&#160;<br/>even&#160;or odd.&#160;The&#160;sign of&#160;the&#160;final result&#160;is determined&#160;by sc&#160;and the&#160;source sign.</p>
+<p style="position:absolute;top:827px;left:68px;white-space:nowrap" class="ft06">if&#160;interv !=&#160;0 then k =&#160;-1,&#160;otherwise K = 0. The encoded value of&#160;imm</p>
+<p style="position:absolute;top:829px;left:585px;white-space:nowrap" class="ft04">8[1:0] a</p>
+<p style="position:absolute;top:827px;left:641px;white-space:nowrap" class="ft06">nd&#160;sign&#160;control&#160;are shown&#160;</p>
+<p style="position:absolute;top:848px;left:68px;white-space:nowrap" class="ft06">in<a href="o_b5573232dd8f1481-1656.html">&#160;</a></p>
+<p style="position:absolute;top:850px;left:86px;white-space:nowrap" class="ft04"><a href="o_b5573232dd8f1481-1656.html">Figure&#160;5-15</a></p>
+<p style="position:absolute;top:848px;left:165px;white-space:nowrap" class="ft06"><a href="o_b5573232dd8f1481-1656.html">.</a></p>
+<p style="position:absolute;top:871px;left:68px;white-space:nowrap" class="ft09">Each&#160;converted SP FP result is encoded&#160;according to the&#160;sign control, the&#160;unbiased&#160;exponent k&#160;(adding&#160;bias) and&#160;a&#160;<br/>mantissa normalized&#160;to&#160;the range&#160;specified by interv.<br/>The GetMant() function&#160;<a href="o_b5573232dd8f1481-1657.html">follows&#160;Table 5-9&#160;whe</a>n&#160;dealing with floating-point special numbers.<br/>This instruction&#160;is writemasked, so&#160;only&#160;those elements with the&#160;corresponding bit&#160;set&#160;in vector mask register k1&#160;<br/>are computed and&#160;stored&#160;into the destination. Elements&#160;in&#160;zmm1 with the&#160;corresponding bit clear in&#160;k1&#160;retain&#160;their&#160;<br/>previous values.<br/>Note: EVEX.vvvv is&#160;reserved&#160;and must be 1111b,&#160;VEX.L must be 0;&#160;otherwise instructions&#160;will&#160;#UD.</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:272px;white-space:nowrap" class="ft04">Op/</p>
+<p style="position:absolute;top:137px;left:272px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:315px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:315px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:315px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:387px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:387px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:387px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:469px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft04">EVEX.128.66.0F3A.W0&#160;26&#160;/r ib</p>
+<p style="position:absolute;top:172px;left:272px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:172px;left:315px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:387px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:172px;left:469px;white-space:nowrap" class="ft04">Get&#160;normalized&#160;mantissa&#160;from float32 vector&#160;</p>
+<p style="position:absolute;top:189px;left:469px;white-space:nowrap" class="ft04">xmm2/m128/m32bcst and&#160;store the result in&#160;xmm1,&#160;using&#160;</p>
+<p style="position:absolute;top:205px;left:469px;white-space:nowrap" class="ft04">imm8 for sign&#160;control and&#160;mantissa&#160;interval&#160;normalization,&#160;</p>
+<p style="position:absolute;top:222px;left:469px;white-space:nowrap" class="ft04">under writemask.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft04">VGETMANTPS xmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:208px;left:77px;white-space:nowrap" class="ft04">xmm2/m128/m32bcst, imm8</p>
+<p style="position:absolute;top:191px;left:387px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:244px;left:77px;white-space:nowrap" class="ft04">EVEX.256.66.0F3A.W0&#160;26&#160;/r ib</p>
+<p style="position:absolute;top:244px;left:272px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:244px;left:315px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:244px;left:387px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:244px;left:469px;white-space:nowrap" class="ft04">Get&#160;normalized&#160;mantissa&#160;from float32 vector&#160;</p>
+<p style="position:absolute;top:261px;left:469px;white-space:nowrap" class="ft04">ymm2/m256/m32bcst and&#160;store&#160;the result in&#160;ymm1, using&#160;</p>
+<p style="position:absolute;top:277px;left:469px;white-space:nowrap" class="ft04">imm8 for sign&#160;control and&#160;mantissa&#160;interval&#160;normalization,&#160;</p>
+<p style="position:absolute;top:294px;left:469px;white-space:nowrap" class="ft04">under writemask.</p>
+<p style="position:absolute;top:263px;left:77px;white-space:nowrap" class="ft04">VGETMANTPS&#160;ymm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:280px;left:77px;white-space:nowrap" class="ft04">ymm2/m256/m32bcst, imm8</p>
+<p style="position:absolute;top:263px;left:387px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:316px;left:77px;white-space:nowrap" class="ft04">EVEX.512.66.0F3A.W0&#160;26&#160;/r ib</p>
+<p style="position:absolute;top:316px;left:272px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:316px;left:315px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:316px;left:387px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:316px;left:469px;white-space:nowrap" class="ft04">Get&#160;normalized&#160;mantissa&#160;from float32 vector&#160;</p>
+<p style="position:absolute;top:333px;left:469px;white-space:nowrap" class="ft04">zmm2/m512/m32bcst&#160;and store the result in&#160;zmm1, using&#160;</p>
+<p style="position:absolute;top:349px;left:469px;white-space:nowrap" class="ft04">imm8 for sign&#160;control and&#160;mantissa&#160;interval&#160;normalization,&#160;</p>
+<p style="position:absolute;top:366px;left:469px;white-space:nowrap" class="ft04">under writemask.</p>
+<p style="position:absolute;top:335px;left:77px;white-space:nowrap" class="ft04">VGETMANTPS zmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:352px;left:77px;white-space:nowrap" class="ft04">zmm2/m512/m32bcst{sae},&#160;</p>
+<p style="position:absolute;top:369px;left:77px;white-space:nowrap" class="ft04">imm8</p>
+<p style="position:absolute;top:445px;left:102px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:445px;left:224px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:445px;left:391px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:445px;left:556px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:445px;left:722px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:469px;left:110px;white-space:nowrap" class="ft04">FVI</p>
+<p style="position:absolute;top:469px;left:212px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:469px;left:380px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:469px;left:570px;white-space:nowrap" class="ft04">Imm8</p>
+<p style="position:absolute;top:469px;left:743px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

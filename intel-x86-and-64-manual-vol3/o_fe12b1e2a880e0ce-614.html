@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 614</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page614-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce614.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-40&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">When the processor generates a debug exception&#160;(#DB),&#160;it&#160;automatically clears&#160;the LBR&#160;flag&#160;before&#160;executing the&#160;<br/>exception handler,&#160;but does&#160;not&#160;touch the&#160;last&#160;branch&#160;and&#160;last&#160;exception MSRs. The&#160;addresses for&#160;the last branch,&#160;<br/>interrupt, or exception&#160;taken&#160;are thus retained&#160;in the&#160;LastBranchToIP&#160;and LastBranchFromIP MSRs&#160;and the&#160;<br/>addresses of the&#160;last branch prior&#160;to an&#160;interrupt or&#160;exception are&#160;retained&#160;in&#160;the LastExceptionToIP,&#160;and LastEx-<br/>ceptionFromIP MSRs.<br/>The debugger can&#160;use the&#160;last branch,&#160;interrupt,&#160;and/or&#160;exception addresses in combination&#160;with code-segment&#160;<br/>selectors retrieved from&#160;the&#160;stack to&#160;reset&#160;breakpoints in&#160;the breakpoint-address&#160;registers (DR0 through&#160;DR3),&#160;<br/>allowing a&#160;backward trace&#160;from the&#160;manifestation&#160;of a&#160;particular bug toward&#160;its source.&#160;Because the&#160;instruction&#160;<br/>pointers&#160;recorded in the&#160;LastBranchToIP, LastBranchFromIP, LastExceptionToIP,&#160;and&#160;LastExceptionFromIP MSRs are&#160;<br/>offsets&#160;into&#160;a code segment,&#160;software must determine&#160;the segment base address&#160;of&#160;the code&#160;segment associated&#160;<br/>with&#160;the control transfer&#160;to calculate the&#160;linear&#160;address&#160;to be&#160;placed&#160;in the&#160;breakpoint-address registers.&#160;The&#160;<br/>segment base address&#160;can be determined&#160;by reading the&#160;segment selector for the&#160;code&#160;segment from&#160;the stack&#160;<br/>and using it to&#160;locate&#160;the segment descriptor&#160;for&#160;the segment in&#160;the&#160;GDT&#160;or LDT.&#160;The segment base address&#160;can&#160;<br/>then be read from the&#160;segment&#160;descriptor.<br/>Before resuming&#160;program&#160;execution from a&#160;debug-exception&#160;handler,&#160;the&#160;handler&#160;must&#160;set the LBR&#160;flag again to&#160;re-<br/>enable&#160;last&#160;branch and last&#160;exception/interrupt recording.</p>
+<p style="position:absolute;top:418px;left:68px;white-space:nowrap" class="ft03">17.15 TIME-STAMP&#160;</p>
+<p style="position:absolute;top:418px;left:270px;white-space:nowrap" class="ft03">COUNTER</p>
+<p style="position:absolute;top:454px;left:68px;white-space:nowrap" class="ft06">The&#160;Intel 64&#160;and&#160;IA-32&#160;architectures&#160;(beginning&#160;with&#160;the Pentium processor) define a&#160;time-stamp counter&#160;mecha-<br/>nism that can be used to monitor and&#160;identify the&#160;relative&#160;time occurrence&#160;of processor&#160;events. The counter’s&#160;archi-<br/>tecture includes the&#160;following&#160;components:</p>
+<p style="position:absolute;top:509px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:510px;left:93px;white-space:nowrap" class="ft06"><b>TSC flag</b>&#160;<b>—&#160;</b>A feature&#160;bit that indicates the&#160;availability of the time-stamp counter.&#160;The counter&#160;is&#160;available in an&#160;<br/>if&#160;the&#160;function CPUID.1:EDX.TSC[bit 4] =&#160;1.</p>
+<p style="position:absolute;top:548px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:549px;left:93px;white-space:nowrap" class="ft06"><b>IA32_TIME_STAMP_COUNTER MSR</b>&#160;(called TSC&#160;MSR in P6 family&#160;and&#160;Pentium processors)&#160;<b>—&#160;</b>The MSR&#160;used&#160;<br/>as the&#160;counter.</p>
+<p style="position:absolute;top:587px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:588px;left:93px;white-space:nowrap" class="ft05"><b>RDTSC instruction</b>&#160;<b>—&#160;</b>An instruction used to read&#160;the time-stamp&#160;counter.</p>
+<p style="position:absolute;top:610px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:610px;left:93px;white-space:nowrap" class="ft06"><b>TSD flag</b>&#160;<b>—&#160;</b>A control register&#160;flag is&#160;used&#160;to enable or&#160;disable&#160;the time-stamp&#160;counter (enabled&#160;if&#160;<br/>CR4.TSD[bit&#160;2] = 1).</p>
+<p style="position:absolute;top:651px;left:68px;white-space:nowrap" class="ft07">The time-stamp&#160;counter (as&#160;implemented in&#160;the P6 family,&#160;Pentium, Pentium M,&#160;Pentium 4,&#160;Intel Xeon,&#160;Intel Core&#160;<br/>Solo&#160;and Intel&#160;Core Duo&#160;processors&#160;and later processors) is&#160;a&#160;64-bit counter&#160;that&#160;is set to&#160;0 following a&#160;RESET of&#160;<br/>the processor.&#160;Following a RESET,&#160;the counter increments even when&#160;the processor&#160;is&#160;halted&#160;by the HLT&#160;instruction&#160;<br/>or the&#160;external STPCLK# pin.&#160;Note that the assertion&#160;of the&#160;external DPSLP# pin may&#160;cause the time-stamp&#160;<br/>counter to&#160;stop.<br/>Processor&#160;families increment&#160;the time-stamp counter differently:</p>
+<p style="position:absolute;top:763px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:763px;left:93px;white-space:nowrap" class="ft06">For Pentium M processors (family [06H], models [09H, 0DH]); for Pentium 4 processors, Intel Xeon&#160;processors&#160;<br/>(family [0FH],&#160;models&#160;[00H,&#160;01H, or&#160;02H]); and&#160;for P6&#160;family&#160;processors: the time-stamp counter&#160;increments&#160;<br/>with every internal&#160;processor clock&#160;cycle.&#160;<br/>The&#160;internal processor clock&#160;cycle&#160;is determined&#160;by the&#160;current core-clock to&#160;bus-clock ratio.&#160;Intel®&#160;<br/>SpeedStep®&#160;technology transitions&#160;may also&#160;impact the processor&#160;clock.</p>
+<p style="position:absolute;top:857px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:858px;left:93px;white-space:nowrap" class="ft06">For&#160;Pentium&#160;4 processors,&#160;Intel Xeon processors (family&#160;[0FH], models [03H&#160;and higher]); for Intel&#160;Core&#160;Solo&#160;<br/>and&#160;Intel Core&#160;Duo processors (family [06H], model&#160;[0EH]);&#160;for&#160;the&#160;Intel Xeon&#160;processor&#160;5100 series and Intel&#160;<br/>Core 2 Duo processors (family [06H],&#160;model [0FH]); for Intel Core 2 and Intel Xeon&#160;processors&#160;(family&#160;[06H],&#160;<br/>DisplayModel&#160;[17H]); for&#160;Intel Atom processors (family [06H],&#160;<br/>DisplayModel&#160;[1CH]):&#160;the time-stamp&#160;counter increments&#160;at a&#160;constant rate.&#160;That rate may be&#160;set&#160;by the&#160;<br/>maximum core-clock&#160;to bus-clock&#160;ratio of the&#160;processor&#160;or may&#160;be&#160;set by&#160;the maximum resolved frequency at&#160;<br/>which the&#160;processor&#160;is&#160;booted. The maximum resolved&#160;frequency may differ&#160;from&#160;the processor base&#160;<br/>frequency,&#160;see<a href="o_fe12b1e2a880e0ce-741.html">&#160;Section 18.17.5 for more de</a>tail. On certain processors, the TSC frequency may&#160;not be the&#160;same&#160;<br/>as the&#160;frequency in&#160;the brand string.<br/>The&#160;specific processor&#160;configuration determines the behavior. Constant&#160;TSC behavior&#160;ensures that the duration&#160;<br/>of each&#160;clock tick is&#160;uniform and supports&#160;the&#160;use&#160;of&#160;the&#160;TSC&#160;as a&#160;wall clock timer even if the&#160;processor&#160;core&#160;<br/>changes&#160;frequency.&#160;This is&#160;the architectural behavior&#160;moving forward.</p>
+</div>
+</body>
+</html>

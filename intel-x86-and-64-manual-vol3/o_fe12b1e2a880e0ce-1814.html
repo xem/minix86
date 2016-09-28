@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1814</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1814-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1814.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-4&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">—&#160;ECREATE, EADD,&#160;and EREMOVE are not allowed to operate on the&#160;same EPC page&#160;concurrently&#160;with&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft02">themselves.&#160;</p>
+<p style="position:absolute;top:141px;left:93px;white-space:nowrap" class="ft02">—&#160;EADD,&#160;EEXTEND,&#160;and EINIT leafs&#160;are not&#160;allowed to&#160;operate on the same&#160;SECS&#160;concurrently.</p>
+<p style="position:absolute;top:163px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:163px;left:93px;white-space:nowrap" class="ft02">Intel&#160;SGX disallows&#160;the&#160;EREMOVE&#160;leaf from removing&#160;pages from an&#160;enclave&#160;that&#160;is in&#160;use.</p>
+<p style="position:absolute;top:185px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:186px;left:93px;white-space:nowrap" class="ft08">Intel&#160;SGX&#160;disallows&#160;entry&#160;(EENTER and&#160;ERESUME)&#160;to&#160;an&#160;enclave while&#160;a page&#160;from that&#160;enclave&#160;is being&#160;<br/>removed.&#160;</p>
+<p style="position:absolute;top:225px;left:68px;white-space:nowrap" class="ft08">When disallowed operation&#160;is detected,&#160;a leaf&#160;function causes&#160;an exception. To&#160;prevent such exceptions, software&#160;<br/>must serialize leaf&#160;functions&#160;or&#160;prevent these leaf functions from&#160;accessing the&#160;same&#160;resource.&#160;</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft04">41.1.5.1 &#160;&#160;Concurrency Tables of&#160;Intel® SGX Instructions</p>
+<p style="position:absolute;top:313px;left:68px;white-space:nowrap" class="ft08">Concurrent restriction&#160;of&#160;an&#160;individual leaf function (ENCLS&#160;or&#160;ENCLU)&#160;with&#160;another&#160;Intel&#160;SGX instruction leaf&#160;func-<br/>tions&#160;is listed under the&#160;<b>Concurrency Restriction</b>&#160;paragraph of&#160;the&#160;respective&#160;reference&#160;pages of the leaf&#160;func-<br/>tion.&#160;<br/>Each cell in the table for a given Intel SGX Instruction&#160;leaf&#160;details the concurrency restriction&#160;when that&#160;instruction&#160;<br/>references&#160;the&#160;same&#160;EPC page&#160;(as an explicit or&#160;an&#160;implicit parameter)&#160;as referenced&#160;by&#160;a concurrent&#160;instruction&#160;<br/>leaf executed&#160;on another logical processor.&#160;The concurrency&#160;behavior&#160;of the&#160;instruction&#160;leaf if focus shown in&#160;a&#160;<br/>given row is&#160;denoted&#160;by the&#160;following:</p>
+<p style="position:absolute;top:439px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:440px;left:93px;white-space:nowrap" class="ft08">‘N’: The&#160;instructions listed in a given row heading may not execute concurrently&#160;with the instruction leaf&#160;shown&#160;<br/>in the&#160;respective&#160;column. Software&#160;should serialize them. For example, multiple ETRACK&#160;operations&#160;on&#160;the&#160;<br/>same enclave are not allowed&#160;to execute&#160;concurrently&#160;on&#160;the same&#160;SECS page.</p>
+<p style="position:absolute;top:495px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:496px;left:93px;white-space:nowrap" class="ft08">‘Y’: The&#160;instruction leaf&#160;listed in a&#160;given row&#160;may&#160;execute&#160;concurrently&#160;with the&#160;instruction leaf&#160;shown in the&#160;<br/>respective&#160;column. For instance, multiple&#160;ELDB/ELDUs&#160;are allowed&#160;to execute concurrently as&#160;long as&#160;the&#160;<br/>selected&#160;EPC page is&#160;not the&#160;same page.</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:551px;left:93px;white-space:nowrap" class="ft08">‘C’: The&#160;instruction leaf listed in a given row heading may&#160;return an error code when executed concurrently with&#160;<br/>the instruction leaf&#160;shown&#160;in&#160;the respective&#160;column.</p>
+<p style="position:absolute;top:589px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:590px;left:93px;white-space:nowrap" class="ft08">‘U’:&#160;These&#160;two instruction leaves&#160;may complete,&#160;but the&#160;occurrence these two simultaneous flows are&#160;<br/>considered a&#160;user program&#160;error&#160;for&#160;which&#160;the processor does not enforce&#160;any restriction.</p>
+<p style="position:absolute;top:628px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:629px;left:93px;white-space:nowrap" class="ft08">A&#160;grey&#160;cell indicates the&#160;concurrency&#160;behavior of&#160;the&#160;instruction&#160;in focus (in&#160;the&#160;row&#160;header) may&#160;be&#160;different&#160;<br/>than that&#160;of&#160;the concurrent instruction (in the&#160;column&#160;header). The concurrent instruction's behavior&#160;is detailed&#160;<br/>in its respective concurrency table.&#160;For example,&#160;EBLOCK's&#160;SECS parameter is implicit, thus it is always shown&#160;<br/>as&#160;'Y'&#160;in the&#160;table. However&#160;a concurrent instruction may return an&#160;error code&#160;when accessing the&#160;same page</p>
+<p style="position:absolute;top:680px;left:830px;white-space:nowrap" class="ft06">.</p>
+<p style="position:absolute;top:701px;left:68px;white-space:nowrap" class="ft08">For&#160;instance,&#160;multiple ELDB/ELDUs are&#160;allowed to execute as&#160;long as&#160;the&#160;selected&#160;EPC page&#160;is not the&#160;same&#160;page.&#160;<br/>Multiple&#160;ETRACK operations&#160;are not allowed&#160;to execute concurrently.</p>
+<p style="position:absolute;top:773px;left:68px;white-space:nowrap" class="ft07">41.2&#160;</p>
+<p style="position:absolute;top:773px;left:147px;white-space:nowrap" class="ft07">INTEL® SGX INSTRUCTION REFERENCE</p>
+</div>
+</body>
+</html>

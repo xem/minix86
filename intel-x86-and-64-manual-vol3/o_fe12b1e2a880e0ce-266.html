@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 266</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page266-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce266.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-10&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">At&#160;each&#160;processor,&#160;the&#160;load and&#160;the&#160;store are&#160;to different&#160;locations&#160;and&#160;hence may be reordered. Any interleaving&#160;<br/>of the operations is&#160;thus&#160;allowed. One&#160;such&#160;interleaving&#160;has&#160;the two loads&#160;occurring before the&#160;two&#160;stores. This&#160;<br/>would result in each load&#160;returning value&#160;0.<br/>The&#160;fact&#160;that a&#160;load&#160;may not be&#160;reordered with an earlier&#160;store&#160;to&#160;the&#160;same&#160;location is&#160;illustrated by the&#160;following&#160;<br/>example:</p>
+<p style="position:absolute;top:345px;left:68px;white-space:nowrap" class="ft05">The&#160;Intel-64&#160;memory-ordering model does&#160;not allow the&#160;load&#160;to be&#160;reordered with&#160;the&#160;earlier store because&#160;the&#160;<br/>accesses are&#160;to the&#160;same location. Therefore,&#160;r1&#160;=&#160;1 must hold.</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft03">8.2.3.5 &#160;</p>
+<p style="position:absolute;top:406px;left:152px;white-space:nowrap" class="ft03">Intra-Processor&#160;Forwarding Is Allowed</p>
+<p style="position:absolute;top:434px;left:68px;white-space:nowrap" class="ft05">The memory-ordering model allows concurrent stores&#160;by two&#160;processors&#160;to be&#160;seen in different orders&#160;by those two&#160;<br/>processors; specifically,&#160;each processor may perceive&#160;its&#160;own store occurring&#160;before that&#160;of&#160;the other.&#160;This&#160;is illus-<br/>trated&#160;by the&#160;following&#160;example:</p>
+<p style="position:absolute;top:661px;left:68px;white-space:nowrap" class="ft05">The memory-ordering&#160;model&#160;imposes no&#160;constraints on&#160;the order in which the&#160;two&#160;stores&#160;appear&#160;to execute by&#160;the&#160;<br/>two processors. This fact allows&#160;processor&#160;0&#160;to see&#160;its store before seeing&#160;processor 1's,&#160;while processor 1 sees its&#160;<br/>store&#160;before seeing&#160;processor&#160;0's. (Each processor is&#160;self consistent.) This allows r2&#160;= 0&#160;and r4&#160;= 0.<br/>In practice, the&#160;reordering&#160;in this&#160;example&#160;can arise&#160;as a&#160;result of&#160;store-buffer forwarding. While a&#160;store is&#160;tempo-<br/>rarily held in&#160;a processor's store&#160;buffer,&#160;it can satisfy&#160;the processor's&#160;own loads but&#160;is not&#160;visible to&#160;(and&#160;cannot&#160;<br/>satisfy) loads&#160;by other&#160;processors.</p>
+<p style="position:absolute;top:795px;left:68px;white-space:nowrap" class="ft03">8.2.3.6 &#160;</p>
+<p style="position:absolute;top:795px;left:152px;white-space:nowrap" class="ft03">Stores&#160;Are Transitively&#160;Visible</p>
+<p style="position:absolute;top:823px;left:68px;white-space:nowrap" class="ft05">The memory-ordering&#160;model ensures transitive&#160;visibility of&#160;stores; stores&#160;that&#160;are causally related&#160;appear to&#160;all&#160;<br/>processors&#160;to occur&#160;in&#160;an order consistent&#160;with the&#160;causality relation.&#160;This is&#160;illustrated by the&#160;following&#160;example:</p>
+<p style="position:absolute;top:1033px;left:68px;white-space:nowrap" class="ft02">Assume&#160;that r1&#160;= 1&#160;and r2&#160;= 1.</p>
+<p style="position:absolute;top:1055px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1056px;left:93px;white-space:nowrap" class="ft02">Because&#160;r1&#160;=&#160;1, processor&#160;0’s&#160;store&#160;occurs before processor&#160;1’s&#160;load.</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft01">Example 8-4. &#160;Loads&#160;Are not&#160;Reordered with Older&#160;Stores&#160;to&#160;the&#160;Same Location</p>
+<p style="position:absolute;top:216px;left:417px;white-space:nowrap" class="ft02">Processor 0</p>
+<p style="position:absolute;top:238px;left:73px;white-space:nowrap" class="ft08">mov [ _x], 1<br/>mov&#160;r1, [ _x]<br/>Initially x&#160;= 0<br/>r1 = 0 is not&#160;allowed</p>
+<p style="position:absolute;top:489px;left:69px;white-space:nowrap" class="ft01">Example 8-5. &#160;Intra-Processor Forwarding is&#160;Allowed</p>
+<p style="position:absolute;top:509px;left:225px;white-space:nowrap" class="ft02">Processor 0</p>
+<p style="position:absolute;top:509px;left:608px;white-space:nowrap" class="ft02">Processor&#160;1</p>
+<p style="position:absolute;top:531px;left:74px;white-space:nowrap" class="ft02">mov [ _x], 1</p>
+<p style="position:absolute;top:531px;left:457px;white-space:nowrap" class="ft02">mov&#160;[ _y], 1</p>
+<p style="position:absolute;top:554px;left:74px;white-space:nowrap" class="ft02">mov r1,&#160;[ _x]</p>
+<p style="position:absolute;top:554px;left:457px;white-space:nowrap" class="ft02">mov&#160;r3, [ _y]</p>
+<p style="position:absolute;top:576px;left:74px;white-space:nowrap" class="ft02">mov r2,&#160;[ _y]</p>
+<p style="position:absolute;top:576px;left:457px;white-space:nowrap" class="ft02">mov&#160;r4, [ _x]</p>
+<p style="position:absolute;top:599px;left:74px;white-space:nowrap" class="ft08">Initially x =&#160;y =&#160;0<br/>r2 = 0 and r4 = 0 is allowed</p>
+<p style="position:absolute;top:862px;left:69px;white-space:nowrap" class="ft01">Example 8-6. &#160;Stores&#160;Are Transitively&#160;Visible</p>
+<p style="position:absolute;top:882px;left:161px;white-space:nowrap" class="ft02">Processor&#160;0</p>
+<p style="position:absolute;top:882px;left:417px;white-space:nowrap" class="ft02">Processor 1</p>
+<p style="position:absolute;top:882px;left:672px;white-space:nowrap" class="ft02">Processor 2</p>
+<p style="position:absolute;top:904px;left:74px;white-space:nowrap" class="ft02">mov [ _x], 1</p>
+<p style="position:absolute;top:904px;left:329px;white-space:nowrap" class="ft08">mov&#160;r1, [ _x]<br/>mov [ _y], 1</p>
+<p style="position:absolute;top:927px;left:584px;white-space:nowrap" class="ft08">mov&#160;r2, [ _y]<br/>mov r3, [_x]</p>
+<p style="position:absolute;top:972px;left:74px;white-space:nowrap" class="ft08">Initially x =&#160;y =&#160;0<br/>r1 = 1, r2 = 1, r3&#160;= 0&#160;is not allowed</p>
+</div>
+</body>
+</html>

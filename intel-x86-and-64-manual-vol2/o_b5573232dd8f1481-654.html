@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 654</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page654-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481654.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:663px;white-space:nowrap" class="ft00">LEAVE—High Level Procedure&#160;Exit</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-526&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">LEAVE—High Level Procedure Exit</p>
+<p style="position:absolute;top:262px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:345px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft07">Releases the stack&#160;frame set up&#160;by an&#160;earlier&#160;ENTER instruction.&#160;The LEAVE&#160;instruction copies the frame&#160;pointer&#160;(in&#160;<br/>the EBP&#160;register) into the&#160;stack pointer register (ESP),&#160;which&#160;releases the&#160;stack space allocated to&#160;the stack&#160;frame.&#160;<br/>The old frame&#160;pointer&#160;(the frame&#160;pointer&#160;for&#160;the calling procedure&#160;that was&#160;saved by the&#160;ENTER instruction) is&#160;then&#160;<br/>popped&#160;from&#160;the&#160;stack into&#160;the EBP&#160;register, restoring the&#160;calling procedure’s&#160;stack frame.&#160;<br/>A&#160;RET instruction is&#160;commonly executed&#160;following a&#160;LEAVE instruction to&#160;return program control to&#160;the calling&#160;<br/>procedure.<br/>See “Procedure Calls&#160;for&#160;Block-Structured Languages”&#160;<a href="��">in Chapter&#160;7 of the&#160;<i>Intel® 64&#160;and IA-32 Architectures&#160;Soft-<br/>ware&#160;Developer’s Manual, Volume&#160;1</i></a>, for detailed information&#160;on&#160;the use&#160;of the&#160;ENTER&#160;and LEAVE instructions.<br/>In 64-bit&#160;mode,&#160;the instruction’s&#160;default operation size&#160;is 64 bits;&#160;32-bit operation cannot&#160;be&#160;encoded.&#160;See the&#160;<br/>summary chart&#160;at the&#160;beginning of this section for encoding data and&#160;limits.</p>
+<p style="position:absolute;top:575px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:606px;left:68px;white-space:nowrap" class="ft04">IF&#160;StackAddressSize&#160;</p>
+<p style="position:absolute;top:604px;left:185px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:606px;left:195px;white-space:nowrap" class="ft04">&#160;32</p>
+<p style="position:absolute;top:624px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:642px;left:115px;white-space:nowrap" class="ft04">ESP&#160;←&#160;EBP;</p>
+<p style="position:absolute;top:660px;left:88px;white-space:nowrap" class="ft04">ELSE IF&#160;StackAddressSize&#160;</p>
+<p style="position:absolute;top:658px;left:237px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:660px;left:246px;white-space:nowrap" class="ft04">&#160;64</p>
+<p style="position:absolute;top:678px;left:115px;white-space:nowrap" class="ft04">THEN&#160;RSP&#160;←&#160;RBP; FI;</p>
+<p style="position:absolute;top:696px;left:88px;white-space:nowrap" class="ft04">ELSE IF&#160;StackAddressSize&#160;</p>
+<p style="position:absolute;top:694px;left:237px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:696px;left:246px;white-space:nowrap" class="ft04">&#160;16</p>
+<p style="position:absolute;top:714px;left:115px;white-space:nowrap" class="ft04">THEN&#160;SP&#160;←&#160;BP; FI;</p>
+<p style="position:absolute;top:732px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:762px;left:68px;white-space:nowrap" class="ft04">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:760px;left:156px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:762px;left:165px;white-space:nowrap" class="ft04">&#160;32</p>
+<p style="position:absolute;top:780px;left:88px;white-space:nowrap" class="ft04">THEN EBP&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:798px;left:88px;white-space:nowrap" class="ft04">ELSE IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:796px;left:208px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:798px;left:217px;white-space:nowrap" class="ft04">&#160;64</p>
+<p style="position:absolute;top:816px;left:115px;white-space:nowrap" class="ft04">THEN&#160;RBP&#160;←&#160;Pop(); FI;</p>
+<p style="position:absolute;top:834px;left:88px;white-space:nowrap" class="ft04">ELSE IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:832px;left:208px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:834px;left:217px;white-space:nowrap" class="ft04">&#160;16</p>
+<p style="position:absolute;top:852px;left:115px;white-space:nowrap" class="ft04">THEN&#160;BP&#160;←&#160;Pop();&#160;FI;</p>
+<p style="position:absolute;top:870px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:904px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:928px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:123px;left:75px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:220px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:385px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:385px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:422px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:422px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:494px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:494px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:564px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:75px;white-space:nowrap" class="ft04">C9</p>
+<p style="position:absolute;top:160px;left:220px;white-space:nowrap" class="ft04">LEAVE</p>
+<p style="position:absolute;top:160px;left:385px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:422px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:494px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:564px;white-space:nowrap" class="ft04">Set SP to BP,&#160;then pop BP.</p>
+<p style="position:absolute;top:182px;left:75px;white-space:nowrap" class="ft04">C9</p>
+<p style="position:absolute;top:182px;left:220px;white-space:nowrap" class="ft04">LEAVE</p>
+<p style="position:absolute;top:182px;left:385px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:182px;left:422px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:182px;left:494px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:564px;white-space:nowrap" class="ft04">Set ESP to&#160;EBP, then&#160;pop EBP.</p>
+<p style="position:absolute;top:205px;left:75px;white-space:nowrap" class="ft04">C9</p>
+<p style="position:absolute;top:205px;left:220px;white-space:nowrap" class="ft04">LEAVE</p>
+<p style="position:absolute;top:205px;left:385px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:205px;left:422px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:205px;left:494px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:205px;left:564px;white-space:nowrap" class="ft04">Set RSP to RBP,&#160;then pop RBP.</p>
+<p style="position:absolute;top:285px;left:87px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:285px;left:191px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:285px;left:360px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:285px;left:534px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:285px;left:713px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:308px;left:96px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:308px;left:212px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:381px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:555px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:734px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 78</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page78-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481078.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">2-18&#160;Vol. 2A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION FORMAT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">The&#160;role of ModR/M.r/m field&#160;can be&#160;summarized to&#160;two&#160;situations:</p>
+<p style="position:absolute;top:122px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:123px;left:93px;white-space:nowrap" class="ft02">ModR/M.r/m encodes&#160;the instruction operand that references a&#160;memory&#160;address.</p>
+<p style="position:absolute;top:145px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:145px;left:93px;white-space:nowrap" class="ft06">For&#160;some instructions that do not support memory addressing&#160;semantics, ModR/M.r/m&#160;encodes either&#160;the&#160;<br/>destination register operand&#160;or a&#160;source&#160;register&#160;operand.</p>
+<p style="position:absolute;top:183px;left:68px;white-space:nowrap" class="ft02">The&#160;role of ModR/M.reg&#160;field&#160;can be&#160;summarized to&#160;two&#160;situations:</p>
+<p style="position:absolute;top:205px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:205px;left:93px;white-space:nowrap" class="ft02">ModR/M.reg encodes either the&#160;destination&#160;register operand&#160;or a&#160;source&#160;register&#160;operand.</p>
+<p style="position:absolute;top:227px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:228px;left:93px;white-space:nowrap" class="ft06">For some&#160;instructions, ModR/M.reg&#160;is treated as&#160;an opcode&#160;extension and&#160;not&#160;used&#160;to encode any&#160;instruction&#160;<br/>operand.</p>
+<p style="position:absolute;top:265px;left:68px;white-space:nowrap" class="ft06">For instruction syntax that support four operands,&#160;VEX.vvvv,&#160;ModR/M.r/m, ModR/M.reg&#160;encodes&#160;three of&#160;the&#160;four&#160;<br/>operands.&#160;The role&#160;of bits 7:4&#160;of the&#160;immediate byte&#160;serves&#160;the following situation:</p>
+<p style="position:absolute;top:304px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:304px;left:93px;white-space:nowrap" class="ft02">Imm8[7:4] encodes the&#160;third source&#160;register operand.</p>
+<p style="position:absolute;top:349px;left:68px;white-space:nowrap" class="ft04">2.3.6.1&#160;&#160;</p>
+<p style="position:absolute;top:349px;left:152px;white-space:nowrap" class="ft04">3-byte VEX byte&#160;1, bits[4:0]&#160;- “m-mmmm”&#160;</p>
+<p style="position:absolute;top:374px;left:68px;white-space:nowrap" class="ft06">Bits[4:0]&#160;of&#160;the 3-byte VEX&#160;byte 1 encode&#160;an implied leading&#160;opcode&#160;byte&#160;(0F,&#160;0F 38,&#160;or 0F&#160;3A).&#160;Several bits&#160;are&#160;<br/>reserved for future use&#160;and will&#160;#UD&#160;unless 0.&#160;</p>
+<p style="position:absolute;top:424px;left:311px;white-space:nowrap" class="ft05">Table 2-10.&#160;&#160;&#160;VEX.m-mmmm interpretation</p>
+<p style="position:absolute;top:611px;left:68px;white-space:nowrap" class="ft02">VEX.m-mmmm&#160;is only&#160;available on&#160;the 3-byte VEX.&#160;The&#160;2-byte&#160;VEX implies a&#160;leading 0Fh&#160;opcode&#160;byte.</p>
+<p style="position:absolute;top:655px;left:68px;white-space:nowrap" class="ft04">2.3.6.2&#160;&#160;</p>
+<p style="position:absolute;top:655px;left:152px;white-space:nowrap" class="ft04">2-byte VEX byte&#160;1, bit[2], and&#160;3-byte VEX byte 2,&#160;bit&#160;[2]-&#160;“L”</p>
+<p style="position:absolute;top:681px;left:68px;white-space:nowrap" class="ft08">The&#160;vector length&#160;field,&#160;VEX.L,&#160;is encoded&#160;in bit[2] of either&#160;the second byte of 2-byte&#160;VEX,&#160;or the&#160;third byte of 3-<br/>byte&#160;VEX.&#160;If&#160;“VEX.L&#160;= 1”, it&#160;indicates 256-bit&#160;vector operation.&#160;“VEX.L = 0”&#160;indicates&#160;scalar&#160;and 128-bit&#160;vector&#160;<br/>operations.<br/>The&#160;instruction&#160;VZEROUPPER&#160;is&#160;a special case&#160;that is&#160;encoded with VEX.L = 0,&#160;although its&#160;operation zero’s&#160;bits&#160;<br/>255:128 of&#160;all YMM registers&#160;accessible in&#160;the current&#160;operating&#160;mode.<br/>See the&#160;following table.</p>
+<p style="position:absolute;top:804px;left:342px;white-space:nowrap" class="ft05">Table 2-11. &#160;VEX.L&#160;interpretation</p>
+<p style="position:absolute;top:917px;left:68px;white-space:nowrap" class="ft04">2.3.6.3&#160;&#160;</p>
+<p style="position:absolute;top:917px;left:152px;white-space:nowrap" class="ft04">2-byte VEX byte&#160;1, bits[1:0],&#160;and 3-byte VEX&#160;byte 2, bits [1:0]- “pp”</p>
+<p style="position:absolute;top:943px;left:68px;white-space:nowrap" class="ft07">Up&#160;to one implied&#160;prefix is encoded&#160;by&#160;bits[1:0]&#160;of either the&#160;2-byte VEX byte&#160;1 or&#160;the&#160;3-byte&#160;VEX byte 2. The&#160;prefix&#160;<br/>behaves&#160;as if&#160;it was encoded&#160;prior to&#160;VEX,&#160;but&#160;after all other encoded&#160;prefixes.<br/>See&#160;the following table.</p>
+<p style="position:absolute;top:444px;left:221px;white-space:nowrap" class="ft02">VEX.m-mmmm</p>
+<p style="position:absolute;top:444px;left:556px;white-space:nowrap" class="ft02">Implied Leading&#160;Opcode Bytes</p>
+<p style="position:absolute;top:465px;left:241px;white-space:nowrap" class="ft02">00000B</p>
+<p style="position:absolute;top:465px;left:620px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:486px;left:241px;white-space:nowrap" class="ft02">00001B</p>
+<p style="position:absolute;top:486px;left:640px;white-space:nowrap" class="ft02">0F</p>
+<p style="position:absolute;top:507px;left:241px;white-space:nowrap" class="ft02">00010B</p>
+<p style="position:absolute;top:507px;left:630px;white-space:nowrap" class="ft02">0F 38</p>
+<p style="position:absolute;top:528px;left:241px;white-space:nowrap" class="ft02">00011B</p>
+<p style="position:absolute;top:528px;left:630px;white-space:nowrap" class="ft02">0F 3A</p>
+<p style="position:absolute;top:549px;left:220px;white-space:nowrap" class="ft02">00100-11111B</p>
+<p style="position:absolute;top:549px;left:620px;white-space:nowrap" class="ft02">Reserved</p>
+<p style="position:absolute;top:570px;left:229px;white-space:nowrap" class="ft02">(2-byte&#160;VEX)</p>
+<p style="position:absolute;top:570px;left:640px;white-space:nowrap" class="ft02">0F</p>
+<p style="position:absolute;top:825px;left:175px;white-space:nowrap" class="ft02">VEX.L&#160;Vector&#160;</p>
+<p style="position:absolute;top:825px;left:576px;white-space:nowrap" class="ft02">Length</p>
+<p style="position:absolute;top:845px;left:189px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:845px;left:495px;white-space:nowrap" class="ft02">128-bit&#160;(or&#160;32/64-bit scalar)</p>
+<p style="position:absolute;top:867px;left:189px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:867px;left:554px;white-space:nowrap" class="ft02">256-bit</p>
+</div>
+</body>
+</html>

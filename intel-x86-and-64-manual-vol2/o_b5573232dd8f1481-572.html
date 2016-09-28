@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 572</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page572-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481572.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:725px;white-space:nowrap" class="ft00">IMUL—Signed Multiply</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-444&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:118px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;IF&#160;(NumberOfOperands&#160;</p>
+<p style="position:absolute;top:116px;left:253px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:118px;left:262px;white-space:nowrap" class="ft02">&#160;2)</p>
+<p style="position:absolute;top:136px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:154px;left:142px;white-space:nowrap" class="ft02">TMP_XP&#160;←&#160;DEST&#160;∗&#160;SRC (* Signed&#160;multiplication;&#160;TMP_XP&#160;is&#160;a&#160;signed&#160;integer at&#160;twice the width of the SRC *)</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">DEST&#160;←&#160;TruncateToOperandSize(TMP_XP);</p>
+<p style="position:absolute;top:190px;left:142px;white-space:nowrap" class="ft02">IF&#160;SignExtend(DEST)&#160;</p>
+<p style="position:absolute;top:188px;left:262px;white-space:nowrap" class="ft03">≠</p>
+<p style="position:absolute;top:190px;left:271px;white-space:nowrap" class="ft02">&#160;TMP_XP</p>
+<p style="position:absolute;top:208px;left:169px;white-space:nowrap" class="ft02">THEN CF&#160;←&#160;1; OF&#160;←&#160;1;</p>
+<p style="position:absolute;top:226px;left:169px;white-space:nowrap" class="ft02">ELSE CF&#160;←&#160;0;&#160;OF&#160;←&#160;0; FI;</p>
+<p style="position:absolute;top:244px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;(* NumberOfOperands&#160;</p>
+<p style="position:absolute;top:242px;left:276px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:244px;left:285px;white-space:nowrap" class="ft02">&#160;3 *)</p>
+<p style="position:absolute;top:262px;left:142px;white-space:nowrap" class="ft02">TMP_XP&#160;←&#160;SRC1&#160;∗&#160;SRC2&#160;(* Signed&#160;multiplication; TMP_XP is&#160;a signed&#160;integer at twice the&#160;width of&#160;the&#160;SRC1&#160;*)</p>
+<p style="position:absolute;top:280px;left:142px;white-space:nowrap" class="ft02">DEST&#160;←&#160;TruncateToOperandSize(TMP_XP);</p>
+<p style="position:absolute;top:298px;left:142px;white-space:nowrap" class="ft02">IF&#160;SignExtend(DEST)&#160;</p>
+<p style="position:absolute;top:296px;left:262px;white-space:nowrap" class="ft03">≠</p>
+<p style="position:absolute;top:298px;left:271px;white-space:nowrap" class="ft02">&#160;TMP_XP</p>
+<p style="position:absolute;top:316px;left:169px;white-space:nowrap" class="ft02">THEN CF&#160;←&#160;1; OF&#160;←&#160;1;</p>
+<p style="position:absolute;top:334px;left:169px;white-space:nowrap" class="ft02">ELSE CF&#160;←&#160;0;&#160;OF&#160;←&#160;0; FI;</p>
+<p style="position:absolute;top:352px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:404px;left:68px;white-space:nowrap" class="ft04">Flags Affected</p>
+<p style="position:absolute;top:429px;left:68px;white-space:nowrap" class="ft05">For&#160;the one&#160;operand&#160;form of the&#160;instruction,&#160;the&#160;CF&#160;and&#160;OF&#160;flags&#160;are set when significant&#160;bits are carried into&#160;the&#160;<br/>upper half of the&#160;result and&#160;cleared when the&#160;result&#160;fits&#160;exactly in the lower half of the&#160;result. For the&#160;two- and&#160;<br/>three-operand forms of the&#160;instruction,&#160;the CF and OF&#160;flags&#160;are set when the&#160;result must be&#160;truncated to&#160;fit in&#160;the&#160;<br/>destination operand&#160;size&#160;and cleared when the&#160;result&#160;fits&#160;exactly in the&#160;destination&#160;operand size.&#160;The&#160;SF, ZF, AF, and&#160;<br/>PF&#160;flags are undefined.</p>
+<p style="position:absolute;top:529px;left:68px;white-space:nowrap" class="ft04">Protected Mode Exceptions</p>
+<p style="position:absolute;top:552px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:552px;left:206px;white-space:nowrap" class="ft06">If&#160;a memory operand effective&#160;address is&#160;outside&#160;the CS,&#160;DS, ES,&#160;FS,&#160;or GS segment limit.<br/>If&#160;the&#160;DS,&#160;ES,&#160;FS,&#160;or GS&#160;register&#160;is used&#160;to&#160;access memory and&#160;it contains&#160;a NULL NULL&#160;</p>
+<p style="position:absolute;top:589px;left:205px;white-space:nowrap" class="ft02">segment selector.</p>
+<p style="position:absolute;top:610px;left:68px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:610px;left:206px;white-space:nowrap" class="ft02">If a&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft02">#PF(fault-code)</p>
+<p style="position:absolute;top:631px;left:206px;white-space:nowrap" class="ft02">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:652px;left:68px;white-space:nowrap" class="ft02">#AC(0)</p>
+<p style="position:absolute;top:652px;left:206px;white-space:nowrap" class="ft02">If alignment&#160;checking is&#160;enabled and an&#160;unaligned memory reference&#160;is&#160;made&#160;while&#160;the&#160;</p>
+<p style="position:absolute;top:669px;left:205px;white-space:nowrap" class="ft02">current privilege&#160;level is&#160;3.</p>
+<p style="position:absolute;top:690px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:690px;left:206px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:723px;left:68px;white-space:nowrap" class="ft04">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:747px;left:68px;white-space:nowrap" class="ft02">#GP</p>
+<p style="position:absolute;top:747px;left:206px;white-space:nowrap" class="ft02">If&#160;a memory operand effective&#160;address is&#160;outside&#160;the CS,&#160;DS, ES,&#160;FS,&#160;or GS segment limit.</p>
+<p style="position:absolute;top:768px;left:68px;white-space:nowrap" class="ft02">#SS</p>
+<p style="position:absolute;top:768px;left:206px;white-space:nowrap" class="ft02">If a&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:789px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:789px;left:206px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:822px;left:68px;white-space:nowrap" class="ft04">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:846px;left:68px;white-space:nowrap" class="ft02">#GP(0)</p>
+<p style="position:absolute;top:846px;left:206px;white-space:nowrap" class="ft02">If&#160;a memory operand effective&#160;address is&#160;outside&#160;the CS,&#160;DS, ES,&#160;FS,&#160;or GS segment limit.</p>
+<p style="position:absolute;top:867px;left:68px;white-space:nowrap" class="ft02">#SS(0)</p>
+<p style="position:absolute;top:867px;left:206px;white-space:nowrap" class="ft02">If a&#160;memory&#160;operand&#160;effective&#160;address&#160;is outside&#160;the&#160;SS&#160;segment limit.</p>
+<p style="position:absolute;top:888px;left:68px;white-space:nowrap" class="ft02">#PF(fault-code)</p>
+<p style="position:absolute;top:888px;left:206px;white-space:nowrap" class="ft02">If a&#160;page fault occurs.</p>
+<p style="position:absolute;top:909px;left:68px;white-space:nowrap" class="ft02">#AC(0)</p>
+<p style="position:absolute;top:909px;left:206px;white-space:nowrap" class="ft02">If alignment&#160;checking is&#160;enabled and an unaligned memory reference&#160;is&#160;made.</p>
+<p style="position:absolute;top:930px;left:68px;white-space:nowrap" class="ft02">#UD&#160;</p>
+<p style="position:absolute;top:930px;left:206px;white-space:nowrap" class="ft02">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft04">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:987px;left:68px;white-space:nowrap" class="ft02">Same exceptions&#160;as in&#160;protected mode.</p>
+</div>
+</body>
+</html>

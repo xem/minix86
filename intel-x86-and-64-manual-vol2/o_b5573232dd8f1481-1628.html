@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1628</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1628-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811628.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:356px;white-space:nowrap" class="ft00">VGATHERQPS/VGATHERQPD—Gather Packed&#160;Single,&#160;Packed&#160;Double&#160;with Signed Qword Indices</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-242&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VGATHERQPS/VGATHERQPD—Gather Packed&#160;Single,&#160;Packed Double with Signed Qword Indices</p>
+<p style="position:absolute;top:525px;left:68px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:633px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:655px;left:68px;white-space:nowrap" class="ft07">A&#160;set of 8&#160;single-precision/double-precision faulting-point memory locations pointed by base&#160;address BASE_ADDR&#160;<br/>and index&#160;vector V_INDEX with scale&#160;SCALE are&#160;gathered.&#160;The result&#160;is written into vector a register. The elements&#160;<br/>are specified&#160;via&#160;the VSIB (i.e.,&#160;the&#160;index register&#160;is a&#160;vector register,&#160;holding packed indices). Elements will only be&#160;<br/>loaded&#160;if their corresponding&#160;mask bit is one.&#160;If an element’s mask&#160;bit is not set, the corresponding element of&#160;the&#160;<br/>destination&#160;register&#160;is&#160;left unchanged. The&#160;entire&#160;mask register will&#160;be&#160;set to&#160;zero by this&#160;instruction&#160;unless it&#160;trig-<br/>gers an&#160;exception.<br/>This instruction can&#160;be suspended by an exception if at least one element is already gathered&#160;(i.e.,&#160;if the exception&#160;<br/>is triggered&#160;by an element other than&#160;the rightmost one with its mask bit set). When this happens, the destination&#160;<br/>register and&#160;the&#160;mask&#160;register&#160;(k1) are&#160;partially updated;&#160;those&#160;elements&#160;that have&#160;been gathered&#160;are placed&#160;into&#160;<br/>the destination register&#160;and have&#160;their&#160;mask bits set to&#160;zero. If any&#160;traps&#160;or interrupts&#160;are&#160;pending from&#160;already&#160;<br/>gathered&#160;elements,&#160;they&#160;will&#160;be&#160;delivered&#160;in lieu of the exception; in&#160;this case, EFLAG.RF is set to&#160;one&#160;so an instruc-<br/>tion breakpoint&#160;is&#160;not&#160;re-triggered&#160;when&#160;the instruction is&#160;continued.<br/>If&#160;the data element size&#160;is less than the index&#160;element&#160;size,&#160;the&#160;higher&#160;part of&#160;the&#160;destination register&#160;and&#160;the&#160;mask&#160;<br/>register&#160;do not correspond to any&#160;elements&#160;being&#160;gathered.&#160;This instruction sets&#160;those higher&#160;parts to&#160;zero. It may&#160;<br/>update these unused&#160;elements&#160;to&#160;one or&#160;both of those registers&#160;even if the&#160;instruction&#160;triggers&#160;an exception,&#160;and&#160;<br/>even&#160;if the&#160;instruction&#160;triggers the&#160;exception before&#160;gathering&#160;any&#160;elements.<br/>Note that:</p>
+<p style="position:absolute;top:959px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:960px;left:93px;white-space:nowrap" class="ft06">The values may be read from memory&#160;in any&#160;order.&#160;Memory ordering with other&#160;instructions&#160;follows the&#160;Intel-<br/>64 memory-ordering&#160;model.</p>
+<p style="position:absolute;top:998px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:999px;left:93px;white-space:nowrap" class="ft06">Faults&#160;are delivered&#160;in&#160;a right-to-left&#160;manner. That&#160;is,&#160;if a&#160;fault&#160;is triggered by an&#160;element&#160;and delivered, all&#160;<br/>elements closer&#160;to the&#160;LSB of the&#160;destination&#160;zmm will&#160;be completed&#160;(and non-faulting).&#160;Individual elements&#160;<br/>closer&#160;to the&#160;MSB&#160;may&#160;or may not be&#160;completed.&#160;If a&#160;given&#160;element&#160;triggers multiple&#160;faults,&#160;they are&#160;delivered&#160;<br/>in&#160;the conventional order.</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:287px;white-space:nowrap" class="ft04">Op/</p>
+<p style="position:absolute;top:137px;left:287px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:329px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:329px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:329px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:402px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:402px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:402px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:490px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft04">EVEX.128.66.0F38.W0&#160;93&#160;/vsib&#160;</p>
+<p style="position:absolute;top:172px;left:287px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:172px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:172px;left:490px;white-space:nowrap" class="ft04">Using signed&#160;qword&#160;indices,&#160;gather&#160;single-precision&#160;</p>
+<p style="position:absolute;top:189px;left:490px;white-space:nowrap" class="ft04">floating-point&#160;values&#160;from&#160;memory using k1 as completion&#160;</p>
+<p style="position:absolute;top:205px;left:490px;white-space:nowrap" class="ft04">mask.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft04">VGATHERQPS xmm1 {k1}, vm64x</p>
+<p style="position:absolute;top:191px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:227px;left:77px;white-space:nowrap" class="ft04">EVEX.256.66.0F38.W0&#160;93&#160;/vsib&#160;</p>
+<p style="position:absolute;top:227px;left:287px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:227px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:227px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:227px;left:490px;white-space:nowrap" class="ft04">Using signed&#160;qword&#160;indices,&#160;gather&#160;single-precision&#160;</p>
+<p style="position:absolute;top:244px;left:490px;white-space:nowrap" class="ft04">floating-point&#160;values&#160;from&#160;memory using k1 as completion&#160;</p>
+<p style="position:absolute;top:261px;left:490px;white-space:nowrap" class="ft04">mask.</p>
+<p style="position:absolute;top:247px;left:77px;white-space:nowrap" class="ft04">VGATHERQPS xmm1 {k1}, vm64y</p>
+<p style="position:absolute;top:247px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:283px;left:77px;white-space:nowrap" class="ft04">EVEX.512.66.0F38.W0&#160;93&#160;/vsib&#160;</p>
+<p style="position:absolute;top:283px;left:287px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:283px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:283px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:283px;left:490px;white-space:nowrap" class="ft04">Using&#160;signed&#160;qword&#160;indices,&#160;gather&#160;single-precision&#160;</p>
+<p style="position:absolute;top:299px;left:490px;white-space:nowrap" class="ft04">floating-point&#160;values&#160;from&#160;memory using k1 as completion&#160;</p>
+<p style="position:absolute;top:316px;left:490px;white-space:nowrap" class="ft04">mask.</p>
+<p style="position:absolute;top:303px;left:77px;white-space:nowrap" class="ft04">VGATHERQPS ymm1 {k1}, vm64z</p>
+<p style="position:absolute;top:339px;left:77px;white-space:nowrap" class="ft04">EVEX.128.66.0F38.W1&#160;93&#160;/vsib&#160;</p>
+<p style="position:absolute;top:339px;left:287px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:339px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:339px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:339px;left:490px;white-space:nowrap" class="ft04">Using signed&#160;qword&#160;indices,&#160;gather&#160;float64&#160;vector&#160;into&#160;</p>
+<p style="position:absolute;top:355px;left:490px;white-space:nowrap" class="ft04">float64&#160;vector xmm1 using k1 as&#160;completion&#160;mask.</p>
+<p style="position:absolute;top:358px;left:77px;white-space:nowrap" class="ft04">VGATHERQPD xmm1&#160;{k1}, vm64x</p>
+<p style="position:absolute;top:358px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:394px;left:77px;white-space:nowrap" class="ft04">EVEX.256.66.0F38.W1&#160;93&#160;/vsib&#160;</p>
+<p style="position:absolute;top:394px;left:287px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:394px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:394px;left:402px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:394px;left:490px;white-space:nowrap" class="ft04">Using signed&#160;qword&#160;indices,&#160;gather&#160;float64&#160;vector&#160;into&#160;</p>
+<p style="position:absolute;top:411px;left:490px;white-space:nowrap" class="ft04">float64 vector ymm1 using k1 as completion mask.</p>
+<p style="position:absolute;top:414px;left:77px;white-space:nowrap" class="ft04">VGATHERQPD ymm1&#160;{k1}, vm64y</p>
+<p style="position:absolute;top:414px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:450px;left:77px;white-space:nowrap" class="ft04">EVEX.512.66.0F38.W1 93&#160;/vsib&#160;</p>
+<p style="position:absolute;top:450px;left:287px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:450px;left:329px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:450px;left:402px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:450px;left:490px;white-space:nowrap" class="ft04">Using&#160;signed&#160;qword indices,&#160;gather&#160;float64 vector into&#160;</p>
+<p style="position:absolute;top:466px;left:490px;white-space:nowrap" class="ft04">float64&#160;vector zmm1&#160;using&#160;k1&#160;as completion&#160;mask.</p>
+<p style="position:absolute;top:469px;left:77px;white-space:nowrap" class="ft04">VGATHERQPD&#160;zmm1&#160;{k1},&#160;vm64z</p>
+<p style="position:absolute;top:555px;left:109px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:555px;left:235px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:555px;left:401px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:555px;left:567px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:555px;left:727px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:587px;left:115px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:587px;left:222px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:579px;left:364px;white-space:nowrap" class="ft04">BaseReg&#160;(R):&#160;VSIB:base,</p>
+<p style="position:absolute;top:595px;left:360px;white-space:nowrap" class="ft04">VectorReg(R): VSIB:index</p>
+<p style="position:absolute;top:587px;left:588px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:587px;left:748px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

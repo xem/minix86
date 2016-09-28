@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1187</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1187-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1187.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;30-7</p>
+<p style="position:absolute;top:47px;left:658px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:132px;left:69px;white-space:nowrap" class="ft03">IF (not in VMX operation) or (CR0.PE = 0) or&#160;(RFLAGS.VM&#160;= 1)&#160;or&#160;(IA32_EFER.LMA&#160;= 1 and&#160;CS.L = 0)</p>
+<p style="position:absolute;top:150px;left:89px;white-space:nowrap" class="ft03">THEN&#160;#UD;</p>
+<p style="position:absolute;top:168px;left:69px;white-space:nowrap" class="ft03">ELSIF in&#160;VMX non-root operation</p>
+<p style="position:absolute;top:186px;left:89px;white-space:nowrap" class="ft03">THEN&#160;VM&#160;exit;</p>
+<p style="position:absolute;top:204px;left:69px;white-space:nowrap" class="ft03">ELSIF&#160;CPL</p>
+<p style="position:absolute;top:202px;left:129px;white-space:nowrap" class="ft04">&gt;</p>
+<p style="position:absolute;top:204px;left:137px;white-space:nowrap" class="ft03">&#160;0</p>
+<p style="position:absolute;top:222px;left:89px;white-space:nowrap" class="ft05">THEN&#160;#GP(0);<br/>ELSE</p>
+<p style="position:absolute;top:258px;left:116px;white-space:nowrap" class="ft03">INVVPID_TYPE&#160;←&#160;value of&#160;register operand;</p>
+<p style="position:absolute;top:276px;left:116px;white-space:nowrap" class="ft05">IF IA32_VMX_EPT_VPID_CAP MSR indicates that&#160;processor&#160;does&#160;not support<br/>INVVPID_TYPE</p>
+<p style="position:absolute;top:312px;left:143px;white-space:nowrap" class="ft05">THEN&#160;VMfail(Invalid&#160;operand to INVEPT/INVVPID);<br/>ELSE</p>
+<p style="position:absolute;top:330px;left:224px;white-space:nowrap" class="ft03">//&#160;INVVPID_TYPE must&#160;be in the range 0–3</p>
+<p style="position:absolute;top:348px;left:170px;white-space:nowrap" class="ft03">INVVPID_DESC&#160;←&#160;value of&#160;memory operand;</p>
+<p style="position:absolute;top:366px;left:170px;white-space:nowrap" class="ft03">IF INVVPID_DESC[63:16]&#160;≠&#160;0</p>
+<p style="position:absolute;top:384px;left:197px;white-space:nowrap" class="ft05">THEN&#160;VMfail(Invalid&#160;operand to INVEPT/INVVPID);<br/>ELSE</p>
+<p style="position:absolute;top:420px;left:224px;white-space:nowrap" class="ft03">CASE INVVPID_TYPE OF</p>
+<p style="position:absolute;top:438px;left:251px;white-space:nowrap" class="ft03">0:</p>
+<p style="position:absolute;top:438px;left:359px;white-space:nowrap" class="ft03">// individual-address&#160;invalidation</p>
+<p style="position:absolute;top:456px;left:278px;white-space:nowrap" class="ft03">VPID&#160;←&#160;INVVPID_DESC[15:0];</p>
+<p style="position:absolute;top:474px;left:278px;white-space:nowrap" class="ft03">IF&#160;VPID = 0</p>
+<p style="position:absolute;top:492px;left:305px;white-space:nowrap" class="ft05">THEN&#160;VMfail(Invalid&#160;operand to INVEPT/INVVPID);<br/>ELSE</p>
+<p style="position:absolute;top:528px;left:332px;white-space:nowrap" class="ft03">GL_ADDR&#160;←&#160;INVVPID_DESC[127:64];</p>
+<p style="position:absolute;top:546px;left:332px;white-space:nowrap" class="ft03">IF&#160;(GL_ADDR is not&#160;in&#160;a canonical form)</p>
+<p style="position:absolute;top:564px;left:359px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:582px;left:386px;white-space:nowrap" class="ft03">VMfail(Invalid&#160;operand&#160;to INVEPT/INVVPID);</p>
+<p style="position:absolute;top:600px;left:359px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:618px;left:386px;white-space:nowrap" class="ft05">Invalidate mappings for GL_ADDR tagged&#160;with VPID;<br/>VMsucceed;</p>
+<p style="position:absolute;top:654px;left:332px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:672px;left:278px;white-space:nowrap" class="ft05">FI;<br/>BREAK;</p>
+<p style="position:absolute;top:708px;left:251px;white-space:nowrap" class="ft03">1:</p>
+<p style="position:absolute;top:708px;left:359px;white-space:nowrap" class="ft03">// single-context invalidation</p>
+<p style="position:absolute;top:726px;left:278px;white-space:nowrap" class="ft03">VPID&#160;←&#160;INVVPID_DESC[15:0];</p>
+<p style="position:absolute;top:744px;left:278px;white-space:nowrap" class="ft03">IF&#160;VPID = 0</p>
+<p style="position:absolute;top:762px;left:305px;white-space:nowrap" class="ft05">THEN&#160;VMfail(Invalid&#160;operand to INVEPT/INVVPID);<br/>ELSE</p>
+<p style="position:absolute;top:798px;left:332px;white-space:nowrap" class="ft05">Invalidate&#160;all&#160;mappings&#160;tagged&#160;with&#160;VPID;<br/>VMsucceed;</p>
+<p style="position:absolute;top:834px;left:278px;white-space:nowrap" class="ft05">FI;<br/>BREAK;</p>
+<p style="position:absolute;top:870px;left:251px;white-space:nowrap" class="ft03">2:</p>
+<p style="position:absolute;top:870px;left:359px;white-space:nowrap" class="ft03">// all-context invalidation</p>
+<p style="position:absolute;top:888px;left:278px;white-space:nowrap" class="ft05">Invalidate&#160;all&#160;mappings&#160;tagged&#160;with&#160;all non-zero&#160;VPIDs;<br/>VMsucceed;<br/>BREAK;</p>
+<p style="position:absolute;top:942px;left:251px;white-space:nowrap" class="ft03">3:</p>
+<p style="position:absolute;top:942px;left:359px;white-space:nowrap" class="ft03">// single-context invalidation retaining globals</p>
+<p style="position:absolute;top:960px;left:278px;white-space:nowrap" class="ft03">VPID&#160;←&#160;INVVPID_DESC[15:0];</p>
+<p style="position:absolute;top:978px;left:278px;white-space:nowrap" class="ft03">IF&#160;VPID = 0</p>
+<p style="position:absolute;top:996px;left:305px;white-space:nowrap" class="ft05">THEN&#160;VMfail(Invalid&#160;operand to INVEPT/INVVPID);<br/>ELSE</p>
+<p style="position:absolute;top:1032px;left:332px;white-space:nowrap" class="ft05">Invalidate&#160;all&#160;mappings&#160;tagged&#160;with&#160;VPID except global translations;<br/>VMsucceed;</p>
+</div>
+</body>
+</html>

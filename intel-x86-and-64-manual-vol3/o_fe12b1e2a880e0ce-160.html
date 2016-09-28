@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 160</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page160-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce160.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-8&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">—&#160;<b>TSS</b>&#160;—&#160;The DPL indicates the&#160;numerically&#160;highest&#160;privilege&#160;level&#160;that the&#160;currently executing&#160;program or&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft02">task&#160;can be&#160;at&#160;and still&#160;be&#160;able&#160;to&#160;access the&#160;TSS.&#160;(This&#160;is the&#160;same access rule&#160;as&#160;for&#160;a data&#160;segment.)</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft07"><b>Requested privilege level (RPL)</b>&#160;—&#160;The RPL&#160;is an&#160;override&#160;privilege&#160;level&#160;that is&#160;assigned to&#160;segment&#160;<br/>selectors. It is stored&#160;in&#160;bits&#160;0&#160;and 1 of the segment&#160;selector. The&#160;processor checks the RPL&#160;along&#160;with the&#160;CPL&#160;<br/>to determine&#160;if access to a segment is allowed. Even if&#160;the program or&#160;task requesting&#160;access&#160;to&#160;a segment has&#160;<br/>sufficient privilege to access&#160;the&#160;segment, access is&#160;denied&#160;if the&#160;RPL is not of&#160;sufficient privilege level. That is,&#160;<br/>if the&#160;RPL of a&#160;segment&#160;selector&#160;is numerically greater&#160;than the&#160;CPL,&#160;the&#160;RPL overrides&#160;the CPL,&#160;and vice&#160;versa.&#160;<br/>The&#160;RPL&#160;can be used to&#160;insure that privileged code does&#160;not&#160;access&#160;a segment on behalf of an&#160;application&#160;<br/>program unless the&#160;program itself has&#160;access&#160;privileges&#160;for&#160;that segment.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-178.html">Section 5.10.4, “Checking Caller&#160;<br/>Access Privileges&#160;(ARPL Instruction),”&#160;for a&#160;</a>detailed&#160;description of the purpose and&#160;typical&#160;use of the RPL.</p>
+<p style="position:absolute;top:279px;left:68px;white-space:nowrap" class="ft07">Privilege levels&#160;are checked&#160;when&#160;the segment selector of&#160;a segment descriptor is&#160;loaded&#160;into&#160;a segment register.&#160;<br/>The&#160;checks used&#160;for data&#160;access&#160;differ from those&#160;used&#160;for&#160;transfers of program&#160;control&#160;among code&#160;segments;&#160;<br/>therefore,&#160;the&#160;two&#160;kinds&#160;of accesses are&#160;considered&#160;separately&#160;in&#160;the following sections.</p>
+<p style="position:absolute;top:367px;left:68px;white-space:nowrap" class="ft05">5.6&#160;</p>
+<p style="position:absolute;top:367px;left:147px;white-space:nowrap" class="ft05">PRIVILEGE LEVEL CHECKING&#160;WHEN ACCESSING DATA SEGMENTS</p>
+<p style="position:absolute;top:403px;left:68px;white-space:nowrap" class="ft07">To&#160;access operands&#160;in a&#160;data&#160;segment,&#160;the&#160;segment&#160;selector&#160;for&#160;the data segment must be loaded&#160;into&#160;the data-<br/>segment&#160;registers (DS,&#160;ES, FS, or&#160;GS)&#160;or into the&#160;stack-segment register&#160;(SS). (Segment registers&#160;can be&#160;loaded&#160;<br/>with&#160;the&#160;MOV,&#160;POP,&#160;LDS,&#160;LES,&#160;LFS,&#160;LGS,&#160;and&#160;LSS instructions.) Before the processor loads a segment selector&#160;into&#160;<br/>a segment register,&#160;it performs a privilege&#160;check&#160;<a href="o_fe12b1e2a880e0ce-160.html">(see Figure&#160;5-4) by comparing the</a>&#160;privilege&#160;levels of the currently&#160;<br/>running&#160;program&#160;or task&#160;(the&#160;CPL), the RPL of the segment selector, and&#160;the DPL of the&#160;segment’s&#160;segment&#160;<br/>descriptor. The processor loads the&#160;segment&#160;selector&#160;into&#160;the segment register if&#160;the DPL&#160;is numerically greater&#160;<br/>than or equal to&#160;both the&#160;CPL&#160;and the&#160;RPL.&#160;Otherwise,&#160;a&#160;general-protection fault is&#160;generated and&#160;the segment&#160;<br/>register is&#160;not loaded.</p>
+<p style="position:absolute;top:842px;left:68px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-161.html">Figure&#160;5-5&#160;shows</a>&#160;four&#160;procedures (located&#160;in&#160;codes&#160;segments&#160;A,&#160;B,&#160;C,&#160;and&#160;D),&#160;each&#160;running&#160;at different privilege&#160;<br/>levels and&#160;each&#160;attempting&#160;to access&#160;the&#160;same&#160;data&#160;segment.&#160;<br/>1.&#160;The&#160;procedure in code&#160;segment A is able to access data segment E using&#160;segment selector&#160;E1, because&#160;the&#160;CPL&#160;</p>
+<p style="position:absolute;top:899px;left:93px;white-space:nowrap" class="ft02">of code segment A and&#160;the RPL&#160;of&#160;segment&#160;selector&#160;E1&#160;are&#160;equal to&#160;the DPL of data segment E.</p>
+<p style="position:absolute;top:923px;left:68px;white-space:nowrap" class="ft02">2.&#160;The&#160;procedure in code&#160;segment B is able to access data segment E using segment selector&#160;E2, because&#160;the&#160;CPL&#160;</p>
+<p style="position:absolute;top:940px;left:93px;white-space:nowrap" class="ft07">of&#160;code segment B and the&#160;RPL of&#160;segment&#160;selector&#160;E2&#160;are both&#160;numerically lower than&#160;(more privileged) than&#160;<br/>the&#160;DPL of&#160;data segment E. A code segment B procedure&#160;can&#160;also access data segment E using&#160;segment&#160;<br/>selector E1.</p>
+<p style="position:absolute;top:997px;left:68px;white-space:nowrap" class="ft02">3.&#160;The&#160;procedure in code&#160;segment C is not able to access&#160;data&#160;segment E using&#160;segment selector&#160;E3 (dotted line),&#160;</p>
+<p style="position:absolute;top:1013px;left:93px;white-space:nowrap" class="ft07">because the CPL of code&#160;segment&#160;C and the&#160;RPL of&#160;segment selector E3 are both&#160;numerically greater&#160;than (less&#160;<br/>privileged)&#160;than&#160;the DPL&#160;of&#160;data segment E. Even&#160;if&#160;a&#160;code&#160;segment C procedure were&#160;to use segment selector&#160;</p>
+<p style="position:absolute;top:796px;left:306px;white-space:nowrap" class="ft06">Figure&#160;5-4.&#160;&#160;Privilege Check for Data&#160;Access</p>
+<p style="position:absolute;top:606px;left:385px;white-space:nowrap" class="ft00">CPL</p>
+<p style="position:absolute;top:678px;left:385px;white-space:nowrap" class="ft00">RPL</p>
+<p style="position:absolute;top:736px;left:359px;white-space:nowrap" class="ft00">DPL</p>
+<p style="position:absolute;top:708px;left:557px;white-space:nowrap" class="ft00">Privilege</p>
+<p style="position:absolute;top:721px;left:563px;white-space:nowrap" class="ft00">Check</p>
+<p style="position:absolute;top:712px;left:290px;white-space:nowrap" class="ft00">Data-Segment Descriptor</p>
+<p style="position:absolute;top:583px;left:326px;white-space:nowrap" class="ft00">CS Register</p>
+<p style="position:absolute;top:642px;left:309px;white-space:nowrap" class="ft00">Segment Selector</p>
+<p style="position:absolute;top:655px;left:308px;white-space:nowrap" class="ft00">For Data&#160;Segment</p>
+</div>
+</body>
+</html>

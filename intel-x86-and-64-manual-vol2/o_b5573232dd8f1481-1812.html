@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1812</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1812-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811812.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:516px;white-space:nowrap" class="ft00">VPSRLVW/VPSRLVD/VPSRLVQ—Variable Bit Shift Right Logical</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-426&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">VPSRLVQ&#160;(VEX.128&#160;version)<br/>COUNT_0&#160;SRC2[63 : 0];<br/>COUNT_1&#160;SRC2[127 :&#160;64];<br/>IF&#160;COUNT_0&#160;&lt; 64&#160;THEN</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft02">DEST[63:0]&#160;ZeroExtend(SRC1[63:0] &gt;&gt; COUNT_0);</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:208px;left:88px;white-space:nowrap" class="ft02">DEST[63:0]&#160;0;</p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft02">IF&#160;COUNT_1&#160;&lt; 64&#160;THEN</p>
+<p style="position:absolute;top:244px;left:88px;white-space:nowrap" class="ft02">DEST[127:64]&#160;ZeroExtend(SRC1[127:64] &gt;&gt;&#160;COUNT_1);</p>
+<p style="position:absolute;top:262px;left:68px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:280px;left:88px;white-space:nowrap" class="ft02">DEST[127:64]&#160;0;</p>
+<p style="position:absolute;top:298px;left:68px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:128]&#160;0;</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft03">VPSRLVQ&#160;(VEX.256&#160;version)<br/>COUNT_0&#160;SRC2[63 : 0];</p>
+<p style="position:absolute;top:370px;left:88px;white-space:nowrap" class="ft02">(* Repeat Each COUNT_i&#160;for the&#160;2nd through&#160;4th dwords&#160;of SRC2*)</p>
+<p style="position:absolute;top:388px;left:68px;white-space:nowrap" class="ft03">COUNT_3&#160;SRC2[255&#160;: 192];<br/>IF&#160;COUNT_0&#160;&lt; 64&#160;THEN<br/>DEST[63:0]&#160;ZeroExtend(SRC1[63:0] &gt;&gt;&#160;COUNT_0);<br/>ELSE<br/>DEST[63:0]&#160;0;</p>
+<p style="position:absolute;top:478px;left:88px;white-space:nowrap" class="ft02">(* Repeat shift operation&#160;for 2nd&#160;through 4th&#160;dwords *)</p>
+<p style="position:absolute;top:496px;left:68px;white-space:nowrap" class="ft02">IF&#160;COUNT_3&#160;&lt; 64&#160;THEN</p>
+<p style="position:absolute;top:514px;left:88px;white-space:nowrap" class="ft02">DEST[255:192]&#160;ZeroExtend(SRC1[255:192] &gt;&gt;&#160;COUNT_3);</p>
+<p style="position:absolute;top:532px;left:68px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:550px;left:88px;white-space:nowrap" class="ft02">DEST[255:192]&#160;0;</p>
+<p style="position:absolute;top:568px;left:68px;white-space:nowrap" class="ft02">DEST[MAX_VL-1:256]&#160;0;</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft03">VPSRLVQ (EVEX encoded&#160;version)&#160;<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:658px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:694px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:712px;left:169px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;ZeroExtend(SRC1[i+63:i] &gt;&gt;&#160;SRC2[63:0])<br/>ELSE DEST[i+63:i]&#160;&#160;ZeroExtend(SRC1[i+63:i]&#160;&gt;&gt; SRC2[i+63:i])</p>
+<p style="position:absolute;top:748px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:766px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:784px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:784px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:802px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:820px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:838px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:856px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:874px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:892px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0;</p>
+<p style="position:absolute;top:944px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft03">VPSRLVW __m512i _mm512_srlv_epi16(__m512i&#160;a, __m512i cnt);<br/>VPSRLVW __m512i _mm512_mask_srlv_epi16(__m512i&#160;s, __mmask32&#160;k, __m512i a,&#160;__m512i&#160;cnt);<br/>VPSRLVW __m512i _mm512_maskz_srlv_epi16( __mmask32 k, __m512i&#160;a, __m512i cnt);<br/>VPSRLVW __m256i _mm256_mask_srlv_epi16(__m256i&#160;s, __mmask16&#160;k, __m256i a,&#160;__m256i&#160;cnt);<br/>VPSRLVW __m256i _mm256_maskz_srlv_epi16( __mmask16 k, __m256i&#160;a, __m256i cnt);<br/>VPSRLVW __m128i _mm_mask_srlv_epi16(__m128i&#160;s, __mmask8 k, __m128i&#160;a,&#160;__m128i cnt);</p>
+</div>
+</body>
+</html>

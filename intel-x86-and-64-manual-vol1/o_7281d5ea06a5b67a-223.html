@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 223</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page223-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a223.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;8-33</p>
+<p style="position:absolute;top:47px;left:634px;white-space:nowrap" class="ft01">PROGRAMMING&#160;WITH&#160;THE X87&#160;FPU</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft03">The&#160;next WAIT/FWAIT&#160;instruction.</p>
+<p style="position:absolute;top:122px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:123px;left:95px;white-space:nowrap" class="ft03">The&#160;next MMX&#160;instruction.</p>
+<p style="position:absolute;top:147px;left:69px;white-space:nowrap" class="ft06">If the next&#160;floating-point instruction in the&#160;instruction&#160;stream&#160;is a&#160;non-waiting instruction,&#160;the x87&#160;FPU executes the&#160;<br/>instruction&#160;without invoking the&#160;software exception&#160;handler.</p>
+<p style="position:absolute;top:214px;left:69px;white-space:nowrap" class="ft04">8.7.2&#160;</p>
+<p style="position:absolute;top:214px;left:149px;white-space:nowrap" class="ft04">MS-DOS* Compatibility Sub-mode</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft07">If CR0.NE[bit&#160;5]&#160;is&#160;0,&#160;the MS-DOS compatibility mode&#160;for&#160;handling&#160;floating-point exceptions is&#160;selected. In&#160;this&#160;<br/>mode, the&#160;software&#160;exception handler for floating-point&#160;exceptions is&#160;invoked&#160;externally&#160;using the&#160;processor’s&#160;<br/>FERR#, INTR,&#160;and&#160;IGNNE#&#160;pins.&#160;This method&#160;of reporting floating-point errors and invoking&#160;an&#160;exception handler&#160;<br/>is provided&#160;to support&#160;the floating-point exception handling mechanism used in PC&#160;systems&#160;that are&#160;running the&#160;<br/>MS-DOS or&#160;Windows* 95 operating&#160;system.<br/>Using&#160;FERR#&#160;and IGNNE#&#160;to&#160;handle floating-point&#160;exception is&#160;deprecated by&#160;modern&#160;operating systems, this&#160;<br/>approach also&#160;limits newer&#160;processors to&#160;operate with&#160;one&#160;logical&#160;processor&#160;active.<br/>The MS-DOS compatibility mode&#160;is typically used&#160;as&#160;follows to&#160;invoke&#160;the&#160;floating-point exception&#160;handler:<br/>1.&#160;If the x87 FPU detects an unmasked floating-point exception, it sets the flag for the exception and the ES flag&#160;</p>
+<p style="position:absolute;top:415px;left:95px;white-space:nowrap" class="ft03">in the&#160;x87&#160;FPU status&#160;word.</p>
+<p style="position:absolute;top:439px;left:69px;white-space:nowrap" class="ft03">2.&#160;If&#160;the IGNNE# pin is&#160;deasserted, the&#160;x87 FPU&#160;then&#160;asserts the&#160;FERR#&#160;pin either immediately,&#160;or else&#160;delayed&#160;</p>
+<p style="position:absolute;top:456px;left:94px;white-space:nowrap" class="ft06">(deferred) until just before the&#160;execution of&#160;the next&#160;waiting&#160;floating-point instruction or&#160;MMX instruction.&#160;<br/>Whether the&#160;FERR# pin&#160;is asserted&#160;immediately or&#160;delayed&#160;depends on&#160;the type of processor,&#160;the instruction,&#160;<br/>and&#160;the type of exception.</p>
+<p style="position:absolute;top:513px;left:69px;white-space:nowrap" class="ft03">3.&#160;If a&#160;preceding&#160;floating-point instruction has&#160;set the exception flag&#160;for an unmasked x87&#160;FPU exception, the&#160;</p>
+<p style="position:absolute;top:529px;left:94px;white-space:nowrap" class="ft06">processor&#160;freezes just before executing the&#160;<b>next</b>&#160;WAIT instruction,&#160;waiting floating-point instruction,&#160;or&#160;MMX&#160;<br/>instruction.&#160;Whether the&#160;FERR# pin was asserted&#160;at the preceding floating-point instruction or is&#160;just&#160;now being&#160;<br/>asserted,&#160;the freezing&#160;of&#160;the processor assures that the&#160;x87&#160;FPU exception&#160;handler will be&#160;invoked before the&#160;<br/>new&#160;floating-point (or&#160;MMX)&#160;instruction gets executed.</p>
+<p style="position:absolute;top:603px;left:69px;white-space:nowrap" class="ft03">4.&#160;The FERR# pin&#160;is connected through external&#160;hardware&#160;to IRQ13 of a&#160;cascaded,&#160;programmable&#160;interrupt&#160;</p>
+<p style="position:absolute;top:619px;left:94px;white-space:nowrap" class="ft03">controller (PIC). When&#160;the FERR# pin&#160;is asserted, the PIC&#160;is programmed&#160;to generate&#160;an interrupt&#160;75H.</p>
+<p style="position:absolute;top:643px;left:69px;white-space:nowrap" class="ft07">5.&#160;The&#160;PIC asserts the&#160;INTR&#160;pin on&#160;the&#160;processor to&#160;signal the&#160;interrupt&#160;75H.<br/>6.&#160;The&#160;BIOS for the&#160;PC&#160;system&#160;handles the&#160;interrupt 75H&#160;by branching to&#160;the interrupt&#160;02H (NMI) interrupt&#160;</p>
+<p style="position:absolute;top:684px;left:94px;white-space:nowrap" class="ft03">handler.</p>
+<p style="position:absolute;top:708px;left:69px;white-space:nowrap" class="ft03">7.&#160;The&#160;interrupt&#160;02H handler&#160;determines&#160;if the&#160;interrupt&#160;is&#160;the result&#160;of an&#160;NMI interrupt&#160;or a&#160;floating-point&#160;</p>
+<p style="position:absolute;top:724px;left:94px;white-space:nowrap" class="ft03">exception.</p>
+<p style="position:absolute;top:748px;left:69px;white-space:nowrap" class="ft03">8.&#160;If a&#160;floating-point exception&#160;is detected,&#160;the interrupt&#160;02H&#160;handler branches to&#160;the floating-point&#160;exception&#160;</p>
+<p style="position:absolute;top:765px;left:94px;white-space:nowrap" class="ft03">handler.</p>
+<p style="position:absolute;top:789px;left:69px;white-space:nowrap" class="ft06">If the&#160;IGNNE#&#160;pin is&#160;asserted,&#160;the processor ignores floating-point&#160;error conditions. This&#160;pin is&#160;provided to&#160;inhibit&#160;<br/>floating-point exceptions from&#160;being generated while the floating-point exception handler is servicing a previously&#160;<br/>signaled floating-point&#160;exception.<br/><a href="o_7281d5ea06a5b67a-423.html">Appendix D,&#160;“Guidelines for Writing&#160;x87&#160;FPU Exception&#160;Handlers,”&#160;describe</a>s&#160;the&#160;MS-DOS compatibility mode&#160;in&#160;<br/>much&#160;greater detail.&#160;This mode is&#160;somewhat more&#160;complicated in the&#160;Intel486&#160;and Pentium processor implemen-<br/>tations,&#160;<a href="o_7281d5ea06a5b67a-423.html">as described in&#160;Appendix D.</a></p>
+<p style="position:absolute;top:929px;left:69px;white-space:nowrap" class="ft04">8.7.3&#160;</p>
+<p style="position:absolute;top:929px;left:149px;white-space:nowrap" class="ft04">Handling x87 FPU Exceptions in Software</p>
+<p style="position:absolute;top:960px;left:69px;white-space:nowrap" class="ft06"><a href="o_7281d5ea06a5b67a-107.html">Section&#160;4.9.3, “Typical Actions&#160;of a&#160;Floating-Point&#160;Exception Handler,” shows</a>&#160;actions that&#160;may be carried&#160;out&#160;by a&#160;<br/>floating-point&#160;exception handler.&#160;The state&#160;of&#160;the&#160;x87 FPU&#160;can be saved with the&#160;FSTENV/FNSTENV&#160;or&#160;<br/>FSAVE/FNSAVE instructions (see<a href="o_7281d5ea06a5b67a-201.html">&#160;Section 8.1.10,&#160;“Saving the&#160;x87 FPU’s State&#160;with FSTENV/FNSTENV&#160;and&#160;<br/>FSAVE/FNSAVE”).&#160;</a></p>
+</div>
+</body>
+</html>

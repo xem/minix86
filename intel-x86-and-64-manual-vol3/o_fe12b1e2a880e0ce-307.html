@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 307</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page307-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce307.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-51</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">8.10.6.4 &#160;&#160;Potential Usage&#160;of&#160;MONITOR/MWAIT&#160;in C1 Idle Loops</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft05">An&#160;operating system may also consider replacing&#160;HLT&#160;with MONITOR/MWAIT in&#160;its C1&#160;idle&#160;loop. An example&#160;is&#160;<br/>shown&#160;<a href="o_fe12b1e2a880e0ce-307.html">in Example 8-26</a>:&#160;</p>
+<p style="position:absolute;top:185px;left:69px;white-space:nowrap" class="ft01">Example 8-26. &#160;An OS&#160;Idle Loop&#160;with MONITOR/MWAIT&#160;in the C1&#160;Idle&#160;Loop</p>
+<p style="position:absolute;top:209px;left:69px;white-space:nowrap" class="ft06">// WorkQueue is&#160;a memory&#160;location&#160;indicating&#160;there is&#160;a thread&#160;<br/>// ready to run.&#160; A non-zero value&#160;for WorkQueue&#160;is assumed to<br/>// indicate&#160;the presence&#160;of work to&#160;be&#160;scheduled on&#160;the processor.<br/>// The following&#160;example assumes that&#160;the necessary padding&#160;has been&#160;<br/>// added surrounding WorkQueue to&#160;eliminate&#160;false wakeups<br/>// The idle&#160;loop is entered with interrupts disabled.</p>
+<p style="position:absolute;top:335px;left:69px;white-space:nowrap" class="ft03">WHILE&#160;(1)&#160;{</p>
+<p style="position:absolute;top:353px;left:89px;white-space:nowrap" class="ft03">IF&#160;(WorkQueue) THEN&#160;{</p>
+<p style="position:absolute;top:371px;left:116px;white-space:nowrap" class="ft06">//&#160;Schedule work at&#160;WorkQueue<br/>}&#160;</p>
+<p style="position:absolute;top:407px;left:89px;white-space:nowrap" class="ft03">ELSE {</p>
+<p style="position:absolute;top:425px;left:116px;white-space:nowrap" class="ft06">// No&#160;work to&#160;do - wait&#160;in&#160;appropriate C-state handler depending&#160;<br/>//&#160;on Idle time&#160;accumulated<br/>IF (IdleTime &gt;= IdleTimeThreshhold) THEN&#160;{<br/>// Call appropriate&#160;C1, C2, C3 state handler, C1&#160;<br/>//&#160;handler&#160;shown&#160;below<br/>}</p>
+<p style="position:absolute;top:533px;left:89px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:551px;left:69px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:587px;left:69px;white-space:nowrap" class="ft03">VOID C1Handler()&#160;</p>
+<p style="position:absolute;top:623px;left:69px;white-space:nowrap" class="ft03">{&#160;MONITOR&#160;WorkQueue&#160;&#160;//&#160;Setup&#160;of&#160;eax with&#160;WorkQueue&#160;LinearAddress,&#160;</p>
+<p style="position:absolute;top:641px;left:224px;white-space:nowrap" class="ft03">//&#160;ECX,&#160;EDX&#160;= 0</p>
+<p style="position:absolute;top:659px;left:89px;white-space:nowrap" class="ft03">IF&#160;(WorkQueue&#160;≠&#160;0) THEN {</p>
+<p style="position:absolute;top:677px;left:116px;white-space:nowrap" class="ft06">STI<br/>MWAIT</p>
+<p style="position:absolute;top:695px;left:197px;white-space:nowrap" class="ft03">// EAX, ECX = 0</p>
+<p style="position:absolute;top:713px;left:116px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:731px;left:69px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:775px;left:69px;white-space:nowrap" class="ft02">8.10.6.5 &#160;&#160;Guidelines for&#160;Scheduling&#160;Threads on&#160;Logical Processors&#160;Sharing&#160;Execution Resources</p>
+<p style="position:absolute;top:804px;left:69px;white-space:nowrap" class="ft05">Because the&#160;logical&#160;processors,&#160;the&#160;order in which threads&#160;are&#160;dispatched&#160;to&#160;logical&#160;processors&#160;for&#160;execution can&#160;<br/>affect the&#160;overall&#160;efficiency of a&#160;system.&#160;The following&#160;guidelines are&#160;recommended for scheduling threads for&#160;<br/>execution.</p>
+<p style="position:absolute;top:859px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:859px;left:95px;white-space:nowrap" class="ft05">Dispatch threads to&#160;one&#160;logical processor per processor core&#160;before&#160;dispatching threads&#160;to the&#160;other logical&#160;<br/>processor sharing&#160;execution resources&#160;in the&#160;same processor core.&#160;</p>
+<p style="position:absolute;top:898px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:898px;left:95px;white-space:nowrap" class="ft05">In&#160;an MP system&#160;with&#160;two&#160;or&#160;more physical packages,&#160;distribute threads out over all&#160;the physical processors,&#160;<br/>rather than concentrate them in&#160;one or&#160;two&#160;physical&#160;processors.</p>
+<p style="position:absolute;top:937px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:937px;left:95px;white-space:nowrap" class="ft05">Use processor affinity&#160;to assign&#160;a&#160;thread to&#160;a specific processor core&#160;or package,&#160;depending&#160;on the&#160;cache-<br/>sharing topology. The practice&#160;increases&#160;the chance&#160;that&#160;the&#160;processor’s&#160;caches will contain&#160;some&#160;of the&#160;<br/>thread’s&#160;code&#160;and data when it&#160;is dispatched&#160;for execution&#160;after being suspended.&#160;</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">12.&#160;Excessive&#160;transitions into&#160;and&#160;out&#160;of&#160;the HALT&#160;state could&#160;also&#160;incur performance&#160;penalties.&#160;Operating&#160;systems should evaluate the&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">performance trade-offs&#160;for&#160;their&#160;operating&#160;system.</p>
+</div>
+</body>
+</html>

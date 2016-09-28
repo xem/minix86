@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 390</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page390-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a390.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-2&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® MEMORY&#160;PROTECTION&#160;EXTENSIONS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">pointer to prevent out of bound memory access (thus preventing&#160;buffer overflow).The&#160;bounds&#160;registers&#160;hold lower&#160;<br/>bound and upper bound that can be checked when&#160;referencing memory. An&#160;out-of-bounds memory reference then&#160;<br/>causes a&#160;#BR exception. Intel MPX&#160;also introduces&#160;configuration&#160;facilities that&#160;the OS must manage&#160;to support&#160;<br/>enabling of user-mode (and/or supervisor-mode)&#160;software&#160;operations&#160;using&#160;bounds&#160;registers.</p>
+<p style="position:absolute;top:200px;left:68px;white-space:nowrap" class="ft03">17.3.1&#160;</p>
+<p style="position:absolute;top:200px;left:148px;white-space:nowrap" class="ft03">Detection and Enumeration of&#160;Intel MPX Interfaces</p>
+<p style="position:absolute;top:229px;left:68px;white-space:nowrap" class="ft07">Detection&#160;of&#160;hardware support for processor extended&#160;state&#160;component is&#160;provided by&#160;the&#160;main CPUID&#160;leaf func-<br/>tion&#160;0DH with index&#160;ECX = 0. Specifically,&#160;the&#160;return value&#160;in EDX:EAX of&#160;CPUID.(EAX=0DH,&#160;ECX=0) provides a&#160;<br/>64-bit&#160;wide bit vector&#160;of&#160;hardware support&#160;of processor state&#160;components.&#160;<br/>If CPUID.(EAX=07H,ECX=0H):EBX.MPX[bit 14] = 1&#160;(the&#160;processor supports Intel&#160;MPX),&#160;<br/>CPUID.(EAX=0DH,ECX=0):EAX[bits&#160;4:3]&#160;will&#160;enumerate&#160;the XSAVE state components&#160;associated with Intel&#160;MPX.&#160;<br/>These two&#160;component states of Intel&#160;MPX&#160;are the&#160;following:</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:340px;left:93px;white-space:nowrap" class="ft07">BNDREGS:&#160;CPUID.(EAX=0DH,ECX=0):EAX[3] indicates&#160;XCR0.BNDREGS[bit 3]&#160;is supported. This bit indicates&#160;<br/>bound&#160;register component&#160;of&#160;Intel MPX state,&#160;comprised of four bounds&#160;registers,&#160;BND0<a href="o_7281d5ea06a5b67a-390.html">-BND3 (see Section&#160;<br/>17.3.2).</a></p>
+<p style="position:absolute;top:395px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:396px;left:93px;white-space:nowrap" class="ft07">BNDCSR: CPUID.(EAX=0DH,ECX=0):EAX[4]&#160;indicates XCR0.BNDCSR[bit 4]&#160;is&#160;supported.&#160;This bit indicates&#160;<br/>bounds configuration&#160;and&#160;status&#160;component&#160;of&#160;Intel&#160;MPX comprised of&#160;BNDCFGU&#160;and BNDSTATUS. OS must&#160;<br/>enable both BNDCSR&#160;and BNDREGS&#160;bits in&#160;XCR0&#160;to&#160;ensure full Intel MPX&#160;support&#160;to applications.</p>
+<p style="position:absolute;top:451px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:451px;left:93px;white-space:nowrap" class="ft07">The&#160;size&#160;of&#160;the processor state&#160;component,&#160;enabled by XCR0.BNDREGS,&#160;is enumerated&#160;by&#160;<br/>CPUID.(EAX=0DH,ECX=03H).EAX[31:0] and&#160;the byte offset of this component relative&#160;to the beginning of the&#160;<br/>XSAVE/XRSTOR area is&#160;reported by&#160;CPUID.(EAX=0DH, ECX=03H).EBX[31:0].&#160;</p>
+<p style="position:absolute;top:506px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:507px;left:93px;white-space:nowrap" class="ft07">The&#160;size&#160;of&#160;the processor state&#160;component,&#160;enabled&#160;by&#160;XCR0.BNDCSR,&#160;is&#160;enumerated&#160;by&#160;<br/>CPUID.(EAX=0DH,ECX=04H).EAX[31:0] and&#160;the byte offset of this component relative&#160;to the beginning of the&#160;<br/>XSAVE/XRSTOR area is&#160;reported by&#160;CPUID.(EAX=0DH, ECX=04H).EBX[31:0].&#160;</p>
+<p style="position:absolute;top:564px;left:68px;white-space:nowrap" class="ft07">On processors that support Intel&#160;MPX, CPUID.(EAX=0DH,ECX=0):EAX[3]&#160;and&#160;CPUID.(EAX=0DH,ECX=0):EAX[4]&#160;<br/>will&#160;both&#160;be&#160;1.&#160;On processors&#160;that do&#160;not support Intel&#160;MPX, CPUID.(EAX=0DH,ECX=0):EAX[3] and&#160;<br/>CPUID.(EAX=0DH,ECX=0):EAX[4] will both&#160;be&#160;0.&#160;<br/>The layout of XCR0&#160;for extended&#160;processor&#160;state components&#160;defined&#160;in&#160;Intel&#160;Architecture is shown in Figure&#160;2-8 of&#160;<br/><a href="��"><i>Intel® 64&#160;and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual, Volume&#160;3A</i>.<br/></a>Enabling Intel MPX&#160;requires&#160;an OS to manage&#160;bits&#160;[4:3] of XCR0; se<a href="o_7281d5ea06a5b67a-314.html">e Section 13.5.<br/></a>The BNDLDX and BNDSTX<a href="o_7281d5ea06a5b67a-394.html">&#160;instructions (Section 17.4.3) e</a>ach&#160;take&#160;an operand&#160;whose bits are used&#160;to&#160;traverse data&#160;<br/>structures in&#160;memory. In 64-bit&#160;mode, these&#160;instructions&#160;operate&#160;only&#160;on&#160;the lower bits in&#160;the supplied&#160;64-bit&#160;<br/>addresses.&#160;The number of bits&#160;used&#160;is 48 plus a value called&#160;the&#160;<b>MPX address-width adjust</b>&#160;(<b>MAWA</b>). The MAWA&#160;<br/>value&#160;depends on CPL:</p>
+<p style="position:absolute;top:757px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:757px;left:93px;white-space:nowrap" class="ft02">If&#160;CPL&#160;&lt;&#160;3,&#160;the&#160;supervisor&#160;MAWA&#160;(<b>MAWAS</b>) is&#160;used. This&#160;value is&#160;0.</p>
+<p style="position:absolute;top:779px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:780px;left:93px;white-space:nowrap" class="ft07">If CPL&#160;=&#160;3,&#160;the user&#160;MAWA&#160;(<b>MAWAU</b>) is&#160;used. The&#160;value&#160;of MAWAU&#160;is enumerated&#160;in&#160;<br/>CPUID.(EAX=07H,ECX=0H):ECX.MAWAU[bits 21:17].</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft02">(Outside of 64-bit&#160;mode,&#160;BNDLDX&#160;and BNDSTX&#160;use&#160;the entire 32 bits of the&#160;supplied&#160;linear-address operands.)</p>
+<p style="position:absolute;top:871px;left:68px;white-space:nowrap" class="ft03">17.3.2 Bounds&#160;</p>
+<p style="position:absolute;top:871px;left:213px;white-space:nowrap" class="ft03">Registers</p>
+<p style="position:absolute;top:900px;left:68px;white-space:nowrap" class="ft07">Intel&#160;MPX Architecture defines four new registers, BND0-BND3,&#160;which&#160;Intel MPX instructions operate&#160;on. Each&#160;<br/>bounds register&#160;stores&#160;a pair&#160;of 64-bit&#160;values which are the lower&#160;bound (LB) and upper&#160;bound&#160;(UB) of a buffer,&#160;see&#160;<br/><a href="o_7281d5ea06a5b67a-391.html">Figure&#160;17-1.</a></p>
+</div>
+</body>
+</html>

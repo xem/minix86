@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1562</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1562-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811562.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:217px;white-space:nowrap" class="ft00">VFMSUB132SD/VFMSUB213SD/VFMSUB231SD—Fused Multiply-Subtract of&#160;Scalar Double-Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-176&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">rounding and stores&#160;the resulting packed&#160;double-precision&#160;floating-point&#160;value to&#160;the&#160;destination operand (first&#160;<br/>source operand).<br/>VEX.128 and&#160;EVEX&#160;encoded version: The&#160;destination&#160;operand&#160;(also&#160;first source&#160;operand) is&#160;encoded in reg_field.&#160;<br/>The second source&#160;operand is&#160;encoded in&#160;VEX.vvvv/EVEX.vvvv. The&#160;third&#160;source&#160;operand&#160;is encoded&#160;in rm_field.&#160;<br/>Bits 127:64&#160;of the&#160;destination are&#160;unchanged.&#160;Bits&#160;MAXVL-1:128 of&#160;the destination&#160;register are zeroed.<br/>EVEX encoded&#160;version:&#160;The low quadword element&#160;of the&#160;destination is&#160;updated according to the&#160;writemask.<br/>Compiler tools&#160;may optionally&#160;support&#160;a complementary mnemonic for each&#160;instruction mnemonic&#160;listed in the&#160;<br/>opcode/instruction column&#160;of&#160;the&#160;summary table.&#160;The&#160;behavior of&#160;the&#160;complementary mnemonic in situations&#160;<br/>involving NANs are governed&#160;by&#160;the&#160;definition&#160;of&#160;the instruction mnemonic defined in&#160;the opcode/instruction&#160;<br/>column.</p>
+<p style="position:absolute;top:301px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:324px;left:68px;white-space:nowrap" class="ft02">In the operations&#160;below,&#160;“*” and&#160;“-” symbols represent multiplication&#160;and subtraction with infinite&#160;precision&#160;inputs and outputs (no&#160;</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft02">rounding).</p>
+<p style="position:absolute;top:376px;left:68px;white-space:nowrap" class="ft05">VFMSUB132SD&#160;DEST, SRC2,&#160;SRC3&#160;(EVEX encoded&#160;version)<br/>IF (EVEX.b&#160;= 1)&#160;and SRC3&#160;*is a register*</p>
+<p style="position:absolute;top:412px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:430px;left:115px;white-space:nowrap" class="ft02">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:448px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:466px;left:115px;white-space:nowrap" class="ft02">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:484px;left:68px;white-space:nowrap" class="ft05">FI;<br/>IF k1[0] or *no writemask*</p>
+<p style="position:absolute;top:520px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:520px;left:142px;white-space:nowrap" class="ft02">DEST[63:0]&#160;&#160;RoundFPControl(DEST[63:0]*SRC3[63:0]&#160;- SRC2[63:0])</p>
+<p style="position:absolute;top:538px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:556px;left:115px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:556px;left:331px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:574px;left:142px;white-space:nowrap" class="ft05">THEN *DEST[63:0] remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:592px;left:337px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:610px;left:169px;white-space:nowrap" class="ft02">THEN DEST[63:0]&#160;&#160;0</p>
+<p style="position:absolute;top:628px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:646px;left:68px;white-space:nowrap" class="ft05">FI;<br/>DEST[127:64]&#160;&#160;DEST[127:64]<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft05">VFMSUB213SD&#160;DEST, SRC2,&#160;SRC3&#160;(EVEX encoded&#160;version)<br/>IF (EVEX.b&#160;= 1)&#160;and SRC3&#160;*is a register*</p>
+<p style="position:absolute;top:754px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:772px;left:115px;white-space:nowrap" class="ft02">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:790px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:808px;left:115px;white-space:nowrap" class="ft02">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:826px;left:68px;white-space:nowrap" class="ft05">FI;<br/>IF k1[0] or *no writemask*</p>
+<p style="position:absolute;top:862px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:862px;left:142px;white-space:nowrap" class="ft02">DEST[63:0]&#160;&#160;RoundFPControl(SRC2[63:0]*DEST[63:0]&#160;- SRC3[63:0])</p>
+<p style="position:absolute;top:880px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:898px;left:115px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:898px;left:331px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:916px;left:142px;white-space:nowrap" class="ft05">THEN *DEST[63:0] remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:934px;left:337px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:952px;left:169px;white-space:nowrap" class="ft02">THEN DEST[63:0]&#160;&#160;0</p>
+<p style="position:absolute;top:970px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:988px;left:68px;white-space:nowrap" class="ft05">FI;<br/>DEST[127:64]&#160;&#160;DEST[127:64]<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+</div>
+</body>
+</html>

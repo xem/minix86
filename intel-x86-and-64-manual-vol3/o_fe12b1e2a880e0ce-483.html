@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 483</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page483-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce483.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;14-17</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">POWER AND THERMAL MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07">cycles when the package is in&#160;C2 state and at least&#160;one processor core in&#160;this package was forced&#160;into&#160;idle state&#160;<br/>due&#160;to HDC. If CPUID.06H:EAX[bit 13]&#160;=&#160;0, attempt to access this MSR&#160;may&#160;cause&#160;a #GP fault. Default = zero&#160;<br/>(0).&#160;</p>
+<p style="position:absolute;top:157px;left:69px;white-space:nowrap" class="ft07">A&#160;value of zero in&#160;MSR_PKG_HDC_SHALLOW_RESIDENCY indicates either HDC is&#160;not&#160;supported or&#160;this&#160;processor&#160;<br/>package&#160;never serviced any&#160;forced HDC idle.&#160;</p>
+<p style="position:absolute;top:210px;left:69px;white-space:nowrap" class="ft03">MSR_PKG_HDC_DEEP_RESIDENCY</p>
+<p style="position:absolute;top:237px;left:69px;white-space:nowrap" class="ft07">The counter MSR_PKG_HDC_DEEP_RESIDENCY allows software&#160;to track HDC residency time when&#160;the package is&#160;<br/>in a software-specified package Cx&#160;state,&#160;all processor&#160;cores in the package are&#160;not active&#160;and at least one&#160;logical&#160;<br/>processor&#160;was forced into idle state due&#160;to&#160;HDC. Selection of&#160;a specific package&#160;Cx&#160;state&#160;can be&#160;configured&#160;using&#160;<br/>MSR_PKG_HDC_CONFIG.&#160;The layout of the&#160;MSR_PKG_HDC_DEEP_RESIDENCY&#160;is&#160;shown in&#160;<a href="o_fe12b1e2a880e0ce-483.html">Figure&#160;14-17.</a>&#160;There&#160;is&#160;<br/>one MSR_PKG_HDC_DEEP_RESIDENCY&#160;per&#160;package.&#160;The bit fields&#160;are&#160;described&#160;below:&#160;</p>
+<p style="position:absolute;top:482px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:482px;left:95px;white-space:nowrap" class="ft07"><b>Pkg_Cx_Duty_Cycle_Cnt&#160;(bits&#160;63:0, R/O)</b>&#160;—&#160;Stores&#160;accumulated HDC forced-idle&#160;cycle count of this&#160;<br/>processor&#160;core since&#160;last&#160;RESET.&#160;This counter increments&#160;at&#160;the&#160;same&#160;rate of the&#160;TSC. The count is&#160;updated&#160;<br/>only&#160;after package&#160;C-state exit&#160;from&#160;a forced idle&#160;state. At&#160;each update, the increment&#160;counts cycles&#160;when&#160;the&#160;<br/>package is in&#160;the software-configured Cx state and at least one processor&#160;core&#160;in this package&#160;was&#160;forced into&#160;<br/>idle&#160;state due to HDC.&#160;If&#160;CPUID.06H:EAX[bit&#160;13]&#160;=&#160;0, attempt to access this&#160;MSR&#160;may&#160;cause a&#160;#GP fault.&#160;<br/>Default = zero (0).&#160;</p>
+<p style="position:absolute;top:589px;left:69px;white-space:nowrap" class="ft07">A&#160;value of zero in&#160;MSR_PKG_HDC_SHALLOW_RESIDENCY indicates either HDC is&#160;not&#160;supported or&#160;this&#160;processor&#160;<br/>package&#160;never serviced any&#160;forced HDC idle.&#160;</p>
+<p style="position:absolute;top:642px;left:69px;white-space:nowrap" class="ft03">MSR_PKG_HDC_CONFIG</p>
+<p style="position:absolute;top:668px;left:69px;white-space:nowrap" class="ft07">MSR_PKG_HDC_CONFIG allows&#160;software to configure&#160;the package&#160;Cx state&#160;that the&#160;counter&#160;<br/>MSR_PKG_HDC_DEEP_RESIDENCY monitors. The&#160;layout of the MSR_PKG_HDC_CONFIG&#160;<a href="o_fe12b1e2a880e0ce-483.html">is shown in Figure&#160;14-18.</a>&#160;<br/>There is&#160;one MSR_PKG_HDC_CONFIG per package.&#160;The&#160;bit fields are described below:&#160;</p>
+<p style="position:absolute;top:901px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:902px;left:95px;white-space:nowrap" class="ft07"><b>Pkg_Cx_Monitor (bits 2:0, R/W)</b>&#160;—&#160;Selects which package&#160;C-state&#160;the&#160;MSR_HDC_DEEP_RESIDENCY&#160;<br/>counter will monitor.&#160;The encoding of the HDC_Cx_Monitor field are:&#160;<b>0</b>: no-counting;&#160;<b>1</b>:&#160;count package C2 only,&#160;<br/><b>2</b>: count package&#160;C3&#160;and deeper;&#160;<b>3</b>: count package C6&#160;and deeper;&#160;<b>4</b>: count package C7&#160;and deeper; other&#160;<br/>encodings are&#160;reserved.&#160;If&#160;CPUID.06H:EAX[bit 13] = 0,&#160;attempt to&#160;access&#160;this MSR&#160;may&#160;cause a&#160;#GP&#160;fault.&#160;<br/>Default = zero (0).&#160;</p>
+<p style="position:absolute;top:990px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:990px;left:95px;white-space:nowrap" class="ft02">Bits 63:3&#160;are reserved and must be zero.</p>
+<p style="position:absolute;top:429px;left:274px;white-space:nowrap" class="ft03">Figure&#160;14-17.&#160; MSR_PKG_HDC_DEEP_RESIDENCY&#160;MSR</p>
+<p style="position:absolute;top:848px;left:308px;white-space:nowrap" class="ft03">Figure&#160;14-18. &#160;MSR_PKG_HDC_CONFIG&#160;MSR</p>
+<p style="position:absolute;top:352px;left:268px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:352px;left:667px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:373px;left:367px;white-space:nowrap" class="ft00">Pkg_Cx_duty_cycle_cnt</p>
+<p style="position:absolute;top:755px;left:275px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:755px;left:674px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:776px;left:445px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:754px;left:651px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:809px;left:363px;white-space:nowrap" class="ft00">HDC_Cx_Monitor</p>
+<p style="position:absolute;top:820px;left:256px;white-space:nowrap" class="ft00">Reserved</p>
+</div>
+</body>
+</html>

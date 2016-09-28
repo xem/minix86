@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 145</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page145-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a145.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:782px;white-space:nowrap" class="ft00">Vol. 1&#160;6-1</p>
+<p style="position:absolute;top:96px;left:714px;white-space:nowrap" class="ft01">CHAPTER 6</p>
+<p style="position:absolute;top:120px;left:282px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft06">This chapter describes the&#160;facilities&#160;in&#160;the&#160;Intel&#160;64&#160;and IA-32&#160;architectures&#160;for executing calls&#160;to procedures or&#160;<br/>subroutines. It&#160;also describes&#160;how&#160;interrupts&#160;and exceptions&#160;are handled&#160;from the&#160;perspective of an&#160;application&#160;<br/>programmer.</p>
+<p style="position:absolute;top:279px;left:68px;white-space:nowrap" class="ft03">6.1 PROCEDURE&#160;</p>
+<p style="position:absolute;top:279px;left:267px;white-space:nowrap" class="ft03">CALL&#160;</p>
+<p style="position:absolute;top:279px;left:319px;white-space:nowrap" class="ft03">TYPES</p>
+<p style="position:absolute;top:315px;left:68px;white-space:nowrap" class="ft02">The&#160;processor supports&#160;procedure calls in the&#160;following&#160;two&#160;different ways:</p>
+<p style="position:absolute;top:337px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:337px;left:93px;white-space:nowrap" class="ft02">CALL and&#160;RET instructions.</p>
+<p style="position:absolute;top:359px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:360px;left:93px;white-space:nowrap" class="ft06">ENTER&#160;and LEAVE instructions,&#160;in conjunction with the&#160;CALL and&#160;RET&#160;<br/>instructions.</p>
+<p style="position:absolute;top:400px;left:68px;white-space:nowrap" class="ft06">Both&#160;of these procedure&#160;call mechanisms&#160;use the procedure&#160;stack, commonly&#160;referred to&#160;simply as&#160;“the stack,”&#160;to&#160;<br/>save&#160;the&#160;state&#160;of&#160;the calling&#160;procedure, pass&#160;parameters to&#160;the called&#160;procedure,&#160;and&#160;store&#160;local variables for the&#160;<br/>currently executing procedure.<br/>The&#160;processor’s&#160;facilities for handling&#160;interrupts&#160;and exceptions are similar&#160;to&#160;those used by&#160;the CALL and RET&#160;<br/>instructions.</p>
+<p style="position:absolute;top:529px;left:68px;white-space:nowrap" class="ft03">6.2 STACKS</p>
+<p style="position:absolute;top:565px;left:68px;white-space:nowrap" class="ft06">The&#160;stack (see<a href="o_7281d5ea06a5b67a-146.html">&#160;Figure&#160;6-1) is a con</a>tiguous&#160;array of memory&#160;locations. It&#160;is&#160;contained&#160;in a segment and identified&#160;by&#160;<br/>the&#160;segment selector in the SS&#160;register. When using the&#160;flat memory model, the&#160;stack&#160;can&#160;be located anywhere in&#160;<br/>the&#160;linear address&#160;space&#160;for the&#160;program. A stack&#160;can&#160;be&#160;up to 4 GBytes&#160;long,&#160;the maximum size of a&#160;segment.<br/>Items are placed&#160;on&#160;the stack&#160;using the&#160;PUSH&#160;instruction&#160;and removed&#160;from the&#160;stack using&#160;the POP instruction.&#160;<br/>When&#160;an item is&#160;pushed&#160;onto&#160;the stack,&#160;the processor decrements the&#160;ESP&#160;register,&#160;then writes&#160;the&#160;item at&#160;the new&#160;<br/>top&#160;of stack.&#160;When an item is popped off the stack, the&#160;processor reads the item from&#160;the&#160;top of stack, then incre-<br/>ments the ESP register. In this manner, the stack grows&#160;<b>down</b>&#160;in memory (towards lesser addresses)&#160;when items&#160;<br/>are&#160;pushed on the&#160;stack and&#160;shrinks&#160;<b>up</b>&#160;(towards&#160;greater&#160;addresses) when the&#160;items are&#160;popped&#160;from&#160;the stack.<br/>A program or operating system/executive&#160;can&#160;set up&#160;many&#160;stacks. For example, in multitasking systems,&#160;each task&#160;<br/>can&#160;be&#160;given&#160;its own stack. The&#160;number&#160;of stacks&#160;in a&#160;system is&#160;limited&#160;by the maximum&#160;number of segments&#160;and&#160;<br/>the available physical memory.&#160;<br/>When&#160;a system sets up&#160;many&#160;stacks, only one&#160;stack—the&#160;<b>current stack</b>—is available at a time. The current&#160;stack&#160;<br/>is the&#160;one contained in&#160;the segment referenced by&#160;the SS&#160;register.</p>
+</div>
+</body>
+</html>

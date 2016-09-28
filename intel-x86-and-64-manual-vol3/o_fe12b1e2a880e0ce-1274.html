@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1274</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1274-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1274.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">34-24&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">34.15.4.8&#160;&#160;&#160;VM&#160;Exits Induced by&#160;VM&#160;Entry</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft09"><a href="o_fe12b1e2a880e0ce-1112.html">Section&#160;26.5.1.2 d</a>escribes&#160;how&#160;the event-delivery&#160;process invoked&#160;by event injection may lead to&#160;a VM&#160;exit.&#160;<br/><a href="o_fe12b1e2a880e0ce-1114.html">Section 26.6.3 t</a>o<a href="o_fe12b1e2a880e0ce-1116.html">&#160;Section 26.6.7 describ</a>e&#160;other situations&#160;that may cause&#160;a VM&#160;exit to&#160;occur&#160;immediately&#160;after a&#160;<br/>VM&#160;entry.<br/>Whether these VM&#160;exits occur is determined&#160;by the VM-execution control fields in the&#160;current VMCS. For&#160;VM&#160;entries&#160;<br/>that return&#160;from SMM, they can&#160;occur only&#160;if the executive-VMCS pointer field&#160;does not contain the VMXON pointer&#160;<br/>(the VM&#160;entry enters&#160;VMX&#160;non-root&#160;operation).<br/>In&#160;this case, determination is&#160;based on&#160;the&#160;VM-execution&#160;control fields&#160;in the&#160;VMCS that is&#160;current after&#160;the&#160;<br/>VM&#160;entry.&#160;This&#160;is the&#160;VMCS referenced&#160;by the&#160;value&#160;of the&#160;executive-VMCS&#160;pointer field at&#160;the&#160;time&#160;of the&#160;VM&#160;entry&#160;<br/><a href="o_fe12b1e2a880e0ce-1273.html">(see&#160;Section 34.15.4.7).</a>&#160;This&#160;VMCS&#160;also controls&#160;the&#160;delivery of such&#160;VM&#160;exits. Thus,&#160;VM&#160;exits&#160;induced by a&#160;<br/>VM&#160;entry&#160;returning from&#160;SMM are to the executive monitor and not to&#160;the STM.</p>
+<p style="position:absolute;top:335px;left:68px;white-space:nowrap" class="ft02">34.15.4.9&#160;&#160;&#160;SMI Blocking</p>
+<p style="position:absolute;top:364px;left:68px;white-space:nowrap" class="ft03">VM&#160;entries that&#160;return&#160;from&#160;SMM determine the blocking&#160;of system-management&#160;interrupts (SMIs)&#160;as follows:</p>
+<p style="position:absolute;top:385px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:386px;left:93px;white-space:nowrap" class="ft09">If the&#160;“deactivate&#160;dual-monitor treatment”&#160;VM-entry control&#160;is 0,&#160;SMIs are blocked after&#160;VM&#160;entry if and&#160;only&#160;if&#160;<br/>the bit&#160;2&#160;in the&#160;interruptibility-state&#160;field is&#160;1.</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:425px;left:93px;white-space:nowrap" class="ft09">If the “deactivate dual-monitor treatment”&#160;VM-entry control is 1,&#160;the blocking&#160;of SMIs depends on whether&#160;the&#160;<br/>logical&#160;processor&#160;is in SMX operation:</p>
+<p style="position:absolute;top:439px;left:346px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:466px;left:93px;white-space:nowrap" class="ft010">—&#160;If the&#160;logical&#160;processor&#160;is in&#160;SMX operation, SMIs are blocked&#160;after VM&#160;entry.<br/>—&#160;If&#160;the logical processor is&#160;outside&#160;SMX operation, SMIs are&#160;unblocked&#160;after&#160;VM&#160;entry.</p>
+<p style="position:absolute;top:514px;left:68px;white-space:nowrap" class="ft09">VM&#160;entries that return from SMM and that do not deactivate the dual-monitor treatment may leave SMIs blocked.&#160;<br/>This feature exists&#160;to allow the&#160;STM to invoke&#160;functionality&#160;outside&#160;of&#160;SMM without&#160;unblocking SMIs.</p>
+<p style="position:absolute;top:574px;left:68px;white-space:nowrap" class="ft02">34.15.4.10&#160;&#160;Failures of&#160;VM&#160;Entries That&#160;Return from SMM</p>
+<p style="position:absolute;top:603px;left:68px;white-space:nowrap" class="ft09"><a href="o_fe12b1e2a880e0ce-1117.html">Section&#160;26.7 desc</a>ribes the treatment&#160;of&#160;VM&#160;entries that fail&#160;during or after loading guest state. Such failures record&#160;<br/>information&#160;in the&#160;VM-exit&#160;information&#160;fields and load&#160;processor&#160;state&#160;as would be done on&#160;a&#160;VM&#160;exit. The VMCS&#160;<br/>used is&#160;the one&#160;that was&#160;current before the&#160;VM&#160;entry commenced. Control&#160;is thus transferred&#160;to the&#160;STM and&#160;the&#160;<br/>logical processor remains&#160;in&#160;SMM.</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft06">34.15.5&#160;&#160;Enabling the Dual-Monitor Treatment</p>
+<p style="position:absolute;top:733px;left:68px;white-space:nowrap" class="ft09">Code and data&#160;for&#160;the&#160;SMM-transfer monitor (STM) reside in&#160;a region of SMRAM called the&#160;<b>monitor&#160;segment</b>&#160;<br/>(MSEG). Code&#160;running in SMM&#160;determines&#160;the&#160;location&#160;of MSEG&#160;and&#160;establishes its&#160;content.&#160;This code&#160;is&#160;also&#160;<br/>responsible&#160;for enabling&#160;the dual-monitor treatment.&#160;<br/>SMM&#160;code&#160;enables&#160;the dual-monitor treatment and&#160;specifies the&#160;location&#160;of MSEG by&#160;writing&#160;to the&#160;<br/>IA32_SMM_MONITOR_CTL&#160;MSR (index&#160;9BH). The MSR&#160;has&#160;the following format:</p>
+<p style="position:absolute;top:829px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:829px;left:93px;white-space:nowrap" class="ft09">Bit&#160;0&#160;is&#160;the&#160;register’s&#160;valid&#160;bit.<b>&#160;</b>The&#160;STM may be&#160;invoked using VMCALL&#160;only&#160;if&#160;this bit&#160;is 1.&#160;Because VMCALL&#160;is&#160;<br/>used&#160;to activate&#160;the dual-monitor treatment&#160;(s<a href="o_fe12b1e2a880e0ce-1276.html">ee Section 34.15.6),</a>&#160;the dual-monitor treatment&#160;cannot&#160;be&#160;<br/>activated if the&#160;bit&#160;is 0.&#160;This bit is&#160;cleared when&#160;the logical processor is&#160;reset.</p>
+<p style="position:absolute;top:884px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:885px;left:93px;white-space:nowrap" class="ft03">Bit&#160;1&#160;is&#160;reserved.</p>
+<p style="position:absolute;top:907px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:907px;left:93px;white-space:nowrap" class="ft09">Bit&#160;2&#160;determines whether executions of VMXOFF unblock&#160;SMIs under&#160;the default treatment&#160;of&#160;SMIs and&#160;SMM.&#160;<br/>Executions&#160;of&#160;VMXOFF unblock SMIs unless&#160;bit&#160;2&#160;is 1 (the&#160;value&#160;of bit&#160;0&#160;is irrelevant).&#160;S<a href="o_fe12b1e2a880e0ce-1268.html">ee Section 34.14.4.<br/></a>Certain&#160;leaf functions of the&#160;GETSEC instruction clear this&#160;bit&#160;(see&#160;<a href="��">Chapter 6, “Safer Mode Extensions&#160;<br/>Reference,”</a>&#160;in<a href="��">&#160;<i>Intel® 64&#160;and IA-32 Architectures&#160;Software&#160;Developer’s Manual, Volume&#160;2D</i></a>).</p>
+<p style="position:absolute;top:1005px;left:68px;white-space:nowrap" class="ft03">1.&#160;A logical processor is&#160;in&#160;SMX operation&#160;if&#160;GETSEC[SEXIT] has not been&#160;executed&#160;since the last execution&#160;of&#160;GETSEC[SENTER].&#160;A&#160;logi-</p>
+<p style="position:absolute;top:1021px;left:89px;white-space:nowrap" class="ft03">cal processor is&#160;outside&#160;SMX operation if&#160;GETSEC[SENTER] has not been&#160;executed&#160;or if&#160;GETSEC[SEXIT] was executed&#160;after the last&#160;</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft03">execution of&#160;GETSEC[SENTER]. See<a href="��">&#160;Chapter 6,&#160;“Safer&#160;Mode&#160;Extensions&#160;Reference‚” i</a>n&#160;the&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32 Architectures&#160;Soft-</i></a></p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft08"><a href="��"><i>ware&#160;Developer’s Manual, Volume 2D</i>.</a></p>
+</div>
+</body>
+</html>

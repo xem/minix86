@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 437</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page437-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a437.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 1&#160;D-15</p>
+<p style="position:absolute;top:47px;left:500px;white-space:nowrap" class="ft01">GUIDELINES&#160;FOR WRITING X87&#160;FPU EXCEPTION HANDLERS</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">D.3.5 &#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">Need for Storing State of&#160;IGNNE# Circuit If Using x87 FPU and SMM</p>
+<p style="position:absolute;top:129px;left:69px;white-space:nowrap" class="ft06">The recommended circuit&#160;(see&#160;<a href="o_7281d5ea06a5b67a-426.html">Figure&#160;D-1) for MS</a>-DOS&#160;compatibility x87 FPU&#160;exception handling&#160;for&#160;Intel486&#160;<br/>processors and&#160;beyond contains&#160;two&#160;flip flops. When&#160;the&#160;x87 FPU exception handler accesses I/O&#160;port 0F0H it&#160;<br/>clears&#160;the IRQ13 interrupt request output&#160;from Flip Flop&#160;#1 and&#160;also clocks out&#160;the IGNNE# signal&#160;(active) from&#160;<br/>Flip Flop #2.&#160;<br/>The assertion of IGNNE#&#160;may&#160;be used by the handler if needed to execute&#160;any x87 FPU instruction while ignoring&#160;<br/>the pending&#160;x87 FPU errors.&#160;The&#160;problem here&#160;is that&#160;the state of Flip Flop #2 is&#160;effectively&#160;an additional (but&#160;<br/>hidden)&#160;status bit that can&#160;affect processor&#160;behavior, and&#160;so ideally should&#160;be&#160;saved&#160;upon entering SMM, and&#160;<br/>restored before&#160;resuming&#160;to&#160;normal operation. If&#160;this&#160;is&#160;not done, and also&#160;the&#160;SMM code&#160;saves the x87 FPU state,&#160;<br/>AND&#160;an x87&#160;FPU error&#160;handler&#160;is being used which relies on&#160;IGNNE# assertion, then&#160;(very rarely)&#160;the x87&#160;FPU&#160;<br/>handler will nest&#160;inside&#160;itself and malfunction.&#160;The following example&#160;shows&#160;how&#160;this&#160;can happen.<br/>Suppose that&#160;the x87&#160;FPU&#160;exception&#160;handler includes the&#160;following&#160;sequence:</p>
+<p style="position:absolute;top:339px;left:69px;white-space:nowrap" class="ft03">FNSTSW save_sw&#160;</p>
+<p style="position:absolute;top:339px;left:197px;white-space:nowrap" class="ft07">;&#160;save&#160;the&#160;x87 FPU status&#160;word&#160;<br/>;&#160;using&#160;a no-wait x87 FPU instruction</p>
+<p style="position:absolute;top:375px;left:69px;white-space:nowrap" class="ft03">OUT</p>
+<p style="position:absolute;top:375px;left:116px;white-space:nowrap" class="ft03">0F0H,&#160;AL&#160;</p>
+<p style="position:absolute;top:375px;left:197px;white-space:nowrap" class="ft03">;&#160;clears IRQ13&#160;&amp; activates IGNNE#</p>
+<p style="position:absolute;top:393px;left:69px;white-space:nowrap" class="ft07">&#160;. .&#160;. .<br/>FLDCW&#160;new_cw</p>
+<p style="position:absolute;top:411px;left:197px;white-space:nowrap" class="ft03">;&#160;loads new CW&#160;ignoring&#160;x87&#160;FPU errors,&#160;</p>
+<p style="position:absolute;top:429px;left:170px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:429px;left:197px;white-space:nowrap" class="ft07">;&#160;since&#160;IGNNE# is&#160;assumed&#160;active; or&#160;any&#160;<br/>; other x87 FPU&#160;instruction&#160;that&#160;is not a no-wait&#160;<br/>;&#160;type will cause the same problem</p>
+<p style="position:absolute;top:483px;left:69px;white-space:nowrap" class="ft07">&#160;. .&#160;. .<br/>FCLEX</p>
+<p style="position:absolute;top:501px;left:197px;white-space:nowrap" class="ft07">;&#160;clear the x87 FPU&#160;error conditions &amp; thus&#160;<br/>; turn&#160;off FERR# &amp; reset the IGNNE# FF</p>
+<p style="position:absolute;top:561px;left:69px;white-space:nowrap" class="ft05">The&#160;problem will&#160;only occur&#160;if&#160;the processor enters&#160;SMM&#160;between the OUT and the&#160;FLDCW instructions.&#160;But&#160;if that&#160;<br/>happens, AND&#160;the SMM&#160;code saves&#160;the x87 FPU&#160;state using FNSAVE,&#160;then the IGNNE# Flip&#160;Flop will&#160;be&#160;cleared&#160;<br/>(because&#160;FNSAVE clears&#160;the&#160;x87 FPU errors and thus&#160;de-asserts&#160;FERR#). When the&#160;processor returns&#160;from SMM it&#160;<br/>will restore the x87&#160;FPU&#160;state&#160;with FRSTOR,&#160;which will re-assert&#160;FERR#, but&#160;the IGNNE# Flip&#160;Flop&#160;will&#160;not get set.&#160;<br/>Then&#160;when the&#160;x87&#160;FPU error handler executes&#160;the FLDCW instruction, the&#160;active&#160;error condition will cause&#160;the&#160;<br/>processor&#160;to&#160;re-enter the x87&#160;FPU error handler from the beginning.&#160;This&#160;may cause&#160;the handler to malfunction.<br/>To&#160;avoid this&#160;problem,&#160;Intel&#160;recommends&#160;two&#160;measures:<br/>1.&#160;Do not use&#160;the x87 FPU&#160;for&#160;calculations inside SMM code.&#160;(The normal power&#160;management, and&#160;sometimes&#160;</p>
+<p style="position:absolute;top:708px;left:94px;white-space:nowrap" class="ft04">security,&#160;functions&#160;provided by SMM have no&#160;need&#160;for&#160;x87&#160;FPU&#160;calculations; if&#160;they are&#160;needed&#160;for some&#160;special&#160;<br/>case,&#160;use&#160;scaling&#160;or emulation instead.) This&#160;eliminates the&#160;need&#160;to&#160;do FNSAVE/FRSTOR&#160;inside&#160;SMM&#160;code,&#160;<br/>except when&#160;going into a&#160;0&#160;V&#160;suspend state (in&#160;which,&#160;in&#160;order&#160;to save&#160;power,&#160;the CPU is turned off completely,&#160;<br/>requiring&#160;its complete state to&#160;be&#160;saved).</p>
+<p style="position:absolute;top:781px;left:69px;white-space:nowrap" class="ft03">2.&#160;The&#160;system should not call upon SMM code to put the processor into&#160;0&#160;V suspend while the processor is running&#160;</p>
+<p style="position:absolute;top:798px;left:94px;white-space:nowrap" class="ft04">x87&#160;FPU calculations, or&#160;just after&#160;an interrupt&#160;has occurred.&#160;Normal&#160;power management&#160;protocol&#160;avoids this&#160;<br/>by&#160;going into power&#160;down states&#160;only&#160;after timed&#160;intervals in&#160;which no&#160;system&#160;activity&#160;occurs.</p>
+<p style="position:absolute;top:865px;left:69px;white-space:nowrap" class="ft02">D.3.6 &#160;</p>
+<p style="position:absolute;top:865px;left:149px;white-space:nowrap" class="ft02">Considerations When&#160;x87 FPU Shared Between Tasks</p>
+<p style="position:absolute;top:895px;left:69px;white-space:nowrap" class="ft06">The&#160;IA-32&#160;architecture allows speculative&#160;deferral of&#160;floating-point state&#160;swaps&#160;on task switches. This&#160;feature&#160;<br/>allows postponing an x87 FPU state swap&#160;until an x87 FPU instruction is actually encountered&#160;in another&#160;task. Since&#160;<br/>kernel&#160;tasks rarely&#160;use floating-point, and some&#160;applications&#160;do not&#160;use floating-point&#160;or use&#160;it infrequently, the&#160;<br/>amount of time saved by avoiding unnecessary stores of the floating-point state is significant. Speculative deferral&#160;<br/>of x87 FPU&#160;saves&#160;does, however,&#160;place an&#160;extra burden on the&#160;kernel in three key&#160;ways:<br/>1.&#160;The&#160;kernel&#160;must keep&#160;track of which&#160;thread&#160;owns&#160;the x87&#160;FPU,&#160;which may&#160;be&#160;different&#160;from the currently&#160;</p>
+<p style="position:absolute;top:1002px;left:95px;white-space:nowrap" class="ft03">executing&#160;thread.</p>
+<p style="position:absolute;top:1026px;left:69px;white-space:nowrap" class="ft03">2.&#160;The&#160;kernel&#160;must associate&#160;any floating-point exceptions with the&#160;generating&#160;task. This&#160;requires&#160;special&#160;</p>
+<p style="position:absolute;top:1042px;left:95px;white-space:nowrap" class="ft03">handling&#160;since floating-point exceptions are delivered asynchronous&#160;with&#160;other system activity.</p>
+</div>
+</body>
+</html>

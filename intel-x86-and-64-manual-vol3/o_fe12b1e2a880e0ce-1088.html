@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1088</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1088-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1088.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">25-14&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX NON-ROOT&#160;OPERATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">Individual&#160;VM&#160;functions may&#160;perform additional fault checking&#160;(e.g.,&#160;one&#160;might cause&#160;a general-protection excep-<br/>tion if CPL&#160;&gt;&#160;0).&#160;In addition, specific VM&#160;functions&#160;may include checks&#160;that&#160;might result&#160;in a&#160;VM&#160;exit. If&#160;such&#160;a&#160;<br/>VM&#160;exit occurs, VM-exit information&#160;is saved&#160;as described&#160;in the&#160;previous paragraph.&#160;The specification of a&#160;<br/>VM&#160;function may&#160;indicate&#160;that additional VM-exit information&#160;is provided.<br/>The specific behavior&#160;of&#160;the EPTP-switching&#160;VM&#160;function (including checks&#160;that result&#160;in VM&#160;exits)&#160;is&#160;given&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-1088.html">Section 25.5.5.3.</a></p>
+<p style="position:absolute;top:235px;left:68px;white-space:nowrap" class="ft03">25.5.5.3 &#160;&#160;EPTP&#160;Switching</p>
+<p style="position:absolute;top:263px;left:68px;white-space:nowrap" class="ft07">EPTP switching&#160;is VM&#160;function&#160;0.&#160;This VM&#160;function allows&#160;software in&#160;VMX non-root operation to&#160;load&#160;a new value&#160;<br/>for&#160;the EPT pointer (EPTP),&#160;thereby establishing&#160;a different EPT&#160;paging-structure hierarch<a href="o_fe12b1e2a880e0ce-1149.html">y (see Section 28.2&#160;</a>for&#160;<br/>details of the&#160;operation&#160;of EPT). Software&#160;is&#160;limited&#160;to selecting from a&#160;list of potential EPTP values&#160;configured&#160;in&#160;<br/>advance&#160;by&#160;software&#160;in VMX root&#160;operation.<br/>Specifically, the value of ECX is used&#160;to select an entry&#160;from&#160;the&#160;EPTP&#160;list, the 4-KByte structure referenced&#160;by the&#160;<br/>EPTP-list&#160;addr<a href="o_fe12b1e2a880e0ce-1062.html">ess (see Section 24.6.14</a>; because this&#160;structure contains 512&#160;8-Byte entries,&#160;VMFUNC&#160;causes&#160;a&#160;<br/>VM&#160;exit if&#160;ECX&#160;≥&#160;512).&#160;If the&#160;selected&#160;entry&#160;is a&#160;valid EPTP&#160;value&#160;(it would not&#160;cause VM&#160;entry to fail;&#160;see&#160;<a href="o_fe12b1e2a880e0ce-1094.html">Section&#160;</a></p>
+<p style="position:absolute;top:386px;left:68px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-1094.html">26.2.1.1), it is stored</a>&#160;in&#160;the EPTP&#160;field of&#160;the&#160;current&#160;VMCS and is used for subsequent&#160;accesses using guest-phys-<br/>ical addresses.&#160;The&#160;following pseudocode&#160;provides&#160;details:</p>
+<p style="position:absolute;top:432px;left:68px;white-space:nowrap" class="ft02">IF&#160;ECX&#160;≥&#160;512</p>
+<p style="position:absolute;top:450px;left:88px;white-space:nowrap" class="ft010">THEN&#160;VM&#160;exit;<br/>ELSE</p>
+<p style="position:absolute;top:486px;left:115px;white-space:nowrap" class="ft02">tent_EPTP&#160;←&#160;8 bytes&#160;from EPTP-list address&#160;+&#160;8&#160;*&#160;ECX;</p>
+<p style="position:absolute;top:504px;left:115px;white-space:nowrap" class="ft02">IF&#160;tent_EPTP&#160;is not a&#160;valid&#160;EPTP&#160;value&#160;(would cause VM&#160;entry to&#160;fail&#160;if&#160;in&#160;EPTP)</p>
+<p style="position:absolute;top:522px;left:142px;white-space:nowrap" class="ft010">THEN&#160;VMexit;<br/>ELSE</p>
+<p style="position:absolute;top:558px;left:169px;white-space:nowrap" class="ft010">write tent_EPTP to the EPTP&#160;field&#160;in&#160;the current&#160;VMCS;<br/>use tent_EPTP as the new&#160;EPTP value for address translation;<br/>IF processor supports&#160;the 1-setting of the&#160;“EPT-violation&#160;#VE” VM-execution&#160;control</p>
+<p style="position:absolute;top:612px;left:196px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:630px;left:223px;white-space:nowrap" class="ft010">write ECX[15:0] to EPTP-index field in&#160;current VMCS;<br/>use ECX[15:0]&#160;as EPTP&#160;index for subsequent&#160;EPT-violation virtualization&#160;exceptions&#160;(see<a href="o_fe12b1e2a880e0ce-1090.html">&#160;Section&#160;25.5.6.2</a>);</p>
+<p style="position:absolute;top:666px;left:169px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:684px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:702px;left:68px;white-space:nowrap" class="ft07">FI;<br/>Execution&#160;of&#160;the EPTP-switching&#160;VM&#160;function does not&#160;modify&#160;the state&#160;of any&#160;registers; no flags are&#160;modified.<br/>As noted in<a href="o_fe12b1e2a880e0ce-1087.html">&#160;Section&#160;25.5.5.2, an&#160;</a>execution&#160;of&#160;the&#160;EPTP-switching&#160;VM&#160;function that&#160;causes a&#160;VM&#160;exit&#160;(as specified&#160;<br/>above), uses the basic exit reason 59,&#160;indicating “VMFUNC”. The length of the VMFUNC instruction&#160;is saved into the&#160;<br/>VM-exit instruction-length field.&#160;No additional VM-exit&#160;information is&#160;provided.<br/>An execution&#160;of&#160;VMFUNC loads EPTP from&#160;the&#160;EPTP list&#160;(and thus&#160;does&#160;not&#160;cause&#160;a fault or VM&#160;exit) is&#160;called an&#160;<br/><b>EPTP-switching&#160;VMFUNC</b>. After&#160;an EPTP-switching VMFUNC,&#160;control&#160;passes to&#160;the next instruction.&#160;The&#160;logical&#160;<br/>processor&#160;starts creating and using guest-physical&#160;and&#160;combined mappings associated with the&#160;new&#160;value of bits&#160;<br/>51:12&#160;of EPTP; the combined&#160;mappings created and used&#160;are associated&#160;with the current VPID and PCID (these&#160;are&#160;<br/>not changed by VMFUNC).</p>
+<p style="position:absolute;top:871px;left:244px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:874px;left:251px;white-space:nowrap" class="ft02">&#160;If&#160;the&#160;“enable&#160;VPID”&#160;VM-execution&#160;control&#160;is&#160;0,&#160;an&#160;EPTP-switching&#160;VMFUNC&#160;invalidates&#160;</p>
+<p style="position:absolute;top:890px;left:68px;white-space:nowrap" class="ft07">combined mappings associated&#160;with VPID 0000H (for all&#160;PCIDs and for&#160;all EP4TA&#160;values, where EP4TA is the value&#160;<br/>of bits 51:12&#160;of&#160;EPTP).<br/>Because an&#160;EPTP-switching VMFUNC&#160;may&#160;change the&#160;translation&#160;of guest-physical&#160;addresses, it&#160;may affect&#160;use of&#160;<br/>the guest-physical&#160;address in&#160;CR3.&#160;The EPTP-switching&#160;VMFUNC cannot itself cause&#160;a VM&#160;exit due&#160;to an&#160;EPT viola-<br/>tion or an&#160;EPT misconfiguration&#160;due to&#160;the translation of that guest-physical&#160;address through&#160;the new EPT&#160;paging&#160;<br/>structures. The following items&#160;provide&#160;details&#160;that apply&#160;if&#160;CR0.PG&#160;=&#160;1:</p>
+<p style="position:absolute;top:1002px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1003px;left:93px;white-space:nowrap" class="ft07">If 32-bit&#160;paging&#160;or IA-32e&#160;paging&#160;is&#160;in&#160;use (either CR4.PAE&#160;=&#160;0&#160;or IA32_EFER.LMA&#160;=&#160;1),&#160;the&#160;next&#160;memory&#160;<br/>access with a linear address&#160;uses&#160;the&#160;translation of the&#160;guest-physical address&#160;in CR3&#160;through&#160;the new EPT&#160;</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft02">1.&#160;If the “enable VPID” VM-execution control is 0, the current VPID is 0000H;&#160;if&#160;CR4.PCIDE = 0, the&#160;current PCID is 000H.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1271</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1271-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1271.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-21</p>
+<p style="position:absolute;top:47px;left:666px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:272px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:273px;left:95px;white-space:nowrap" class="ft08"><b>Guest linear&#160;address.&#160;</b>This field&#160;is used for VM&#160;exits due&#160;to&#160;SMIs&#160;that arrive&#160;immediately after the retirement&#160;<br/>of&#160;an INS or&#160;OUTS instruction for which the&#160;relevant&#160;segment (ES&#160;for&#160;INS;&#160;DS for OUTS unless&#160;overridden&#160;by&#160;<br/>an instruction prefix)&#160;is usable. The&#160;field&#160;receives the&#160;value of the&#160;linear&#160;address generated&#160;by ES:(E)DI (for&#160;<br/>INS)&#160;or segment:(E)SI (for OUTS; the&#160;default segment&#160;is&#160;DS&#160;but&#160;can be overridden by a&#160;segment&#160;override&#160;<br/>prefix) at&#160;the time&#160;the instruction&#160;started.&#160;If&#160;the&#160;relevant segment is&#160;not usable,&#160;the value&#160;is undefined.&#160;On&#160;<br/>processors that support Intel 64&#160;architecture,&#160;bits&#160;63:32&#160;are&#160;clear&#160;if&#160;the logical processor was&#160;not in 64-bit&#160;<br/>mode before the&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:394px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:394px;left:95px;white-space:nowrap" class="ft08"><b>I/O&#160;RCX, I/O RSI, I/O RDI,&#160;and I/O&#160;RIP.</b>&#160;For&#160;an SMM VM&#160;exit due an&#160;SMI&#160;that arrives immediately after&#160;<br/>the retirement of an I/O instruction,&#160;these fields&#160;receive&#160;the&#160;values&#160;that&#160;were&#160;in&#160;RCX,&#160;RSI,&#160;RDI,&#160;and&#160;RIP,&#160;respec-<br/>tively,&#160;before&#160;the&#160;I/O&#160;instruction&#160;executed. Thus, the&#160;value saved&#160;for&#160;I/O RIP addresses&#160;the I/O&#160;instruction.</p>
+<p style="position:absolute;top:472px;left:69px;white-space:nowrap" class="ft05">34.15.2.4&#160;&#160;&#160;Saving Guest State</p>
+<p style="position:absolute;top:500px;left:69px;white-space:nowrap" class="ft08">SMM VM&#160;exits save&#160;the&#160;contents of the&#160;SMBASE&#160;register&#160;into the&#160;corresponding&#160;field&#160;in the&#160;guest-state area.<br/>The value of&#160;the VMX-preemption&#160;timer is&#160;saved into&#160;the&#160;corresponding field in the&#160;guest-state area if the&#160;“save&#160;<br/>VMX-preemption timer value” VM-exit control is&#160;1.&#160;That&#160;field becomes undefined if,&#160;in&#160;addition, either the&#160;SMM&#160;<br/>VM&#160;exit is&#160;from&#160;VMX root&#160;operation&#160;or the&#160;SMM VM&#160;exit is&#160;from&#160;VMX non-root operation and&#160;the “activate&#160;VMX-<br/>preemption timer”&#160;VM-execution&#160;control is&#160;0.</p>
+<p style="position:absolute;top:618px;left:69px;white-space:nowrap" class="ft05">34.15.2.5&#160;&#160;&#160;Updating Non-Register&#160;State</p>
+<p style="position:absolute;top:646px;left:69px;white-space:nowrap" class="ft04">SMM VM&#160;exits affect&#160;the&#160;non-register&#160;state&#160;of a logical processor as&#160;follows:</p>
+<p style="position:absolute;top:668px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:669px;left:95px;white-space:nowrap" class="ft08">SMM VM&#160;exits cause&#160;non-maskable&#160;interrupts (NMIs) to be&#160;blocked; they&#160;may be unblocked through execution&#160;<br/>of IRET&#160;or through a&#160;VM&#160;entry (depending on&#160;the value&#160;loaded for&#160;the interruptibility state and&#160;the setting of&#160;<br/>the “virtual NMIs”&#160;VM-execution&#160;control).</p>
+<p style="position:absolute;top:724px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:724px;left:95px;white-space:nowrap" class="ft08">SMM VM&#160;exits cause&#160;SMIs to&#160;be&#160;blocked; they&#160;may be&#160;unblocked by&#160;a&#160;VM&#160;entry&#160;that returns from&#160;SMM&#160;(see&#160;<br/><a href="o_fe12b1e2a880e0ce-1272.html">Section 34.15.4)</a>.</p>
+<p style="position:absolute;top:765px;left:69px;white-space:nowrap" class="ft08">SMM VM&#160;exits invalidate&#160;linear mappings&#160;and&#160;combined&#160;mappings&#160;associated&#160;with VPID&#160;0000H for all&#160;PCIDs.&#160;<br/>Combined&#160;mappings for VPID 0000H are invalidated&#160;for all&#160;EP4TA values&#160;(EP4TA&#160;is the value of&#160;bits&#160;51:12 of EPTP;&#160;<br/>see&#160;<a href="o_fe12b1e2a880e0ce-1161.html">Section&#160;28.3).</a>&#160;(Ordinary VM&#160;exits&#160;are not&#160;required&#160;to&#160;perform&#160;such&#160;invalidation if the&#160;“enable&#160;VPID” VM-execu-<br/>tion&#160;control&#160;<a href="o_fe12b1e2a880e0ce-1146.html">is 1; see Section 27.5.5.</a>)</p>
+<p style="position:absolute;top:865px;left:69px;white-space:nowrap" class="ft06">34.15.3&#160;&#160;Operation of&#160;the SMM-Transfer Monitor</p>
+<p style="position:absolute;top:895px;left:69px;white-space:nowrap" class="ft08">Once&#160;invoked, the SMM-transfer monitor (STM) is in VMX&#160;root operation&#160;and can use VMX&#160;instructions to configure&#160;<br/>VMCSs&#160;and to cause&#160;VM&#160;entries to virtual machines&#160;supported by&#160;those structures. As&#160;noted&#160;<a href="o_fe12b1e2a880e0ce-1269.html">in Section 34.15.1,</a>&#160;the&#160;<br/>VMXOFF instruction cannot be used under&#160;the dual-monitor treatment and&#160;thus&#160;cannot be used by the&#160;STM.<br/>The RSM instruction&#160;also&#160;cannot be used&#160;under&#160;the dual-monitor&#160;treatment. As noted&#160;<a href="o_fe12b1e2a880e0ce-1076.html">in Section 25.1.3, it&#160;</a>causes&#160;<br/>a VM&#160;exit if executed&#160;in SMM&#160;in&#160;VMX&#160;non-root&#160;operation. If executed&#160;in VMX root operation,&#160;it causes&#160;an invalid-<br/>opcode&#160;exception.&#160;The&#160;STM uses&#160;VM&#160;entries to&#160;return from&#160;SMM (see<a href="o_fe12b1e2a880e0ce-1272.html">&#160;Section 34.15.4).</a></p>
+<p style="position:absolute;top:162px;left:79px;white-space:nowrap" class="ft04">15:7</p>
+<p style="position:absolute;top:162px;left:205px;white-space:nowrap" class="ft04">Reserved (cleared to&#160;0)</p>
+<p style="position:absolute;top:190px;left:79px;white-space:nowrap" class="ft04">31:16</p>
+<p style="position:absolute;top:190px;left:205px;white-space:nowrap" class="ft04">Port number&#160;(as specified&#160;in&#160;the&#160;I/O instruction)</p>
+<p style="position:absolute;top:218px;left:79px;white-space:nowrap" class="ft04">63:32</p>
+<p style="position:absolute;top:218px;left:205px;white-space:nowrap" class="ft04">Reserved&#160;(cleared&#160;to 0).&#160;These bits&#160;exist only on&#160;processors&#160;</p>
+<p style="position:absolute;top:235px;left:205px;white-space:nowrap" class="ft04">that&#160;support&#160;Intel 64 architecture.</p>
+<p style="position:absolute;top:100px;left:72px;white-space:nowrap" class="ft07">Table 34-9.&#160;&#160;Exit&#160;Qualification&#160;for&#160;SMIs That Arrive&#160;Immediately After the Retirement&#160;of&#160;an I/O&#160;Instruction (Contd.)</p>
+<p style="position:absolute;top:133px;left:79px;white-space:nowrap" class="ft04">Bit&#160;Position(s)</p>
+<p style="position:absolute;top:133px;left:205px;white-space:nowrap" class="ft04">Contents</p>
+</div>
+</body>
+</html>

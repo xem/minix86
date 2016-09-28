@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 87</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page87-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce087.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;2-25</p>
+<p style="position:absolute;top:47px;left:634px;white-space:nowrap" class="ft01">SYSTEM ARCHITECTURE OVERVIEW</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">Details of programmable&#160;and fixed-function performance&#160;monitoring counters for each processor generation are&#160;<br/>described in&#160;<a href="��">Chapter 18,&#160;“Performance Monitoring”.<br/></a>The programmable&#160;performance counters&#160;can support counting&#160;either the occurrence&#160;or duration of&#160;events. Events&#160;<br/>that can be&#160;monitored on programmable&#160;counters generally&#160;are&#160;model&#160;specific&#160;(except for architectural perfor-<br/>mance&#160;events enumerated&#160;by&#160;CPUID&#160;leaf 0AH);&#160;they&#160;may&#160;include the&#160;number of&#160;instructions decoded,&#160;interrupts&#160;<br/>received,&#160;or the&#160;number of cache&#160;loads. Individual&#160;counters&#160;can be set up&#160;to monitor&#160;different&#160;events. Use&#160;the&#160;<br/>system&#160;instruction WRMSR&#160;to set up values&#160;in one of&#160;the IA32_PERFEVTSELx MSR,&#160;in&#160;one of&#160;the 45&#160;ESCRs and one&#160;<br/>of the 18 CCCR MSRs (for&#160;Pentium 4 and&#160;Intel&#160;Xeon&#160;processors); or&#160;in the&#160;PerfEvtSel0&#160;or the PerfEvtSel1&#160;MSR (for&#160;<br/>the&#160;P6&#160;family&#160;processors). The RDPMC instruction loads&#160;the&#160;current&#160;count&#160;from the&#160;selected&#160;counter into the&#160;<br/>EDX:EAX&#160;registers.<br/>Fixed-function performance&#160;counters record only&#160;specific&#160;events that&#160;are&#160;defined&#160;in<a href="��">&#160;Chapter&#160;19,&#160;“Performance&#160;<br/>Monitoring&#160;Events”</a>,&#160;and the width/number of&#160;fixed-function&#160;counters are&#160;enumerated&#160;by CPUID&#160;leaf 0AH.<br/>The time-stamp counter is a model-specific 64-bit counter&#160;that is reset to zero&#160;each time&#160;the processor&#160;is&#160;reset.&#160;If&#160;<br/>not reset, the counter will increment ~9.5&#160;x 10</p>
+<p style="position:absolute;top:335px;left:392px;white-space:nowrap" class="ft03">16&#160;</p>
+<p style="position:absolute;top:337px;left:409px;white-space:nowrap" class="ft02">times per year when the processor is operating at&#160;a clock&#160;rate&#160;</p>
+<p style="position:absolute;top:354px;left:69px;white-space:nowrap" class="ft06">of&#160;3GHz. At&#160;this clock frequency,&#160;it would&#160;take&#160;over&#160;190&#160;years&#160;for the&#160;counter&#160;to wrap&#160;around.&#160;The RDTSC&#160;<br/>instruction&#160;loads the current count of the time-stamp&#160;counter&#160;into&#160;the EDX:EAX&#160;registers.<br/>Se<a href="o_fe12b1e2a880e0ce-637.html">e Section 18.1,&#160;“Performance Monitoring&#160;Overview,”</a>&#160;<a href="o_fe12b1e2a880e0ce-614.html">and Section 17.15,&#160;“Time-Stamp&#160;Counter,” for more</a>&#160;infor-<br/>mation&#160;about the performance&#160;monitoring&#160;and time-stamp counters.<br/>The RDTSC instruction was&#160;introduced&#160;into the&#160;IA-32&#160;architecture&#160;with the Pentium processor.&#160;The RDPMC instruc-<br/>tion was&#160;introduced&#160;into&#160;the IA-32 architecture with&#160;the&#160;Pentium&#160;Pro processor and&#160;the Pentium processor with&#160;<br/>MMX technology. Earlier Pentium processors have two performance-monitoring&#160;counters, but they&#160;can be read only&#160;<br/>with&#160;the RDMSR instruction,&#160;and only at&#160;privilege&#160;level&#160;0.</p>
+<p style="position:absolute;top:529px;left:69px;white-space:nowrap" class="ft04">2.8.6.1&#160;&#160;</p>
+<p style="position:absolute;top:529px;left:153px;white-space:nowrap" class="ft04">Reading Counters&#160;in&#160;64-Bit&#160;Mode</p>
+<p style="position:absolute;top:557px;left:69px;white-space:nowrap" class="ft06">In 64-bit mode, RDTSC operates the same as in&#160;protected mode. The count in the time-stamp&#160;counter is stored in&#160;<br/>EDX:EAX (or RDX[31:0]:RAX[31:0]&#160;with RDX[63:32]:RAX[63:32] cleared).<br/>RDPMC requires an&#160;index&#160;to specify the&#160;offset&#160;of the&#160;performance-monitoring counter. In&#160;64-bit mode&#160;for Pentium&#160;<br/>4&#160;or Intel Xeon processor families,&#160;the index is&#160;specified&#160;in ECX[30:0]. The&#160;current&#160;count of&#160;the&#160;performance-moni-<br/>toring counter&#160;is stored&#160;in&#160;EDX:EAX&#160;(or RDX[31:0]:RAX[31:0] with RDX[63:32]:RAX[63:32]&#160;cleared).</p>
+<p style="position:absolute;top:681px;left:69px;white-space:nowrap" class="ft05">2.8.7&#160;</p>
+<p style="position:absolute;top:681px;left:149px;white-space:nowrap" class="ft05">Reading and Writing Model-Specific Registers</p>
+<p style="position:absolute;top:712px;left:69px;white-space:nowrap" class="ft06">The RDMSR (read model-specific register)&#160;and WRMSR&#160;(write model-specific&#160;register)&#160;instructions allow a&#160;<br/>processor’s 64-bit&#160;model-specific&#160;registers (MSRs)&#160;to be&#160;read&#160;and written, respectively. The MSR&#160;to&#160;be read or&#160;<br/>written&#160;is specified by the&#160;value&#160;in the&#160;ECX register.</p>
+<p style="position:absolute;top:778px;left:69px;white-space:nowrap" class="ft08">RDMSR reads the value from the specified MSR to the EDX:EAX registers;&#160;WRMSR&#160;writes&#160;the value in&#160;the&#160;EDX:EAX&#160;<br/>registers to&#160;the&#160;specified&#160;MSR.&#160;RDMSR and WRMSR&#160;were&#160;introduced into the IA-32 architecture&#160;with&#160;the Pentium&#160;<br/>processor.<br/>Se<a href="o_fe12b1e2a880e0ce-319.html">e Section 9.4, “Model-Specific&#160;Registers&#160;(MSRs),”&#160;for more&#160;</a>information.</p>
+<p style="position:absolute;top:879px;left:69px;white-space:nowrap" class="ft04">2.8.7.1 &#160;</p>
+<p style="position:absolute;top:879px;left:153px;white-space:nowrap" class="ft04">Reading&#160;and Writing&#160;Model-Specific Registers in&#160;64-Bit&#160;Mode</p>
+<p style="position:absolute;top:907px;left:69px;white-space:nowrap" class="ft06">RDMSR&#160;and WRMSR&#160;require&#160;an index&#160;to specify the&#160;address of&#160;an&#160;MSR. In&#160;64-bit mode, the&#160;index&#160;is 32&#160;bits; it&#160;is&#160;<br/>specified using&#160;ECX.</p>
+<p style="position:absolute;top:974px;left:69px;white-space:nowrap" class="ft05">2.8.8&#160;</p>
+<p style="position:absolute;top:974px;left:149px;white-space:nowrap" class="ft05">Enabling Processor Extended States</p>
+<p style="position:absolute;top:1005px;left:69px;white-space:nowrap" class="ft06">The&#160;XSETBV instruction is&#160;required&#160;to&#160;enable&#160;OS support of individual&#160;processor&#160;extended states in&#160;XCR0&#160;(see&#160;<br/><a href="o_fe12b1e2a880e0ce-81.html">Section 2.6).</a></p>
+</div>
+</body>
+</html>

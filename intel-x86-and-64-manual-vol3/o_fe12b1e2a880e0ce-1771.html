@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1771</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1771-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1771.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;38-1</p>
+<p style="position:absolute;top:47px;left:534px;white-space:nowrap" class="ft01">ENCLAVE ACCESS&#160;CONTROL AND DATA STRUCTURES</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft02">CHAPTER 38</p>
+<p style="position:absolute;top:120px;left:272px;white-space:nowrap" class="ft02">ENCLAVE ACCESS CONTROL AND DATA STRUCTURES</p>
+<p style="position:absolute;top:196px;left:69px;white-space:nowrap" class="ft03">38.1&#160;</p>
+<p style="position:absolute;top:196px;left:148px;white-space:nowrap" class="ft03">OVERVIEW OF&#160;ENCLAVE EXECUTION ENVIRONMENT</p>
+<p style="position:absolute;top:231px;left:69px;white-space:nowrap" class="ft08">When an&#160;enclave&#160;is&#160;created,&#160;it&#160;has&#160;a&#160;range&#160;of linear addresses&#160;that&#160;the&#160;processor&#160;applies enhanced access control.&#160;<br/>This ranged&#160;is called the&#160;ELRANGE (see<a href="o_fe12b1e2a880e0ce-1766.html">&#160;Section 37.3</a>). When an enclave&#160;generates a memory access, the existing&#160;<br/>IA32&#160;segmentation and&#160;paging&#160;architecture&#160;are&#160;applied.&#160;Additionally, linear&#160;addresses inside&#160;the&#160;ELRANGE&#160;must&#160;<br/>map to&#160;an EPC page&#160;otherwise&#160;when&#160;an enclave&#160;attempts to access that&#160;linear address&#160;a fault is&#160;generated.<br/>The&#160;EPC&#160;pages need not be&#160;physically contiguous. System&#160;software allocates EPC pages&#160;to various enclaves.&#160;<br/>Enclaves must abide&#160;by OS/VMM&#160;imposed segmentation&#160;and paging&#160;policies.&#160;OS/VMM-managed&#160;page&#160;tables and&#160;<br/>extended&#160;page tables provide address&#160;translation for the&#160;enclave pages. Hardware requires that&#160;these pages&#160;are&#160;<br/>properly&#160;mapped to&#160;EPC&#160;(any&#160;failure generates an&#160;exception).<br/>Enclave&#160;entry&#160;must happen through specific enclave instructions:</p>
+<p style="position:absolute;top:397px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:397px;left:95px;white-space:nowrap" class="ft04">ENCLU[EENTER], ENCLU[ERESUME].</p>
+<p style="position:absolute;top:420px;left:69px;white-space:nowrap" class="ft04">Enclave exit&#160;must&#160;happen&#160;through specific&#160;enclave&#160;instructions or&#160;events:</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:442px;left:95px;white-space:nowrap" class="ft04">ENCLU[EEXIT], Asynchronous Enclave&#160;Exit&#160;(AEX).</p>
+<p style="position:absolute;top:465px;left:69px;white-space:nowrap" class="ft07">Attempt to&#160;execute, read or write&#160;to&#160;linear addresses mapped&#160;to EPC pages&#160;when not inside an enclave will result&#160;<br/>in undefined behavior.&#160;The processor will provide the&#160;protections&#160;as described&#160;in&#160;<a href="o_fe12b1e2a880e0ce-1772.html">Section&#160;38.4&#160;and Section 38.5</a>&#160;on&#160;<br/>such accesses.</p>
+<p style="position:absolute;top:553px;left:69px;white-space:nowrap" class="ft03">38.2 TERMINOLOGY</p>
+<p style="position:absolute;top:588px;left:69px;white-space:nowrap" class="ft08">A&#160;memory access to the&#160;ELRANGE&#160;and initiated by an instruction executed&#160;by&#160;an&#160;enclave&#160;is called a&#160;Direct&#160;Enclave&#160;<br/>Access (Direct EA).&#160;<br/>Memory accesses initiated by&#160;certain Intel</p>
+<p style="position:absolute;top:624px;left:353px;white-space:nowrap" class="ft06">®</p>
+<p style="position:absolute;top:627px;left:364px;white-space:nowrap" class="ft04">&#160;SGX instruction leaf&#160;functions&#160;such&#160;as&#160;ECREATE, EADD,&#160;EDBGRD,&#160;</p>
+<p style="position:absolute;top:643px;left:69px;white-space:nowrap" class="ft08">EDBGWR,&#160;ELDU/ELDB,&#160;EWB,&#160;EREMOVE,&#160;EENTER, and&#160;ERESUME to&#160;EPC pages&#160;are called Indirect&#160;Enclave Accesses&#160;<br/>(Indirect EA).&#160;<a href="o_fe12b1e2a880e0ce-1773.html">Table 38-1&#160;</a>lists additional details&#160;of&#160;the&#160;indirect&#160;EA&#160;of&#160;SGX1&#160;and&#160;SGX2&#160;extensions.<br/>Direct EAs&#160;and Indirect EAs&#160;together&#160;are&#160;called Enclave Accesses (EAs).&#160;<br/>Any memory access&#160;that is&#160;not an&#160;Enclave Access&#160;is called a&#160;non-enclave&#160;access.&#160;</p>
+<p style="position:absolute;top:760px;left:69px;white-space:nowrap" class="ft03">38.3&#160;ACCESS-CONTROL&#160;</p>
+<p style="position:absolute;top:760px;left:320px;white-space:nowrap" class="ft03">REQUIREMENTS</p>
+<p style="position:absolute;top:795px;left:69px;white-space:nowrap" class="ft04">Enclave&#160;accesses have&#160;the following access-control&#160;attributes:</p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:817px;left:95px;white-space:nowrap" class="ft04">All memory&#160;accesses must conform&#160;to segmentation and&#160;paging&#160;protection&#160;mechanisms.</p>
+<p style="position:absolute;top:839px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:840px;left:95px;white-space:nowrap" class="ft04">Code&#160;fetches from inside&#160;an enclave&#160;to a linear address&#160;outside that&#160;enclave&#160;result&#160;in&#160;a #GP(0)&#160;exception.&#160;</p>
+<p style="position:absolute;top:862px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:862px;left:95px;white-space:nowrap" class="ft07">Non-enclave&#160;accesses to&#160;EPC&#160;memory result in undefined&#160;behavior.&#160;EPC&#160;memory&#160;is&#160;protected&#160;as&#160;described&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-1772.html">Section&#160;38.4</a>&#160;<a href="o_fe12b1e2a880e0ce-1772.html">and Section 38.5&#160;</a>on such&#160;accesses.</p>
+<p style="position:absolute;top:901px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:901px;left:95px;white-space:nowrap" class="ft07">EPC&#160;pages of page&#160;types&#160;PT_REG, PT_TCS and&#160;PT_TRIM&#160;must be&#160;mapped&#160;to ELRANGE at&#160;the linear&#160;address&#160;<br/>specified when&#160;the EPC&#160;page was allocated&#160;to the enclave&#160;using ENCLS[EADD] or ENCLS[EAUG] leaf functions.&#160;<br/>Enclave&#160;accesses&#160;through other linear address&#160;result in&#160;a #PF with the&#160;PFEC.SGX&#160;bit&#160;set.&#160;</p>
+<p style="position:absolute;top:956px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:957px;left:95px;white-space:nowrap" class="ft010">Direct EAs&#160;to any&#160;EPC pages&#160;must&#160;conform&#160;to the&#160;currently defined security&#160;attributes for that&#160;EPC page&#160;in the&#160;<br/>EPCM. These&#160;attributes&#160;may be defined&#160;at enclave creation time&#160;(EADD) or&#160;when&#160;the enclave sets them&#160;using&#160;<br/>SGX2&#160;instructions. The&#160;failure of these checks&#160;results&#160;in a&#160;#PF with the&#160;PFEC.SGX bit set.<br/>—&#160;Target&#160;page&#160;must&#160;belong&#160;to the&#160;currently executing&#160;enclave.<br/>—&#160;Data may be written to&#160;an EPC page&#160;if&#160;the EPCM&#160;allow&#160;write&#160;access.<br/>—&#160;Data may be read from an EPC page&#160;if the&#160;EPCM allow read access.</p>
+</div>
+</body>
+</html>

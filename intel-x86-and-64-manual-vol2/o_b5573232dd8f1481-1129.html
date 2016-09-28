@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1129</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1129-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811129.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PSRAW/PSRAD/PSRAQ—Shift&#160;Packed&#160;Data Right Arithmetic</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-449</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft02">DEST[63:0]&#160;&#160;SignExtend(SRC[63:0] &gt;&gt;&#160;COUNT);</p>
+<p style="position:absolute;top:118px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft03">ARITHMETIC_RIGHT_SHIFT_WORDS_256b(SRC, COUNT_SRC)<br/>COUNT&#160;&#160;COUNT_SRC[63:0];<br/>IF&#160;(COUNT &gt; 15)</p>
+<p style="position:absolute;top:208px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:208px;left:143px;white-space:nowrap" class="ft02">COUNT&#160;&#160;16;</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft03">FI;<br/>DEST[15:0]&#160;&#160;SignExtend(SRC[15:0]&#160;&gt;&gt; COUNT);</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat shift operation&#160;for 2nd&#160;through 15th words *)</p>
+<p style="position:absolute;top:280px;left:69px;white-space:nowrap" class="ft02">DEST[255:240]&#160;&#160;SignExtend(SRC[255:240] &gt;&gt; COUNT);</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft03">ARITHMETIC_RIGHT_SHIFT_DWORDS_256b(SRC, COUNT_SRC)<br/>COUNT&#160;&#160;COUNT_SRC[63:0];<br/>IF&#160;(COUNT &gt; 31)</p>
+<p style="position:absolute;top:370px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:370px;left:143px;white-space:nowrap" class="ft02">COUNT&#160;&#160;32;</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft03">FI;<br/>DEST[31:0]&#160;&#160;SignExtend(SRC[31:0]&#160;&gt;&gt; COUNT);</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat&#160;shift operation&#160;for 2nd&#160;through 7th&#160;words *)</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft02">DEST[255:224]&#160;&#160;SignExtend(SRC[255:224] &gt;&gt; COUNT);</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft02">ARITHMETIC_RIGHT_SHIFT_QWORDS(SRC, COUNT_SRC,&#160;VL)&#160;</p>
+<p style="position:absolute;top:478px;left:487px;white-space:nowrap" class="ft02">; VL: 128b, 256b&#160;or 512b</p>
+<p style="position:absolute;top:496px;left:69px;white-space:nowrap" class="ft03">COUNT&#160;&#160;COUNT_SRC[63:0];<br/>IF&#160;(COUNT &gt; 63)</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:532px;left:143px;white-space:nowrap" class="ft02">COUNT&#160;&#160;64;</p>
+<p style="position:absolute;top:550px;left:69px;white-space:nowrap" class="ft03">FI;<br/>DEST[63:0]&#160;&#160;SignExtend(SRC[63:0]&#160;&gt;&gt; COUNT);</p>
+<p style="position:absolute;top:586px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat&#160;shift operation&#160;for 2nd&#160;through 7th&#160;words *)</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft02">DEST[VL-1:VL-64]&#160;&#160;SignExtend(SRC[VL-1:VL-64]&#160;&gt;&gt; COUNT);</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft03">ARITHMETIC_RIGHT_SHIFT_WORDS(SRC,&#160;COUNT_SRC)<br/>COUNT&#160;&#160;COUNT_SRC[63:0];<br/>IF&#160;(COUNT &gt; 15)</p>
+<p style="position:absolute;top:712px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:712px;left:143px;white-space:nowrap" class="ft02">COUNT&#160;&#160;16;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft03">FI;<br/>DEST[15:0]&#160;&#160;SignExtend(SRC[15:0]&#160;&gt;&gt; COUNT);</p>
+<p style="position:absolute;top:766px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat&#160;shift operation&#160;for 2nd&#160;through 7th&#160;words *)</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft02">DEST[127:112]&#160;&#160;SignExtend(SRC[127:112] &gt;&gt; COUNT);</p>
+<p style="position:absolute;top:820px;left:69px;white-space:nowrap" class="ft03">ARITHMETIC_RIGHT_SHIFT_DWORDS(SRC, COUNT_SRC)<br/>COUNT&#160;&#160;COUNT_SRC[63:0];<br/>IF&#160;(COUNT &gt; 31)</p>
+<p style="position:absolute;top:874px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:874px;left:143px;white-space:nowrap" class="ft02">COUNT&#160;&#160;32;</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft03">FI;<br/>DEST[31:0]&#160;&#160;SignExtend(SRC[31:0]&#160;&gt;&gt; COUNT);</p>
+<p style="position:absolute;top:928px;left:89px;white-space:nowrap" class="ft02">(*&#160;Repeat shift operation&#160;for 2nd&#160;through 3rd&#160;words&#160;*)</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft02">DEST[127:96]&#160;&#160;SignExtend(SRC[127:96] &gt;&gt;&#160;COUNT);</p>
+</div>
+</body>
+</html>

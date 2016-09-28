@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 376</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page376-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a376.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-12&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® AVX-512</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">15.6.4&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">STATIC ROUNDING MODE AND SUPPRESS ALL EXCEPTIONS</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft05">In&#160;previous SIMD&#160;instruction&#160;extensions&#160;(up to&#160;AVX and&#160;AVX2),&#160;rounding&#160;control is&#160;generally specified&#160;in MXCSR,&#160;<br/>with&#160;a handful of instructions providing per-instruction&#160;rounding override&#160;via encoding fields within&#160;the imm8&#160;<br/>operand.&#160;AVX-512&#160;offers&#160;a more&#160;flexible encoding attribute to&#160;override MXCSR-based rounding&#160;control for floating-<br/>pointing instructions with rounding semantics. This&#160;rounding&#160;attribute&#160;embedded in the&#160;EVEX prefix&#160;is called Static&#160;<br/>(per instruction) Rounding Mode or Rounding Mode override. This attribute allows programmers to statically apply&#160;<br/>a specific arithmetic&#160;rounding mode&#160;irrespective&#160;of the&#160;value&#160;of RM bits&#160;in MXCSR.&#160;It is&#160;available only to&#160;register-<br/>to-register flavors of&#160;EVEX-encoded&#160;floating-point instructions with rounding&#160;semantic.&#160;The differences between&#160;<br/>these three rounding&#160;control&#160;interfaces&#160;are&#160;summarized&#160;<a href="o_7281d5ea06a5b67a-376.html">in Table&#160;15-4.&#160;</a></p>
+<p style="position:absolute;top:585px;left:68px;white-space:nowrap" class="ft05">The static rounding-mode override&#160;in&#160;AVX-512 also implies the “suppress-all-exceptions” (SAE) attribute. The&#160;SAE&#160;<br/>effect is as if all the MXCSR mask&#160;bits are set,&#160;and&#160;none&#160;of the&#160;MXCSR flags will be&#160;updated. Using static rounding-<br/>mode via EVEX without&#160;SAE is&#160;not supported.<br/>Static Rounding&#160;Mode&#160;and SAE&#160;control can be&#160;enabled in the encoding of&#160;the instruction by setting the&#160;EVEX.b&#160;bit&#160;<br/>to 1&#160;in a&#160;register-register&#160;vector&#160;instruction. In such&#160;a&#160;case, vector length&#160;is assumed to&#160;be&#160;MAX_VL&#160;(512-bit in&#160;<br/>case of AVX-512 packed vector instructions) or 128-bit&#160;for scalar in<a href="o_7281d5ea06a5b67a-376.html">structions. Table&#160;15-5</a>&#160;summarizes the&#160;possible&#160;<br/>static rounding-mode&#160;assignments&#160;in AVX-512&#160;instructions.<br/>Note&#160;that&#160;some instructions already allow specifying the rounding&#160;mode&#160;statically via immediate bits.&#160;In such&#160;<br/>cases,&#160;the immediate bits take&#160;precedence over the&#160;embedded rounding&#160;mode (in&#160;the same&#160;vein&#160;that they take&#160;<br/>precedence over whatever MXCSR.RM&#160;says).</p>
+<p style="position:absolute;top:942px;left:68px;white-space:nowrap" class="ft03">An&#160;example&#160;of&#160;use would be&#160;as&#160;follows:</p>
+<p style="position:absolute;top:992px;left:68px;white-space:nowrap" class="ft03">vaddps zmm7&#160;{k6}, zmm2, zmm4, {rd-sae}</p>
+<p style="position:absolute;top:1032px;left:68px;white-space:nowrap" class="ft05">This would&#160;perform the&#160;single-precision floating-point&#160;addition of vectors zmm2 and&#160;zmm4&#160;with&#160;round-towards-<br/>minus-infinity, leaving&#160;the result in vector&#160;zmm7 using&#160;k6 as&#160;conditional writemask.</p>
+<p style="position:absolute;top:281px;left:235px;white-space:nowrap" class="ft04">Table 15-4. &#160;Characteristics of&#160;Three Rounding&#160;Control Interfaces</p>
+<p style="position:absolute;top:314px;left:116px;white-space:nowrap" class="ft03">Rounding&#160;Interface</p>
+<p style="position:absolute;top:306px;left:294px;white-space:nowrap" class="ft03">Static&#160;Rounding&#160;</p>
+<p style="position:absolute;top:322px;left:316px;white-space:nowrap" class="ft03">Override</p>
+<p style="position:absolute;top:306px;left:432px;white-space:nowrap" class="ft03">Imm8 Embedded&#160;Rounding&#160;</p>
+<p style="position:absolute;top:322px;left:488px;white-space:nowrap" class="ft03">Override</p>
+<p style="position:absolute;top:314px;left:649px;white-space:nowrap" class="ft03">MXCSR&#160;Rounding&#160;Control</p>
+<p style="position:absolute;top:346px;left:79px;white-space:nowrap" class="ft03">Semantic Requirement</p>
+<p style="position:absolute;top:346px;left:280px;white-space:nowrap" class="ft03">FP rounding</p>
+<p style="position:absolute;top:346px;left:416px;white-space:nowrap" class="ft03">FP&#160;rounding</p>
+<p style="position:absolute;top:346px;left:624px;white-space:nowrap" class="ft03">FP rounding</p>
+<p style="position:absolute;top:370px;left:79px;white-space:nowrap" class="ft03">Prefix Requirement</p>
+<p style="position:absolute;top:370px;left:280px;white-space:nowrap" class="ft03">EVEX.B = 1</p>
+<p style="position:absolute;top:370px;left:416px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:370px;left:624px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:394px;left:79px;white-space:nowrap" class="ft03">Rounding&#160;Control</p>
+<p style="position:absolute;top:394px;left:280px;white-space:nowrap" class="ft03">EVEX.L’L</p>
+<p style="position:absolute;top:394px;left:416px;white-space:nowrap" class="ft03">IMM8[1:0] or&#160;MXCSR.RC</p>
+<p style="position:absolute;top:411px;left:416px;white-space:nowrap" class="ft03">(depending&#160;on&#160;IMM8[2])</p>
+<p style="position:absolute;top:394px;left:624px;white-space:nowrap" class="ft03">MXCSR.RC</p>
+<p style="position:absolute;top:435px;left:79px;white-space:nowrap" class="ft03">Suppress All Exceptions (SAE)</p>
+<p style="position:absolute;top:435px;left:280px;white-space:nowrap" class="ft03">Implied</p>
+<p style="position:absolute;top:435px;left:416px;white-space:nowrap" class="ft03">no</p>
+<p style="position:absolute;top:435px;left:624px;white-space:nowrap" class="ft03">no</p>
+<p style="position:absolute;top:459px;left:79px;white-space:nowrap" class="ft03">SIMD&#160;FP&#160;Exception&#160;#XF</p>
+<p style="position:absolute;top:459px;left:280px;white-space:nowrap" class="ft03">All suppressed</p>
+<p style="position:absolute;top:459px;left:416px;white-space:nowrap" class="ft03">Can&#160;raise&#160;#I, #P (unless SPE is set)&#160;MXCSR masking controls</p>
+<p style="position:absolute;top:483px;left:79px;white-space:nowrap" class="ft03">MXCSR&#160;flag update</p>
+<p style="position:absolute;top:483px;left:280px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:483px;left:416px;white-space:nowrap" class="ft03">yes (except PE if SPE is set)&#160;</p>
+<p style="position:absolute;top:483px;left:624px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:507px;left:79px;white-space:nowrap" class="ft03">Precedence</p>
+<p style="position:absolute;top:507px;left:280px;white-space:nowrap" class="ft03">Above MXCSR.RC</p>
+<p style="position:absolute;top:507px;left:416px;white-space:nowrap" class="ft03">Above EVEX.L’L</p>
+<p style="position:absolute;top:507px;left:624px;white-space:nowrap" class="ft03">Default</p>
+<p style="position:absolute;top:531px;left:79px;white-space:nowrap" class="ft03">Scope</p>
+<p style="position:absolute;top:531px;left:280px;white-space:nowrap" class="ft03">512-bit,&#160;reg-reg,&#160;</p>
+<p style="position:absolute;top:547px;left:280px;white-space:nowrap" class="ft03">Scalar&#160;reg-reg</p>
+<p style="position:absolute;top:531px;left:416px;white-space:nowrap" class="ft03">ROUNDPx,&#160;ROUNDSx,&#160;</p>
+<p style="position:absolute;top:547px;left:416px;white-space:nowrap" class="ft03">VCVTPS2PH,&#160;VRNDSCALExx</p>
+<p style="position:absolute;top:531px;left:624px;white-space:nowrap" class="ft03">All SIMD operands, vector lengths</p>
+<p style="position:absolute;top:784px;left:337px;white-space:nowrap" class="ft04">Table 15-5.&#160;&#160;Static Rounding&#160;Mode</p>
+<p style="position:absolute;top:808px;left:172px;white-space:nowrap" class="ft03">Function</p>
+<p style="position:absolute;top:808px;left:507px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:832px;left:176px;white-space:nowrap" class="ft03">{rn-sae}</p>
+<p style="position:absolute;top:832px;left:454px;white-space:nowrap" class="ft03">Round&#160;to&#160;nearest (even)&#160;+ SAE</p>
+<p style="position:absolute;top:856px;left:176px;white-space:nowrap" class="ft03">{rd-sae}</p>
+<p style="position:absolute;top:856px;left:451px;white-space:nowrap" class="ft03">Round down&#160;(toward -inf) + SAE</p>
+<p style="position:absolute;top:880px;left:176px;white-space:nowrap" class="ft03">{ru-sae}</p>
+<p style="position:absolute;top:880px;left:457px;white-space:nowrap" class="ft03">Round&#160;up&#160;(toward +inf) + SAE</p>
+<p style="position:absolute;top:904px;left:176px;white-space:nowrap" class="ft03">{rz-sae}</p>
+<p style="position:absolute;top:904px;left:438px;white-space:nowrap" class="ft03">Round toward&#160;zero&#160;(Truncate) + SAE</p>
+</div>
+</body>
+</html>

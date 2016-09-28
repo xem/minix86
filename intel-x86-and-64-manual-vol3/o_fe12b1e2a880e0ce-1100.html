@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1100</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1100-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1100.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">26-8&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:97px;left:68px;white-space:nowrap" class="ft02">26.3&#160;CHECKING AND LOADING GUEST STATE</p>
+<p style="position:absolute;top:133px;left:68px;white-space:nowrap" class="ft08">If all&#160;checks on the&#160;VMX&#160;controls&#160;and the&#160;host-state&#160;area&#160;pass (see<a href="o_fe12b1e2a880e0ce-1094.html">&#160;Section 26.2),&#160;</a>the following operations take&#160;<br/>place concurrently: (1)&#160;the guest-state area of the&#160;VMCS&#160;is checked to ensure&#160;that, after&#160;the VM&#160;entry completes,&#160;<br/>the state&#160;of the logical processor is consistent&#160;with IA-32 and&#160;Intel 64&#160;architectures;&#160;(2)&#160;processor&#160;state is&#160;loaded&#160;<br/>from the&#160;guest-state area&#160;or as&#160;specified by the VM-entry control&#160;fields;&#160;and (3)&#160;address-range monitoring&#160;is&#160;<br/>cleared.<br/>Because&#160;the&#160;checking&#160;and the&#160;loading&#160;occur concurrently,&#160;a failure may be&#160;discovered only after&#160;some&#160;state&#160;has&#160;<br/>been&#160;loaded. For this&#160;reason,&#160;the logical processor responds to&#160;such&#160;failures by&#160;loading&#160;state from the&#160;host-state&#160;<br/>area,&#160;as&#160;it would&#160;for a&#160;VM&#160;exit.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-1117.html">Section&#160;26.7.</a></p>
+<p style="position:absolute;top:307px;left:68px;white-space:nowrap" class="ft04">26.3.1&#160;</p>
+<p style="position:absolute;top:307px;left:148px;white-space:nowrap" class="ft04">Checks on the Guest State Area</p>
+<p style="position:absolute;top:337px;left:68px;white-space:nowrap" class="ft08">This section describes&#160;checks performed on fields in&#160;the guest-state&#160;area.&#160;These&#160;checks may be&#160;performed&#160;in&#160;any&#160;<br/>order.&#160;Some checks&#160;prevent establishment of settings (or&#160;combinations&#160;of settings) that&#160;are currently reserved.&#160;<br/>Future processors may allow such settings (or combinations) and&#160;may not perform the corresponding&#160;checks. The&#160;<br/>correctness of&#160;software should not rely&#160;on VM-entry failures resulting from the checks documented in this&#160;section.&#160;<br/>The&#160;following subsections reference fields&#160;that correspond&#160;to&#160;processor&#160;state. Unless otherwise&#160;stated, these&#160;refer-<br/>ences are&#160;to&#160;fields in&#160;the guest-state&#160;area.</p>
+<p style="position:absolute;top:472px;left:68px;white-space:nowrap" class="ft05">26.3.1.1 &#160;&#160;Checks on Guest Control&#160;Registers, Debug Registers,&#160;and MSRs</p>
+<p style="position:absolute;top:500px;left:68px;white-space:nowrap" class="ft08">The following checks are performed on fields in&#160;the guest-state&#160;area&#160;corresponding to control&#160;registers,&#160;debug&#160;<br/>registers, and&#160;MSRs:</p>
+<p style="position:absolute;top:538px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:539px;left:93px;white-space:nowrap" class="ft010">The CR0 field must&#160;not set&#160;any bit to a value&#160;not supported in VMX operation (see<a href="o_fe12b1e2a880e0ce-1045.html">&#160;Section 23.8</a>). The following&#160;<br/>are exceptions:<br/>—&#160;Bit&#160;0&#160;(corresponding&#160;to CR0.PE) and&#160;bit&#160;31&#160;(PG)&#160;are&#160;not checked if&#160;the “unrestricted guest”&#160;VM-execution&#160;</p>
+<p style="position:absolute;top:596px;left:119px;white-space:nowrap" class="ft03">control is&#160;1.</p>
+<p style="position:absolute;top:593px;left:198px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:620px;left:93px;white-space:nowrap" class="ft03">—&#160;Bit&#160;29&#160;(corresponding to&#160;CR0.NW)&#160;and bit&#160;30&#160;(CD)&#160;are&#160;never&#160;checked&#160;because the&#160;values of these bits are&#160;</p>
+<p style="position:absolute;top:637px;left:119px;white-space:nowrap" class="ft03">not changed by&#160;VM&#160;entry;&#160;se<a href="o_fe12b1e2a880e0ce-1107.html">e Section 26.3.2.1.</a></p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:659px;left:93px;white-space:nowrap" class="ft03">If bit&#160;31&#160;in&#160;the CR0&#160;field&#160;(corresponding&#160;to PG) is&#160;1,&#160;bit&#160;0&#160;in that&#160;field (PE)&#160;must&#160;also be&#160;1.</p>
+<p style="position:absolute;top:656px;left:697px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:681px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:682px;left:93px;white-space:nowrap" class="ft03">The CR4&#160;field&#160;must not&#160;set&#160;any&#160;bit to&#160;a value not&#160;supported&#160;in VMX operation&#160;(see<a href="o_fe12b1e2a880e0ce-1045.html">&#160;Section 23.8</a>).</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:704px;left:93px;white-space:nowrap" class="ft08">If the&#160;“load&#160;debug&#160;controls” VM-entry control is&#160;1,&#160;bits&#160;reserved in&#160;the IA32_DEBUGCTL&#160;MSR must be 0 in the&#160;<br/>field for that register. The&#160;first processors to&#160;support the virtual-machine&#160;extensions supported&#160;only&#160;the 1-<br/>setting&#160;of&#160;this control and thus performed this&#160;check&#160;unconditionally.</p>
+<p style="position:absolute;top:759px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:760px;left:93px;white-space:nowrap" class="ft010">The&#160;following&#160;checks are&#160;performed&#160;on processors that&#160;support Intel 64&#160;architecture:<br/>—&#160;If&#160;the “IA-32e mode&#160;guest”&#160;VM-entry control is&#160;1,&#160;bit&#160;31 in&#160;the&#160;CR0&#160;field (corresponding&#160;to CR0.PG) and&#160;</p>
+<p style="position:absolute;top:800px;left:119px;white-space:nowrap" class="ft03">bit&#160;5&#160;in the&#160;CR4 field (corresponding to&#160;CR4.PAE)&#160;must&#160;each be 1.</p>
+<p style="position:absolute;top:798px;left:562px;white-space:nowrap" class="ft07">3</p>
+<p style="position:absolute;top:824px;left:93px;white-space:nowrap" class="ft03">—&#160;If&#160;the “IA-32e mode&#160;guest”&#160;VM-entry control is&#160;0,&#160;bit&#160;17 in&#160;the&#160;CR4&#160;field (corresponding&#160;to CR4.PCIDE)&#160;</p>
+<p style="position:absolute;top:841px;left:119px;white-space:nowrap" class="ft03">must&#160;be 0.</p>
+<p style="position:absolute;top:865px;left:93px;white-space:nowrap" class="ft03">—&#160;The&#160;CR3 field must be such&#160;that&#160;bits&#160;63:52&#160;and bits&#160;in the&#160;range 51:32&#160;beyond the&#160;processor’s physical-</p>
+<p style="position:absolute;top:881px;left:119px;white-space:nowrap" class="ft03">address&#160;width are&#160;0.</p>
+<p style="position:absolute;top:879px;left:257px;white-space:nowrap" class="ft07">4,5</p>
+<p style="position:absolute;top:925px;left:68px;white-space:nowrap" class="ft03">1.&#160;“Unrestricted guest” is a secondary processor-based VM-execution&#160;control. If bit&#160;31&#160;of&#160;the primary processor-based&#160;VM-execution&#160;</p>
+<p style="position:absolute;top:942px;left:89px;white-space:nowrap" class="ft03">controls&#160;is 0, VM&#160;entry functions as&#160;if the “unrestricted guest” VM-execution&#160;control were&#160;0.&#160;See<a href="o_fe12b1e2a880e0ce-1055.html">&#160;Section&#160;24.6.2</a>.</p>
+<p style="position:absolute;top:963px;left:68px;white-space:nowrap" class="ft03">2.&#160;If&#160;the capability MSR IA32_VMX_CR0_FIXED0 reports that&#160;CR0.PE&#160;must&#160;be 1 in VMX operation, bit&#160;0&#160;in&#160;the CR0&#160;field&#160;must&#160;be&#160;1&#160;</p>
+<p style="position:absolute;top:979px;left:89px;white-space:nowrap" class="ft03">unless the “unrestricted guest” VM-execution control and bit&#160;31&#160;of&#160;the&#160;primary processor-based&#160;VM-execution controls are&#160;both 1.</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft03">3.&#160;If&#160;the capability MSR IA32_VMX_CR0_FIXED0 reports that&#160;CR0.PG must&#160;be 1&#160;in&#160;VMX operation, bit&#160;31 in&#160;the CR0&#160;field must&#160;be&#160;1&#160;</p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft03">unless the “unrestricted guest” VM-execution control and bit&#160;31&#160;of&#160;the&#160;primary processor-based&#160;VM-execution controls are&#160;both 1.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">4.&#160;Software&#160;can determine a&#160;processor’s&#160;physical-address&#160;width&#160;by executing&#160;CPUID with&#160;80000008H&#160;in&#160;EAX.&#160;The physical-address&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">width is&#160;returned&#160;in&#160;bits&#160;7:0 of&#160;EAX.</p>
+</div>
+</body>
+</html>

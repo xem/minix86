@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1127</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1127-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1127.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;27-9</p>
+<p style="position:absolute;top:47px;left:782px;white-space:nowrap" class="ft01">VM&#160;EXITS</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft02">—&#160;For&#160;VM&#160;exits&#160;caused&#160;as part of EOI virtualization&#160;<a href="o_fe12b1e2a880e0ce-1169.html">(Section&#160;29.1.4), bits&#160;</a>7:0 of the&#160;exit qualification&#160;are&#160;set&#160;</p>
+<p style="position:absolute;top:117px;left:120px;white-space:nowrap" class="ft02">to vector&#160;of&#160;the virtual interrupt&#160;that was&#160;dismissed&#160;by&#160;the EOI virtualization.&#160;Bits&#160;above bit&#160;7&#160;are&#160;cleared.</p>
+<p style="position:absolute;top:141px;left:95px;white-space:nowrap" class="ft02">—&#160;For APIC-write VM&#160;exits&#160;(<a href="o_fe12b1e2a880e0ce-1175.html">Section 29.4.3.3),&#160;</a>bits&#160;11:0 of&#160;the&#160;exit qualification are set&#160;to the&#160;page offset&#160;of&#160;</p>
+<p style="position:absolute;top:157px;left:120px;white-space:nowrap" class="ft02">the&#160;write access that&#160;caused&#160;the&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:155px;left:397px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:157px;left:404px;white-space:nowrap" class="ft02">&#160;Bits above bit&#160;11&#160;are cleared.</p>
+<p style="position:absolute;top:181px;left:95px;white-space:nowrap" class="ft02">—&#160;For a VM&#160;exit due&#160;to a page-modification log-full event&#160;<a href="o_fe12b1e2a880e0ce-1159.html">(Section 28.2.5), only bit&#160;</a>12 of the exit qualification&#160;</p>
+<p style="position:absolute;top:198px;left:120px;white-space:nowrap" class="ft02">is&#160;defined,&#160;and only in&#160;some&#160;cases.&#160;It is&#160;undefined&#160;in&#160;the following&#160;cases:</p>
+<p style="position:absolute;top:223px;left:120px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:222px;left:146px;white-space:nowrap" class="ft02">If the&#160;“NMI exiting”&#160;VM-execution control is&#160;1 and the&#160;“virtual NMIs” VM-execution control&#160;is 0.</p>
+<p style="position:absolute;top:247px;left:120px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:246px;left:146px;white-space:nowrap" class="ft02">If the&#160;VM&#160;exit&#160;sets the&#160;valid&#160;bit in&#160;the IDT-vectoring&#160;information field (see<a href="o_fe12b1e2a880e0ce-1129.html">&#160;Section 27.2.3).</a></p>
+<p style="position:absolute;top:270px;left:120px;white-space:nowrap" class="ft02">Otherwise, it&#160;is defined as&#160;follows:</p>
+<p style="position:absolute;top:295px;left:120px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:294px;left:146px;white-space:nowrap" class="ft08">If the&#160;“virtual NMIs” VM-execution control&#160;is 0,&#160;the&#160;page-modification log-full event&#160;was caused by a&#160;<br/>memory&#160;access&#160;as part of&#160;execution of the IRET&#160;instruction,&#160;<a href="o_fe12b1e2a880e0ce-1052.html">and blocking by NMI (see Table&#160;24-3) w</a>as&#160;<br/>in effect&#160;before&#160;execution of IRET, bit&#160;12 is&#160;set&#160;to 1.</p>
+<p style="position:absolute;top:352px;left:120px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:351px;left:146px;white-space:nowrap" class="ft08">If the&#160;“virtual NMIs” VM-execution control&#160;is 1,the page-modification log-full&#160;event&#160;was caused by a&#160;<br/>memory access as&#160;part of&#160;execution of the&#160;IRET instruction, and&#160;virtual-NMI blocking&#160;was in&#160;effect&#160;<br/>before&#160;execution&#160;of IRET,&#160;bit&#160;12 is&#160;set to&#160;1.</p>
+<p style="position:absolute;top:409px;left:120px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:408px;left:146px;white-space:nowrap" class="ft02">For all&#160;other relevant&#160;VM&#160;exits, bit&#160;12 is&#160;cleared to&#160;0.</p>
+<p style="position:absolute;top:432px;left:120px;white-space:nowrap" class="ft02">For&#160;these&#160;VM&#160;exits, all&#160;bits&#160;other than bit&#160;12 are undefined.</p>
+<p style="position:absolute;top:454px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:454px;left:95px;white-space:nowrap" class="ft09"><b>Guest-linear address.</b>&#160;For some VM&#160;exits, this field&#160;receives a linear address that pertains to the VM&#160;exit.&#160;The&#160;<br/>field is&#160;set for different VM&#160;exits as&#160;follows:<br/>—&#160;VM&#160;exits due to attempts to execute LMSW with a memory operand. In&#160;these cases, this field receives the&#160;</p>
+<p style="position:absolute;top:511px;left:120px;white-space:nowrap" class="ft08">linear&#160;address of that operand.&#160;Bits&#160;63:32 are cleared if&#160;the logical processor&#160;was not in&#160;64-bit mode before&#160;<br/>the VM&#160;exit.</p>
+<p style="position:absolute;top:552px;left:95px;white-space:nowrap" class="ft02">—&#160;VM&#160;exits due to attempts to&#160;execute INS or OUTS for&#160;which the relevant segment&#160;is usable (if the&#160;relevant&#160;</p>
+<p style="position:absolute;top:568px;left:120px;white-space:nowrap" class="ft08">segment is&#160;not usable,&#160;the value&#160;is undefined).&#160;(ES is&#160;always&#160;the relevant segment&#160;for INS; for OUTS, the&#160;<br/>relevant segment&#160;is DS&#160;unless overridden&#160;by&#160;an instruction prefix.) The&#160;linear address&#160;is the&#160;base&#160;address&#160;<br/>of relevant&#160;segment plus (E)DI (for INS) or (E)SI (for&#160;OUTS).&#160;Bits&#160;63:32&#160;are cleared&#160;if&#160;the&#160;logical&#160;processor&#160;<br/>was not in&#160;64-bit&#160;mode&#160;before&#160;the&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft02">1.&#160;Execution&#160;of&#160;WRMSR&#160;with&#160;ECX&#160;= 83FH&#160;(self-IPI&#160;MSR)&#160;can&#160;lead&#160;to&#160;an&#160;APIC-write&#160;VM&#160;exit; the&#160;exit&#160;qualification&#160;for such&#160;an&#160;APIC-write&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">VM exit is 3F0H.</p>
+<p style="position:absolute;top:649px;left:290px;white-space:nowrap" class="ft07">Table 27-7.&#160;&#160;Exit&#160;Qualification&#160;for&#160;EPT Violations</p>
+<p style="position:absolute;top:682px;left:80px;white-space:nowrap" class="ft02">Bit&#160;Position(s)</p>
+<p style="position:absolute;top:682px;left:190px;white-space:nowrap" class="ft02">Contents</p>
+<p style="position:absolute;top:711px;left:80px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:711px;left:190px;white-space:nowrap" class="ft02">Set&#160;if the access causing the&#160;EPT violation&#160;was a data&#160;read.</p>
+<p style="position:absolute;top:708px;left:527px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:739px;left:80px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:739px;left:190px;white-space:nowrap" class="ft02">Set&#160;if the access causing the&#160;EPT violation&#160;was a data&#160;write.</p>
+<p style="position:absolute;top:736px;left:532px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-1128.html">1</a></p>
+<p style="position:absolute;top:768px;left:80px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:768px;left:190px;white-space:nowrap" class="ft02">Set&#160;if the access causing the EPT&#160;violation was an&#160;instruction fetch.</p>
+<p style="position:absolute;top:796px;left:80px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:796px;left:190px;white-space:nowrap" class="ft02">The logical-AND of&#160;bit&#160;0&#160;in the EPT paging-structure&#160;entries used to&#160;translate the guest-physical address of&#160;the&#160;</p>
+<p style="position:absolute;top:813px;left:190px;white-space:nowrap" class="ft02">access causing the EPT violation (indicates that&#160;the guest-physical&#160;address was readable).</p>
+<p style="position:absolute;top:810px;left:699px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:841px;left:80px;white-space:nowrap" class="ft02">4</p>
+<p style="position:absolute;top:841px;left:190px;white-space:nowrap" class="ft02">The logical-AND of&#160;bit&#160;1&#160;in the EPT paging-structure&#160;entries used to&#160;translate the guest-physical address of&#160;the&#160;</p>
+<p style="position:absolute;top:858px;left:190px;white-space:nowrap" class="ft02">access causing the EPT violation (indicates that&#160;the&#160;guest-physical address was writeable).</p>
+<p style="position:absolute;top:886px;left:80px;white-space:nowrap" class="ft02">5</p>
+<p style="position:absolute;top:886px;left:190px;white-space:nowrap" class="ft02">The logical-AND of&#160;bit&#160;2&#160;in the EPT paging-structure&#160;entries used to&#160;translate the guest-physical address of&#160;the&#160;</p>
+<p style="position:absolute;top:903px;left:190px;white-space:nowrap" class="ft02">access causing the EPT violation (indicates that&#160;the guest-physical address was executable).</p>
+<p style="position:absolute;top:931px;left:80px;white-space:nowrap" class="ft02">6</p>
+<p style="position:absolute;top:931px;left:190px;white-space:nowrap" class="ft02">Reserved&#160;(cleared&#160;to&#160;0).</p>
+<p style="position:absolute;top:960px;left:80px;white-space:nowrap" class="ft02">7</p>
+<p style="position:absolute;top:960px;left:190px;white-space:nowrap" class="ft010">Set&#160;if&#160;the&#160;guest linear-address field is&#160;valid.<br/>The&#160;guest linear-address field&#160;is valid for all EPT violations except&#160;those resulting from an attempt to&#160;load the&#160;</p>
+<p style="position:absolute;top:997px;left:190px;white-space:nowrap" class="ft02">guest PDPTEs as part&#160;of&#160;the execution of&#160;the MOV CR instruction.</p>
+</div>
+</body>
+</html>

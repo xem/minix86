@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1049</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1049-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1049.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;24-3</p>
+<p style="position:absolute;top:47px;left:591px;white-space:nowrap" class="ft01">VIRTUAL MACHINE CONTROL STRUCTURES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">ware to&#160;avoid&#160;using a&#160;VMCS region formatted&#160;for one&#160;processor on&#160;a processor that&#160;uses a&#160;different&#160;format.</p>
+<p style="position:absolute;top:98px;left:783px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:100px;left:789px;white-space:nowrap" class="ft02">&#160;Bit&#160;31&#160;</p>
+<p style="position:absolute;top:117px;left:69px;white-space:nowrap" class="ft09">of this&#160;4-byte&#160;region&#160;indicates whether&#160;the&#160;VMCS&#160;is a&#160;<a href="o_fe12b1e2a880e0ce-1070.html">shadow VMCS (see Section 24.10).<br/></a>Software&#160;should write the VMCS revision identifier to&#160;the VMCS&#160;region before using&#160;that region for a&#160;VMCS.&#160;The&#160;<br/>VMCS&#160;revision identifier is&#160;never&#160;written by the&#160;processor; VMPTRLD fails&#160;if&#160;its operand references a&#160;VMCS region&#160;<br/>whose&#160;VMCS&#160;revision identifier differs&#160;from&#160;that used&#160;by&#160;the processor.&#160;(VMPTRLD&#160;also&#160;fails if the&#160;shadow-VMCS&#160;<br/>indicator is 1 and the processor does&#160;not&#160;support the 1-setting of the “VMCS shadowing” VM-execution control;&#160;see&#160;<br/><a href="o_fe12b1e2a880e0ce-1055.html">Section&#160;24.6.2</a>) Software can discover the VMCS revision identifier&#160;that&#160;a processor uses&#160;by reading the VMX capa-<br/>bility MSR IA32_VMX_BASIC</p>
+<p style="position:absolute;top:220px;left:262px;white-space:nowrap" class="ft04">&#160;</p>
+<p style="position:absolute;top:223px;left:267px;white-space:nowrap" class="ft02">(s<a href="o_fe12b1e2a880e0ce-1943.html">ee Appendix A.1</a>).</p>
+<p style="position:absolute;top:247px;left:69px;white-space:nowrap" class="ft09">Software&#160;should clear&#160;or set the&#160;shadow-VMCS indicator&#160;depending on whether the VMCS&#160;is&#160;to be&#160;an&#160;ordinary&#160;<br/>VMCS&#160;or a shadow VMCS<a href="o_fe12b1e2a880e0ce-1070.html">&#160;(see Section 24.10).</a>&#160;VMPTRLD fails&#160;if the shadow-VMCS indicator is set and the processor&#160;<br/>does&#160;not support the 1-setting of the “VMCS shadowing”&#160;VM-execution control.&#160;Software&#160;can discover support for&#160;<br/>this setting by reading&#160;the&#160;VMX&#160;capability MSR&#160;IA32_VMX_PROCBASED_CTLS2&#160;(see<a href="o_fe12b1e2a880e0ce-1946.html">&#160;Appendix A.3.3).<br/></a>The next 4 bytes&#160;of&#160;the VMCS&#160;region are used&#160;for the&#160;<b>VMX-abort&#160;indicator</b>. The contents&#160;of&#160;these&#160;bits do not&#160;<br/>control&#160;processor&#160;operation in any&#160;way.&#160;A logical processor writes&#160;a non-zero value into&#160;these bits if&#160;a VMX&#160;abort&#160;<br/>occurs (see<a href="o_fe12b1e2a880e0ce-1147.html">&#160;Section 27.7</a>).&#160;Software may also&#160;write&#160;into this&#160;field.<br/>The remainder of&#160;the&#160;VMCS&#160;region&#160;is used for&#160;<b>VMCS&#160;data</b>&#160;(those parts of the&#160;VMCS&#160;that control&#160;VMX non-root&#160;<br/>operation&#160;and the VMX transitions). The format of these data is implementation-specific. VMCS data are discussed&#160;<br/><a href="o_fe12b1e2a880e0ce-1049.html">in Section 24.3&#160;</a><a href="o_fe12b1e2a880e0ce-1067.html">through&#160;Section 24.9. T</a>o&#160;ensure&#160;proper behavior in&#160;VMX operation, software&#160;should maintain the&#160;<br/>VMCS region&#160;and related&#160;structures&#160;(enumera<a href="o_fe12b1e2a880e0ce-1073.html">ted in Section&#160;24.11.4) in&#160;</a>writeback cacheable memory.&#160;Future&#160;<br/>implementations may allow or require a different memory type</p>
+<p style="position:absolute;top:441px;left:493px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:444px;left:500px;white-space:nowrap" class="ft02">. Software should consult the VMX capability MSR&#160;</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft02">IA32_VMX_BAS<a href="o_fe12b1e2a880e0ce-1943.html">IC (see Appendix A.1).</a></p>
+<p style="position:absolute;top:516px;left:69px;white-space:nowrap" class="ft06">24.3&#160;</p>
+<p style="position:absolute;top:516px;left:148px;white-space:nowrap" class="ft06">ORGANIZATION OF&#160;VMCS DATA</p>
+<p style="position:absolute;top:552px;left:69px;white-space:nowrap" class="ft02">The VMCS data are&#160;organized&#160;into six logical groups:</p>
+<p style="position:absolute;top:574px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:574px;left:95px;white-space:nowrap" class="ft09"><b>Guest-state area.</b>&#160;Processor state is&#160;saved into the&#160;guest-state&#160;area&#160;on VM&#160;exits and&#160;loaded&#160;from there&#160;on&#160;<br/>VM&#160;entries.</p>
+<p style="position:absolute;top:613px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:613px;left:95px;white-space:nowrap" class="ft05"><b>Host-state&#160;area.</b>&#160;Processor&#160;state is&#160;loaded from&#160;the&#160;host-state area on&#160;VM&#160;exits.</p>
+<p style="position:absolute;top:635px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:636px;left:95px;white-space:nowrap" class="ft09"><b>VM-execution control&#160;fields.</b>&#160;These&#160;fields control&#160;processor&#160;behavior in VMX non-root operation.&#160;They&#160;<br/>determine in&#160;part the&#160;causes&#160;of&#160;VM&#160;exits.</p>
+<p style="position:absolute;top:674px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:675px;left:95px;white-space:nowrap" class="ft05"><b>VM-exit control fields.</b>&#160;These fields control VM&#160;exits.</p>
+<p style="position:absolute;top:697px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:697px;left:95px;white-space:nowrap" class="ft05"><b>VM-entry control fields.</b>&#160;These&#160;fields control&#160;VM&#160;entries.</p>
+<p style="position:absolute;top:719px;left:69px;white-space:nowrap" class="ft07">•</p>
+<p style="position:absolute;top:720px;left:95px;white-space:nowrap" class="ft09"><b>VM-exit&#160;information fields.&#160;</b>These&#160;fields&#160;receive&#160;information on VM&#160;exits and&#160;describe&#160;the cause&#160;and&#160;the&#160;<br/>nature&#160;of&#160;VM&#160;exits.&#160;On some&#160;processors,&#160;these&#160;fields&#160;are&#160;read-only.</p>
+<p style="position:absolute;top:734px;left:548px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:760px;left:69px;white-space:nowrap" class="ft09">The VM-execution control fields, the VM-exit control&#160;fields, and the VM-entry control fields&#160;are sometimes referred&#160;<br/>to collectively as&#160;VMX&#160;controls.</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft02">2.&#160;Earlier&#160;versions&#160;of&#160;this&#160;manual&#160;specified&#160;that&#160;the&#160;VMCS&#160;revision&#160;identifier&#160;was&#160;a&#160;32-bit&#160;field.&#160;For&#160;all&#160;processors&#160;produced&#160;prior&#160;to&#160;this&#160;</p>
+<p style="position:absolute;top:942px;left:91px;white-space:nowrap" class="ft02">change,&#160;bit 31 of&#160;the VMCS&#160;revision identifier was 0.</p>
+<p style="position:absolute;top:963px;left:69px;white-space:nowrap" class="ft010">1.&#160;Logical processors that&#160;use the same&#160;VMCS&#160;revision&#160;identifier&#160;use&#160;the same&#160;size&#160;for VMCS&#160;regions.<br/>2.&#160;Alternatively,&#160;software&#160;may map any of&#160;these&#160;regions&#160;or structures with the UC memory type.&#160;Doing so&#160;is&#160;strongly discouraged&#160;</p>
+<p style="position:absolute;top:1000px;left:91px;white-space:nowrap" class="ft02">unless necessary as it will cause the performance of&#160;transitions using those structures&#160;to&#160;suffer&#160;significantly.&#160;In addition,&#160;the&#160;pro-</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft02">cessor&#160;will continue&#160;to&#160;use the memory&#160;type&#160;reported&#160;in&#160;the&#160;VMX capability MSR IA32_VMX_BASIC with exceptions noted&#160;<a href="o_fe12b1e2a880e0ce-1943.html">in Appen-</a></p>
+<p style="position:absolute;top:1033px;left:91px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1943.html">dix&#160;A.1.</a></p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft02">3.&#160;&#160;Software&#160;can&#160;discover whether these&#160;fields&#160;can&#160;be&#160;written&#160;by&#160;reading&#160;the&#160;VMX capability MSR&#160;IA32_VMX_MISC&#160;(see<a href="o_fe12b1e2a880e0ce-1947.html">&#160;Appendix&#160;A.6)</a>.</p>
+</div>
+</body>
+</html>

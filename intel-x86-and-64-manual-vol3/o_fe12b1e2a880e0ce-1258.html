@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1258</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1258-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1258.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">34-8&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:667px;left:68px;white-space:nowrap" class="ft02">34.4.2 SMRAM&#160;</p>
+<p style="position:absolute;top:667px;left:213px;white-space:nowrap" class="ft02">Caching</p>
+<p style="position:absolute;top:697px;left:68px;white-space:nowrap" class="ft06">An IA-32 processor&#160;does not automatically write&#160;back&#160;and&#160;invalidate&#160;its caches before entering SMM&#160;or&#160;before&#160;<br/>exiting SMM.&#160;Because&#160;of this behavior, care must be taken in&#160;the placement of&#160;the&#160;SMRAM in system&#160;memory and&#160;<br/>in the&#160;caching of the&#160;SMRAM to prevent&#160;cache&#160;incoherence when switching back&#160;and&#160;forth between SMM and&#160;<br/>protected mode&#160;operation.&#160;Either&#160;of the&#160;following&#160;three&#160;methods of locating&#160;the SMRAM in&#160;system memory&#160;will&#160;<br/>guarantee&#160;cache&#160;coherency:</p>
+<p style="position:absolute;top:785px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:786px;left:93px;white-space:nowrap" class="ft06">Place&#160;the SRAM in&#160;a dedicated section&#160;of&#160;system memory&#160;that the&#160;operating system&#160;and applications&#160;are&#160;<br/>prevented from accessing.&#160;Here,&#160;the&#160;SRAM&#160;can be&#160;designated&#160;as&#160;cacheable&#160;(WB,&#160;WT,&#160;or WC) for optimum&#160;<br/>processor performance, without&#160;risking cache&#160;incoherence when entering or&#160;exiting SMM.</p>
+<p style="position:absolute;top:841px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:841px;left:93px;white-space:nowrap" class="ft06">Place the SRAM&#160;in a&#160;section of memory that&#160;overlaps&#160;an&#160;area&#160;used&#160;by the&#160;operating system&#160;(such&#160;as the&#160;video&#160;<br/>memory), but designate the SMRAM as uncacheable (UC).&#160;This method prevents cache access when in SMM to&#160;<br/>maintain&#160;cache coherency,&#160;but&#160;the&#160;use of&#160;uncacheable memory&#160;reduces the&#160;performance of SMM&#160;code.</p>
+<p style="position:absolute;top:896px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:897px;left:93px;white-space:nowrap" class="ft06">Place the&#160;SRAM&#160;in a&#160;section of system&#160;memory that&#160;overlaps&#160;an area&#160;used&#160;by the&#160;operating&#160;system and/or&#160;<br/>application code,&#160;but explicitly flush (write back&#160;and&#160;invalidate)&#160;the caches&#160;upon entering and exiting&#160;SMM&#160;<br/>mode. This method&#160;maintains&#160;cache coherency,&#160;but&#160;incurs the&#160;overhead of two complete&#160;cache&#160;flushes.</p>
+<p style="position:absolute;top:954px;left:68px;white-space:nowrap" class="ft06">For Pentium&#160;4,&#160;Intel Xeon, and P6&#160;family processors, a&#160;combination of the first two methods of locating the SMRAM&#160;<br/>is recommended. Here&#160;the&#160;SMRAM is&#160;split&#160;between&#160;an&#160;overlapping&#160;and&#160;a dedicated&#160;region&#160;of&#160;memory.&#160;Upon&#160;<br/>entering SMM, the&#160;SMRAM&#160;space that&#160;is accessed&#160;overlaps&#160;video&#160;memory (typically located in&#160;low memory).&#160;This&#160;<br/>SMRAM section is&#160;designated&#160;as UC&#160;memory.&#160;The initial&#160;SMM code then&#160;jumps&#160;to&#160;a second SMRAM section&#160;that is&#160;<br/>located in&#160;a dedicated region of system memory (typically&#160;in high&#160;memory). This SMRAM section can be cached&#160;for&#160;<br/>optimum&#160;processor performance.</p>
+<p style="position:absolute;top:164px;left:120px;white-space:nowrap" class="ft03">7EF7H - 7EE4H</p>
+<p style="position:absolute;top:164px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:164px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:189px;left:145px;white-space:nowrap" class="ft03">7EE0H</p>
+<p style="position:absolute;top:189px;left:364px;white-space:nowrap" class="ft03">Setting&#160;of&#160;“enable&#160;EPT” VM-execution&#160;control</p>
+<p style="position:absolute;top:189px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:213px;left:144px;white-space:nowrap" class="ft03">7ED8H</p>
+<p style="position:absolute;top:213px;left:376px;white-space:nowrap" class="ft03">Value of&#160;EPTP VM-execution&#160;control&#160;field</p>
+<p style="position:absolute;top:213px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:236px;left:119px;white-space:nowrap" class="ft03">7ED7H - 7EA0H</p>
+<p style="position:absolute;top:236px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:236px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:261px;left:145px;white-space:nowrap" class="ft03">7E9CH</p>
+<p style="position:absolute;top:261px;left:422px;white-space:nowrap" class="ft03">LDT&#160;Base&#160;(lower 32&#160;bits)</p>
+<p style="position:absolute;top:261px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:285px;left:145px;white-space:nowrap" class="ft03">7E98H</p>
+<p style="position:absolute;top:285px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:285px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:308px;left:145px;white-space:nowrap" class="ft03">7E94H</p>
+<p style="position:absolute;top:308px;left:424px;white-space:nowrap" class="ft03">IDT&#160;Base (lower 32&#160;bits)</p>
+<p style="position:absolute;top:308px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:333px;left:145px;white-space:nowrap" class="ft03">7E90H</p>
+<p style="position:absolute;top:333px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:333px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:357px;left:145px;white-space:nowrap" class="ft03">7E8CH</p>
+<p style="position:absolute;top:357px;left:422px;white-space:nowrap" class="ft03">GDT&#160;Base&#160;(lower&#160;32&#160;bits)</p>
+<p style="position:absolute;top:357px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:381px;left:119px;white-space:nowrap" class="ft03">7E8BH - 7E44H</p>
+<p style="position:absolute;top:381px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:381px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:404px;left:145px;white-space:nowrap" class="ft03">7E40H</p>
+<p style="position:absolute;top:404px;left:481px;white-space:nowrap" class="ft03">CR4</p>
+<p style="position:absolute;top:404px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:429px;left:120px;white-space:nowrap" class="ft03">7E3FH - 7DF0H</p>
+<p style="position:absolute;top:429px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:429px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:453px;left:144px;white-space:nowrap" class="ft03">7DE8H</p>
+<p style="position:absolute;top:453px;left:474px;white-space:nowrap" class="ft03">IO_RIP</p>
+<p style="position:absolute;top:453px;left:770px;white-space:nowrap" class="ft03">Yes</p>
+<p style="position:absolute;top:476px;left:119px;white-space:nowrap" class="ft03">7DE7H -&#160;7DDCH</p>
+<p style="position:absolute;top:476px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:476px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:501px;left:144px;white-space:nowrap" class="ft03">7DD8H</p>
+<p style="position:absolute;top:501px;left:423px;white-space:nowrap" class="ft03">IDT&#160;Base (Upper 32 bits)</p>
+<p style="position:absolute;top:501px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:525px;left:144px;white-space:nowrap" class="ft03">7DD4H</p>
+<p style="position:absolute;top:525px;left:421px;white-space:nowrap" class="ft03">LDT&#160;Base&#160;(Upper&#160;32&#160;bits)</p>
+<p style="position:absolute;top:525px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:548px;left:144px;white-space:nowrap" class="ft03">7DD0H</p>
+<p style="position:absolute;top:548px;left:421px;white-space:nowrap" class="ft03">GDT&#160;Base (Upper 32 bits)</p>
+<p style="position:absolute;top:548px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:573px;left:120px;white-space:nowrap" class="ft03">7DCFH -&#160;7C00H</p>
+<p style="position:absolute;top:573px;left:465px;white-space:nowrap" class="ft03">Reserved</p>
+<p style="position:absolute;top:573px;left:772px;white-space:nowrap" class="ft03">No</p>
+<p style="position:absolute;top:597px;left:76px;white-space:nowrap" class="ft01">NOTE:</p>
+<p style="position:absolute;top:616px;left:76px;white-space:nowrap" class="ft03">1.&#160;The two&#160;most&#160;significant bytes are reserved.</p>
+<p style="position:absolute;top:100px;left:219px;white-space:nowrap" class="ft05">Table 34-3.&#160;&#160;SMRAM State&#160;Save&#160;Map&#160;for&#160;Intel&#160;64&#160;Architecture&#160;(Contd.)</p>
+<p style="position:absolute;top:124px;left:145px;white-space:nowrap" class="ft03">Offset&#160;</p>
+<p style="position:absolute;top:141px;left:77px;white-space:nowrap" class="ft03">(Added to&#160;SMBASE +&#160;8000H)</p>
+<p style="position:absolute;top:124px;left:467px;white-space:nowrap" class="ft03">Register</p>
+<p style="position:absolute;top:124px;left:752px;white-space:nowrap" class="ft03">Writable?</p>
+</div>
+</body>
+</html>

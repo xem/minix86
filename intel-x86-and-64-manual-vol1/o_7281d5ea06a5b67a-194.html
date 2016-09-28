@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 194</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:3px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:7px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft011{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page194-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a194.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">8-4&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH THE X87 FPU</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">When mixing MMX and&#160;x87 FPU instructions in the&#160;procedures&#160;or code sequences, the&#160;programmer&#160;is responsible&#160;<br/>for maintaining&#160;the integrity of parameters&#160;being&#160;passed in&#160;the&#160;x87 FPU data&#160;registers.&#160;If an MMX instruction is&#160;<br/>executed&#160;before the parameters in the x87&#160;FPU data registers have&#160;been passed to another procedure,&#160;the param-<br/>eters&#160;may&#160;be&#160;lost (see<a href="o_7281d5ea06a5b67a-232.html">&#160;Section 9.5, “Compatibility&#160;with x87&#160;FPU&#160;Architecture”).</a></p>
+<p style="position:absolute;top:200px;left:68px;white-space:nowrap" class="ft03">8.1.3&#160;</p>
+<p style="position:absolute;top:200px;left:148px;white-space:nowrap" class="ft03">x87 FPU Status Register</p>
+<p style="position:absolute;top:231px;left:68px;white-space:nowrap" class="ft08">The 16-bit x87 FPU status register (see<a href="o_7281d5ea06a5b67a-194.html">&#160;Figure&#160;8-4</a>)&#160;indicates the current&#160;state of the x87 FPU.&#160;The flags in the x87&#160;<br/>FPU status&#160;register include&#160;the&#160;FPU busy&#160;flag,&#160;top-of-stack (TOP)&#160;pointer,&#160;condition code&#160;flags, error&#160;summary&#160;<br/>status&#160;flag,&#160;stack fault flag, and&#160;exception&#160;flags.&#160;The x87 FPU sets&#160;the flags in this&#160;register&#160;to&#160;show the&#160;results&#160;of&#160;<br/>operations.&#160;</p>
+<p style="position:absolute;top:310px;left:68px;white-space:nowrap" class="ft04">&#160;</p>
+<p style="position:absolute;top:663px;left:68px;white-space:nowrap" class="ft08">The contents of&#160;the&#160;x87&#160;FPU status&#160;register (referred to as&#160;the&#160;x87 FPU status word) can be&#160;stored&#160;in memory using&#160;<br/>the FSTSW/FNSTSW,&#160;FSTENV/FNSTENV, FSAVE/FNSAVE,&#160;and&#160;FXSAVE instructions.&#160;It can also&#160;be&#160;stored in the&#160;AX&#160;<br/>register of the&#160;integer unit,&#160;using the&#160;FSTSW/FNSTSW&#160;instructions.</p>
+<p style="position:absolute;top:740px;left:68px;white-space:nowrap" class="ft05">8.1.3.1&#160;&#160;</p>
+<p style="position:absolute;top:740px;left:152px;white-space:nowrap" class="ft05">Top&#160;of&#160;Stack&#160;(TOP) Pointer</p>
+<p style="position:absolute;top:769px;left:68px;white-space:nowrap" class="ft08">A pointer to the x87 FPU data register that is currently at&#160;the top of the x87 FPU register stack is contained in bits&#160;<br/>11 through 13 of the x87 FPU status word.&#160;This&#160;pointer,&#160;which is commonly&#160;referred&#160;to&#160;as&#160;TOP&#160;(for&#160;top-of-stack),&#160;<br/>is a&#160;binary value from 0 to&#160;7.&#160;S<a href="o_7281d5ea06a5b67a-191.html">ee Section 8.1.2,&#160;“x87 FPU Data Registers,”&#160;</a>for&#160;more&#160;information&#160;about&#160;the&#160;TOP&#160;<br/>pointer.</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft05">8.1.3.2 &#160;</p>
+<p style="position:absolute;top:862px;left:152px;white-space:nowrap" class="ft05">Condition Code&#160;Flags</p>
+<p style="position:absolute;top:891px;left:68px;white-space:nowrap" class="ft08">The four condition&#160;code flags&#160;(C0 through&#160;C3)&#160;indicate the&#160;results&#160;of floating-point&#160;comparison and arithmetic&#160;oper-<br/>ations.&#160;<a href="o_7281d5ea06a5b67a-195.html">Table&#160;8-1&#160;</a>summarizes&#160;the&#160;manner in&#160;which the&#160;floating-point instructions set the&#160;condition code flags.&#160;<br/>These&#160;condition code bits are&#160;used principally&#160;for&#160;conditional branching and&#160;for storage of information used&#160;in&#160;<br/>exception handling&#160;(see<a href="o_7281d5ea06a5b67a-196.html">&#160;Section 8.1.4,&#160;“Branching&#160;and Conditional Moves on&#160;Condition&#160;Codes”).<br/></a>As&#160;shown&#160;in<a href="o_7281d5ea06a5b67a-195.html">&#160;Table&#160;8-1,</a>&#160;the&#160;C1&#160;condition&#160;code&#160;flag&#160;is&#160;used&#160;for&#160;a&#160;variety&#160;of&#160;functions.&#160;When&#160;both&#160;the&#160;IE&#160;and&#160;SF&#160;flags&#160;<br/>in the&#160;x87 FPU status word&#160;are set,&#160;indicating&#160;a stack overflow or underflow exception&#160;(#IS),&#160;the C1&#160;flag distin-<br/>guishes between overflow (C1&#160;=&#160;1) and&#160;underflow (C1&#160;=&#160;0).&#160;When the&#160;PE flag&#160;in the&#160;status word&#160;is set,&#160;indicating&#160;<br/>an inexact&#160;(rounded) result,&#160;the C1 flag is&#160;set to&#160;1&#160;if&#160;the last&#160;rounding by&#160;the&#160;instruction was&#160;upward. The&#160;FXAM&#160;<br/>instruction&#160;sets&#160;C1&#160;to the&#160;sign&#160;of the&#160;value being examined.</p>
+<p style="position:absolute;top:617px;left:340px;white-space:nowrap" class="ft06">Figure&#160;8-4. &#160;x87 FPU&#160;Status Word</p>
+<p style="position:absolute;top:340px;left:477px;white-space:nowrap" class="ft00">FPU Busy</p>
+<p style="position:absolute;top:392px;left:375px;white-space:nowrap" class="ft07">15</p>
+<p style="position:absolute;top:392px;left:401px;white-space:nowrap" class="ft07">13</p>
+<p style="position:absolute;top:392px;left:388px;white-space:nowrap" class="ft07">14</p>
+<p style="position:absolute;top:392px;left:427px;white-space:nowrap" class="ft07">11&#160;10&#160;9&#160;8&#160;7&#160;6&#160;5&#160;4&#160;3&#160;2&#160;1&#160;0</p>
+<p style="position:absolute;top:415px;left:378px;white-space:nowrap" class="ft07">B</p>
+<p style="position:absolute;top:411px;left:570px;white-space:nowrap" class="ft07">I</p>
+<p style="position:absolute;top:420px;left:568px;white-space:nowrap" class="ft07">E</p>
+<p style="position:absolute;top:411px;left:505px;white-space:nowrap" class="ft07">P</p>
+<p style="position:absolute;top:420px;left:504px;white-space:nowrap" class="ft07">E</p>
+<p style="position:absolute;top:411px;left:530px;white-space:nowrap" class="ft07">O</p>
+<p style="position:absolute;top:420px;left:529px;white-space:nowrap" class="ft07">E</p>
+<p style="position:absolute;top:411px;left:517px;white-space:nowrap" class="ft07">U</p>
+<p style="position:absolute;top:420px;left:517px;white-space:nowrap" class="ft07">E</p>
+<p style="position:absolute;top:411px;left:543px;white-space:nowrap" class="ft07">Z</p>
+<p style="position:absolute;top:420px;left:542px;white-space:nowrap" class="ft07">E</p>
+<p style="position:absolute;top:411px;left:555px;white-space:nowrap" class="ft07">D</p>
+<p style="position:absolute;top:420px;left:555px;white-space:nowrap" class="ft07">E</p>
+<p style="position:absolute;top:416px;left:410px;white-space:nowrap" class="ft07">TOP</p>
+<p style="position:absolute;top:354px;left:477px;white-space:nowrap" class="ft00">Top of&#160;Stack Pointer</p>
+<p style="position:absolute;top:512px;left:318px;white-space:nowrap" class="ft010">Exception Flags<br/>&#160; &#160;Precision<br/>&#160; &#160;Underflow<br/>&#160; &#160;Overflow<br/>&#160; &#160;Zero Divide<br/>&#160; &#160;Denormalized Operand<br/>&#160; &#160;Invalid Operation</p>
+<p style="position:absolute;top:498px;left:318px;white-space:nowrap" class="ft00">Stack Fault</p>
+<p style="position:absolute;top:483px;left:318px;white-space:nowrap" class="ft00">Error&#160;Summary&#160;Status</p>
+<p style="position:absolute;top:455px;left:319px;white-space:nowrap" class="ft010">Condition<br/>&#160;&#160;&#160;Code</p>
+<p style="position:absolute;top:411px;left:442px;white-space:nowrap" class="ft07">C</p>
+<p style="position:absolute;top:420px;left:442px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:411px;left:454px;white-space:nowrap" class="ft07">C</p>
+<p style="position:absolute;top:420px;left:455px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:411px;left:467px;white-space:nowrap" class="ft07">C</p>
+<p style="position:absolute;top:420px;left:468px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:411px;left:480px;white-space:nowrap" class="ft011">E<br/>S</p>
+<p style="position:absolute;top:411px;left:493px;white-space:nowrap" class="ft011">S<br/>F</p>
+<p style="position:absolute;top:411px;left:390px;white-space:nowrap" class="ft07">C</p>
+<p style="position:absolute;top:420px;left:391px;white-space:nowrap" class="ft07">3</p>
+</div>
+</body>
+</html>

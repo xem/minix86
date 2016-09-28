@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1093</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1093-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1093.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;26-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 26</p>
+<p style="position:absolute;top:120px;left:705px;white-space:nowrap" class="ft01">VM ENTRIES</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft08">Software can&#160;enter VMX non-root operation using&#160;either&#160;of&#160;the VM-entry&#160;instructions VMLAUNCH&#160;and VMRESUME.&#160;<br/>VMLAUNCH&#160;can be used only&#160;with a&#160;VMCS&#160;whose&#160;launch&#160;state&#160;is&#160;clear and VMRESUME can&#160;be&#160;used&#160;only with a&#160;<br/>VMCS whose&#160;the launch state is launched. VMLAUNCH&#160;should&#160;be&#160;used for the first VM&#160;entry after VMCLEAR; VMRE-<br/>SUME&#160;should&#160;be&#160;used&#160;for subsequent&#160;VM&#160;entries&#160;with&#160;the same&#160;VMCS.<br/>Each VM&#160;entry performs the&#160;following&#160;steps in the&#160;order&#160;indicated:<br/>1.&#160;Basic&#160;checks are performed to ensure that&#160;VM&#160;entry&#160;can commence&#160;</p>
+<p style="position:absolute;top:304px;left:93px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1094.html">(Section 26.1).</a></p>
+<p style="position:absolute;top:328px;left:68px;white-space:nowrap" class="ft02">2.&#160;The&#160;control and&#160;host-state areas of the&#160;VMCS are&#160;checked&#160;to ensure&#160;that they are proper for supporting&#160;VMX&#160;</p>
+<p style="position:absolute;top:345px;left:93px;white-space:nowrap" class="ft02">non-root operation&#160;and that&#160;the VMCS is&#160;correctly configured&#160;to support the&#160;next VM&#160;<a href="o_fe12b1e2a880e0ce-1094.html">exit (Section 26.2</a>).</p>
+<p style="position:absolute;top:369px;left:68px;white-space:nowrap" class="ft02">3.&#160;The following may be&#160;performed in parallel&#160;or in&#160;any orde<a href="o_fe12b1e2a880e0ce-1100.html">r (Section 26.3):</a></p>
+<p style="position:absolute;top:392px;left:93px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:393px;left:119px;white-space:nowrap" class="ft06">The guest-state&#160;area of&#160;the VMCS is&#160;checked to&#160;ensure&#160;that, after&#160;the VM&#160;entry&#160;completes,&#160;the state of&#160;the&#160;<br/>logical processor is&#160;consistent with&#160;IA-32 and&#160;Intel&#160;64&#160;architectures.</p>
+<p style="position:absolute;top:433px;left:93px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:433px;left:119px;white-space:nowrap" class="ft02">Processor&#160;state is&#160;loaded from the&#160;guest-state area&#160;and&#160;based on&#160;controls&#160;in the&#160;VMCS.</p>
+<p style="position:absolute;top:457px;left:93px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:457px;left:119px;white-space:nowrap" class="ft02">Address-range monitoring is&#160;cleared.</p>
+<p style="position:absolute;top:481px;left:68px;white-space:nowrap" class="ft06">4.&#160;MSRs&#160;are&#160;loaded&#160;from&#160;the VM-entry MSR-load&#160;<a href="o_fe12b1e2a880e0ce-1109.html">area (Section&#160;26.4</a>).<br/>5.&#160;If VMLAUNCH&#160;is being executed, the&#160;launch&#160;state of the&#160;VMCS is&#160;set to&#160;“launched.”<br/>6.&#160;An event&#160;may be&#160;injected&#160;in the&#160;guest&#160;<a href="o_fe12b1e2a880e0ce-1110.html">context (Section 26.5</a>).<br/>Steps&#160;<a href="o_fe12b1e2a880e0ce-1093.html">1</a>–<a href="o_fe12b1e2a880e0ce-1093.html">4</a>&#160;above perform checks that may cause&#160;VM&#160;entry to&#160;fail. Such failures&#160;occur in one of the following three&#160;<br/>ways:</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:592px;left:93px;white-space:nowrap" class="ft06">Some of the&#160;<a href="o_fe12b1e2a880e0ce-1094.html">checks in Section 26.1 may&#160;</a>generate&#160;ordinary&#160;faults (for example,&#160;an&#160;invalid-opcode&#160;exception).&#160;<br/>Such faults are&#160;delivered&#160;normally.</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:631px;left:93px;white-space:nowrap" class="ft06">Some of the&#160;<a href="o_fe12b1e2a880e0ce-1094.html">checks in Section 26.1 and&#160;</a>all the&#160;checks in<a href="o_fe12b1e2a880e0ce-1094.html">&#160;Section 26.2&#160;cause&#160;</a>control&#160;to pass to&#160;the&#160;instruction&#160;<br/>following the&#160;VM-entry instruction.&#160;The failure is&#160;indicated by setting RFLAGS.ZF</p>
+<p style="position:absolute;top:645px;left:634px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:648px;left:641px;white-space:nowrap" class="ft02">&#160;(if there is&#160;a current VMCS)&#160;</p>
+<p style="position:absolute;top:664px;left:93px;white-space:nowrap" class="ft06">or&#160;RFLAGS.CF (if&#160;there is&#160;no&#160;current&#160;VMCS).&#160;If&#160;there&#160;is&#160;a&#160;current VMCS, an error number&#160;indicating the cause of&#160;<br/>the failure&#160;is stored in the VM-instruction&#160;error&#160;field. See&#160;<a href="��">Chapter 30 for the&#160;</a>error numbers.</p>
+<p style="position:absolute;top:703px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:703px;left:93px;white-space:nowrap" class="ft06">The chec<a href="o_fe12b1e2a880e0ce-1100.html">ks in&#160;Section&#160;26.3&#160;</a><a href="o_fe12b1e2a880e0ce-1109.html">and Section&#160;26.4 cause processo</a>r&#160;state to&#160;be loaded from the&#160;host-state&#160;area of&#160;the&#160;<br/>VMCS&#160;(as would be done on a VM&#160;exit). Information about&#160;the failure is&#160;stored in&#160;the&#160;VM-exit information fields.&#160;<br/>See<a href="o_fe12b1e2a880e0ce-1117.html">&#160;Section 26.7&#160;</a>for details.</p>
+<p style="position:absolute;top:760px;left:68px;white-space:nowrap" class="ft06">EFLAGS.TF&#160;=&#160;1&#160;causes&#160;a VM-entry instruction&#160;to generate&#160;a&#160;single-step debug exception only if failure of one&#160;of the&#160;<br/>checks&#160;<a href="o_fe12b1e2a880e0ce-1094.html">in Section 26.1&#160;and Section 26.2 cause</a>s&#160;control to&#160;pass&#160;to&#160;the&#160;following&#160;instruction. A VM-entry&#160;does not&#160;<br/>generate&#160;a&#160;single-step debug&#160;exception in any&#160;of the&#160;following cases: (1) the&#160;instruction&#160;generates a&#160;fault; (2)&#160;<br/>failure of one&#160;of&#160;the checks&#160;<a href="o_fe12b1e2a880e0ce-1100.html">in Section 26.3&#160;</a>or in&#160;loading&#160;MSRs causes&#160;processor state&#160;to be loaded&#160;from&#160;the&#160;host-<br/>state&#160;area&#160;of&#160;the&#160;VMCS; or (3)&#160;the instruction passes all chec<a href="o_fe12b1e2a880e0ce-1094.html">ks in Section 26.1,&#160;Section 26.2,</a>&#160;<a href="o_fe12b1e2a880e0ce-1100.html">and&#160;Section&#160;26.3&#160;and&#160;<br/></a>there&#160;is no failure&#160;in loading&#160;MSRs.<br/><a href="o_fe12b1e2a880e0ce-1269.html">Section 34.15 d</a>escribes&#160;the&#160;dual-monitor&#160;treatment&#160;of&#160;system-management&#160;interrupts (SMIs)&#160;and system-<br/>management mode (SMM). Under&#160;this&#160;treatment, code running in&#160;SMM returns using&#160;VM&#160;entries instead of the&#160;<br/>RSM instruction. A VM&#160;entry&#160;<b>returns from&#160;SMM</b>&#160;if it is&#160;executed&#160;in&#160;SMM and the “entry to SMM” VM-entry&#160;control&#160;<br/>is 0. VM&#160;entries that return from SMM differ from&#160;ordinary&#160;VM&#160;entries in ways that are&#160;detaile<a href="o_fe12b1e2a880e0ce-1272.html">d in Section 34.15.4</a>.</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft02">1.&#160;This&#160;chapter&#160;uses the&#160;notation&#160;RAX, RIP,&#160;RSP,&#160;RFLAGS,&#160;etc. for processor registers because&#160;most&#160;processors that&#160;support VMX oper-</p>
+<p style="position:absolute;top:1038px;left:89px;white-space:nowrap" class="ft02">ation also&#160;support Intel&#160;64&#160;architecture. For IA-32&#160;processors,&#160;this&#160;notation refers to&#160;the 32-bit forms of&#160;those registers&#160;(EAX, EIP,&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">ESP,&#160;EFLAGS,&#160;etc.). In a few&#160;places,&#160;notation such as EAX is used&#160;to&#160;refer specifically&#160;to&#160;lower&#160;32&#160;bits of&#160;the indicated register.</p>
+</div>
+</body>
+</html>

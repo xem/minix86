@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 2004</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page2004-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14812004.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:611px;white-space:nowrap" class="ft00">GETSEC[SEXIT]—Exit Measured Environment</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-30&#160;Vol. 2D</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">GETSEC[SEXIT]—Exit Measured Environment</p>
+<p style="position:absolute;top:235px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:261px;left:68px;white-space:nowrap" class="ft07">The GETSEC[SEXIT] instruction initiates an&#160;exit of a measured environment established by GETSEC[SENTER]. The&#160;<br/>SEXIT leaf&#160;of GETSEC is&#160;selected&#160;with&#160;EAX set&#160;to 5&#160;at&#160;execution.&#160;This instruction leaf sends&#160;a&#160;message&#160;to all&#160;logical&#160;<br/>processors&#160;in the&#160;platform to signal the&#160;measured&#160;environment exit.&#160;<br/>There are restrictions&#160;enforced&#160;by&#160;the processor for&#160;the execution of the&#160;GETSEC[SEXIT] instruction:&#160;</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:340px;left:93px;white-space:nowrap" class="ft06">Execution is&#160;not&#160;allowed unless&#160;the processor is&#160;in protected&#160;mode&#160;(CR0.PE = 1)&#160;with CPL&#160;= 0&#160;and EFLAGS.VM&#160;<br/>= 0.&#160;</p>
+<p style="position:absolute;top:379px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:379px;left:93px;white-space:nowrap" class="ft06">The&#160;processor must be&#160;in a&#160;measured&#160;environment as&#160;launched&#160;by&#160;a previous&#160;GETSEC[SENTER] instruction,&#160;<br/>but&#160;not still&#160;in authenticated code&#160;execution&#160;mode.&#160;</p>
+<p style="position:absolute;top:418px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:418px;left:93px;white-space:nowrap" class="ft06">To&#160;avoid potential inter-operability&#160;conflicts&#160;between&#160;modes, the processor is&#160;not&#160;allowed to&#160;execute&#160;this&#160;<br/>instruction if it&#160;currently is&#160;in SMM&#160;or in&#160;VMX operation.&#160;</p>
+<p style="position:absolute;top:457px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:457px;left:93px;white-space:nowrap" class="ft06">To&#160;insure&#160;consistent handling of SIPI messages, the&#160;processor executing the GETSEC[SEXIT] instruction must&#160;<br/>also be designated the&#160;BSP&#160;(bootstrap processor) as&#160;defined by&#160;the&#160;register bit IA32_APIC_BASE.BSP&#160;(bit 8).&#160;</p>
+<p style="position:absolute;top:498px;left:68px;white-space:nowrap" class="ft06">Failure to&#160;abide&#160;by the&#160;above&#160;conditions&#160;results in&#160;the processor signaling a&#160;general protection&#160;violation.<br/>This instruction initiates a sequence&#160;to rendezvous the RLPs&#160;with&#160;the ILP.&#160;It then clears the internal processor flag&#160;<br/>indicating&#160;the processor is&#160;operating in&#160;a measured&#160;environment.<br/>In response to&#160;a message signaling the&#160;completion&#160;of&#160;rendezvous, all&#160;RLPs restart&#160;execution with the&#160;instruction&#160;<br/>that was to be&#160;executed&#160;at the time&#160;GETSEC[SEXIT]&#160;was recognized. This applies to all processor&#160;conditions, with&#160;<br/>the following exceptions:&#160;</p>
+<p style="position:absolute;top:617px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:618px;left:93px;white-space:nowrap" class="ft06">If an&#160;RLP&#160;executed HLT&#160;and was in&#160;this&#160;halt state at&#160;the&#160;time of the message initiated&#160;by&#160;GETSEC[SEXIT],&#160;then&#160;<br/>execution resumes&#160;in the&#160;halt state.&#160;</p>
+<p style="position:absolute;top:656px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:657px;left:93px;white-space:nowrap" class="ft06">If an&#160;RLP was&#160;executing&#160;MWAIT,&#160;then&#160;a message initiated&#160;by GETSEC[SEXIT] causes an&#160;exit of the&#160;MWAIT&#160;state,&#160;<br/>falling through to&#160;the next&#160;instruction.&#160;</p>
+<p style="position:absolute;top:695px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:696px;left:93px;white-space:nowrap" class="ft06">If an RLP was executing an intermediate&#160;iteration of a&#160;string instruction,&#160;then&#160;the&#160;processor resumes&#160;execution&#160;<br/>of&#160;the string instruction at&#160;the point&#160;which the&#160;message initiated by&#160;GETSEC[SEXIT] was&#160;recognized.&#160;</p>
+<p style="position:absolute;top:734px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:735px;left:93px;white-space:nowrap" class="ft06">If an&#160;RLP&#160;is still&#160;in the&#160;SENTER sleep state (never awakened with&#160;GETSEC[WAKEUP]), it will be sent&#160;to the&#160;wait-<br/>for-SIPI&#160;state&#160;after first clearing the&#160;bootstrap processor indicator&#160;flag (IA32_APIC_BASE.BSP)&#160;and any&#160;<br/>pending SIPI&#160;state.&#160;In&#160;this case,&#160;such RLPs&#160;are initialized&#160;to an&#160;architectural state consistent with having taken&#160;<br/>a soft reset using&#160;the&#160;INIT#&#160;pin.&#160;</p>
+<p style="position:absolute;top:808px;left:68px;white-space:nowrap" class="ft06">Prior to&#160;completion of the&#160;GETSEC[SEXIT] operation,&#160;both&#160;the&#160;ILP&#160;and any&#160;active&#160;RLPs unmask&#160;the response of the&#160;<br/>external event&#160;signals INIT#,&#160;A20M,&#160;NMI#,&#160;and SMI#. This unmasking&#160;is performed unconditionally to&#160;recognize&#160;<br/>pin events&#160;which are masked after&#160;a GETSEC[SENTER]. The&#160;state&#160;of A20M&#160;is unmasked,&#160;as the&#160;A20M pin is&#160;not&#160;<br/>recognized&#160;while&#160;the&#160;measured&#160;environment is&#160;active.<br/>On a successful exit of the measured&#160;environment, the&#160;ILP re-locks the&#160;Intel® TXT-capable chipset&#160;private config-<br/>uration&#160;space. GETSEC[SEXIT]&#160;does&#160;not affect the&#160;content of&#160;any&#160;PCR.<br/>At&#160;completion&#160;of GETSEC[SEXIT] by&#160;the ILP,&#160;execution&#160;proceeds to&#160;the next&#160;instruction. Since&#160;EFLAGS&#160;and&#160;the&#160;<br/>debug register state are not modified by this instruction,&#160;a&#160;pending trap condition is free to be&#160;signaled if previously&#160;<br/>enabled.</p>
+<p style="position:absolute;top:137px;left:72px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:187px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:310px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:72px;white-space:nowrap" class="ft08">0F&#160;37<br/>(EAX=5)</p>
+<p style="position:absolute;top:160px;left:187px;white-space:nowrap" class="ft04">GETSEC[SEXIT]</p>
+<p style="position:absolute;top:160px;left:310px;white-space:nowrap" class="ft04">Exit&#160;measured environment.</p>
+</div>
+</body>
+</html>

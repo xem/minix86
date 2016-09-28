@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 682</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page682-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce682.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-46&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07">EN (bit 0): When&#160;clear,&#160;the uncore&#160;fixed-function&#160;counter&#160;is locally disabled.&#160;When set,&#160;it is&#160;locally enabled&#160;and&#160;<br/>counting&#160;starts&#160;when&#160;the EN_FC0 bit in&#160;MSR_UNCORE_PERF_GLOBAL_CTRL is&#160;set.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft07">PMI&#160;(bit&#160;2): When&#160;set, the&#160;uncore will generate an interrupt request when the&#160;uncore&#160;fixed-function&#160;counter&#160;<br/>overflowed. This request will be routed to&#160;the&#160;logical processors as&#160;enabled in&#160;the&#160;PMI enable bits&#160;<br/>(EN_PMI_COREx) in&#160;the register&#160;MSR_UNCORE_PERF_GLOBAL_CTRL.</p>
+<p style="position:absolute;top:196px;left:68px;white-space:nowrap" class="ft07">Both&#160;the&#160;general-purpose counters&#160;(MSR_UNCORE_PerfCntr)&#160;and the fixed-function counter&#160;<br/>(MSR_UNCORE_FixedCntr0) are 48 bits wide. They&#160;support&#160;both counting and interrupt&#160;based sampling usages.&#160;<br/>The&#160;event&#160;logic&#160;unit&#160;can filter&#160;event&#160;counts to specific regions of code or&#160;transaction types incoming&#160;to the&#160;home&#160;<br/>node logic.</p>
+<p style="position:absolute;top:290px;left:68px;white-space:nowrap" class="ft04">18.8.2.3 &#160;&#160;Uncore&#160;Address/Opcode Match MSR</p>
+<p style="position:absolute;top:319px;left:68px;white-space:nowrap" class="ft07">The Event&#160;Select field [7:0] of MSR_UNCORE_PERFEVTSELx&#160;is used&#160;to select&#160;different uncore&#160;event&#160;logic&#160;unit.&#160;<br/>When the&#160;event “ADDR_OPCODE_MATCH”&#160;is selected&#160;in&#160;the&#160;Event&#160;Select field,&#160;software&#160;can&#160;filter&#160;uncore perfor-<br/>mance&#160;events according to&#160;transaction address&#160;and certain transaction&#160;responses. The&#160;address&#160;filter&#160;and&#160;transac-<br/>tion response&#160;filtering requires&#160;the&#160;use of MSR_UNCORE_ADDR_OPCODE_MATCH register. The&#160;layout is&#160;shown in&#160;<br/><a href="o_fe12b1e2a880e0ce-682.html">Figure&#160;18-30.</a>&#160;</p>
+<p style="position:absolute;top:671px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:672px;left:93px;white-space:nowrap" class="ft07">Addr (bits 39:3): The physical address&#160;to match if “MatchSel“ field is&#160;set&#160;to&#160;select address&#160;match. The uncore&#160;<br/>performance counter&#160;will&#160;increment if the&#160;lowest 40-bit&#160;incoming physical address&#160;(excluding bits 2:0)&#160;for a&#160;<br/>transaction request matches&#160;bits&#160;39:3.</p>
+<p style="position:absolute;top:726px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:727px;left:93px;white-space:nowrap" class="ft010">Opcode (bits 47:40)&#160;: Bits&#160;47:40&#160;allow software&#160;to filter&#160;uncore&#160;transactions&#160;based on QPI&#160;link message&#160;<br/>class/packed header&#160;opcode. These&#160;bits are&#160;consists two sub-fields:<br/>—&#160;Bits 43:40&#160;specify&#160;the QPI packet header&#160;opcode,<br/>—&#160;Bits 47:44&#160;specify&#160;the QPI message classes.<br/><a href="o_fe12b1e2a880e0ce-683.html">Table&#160;18-27 lists the</a>&#160;encodings&#160;supported in&#160;the opcode field.</p>
+<p style="position:absolute;top:617px;left:223px;white-space:nowrap" class="ft05">Figure&#160;18-30.&#160;&#160;Layout&#160;of&#160;MSR_UNCORE_ADDR_OPCODE_MATCH&#160;MSR&#160;</p>
+<p style="position:absolute;top:456px;left:266px;white-space:nowrap" class="ft06">60</p>
+<p style="position:absolute;top:536px;left:224px;white-space:nowrap" class="ft011">MatchSel—Select addr/Opcode<br/>Opcode—Opcode and Message</p>
+<p style="position:absolute;top:456px;left:651px;white-space:nowrap" class="ft06">3&#160;2&#160;0</p>
+<p style="position:absolute;top:455px;left:470px;white-space:nowrap" class="ft06">40&#160;39</p>
+<p style="position:absolute;top:455px;left:395px;white-space:nowrap" class="ft06">47</p>
+<p style="position:absolute;top:455px;left:382px;white-space:nowrap" class="ft06">48</p>
+<p style="position:absolute;top:582px;left:257px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:484px;left:558px;white-space:nowrap" class="ft06">ADDR</p>
+<p style="position:absolute;top:455px;left:243px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:563px;left:225px;white-space:nowrap" class="ft00">ADDR—Bits&#160;39:4 of physical address</p>
+<p style="position:absolute;top:584px;left:362px;white-space:nowrap" class="ft06">RESET Value — 00000000_00000000H</p>
+<p style="position:absolute;top:485px;left:423px;white-space:nowrap" class="ft06">Opcode</p>
+</div>
+</body>
+</html>

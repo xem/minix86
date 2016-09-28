@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 148</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page148-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481148.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:646px;white-space:nowrap" class="ft00">AAD—ASCII Adjust AX&#160;Before&#160;Division</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-20&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">AAD—ASCII Adjust&#160;AX Before&#160;Division</p>
+<p style="position:absolute;top:255px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:340px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:364px;left:68px;white-space:nowrap" class="ft07">Adjusts two&#160;unpacked BCD&#160;digits&#160;(the least-significant digit&#160;in the&#160;AL register&#160;and the&#160;most-significant&#160;digit in the&#160;<br/>AH register)&#160;so that a division operation performed&#160;on the result will yield a correct unpacked&#160;BCD value. The&#160;AAD&#160;<br/>instruction&#160;is only useful&#160;when it&#160;precedes&#160;a DIV&#160;instruction that&#160;divides&#160;(binary division)&#160;the adjusted value in&#160;the&#160;<br/>AX register&#160;by&#160;an unpacked BCD&#160;value.<br/>The AAD instruction sets&#160;the&#160;value&#160;in the&#160;AL&#160;register to&#160;(AL&#160;+&#160;(10 *&#160;AH)),&#160;and&#160;then clears&#160;the&#160;AH&#160;register to&#160;00H.&#160;</p>
+<p style="position:absolute;top:454px;left:68px;white-space:nowrap" class="ft08">The value&#160;in&#160;the AX&#160;register is&#160;then equal to&#160;the binary&#160;equivalent&#160;of&#160;the original unpacked two-digit (base&#160;10)&#160;<br/>number in&#160;registers&#160;AH and&#160;AL.<br/>The generalized version&#160;of this instruction allows&#160;adjustment of two unpacked digits&#160;of&#160;any number&#160;base&#160;(see&#160;the&#160;<br/>“Operation” section below), by setting the&#160;<i>imm8</i>&#160;byte to the selected number base (for example, 08H for&#160;octal,&#160;0AH&#160;<br/>for decimal,&#160;or 0CH for base 12 numbers). The AAD&#160;mnemonic&#160;is interpreted by all&#160;assemblers to&#160;mean&#160;adjust&#160;<br/>ASCII (base&#160;10) values. To&#160;adjust values&#160;in another&#160;number&#160;base, the instruction must be hand coded in machine&#160;<br/>code (D5&#160;<i>imm8</i>).<br/>This&#160;instruction executes as&#160;described&#160;in compatibility mode and&#160;legacy&#160;mode. It&#160;is not valid&#160;in 64-bit&#160;mode.</p>
+<p style="position:absolute;top:619px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:649px;left:68px;white-space:nowrap" class="ft04">IF&#160;64-Bit Mode</p>
+<p style="position:absolute;top:666px;left:88px;white-space:nowrap" class="ft04">THEN</p>
+<p style="position:absolute;top:682px;left:115px;white-space:nowrap" class="ft04">#UD;</p>
+<p style="position:absolute;top:699px;left:88px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:715px;left:115px;white-space:nowrap" class="ft04">tempAL&#160;←&#160;AL;</p>
+<p style="position:absolute;top:733px;left:115px;white-space:nowrap" class="ft04">tempAH&#160;←&#160;AH;</p>
+<p style="position:absolute;top:751px;left:115px;white-space:nowrap" class="ft04">AL&#160;←&#160;(tempAL&#160;+&#160;(tempAH&#160;∗&#160;<i>imm8</i>)) AND FFH;&#160;</p>
+<p style="position:absolute;top:768px;left:115px;white-space:nowrap" class="ft09">(*&#160;<i>imm8</i>&#160;is set&#160;to 0AH&#160;for the AAD mnemonic.*)<br/>AH&#160;←&#160;0;</p>
+<p style="position:absolute;top:804px;left:68px;white-space:nowrap" class="ft07">FI;<br/>The immediate value&#160;(<i>imm8</i>) is&#160;taken&#160;from the second&#160;byte of the instruction.</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:886px;left:68px;white-space:nowrap" class="ft06">The SF,&#160;ZF,&#160;and PF flags&#160;are&#160;set according to&#160;the resulting binary&#160;value&#160;in the&#160;AL register; the OF, AF,&#160;and&#160;CF&#160;flags&#160;<br/>are undefined.</p>
+<p style="position:absolute;top:937px;left:68px;white-space:nowrap" class="ft03">Protected Mode Exceptions</p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft04">#UD&#160;</p>
+<p style="position:absolute;top:960px;left:206px;white-space:nowrap" class="ft04">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:994px;left:68px;white-space:nowrap" class="ft03">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:1017px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as protected&#160;mode.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:425px;white-space:nowrap" class="ft04">64-bit&#160;</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:497px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:497px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:567px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">D5&#160;0A</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">AAD</p>
+<p style="position:absolute;top:160px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:425px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:160px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:567px;white-space:nowrap" class="ft04">ASCII adjust AX before&#160;division.</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft04">D5&#160;<i>ib</i></p>
+<p style="position:absolute;top:182px;left:220px;white-space:nowrap" class="ft04">AAD imm8</p>
+<p style="position:absolute;top:182px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:182px;left:425px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:182px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:567px;white-space:nowrap" class="ft04">Adjust AX before&#160;division&#160;to number&#160;base&#160;</p>
+<p style="position:absolute;top:199px;left:567px;white-space:nowrap" class="ft05"><i>imm8.</i></p>
+<p style="position:absolute;top:279px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:279px;left:190px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:279px;left:366px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:279px;left:544px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:279px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:303px;left:94px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:303px;left:211px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:387px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:565px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:303px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

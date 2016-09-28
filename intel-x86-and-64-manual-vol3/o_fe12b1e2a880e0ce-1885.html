@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1885</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1885-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1885.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-75</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:116px;white-space:nowrap" class="ft03">IF(ES usable and&#160;ES.base&#160;≠&#160;0) #GP(0); FI;<br/>IF(SS usable and&#160;SS.base&#160;≠&#160;0)&#160;#GP(0); FI;<br/>IF(SS usable and&#160;SS.B&#160;= 0)&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:154px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft02">IF (DS:RBX is&#160;not 4KByte Aligned)</p>
+<p style="position:absolute;top:208px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft02">IF (DS:RBX does not resolve within&#160;an&#160;EPC)</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RBX); FI;</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft03">(* Check AEP is&#160;canonical*)<br/>IF&#160;(TMP_MODE64&#160;= 1 and (DS:RCX is&#160;not canonical) )</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">(* Check concurrency of TCS operation*)<br/>IF&#160;(Other Intel SGX instructions&#160;is operating&#160;on&#160;TCS)&#160;</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft03">(*&#160;TCS&#160;verification&#160;*)<br/>IF (EPCM(DS:RBX).VALID =&#160;0)&#160;</p>
+<p style="position:absolute;top:478px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RBX); FI;</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft02">IF (EPCM(DS:RBX).BLOCKED =&#160;1)&#160;</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RBX); FI;</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft02">IF&#160;( (EPCM(DS:RBX).ENCLAVEADDRESS&#160;≠&#160;DS:RBX) or&#160;(EPCM(DS:RBX).PT&#160;≠&#160;PT_TCS)&#160;)</p>
+<p style="position:absolute;top:586px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RBX); FI;</p>
+<p style="position:absolute;top:622px;left:69px;white-space:nowrap" class="ft02">IF ((EPCM(DS:RBX).PENDING = 1)&#160;or&#160;(EPCM(DS:RBX).MODIFIED = 1))</p>
+<p style="position:absolute;top:640px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:RBX); FI;</p>
+<p style="position:absolute;top:676px;left:69px;white-space:nowrap" class="ft02">IF ( (DS:RBX).OSSA is&#160;not&#160;4KByte&#160;Aligned)</p>
+<p style="position:absolute;top:694px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft03">(* Check proposed&#160;FS&#160;and&#160;GS *)<br/>IF ( (&#160;(DS:RBX).OFSBASE&#160;is&#160;not 4KByte Aligned) or&#160;( (DS:RBX).OGSBASE&#160;is&#160;not 4KByte Aligned) )</p>
+<p style="position:absolute;top:766px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft03">(* Get the SECS&#160;for the enclave&#160;in&#160;which&#160;the TCS resides *)<br/>TMP_SECS&#160;&#160;Address of&#160;SECS for TCS;</p>
+<p style="position:absolute;top:856px;left:69px;white-space:nowrap" class="ft03">(* Check proposed&#160;FS/GS&#160;segments fall within DS *)<br/>IF&#160;(TMP_MODE64&#160;= 0)</p>
+<p style="position:absolute;top:892px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:910px;left:116px;white-space:nowrap" class="ft03">TMP_FSBASE&#160;&#160;(DS:RBX).OFSBASE&#160;+ TMP_SECS.BASEADDR;<br/>TMP_FSLIMIT&#160;&#160;(DS:RBX).OFSBASE&#160;+ TMP_SECS.BASEADDR&#160;+ (DS:RBX).FSLIMIT;<br/>TMP_GSBASE&#160;&#160;(DS:RBX).OGSBASE&#160;+ TMP_SECS.BASEADDR;<br/>TMP_GSLIMIT&#160;&#160;(DS:RBX).OGSBASE + TMP_SECS.BASEADDR + (DS:RBX).GSLIMIT;<br/>(* if&#160;FS&#160;wrap-around, make&#160;sure&#160;DS&#160;has no&#160;holes*)<br/>IF (TMP_FSLIMIT &lt; TMP_FSBASE)</p>
+<p style="position:absolute;top:1018px;left:143px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:1036px;left:170px;white-space:nowrap" class="ft02">IF&#160;(DS.limit &lt;&#160;4GB)&#160;THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:1054px;left:143px;white-space:nowrap" class="ft02">ELSE</p>
+</div>
+</body>
+</html>

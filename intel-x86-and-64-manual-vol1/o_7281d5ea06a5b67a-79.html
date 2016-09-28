@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 79</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page79-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a079.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;3-19</p>
+<p style="position:absolute;top:47px;left:645px;white-space:nowrap" class="ft01">BASIC EXECUTION ENVIRONMENT</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft02">3.6.1&#160;</p>
+<p style="position:absolute;top:346px;left:149px;white-space:nowrap" class="ft02">Operand Size&#160;and Address Size&#160;in 64-Bit Mode</p>
+<p style="position:absolute;top:376px;left:69px;white-space:nowrap" class="ft011">In&#160;64-bit mode, the&#160;default&#160;address size&#160;is 64 bits and&#160;the default&#160;operand size&#160;is 32 bits.&#160;Defaults&#160;can be over-<br/>ridden using&#160;prefixes.&#160;Address-size&#160;and&#160;operand-size&#160;prefixes&#160;allow mixing of 32/64-bit data and&#160;32/64-bit&#160;<br/>addresses on an instruction-by-instruction basis.&#160;<a href="o_7281d5ea06a5b67a-79.html">Table 3-4</a>&#160;shows&#160;valid combinations of&#160;the 66H instruction prefix&#160;<br/>and the&#160;REX.W&#160;prefix that may be&#160;used&#160;to specify operand-size&#160;overrides in&#160;64-bit mode. Note that 16-bit&#160;<br/>addresses&#160;are not&#160;supported in 64-bit&#160;mode.<br/>REX&#160;prefixes&#160;consist of 4-bit fields&#160;that&#160;form 16&#160;different values.&#160;The&#160;W-bit field&#160;in the&#160;REX&#160;prefixes&#160;is referred to&#160;<br/>as&#160;REX.W.&#160;If&#160;the REX.W&#160;field&#160;is properly&#160;set,&#160;the prefix specifies an&#160;operand size override&#160;to 64 bits.&#160;Note&#160;that soft-<br/>ware can still use&#160;the operand-size&#160;66H prefix&#160;to toggle&#160;to a&#160;16-bit operand&#160;size.&#160;However,&#160;setting REX.W&#160;takes&#160;<br/>precedence over the&#160;operand-size&#160;prefix (66H)&#160;when&#160;both are&#160;used.<br/>In&#160;the case of&#160;SSE/SSE2/SSE3/SSSE3 SIMD&#160;instructions:&#160;the 66H,&#160;F2H, and&#160;F3H prefixes are mandatory for&#160;<br/>opcode&#160;extensions. In such&#160;a case, there&#160;is&#160;no&#160;interaction between a&#160;valid REX.W&#160;prefix and&#160;a 66H&#160;opcode exten-<br/>sion prefix.<br/><a href="��">See Chapter&#160;2, “Instruction&#160;Format,”&#160;in&#160;</a>the&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual,&#160;<br/>Volume 2A.</i></p>
+<p style="position:absolute;top:918px;left:69px;white-space:nowrap" class="ft05">3.7&#160;OPERAND&#160;</p>
+<p style="position:absolute;top:918px;left:247px;white-space:nowrap" class="ft05">ADDRESSING</p>
+<p style="position:absolute;top:954px;left:69px;white-space:nowrap" class="ft08">IA-32&#160;machine-instructions&#160;act on zero&#160;or more operands. Some operands&#160;are specified explicitly&#160;and others&#160;are&#160;<br/>implicit.&#160;The data for a&#160;source operand&#160;can be located in:</p>
+<p style="position:absolute;top:992px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:993px;left:95px;white-space:nowrap" class="ft03">the instruction itself&#160;(an immediate operand)</p>
+<p style="position:absolute;top:1015px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1015px;left:95px;white-space:nowrap" class="ft03">a register</p>
+<p style="position:absolute;top:1037px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1038px;left:95px;white-space:nowrap" class="ft03">a&#160;memory&#160;location</p>
+<p style="position:absolute;top:1060px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1060px;left:95px;white-space:nowrap" class="ft03">an I/O&#160;port</p>
+<p style="position:absolute;top:118px;left:257px;white-space:nowrap" class="ft07">Table 3-3. &#160;Effective Operand-&#160;and Address-Size&#160;Attributes</p>
+<p style="position:absolute;top:139px;left:75px;white-space:nowrap" class="ft03">D&#160;&#160;Flag&#160;&#160;in&#160;&#160;Code&#160;&#160;Segment&#160;&#160;Descriptor</p>
+<p style="position:absolute;top:139px;left:390px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:139px;left:449px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:139px;left:508px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:139px;left:567px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:139px;left:626px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:139px;left:685px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:139px;left:743px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:139px;left:802px;white-space:nowrap" class="ft03">1&#160;</p>
+<p style="position:absolute;top:162px;left:75px;white-space:nowrap" class="ft03">Operand-Size&#160;&#160;Prefix&#160;&#160;66H</p>
+<p style="position:absolute;top:162px;left:390px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:162px;left:449px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:162px;left:508px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:162px;left:567px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:162px;left:626px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:162px;left:684px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:162px;left:744px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:162px;left:803px;white-space:nowrap" class="ft03">Y&#160;</p>
+<p style="position:absolute;top:184px;left:75px;white-space:nowrap" class="ft03">Address-Size&#160;&#160;Prefix&#160;&#160;67H</p>
+<p style="position:absolute;top:184px;left:390px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:184px;left:449px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:184px;left:508px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:184px;left:567px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:184px;left:626px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:184px;left:685px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:184px;left:743px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:184px;left:803px;white-space:nowrap" class="ft03">Y&#160;</p>
+<p style="position:absolute;top:207px;left:75px;white-space:nowrap" class="ft03">Effective Operand&#160;Size</p>
+<p style="position:absolute;top:207px;left:387px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:207px;left:445px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:207px;left:504px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:207px;left:563px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:207px;left:622px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:207px;left:681px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:207px;left:740px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:207px;left:798px;white-space:nowrap" class="ft03">16&#160;</p>
+<p style="position:absolute;top:229px;left:75px;white-space:nowrap" class="ft03">Effective Address&#160;Size</p>
+<p style="position:absolute;top:229px;left:387px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:229px;left:445px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:229px;left:504px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:229px;left:563px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:229px;left:622px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:229px;left:681px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:229px;left:740px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:229px;left:798px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:252px;left:75px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:271px;left:75px;white-space:nowrap" class="ft012">Y:&#160;Yes - this&#160;instruction&#160;prefix&#160;is present.<br/>N:&#160;No&#160;- this instruction prefix is not present.</p>
+<p style="position:absolute;top:644px;left:205px;white-space:nowrap" class="ft07">Table 3-4. &#160;Effective&#160;Operand-&#160;and Address-Size&#160;Attributes in&#160;64-Bit&#160;Mode</p>
+<p style="position:absolute;top:669px;left:75px;white-space:nowrap" class="ft03">L&#160;Flag&#160;in&#160;Code&#160;Segment Descriptor</p>
+<p style="position:absolute;top:685px;left:341px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:685px;left:409px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:685px;left:476px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:685px;left:540px;white-space:nowrap" class="ft03">1&#160;</p>
+<p style="position:absolute;top:685px;left:603px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:685px;left:671px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:685px;left:739px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:685px;left:802px;white-space:nowrap" class="ft03">1&#160;</p>
+<p style="position:absolute;top:709px;left:75px;white-space:nowrap" class="ft03">REX.W&#160;&#160;Prefix&#160;</p>
+<p style="position:absolute;top:709px;left:341px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:709px;left:409px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:709px;left:476px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:709px;left:540px;white-space:nowrap" class="ft03">0&#160;</p>
+<p style="position:absolute;top:709px;left:603px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:709px;left:671px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:709px;left:739px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:709px;left:802px;white-space:nowrap" class="ft03">1&#160;</p>
+<p style="position:absolute;top:733px;left:75px;white-space:nowrap" class="ft03">Operand-Size&#160;Prefix&#160;66H</p>
+<p style="position:absolute;top:733px;left:341px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:733px;left:408px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:733px;left:476px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:733px;left:540px;white-space:nowrap" class="ft03">Y&#160;</p>
+<p style="position:absolute;top:733px;left:603px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:733px;left:671px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:733px;left:739px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:733px;left:802px;white-space:nowrap" class="ft03">Y&#160;</p>
+<p style="position:absolute;top:757px;left:75px;white-space:nowrap" class="ft03">Address-Size&#160;Prefix&#160;67H</p>
+<p style="position:absolute;top:757px;left:341px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:757px;left:409px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:757px;left:476px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:757px;left:540px;white-space:nowrap" class="ft03">Y&#160;</p>
+<p style="position:absolute;top:757px;left:603px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:757px;left:671px;white-space:nowrap" class="ft03">Y</p>
+<p style="position:absolute;top:757px;left:738px;white-space:nowrap" class="ft03">N</p>
+<p style="position:absolute;top:757px;left:802px;white-space:nowrap" class="ft03">Y&#160;</p>
+<p style="position:absolute;top:781px;left:75px;white-space:nowrap" class="ft03">Effective Operand Size</p>
+<p style="position:absolute;top:781px;left:337px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:781px;left:405px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:781px;left:472px;white-space:nowrap" class="ft03">16</p>
+<p style="position:absolute;top:781px;left:536px;white-space:nowrap" class="ft03">16&#160;</p>
+<p style="position:absolute;top:781px;left:600px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:781px;left:667px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:781px;left:735px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:781px;left:798px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:805px;left:75px;white-space:nowrap" class="ft03">Effective Address Size</p>
+<p style="position:absolute;top:805px;left:337px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:805px;left:405px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:805px;left:472px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:805px;left:536px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:805px;left:600px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:805px;left:667px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:805px;left:735px;white-space:nowrap" class="ft03">64</p>
+<p style="position:absolute;top:805px;left:798px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:829px;left:75px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:849px;left:75px;white-space:nowrap" class="ft012">Y: Yes&#160;- this instruction prefix is&#160;present.<br/>N: No&#160;- this&#160;instruction&#160;prefix&#160;is not present.</p>
+</div>
+</body>
+</html>

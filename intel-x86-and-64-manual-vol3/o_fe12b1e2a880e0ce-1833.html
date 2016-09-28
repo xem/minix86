@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1833</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1833-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1833.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:760px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-23</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:136px;left:69px;white-space:nowrap" class="ft04">(* Make sure that&#160;the&#160;SECS&#160;does&#160;not have&#160;any unsupported&#160;MISCSELECT options*)<br/>IF (&#160;!(CPUID.(EAX=12H, ECX=0):EBX[31:0] &amp; DS:TMP_SECS.MISSELECT[31:0]) )</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:190px;left:116px;white-space:nowrap" class="ft04">EPCM(DS:TMP_SECS).EntryLock.Release();<br/>#GP(0);</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft04">( * Compute size&#160;of&#160;MISC area&#160;*)<br/>TMP_MISC_SIZE&#160;&#160;compute_misc_region_size();</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft04">(* Compute the size&#160;required&#160;to save&#160;state of&#160;the&#160;enclave on&#160;async exit, se<a href="o_fe12b1e2a880e0ce-1924.html">e Section 42.7.2.2*)<br/></a>TMP_XSIZE&#160;&#160;compute_xsave_size(DS:TMP_SECS.ATTRIBUTES.XFRM) + GPR_SIZE&#160;+ TMP_MISC_SIZE;</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft04">(* Ensure&#160;that&#160;the&#160;declared&#160;area&#160;is large enough&#160;to hold XSAVE&#160;and GPR stat *)<br/>IF&#160;( ( DS:TMP_SECS.SSAFRAMESIZE*4096 &lt; TMP_XSIZE)&#160;</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft02">IF&#160;( (DS:TMP_SECS.ATTRIBUTES.MODE64BIT&#160;= 1) and (DS:TMP_SECS.BASEADDR&#160;is not canonical) )</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:496px;left:69px;white-space:nowrap" class="ft02">IF&#160;(&#160;(DS:TMP_SECS.ATTRIBUTES.MODE64BIT&#160;=&#160;0)&#160;and (DS:TMP_SECS.BASEADDR and 0FFFFFFFF00000000H) )</p>
+<p style="position:absolute;top:514px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:550px;left:69px;white-space:nowrap" class="ft02">IF&#160;(&#160;(DS:TMP_SECS.ATTRIBUTES.MODE64BIT&#160;=&#160;0)&#160;and (DS:TMP_SECS.SIZE&#160;</p>
+<p style="position:absolute;top:547px;left:487px;white-space:nowrap" class="ft03">≥</p>
+<p style="position:absolute;top:550px;left:495px;white-space:nowrap" class="ft02">&#160;2 ^ (CPUID.(EAX=12H, ECX=0):.EDX[7:0]) ) )</p>
+<p style="position:absolute;top:568px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft02">IF&#160;(&#160;(DS:TMP_SECS.ATTRIBUTES.MODE64BIT&#160;=&#160;1)&#160;and (DS:TMP_SECS.SIZE&#160;</p>
+<p style="position:absolute;top:601px;left:487px;white-space:nowrap" class="ft03">≥</p>
+<p style="position:absolute;top:604px;left:495px;white-space:nowrap" class="ft02">&#160;2 ^ (CPUID.(EAX=12H, ECX=0):.EDX[15:8]) ) )</p>
+<p style="position:absolute;top:622px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:658px;left:69px;white-space:nowrap" class="ft04">(* Enclave size must be at least 8192 bytes&#160;and must&#160;be&#160;power of&#160;2 in&#160;bytes*)<br/>IF&#160;(DS:TMP_SECS.SIZE&#160;&lt; 8192 or&#160;popcnt(DS:TMP_SECS.SIZE)&#160;&gt; 1)&#160;</p>
+<p style="position:absolute;top:694px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft04">(* Ensure base address of&#160;an&#160;enclave is&#160;aligned&#160;on&#160;size*)<br/>IF&#160;( ( DS:TMP_SECS.BASEADDR&#160;and (DS:TMP_SECS.SIZE-1) )&#160;</p>
+<p style="position:absolute;top:766px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft04">* Ensure&#160;the&#160;SECS&#160;does&#160;not have&#160;any unsupported&#160;attributes*)<br/>IF&#160;( ( DS:TMP_SECS.ATTRIBUTES&#160;and (~CR_SGX_ATTRIBUTES_MASK) )&#160;</p>
+<p style="position:absolute;top:838px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft02">IF ( (&#160;DS:TMP_SECS&#160;reserved fields are&#160;not zero)&#160;</p>
+<p style="position:absolute;top:892px;left:89px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft04">Clear&#160;DS:TMP_SECS&#160;to&#160;Uninitialized;<br/>DS:TMP_SECS.MRENCLAVE&#160;&#160;SHA256INITIALIZE(DS:TMP_SECS.MRENCLAVE);<br/>DS:TMP_SECS.ISVSVN&#160;&#160;0;<br/>DS:TMP_SECS.ISVPRODID&#160;&#160;0;</p>
+<p style="position:absolute;top:1018px;left:69px;white-space:nowrap" class="ft04">(* Initialize&#160;hash updates&#160;etc*)<br/>Initialize&#160;enclave’s&#160;MRENCLAVE update&#160;counter;</p>
+</div>
+</body>
+</html>

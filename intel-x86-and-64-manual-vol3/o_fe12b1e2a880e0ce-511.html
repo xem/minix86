@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 511</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;font-family:Times;color:#000000;}
+	.ft09{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft010{font-size:8px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page511-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce511.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-5</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">15.3.1.4 &#160;&#160;IA32_MCG_EXT_CTL MSR</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft011">The IA32_MCG_EXT_CTL MSR&#160;is present if&#160;the capability flag&#160;MCG_LMCE_P&#160;is&#160;set in&#160;the IA32_MCG_CAP&#160;MSR.<br/>IA32_MCG_EXT_CTL.LMCE_EN (bit 0)&#160;allows&#160;the&#160;processor&#160;to&#160;signal&#160;some&#160;MCEs to&#160;only a&#160;single&#160;logical&#160;processor&#160;<br/>in the&#160;system.<br/>If MCG_LMCE_P&#160;is&#160;not set&#160;in IA32_MCG_CAP,&#160;or platform software&#160;has not enabled&#160;LMCE by setting&#160;<br/>IA32_FEATURE_CONTROL.LMCE_ON (bit 20), any attempt to write or read IA32_MCG_EXT_CTL&#160;will result in #GP.&#160;<br/>The IA32_MCG_EXT_CTL MSR&#160;is cleared&#160;on&#160;RESET.<br/><a href="o_fe12b1e2a880e0ce-511.html">Figure&#160;15-4 shows the&#160;</a>layout of the&#160;IA32_MCG_EXT_CTL&#160;register</p>
+<p style="position:absolute;top:487px;left:69px;white-space:nowrap" class="ft03">where</p>
+<p style="position:absolute;top:509px;left:69px;white-space:nowrap" class="ft04">‚Ä¢</p>
+<p style="position:absolute;top:509px;left:95px;white-space:nowrap" class="ft012"><b>LMCE_EN (local machine check exception enable) flag, bit&#160;0&#160;</b>- System&#160;software sets&#160;this to&#160;allow&#160;<br/>hardware&#160;to signal&#160;some&#160;MCEs&#160;to only&#160;a single&#160;logical&#160;processor.&#160;System software can set LMCE_EN only if the&#160;<br/>platform software&#160;has configured&#160;IA32_FEATURE_CONTROL&#160;as&#160;described&#160;<a href="o_fe12b1e2a880e0ce-511.html">in Section 15.3.1.5.&#160;</a></p>
+<p style="position:absolute;top:587px;left:69px;white-space:nowrap" class="ft02">15.3.1.5&#160;&#160;&#160;Enabling Local&#160;Machine&#160;Check</p>
+<p style="position:absolute;top:614px;left:69px;white-space:nowrap" class="ft012">The intended&#160;usage of&#160;LMCE&#160;requires proper configuration by both&#160;platform software&#160;and system software. Plat-<br/>form&#160;software&#160;can turn&#160;LMCE&#160;on by setting bit 20&#160;(LMCE_ON)&#160;in IA32_FEATURE_CONTROL MSR&#160;(MSR&#160;address&#160;<br/>3AH).&#160;<br/>System&#160;software must ensure&#160;that both&#160;IA32_FEATURE_CONTROL.Lock (bit 0)and&#160;<br/>IA32_FEATURE_CONTROL.LMCE_ON (bit 20) are&#160;set&#160;before&#160;attempting to&#160;set IA32_MCG_EXT_CTL.LMCE_EN (bit&#160;<br/>0). When&#160;system&#160;software has&#160;enabled LMCE, then&#160;hardware&#160;will&#160;determine&#160;if a particular error&#160;can be&#160;delivered&#160;<br/>only to a&#160;single logical processor.&#160;Software&#160;should make&#160;no&#160;assumptions about the type of error that hardware can&#160;<br/>choose to deliver as LMCE. The&#160;severity&#160;and override&#160;rules stay&#160;the same&#160;as de<a href="o_fe12b1e2a880e0ce-524.html">scribed in Table&#160;15-7&#160;to determine&#160;<br/></a>the recovery actions.&#160;</p>
+<p style="position:absolute;top:802px;left:69px;white-space:nowrap" class="ft06">15.3.2&#160;</p>
+<p style="position:absolute;top:802px;left:149px;white-space:nowrap" class="ft06">Error-Reporting Register Banks</p>
+<p style="position:absolute;top:831px;left:69px;white-space:nowrap" class="ft012">Each&#160;error-reporting register bank&#160;can contain the IA32_MCi_CTL,&#160;IA32_MCi_STATUS,&#160;IA32_MCi_ADDR,&#160;and&#160;<br/>IA32_MCi_MISC&#160;MSRs.&#160;The number&#160;of reporting banks is&#160;indicated by bits [7:0] of&#160;IA32_MCG_CAP MSR (address&#160;<br/>0179H).&#160;The&#160;first error-reporting&#160;register&#160;(IA32_MC0_CTL) always starts&#160;at address&#160;400H.&#160;<br/>Se<a href="˛ˇ">e Chapter 35, ‚ÄúModel-Specific Registers (MSRs),‚Äù&#160;for addr</a>esses of the error-reporting registers in the Pentium&#160;4,&#160;<br/>Intel Atom, and&#160;Intel Xeon processors; and&#160;for&#160;addresses&#160;of&#160;the error-reporting registers P6&#160;family processors.&#160;</p>
+<p style="position:absolute;top:947px;left:69px;white-space:nowrap" class="ft02">15.3.2.1 &#160;&#160;IA32_MC</p>
+<p style="position:absolute;top:954px;left:219px;white-space:nowrap" class="ft07"><b>i</b></p>
+<p style="position:absolute;top:947px;left:223px;white-space:nowrap" class="ft02">_CTL MSRs</p>
+<p style="position:absolute;top:974px;left:69px;white-space:nowrap" class="ft012">The IA32_MC<i>i</i>_CTL&#160;MSR controls signaling of #MC for errors&#160;produced&#160;by a&#160;particular hardware unit (or&#160;group&#160;of&#160;<br/>hardware units). Each&#160;of&#160;the 64 flags (EE<i>j</i>) represents a potential error.&#160;Setting&#160;an&#160;EE<i>j</i>&#160;flag&#160;enables signaling #MC&#160;<br/>of the&#160;associated error&#160;and clearing it&#160;disables&#160;signaling of&#160;the error.&#160;Error&#160;logging happens regardless&#160;of the&#160;<br/>setting&#160;of&#160;these bits.&#160;The processor drops&#160;writes to bits&#160;that are&#160;not&#160;im<a href="o_fe12b1e2a880e0ce-512.html">plemented. Figure&#160;15-5 shows the bit fields&#160;<br/></a>of IA32_MC<i>i</i>_CTL.</p>
+<p style="position:absolute;top:432px;left:310px;white-space:nowrap" class="ft09">Figure&#160;15-4.&#160;&#160;IA32_MCG_EXT_CTL Register</p>
+<p style="position:absolute;top:315px;left:278px;white-space:nowrap" class="ft010">63</p>
+<p style="position:absolute;top:315px;left:673px;white-space:nowrap" class="ft010">0</p>
+<p style="position:absolute;top:341px;left:445px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:315px;left:659px;white-space:nowrap" class="ft010">1</p>
+<p style="position:absolute;top:400px;left:275px;white-space:nowrap" class="ft00">LMCE_EN&#160;-&#160;system&#160;software&#160;control to&#160;enable/disable LMCE</p>
+</div>
+</body>
+</html>

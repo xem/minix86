@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1179</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1179-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1179.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;29-13</p>
+<p style="position:absolute;top:47px;left:549px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND VIRTUAL&#160;INTERRUPTS</p>
+<p style="position:absolute;top:102px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:146px;white-space:nowrap" class="ft03">If&#160;the value is&#160;non-zero, the&#160;logical&#160;processor&#160;performs self-IPI virtualization&#160;with&#160;the 8-bit vector&#160;in&#160;</p>
+<p style="position:absolute;top:117px;left:145px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-1169.html">EAX[7:0] (see Section 29.1.5).</a></p>
+<p style="position:absolute;top:142px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:141px;left:146px;white-space:nowrap" class="ft03">If&#160;the value is&#160;zero,&#160;the logical processor causes&#160;an&#160;APIC-write&#160;VM&#160;exit&#160;as if there had&#160;been a&#160;write&#160;</p>
+<p style="position:absolute;top:157px;left:145px;white-space:nowrap" class="ft03">access to&#160;page offset 3F0H&#160;on&#160;the&#160;APIC-access page&#160;(see<a href="o_fe12b1e2a880e0ce-1175.html">&#160;Section&#160;29.4.3.3).</a></p>
+<p style="position:absolute;top:180px;left:94px;white-space:nowrap" class="ft08">If&#160;special processing does not&#160;apply,&#160;the&#160;instruction&#160;operates&#160;normally. If the&#160;local APIC is&#160;in x2APIC mode<br/>and ECX&#160;indicates&#160;a writable APIC register,&#160;the value&#160;in EDX:EAX&#160;is written&#160;to&#160;that register. If the local&#160;APIC&#160;is<br/>not in x2APIC&#160;mode&#160;or ECX does not&#160;indicate a&#160;writable APIC register, a&#160;general-protection fault&#160;occurs.</p>
+<p style="position:absolute;top:268px;left:69px;white-space:nowrap" class="ft04">29.6 POSTED-INTERRUPT&#160;</p>
+<p style="position:absolute;top:268px;left:344px;white-space:nowrap" class="ft04">PROCESSING</p>
+<p style="position:absolute;top:304px;left:69px;white-space:nowrap" class="ft08">Posted-interrupt processing is&#160;a&#160;feature by&#160;which&#160;a&#160;processor processes the&#160;virtual interrupts by recording them as&#160;<br/>pending on the&#160;virtual-APIC&#160;page.<br/>Posted-interrupt&#160;processing&#160;is&#160;enabled&#160;by setting the&#160;“process posted&#160;interrupts” VM-execution&#160;control. The&#160;<br/>processing&#160;is performed in response to&#160;the arrival&#160;of&#160;an interrupt with the&#160;<b>posted-interrupt notification&#160;vector</b>.&#160;<br/>In response&#160;to&#160;such&#160;an interrupt, the&#160;processor&#160;processes&#160;virtual interrupts recorded&#160;in a data structure&#160;called a&#160;<br/><b>posted-interrupt descriptor</b>. The posted-interrupt&#160;notification&#160;vector&#160;and&#160;the address&#160;of the&#160;posted-interrupt&#160;<br/>descriptor&#160;are fields in&#160;the VMCS; see&#160;<a href="o_fe12b1e2a880e0ce-1059.html">Section&#160;24.6.8.<br/></a>If&#160;the “process&#160;posted interrupts”&#160;VM-execution control is&#160;1,&#160;a logical&#160;processor uses&#160;a 64-byte posted-interrupt&#160;<br/>descriptor located at&#160;the posted-interrupt descriptor address. The&#160;posted-interrupt&#160;descriptor has&#160;the&#160;following&#160;<br/>format:</p>
+<p style="position:absolute;top:688px;left:69px;white-space:nowrap" class="ft08">The notation&#160;<b>PIR</b>&#160;(posted-interrupt requests) refers&#160;to the&#160;256 posted-interrupt&#160;bits&#160;in the&#160;posted-interrupt&#160;<br/>descriptor.<br/>Use&#160;of the&#160;posted-interrupt descriptor differs from that of&#160;other data structures that are referenced by pointers in&#160;<br/>a VMCS. There is&#160;a general requirement&#160;that software ensure&#160;that each such data structure is&#160;modified&#160;only when&#160;<br/>no&#160;logical processor with a&#160;current VMCS that&#160;references&#160;it is&#160;in VMX&#160;non-root&#160;operation. That requirement does&#160;<br/>not apply&#160;to the&#160;posted-interrupt descriptor.&#160;There&#160;is&#160;a&#160;requirement, however,&#160;that such&#160;modifications&#160;be&#160;done&#160;<br/>using&#160;locked&#160;read-modify-write instructions.<br/>If&#160;the “external-interrupt&#160;exiting” VM-execution control&#160;is 1, any&#160;unmasked&#160;external interrupt&#160;causes&#160;a VM exit&#160;<br/><a href="o_fe12b1e2a880e0ce-1079.html">(see Section&#160;25.2).&#160;</a>If&#160;the “process&#160;posted interrupts”&#160;VM-execution control&#160;is also 1,&#160;this&#160;behavior is&#160;changed&#160;and&#160;<br/>the processor handles an external&#160;interrupt&#160;as follows:</p>
+<p style="position:absolute;top:849px;left:438px;white-space:nowrap" class="ft06">14</p>
+<p style="position:absolute;top:876px;left:69px;white-space:nowrap" class="ft03">1.&#160;The&#160;local APIC is&#160;acknowledged; this provides the&#160;processor core with&#160;an interrupt&#160;vector, called here the&#160;</p>
+<p style="position:absolute;top:892px;left:95px;white-space:nowrap" class="ft05"><b>physical vector</b>.</p>
+<p style="position:absolute;top:916px;left:69px;white-space:nowrap" class="ft03">2.&#160;If the&#160;physical&#160;vector&#160;equals&#160;the posted-interrupt notification vector, the&#160;logical&#160;processor&#160;continues to the&#160;next&#160;</p>
+<p style="position:absolute;top:933px;left:95px;white-space:nowrap" class="ft08">step.&#160;Otherwise,&#160;a VM exit&#160;occurs as&#160;it would normally&#160;due&#160;to an&#160;external interrupt;&#160;the vector&#160;is&#160;saved in&#160;the&#160;<br/>VM-exit interruption-information&#160;field.</p>
+<p style="position:absolute;top:973px;left:69px;white-space:nowrap" class="ft03">3.&#160;The processor clears the&#160;outstanding-notification bit in&#160;the posted-interrupt descriptor.&#160;This&#160;is done atomically&#160;</p>
+<p style="position:absolute;top:990px;left:95px;white-space:nowrap" class="ft03">so&#160;as to leave&#160;the remainder of the&#160;descriptor&#160;unmodified (e.g.,&#160;with a&#160;locked AND&#160;operation).</p>
+<p style="position:absolute;top:489px;left:282px;white-space:nowrap" class="ft07">Table 29-1.&#160;&#160;Format of&#160;Posted-Interrupt&#160;Descriptor</p>
+<p style="position:absolute;top:514px;left:79px;white-space:nowrap" class="ft03">Bit</p>
+<p style="position:absolute;top:529px;left:79px;white-space:nowrap" class="ft03">Position(s)</p>
+<p style="position:absolute;top:514px;left:160px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:514px;left:349px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:553px;left:79px;white-space:nowrap" class="ft03">255:0</p>
+<p style="position:absolute;top:553px;left:160px;white-space:nowrap" class="ft03">Posted-interrupt requests</p>
+<p style="position:absolute;top:553px;left:349px;white-space:nowrap" class="ft03">One bit for each&#160;interrupt&#160;vector. There is&#160;a posted-interrupt&#160;request for&#160;a vector&#160;if&#160;</p>
+<p style="position:absolute;top:570px;left:349px;white-space:nowrap" class="ft03">the corresponding&#160;bit is&#160;1</p>
+<p style="position:absolute;top:594px;left:79px;white-space:nowrap" class="ft03">256</p>
+<p style="position:absolute;top:594px;left:160px;white-space:nowrap" class="ft03">Outstanding&#160;notification</p>
+<p style="position:absolute;top:594px;left:349px;white-space:nowrap" class="ft03">If&#160;this bit is&#160;set,&#160;there is a notification outstanding for one&#160;or&#160;more&#160;posted&#160;interrupts&#160;</p>
+<p style="position:absolute;top:610px;left:349px;white-space:nowrap" class="ft03">in&#160;bits&#160;255:0</p>
+<p style="position:absolute;top:634px;left:79px;white-space:nowrap" class="ft03">511:257</p>
+<p style="position:absolute;top:634px;left:160px;white-space:nowrap" class="ft03">Reserved&#160;for&#160;software&#160;and&#160;</p>
+<p style="position:absolute;top:651px;left:160px;white-space:nowrap" class="ft03">other&#160;agents</p>
+<p style="position:absolute;top:634px;left:349px;white-space:nowrap" class="ft03">These&#160;bits&#160;may be&#160;used&#160;by software&#160;and&#160;by other agents in&#160;the system&#160;(e.g.,&#160;</p>
+<p style="position:absolute;top:651px;left:349px;white-space:nowrap" class="ft03">chipset). The processor does&#160;not modify these bits.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft03">14.&#160;VM entry ensures that&#160;the “process&#160;posted&#160;interrupts” VM-execution&#160;control is&#160;1 only if&#160;the&#160;“external-interrupt exiting” VM-execu-</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">tion control is also 1.&#160;Se<a href="o_fe12b1e2a880e0ce-1094.html">eSection&#160;26.2.1.1.</a></p>
+</div>
+</body>
+</html>

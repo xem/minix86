@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 383</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page383-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481383.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CVTSD2SS—Convert Scalar&#160;Double-Precision Floating-Point&#160;Value to Scalar Single-Precision&#160;Floating-Point Value</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-255</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:123px;left:69px;white-space:nowrap" class="ft04">VCVTSD2SS&#160;(EVEX encoded version)<br/>IF&#160;(SRC2 *is register*) AND (EVEX.b = 1)&#160;</p>
+<p style="position:absolute;top:159px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:177px;left:116px;white-space:nowrap" class="ft03">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:195px;left:89px;white-space:nowrap" class="ft03">ELSE&#160;</p>
+<p style="position:absolute;top:213px;left:116px;white-space:nowrap" class="ft03">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:231px;left:69px;white-space:nowrap" class="ft04">FI;<br/>IF k1[0] or *no writemask*</p>
+<p style="position:absolute;top:267px;left:89px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:267px;left:143px;white-space:nowrap" class="ft03">DEST[31:0]&#160;&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC2[63:0]);</p>
+<p style="position:absolute;top:285px;left:89px;white-space:nowrap" class="ft03">ELSE&#160;</p>
+<p style="position:absolute;top:303px;left:116px;white-space:nowrap" class="ft03">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:303px;left:332px;white-space:nowrap" class="ft03">;&#160;merging-masking</p>
+<p style="position:absolute;top:321px;left:143px;white-space:nowrap" class="ft04">THEN *DEST[31:0] remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:339px;left:338px;white-space:nowrap" class="ft03">zeroing-masking</p>
+<p style="position:absolute;top:357px;left:170px;white-space:nowrap" class="ft03">THEN DEST[31:0]&#160;&#160;0</p>
+<p style="position:absolute;top:375px;left:116px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:393px;left:69px;white-space:nowrap" class="ft04">FI;<br/>DEST[127:32]&#160;&#160;SRC1[127:32]<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:465px;left:69px;white-space:nowrap" class="ft04">VCVTSD2SS (VEX.128 encoded&#160;version)<br/>DEST[31:0]&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC2[63:0]);<br/>DEST[127:32]&#160;SRC1[127:32]<br/>DEST[MAX_VL-1:128]&#160;0</p>
+<p style="position:absolute;top:555px;left:69px;white-space:nowrap" class="ft04">CVTSD2SS&#160;(128-bit&#160;Legacy SSE&#160;version)<br/>DEST[31:0]&#160;Convert_Double_Precision_To_Single_Precision_Floating_Point(SRC[63:0]);<br/>(* DEST[MAX_VL-1:32] Unmodified&#160;*)</p>
+<p style="position:absolute;top:624px;left:69px;white-space:nowrap" class="ft02">Intel C/C++&#160;Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:648px;left:69px;white-space:nowrap" class="ft04">VCVTSD2SS __m128&#160;_mm_mask_cvtsd_ss(__m128&#160;s, __mmask8 k, __m128&#160;a, __m128d&#160;b);<br/>VCVTSD2SS&#160;__m128&#160;_mm_maskz_cvtsd_ss(&#160;__mmask8 k, __m128&#160;a,__m128d&#160;b);<br/>VCVTSD2SS __m128&#160;_mm_cvt_roundsd_ss(__m128&#160;a, __m128d b,&#160;int r);<br/>VCVTSD2SS __m128&#160;_mm_mask_cvt_roundsd_ss(__m128&#160;s, __mmask8 k, __m128&#160;a, __m128d b, int r);<br/>VCVTSD2SS __m128&#160;_mm_maskz_cvt_roundsd_ss( __mmask8 k, __m128&#160;a,__m128d b, int r);<br/>CVTSD2SS&#160;__m128_mm_cvtsd_ss(__m128&#160;a, __m128d b)</p>
+<p style="position:absolute;top:772px;left:69px;white-space:nowrap" class="ft02">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:795px;left:69px;white-space:nowrap" class="ft03">Overflow, Underflow,&#160;Invalid, Precision, Denormal</p>
+<p style="position:absolute;top:829px;left:69px;white-space:nowrap" class="ft02">Other Exceptions</p>
+<p style="position:absolute;top:852px;left:69px;white-space:nowrap" class="ft05">VEX-encoded&#160;instructions, see Exceptions Type 3.<br/>EVEX-encoded&#160;instructions, see Exceptions Type&#160;E3.</p>
+</div>
+</body>
+</html>

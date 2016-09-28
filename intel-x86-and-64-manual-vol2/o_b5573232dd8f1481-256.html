@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 256</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page256-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481256.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:729px;white-space:nowrap" class="ft00">CALL—Call Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-128&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:196px;white-space:nowrap" class="ft02">IF&#160;stack not large&#160;enough&#160;for a 2-byte&#160;return address&#160;</p>
+<p style="position:absolute;top:118px;left:223px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:136px;left:196px;white-space:nowrap" class="ft05">Push(IP);<br/>EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:190px;left:88px;white-space:nowrap" class="ft02">FI;rel/abs</p>
+<p style="position:absolute;top:208px;left:68px;white-space:nowrap" class="ft02">FI;&#160;near</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft02">IF far call and (PE&#160;</p>
+<p style="position:absolute;top:245px;left:169px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:244px;left:182px;white-space:nowrap" class="ft02">0 or&#160;(PE&#160;</p>
+<p style="position:absolute;top:245px;left:230px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:244px;left:243px;white-space:nowrap" class="ft02">1 and&#160;VM&#160;</p>
+<p style="position:absolute;top:245px;left:300px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:244px;left:313px;white-space:nowrap" class="ft02">1))&#160;(* Real-address&#160;or&#160;virtual-8086&#160;mode&#160;*)</p>
+<p style="position:absolute;top:262px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:280px;left:115px;white-space:nowrap" class="ft02">IF OperandSize</p>
+<p style="position:absolute;top:281px;left:200px;white-space:nowrap" class="ft03">&#160;=</p>
+<p style="position:absolute;top:280px;left:213px;white-space:nowrap" class="ft02">&#160;32</p>
+<p style="position:absolute;top:298px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:316px;left:169px;white-space:nowrap" class="ft02">IF stack not large&#160;enough&#160;for a 6-byte&#160;return address&#160;</p>
+<p style="position:absolute;top:334px;left:196px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:352px;left:169px;white-space:nowrap" class="ft05">IF DEST[31:16] is not zero&#160;THEN&#160;#GP(0); FI;<br/>Push(CS); (* Padded&#160;with&#160;16&#160;high-order bits&#160;*)<br/>Push(EIP);<br/>CS&#160;←&#160;DEST[47:32]; (* DEST&#160;is&#160;<i>ptr16:32</i>&#160;or&#160;[<i>m16:32</i>] *)</p>
+<p style="position:absolute;top:424px;left:169px;white-space:nowrap" class="ft02">EIP&#160;←&#160;DEST[31:0]; (* DEST&#160;is&#160;<i>ptr16:32</i>&#160;or&#160;[<i>m16:32</i>] *)</p>
+<p style="position:absolute;top:442px;left:142px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize</p>
+<p style="position:absolute;top:443px;left:258px;white-space:nowrap" class="ft03">&#160;=&#160;</p>
+<p style="position:absolute;top:442px;left:275px;white-space:nowrap" class="ft02">16&#160;*)</p>
+<p style="position:absolute;top:460px;left:169px;white-space:nowrap" class="ft02">IF stack not large&#160;enough&#160;for a 4-byte&#160;return address&#160;</p>
+<p style="position:absolute;top:478px;left:196px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:496px;left:169px;white-space:nowrap" class="ft05">Push(CS);<br/>Push(IP);<br/>CS&#160;←&#160;DEST[31:16]; (* DEST&#160;is&#160;<i>ptr16:16</i>&#160;or&#160;[<i>m16:16</i>] *)</p>
+<p style="position:absolute;top:550px;left:169px;white-space:nowrap" class="ft02">EIP&#160;←&#160;DEST[15:0]; (* DEST&#160;is&#160;<i>ptr16:16</i>&#160;or&#160;[<i>m16:16</i>]; clear upper 16&#160;bits *)</p>
+<p style="position:absolute;top:568px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:586px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:622px;left:68px;white-space:nowrap" class="ft02">IF far call and (PE&#160;</p>
+<p style="position:absolute;top:623px;left:169px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:622px;left:182px;white-space:nowrap" class="ft02">1 and&#160;VM&#160;</p>
+<p style="position:absolute;top:623px;left:239px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:622px;left:252px;white-space:nowrap" class="ft02">0) (* Protected&#160;mode&#160;or&#160;IA-32e&#160;Mode,&#160;not virtual-8086 mode*)</p>
+<p style="position:absolute;top:640px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:658px;left:115px;white-space:nowrap" class="ft02">IF segment selector&#160;in&#160;target operand NULL&#160;</p>
+<p style="position:absolute;top:676px;left:142px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:694px;left:115px;white-space:nowrap" class="ft02">IF segment selector&#160;index not&#160;within&#160;descriptor table&#160;limits</p>
+<p style="position:absolute;top:712px;left:142px;white-space:nowrap" class="ft02">THEN&#160;#GP(new code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:730px;left:115px;white-space:nowrap" class="ft05">Read&#160;type&#160;and access rights of&#160;selected segment descriptor;<br/>IF IA32_EFER.LMA = 0</p>
+<p style="position:absolute;top:766px;left:142px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:784px;left:169px;white-space:nowrap" class="ft05">IF segment type&#160;is&#160;not a&#160;conforming&#160;or&#160;nonconforming code&#160;segment, call&#160;<br/>gate,&#160;task gate, or TSS&#160;</p>
+<p style="position:absolute;top:820px;left:196px;white-space:nowrap" class="ft02">THEN #GP(segment selector); FI;</p>
+<p style="position:absolute;top:838px;left:142px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:856px;left:169px;white-space:nowrap" class="ft05">IF segment type&#160;is&#160;not a&#160;conforming&#160;or&#160;nonconforming code&#160;segment or&#160;<br/>64-bit call gate,&#160;</p>
+<p style="position:absolute;top:892px;left:196px;white-space:nowrap" class="ft02">THEN #GP(segment selector); FI;</p>
+<p style="position:absolute;top:910px;left:115px;white-space:nowrap" class="ft05">FI;<br/>Depending on&#160;type&#160;and access&#160;rights:</p>
+<p style="position:absolute;top:946px;left:142px;white-space:nowrap" class="ft05">GO TO&#160;CONFORMING-CODE-SEGMENT;<br/>GO TO&#160;NONCONFORMING-CODE-SEGMENT;<br/>GO TO CALL-GATE;<br/>GO TO TASK-GATE;<br/>GO&#160;TO TASK-STATE-SEGMENT;</p>
+<p style="position:absolute;top:1036px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+</div>
+</body>
+</html>

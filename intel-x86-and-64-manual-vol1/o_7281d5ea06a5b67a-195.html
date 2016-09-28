@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 195</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page195-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a195.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:782px;white-space:nowrap" class="ft00">Vol. 1&#160;8-5</p>
+<p style="position:absolute;top:47px;left:634px;white-space:nowrap" class="ft01">PROGRAMMING&#160;WITH&#160;THE X87&#160;FPU</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft07">The&#160;C2&#160;condition code flag&#160;is used&#160;by&#160;the&#160;FPREM and&#160;FPREM1&#160;instructions to indicate&#160;an&#160;incomplete&#160;reduction (or&#160;<br/>partial remainder). When&#160;a&#160;successful&#160;reduction has been&#160;completed, the C0, C3, and C1 condition code&#160;flags are&#160;<br/>set&#160;to the&#160;three least-significant bits of the&#160;quotient&#160;(Q2,&#160;Q1, and&#160;Q0, respectively). See&#160;“FPREM1—Partial&#160;<br/>Remainder”&#160;in&#160;<a href="��">Chapter 3, “Instruction Set Reference, A-L,” of the&#160;</a><i>Intel® 64&#160;and&#160;IA-32 Architectures Software&#160;<br/>Developer’s Manual, Volume 2A,</i>&#160;for more&#160;information on how these&#160;instructions&#160;use&#160;the&#160;condition&#160;code&#160;flags.<br/>The FPTAN,&#160;FSIN, FCOS,&#160;and FSINCOS instructions&#160;set the&#160;C2 flag&#160;to 1&#160;to indicate that&#160;the source&#160;operand is&#160;<br/>beyond&#160;the&#160;allowable&#160;range&#160;of ±2</p>
+<p style="position:absolute;top:204px;left:296px;white-space:nowrap" class="ft04">63</p>
+<p style="position:absolute;top:207px;left:309px;white-space:nowrap" class="ft02">&#160;and clear&#160;the C2&#160;flag if&#160;the source&#160;operand is&#160;within the&#160;allowable range.</p>
+<p style="position:absolute;top:231px;left:69px;white-space:nowrap" class="ft07">Where&#160;the state&#160;of the&#160;condition code&#160;flags&#160;are listed&#160;as undef<a href="o_7281d5ea06a5b67a-195.html">ined in Table&#160;8-1,</a>&#160;do not&#160;rely&#160;on&#160;any specific value in&#160;<br/>these flags.</p>
+<p style="position:absolute;top:292px;left:69px;white-space:nowrap" class="ft05">8.1.3.3&#160;&#160;</p>
+<p style="position:absolute;top:292px;left:153px;white-space:nowrap" class="ft05">x87 FPU Floating-Point&#160;Exception Flags</p>
+<p style="position:absolute;top:320px;left:69px;white-space:nowrap" class="ft09">The six x87 FPU&#160;floating-point exception&#160;flags (bits 0&#160;through 5) of the&#160;x87 FPU status word&#160;indicate&#160;that one&#160;or&#160;<br/>more floating-point exceptions have&#160;been detected since the&#160;bits were last cleared.&#160;The individual exception flags&#160;<br/>(IE, DE, ZE, OE, UE, and&#160;PE) are described in&#160;detail&#160;<a href="o_7281d5ea06a5b67a-215.html">in Section 8.4, “x87&#160;FPU Floating-Point&#160;Exception Handling.”</a>&#160;<br/>Each&#160;of the&#160;exception&#160;flags&#160;can be&#160;masked&#160;by&#160;an exception&#160;mask bit&#160;in the x87 FPU control word (see<a href="o_7281d5ea06a5b67a-197.html">&#160;Section 8.1.5,&#160;<br/>“x87&#160;FPU&#160;Control&#160;Word”). The</a>&#160;exception summary status&#160;flag (ES,&#160;bit 7) is set when any of&#160;the unmasked&#160;exception&#160;<br/>flags are set. When the&#160;ES flag&#160;is set,&#160;the x87&#160;FPU exception handler is&#160;invoked,&#160;using one&#160;of the&#160;techniques&#160;<br/>described&#160;<a href="o_7281d5ea06a5b67a-222.html">in Section 8.7, “Handling x87&#160;FPU Exceptions in&#160;Software.”&#160;(Note</a>&#160;that if an&#160;exception flag&#160;is masked,&#160;the&#160;<br/>x87 FPU will still&#160;set&#160;the&#160;appropriate&#160;flag if&#160;the&#160;associated&#160;exception occurs, but&#160;it will not&#160;set the ES&#160;flag.)&#160;<br/>The exception&#160;flags are&#160;“sticky” bits (once&#160;set, they&#160;remain&#160;set until&#160;explicitly cleared). They&#160;can be cleared&#160;by&#160;<br/>executing the FCLEX/FNCLEX (clear exceptions) instructions, by reinitializing the x87 FPU with the FINIT/FNINIT&#160;or&#160;<br/>FSAVE/FNSAVE&#160;instructions, or&#160;by&#160;overwriting the&#160;flags with an&#160;FRSTOR or&#160;FLDENV&#160;instruction.<br/>The B-bit&#160;(bit 15) is&#160;included&#160;for 8087&#160;compatibility&#160;only.&#160;It reflects the&#160;contents of the&#160;ES flag.</p>
+<p style="position:absolute;top:547px;left:314px;white-space:nowrap" class="ft06">Table 8-1. &#160;Condition Code&#160;Interpretation</p>
+<p style="position:absolute;top:572px;left:175px;white-space:nowrap" class="ft02">Instruction</p>
+<p style="position:absolute;top:572px;left:400px;white-space:nowrap" class="ft02">C0</p>
+<p style="position:absolute;top:572px;left:525px;white-space:nowrap" class="ft02">C3</p>
+<p style="position:absolute;top:572px;left:646px;white-space:nowrap" class="ft02">C2</p>
+<p style="position:absolute;top:572px;left:767px;white-space:nowrap" class="ft02">C1</p>
+<p style="position:absolute;top:596px;left:75px;white-space:nowrap" class="ft02">FCOM, FCOMP,&#160;FCOMPP, FICOM, FICOMP, FTST,&#160;</p>
+<p style="position:absolute;top:612px;left:75px;white-space:nowrap" class="ft02">FUCOM, FUCOMP, FUCOMPP&#160;</p>
+<p style="position:absolute;top:596px;left:411px;white-space:nowrap" class="ft02">Result of&#160;Comparison</p>
+<p style="position:absolute;top:596px;left:602px;white-space:nowrap" class="ft02">Operands&#160;</p>
+<p style="position:absolute;top:612px;left:602px;white-space:nowrap" class="ft02">are&#160;not&#160;</p>
+<p style="position:absolute;top:629px;left:602px;white-space:nowrap" class="ft02">Comparable</p>
+<p style="position:absolute;top:596px;left:752px;white-space:nowrap" class="ft02">0 or #IS</p>
+<p style="position:absolute;top:653px;left:75px;white-space:nowrap" class="ft02">FCOMI, FCOMIP,&#160;FUCOMI, FUCOMIP</p>
+<p style="position:absolute;top:653px;left:420px;white-space:nowrap" class="ft02">Undefined. (These instructions set the&#160;</p>
+<p style="position:absolute;top:669px;left:427px;white-space:nowrap" class="ft02">status flags in the EFLAGS register.)</p>
+<p style="position:absolute;top:653px;left:765px;white-space:nowrap" class="ft02">#IS</p>
+<p style="position:absolute;top:693px;left:75px;white-space:nowrap" class="ft02">FXAM</p>
+<p style="position:absolute;top:693px;left:488px;white-space:nowrap" class="ft02">&#160;Operand&#160;class</p>
+<p style="position:absolute;top:693px;left:762px;white-space:nowrap" class="ft02">Sign</p>
+<p style="position:absolute;top:717px;left:75px;white-space:nowrap" class="ft02">FPREM, FPREM1</p>
+<p style="position:absolute;top:717px;left:399px;white-space:nowrap" class="ft02">Q2</p>
+<p style="position:absolute;top:717px;left:525px;white-space:nowrap" class="ft02">Q1</p>
+<p style="position:absolute;top:717px;left:602px;white-space:nowrap" class="ft02">0&#160;= reduction&#160;</p>
+<p style="position:absolute;top:734px;left:602px;white-space:nowrap" class="ft010">complete<br/>1 =&#160;reduction&#160;</p>
+<p style="position:absolute;top:771px;left:602px;white-space:nowrap" class="ft02">incomplete</p>
+<p style="position:absolute;top:717px;left:747px;white-space:nowrap" class="ft02">Q0&#160;or #IS</p>
+<p style="position:absolute;top:795px;left:75px;white-space:nowrap" class="ft02">F2XM1, FADD,&#160;FADDP, FBSTP,&#160;FCMOVcc,&#160;</p>
+<p style="position:absolute;top:812px;left:75px;white-space:nowrap" class="ft02">FIADD, FDIV, FDIVP,&#160;FDIVR, FDIVRP, FIDIV,&#160;</p>
+<p style="position:absolute;top:828px;left:75px;white-space:nowrap" class="ft02">FIDIVR, FIMUL, FIST, FISTP,&#160;FISUB,&#160;</p>
+<p style="position:absolute;top:845px;left:75px;white-space:nowrap" class="ft02">FISUBR,FMUL, FMULP,&#160;FPATAN, FRNDINT,&#160;</p>
+<p style="position:absolute;top:861px;left:75px;white-space:nowrap" class="ft02">FSCALE, FST,&#160;FSTP, FSUB, FSUBP,&#160;FSUBR,&#160;</p>
+<p style="position:absolute;top:878px;left:75px;white-space:nowrap" class="ft02">FSUBRP,FSQRT, FYL2X, FYL2XP1</p>
+<p style="position:absolute;top:795px;left:500px;white-space:nowrap" class="ft02">Undefined</p>
+<p style="position:absolute;top:795px;left:718px;white-space:nowrap" class="ft02">Roundup&#160;or&#160;#IS</p>
+<p style="position:absolute;top:902px;left:75px;white-space:nowrap" class="ft02">FCOS,&#160;FSIN,&#160;FSINCOS,&#160;FPTAN</p>
+<p style="position:absolute;top:902px;left:442px;white-space:nowrap" class="ft02">Undefined</p>
+<p style="position:absolute;top:902px;left:602px;white-space:nowrap" class="ft02">0 =&#160;source&#160;</p>
+<p style="position:absolute;top:918px;left:602px;white-space:nowrap" class="ft02">operand&#160;within&#160;</p>
+<p style="position:absolute;top:935px;left:602px;white-space:nowrap" class="ft02">range</p>
+<p style="position:absolute;top:951px;left:602px;white-space:nowrap" class="ft02">1 =&#160;source&#160;</p>
+<p style="position:absolute;top:968px;left:602px;white-space:nowrap" class="ft02">operand&#160;out of&#160;</p>
+<p style="position:absolute;top:984px;left:602px;white-space:nowrap" class="ft02">range</p>
+<p style="position:absolute;top:902px;left:718px;white-space:nowrap" class="ft02">Roundup or&#160;#IS&#160;</p>
+<p style="position:absolute;top:918px;left:718px;white-space:nowrap" class="ft02">(Undefined&#160;if&#160;C2&#160;=&#160;</p>
+<p style="position:absolute;top:935px;left:718px;white-space:nowrap" class="ft02">1)</p>
+<p style="position:absolute;top:1008px;left:75px;white-space:nowrap" class="ft02">FABS, FBLD, FCHS, FDECSTP,&#160;FILD, FINCSTP,&#160;</p>
+<p style="position:absolute;top:1025px;left:75px;white-space:nowrap" class="ft02">FLD, Load&#160;Constants,&#160;FSTP (ext.&#160;prec.), FXCH,&#160;</p>
+<p style="position:absolute;top:1041px;left:75px;white-space:nowrap" class="ft02">FXTRACT&#160;</p>
+<p style="position:absolute;top:1008px;left:500px;white-space:nowrap" class="ft02">Undefined</p>
+<p style="position:absolute;top:1008px;left:752px;white-space:nowrap" class="ft02">0&#160;or #IS</p>
+</div>
+</body>
+</html>

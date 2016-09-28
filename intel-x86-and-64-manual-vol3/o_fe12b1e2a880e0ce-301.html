@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 301</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page301-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce301.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-45</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft02">For (ProcessorNum&#160;= 1; ProcessorNum&#160;&lt; NumStartedLPs; ProcessorNum++) {&#160;</p>
+<p style="position:absolute;top:118px;left:116px;white-space:nowrap" class="ft03">ProcessorMask &lt;&lt;&#160;= 1;&#160;<br/>For (i=0; i &lt; PackageNum; i++) {</p>
+<p style="position:absolute;top:154px;left:143px;white-space:nowrap" class="ft03">// we&#160;may be&#160;comparing&#160;bit-fields of&#160;logical processors residing&#160;in&#160;different<br/>//&#160;packages,&#160;the code&#160;below assume&#160;package&#160;symmetry<br/>If (PackageID[ProcessorNum] = PackageIDBucket[i]) {</p>
+<p style="position:absolute;top:208px;left:170px;white-space:nowrap" class="ft03">PackageProcessorMask[i] |= ProcessorMask;<br/>Break;&#160;// found&#160;in&#160;existing&#160;bucket,&#160;skip&#160;to&#160;next iteration</p>
+<p style="position:absolute;top:244px;left:143px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:262px;left:116px;white-space:nowrap" class="ft03">}<br/>if (i&#160;=PackageNum)&#160;{</p>
+<p style="position:absolute;top:298px;left:143px;white-space:nowrap" class="ft03">//PACKAGE_ID did not match&#160;any bucket, start new&#160;bucket<br/>PackageIDBucket[i]&#160;= PackageID[ProcessorNum];<br/>PackageProcessorMask[i] = ProcessorMask;<br/>PackageNum++;</p>
+<p style="position:absolute;top:370px;left:116px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft03">}<br/>//&#160;PackageNum&#160;has the&#160;number&#160;of&#160;Packages&#160;started&#160;in&#160;OS<br/>//&#160;PackageProcessorMask[] array has&#160;the processor set of each package</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft02">c)&#160;Using&#160;the&#160;list&#160;of&#160;CORE_ID&#160;to count the number of&#160;cores in a MP&#160;system&#160;and construct,&#160;for each core,&#160;a multi-bit mask&#160;corresponding&#160;</p>
+<p style="position:absolute;top:476px;left:69px;white-space:nowrap" class="ft02">to those logical processors&#160;residing in the same core.&#160;</p>
+<p style="position:absolute;top:512px;left:69px;white-space:nowrap" class="ft02">Processors&#160;in&#160;the&#160;same&#160;core&#160;can&#160;be&#160;determined&#160;by bucketing&#160;the processors with&#160;the&#160;same&#160;PACKAGE_ID&#160;and CORE_ID. Note that code&#160;</p>
+<p style="position:absolute;top:529px;left:69px;white-space:nowrap" class="ft03">below can BIT OR&#160;the&#160;values&#160;of PACKGE and CORE&#160;ID because they&#160;have&#160;not been shifted right.<br/>The&#160;algorithm below assumes there&#160;is&#160;symmetry&#160;across&#160;package&#160;boundary if&#160;more than one socket is&#160;populated in&#160;an&#160;MP&#160;system.</p>
+<p style="position:absolute;top:583px;left:69px;white-space:nowrap" class="ft02">//Bucketing&#160;PACKAGE and&#160;CORE&#160;IDs and computing&#160;processor mask for every core</p>
+<p style="position:absolute;top:601px;left:89px;white-space:nowrap" class="ft03">CoreNum&#160;= 1;<br/>CoreIDBucket[0]&#160;= PackageID[0] |&#160;CoreID[0];<br/>ProcessorMask = 1;<br/>CoreProcessorMask[0] = ProcessorMask;<br/>For (ProcessorNum&#160;= 1; ProcessorNum&#160;&lt; NumStartedLPs; ProcessorNum++) {&#160;</p>
+<p style="position:absolute;top:691px;left:116px;white-space:nowrap" class="ft03">ProcessorMask &lt;&lt;&#160;= 1;&#160;<br/>For (i=0; i&#160;&lt; CoreNum; i++) {</p>
+<p style="position:absolute;top:727px;left:143px;white-space:nowrap" class="ft03">// we&#160;may be&#160;comparing&#160;bit-fields of&#160;logical processors residing&#160;in&#160;different<br/>//&#160;packages,&#160;the code&#160;below assume&#160;package&#160;symmetry<br/>If ((PackageID[ProcessorNum] | CoreID[ProcessorNum]) = CoreIDBucket[i])&#160;{</p>
+<p style="position:absolute;top:781px;left:170px;white-space:nowrap" class="ft03">CoreProcessorMask[i]&#160;|=&#160;ProcessorMask;<br/>Break;&#160;// found&#160;in&#160;existing&#160;bucket,&#160;skip&#160;to&#160;next iteration</p>
+<p style="position:absolute;top:817px;left:143px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:835px;left:116px;white-space:nowrap" class="ft03">}<br/>if&#160;(i&#160;= CoreNum) {</p>
+<p style="position:absolute;top:871px;left:143px;white-space:nowrap" class="ft03">//Did not match&#160;any bucket, start new&#160;bucket<br/>CoreIDBucket[i]&#160;= PackageID[ProcessorNum] |&#160;CoreID[ProcessorNum];<br/>CoreProcessorMask[i]&#160;= ProcessorMask;<br/>CoreNum++;</p>
+<p style="position:absolute;top:943px;left:116px;white-space:nowrap" class="ft02">}</p>
+<p style="position:absolute;top:961px;left:89px;white-space:nowrap" class="ft03">}<br/>// CoreNum&#160;has the&#160;number&#160;of&#160;cores started&#160;in the OS<br/>//&#160;CoreProcessorMask[] array has the&#160;processor&#160;set of each&#160;core</p>
+<p style="position:absolute;top:1039px;left:69px;white-space:nowrap" class="ft04">Other processor relationships such as processor mask of sibling cores can be computed from set operations of the&#160;<br/>PackageProcessorMask[] and CoreProcessorMask[].&#160;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1127</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1127-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811127.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PSRAW/PSRAD/PSRAQ‚ÄîShift&#160;Packed&#160;Data Right Arithmetic</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-447</p>
+<p style="position:absolute;top:273px;left:354px;white-space:nowrap" class="ft02">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:531px;left:69px;white-space:nowrap" class="ft07">Shifts&#160;the bits in&#160;the&#160;individual&#160;data elements (words,&#160;doublewords or&#160;quadwords) in the&#160;destination&#160;operand (first&#160;<br/>operand) to the right by&#160;the number of bits&#160;specified in the count operand (second&#160;operand).&#160;As the&#160;bits in the&#160;data&#160;<br/>elements are&#160;shifted&#160;right,&#160;the empty high-order bits&#160;are&#160;filled with the&#160;initial value of&#160;the&#160;sign&#160;bit&#160;of&#160;the data&#160;<br/>element.&#160;If the value specified&#160;by the&#160;count operand is greater&#160;than 15 (for&#160;words),&#160;31 (for doublewords), or 63 (for&#160;<br/>quadwords),&#160;each&#160;destination data element is filled&#160;with the&#160;initial value of the sign bit of&#160;the&#160;el<a href="o_b5573232dd8f1481-1127.html">ement. (Figure&#160;4-18&#160;<br/></a>gives an&#160;example of&#160;shifting&#160;words in a&#160;64-bit operand.)</p>
+<p style="position:absolute;top:876px;left:69px;white-space:nowrap" class="ft07">Note that only&#160;the first&#160;64-bits of a&#160;128-bit&#160;count&#160;operand are checked&#160;to compute&#160;the count. If the second source&#160;<br/>operand is&#160;a memory address, 128 bits are&#160;loaded.<br/>The&#160;(V)PSRAW&#160;instruction shifts&#160;each of the&#160;words in&#160;the&#160;destination&#160;operand to&#160;the right&#160;by the&#160;number of bits&#160;<br/>specified in&#160;the count operand,&#160;and&#160;the&#160;(V)PSRAD&#160;instruction shifts each of the&#160;doublewords&#160;in the&#160;destination&#160;<br/>operand.<br/>In 64-bit mode&#160;and&#160;not encoded with VEX/EVEX,&#160;using&#160;a REX&#160;prefix&#160;in&#160;the form of REX.R&#160;permits this instruction to&#160;<br/>access additional registers&#160;(XMM8-XMM15).<br/>Legacy SSE instructions 64-bit&#160;operand: The&#160;destination operand is&#160;an MMX&#160;technology register;&#160;the count&#160;<br/>operand&#160;can&#160;be&#160;either an&#160;MMX technology&#160;register&#160;or an&#160;64-bit memory location.&#160;</p>
+<p style="position:absolute;top:105px;left:68px;white-space:nowrap" class="ft03">EVEX.NDD.512.66.0F.W1 72&#160;/4 ib</p>
+<p style="position:absolute;top:105px;left:358px;white-space:nowrap" class="ft03">FVI</p>
+<p style="position:absolute;top:105px;left:401px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:105px;left:473px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:105px;left:551px;white-space:nowrap" class="ft03">Shift quadwords in&#160;zmm2/m512/m64bcst right by&#160;</p>
+<p style="position:absolute;top:121px;left:551px;white-space:nowrap" class="ft03">imm8 while shifting&#160;in&#160;sign&#160;bits using writemask&#160;</p>
+<p style="position:absolute;top:137px;left:551px;white-space:nowrap" class="ft03">k1.</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft03">VPSRAQ&#160;zmm1 {k1}{z}, zmm2/m512/m64bcst,&#160;</p>
+<p style="position:absolute;top:144px;left:68px;white-space:nowrap" class="ft03">imm8</p>
+<p style="position:absolute;top:166px;left:68px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:187px;left:68px;white-space:nowrap" class="ft03">1.&#160;See&#160;note in<a href="o_b5573232dd8f1481-81.html">&#160;Section 2.4,&#160;‚ÄúAVX and SSE&#160;Instruction Exception&#160;Specification‚Äù in</a>&#160;the<a href="˛ˇ">&#160;<i>Intel¬Æ 64&#160;and IA-32 Architectures Software&#160;</i></a></p>
+<p style="position:absolute;top:204px;left:68px;white-space:nowrap" class="ft04"><a href="˛ˇ"><i>Developer‚Äôs Manual, Volume&#160;2A</i></a>&#160;and<a href="˛ˇ">&#160;Section 22.25.3,&#160;‚ÄúException&#160;Conditions&#160;of&#160;Legacy&#160;SIMD Instructions Operating&#160;on&#160;MMX Registers‚Äù in</a>&#160;</p>
+<p style="position:absolute;top:220px;left:68px;white-space:nowrap" class="ft03">the&#160;<a href="˛ˇ"><i>Intel¬Æ&#160;64&#160;and IA-32&#160;Architectures&#160;Software&#160;Developer‚Äôs&#160;Manual,&#160;Volume 3A</i>.</a></p>
+<p style="position:absolute;top:297px;left:87px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:297px;left:197px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:297px;left:370px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:297px;left:543px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:297px;left:719px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:321px;left:96px;white-space:nowrap" class="ft03">RM</p>
+<p style="position:absolute;top:321px;left:179px;white-space:nowrap" class="ft03">ModRM:reg (r,&#160;w)</p>
+<p style="position:absolute;top:321px;left:360px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:321px;left:564px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:321px;left:740px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:344px;left:98px;white-space:nowrap" class="ft03">MI</p>
+<p style="position:absolute;top:344px;left:178px;white-space:nowrap" class="ft03">ModRM:r/m (r, w)</p>
+<p style="position:absolute;top:344px;left:384px;white-space:nowrap" class="ft03">imm8</p>
+<p style="position:absolute;top:344px;left:564px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:344px;left:740px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:369px;left:92px;white-space:nowrap" class="ft03">RVM</p>
+<p style="position:absolute;top:369px;left:185px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:369px;left:365px;white-space:nowrap" class="ft03">VEX.vvvv&#160;(r)</p>
+<p style="position:absolute;top:369px;left:533px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:369px;left:740px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:393px;left:94px;white-space:nowrap" class="ft03">VMI</p>
+<p style="position:absolute;top:393px;left:189px;white-space:nowrap" class="ft03">VEX.vvvv (w)</p>
+<p style="position:absolute;top:393px;left:360px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:393px;left:557px;white-space:nowrap" class="ft03">imm8</p>
+<p style="position:absolute;top:393px;left:740px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:417px;left:90px;white-space:nowrap" class="ft03">FVMI</p>
+<p style="position:absolute;top:417px;left:185px;white-space:nowrap" class="ft03">EVEX.vvvv (w)</p>
+<p style="position:absolute;top:417px;left:358px;white-space:nowrap" class="ft03">ModRM:r/m&#160;(R)</p>
+<p style="position:absolute;top:417px;left:557px;white-space:nowrap" class="ft03">Imm8</p>
+<p style="position:absolute;top:417px;left:740px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:441px;left:95px;white-space:nowrap" class="ft03">FVI</p>
+<p style="position:absolute;top:441px;left:185px;white-space:nowrap" class="ft03">EVEX.vvvv (w)</p>
+<p style="position:absolute;top:441px;left:358px;white-space:nowrap" class="ft03">ModRM:r/m (R)</p>
+<p style="position:absolute;top:441px;left:557px;white-space:nowrap" class="ft03">Imm8</p>
+<p style="position:absolute;top:441px;left:740px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:465px;left:88px;white-space:nowrap" class="ft03">M128</p>
+<p style="position:absolute;top:465px;left:185px;white-space:nowrap" class="ft03">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:465px;left:361px;white-space:nowrap" class="ft03">EVEX.vvvv (r)</p>
+<p style="position:absolute;top:465px;left:533px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:465px;left:740px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:821px;left:191px;white-space:nowrap" class="ft02">Figure&#160;4-18.&#160;&#160;PSRAW and&#160;PSRAD Instruction Operation&#160;Using&#160;a 64-bit&#160;Operand</p>
+<p style="position:absolute;top:769px;left:254px;white-space:nowrap" class="ft00">DEST</p>
+<p style="position:absolute;top:691px;left:256px;white-space:nowrap" class="ft00">DEST</p>
+<p style="position:absolute;top:678px;left:240px;white-space:nowrap" class="ft00">Pre-Shift</p>
+<p style="position:absolute;top:757px;left:233px;white-space:nowrap" class="ft00">Post-Shift</p>
+<p style="position:absolute;top:710px;left:239px;white-space:nowrap" class="ft05">Shift&#160;Right</p>
+<p style="position:absolute;top:684px;left:612px;white-space:nowrap" class="ft00">X0</p>
+<p style="position:absolute;top:765px;left:580px;white-space:nowrap" class="ft00">X0&#160;</p>
+<p style="position:absolute;top:761px;left:598px;white-space:nowrap" class="ft06">&gt;&gt;</p>
+<p style="position:absolute;top:765px;left:614px;white-space:nowrap" class="ft00">&#160;COUNT</p>
+<p style="position:absolute;top:684px;left:331px;white-space:nowrap" class="ft00">X3</p>
+<p style="position:absolute;top:684px;left:427px;white-space:nowrap" class="ft00">X2</p>
+<p style="position:absolute;top:684px;left:518px;white-space:nowrap" class="ft00">X1</p>
+<p style="position:absolute;top:765px;left:489px;white-space:nowrap" class="ft00">X1&#160;</p>
+<p style="position:absolute;top:761px;left:507px;white-space:nowrap" class="ft06">&gt;&gt;</p>
+<p style="position:absolute;top:765px;left:523px;white-space:nowrap" class="ft00">&#160;COUNT</p>
+<p style="position:absolute;top:765px;left:394px;white-space:nowrap" class="ft00">X2&#160;</p>
+<p style="position:absolute;top:761px;left:412px;white-space:nowrap" class="ft06">&gt;&gt;</p>
+<p style="position:absolute;top:765px;left:428px;white-space:nowrap" class="ft00">&#160;COUNT</p>
+<p style="position:absolute;top:765px;left:298px;white-space:nowrap" class="ft00">X3&#160;</p>
+<p style="position:absolute;top:761px;left:316px;white-space:nowrap" class="ft06">&gt;&gt;</p>
+<p style="position:absolute;top:765px;left:333px;white-space:nowrap" class="ft00">&#160;COUNT</p>
+<p style="position:absolute;top:721px;left:245px;white-space:nowrap" class="ft05">with Sign</p>
+<p style="position:absolute;top:733px;left:242px;white-space:nowrap" class="ft05">Extension</p>
+</div>
+</body>
+</html>

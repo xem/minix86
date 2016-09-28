@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 574</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page574-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481574.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:738px;white-space:nowrap" class="ft00">IN—Input from&#160;Port</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-446&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">IN—Input from Port</p>
+<p style="position:absolute;top:401px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:509px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:534px;left:68px;white-space:nowrap" class="ft09">Copies the&#160;value from&#160;the I/O port specified with the second operand (source operand) to the destination&#160;operand&#160;<br/>(first operand). The&#160;source operand&#160;can be a&#160;byte-immediate&#160;or the&#160;DX&#160;register;&#160;the destination operand&#160;can be&#160;<br/>register AL,&#160;AX,&#160;or EAX,&#160;depending on&#160;the&#160;size of the&#160;port&#160;being&#160;accessed&#160;(8,&#160;16,&#160;or&#160;32&#160;bits,&#160;respectively).&#160;Using the&#160;<br/>DX&#160;register as&#160;a source&#160;operand allows I/O port addresses from 0 to&#160;65,535&#160;to be accessed;&#160;using a&#160;byte imme-<br/>diate&#160;allows I/O port addresses&#160;0&#160;to 255 to&#160;be&#160;accessed.<br/>When accessing an 8-bit I/O&#160;port,&#160;the opcode determines&#160;the port&#160;size; when accessing a&#160;16- and&#160;32-bit&#160;I/O port,&#160;<br/>the operand-size attribute&#160;determines the port&#160;size. At&#160;the machine code level, I/O&#160;instructions&#160;are&#160;shorter&#160;when&#160;<br/>accessing 8-bit I/O&#160;ports.&#160;Here,&#160;the upper&#160;eight bits of the&#160;port&#160;address will be 0.<br/>This instruction is only useful for accessing I/O&#160;ports located in&#160;the processor’s I/O address&#160;space.&#160;<a href="��">See Chapter 18,&#160;<br/>“Input/Output,” in</a>&#160;the&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual,&#160;Volume 1</i>, for mo</a>re&#160;infor-<br/>mation&#160;on accessing I/O&#160;ports in&#160;the I/O&#160;address space.<br/>This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft04">IF&#160;((PE&#160;</p>
+<p style="position:absolute;top:800px;left:107px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:802px;left:116px;white-space:nowrap" class="ft04">&#160;1) and&#160;((CPL&#160;&gt;&#160;IOPL) or (VM&#160;</p>
+<p style="position:absolute;top:800px;left:276px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:802px;left:285px;white-space:nowrap" class="ft04">&#160;1)))</p>
+<p style="position:absolute;top:820px;left:88px;white-space:nowrap" class="ft04">THEN&#160;(* Protected mode&#160;with&#160;CPL&#160;&gt;&#160;IOPL or virtual-8086 mode *)</p>
+<p style="position:absolute;top:838px;left:115px;white-space:nowrap" class="ft04">IF (Any I/O Permission&#160;Bit&#160;for I/O&#160;port being accessed&#160;</p>
+<p style="position:absolute;top:836px;left:419px;white-space:nowrap" class="ft06">=</p>
+<p style="position:absolute;top:838px;left:429px;white-space:nowrap" class="ft04">&#160;1)</p>
+<p style="position:absolute;top:856px;left:142px;white-space:nowrap" class="ft04">THEN&#160;(* I/O operation&#160;is&#160;not allowed *)</p>
+<p style="position:absolute;top:874px;left:169px;white-space:nowrap" class="ft04">#GP(0);</p>
+<p style="position:absolute;top:892px;left:142px;white-space:nowrap" class="ft04">ELSE ( * I/O&#160;operation is&#160;allowed *)&#160;</p>
+<p style="position:absolute;top:910px;left:169px;white-space:nowrap" class="ft04">DEST&#160;←&#160;SRC;&#160;(* Read from&#160;selected&#160;I/O port *)</p>
+<p style="position:absolute;top:928px;left:115px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:946px;left:88px;white-space:nowrap" class="ft04">ELSE (Real Mode&#160;or Protected&#160;Mode&#160;with CPL&#160;≤&#160;IOPL *)</p>
+<p style="position:absolute;top:964px;left:115px;white-space:nowrap" class="ft04">DEST&#160;←&#160;SRC;&#160;(* Read from selected I/O port *)</p>
+<p style="position:absolute;top:982px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:1016px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:1041px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:132px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:132px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:132px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:146px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:132px;left:425px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:146px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:132px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:146px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:132px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:169px;left:74px;white-space:nowrap" class="ft04">E4&#160;<i>ib</i></p>
+<p style="position:absolute;top:169px;left:221px;white-space:nowrap" class="ft04">IN AL, i<i>mm8</i></p>
+<p style="position:absolute;top:169px;left:388px;white-space:nowrap" class="ft04">I</p>
+<p style="position:absolute;top:169px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:169px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:169px;left:568px;white-space:nowrap" class="ft04">Input byte&#160;from&#160;<i>imm8</i>&#160;I/O&#160;port address into&#160;</p>
+<p style="position:absolute;top:186px;left:568px;white-space:nowrap" class="ft04">AL.</p>
+<p style="position:absolute;top:208px;left:74px;white-space:nowrap" class="ft04">E5&#160;<i>ib</i></p>
+<p style="position:absolute;top:208px;left:221px;white-space:nowrap" class="ft04">IN AX, i<i>mm8</i></p>
+<p style="position:absolute;top:208px;left:388px;white-space:nowrap" class="ft04">I</p>
+<p style="position:absolute;top:208px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:208px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:208px;left:568px;white-space:nowrap" class="ft04">Input word&#160;from&#160;<i>imm8</i>&#160;I/O&#160;port address into&#160;</p>
+<p style="position:absolute;top:225px;left:568px;white-space:nowrap" class="ft04">AX.</p>
+<p style="position:absolute;top:247px;left:74px;white-space:nowrap" class="ft04">E5&#160;<i>ib</i></p>
+<p style="position:absolute;top:247px;left:221px;white-space:nowrap" class="ft04">IN EAX, i<i>mm8</i></p>
+<p style="position:absolute;top:247px;left:388px;white-space:nowrap" class="ft04">I</p>
+<p style="position:absolute;top:247px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:247px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:247px;left:568px;white-space:nowrap" class="ft04">Input dword from&#160;<i>imm8</i>&#160;I/O&#160;port&#160;address&#160;into&#160;</p>
+<p style="position:absolute;top:263px;left:568px;white-space:nowrap" class="ft04">EAX.</p>
+<p style="position:absolute;top:286px;left:74px;white-space:nowrap" class="ft04">EC</p>
+<p style="position:absolute;top:286px;left:221px;white-space:nowrap" class="ft04">IN AL,DX</p>
+<p style="position:absolute;top:286px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:286px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:286px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:286px;left:567px;white-space:nowrap" class="ft04">Input byte&#160;from I/O port in DX into AL.</p>
+<p style="position:absolute;top:308px;left:74px;white-space:nowrap" class="ft04">ED</p>
+<p style="position:absolute;top:308px;left:221px;white-space:nowrap" class="ft04">IN AX,DX</p>
+<p style="position:absolute;top:308px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:308px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:308px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:308px;left:568px;white-space:nowrap" class="ft04">Input word&#160;from I/O port in DX into AX.</p>
+<p style="position:absolute;top:331px;left:74px;white-space:nowrap" class="ft04">ED</p>
+<p style="position:absolute;top:331px;left:221px;white-space:nowrap" class="ft04">IN&#160;EAX,DX</p>
+<p style="position:absolute;top:331px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:331px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:331px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:331px;left:568px;white-space:nowrap" class="ft04">Input doubleword&#160;from I/O&#160;port in DX into&#160;</p>
+<p style="position:absolute;top:348px;left:568px;white-space:nowrap" class="ft04">EAX.</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:424px;left:198px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:424px;left:369px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:424px;left:543px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:424px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:448px;left:105px;white-space:nowrap" class="ft04">I</p>
+<p style="position:absolute;top:448px;left:212px;white-space:nowrap" class="ft04">imm8</p>
+<p style="position:absolute;top:448px;left:390px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:448px;left:564px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:448px;left:739px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:472px;left:98px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:472px;left:220px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:472px;left:390px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:472px;left:564px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:472px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

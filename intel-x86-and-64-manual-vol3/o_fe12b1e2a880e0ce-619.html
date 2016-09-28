@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 619</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page619-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce619.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;17-45</p>
+<p style="position:absolute;top:47px;left:425px;white-space:nowrap" class="ft01">DEBUG, BRANCH&#160;PROFILE, TSC, AND RESOURCE MONITORING FEATURES</p>
+<p style="position:absolute;top:100px;left:94px;white-space:nowrap" class="ft06">supported&#160;resource type&#160;is&#160;represented&#160;by a&#160;bit in&#160;CPUID.(EAX=0FH,&#160;ECX=0):EDX[31:1].&#160;The bit position&#160;<br/>corresponds to the sub-leaf index (ResID) that software&#160;must&#160;use to query details of the monitoring capability&#160;<br/>of that&#160;resource&#160;type&#160;(see<a href="o_fe12b1e2a880e0ce-619.html">&#160;Figure&#160;17-21 and</a>&#160;<a href="o_fe12b1e2a880e0ce-620.html">Figure&#160;17-22).&#160;</a>Reserved&#160;bits of CPUID.(EAX=0FH,&#160;<br/>ECX=0):EDX[31:2]&#160;correspond to&#160;unsupported&#160;sub-leaves&#160;of the&#160;CPUID.0FH leaf.&#160;Additionally,&#160;<br/>CPUID.(EAX=0FH,&#160;ECX=0H):EBX reports&#160;the&#160;highest RMID&#160;value&#160;of any&#160;resource type that&#160;supports&#160;<br/>monitoring&#160;in&#160;the processor.</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft03">17.16.5 Feature-Specific&#160;</p>
+<p style="position:absolute;top:460px;left:285px;white-space:nowrap" class="ft03">Enumeration</p>
+<p style="position:absolute;top:491px;left:69px;white-space:nowrap" class="ft06">Each&#160;additional sub-leaf of&#160;CPUID.(EAX=0FH, ECX=ResID) enumerates the specific details&#160;for software to program&#160;<br/>Monitoring&#160;MSRs using&#160;the resource type associated with the&#160;given ResID.&#160;<br/>Note that in&#160;future&#160;Monitoring implementations the&#160;meanings&#160;of&#160;the returned registers&#160;may vary in&#160;other sub-<br/>leaves&#160;that are&#160;not yet defined. The&#160;registers will&#160;be&#160;specified and&#160;defined on a&#160;per-ResID&#160;basis.</p>
+<p style="position:absolute;top:803px;left:69px;white-space:nowrap" class="ft06">For each&#160;supported Cache&#160;Monitoring resource&#160;type,&#160;hardware supports only a&#160;finite number&#160;of&#160;RMIDs.&#160;<br/>CPUID.(EAX=0FH,&#160;ECX=1H).ECX&#160;enumerates&#160;the&#160;highest RMID&#160;value that can&#160;be&#160;monitored with this&#160;resource&#160;<br/>type,&#160;se<a href="o_fe12b1e2a880e0ce-619.html">e Figure 17-21</a>.&#160;<br/>CPUID.(EAX=0FH, ECX=1H).EDX specifies&#160;a bit vector that&#160;is used to&#160;look&#160;up the&#160;EventID&#160;<a href="o_fe12b1e2a880e0ce-620.html">(See Figure 17-22&#160;</a>and&#160;<br/><a href="o_fe12b1e2a880e0ce-620.html">Table&#160;17-19) that&#160;</a>software&#160;must program with IA32_QM_EVTSEL&#160;in&#160;order&#160;to retrieve&#160;event&#160;data.&#160;After software&#160;<br/>configures IA32_QMEVTSEL with the desired RMID and EventID,&#160;it&#160;can&#160;read&#160;the&#160;resulting&#160;data&#160;from&#160;IA32_QM_CTR.&#160;<br/>The&#160;raw numerical value&#160;reported&#160;from IA32_QM_CTR can&#160;be&#160;converted to&#160;the final value&#160;(occupancy&#160;in bytes&#160;or&#160;<br/>bandwidth in bytes&#160;per sampled time&#160;period) by&#160;multiplying the&#160;counter value by&#160;the value&#160;from CPUID.(EAX=0FH,&#160;<br/>ECX=1H).EBX,&#160;s<a href="o_fe12b1e2a880e0ce-619.html">ee Figure 17-21</a>.&#160;</p>
+<p style="position:absolute;top:407px;left:178px;white-space:nowrap" class="ft04">Figure&#160;17-20.&#160;&#160;CPUID.(EAX=0FH, ECX=0H)&#160;Monitoring&#160;Resource&#160;Type Enumeration</p>
+<p style="position:absolute;top:757px;left:138px;white-space:nowrap" class="ft04">Figure&#160;17-21.&#160;&#160;L3&#160;Cache&#160;Monitoring&#160;Capability&#160;Enumeration&#160;Data&#160;(CPUID.(EAX=0FH,&#160;ECX=1H) )</p>
+<p style="position:absolute;top:288px;left:657px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:287px;left:623px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:287px;left:259px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:263px;left:257px;white-space:nowrap" class="ft00">CPUID.(EAX=0FH, ECX=0H) Output: (EAX: Reserved; ECX: Reserved)</p>
+<p style="position:absolute;top:301px;left:210px;white-space:nowrap" class="ft00">EDX</p>
+<p style="position:absolute;top:303px;left:636px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:358px;left:210px;white-space:nowrap" class="ft00">EBX</p>
+<p style="position:absolute;top:346px;left:655px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:345px;left:257px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:367px;left:331px;white-space:nowrap" class="ft05">Highest RMID Value&#160;of&#160;Any Resource Type (Zero-Based)</p>
+<p style="position:absolute;top:314px;left:636px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:288px;left:637px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:308px;left:391px;white-space:nowrap" class="ft05">Reserved</p>
+<p style="position:absolute;top:619px;left:269px;white-space:nowrap" class="ft00">CPUID.(EAX=0FH, ECX=1H) Output: (EAX: Reserved)</p>
+<p style="position:absolute;top:702px;left:178px;white-space:nowrap" class="ft00">ECX</p>
+<p style="position:absolute;top:690px;left:623px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:690px;left:225px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:711px;left:299px;white-space:nowrap" class="ft05">Highest&#160;RMID&#160;Value of&#160;This Resource Type (Zero-Based)</p>
+<p style="position:absolute;top:651px;left:179px;white-space:nowrap" class="ft00">EBX</p>
+<p style="position:absolute;top:638px;left:624px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:638px;left:226px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:659px;left:300px;white-space:nowrap" class="ft05">Upscaling Factor&#160;to&#160;Total&#160;Occupancy&#160;(Bytes)</p>
+<p style="position:absolute;top:658px;left:657px;white-space:nowrap" class="ft00">Upscaling Factor</p>
+<p style="position:absolute;top:707px;left:657px;white-space:nowrap" class="ft00">MaxRMID</p>
+</div>
+</body>
+</html>

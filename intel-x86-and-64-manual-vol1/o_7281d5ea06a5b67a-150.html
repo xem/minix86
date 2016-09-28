@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 150</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:9px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page150-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a150.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-6&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">6.3.3.3 &#160;</p>
+<p style="position:absolute;top:99px;left:152px;white-space:nowrap" class="ft02">Passing Parameters&#160;in&#160;an Argument&#160;List</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft07">An&#160;alternate&#160;method of passing a&#160;larger&#160;number of parameters&#160;(or a&#160;data structure)&#160;to the&#160;called procedure is&#160;to&#160;<br/>place the parameters in an&#160;argument&#160;list in&#160;one of the data&#160;segments in memory. A pointer to the argument list can&#160;<br/>then be passed&#160;to the&#160;called procedure through&#160;a general-purpose register&#160;or&#160;the stack. Parameters can also be&#160;<br/>passed back&#160;to the&#160;calling&#160;procedure&#160;in this&#160;same manner.</p>
+<p style="position:absolute;top:227px;left:68px;white-space:nowrap" class="ft04">6.3.4&#160;</p>
+<p style="position:absolute;top:227px;left:148px;white-space:nowrap" class="ft04">Saving Procedure State Information</p>
+<p style="position:absolute;top:258px;left:68px;white-space:nowrap" class="ft07">The processor does not save&#160;the&#160;contents of the general-purpose registers, segment registers, or&#160;the&#160;EFLAGS&#160;<br/>register on a&#160;procedure call.&#160;A&#160;calling&#160;procedure&#160;should&#160;explicitly&#160;save&#160;the&#160;values in&#160;any of the&#160;general-purpose&#160;<br/>registers that&#160;it will need&#160;when it&#160;resumes execution after&#160;a return.&#160;These&#160;values can&#160;be&#160;saved on the&#160;stack or in&#160;<br/>memory&#160;in one of&#160;the data&#160;segments.<br/>The&#160;PUSHA&#160;and POPA&#160;instructions facilitate&#160;saving and&#160;restoring the&#160;contents of&#160;the&#160;general-purpose registers.&#160;<br/>PUSHA&#160;pushes the&#160;values in&#160;all the&#160;general-purpose&#160;registers on&#160;the stack&#160;in&#160;the following&#160;order: EAX,&#160;ECX,&#160;EDX,&#160;<br/>EBX, ESP (the value prior to executing&#160;the PUSHA instruction), EBP,&#160;ESI, and EDI. The&#160;POPA&#160;instruction pops all&#160;the&#160;<br/>register values&#160;saved with a PUSHA instruction (except the&#160;ESP value) from&#160;the stack to their respective&#160;registers.<br/>If a&#160;called&#160;procedure&#160;changes&#160;the&#160;state of&#160;any of the&#160;segment&#160;registers explicitly, it&#160;should restore&#160;them&#160;to&#160;their&#160;<br/>former&#160;values&#160;before&#160;executing a&#160;return to the&#160;calling&#160;procedure.<br/>If&#160;a calling&#160;procedure needs&#160;to&#160;maintain&#160;the state of the EFLAGS register,&#160;it can&#160;save&#160;and restore&#160;all&#160;or part&#160;of the&#160;<br/>register using&#160;the&#160;PUSHF/PUSHFD&#160;and&#160;POPF/POPFD&#160;instructions.&#160;The&#160;PUSHF instruction&#160;pushes&#160;the lower word of&#160;<br/>the EFLAGS&#160;register on&#160;the stack,&#160;while the&#160;PUSHFD&#160;instruction&#160;pushes the&#160;entire&#160;register. The POPF instruction&#160;<br/>pops a&#160;word&#160;from&#160;the&#160;stack&#160;into&#160;the lower word of the&#160;EFLAGS&#160;register, while&#160;the POPFD instruction&#160;pops&#160;a double&#160;<br/>word from&#160;the stack&#160;into the&#160;register.</p>
+<p style="position:absolute;top:562px;left:68px;white-space:nowrap" class="ft04">6.3.5&#160;</p>
+<p style="position:absolute;top:562px;left:148px;white-space:nowrap" class="ft04">Calls to&#160;Other Privilege Levels</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft07">The IA-32 architecture’s&#160;protection&#160;mechanism&#160;recognizes&#160;four&#160;privilege levels, numbered from 0&#160;to 3,&#160;where&#160;a&#160;<br/>greater&#160;number mean less privilege. The reason&#160;to&#160;use&#160;privilege levels&#160;is to&#160;improve&#160;the reliability of operating&#160;<br/>systems. For exampl<a href="o_7281d5ea06a5b67a-150.html">e, Figure&#160;6-3&#160;</a>shows&#160;how privilege&#160;levels&#160;can be&#160;interpreted&#160;as rings of protection.&#160;</p>
+<p style="position:absolute;top:1013px;left:356px;white-space:nowrap" class="ft05">Figure&#160;6-3.&#160;&#160;Protection&#160;Rings</p>
+<p style="position:absolute;top:823px;left:501px;white-space:nowrap" class="ft00">Level 0</p>
+<p style="position:absolute;top:872px;left:507px;white-space:nowrap" class="ft00">Level 1</p>
+<p style="position:absolute;top:903px;left:506px;white-space:nowrap" class="ft00">Level 2</p>
+<p style="position:absolute;top:929px;left:506px;white-space:nowrap" class="ft00">Level 3</p>
+<p style="position:absolute;top:682px;left:474px;white-space:nowrap" class="ft06"><b>Protection Rings</b></p>
+<p style="position:absolute;top:791px;left:323px;white-space:nowrap" class="ft00">Operating</p>
+<p style="position:absolute;top:844px;left:280px;white-space:nowrap" class="ft00">Operating System</p>
+<p style="position:absolute;top:858px;left:286px;white-space:nowrap" class="ft00">Services&#160;(Device</p>
+<p style="position:absolute;top:872px;left:306px;white-space:nowrap" class="ft00">Drivers, Etc.)</p>
+<p style="position:absolute;top:904px;left:310px;white-space:nowrap" class="ft00">Applications</p>
+<p style="position:absolute;top:957px;left:275px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:957px;left:330px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:957px;left:384px;white-space:nowrap" class="ft00">2</p>
+<p style="position:absolute;top:958px;left:438px;white-space:nowrap" class="ft00">3</p>
+<p style="position:absolute;top:943px;left:257px;white-space:nowrap" class="ft00">Highest</p>
+<p style="position:absolute;top:943px;left:421px;white-space:nowrap" class="ft00">Lowest</p>
+<p style="position:absolute;top:993px;left:318px;white-space:nowrap" class="ft00">Privilege Levels</p>
+<p style="position:absolute;top:805px;left:336px;white-space:nowrap" class="ft00">System</p>
+<p style="position:absolute;top:819px;left:341px;white-space:nowrap" class="ft00">Kernel</p>
+</div>
+</body>
+</html>

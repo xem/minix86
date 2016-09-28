@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 632</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page632-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce632.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-58&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">17.17.3.4 &#160;&#160;Class&#160;of&#160;Service to&#160;Cache Mask&#160;Association:&#160;Common Across&#160;Allocation&#160;Features</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft08">After&#160;configuring the&#160;available classes of service with the&#160;preferred set of capacity&#160;bitmasks, the&#160;OS/VMM can&#160;set&#160;<br/>the IA32_PQR_ASSOC.COS&#160;of&#160;a logical processor to&#160;the&#160;class of service with the&#160;desired CBM when&#160;a&#160;thread&#160;<br/>context switch occurs.&#160;This&#160;allows&#160;the&#160;OS/VMM to indicate which class&#160;of&#160;service&#160;an executing thread/VM&#160;belongs&#160;<br/>within. Each logical processor contains an&#160;instance&#160;of&#160;the IA32_PQR_ASSOC register&#160;at&#160;MSR location&#160;0C8FH, and&#160;<br/><a href="o_fe12b1e2a880e0ce-631.html">Figure 17-34&#160;sh</a>ows the bit field layout for this register. Bits[63:32] contain the COS field for each logical processor.&#160;<br/>Note that placing&#160;the RMID&#160;field within the&#160;same PQR&#160;register&#160;enables both&#160;RMID&#160;and&#160;CLOS&#160;to be&#160;swapped at&#160;<br/>context swap time&#160;for&#160;simultaneous&#160;use of monitoring&#160;and allocation&#160;features&#160;with a single register&#160;write&#160;for effi-<br/>ciency.&#160;<br/>When CDP is&#160;enabled,&#160;Specifying a&#160;COS value in&#160;IA32_PQR_ASSOC.COS greater than MAX_COS_CDP =(&#160;<br/>CPUID.(EAX=10H, ECX=1):EDX[15:0]&#160;&gt;&gt;&#160;1) will&#160;cause&#160;undefined performance&#160;impact to&#160;code&#160;and data fetches.<br/>Note that if&#160;the IA32_PQR_ASSOC.COS&#160;is&#160;never written&#160;then&#160;the CAT capability&#160;defaults to&#160;using COS&#160;0,&#160;which&#160;in&#160;<br/>turn&#160;is set to&#160;the default&#160;mask&#160;in IA32_L3_MASK_0&#160;- which is&#160;all “1”s&#160;(on reset). This&#160;essentially disables&#160;the&#160;<br/>enforcement&#160;feature by default or&#160;for&#160;legacy operating&#160;systems and&#160;software.<br/>Se<a href="o_fe12b1e2a880e0ce-633.html">e Section 17.17.5,&#160;“Cache Allocation Technology Programming Considerations” for important COS pr</a>ogramming&#160;<br/>considerations including maximum&#160;values&#160;when&#160;using CAT and&#160;CDP.</p>
+<p style="position:absolute;top:439px;left:68px;white-space:nowrap" class="ft04">17.17.4&#160;&#160;Code and Data Prioritization (CDP):&#160;Enumerating and Enabling L3 CDP Technology&#160;</p>
+<p style="position:absolute;top:469px;left:68px;white-space:nowrap" class="ft08">CDP&#160;is an&#160;extension&#160;of CAT.&#160;The&#160;presence of&#160;the&#160;CDP&#160;feature&#160;is enumerated&#160;via&#160;CPUID.(EAX=10H,&#160;<br/>ECX=1):ECX.CDP[bit&#160;<a href="o_fe12b1e2a880e0ce-629.html">2] (see Figure 17-32).</a>&#160;Most of the&#160;CPUID.(EAX=10H, ECX=1) sub-leaf data&#160;that applies&#160;to&#160;<br/>CAT&#160;also apply&#160;to&#160;CDP.&#160;However,&#160;CPUID.(EAX=10H,&#160;ECX=1):EDX.COS_MAX_CAT&#160;specifies&#160;the maximum COS&#160;<br/>applicable&#160;to CAT-only&#160;operation. For CDP operations, COS_MAX_CDP&#160;is equal to&#160;(CPUID.(EAX=10H,&#160;<br/>ECX=1):EDX.COS_MAX_CAT&#160;&gt;&gt;1).&#160;<br/>If CPUID.(EAX=10H,&#160;ECX=1):ECX.CDP[bit&#160;2] =1, the&#160;processor&#160;supports&#160;CDP and&#160;provides&#160;a&#160;new&#160;MSR&#160;<br/>IA32_L3_QOS_CFG at&#160;address 0C81H. The layout&#160;of&#160;IA32_L3_QOS_CFG&#160;is shown&#160;<a href="o_fe12b1e2a880e0ce-632.html">in Figure 17-36</a>. The bit&#160;field&#160;<br/>definition of IA32_L3_QOS_CFG&#160;are:</p>
+<p style="position:absolute;top:614px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:615px;left:93px;white-space:nowrap" class="ft08">Bit 0: L3&#160;CDP&#160;Enable. If&#160;set,&#160;enables&#160;CDP,&#160;maps CAT mask&#160;MSRs into pairs of Data&#160;Mask and Code Mask MSRs.&#160;<br/>The&#160;maximum allowed&#160;value to&#160;write&#160;into IA32_PQR_ASSOC.COS is&#160;COS_MAX_CDP.</p>
+<p style="position:absolute;top:653px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:654px;left:93px;white-space:nowrap" class="ft03">Bits 63:1: Reserved. Attempts to&#160;write&#160;to reserved bits result&#160;in a&#160;#GP(0).</p>
+<p style="position:absolute;top:891px;left:68px;white-space:nowrap" class="ft08">IA32_L3_QOS_CFG default values&#160;are all&#160;0s&#160;at RESET,&#160;the&#160;mask MSRs are&#160;all&#160;1s.&#160;Hence.&#160;all logical processors are&#160;<br/>initialized in&#160;COS0 allocated with the&#160;entire&#160;L3&#160;with CDP&#160;disabled,&#160;until&#160;software&#160;programs CAT&#160;and&#160;CDP.<br/>Before enabling or&#160;disabling CDP,&#160;software&#160;should&#160;write&#160;all 1's&#160;to&#160;all of&#160;the&#160;CAT/CDP masks to&#160;ensure&#160;proper&#160;<br/>behavior&#160;(e.g.,&#160;the IA32_L3_QOS_Mask_n set of MSRs).&#160;When&#160;enabling CDP,&#160;software&#160;should also ensure that only&#160;<br/>COS number&#160;which are&#160;valid&#160;in CDP&#160;operation&#160;is used,&#160;otherwise undefined behavior may result. For instance&#160;in a&#160;<br/>case with&#160;16&#160;CAT&#160;COS,&#160;since&#160;COS are&#160;reduced by half when&#160;CDP is&#160;enabled, software should ensure&#160;that only&#160;COS&#160;<br/>0-7 are in use&#160;before&#160;enabling CDP&#160;(along&#160;with writing&#160;1's to&#160;all mask bits&#160;before&#160;enabling or disabling&#160;CDP).&#160;<br/>Software should&#160;also account for the&#160;fact that&#160;mask&#160;interpretations&#160;change when&#160;CDP is&#160;enabled or&#160;disabled,&#160;<br/>meaning&#160;for&#160;instance&#160;that&#160;a CAT mask for a&#160;given COS may&#160;become&#160;a code&#160;mask for a&#160;different Class of&#160;Service&#160;</p>
+<p style="position:absolute;top:836px;left:305px;white-space:nowrap" class="ft06">Figure&#160;17-36.&#160;&#160;Layout of&#160;IA32_L3_QOS_CFG</p>
+<p style="position:absolute;top:737px;left:618px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:737px;left:586px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:737px;left:220px;white-space:nowrap" class="ft07">63</p>
+<p style="position:absolute;top:737px;left:599px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:758px;left:349px;white-space:nowrap" class="ft07">Reserved</p>
+<p style="position:absolute;top:724px;left:367px;white-space:nowrap" class="ft00">IA32_L3_QOS_CFG</p>
+<p style="position:absolute;top:737px;left:571px;white-space:nowrap" class="ft07">3</p>
+<p style="position:absolute;top:785px;left:642px;white-space:nowrap" class="ft00">L3 CDP Enable</p>
+</div>
+</body>
+</html>

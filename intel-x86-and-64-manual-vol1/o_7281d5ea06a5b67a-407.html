@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 407</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page407-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a407.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;19-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 19</p>
+<p style="position:absolute;top:120px;left:182px;white-space:nowrap" class="ft01">PROCESSOR IDENTIFICATION AND FEATURE&#160;DETERMINATION</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft07">When&#160;writing&#160;software intended&#160;to&#160;run on IA-32&#160;processors,&#160;it&#160;is necessary to identify the type&#160;of&#160;processor present&#160;<br/>in&#160;a system and the&#160;processor&#160;features that are available to an&#160;application.</p>
+<p style="position:absolute;top:262px;left:68px;white-space:nowrap" class="ft03">19.1&#160;</p>
+<p style="position:absolute;top:262px;left:147px;white-space:nowrap" class="ft03">USING THE CPUID INSTRUCTION</p>
+<p style="position:absolute;top:298px;left:68px;white-space:nowrap" class="ft010">Use&#160;the CPUID&#160;instruction&#160;for&#160;processor&#160;identification&#160;in&#160;the Pentium M processor family, Pentium 4&#160;processor&#160;<br/>family,&#160;Intel Xeon processor family,&#160;P6&#160;family,&#160;Pentium&#160;processor,&#160;and later Intel486&#160;processors.&#160;This&#160;instruction&#160;<br/>returns the&#160;family,&#160;model and (for some processors) a brand&#160;string for the processor that executes&#160;the instruction.&#160;<br/>It also indicates the&#160;features&#160;that are present in&#160;the&#160;processor and gives information&#160;about&#160;the&#160;processor’s caches&#160;<br/>and TLB.<br/>The ID&#160;flag&#160;(bit&#160;21)&#160;in&#160;the EFLAGS&#160;register indicates&#160;support&#160;for the CPUID instruction. If a software&#160;procedure&#160;can&#160;<br/>set&#160;and clear this flag,&#160;the processor executing the&#160;procedure supports the&#160;CPUID&#160;instruction. The&#160;CPUID instruc-<br/>tion will cause&#160;the invalid opcode&#160;exception&#160;(#UD)&#160;if&#160;executed on a&#160;processor&#160;that does not&#160;support it.<br/>To&#160;obtain&#160;processor identification information, a&#160;source&#160;operand&#160;value&#160;is placed&#160;in the&#160;EAX register to&#160;select&#160;the&#160;<br/>type of information to be returned. When the CPUID instruction is executed, selected&#160;information is returned&#160;in the&#160;<br/>EAX, EBX, ECX,&#160;and EDX registers.&#160;For&#160;a&#160;complete&#160;description of the&#160;CPUID instruction,&#160;tables indicating values&#160;<br/>returned, and example code, see&#160;<a href="��"><i>CPUID—CPU Identification</i>&#160;in Chapter&#160;3 o</a>f&#160;the&#160;<i>Intel® 64 and IA-32 Architectures&#160;<br/>Software Developer’s Manual, Volume&#160;2A.</i></p>
+<p style="position:absolute;top:562px;left:68px;white-space:nowrap" class="ft05">19.1.1&#160;</p>
+<p style="position:absolute;top:562px;left:148px;white-space:nowrap" class="ft05">Notes on Where to&#160;Start</p>
+<p style="position:absolute;top:592px;left:68px;white-space:nowrap" class="ft07">The&#160;following guidelines are&#160;among the&#160;most important,&#160;and&#160;should always be followed&#160;when&#160;using the&#160;CPUID&#160;<br/>instruction&#160;to determine available features:</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:631px;left:93px;white-space:nowrap" class="ft07">Always&#160;begin&#160;by testing for the&#160;“GenuineIntel,” message&#160;in&#160;the EBX,&#160;EDX,&#160;and&#160;ECX&#160;registers&#160;when&#160;the CPUID&#160;<br/>instruction&#160;is executed&#160;with&#160;EAX equal to&#160;0. If the&#160;processor is&#160;not genuine Intel, the feature&#160;identification&#160;flags&#160;<br/>may have&#160;different&#160;meanings than are&#160;described in&#160;Intel documentation.</p>
+<p style="position:absolute;top:686px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:687px;left:93px;white-space:nowrap" class="ft02">Test feature&#160;identification flags individually and do not make&#160;assumptions about undefined&#160;bits.</p>
+<p style="position:absolute;top:731px;left:68px;white-space:nowrap" class="ft05">19.1.2&#160;</p>
+<p style="position:absolute;top:731px;left:148px;white-space:nowrap" class="ft05">Identification of&#160;Earlier IA-32 Processors</p>
+<p style="position:absolute;top:759px;left:68px;white-space:nowrap" class="ft07">The&#160;CPUID instruction is&#160;not&#160;available&#160;in earlier IA-32 processors up&#160;through&#160;the earlier Intel486&#160;processors. For&#160;<br/>these&#160;processors, several&#160;other architectural features&#160;can be exploited&#160;to identify&#160;the processor.<br/>The&#160;settings of bits 12 and&#160;13 (IOPL),&#160;14 (NT), and&#160;15 (reserved) in the EFLAGS&#160;register&#160;are different for Intel’s 32-<br/>bit processors than for the&#160;Intel&#160;8086&#160;and&#160;Intel 286&#160;processors.&#160;By examining the&#160;settings of these&#160;bits&#160;(with&#160;the&#160;<br/>PUSHF/PUSHFD and POPF/POPFD instructions),&#160;an application program can&#160;determine&#160;whether&#160;the&#160;processor is an&#160;<br/>8086,&#160;Intel 286,&#160;or one&#160;of&#160;the Intel 32-bit processors:</p>
+<p style="position:absolute;top:866px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:867px;left:93px;white-space:nowrap" class="ft02">8086&#160;processor — Bits&#160;12&#160;through&#160;15&#160;of the&#160;EFLAGS&#160;register&#160;are always set.</p>
+<p style="position:absolute;top:887px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:888px;left:93px;white-space:nowrap" class="ft02">Intel 286&#160;processor&#160;—&#160;Bits 12 through 15 are always clear&#160;in real-address&#160;mode.</p>
+<p style="position:absolute;top:908px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:909px;left:93px;white-space:nowrap" class="ft07">32-bit processors — In&#160;real-address&#160;mode,&#160;bit 15&#160;is&#160;always&#160;clear and&#160;bits&#160;12&#160;through 14&#160;have&#160;the last&#160;value&#160;<br/>loaded&#160;into them.&#160;In protected&#160;mode,&#160;bit 15&#160;is&#160;always&#160;clear,&#160;bit 14 has the&#160;last&#160;value&#160;loaded into&#160;it, and the&#160;IOPL&#160;<br/>bits&#160;depend on&#160;the&#160;current privilege&#160;level (CPL).&#160;The&#160;IOPL&#160;field can be changed&#160;only if&#160;the CPL is&#160;0.</p>
+<p style="position:absolute;top:966px;left:68px;white-space:nowrap" class="ft02">Other EFLAGS&#160;register bits that&#160;can&#160;be&#160;used&#160;to differentiate between the&#160;32-bit processors:</p>
+<p style="position:absolute;top:986px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:987px;left:93px;white-space:nowrap" class="ft07">Bit 18 (AC)&#160;— Implemented&#160;only&#160;on&#160;the Pentium 4, Intel Xeon, P6 family,&#160;Pentium, and&#160;Intel486 processors.&#160;<br/>The&#160;inability&#160;to set&#160;or clear this bit distinguishes an&#160;Intel386 processor from the&#160;later IA-32 processors.</p>
+<p style="position:absolute;top:1024px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1024px;left:93px;white-space:nowrap" class="ft07">Bit 21&#160;(ID) —&#160;Determines if the processor is able to execute&#160;the CPUID instruction. The ability&#160;to set and clear&#160;<br/>this&#160;bit&#160;indicates&#160;that it&#160;is a&#160;Pentium&#160;4, Intel&#160;Xeon, P6&#160;family, Pentium,&#160;or later-version&#160;Intel486&#160;processor.</p>
+</div>
+</body>
+</html>

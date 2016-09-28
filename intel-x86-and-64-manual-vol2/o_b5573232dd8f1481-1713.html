@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1713</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1713-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811713.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPCONFLICTD/Q—Detect Conflicts Within a Vector of Packed&#160;Dword/Qword Values into&#160;Dense Memory/ Register</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-327</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:123px;left:69px;white-space:nowrap" class="ft04">VPCONFLICTD<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO&#160;KL-1</p>
+<p style="position:absolute;top:177px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j*32<br/>IF&#160;MaskBit(j)&#160;OR&#160;*no&#160;writemask*THEN&#160;</p>
+<p style="position:absolute;top:213px;left:116px;white-space:nowrap" class="ft02">FOR k&#160;&#160;0 TO j-1</p>
+<p style="position:absolute;top:231px;left:143px;white-space:nowrap" class="ft04">m&#160;&#160;k*32<br/>IF ((SRC[i+31:i] =&#160;SRC[m+31:m])) THEN&#160;</p>
+<p style="position:absolute;top:267px;left:170px;white-space:nowrap" class="ft02">DEST[i+k]&#160;&#160;1</p>
+<p style="position:absolute;top:285px;left:143px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:303px;left:170px;white-space:nowrap" class="ft02">DEST[i+k]&#160;&#160;0</p>
+<p style="position:absolute;top:321px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:339px;left:116px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[i+31:i+j]&#160;&#160;0</p>
+<p style="position:absolute;top:375px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:393px;left:116px;white-space:nowrap" class="ft02">IF&#160;*merging-masking* THEN&#160;</p>
+<p style="position:absolute;top:411px;left:143px;white-space:nowrap" class="ft02">*DEST[i+31:i] remains unchanged*</p>
+<p style="position:absolute;top:429px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:447px;left:143px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:465px;left:116px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:483px;left:89px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:501px;left:69px;white-space:nowrap" class="ft05">ENDFOR<br/>DEST[MAX_VL-1:VL]</p>
+<p style="position:absolute;top:528px;left:186px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:524px;left:190px;white-space:nowrap" class="ft03">←&#160;</p>
+<p style="position:absolute;top:525px;left:209px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:561px;left:69px;white-space:nowrap" class="ft04">VPCONFLICTQ<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:615px;left:95px;white-space:nowrap" class="ft04">i&#160;&#160;j*64<br/>IF MaskBit(j) OR&#160;*no writemask*THEN&#160;</p>
+<p style="position:absolute;top:651px;left:116px;white-space:nowrap" class="ft02">FOR k&#160;&#160;0 TO j-1</p>
+<p style="position:absolute;top:674px;left:143px;white-space:nowrap" class="ft02">m</p>
+<p style="position:absolute;top:678px;left:154px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:676px;left:158px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:678px;left:171px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:674px;left:174px;white-space:nowrap" class="ft02">k*64</p>
+<p style="position:absolute;top:694px;left:147px;white-space:nowrap" class="ft02">IF&#160;((SRC[i+63:i] = SRC[m+63:m])) THEN&#160;</p>
+<p style="position:absolute;top:714px;left:170px;white-space:nowrap" class="ft02">DEST[i+k]&#160;</p>
+<p style="position:absolute;top:718px;left:242px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:714px;left:246px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:734px;left:147px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:754px;left:170px;white-space:nowrap" class="ft02">DEST[i+k]</p>
+<p style="position:absolute;top:758px;left:226px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:756px;left:230px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:758px;left:243px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:754px;left:247px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:775px;left:144px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:796px;left:119px;white-space:nowrap" class="ft06">ENDFOR<br/>DEST[i+63:i+j]</p>
+<p style="position:absolute;top:819px;left:200px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:817px;left:204px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:819px;left:217px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:815px;left:221px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:836px;left:92px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:856px;left:119px;white-space:nowrap" class="ft02">IF&#160;*merging-masking* THEN&#160;</p>
+<p style="position:absolute;top:875px;left:147px;white-space:nowrap" class="ft02">*DEST[i+63:i] remains unchanged*</p>
+<p style="position:absolute;top:895px;left:123px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:915px;left:149px;white-space:nowrap" class="ft02">DEST[i+63:i]</p>
+<p style="position:absolute;top:919px;left:219px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:917px;left:223px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:919px;left:236px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:915px;left:240px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:936px;left:119px;white-space:nowrap" class="ft02">&#160;FI</p>
+<p style="position:absolute;top:955px;left:92px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:975px;left:69px;white-space:nowrap" class="ft06">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

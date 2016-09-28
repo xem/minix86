@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1094</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1094-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1094.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">26-2&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:97px;left:68px;white-space:nowrap" class="ft02">26.1 BASIC&#160;</p>
+<p style="position:absolute;top:97px;left:208px;white-space:nowrap" class="ft02">VM-ENTRY&#160;</p>
+<p style="position:absolute;top:97px;left:313px;white-space:nowrap" class="ft02">CHECKS</p>
+<p style="position:absolute;top:133px;left:68px;white-space:nowrap" class="ft08">Before a&#160;VM&#160;entry commences, the&#160;current state&#160;of the&#160;logical&#160;processor&#160;is checked&#160;in the&#160;following order:<br/>1.&#160;If&#160;the&#160;logical processor is&#160;in virtual-8086 mode&#160;or compatibility mode,&#160;an&#160;invalid-opcode exception&#160;is</p>
+<p style="position:absolute;top:174px;left:93px;white-space:nowrap" class="ft03">generated.</p>
+<p style="position:absolute;top:198px;left:68px;white-space:nowrap" class="ft09">2.&#160;If the&#160;current privilege&#160;level (CPL) is&#160;not&#160;zero,&#160;a general-protection exception&#160;is generated.<br/>3.&#160;If there is&#160;no current VMCS,&#160;RFLAGS.CF is&#160;set&#160;to 1&#160;and&#160;control&#160;passes&#160;to the&#160;next instruction.<br/>4.&#160;If there is a current VMCS but the current VMCS&#160;is a&#160;shadow VMCS<a href="o_fe12b1e2a880e0ce-1070.html">&#160;(see Section&#160;24.10),</a>&#160;RFLAGS.CF is set to 1&#160;</p>
+<p style="position:absolute;top:262px;left:93px;white-space:nowrap" class="ft03">and&#160;control passes to&#160;the&#160;next instruction.</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft03">5.&#160;If there is&#160;a current&#160;VMCS&#160;that is&#160;not&#160;a shadow&#160;VMCS,&#160;the following conditions&#160;are evaluated in&#160;order;&#160;any of&#160;</p>
+<p style="position:absolute;top:303px;left:93px;white-space:nowrap" class="ft011">these cause&#160;VM&#160;entry to&#160;fail:<br/>a.&#160;if there is MOV-SS&#160;blocking&#160;(see<a href="o_fe12b1e2a880e0ce-1052.html">&#160;Table&#160;24-3)<br/></a>b.&#160;if&#160;the VM&#160;entry is&#160;invoked by&#160;VMLAUNCH&#160;and the&#160;VMCS launch state&#160;is&#160;not&#160;clear<br/>c.&#160;if&#160;the VM&#160;entry is&#160;invoked by&#160;VMRESUME&#160;and the&#160;VMCS&#160;launch state&#160;is not&#160;launched<br/>If any&#160;of these&#160;checks fail, RFLAGS.ZF&#160;is&#160;set to&#160;1&#160;and control passes&#160;to&#160;the&#160;next&#160;instruction.&#160;An error&#160;number&#160;<br/>indicating the&#160;cause of&#160;the&#160;failure is&#160;stored&#160;in&#160;the VM-instruction error&#160;<a href="˛ˇ">field. See&#160;Chapter 30 for th</a>e&#160;error&#160;<br/>numbers.</p>
+<p style="position:absolute;top:486px;left:68px;white-space:nowrap" class="ft02">26.2&#160;</p>
+<p style="position:absolute;top:486px;left:147px;white-space:nowrap" class="ft02">CHECKS ON VMX CONTROLS AND HOST-STATE AREA</p>
+<p style="position:absolute;top:522px;left:68px;white-space:nowrap" class="ft011">If the&#160;<a href="o_fe12b1e2a880e0ce-1094.html">checks in Section 26.1 do</a>&#160;not cause&#160;VM&#160;entry to&#160;fail,&#160;the control and host-state&#160;areas&#160;of&#160;the VMCS are&#160;<br/>checked&#160;to ensure&#160;that they are proper for&#160;supporting&#160;VMX&#160;non-root&#160;operation, that&#160;the&#160;VMCS is&#160;correctly config-<br/>ured to support the next VM&#160;exit, and that, after the next&#160;VM&#160;exit, the processor‚Äôs state&#160;is consistent with the&#160;Intel&#160;<br/>64&#160;and IA-32 architectures.<br/>VM&#160;entry fails if&#160;any of these checks&#160;fail. When&#160;such&#160;failures occur,&#160;control is&#160;passed to&#160;the next instruction,&#160;<br/>RFLAGS.ZF&#160;is set&#160;to 1&#160;to indicate the failure, and&#160;the VM-instruction&#160;error&#160;field&#160;is loaded with an&#160;error&#160;number that&#160;<br/>indicates&#160;whether the&#160;failure was&#160;due to&#160;the controls&#160;or the&#160;host-s<a href="˛ˇ">tate area (see Chapter&#160;30).<br/></a>These checks may&#160;be&#160;performed&#160;in any&#160;order.&#160;Thus, an indication&#160;by&#160;error number of one&#160;cause (for example, host&#160;<br/>state) does not imply&#160;that there&#160;are&#160;not&#160;also other&#160;errors. Different processors may thus give&#160;different error&#160;<br/>numbers for the&#160;same&#160;VMCS.&#160;Some&#160;checks prevent&#160;establishment of&#160;settings (or combinations&#160;of&#160;settings)&#160;that&#160;are&#160;<br/>currently reserved.&#160;Future processors may allow such&#160;settings&#160;(or combinations) and may&#160;not perform the&#160;corre-<br/>sponding&#160;checks.&#160;The correctness of software should&#160;not rely on VM-entry failures&#160;resulting from the checks&#160;docu-<br/>mented&#160;in this section.<br/>The checks on&#160;the&#160;controls and the host-state area are&#160;presented<a href="o_fe12b1e2a880e0ce-1094.html">&#160;in Section 26.2.1 throug</a><a href="o_fe12b1e2a880e0ce-1099.html">h Section 26.2.4. T</a>hese&#160;<br/>sections reference VMCS fields that&#160;correspond&#160;to processor&#160;state.&#160;Unless otherwise&#160;stated, these&#160;references are&#160;<br/>to fields in the host-state&#160;area.</p>
+<p style="position:absolute;top:842px;left:68px;white-space:nowrap" class="ft04">26.2.1&#160;</p>
+<p style="position:absolute;top:842px;left:148px;white-space:nowrap" class="ft04">Checks on VMX Controls</p>
+<p style="position:absolute;top:873px;left:68px;white-space:nowrap" class="ft03">This section identifies&#160;VM-entry checks&#160;on&#160;the VMX control fields.</p>
+<p style="position:absolute;top:917px;left:68px;white-space:nowrap" class="ft05">26.2.1.1 &#160;&#160;VM-Execution Control Fields</p>
+<p style="position:absolute;top:946px;left:68px;white-space:nowrap" class="ft03">VM&#160;entries perform&#160;the following checks on&#160;the VM-execution control&#160;fields:</p>
+<p style="position:absolute;top:943px;left:578px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:967px;left:68px;white-space:nowrap" class="ft07">‚Ä¢</p>
+<p style="position:absolute;top:968px;left:93px;white-space:nowrap" class="ft011">Reserved bits in&#160;the&#160;pin-based&#160;VM-execution&#160;controls&#160;must be set properly.&#160;Software&#160;may consult the VMX&#160;<br/>capability MSRs&#160;to determine the&#160;proper settings (see<a href="o_fe12b1e2a880e0ce-1945.html">&#160;Appendix A.3.1).</a></p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">1.&#160;If&#160;the ‚Äúactivate secondary&#160;controls‚Äù primary processor-based&#160;VM-execution&#160;control&#160;is&#160;0,&#160;VM&#160;entry&#160;operates as&#160;if&#160;each secondary pro-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">cessor-based&#160;VM-execution control were&#160;0.</p>
+</div>
+</body>
+</html>

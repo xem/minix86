@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1032</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1032-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811032.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:624px;white-space:nowrap" class="ft00">PMOVZX—Packed&#160;Move&#160;with Zero Extend</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-352&#160;Vol. 2B</p>
+<p style="position:absolute;top:496px;left:353px;white-space:nowrap" class="ft02">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:627px;left:68px;white-space:nowrap" class="ft05">Legacy, VEX and&#160;EVEX&#160;encoded versions: Packed byte, word,&#160;or dword&#160;integers starting&#160;from the&#160;low&#160;bytes of the&#160;<br/>source&#160;operand (second operand)&#160;are zero&#160;extended to&#160;word, dword, or&#160;quadword integers&#160;and stored in&#160;packed&#160;<br/>signed bytes&#160;the&#160;destination operand.<br/>128-bit Legacy SSE&#160;version:&#160;Bits&#160;(MAX_VL-1:128) of the&#160;corresponding destination register remain&#160;unchanged.<br/>VEX.128 encoded&#160;version:&#160;Bits (MAX_VL-1:128) of&#160;the&#160;corresponding destination register&#160;are zeroed.<br/>VEX.256 encoded&#160;version:&#160;Bits (MAX_VL-1:256) of&#160;the&#160;corresponding destination register&#160;are zeroed.&#160;<br/>EVEX&#160;encoded&#160;versions: Packed&#160;dword&#160;integers&#160;starting&#160;from the low&#160;bytes of&#160;the source&#160;operand (second&#160;<br/>operand) are zero extended&#160;to&#160;quadword integers and stored&#160;to the destination operand&#160;under the writemask.The&#160;<br/>destination register&#160;is XMM, YMM or&#160;ZMM Register.<br/>Note:&#160;VEX.vvvv and&#160;EVEX.vvvv&#160;are reserved&#160;and must be&#160;1111b otherwise instructions will&#160;#UD.</p>
+<p style="position:absolute;top:840px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft06">Packed_Zero_Extend_BYTE_to_WORD(DEST,&#160;SRC)<br/>DEST[15:0]&#160;ZeroExtend(SRC[7:0]);<br/>DEST[31:16]&#160;ZeroExtend(SRC[15:8]);<br/>DEST[47:32]&#160;ZeroExtend(SRC[23:16]);<br/>DEST[63:48]&#160;ZeroExtend(SRC[31:24]);<br/>DEST[79:64]&#160;ZeroExtend(SRC[39:32]);<br/>DEST[95:80]&#160;ZeroExtend(SRC[47:40]);<br/>DEST[111:96]&#160;ZeroExtend(SRC[55:48]);<br/>DEST[127:112]&#160;ZeroExtend(SRC[63:56]);</p>
+<p style="position:absolute;top:1042px;left:68px;white-space:nowrap" class="ft06">Packed_Zero_Extend_BYTE_to_DWORD(DEST, SRC)<br/>DEST[31:0]&#160;ZeroExtend(SRC[7:0]);</p>
+<p style="position:absolute;top:154px;left:77px;white-space:nowrap" class="ft03">EVEX.256.66.0F38.WIG&#160;34&#160;/r</p>
+<p style="position:absolute;top:154px;left:327px;white-space:nowrap" class="ft03">QVM</p>
+<p style="position:absolute;top:154px;left:374px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:154px;left:446px;white-space:nowrap" class="ft03">AVX512VL</p>
+<p style="position:absolute;top:154px;left:533px;white-space:nowrap" class="ft03">Zero&#160;extend&#160;4 packed&#160;16-bit integers&#160;in&#160;the low 8&#160;</p>
+<p style="position:absolute;top:171px;left:532px;white-space:nowrap" class="ft03">bytes of&#160;xmm2/m64 to&#160;4&#160;packed&#160;64-bit integers in&#160;</p>
+<p style="position:absolute;top:187px;left:532px;white-space:nowrap" class="ft03">ymm1&#160;subject to&#160;writemask k1.</p>
+<p style="position:absolute;top:173px;left:77px;white-space:nowrap" class="ft03">VPMOVZXWQ ymm1 {k1}{z},&#160;xmm2/m64</p>
+<p style="position:absolute;top:173px;left:446px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:209px;left:77px;white-space:nowrap" class="ft03">EVEX.512.66.0F38.WIG&#160;34&#160;/r</p>
+<p style="position:absolute;top:209px;left:327px;white-space:nowrap" class="ft03">QVM</p>
+<p style="position:absolute;top:209px;left:374px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:209px;left:446px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:209px;left:533px;white-space:nowrap" class="ft03">Zero&#160;extend&#160;8 packed&#160;16-bit integers&#160;in&#160;</p>
+<p style="position:absolute;top:226px;left:532px;white-space:nowrap" class="ft03">xmm2/m128&#160;to&#160;8 packed&#160;64-bit integers in&#160;zmm1&#160;</p>
+<p style="position:absolute;top:243px;left:532px;white-space:nowrap" class="ft03">subject to&#160;writemask k1.</p>
+<p style="position:absolute;top:229px;left:77px;white-space:nowrap" class="ft03">VPMOVZXWQ zmm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:245px;left:77px;white-space:nowrap" class="ft03">xmm2/m128</p>
+<p style="position:absolute;top:281px;left:77px;white-space:nowrap" class="ft03">EVEX.128.66.0F38.W0 35&#160;/r</p>
+<p style="position:absolute;top:281px;left:327px;white-space:nowrap" class="ft03">HVM</p>
+<p style="position:absolute;top:281px;left:374px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:281px;left:446px;white-space:nowrap" class="ft03">AVX512VL</p>
+<p style="position:absolute;top:281px;left:532px;white-space:nowrap" class="ft03">Zero&#160;extend&#160;2&#160;packed&#160;32-bit&#160;integers in&#160;the&#160;low&#160;8&#160;</p>
+<p style="position:absolute;top:298px;left:532px;white-space:nowrap" class="ft03">bytes of&#160;xmm2/m64 to&#160;2&#160;packed&#160;64-bit integers in&#160;</p>
+<p style="position:absolute;top:315px;left:532px;white-space:nowrap" class="ft03">zmm1&#160;using&#160;writemask k1.</p>
+<p style="position:absolute;top:301px;left:77px;white-space:nowrap" class="ft03">VPMOVZXDQ xmm1 {k1}{z},&#160;xmm2/m64</p>
+<p style="position:absolute;top:301px;left:446px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:337px;left:77px;white-space:nowrap" class="ft03">EVEX.256.66.0F38.W0&#160;35&#160;/r</p>
+<p style="position:absolute;top:337px;left:327px;white-space:nowrap" class="ft03">HVM</p>
+<p style="position:absolute;top:337px;left:374px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:337px;left:446px;white-space:nowrap" class="ft03">AVX512VL</p>
+<p style="position:absolute;top:337px;left:533px;white-space:nowrap" class="ft03">Zero&#160;extend&#160;4 packed&#160;32-bit integers&#160;in&#160;</p>
+<p style="position:absolute;top:353px;left:532px;white-space:nowrap" class="ft03">xmm2/m128&#160;to&#160;4 packed&#160;64-bit integers in&#160;zmm1&#160;</p>
+<p style="position:absolute;top:370px;left:532px;white-space:nowrap" class="ft03">using&#160;writemask k1.</p>
+<p style="position:absolute;top:357px;left:77px;white-space:nowrap" class="ft03">VPMOVZXDQ ymm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:373px;left:77px;white-space:nowrap" class="ft03">xmm2/m128</p>
+<p style="position:absolute;top:357px;left:446px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:409px;left:77px;white-space:nowrap" class="ft03">EVEX.512.66.0F38.W0&#160;35&#160;/r</p>
+<p style="position:absolute;top:409px;left:327px;white-space:nowrap" class="ft03">HVM</p>
+<p style="position:absolute;top:409px;left:374px;white-space:nowrap" class="ft03">V/V</p>
+<p style="position:absolute;top:409px;left:446px;white-space:nowrap" class="ft03">AVX512F</p>
+<p style="position:absolute;top:409px;left:532px;white-space:nowrap" class="ft03">Zero&#160;extend&#160;8 packed&#160;32-bit integers&#160;in&#160;</p>
+<p style="position:absolute;top:426px;left:532px;white-space:nowrap" class="ft03">ymm2/m256&#160;to&#160;8 packed&#160;64-bit integers&#160;in&#160;zmm1&#160;</p>
+<p style="position:absolute;top:442px;left:532px;white-space:nowrap" class="ft03">using&#160;writemask k1.</p>
+<p style="position:absolute;top:429px;left:77px;white-space:nowrap" class="ft03">VPMOVZXDQ zmm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:445px;left:77px;white-space:nowrap" class="ft03">ymm2/m256</p>
+<p style="position:absolute;top:519px;left:118px;white-space:nowrap" class="ft03">Op/En</p>
+<p style="position:absolute;top:519px;left:252px;white-space:nowrap" class="ft03">Operand&#160;1</p>
+<p style="position:absolute;top:519px;left:408px;white-space:nowrap" class="ft03">Operand&#160;2</p>
+<p style="position:absolute;top:519px;left:563px;white-space:nowrap" class="ft03">Operand&#160;3</p>
+<p style="position:absolute;top:519px;left:723px;white-space:nowrap" class="ft03">Operand&#160;4</p>
+<p style="position:absolute;top:543px;left:126px;white-space:nowrap" class="ft03">RM</p>
+<p style="position:absolute;top:543px;left:239px;white-space:nowrap" class="ft03">ModRM:reg (w)</p>
+<p style="position:absolute;top:543px;left:398px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:543px;left:584px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:543px;left:744px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:567px;left:89px;white-space:nowrap" class="ft03">HVM, QVM,&#160;OVM</p>
+<p style="position:absolute;top:567px;left:239px;white-space:nowrap" class="ft03">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:567px;left:398px;white-space:nowrap" class="ft03">ModRM:r/m (r)</p>
+<p style="position:absolute;top:567px;left:584px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:567px;left:744px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:105px;left:77px;white-space:nowrap" class="ft03">Opcode/</p>
+<p style="position:absolute;top:119px;left:77px;white-space:nowrap" class="ft03">Instruction</p>
+<p style="position:absolute;top:105px;left:327px;white-space:nowrap" class="ft03">Op /&#160;</p>
+<p style="position:absolute;top:119px;left:327px;white-space:nowrap" class="ft03">En</p>
+<p style="position:absolute;top:105px;left:374px;white-space:nowrap" class="ft03">64/32&#160;</p>
+<p style="position:absolute;top:119px;left:374px;white-space:nowrap" class="ft03">bit Mode&#160;</p>
+<p style="position:absolute;top:135px;left:374px;white-space:nowrap" class="ft03">Support</p>
+<p style="position:absolute;top:105px;left:446px;white-space:nowrap" class="ft03">CPUID&#160;</p>
+<p style="position:absolute;top:119px;left:446px;white-space:nowrap" class="ft03">Feature&#160;</p>
+<p style="position:absolute;top:135px;left:446px;white-space:nowrap" class="ft03">Flag</p>
+<p style="position:absolute;top:105px;left:532px;white-space:nowrap" class="ft03">Description</p>
+</div>
+</body>
+</html>

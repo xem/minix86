@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 521</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page521-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce521.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-15</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:102px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:146px;white-space:nowrap" class="ft03">If IA32_MCi_CTL2[30] = 0,&#160;proceed&#160;to step&#160;c.</p>
+<p style="position:absolute;top:124px;left:94px;white-space:nowrap" class="ft03">c.&#160;Check whether writing&#160;a 1&#160;into IA32_MCi_CTL2[30] can&#160;return&#160;with&#160;1 on&#160;a subsequent read to&#160;determine&#160;</p>
+<p style="position:absolute;top:141px;left:120px;white-space:nowrap" class="ft03">this bank&#160;can support&#160;CMCI.&#160;</p>
+<p style="position:absolute;top:166px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:165px;left:146px;white-space:nowrap" class="ft03">If&#160;IA32_MCi_CTL2[30] =&#160;0, this bank does not support CMCI. This thread can not own bank&#160;<i>i</i>&#160;and&#160;should&#160;</p>
+<p style="position:absolute;top:181px;left:145px;white-space:nowrap" class="ft08">proceed to&#160;step&#160;b.&#160;and examine the&#160;next machine check bank&#160;until&#160;all of the&#160;machine check&#160;banks&#160;are&#160;<br/>exhausted.</p>
+<p style="position:absolute;top:223px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:222px;left:146px;white-space:nowrap" class="ft03">If IA32_MCi_CTL2[30] = 1,&#160;modify&#160;the&#160;per-thread&#160;data structure&#160;to indicate this&#160;thread&#160;claims&#160;</p>
+<p style="position:absolute;top:238px;left:145px;white-space:nowrap" class="ft08">ownership to&#160;the&#160;MC bank;&#160;proceed to&#160;initialize the&#160;error threshold count (bits 15:0) of&#160;that&#160;bank as&#160;<br/>described<a href="o_fe12b1e2a880e0ce-521.html">&#160;in Chapter&#160;15,&#160;“CMCI&#160;Threshold&#160;Management”.</a>&#160;Then proceed&#160;to&#160;step&#160;b.&#160;and examine&#160;the&#160;next&#160;<br/>machine&#160;check bank until&#160;all of the machine&#160;check&#160;banks are&#160;exhausted.</p>
+<p style="position:absolute;top:293px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:294px;left:95px;white-space:nowrap" class="ft09">After&#160;the thread has examined&#160;all&#160;of the&#160;machine check&#160;banks,&#160;it sees&#160;if it&#160;owns&#160;any MC banks to service CMCI.&#160;<br/>If&#160;any bank&#160;has been claimed by this&#160;thread:<br/>—&#160;Ensure&#160;that&#160;the CMCI interrupt handler&#160;has been set up&#160;<a href="o_fe12b1e2a880e0ce-521.html">as described in Chapter 15,&#160;“CMCI Interrupt&#160;</a></p>
+<p style="position:absolute;top:351px;left:120px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-521.html">Handler”</a>.</p>
+<p style="position:absolute;top:375px;left:95px;white-space:nowrap" class="ft09">—&#160;Initialize&#160;the CMCI LVT&#160;entry,&#160;as&#160;described<a href="o_fe12b1e2a880e0ce-519.html">&#160;in&#160;Section 15.5.1,&#160;“CMCI Local APIC&#160;Interface”.<br/></a>—&#160;Log&#160;and clear all&#160;of&#160;IA32_MCi_Status registers for&#160;the&#160;banks that&#160;this thread owns. This will allow new&#160;</p>
+<p style="position:absolute;top:415px;left:120px;white-space:nowrap" class="ft03">errors to be&#160;logged.</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft06">15.5.2.2 &#160;&#160;CMCI Threshold Management</p>
+<p style="position:absolute;top:487px;left:69px;white-space:nowrap" class="ft08">The Corrected&#160;MC error threshold&#160;field,&#160;IA32_MCi_CTL2[15:0],&#160;is architecturally defined. Specifically, all these&#160;bits&#160;<br/>are&#160;writable&#160;by software,&#160;but different&#160;processor&#160;implementations&#160;may&#160;choose&#160;to implement less&#160;than 15 bits as&#160;<br/>threshold for&#160;the overflow comparison&#160;with IA32_MCi_STATUS[52:38]. The following describes&#160;techniques&#160;that&#160;<br/>software can&#160;manage CMCI threshold&#160;to be compatible&#160;with changes in&#160;implementation characteristics:</p>
+<p style="position:absolute;top:558px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:559px;left:95px;white-space:nowrap" class="ft08">Software&#160;can set the initial threshold value to 1 by&#160;writing 1 to&#160;IA32_MCi_CTL2[15:0]. This&#160;will cause overflow&#160;<br/>condition on&#160;every corrected&#160;MC&#160;error and generates&#160;a CMCI interrupt.</p>
+<p style="position:absolute;top:597px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:598px;left:95px;white-space:nowrap" class="ft09">To&#160;increase the&#160;threshold&#160;and reduce&#160;the&#160;frequency of CMCI servicing:<br/>a.&#160;Find&#160;the maximum&#160;threshold value&#160;a given&#160;processor implementation&#160;supports. The steps are:</p>
+<p style="position:absolute;top:647px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:646px;left:146px;white-space:nowrap" class="ft03">Write 7FFFH to IA32_MCi_CTL2[15:0],</p>
+<p style="position:absolute;top:671px;left:120px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:670px;left:146px;white-space:nowrap" class="ft03">Read back IA32_MCi_CTL2[15:0],&#160;the lower 15&#160;bits&#160;(14:0)&#160;is the maximum threshold&#160;supported&#160;by the&#160;</p>
+<p style="position:absolute;top:686px;left:145px;white-space:nowrap" class="ft03">processor.</p>
+<p style="position:absolute;top:710px;left:94px;white-space:nowrap" class="ft03">b.&#160;Increase the&#160;threshold&#160;to a&#160;value&#160;below the&#160;maximum value&#160;discovered&#160;using step a.</p>
+<p style="position:absolute;top:754px;left:69px;white-space:nowrap" class="ft06">15.5.2.3 &#160;&#160;CMCI Interrupt&#160;Handler</p>
+<p style="position:absolute;top:781px;left:69px;white-space:nowrap" class="ft03">The&#160;following describes&#160;techniques&#160;system software&#160;may consider to&#160;implement a&#160;CMCI&#160;service routine:</p>
+<p style="position:absolute;top:803px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:804px;left:95px;white-space:nowrap" class="ft08">The&#160;service&#160;routine&#160;examines its private&#160;per-thread&#160;data&#160;structure&#160;to check&#160;which&#160;set of MC&#160;banks it&#160;has&#160;<br/>ownership.&#160;If&#160;the thread does not&#160;have&#160;ownership&#160;of&#160;a&#160;given MC bank, proceed&#160;to the next&#160;MC&#160;bank.&#160;Ownership&#160;<br/>is determined&#160;at initialization time&#160;which&#160;is described in Section&#160;[Cross&#160;Reference to&#160;14.5.2.1].</p>
+<p style="position:absolute;top:859px;left:69px;white-space:nowrap" class="ft08">If the&#160;thread had claimed ownership to&#160;an MC bank, this&#160;technique will&#160;allow&#160;each logical processors to&#160;handle&#160;<br/>corrected MC errors&#160;independently and requires no synchronization to&#160;access shared MSR&#160;resources.&#160;Consult&#160;<br/><a href="o_fe12b1e2a880e0ce-541.html">Example&#160;15-5 for guidelines&#160;</a>on logging when processing CMCI.</p>
+<p style="position:absolute;top:948px;left:69px;white-space:nowrap" class="ft07">15.6&#160;</p>
+<p style="position:absolute;top:948px;left:148px;white-space:nowrap" class="ft07">RECOVERY&#160;OF&#160;UNCORRECTED&#160;RECOVERABLE&#160;(UCR)&#160;ERRORS&#160;</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft08">Recovery&#160;of uncorrected recoverable machine check errors&#160;is&#160;an enhancement in machine-check architecture. The&#160;<br/>first processor that supports this&#160;feature is&#160;45&#160;nm&#160;Intel 64 processor on&#160;which CPUID&#160;reports&#160;<br/>DisplayFamily_DisplayModel&#160;as 06H_2EH (see&#160;CPUID instructio<a href="��">n in Chapter&#160;3, “Instruction&#160;Set Reference, A-L”&#160;in&#160;<br/>the&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s Manual, Volume&#160;2A</i></a>).&#160;This allow system&#160;software&#160;to&#160;<br/>perform recovery action on&#160;certain class&#160;of&#160;uncorrected&#160;errors&#160;and continue execution.</p>
+</div>
+</body>
+</html>

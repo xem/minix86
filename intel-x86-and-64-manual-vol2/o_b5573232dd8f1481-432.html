@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 432</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page432-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481432.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:565px;white-space:nowrap" class="ft00">ENTER—Make&#160;Stack&#160;Frame&#160;for Procedure Parameters</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-304&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:123px;left:68px;white-space:nowrap" class="ft03">AllocSize&#160;←&#160;imm16;</p>
+<p style="position:absolute;top:141px;left:68px;white-space:nowrap" class="ft03">NestingLevel&#160;←&#160;imm8 MOD&#160;32;</p>
+<p style="position:absolute;top:159px;left:68px;white-space:nowrap" class="ft03">IF&#160;(OperandSize = 64)</p>
+<p style="position:absolute;top:177px;left:88px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:195px;left:115px;white-space:nowrap" class="ft05">Push(RBP); (* RSP decrements by&#160;8 *)<br/>FrameTemp&#160;←&#160;RSP;&#160;</p>
+<p style="position:absolute;top:231px;left:88px;white-space:nowrap" class="ft03">ELSE IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:229px;left:208px;white-space:nowrap" class="ft04">=&#160;</p>
+<p style="position:absolute;top:231px;left:222px;white-space:nowrap" class="ft03">32</p>
+<p style="position:absolute;top:249px;left:115px;white-space:nowrap" class="ft03">THEN&#160;</p>
+<p style="position:absolute;top:267px;left:142px;white-space:nowrap" class="ft05">Push(EBP); (*&#160;(E)SP decrements by 4 *)<br/>FrameTemp&#160;←&#160;ESP; FI;</p>
+<p style="position:absolute;top:303px;left:88px;white-space:nowrap" class="ft03">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:301px;left:208px;white-space:nowrap" class="ft04">=</p>
+<p style="position:absolute;top:303px;left:217px;white-space:nowrap" class="ft03">&#160;16&#160;*)</p>
+<p style="position:absolute;top:321px;left:142px;white-space:nowrap" class="ft05">Push(BP); (* RSP or (E)SP decrements&#160;by 2 *)<br/>FrameTemp&#160;←&#160;SP;&#160;</p>
+<p style="position:absolute;top:357px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft03">IF&#160;NestingLevel</p>
+<p style="position:absolute;top:389px;left:156px;white-space:nowrap" class="ft04">&#160;=&#160;</p>
+<p style="position:absolute;top:393px;left:173px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:411px;left:88px;white-space:nowrap" class="ft03">THEN&#160;GOTO&#160;CONTINUE;</p>
+<p style="position:absolute;top:429px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:458px;left:68px;white-space:nowrap" class="ft03">IF (NestingLevel &gt; 1)&#160;</p>
+<p style="position:absolute;top:476px;left:88px;white-space:nowrap" class="ft03">THEN FOR i&#160;←&#160;1 to (NestingLevel - 1)</p>
+<p style="position:absolute;top:494px;left:115px;white-space:nowrap" class="ft03">DO&#160;</p>
+<p style="position:absolute;top:512px;left:142px;white-space:nowrap" class="ft03">IF (OperandSize = 64)</p>
+<p style="position:absolute;top:530px;left:169px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:548px;left:196px;white-space:nowrap" class="ft03">RBP&#160;←&#160;RBP - 8;</p>
+<p style="position:absolute;top:566px;left:196px;white-space:nowrap" class="ft03">Push([RBP]); (*&#160;Quadword push *)</p>
+<p style="position:absolute;top:584px;left:169px;white-space:nowrap" class="ft03">ELSE IF&#160;OperandSize = 32</p>
+<p style="position:absolute;top:602px;left:196px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:620px;left:223px;white-space:nowrap" class="ft03">IF&#160;StackSize =&#160;32</p>
+<p style="position:absolute;top:638px;left:250px;white-space:nowrap" class="ft03">EBP&#160;←&#160;EBP - 4;</p>
+<p style="position:absolute;top:656px;left:250px;white-space:nowrap" class="ft03">Push([EBP]); (*&#160;Doubleword&#160;push *)</p>
+<p style="position:absolute;top:674px;left:223px;white-space:nowrap" class="ft03">ELSE (* StackSize&#160;= 16 *)</p>
+<p style="position:absolute;top:692px;left:250px;white-space:nowrap" class="ft03">BP&#160;←&#160;BP -&#160;4;</p>
+<p style="position:absolute;top:710px;left:250px;white-space:nowrap" class="ft03">Push([BP]); (* Doubleword push *)</p>
+<p style="position:absolute;top:728px;left:223px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:746px;left:196px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:764px;left:169px;white-space:nowrap" class="ft03">ELSE&#160;(* OperandSize = 16&#160;*)</p>
+<p style="position:absolute;top:782px;left:196px;white-space:nowrap" class="ft03">IF&#160;StackSize =&#160;32</p>
+<p style="position:absolute;top:800px;left:223px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:818px;left:250px;white-space:nowrap" class="ft03">EBP&#160;←&#160;EBP - 2;</p>
+<p style="position:absolute;top:836px;left:250px;white-space:nowrap" class="ft03">Push([EBP]); (*&#160;Word push *)</p>
+<p style="position:absolute;top:854px;left:223px;white-space:nowrap" class="ft03">ELSE (* StackSize&#160;= 16 *)</p>
+<p style="position:absolute;top:872px;left:250px;white-space:nowrap" class="ft03">BP&#160;←&#160;BP - 2;</p>
+<p style="position:absolute;top:890px;left:250px;white-space:nowrap" class="ft03">Push([BP]); (* Word&#160;push *)</p>
+<p style="position:absolute;top:908px;left:196px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:926px;left:169px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:944px;left:88px;white-space:nowrap" class="ft03">OD;</p>
+<p style="position:absolute;top:962px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:993px;left:68px;white-space:nowrap" class="ft03">IF&#160;(OperandSize&#160;=&#160;64) (*&#160;nestinglevel&#160;1&#160;*)</p>
+<p style="position:absolute;top:1011px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:1029px;left:115px;white-space:nowrap" class="ft03">Push(FrameTemp);&#160;(*&#160;Quadword&#160;push&#160;and RSP&#160;decrements&#160;by&#160;8 *)</p>
+<p style="position:absolute;top:1047px;left:88px;white-space:nowrap" class="ft03">ELSE IF&#160;OperandSize&#160;= 32</p>
+</div>
+</body>
+</html>

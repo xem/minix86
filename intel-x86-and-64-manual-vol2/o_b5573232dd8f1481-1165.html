@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1165</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1165-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811165.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PSUBUSB/PSUBUSW—Subtract Packed Unsigned&#160;Integers with Unsigned Saturation</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-485</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">PSUBUSW&#160;(with&#160;64-bit operands)</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">DEST[15:0]&#160;←&#160;SaturateToUnsignedWord (DEST[15:0]&#160;</p>
+<p style="position:absolute;top:118px;left:397px;white-space:nowrap" class="ft03">−</p>
+<p style="position:absolute;top:118px;left:405px;white-space:nowrap" class="ft02">&#160;SRC[15:0] );</p>
+<p style="position:absolute;top:136px;left:89px;white-space:nowrap" class="ft04">(*&#160;Repeat add operation&#160;for 2nd&#160;and 3rd words *)<br/>DEST[63:48]&#160;←&#160;SaturateToUnsignedWord (DEST[63:48]&#160;</p>
+<p style="position:absolute;top:154px;left:413px;white-space:nowrap" class="ft03">−</p>
+<p style="position:absolute;top:154px;left:421px;white-space:nowrap" class="ft02">&#160;SRC[63:48] );</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft04">VPSUBUSB (EVEX encoded versions)&#160;<br/>(KL, VL) = (16, 128), (32, 256), (64,&#160;512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:244px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 8;<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:280px;left:116px;white-space:nowrap" class="ft04">THEN DEST[i+7:i]&#160;&#160;SaturateToUnsignedByte (SRC1[i+7:i]&#160;- SRC2[i+7:i])<br/>ELSE&#160;</p>
+<p style="position:absolute;top:316px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:316px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:334px;left:170px;white-space:nowrap" class="ft04">THEN *DEST[i+7:i] remains&#160;unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:352px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:370px;left:197px;white-space:nowrap" class="ft02">DEST[i+7:i]&#160;&#160;0;</p>
+<p style="position:absolute;top:388px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft04">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0;</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft04">VPSUBUSW&#160;(EVEX encoded versions)&#160;<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 16;<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:568px;left:116px;white-space:nowrap" class="ft04">THEN DEST[i+15:i]&#160;&#160;SaturateToUnsignedWord (SRC1[i+15:i] - SRC2[i+15:i])<br/>ELSE&#160;</p>
+<p style="position:absolute;top:604px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:604px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:622px;left:170px;white-space:nowrap" class="ft04">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:640px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:658px;left:197px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0;</p>
+<p style="position:absolute;top:676px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:694px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:712px;left:69px;white-space:nowrap" class="ft04">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0;</p>
+<p style="position:absolute;top:766px;left:69px;white-space:nowrap" class="ft04">VPSUBUSB (VEX.256&#160;encoded version)<br/>DEST[7:0]&#160;&#160;SaturateToUnsignedByte (SRC1[7:0] - SRC2[7:0]);<br/>(* Repeat subtract&#160;operation&#160;for&#160;2nd through&#160;31st&#160;bytes&#160;*)<br/>DEST[255:148]&#160;&#160;SaturateToUnsignedByte (SRC1[255:248] - SRC2[255:248]);<br/>DEST[MAX_VL-1:256]&#160;&#160;0;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft04">VPSUBUSB (VEX.128&#160;encoded version)<br/>DEST[7:0]&#160;&#160;SaturateToUnsignedByte (SRC1[7:0] - SRC2[7:0]);<br/>(* Repeat subtract&#160;operation&#160;for&#160;2nd through&#160;14th&#160;bytes&#160;*)<br/>DEST[127:120]&#160;&#160;SaturateToUnsignedByte (SRC1[127:120] - SRC2[127:120]);<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft04">PSUBUSB&#160;(128-bit Legacy&#160;SSE&#160;Version)<br/>DEST[7:0]&#160;&#160;SaturateToUnsignedByte&#160;(DEST[7:0] - SRC[7:0]);<br/>(* Repeat subtract&#160;operation&#160;for&#160;2nd through&#160;14th&#160;bytes&#160;*)<br/>DEST[127:120]&#160;&#160;SaturateToUnsignedByte (DEST[127:120] - SRC[127:120]);<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+</div>
+</body>
+</html>

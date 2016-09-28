@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1149</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1149-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1149.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;28-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 28</p>
+<p style="position:absolute;top:120px;left:359px;white-space:nowrap" class="ft01">VMX SUPPORT FOR ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft08">The&#160;architecture for&#160;VMX operation includes two features&#160;that&#160;support&#160;address&#160;translation: virtual-processor iden-<br/>tifiers (VPIDs) and&#160;the extended&#160;page-table&#160;mechanism (EPT). VPIDs are&#160;a mechanism&#160;for&#160;managing translations&#160;<br/>of linear addresses. EPT defines a&#160;layer of&#160;address&#160;translation&#160;that&#160;augments the translation of&#160;linear addresses.<br/><a href="o_fe12b1e2a880e0ce-1149.html">Section 28.1 details the architecture of V</a>PID<a href="o_fe12b1e2a880e0ce-1149.html">s. Section 28.2&#160;pro</a>vides&#160;the details of&#160;EPT.<a href="o_fe12b1e2a880e0ce-1161.html">&#160;Section&#160;28.3</a>&#160;explains&#160;how&#160;<br/>a logical processor may cache information&#160;from the&#160;paging&#160;structures, how&#160;it may&#160;use that cached information, and&#160;<br/>how software can&#160;managed&#160;the cached&#160;information.</p>
+<p style="position:absolute;top:336px;left:68px;white-space:nowrap" class="ft03">28.1&#160;</p>
+<p style="position:absolute;top:336px;left:147px;white-space:nowrap" class="ft03">VIRTUAL PROCESSOR IDENTIFIERS&#160;(VPIDS)</p>
+<p style="position:absolute;top:372px;left:68px;white-space:nowrap" class="ft08">The original architecture for VMX operation required VMX transitions to flush&#160;the TLBs and paging-structure caches.&#160;<br/>This ensured that&#160;translations cached for the&#160;old&#160;linear-address&#160;space would not be used after&#160;the transition.<br/>Virtual-processor identifiers (<b>VPIDs</b>) introduce&#160;to VMX&#160;operation a&#160;facility&#160;by which a logical processor may cache&#160;<br/>information&#160;for multiple&#160;linear-address spaces. When VPIDs are used,&#160;VMX&#160;transitions may retain cached informa-<br/>tion and&#160;the logical processor switches&#160;to&#160;a different&#160;linear-address&#160;space.<br/><a href="o_fe12b1e2a880e0ce-1161.html">Section 28.3 detail</a>s&#160;the mechanisms by which a logical&#160;processor manages information cached for&#160;multiple&#160;address&#160;<br/>spaces. A&#160;logical&#160;processor&#160;may&#160;tag some&#160;cached&#160;information with a&#160;16-bit VPID.&#160;This section specifies how the&#160;<br/>current&#160;VPID&#160;is&#160;determined&#160;at any&#160;point in time:</p>
+<p style="position:absolute;top:524px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:525px;left:93px;white-space:nowrap" class="ft010">The current&#160;VPID&#160;is 0000H in&#160;the&#160;following&#160;situations:<br/>—&#160;Outside&#160;VMX operation. (This includes operation in&#160;system-management mode&#160;under the default treatment&#160;</p>
+<p style="position:absolute;top:565px;left:119px;white-space:nowrap" class="ft02">of SMIs and SMM&#160;with VMX operation; see<a href="o_fe12b1e2a880e0ce-1266.html">&#160;Section 34.14</a>.)</p>
+<p style="position:absolute;top:589px;left:93px;white-space:nowrap" class="ft09">—&#160;In VMX root operation.<br/>—&#160;In VMX non-root operation when the&#160;“enable&#160;VPID” VM-execution control&#160;is 0.</p>
+<p style="position:absolute;top:635px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:636px;left:93px;white-space:nowrap" class="ft08">If&#160;the logical processor is&#160;in VMX non-root&#160;operation&#160;and&#160;the “enable VPID”&#160;VM-execution control is&#160;1, the&#160;<br/>current&#160;VPID is the&#160;value of&#160;the VPID VM-execution&#160;control field in the VMCS.&#160;(VM&#160;entry ensures that&#160;this value&#160;<br/>is never 0000H; se<a href="o_fe12b1e2a880e0ce-1094.html">e Section 26.2.1.1.</a>)</p>
+<p style="position:absolute;top:693px;left:68px;white-space:nowrap" class="ft08">VPIDs&#160;<a href="o_fe12b1e2a880e0ce-139.html">and PCIDs (see Section 4.10.1)&#160;</a>can be used concurrently.&#160;When this&#160;is done,&#160;the processor associates&#160;<br/>cached&#160;information&#160;with&#160;both a&#160;VPID and a&#160;PCID.&#160;Such&#160;information is&#160;used only if the&#160;current&#160;VPID and PCID&#160;<b>both</b>&#160;<br/>match those&#160;associated with the&#160;cached&#160;information.</p>
+<p style="position:absolute;top:781px;left:68px;white-space:nowrap" class="ft03">28.2&#160;</p>
+<p style="position:absolute;top:781px;left:147px;white-space:nowrap" class="ft03">THE EXTENDED PAGE TABLE MECHANISM (EPT)</p>
+<p style="position:absolute;top:817px;left:68px;white-space:nowrap" class="ft08">The&#160;extended page-table mechanism (<b>EPT</b>) is&#160;a feature that can&#160;be&#160;used&#160;to support the&#160;virtualization of physical&#160;<br/>memory. When EPT is&#160;in use,&#160;certain&#160;addresses that would&#160;normally&#160;be treated as&#160;physical addresses (and&#160;used to&#160;<br/>access memory) are&#160;instead&#160;treated as&#160;<b>guest-physical addresses</b>. Guest-physical&#160;addresses are translated by&#160;<br/>traversing a&#160;set of&#160;<b>EPT paging structures</b>&#160;to produce&#160;physical&#160;addresses that&#160;are used&#160;to&#160;access&#160;memory.</p>
+<p style="position:absolute;top:889px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:889px;left:93px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1149.html">Section&#160;28.2.1 g</a>ives&#160;an overview&#160;of&#160;EPT.</p>
+<p style="position:absolute;top:911px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:912px;left:93px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1151.html">Section&#160;28.2.2 describe</a>s&#160;operation of EPT-based address&#160;translation.</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:934px;left:93px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1155.html">Section 28.2.3&#160;</a>discusses&#160;VM&#160;exits&#160;that may&#160;be caused&#160;by EPT.</p>
+<p style="position:absolute;top:956px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:957px;left:93px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-1160.html">Section 28.2.6&#160;</a>describes&#160;interactions between EPT and&#160;memory&#160;typing.</p>
+<p style="position:absolute;top:1007px;left:68px;white-space:nowrap" class="ft06">28.2.1 EPT&#160;</p>
+<p style="position:absolute;top:1007px;left:184px;white-space:nowrap" class="ft06">Overview</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">EPT is&#160;used when the “enable&#160;EPT”&#160;VM-execution&#160;control is&#160;1.</p>
+<p style="position:absolute;top:1035px;left:481px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:1038px;left:488px;white-space:nowrap" class="ft02">&#160;It translates&#160;the guest-physical&#160;addresses used in&#160;</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft02">VMX non-root&#160;operation and&#160;those&#160;used&#160;by VM&#160;entry for event injection.</p>
+</div>
+</body>
+</html>

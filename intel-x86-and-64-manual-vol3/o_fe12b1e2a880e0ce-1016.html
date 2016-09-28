@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1016</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1016-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1016.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">22-12&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ARCHITECTURE&#160;COMPATIBILITY</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">22.18.7.1&#160;&#160;&#160;FDIV, FPREM,&#160;and FSQRT&#160;Instructions</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft06">The&#160;32-bit x87&#160;FPUs support operations on&#160;denormalized&#160;operands&#160;and,&#160;when detected,&#160;an&#160;underflow&#160;exception&#160;<br/>can&#160;occur,&#160;for compatibility with the&#160;IEEE&#160;Standard 754. The&#160;16-bit IA-32&#160;math coprocessors do&#160;not operate&#160;on&#160;<br/>denormalized operands&#160;or return&#160;underflow results.&#160;Instead, they&#160;generate an invalid-operation exception when&#160;<br/>they&#160;detect an underflow condition. An&#160;existing&#160;underflow&#160;exception handler will require change&#160;only if it&#160;gives&#160;<br/>different treatment to&#160;different opcodes. Also, it&#160;is possible&#160;that fewer invalid-operation&#160;exceptions will occur.</p>
+<p style="position:absolute;top:238px;left:68px;white-space:nowrap" class="ft02">22.18.7.2&#160;&#160;&#160;FSCALE&#160;Instruction</p>
+<p style="position:absolute;top:266px;left:68px;white-space:nowrap" class="ft06">With the 32-bit x87 FPUs, the range of&#160;the scaling operand is&#160;not restricted. If&#160;(0 &lt; | ST(1) &lt;&#160;1), the&#160;scaling factor&#160;<br/>is 0;&#160;therefore,&#160;ST(0)&#160;remains unchanged. If&#160;the rounded&#160;result&#160;is not&#160;exact or if&#160;there&#160;was a&#160;loss of accuracy&#160;<br/>(masked underflow), the precision exception is signaled. With the 16-bit IA-32 math coprocessors,&#160;the&#160;range of the&#160;<br/>scaling operand&#160;is restricted. If (0&#160;&lt;&#160;|&#160;ST(1)&#160;|&#160;&lt;&#160;1), the&#160;result is&#160;undefined and no exception&#160;is signaled. The&#160;<br/>impact of this&#160;difference on&#160;exiting software&#160;is that&#160;different&#160;results are delivered&#160;on the&#160;32-bit and 16-bit&#160;FPUs and&#160;<br/>math&#160;coprocessors when&#160;(0&#160;&lt;&#160;|&#160;ST(1)&#160;|&#160;&lt;&#160;1).</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft02">22.18.7.3&#160;&#160;&#160;FPREM1&#160;Instruction</p>
+<p style="position:absolute;top:421px;left:68px;white-space:nowrap" class="ft06">The&#160;32-bit x87&#160;FPUs compute&#160;a partial remainder according&#160;to&#160;IEEE Standard&#160;754.&#160;This&#160;instruction does&#160;not exist&#160;<br/>on the 16-bit IA-32 math coprocessors. The&#160;availability of the FPREM1 instruction has is&#160;no&#160;impact on&#160;existing&#160;soft-<br/>ware.</p>
+<p style="position:absolute;top:499px;left:68px;white-space:nowrap" class="ft02">22.18.7.4&#160;&#160;&#160;FPREM Instruction</p>
+<p style="position:absolute;top:527px;left:68px;white-space:nowrap" class="ft06">On&#160;the&#160;32-bit x87 FPUs, the condition code flags C0,&#160;C3,&#160;C1 in the status word&#160;correctly&#160;reflect the three&#160;low-order&#160;<br/>bits&#160;of&#160;the quotient following execution&#160;of&#160;the&#160;FPREM instruction. On&#160;the&#160;16-bit IA-32 math&#160;coprocessors,&#160;the&#160;<br/>quotient bits are incorrect when&#160;performing a reduction of&#160;(64</p>
+<p style="position:absolute;top:557px;left:486px;white-space:nowrap" class="ft04">N&#160;</p>
+<p style="position:absolute;top:560px;left:497px;white-space:nowrap" class="ft03">+ M)&#160;when&#160;(N&#160;≥&#160;1)&#160;and M is&#160;1 or&#160;2.&#160;This&#160;difference&#160;</p>
+<p style="position:absolute;top:577px;left:68px;white-space:nowrap" class="ft03">does&#160;not affect existing software;&#160;software&#160;that&#160;works&#160;around the&#160;bug&#160;should not be&#160;affected.</p>
+<p style="position:absolute;top:621px;left:68px;white-space:nowrap" class="ft02">22.18.7.5 &#160;&#160;FUCOM, FUCOMP, and&#160;FUCOMPP Instructions</p>
+<p style="position:absolute;top:649px;left:68px;white-space:nowrap" class="ft06">When executing&#160;the FUCOM,&#160;FUCOMP,&#160;and FUCOMPP instructions,&#160;the&#160;32-bit&#160;x87 FPUs perform&#160;unordered compare&#160;<br/>according&#160;to&#160;IEEE Standard 754. These instructions do&#160;not exist on&#160;the 16-bit IA-32&#160;math coprocessors.&#160;The avail-<br/>ability of these new instructions has&#160;no&#160;impact&#160;on&#160;existing&#160;software.</p>
+<p style="position:absolute;top:727px;left:68px;white-space:nowrap" class="ft02">22.18.7.6&#160;&#160;&#160;FPTAN Instruction</p>
+<p style="position:absolute;top:755px;left:68px;white-space:nowrap" class="ft03">On the&#160;32-bit x87 FPUs, the range of the&#160;operand for the&#160;FPTAN instruction is much less restricted&#160;(| ST(0) | &lt; 2</p>
+<p style="position:absolute;top:753px;left:813px;white-space:nowrap" class="ft04">63</p>
+<p style="position:absolute;top:755px;left:827px;white-space:nowrap" class="ft03">)&#160;</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft03">than on earlier math coprocessors.&#160;The&#160;instruction&#160;reduces the&#160;operand internally&#160;using an internal&#160;π/4 constant&#160;</p>
+<p style="position:absolute;top:788px;left:68px;white-space:nowrap" class="ft03">that&#160;is more&#160;accurate. The&#160;range of the&#160;operand is&#160;restricted to&#160;(| ST(0)&#160;| &lt;&#160;π/4)&#160;on the&#160;16-bit IA-32 math copro-</p>
+<p style="position:absolute;top:805px;left:68px;white-space:nowrap" class="ft07">cessors; the&#160;operand must be reduced to this&#160;range using&#160;FPREM. This change&#160;has&#160;no&#160;impact on existing software.&#160;<br/>See also sections&#160;8.3.8&#160;and section 8.3.10&#160;of&#160;the&#160;<a href="��"><i>Intel® 64&#160;and IA-32 Architectures Software Developer’s Manual,&#160;<br/>Volume 1</i></a>&#160;for more&#160;information on the&#160;accuracy of the&#160;FPTAN&#160;instruction.</p>
+<p style="position:absolute;top:882px;left:68px;white-space:nowrap" class="ft02">22.18.7.7&#160;&#160;&#160;Stack Overflow</p>
+<p style="position:absolute;top:910px;left:68px;white-space:nowrap" class="ft06">On the&#160;32-bit x87&#160;FPUs,&#160;if an FPU&#160;stack overflow occurs&#160;when&#160;the&#160;invalid-operation&#160;exception is&#160;masked, the&#160;FPU&#160;<br/>returns&#160;the real,&#160;integer,&#160;or&#160;BCD-integer&#160;indefinite&#160;value&#160;to the&#160;destination&#160;operand, depending on&#160;the instruction&#160;<br/>being&#160;executed<i>.</i>&#160;On&#160;the&#160;16-bit IA-32 math coprocessors,&#160;the original operand remains&#160;unchanged following&#160;a&#160;stack&#160;<br/>overflow, but it&#160;is loaded&#160;into&#160;register&#160;ST(1). This difference has&#160;no&#160;impact on&#160;existing software.</p>
+<p style="position:absolute;top:1004px;left:68px;white-space:nowrap" class="ft02">22.18.7.8 &#160;&#160;FSIN, FCOS, and FSINCOS Instructions</p>
+<p style="position:absolute;top:1033px;left:68px;white-space:nowrap" class="ft06">On&#160;the 32-bit&#160;x87 FPUs, these instructions perform&#160;three&#160;common trigonometric&#160;functions.&#160;These instructions do&#160;<br/>not&#160;exist on the&#160;16-bit IA-32 math coprocessors.&#160;The&#160;availability of these instructions has&#160;no&#160;impact on&#160;existing&#160;</p>
+</div>
+</body>
+</html>

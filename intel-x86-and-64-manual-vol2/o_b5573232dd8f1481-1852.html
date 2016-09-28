@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1852</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:7px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1852-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811852.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:452px;white-space:nowrap" class="ft00">VREDUCEPD—Perform Reduction Transformation on Packed Float64 Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-466&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VREDUCEPD—Perform Reduction Transformation on Packed Float64 Values</p>
+<p style="position:absolute;top:422px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:507px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:529px;left:68px;white-space:nowrap" class="ft09">Perform reduction&#160;transformation&#160;of&#160;the packed binary encoded&#160;double-precision&#160;FP values&#160;in the&#160;source operand&#160;<br/>(the second operand)&#160;and store&#160;the&#160;reduced results&#160;in binary FP&#160;format to&#160;the&#160;destination operand (the&#160;first&#160;<br/>operand)&#160;under&#160;the writemask&#160;k1.&#160;<br/>The reduction transformation&#160;subtracts the&#160;integer part and&#160;the leading M fractional bits&#160;from the&#160;binary FP source&#160;<br/>value,&#160;where&#160;M&#160;is a unsigned integer&#160;specified&#160;by imm8[7:4], see&#160;<a href="o_b5573232dd8f1481-1852.html">Figure&#160;5-28.&#160;</a>Specifically, the reduction&#160;transfor-<br/>mation&#160;can be&#160;expressed as:<br/>dest&#160;=&#160;src –&#160;(ROUND(2</p>
+<p style="position:absolute;top:638px;left:226px;white-space:nowrap" class="ft05">M</p>
+<p style="position:absolute;top:641px;left:235px;white-space:nowrap" class="ft04">*src))*2</p>
+<p style="position:absolute;top:638px;left:293px;white-space:nowrap" class="ft05">-M</p>
+<p style="position:absolute;top:641px;left:307px;white-space:nowrap" class="ft04">;</p>
+<p style="position:absolute;top:664px;left:68px;white-space:nowrap" class="ft04">where “Round()” treats “src”,&#160;“2</p>
+<p style="position:absolute;top:661px;left:288px;white-space:nowrap" class="ft05">M</p>
+<p style="position:absolute;top:664px;left:297px;white-space:nowrap" class="ft04">”, and&#160;their&#160;product as binary FP numbers with normalized significand and&#160;bi-</p>
+<p style="position:absolute;top:681px;left:68px;white-space:nowrap" class="ft09">ased exponents.<br/>The magnitude of&#160;the&#160;reduced result can be expressed by considering src=&#160;2</p>
+<p style="position:absolute;top:701px;left:591px;white-space:nowrap" class="ft05">p</p>
+<p style="position:absolute;top:704px;left:598px;white-space:nowrap" class="ft04">*man2,</p>
+<p style="position:absolute;top:723px;left:68px;white-space:nowrap" class="ft09">where&#160;‘man2’&#160;is&#160;the&#160;normalized significand and ‘p’&#160;is the unbiased&#160;exponent&#160;<br/>Then if&#160;RC = RNE:&#160;0&lt;=|Reduced Result|&lt;=2</p>
+<p style="position:absolute;top:744px;left:375px;white-space:nowrap" class="ft05">p-M-1</p>
+<p style="position:absolute;top:769px;left:68px;white-space:nowrap" class="ft04">Then if&#160;RC&#160;≠&#160;RNE:&#160;0&lt;=|Reduced Result|&lt;2</p>
+<p style="position:absolute;top:767px;left:364px;white-space:nowrap" class="ft05">p-M</p>
+<p style="position:absolute;top:792px;left:68px;white-space:nowrap" class="ft08">This&#160;instruction might end up&#160;with&#160;a precision exception&#160;set. However,&#160;in case&#160;of SPE set&#160;(i.e.&#160;Suppress Precision&#160;<br/>Exception, which&#160;is imm8[3]=1), no precision exception&#160;is reported.<br/>EVEX.vvvv is&#160;reserved and must be 1111b otherwise instructions will&#160;#UD.</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:276px;white-space:nowrap" class="ft04">Op /&#160;</p>
+<p style="position:absolute;top:137px;left:276px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:319px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:319px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:319px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:390px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:390px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:390px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:477px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft04">EVEX.128.66.0F3A.W1 56&#160;/r&#160;ib</p>
+<p style="position:absolute;top:172px;left:276px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:172px;left:319px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:390px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:189px;left:390px;white-space:nowrap" class="ft04">AVX512DQ</p>
+<p style="position:absolute;top:172px;left:477px;white-space:nowrap" class="ft04">Perform reduction transformation&#160;on packed&#160;double-precision&#160;</p>
+<p style="position:absolute;top:189px;left:477px;white-space:nowrap" class="ft04">floating point values in xmm2/m128/m32bcst by&#160;subtracting&#160;</p>
+<p style="position:absolute;top:205px;left:477px;white-space:nowrap" class="ft04">a number of&#160;fraction bits specified&#160;by the imm8&#160;field.&#160;Stores&#160;</p>
+<p style="position:absolute;top:222px;left:477px;white-space:nowrap" class="ft04">the result in&#160;xmm1 register&#160;under&#160;writemask&#160;k1.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft04">VREDUCEPD xmm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:208px;left:77px;white-space:nowrap" class="ft04">xmm2/m128/m64bcst, imm8</p>
+<p style="position:absolute;top:244px;left:77px;white-space:nowrap" class="ft04">EVEX.256.66.0F3A.W1 56&#160;/r&#160;ib</p>
+<p style="position:absolute;top:244px;left:276px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:244px;left:319px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:244px;left:390px;white-space:nowrap" class="ft04">AVX512VL</p>
+<p style="position:absolute;top:261px;left:390px;white-space:nowrap" class="ft04">AVX512DQ</p>
+<p style="position:absolute;top:244px;left:477px;white-space:nowrap" class="ft04">Perform reduction transformation&#160;on packed&#160;double-precision&#160;</p>
+<p style="position:absolute;top:261px;left:477px;white-space:nowrap" class="ft04">floating&#160;point values&#160;in&#160;ymm2/m256/m32bcst by&#160;subtracting&#160;</p>
+<p style="position:absolute;top:277px;left:477px;white-space:nowrap" class="ft04">a number of&#160;fraction bits specified&#160;by the imm8&#160;field.&#160;Stores&#160;</p>
+<p style="position:absolute;top:294px;left:477px;white-space:nowrap" class="ft04">the result in&#160;ymm1&#160;register&#160;under writemask&#160;k1.</p>
+<p style="position:absolute;top:263px;left:77px;white-space:nowrap" class="ft04">VREDUCEPD ymm1 {k1}{z},&#160;</p>
+<p style="position:absolute;top:280px;left:77px;white-space:nowrap" class="ft04">ymm2/m256/m64bcst, imm8</p>
+<p style="position:absolute;top:316px;left:77px;white-space:nowrap" class="ft04">EVEX.512.66.0F3A.W1&#160;56&#160;/r&#160;ib</p>
+<p style="position:absolute;top:316px;left:276px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:316px;left:319px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:316px;left:390px;white-space:nowrap" class="ft04">AVX512DQ</p>
+<p style="position:absolute;top:316px;left:477px;white-space:nowrap" class="ft04">Perform reduction transformation&#160;on&#160;double-precision&#160;floating&#160;</p>
+<p style="position:absolute;top:333px;left:477px;white-space:nowrap" class="ft04">point values in&#160;zmm2/m512/m32bcst by&#160;subtracting a&#160;</p>
+<p style="position:absolute;top:349px;left:477px;white-space:nowrap" class="ft04">number&#160;of&#160;fraction bits&#160;specified&#160;by&#160;the&#160;imm8 field.&#160;Stores&#160;the&#160;</p>
+<p style="position:absolute;top:366px;left:477px;white-space:nowrap" class="ft04">result in zmm1&#160;register&#160;under writemask k1.</p>
+<p style="position:absolute;top:335px;left:77px;white-space:nowrap" class="ft04">VREDUCEPD zmm1&#160;{k1}{z},&#160;</p>
+<p style="position:absolute;top:352px;left:77px;white-space:nowrap" class="ft04">zmm2/m512/m64bcst{sae},&#160;</p>
+<p style="position:absolute;top:369px;left:77px;white-space:nowrap" class="ft04">imm8</p>
+<p style="position:absolute;top:445px;left:121px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:445px;left:256px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:445px;left:422px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:445px;left:589px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:445px;left:738px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:469px;left:130px;white-space:nowrap" class="ft04">FV</p>
+<p style="position:absolute;top:469px;left:243px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:469px;left:411px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:469px;left:603px;white-space:nowrap" class="ft04">Imm8</p>
+<p style="position:absolute;top:469px;left:759px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:1039px;left:269px;white-space:nowrap" class="ft03">Figure&#160;5-28.&#160;&#160;Imm8 Controls&#160;for VREDUCEPD/SD/PS/SS</p>
+<p style="position:absolute;top:899px;left:174px;white-space:nowrap" class="ft06">7</p>
+<p style="position:absolute;top:899px;left:661px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:899px;left:522px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:899px;left:383px;white-space:nowrap" class="ft06">4</p>
+<p style="position:absolute;top:899px;left:244px;white-space:nowrap" class="ft06">6</p>
+<p style="position:absolute;top:899px;left:313px;white-space:nowrap" class="ft06">5</p>
+<p style="position:absolute;top:899px;left:452px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:899px;left:591px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:919px;left:586px;white-space:nowrap" class="ft06">Round Control Override</p>
+<p style="position:absolute;top:919px;left:246px;white-space:nowrap" class="ft06">Fixed&#160;point length</p>
+<p style="position:absolute;top:975px;left:122px;white-space:nowrap" class="ft06">Imm8[7:4] :&#160;Number&#160;of&#160;fixed points&#160;to&#160;subtract</p>
+<p style="position:absolute;top:919px;left:517px;white-space:nowrap" class="ft06">RS</p>
+<p style="position:absolute;top:961px;left:658px;white-space:nowrap" class="ft010">Imm8[1:0]&#160;= 00b&#160;:&#160;Round nearest even<br/>Imm8[1:0] =&#160;01b :&#160;Round&#160;down<br/>Imm8[1:0]&#160;= 10b&#160;:&#160;Round up<br/>Imm8[1:0] =&#160;11b :&#160;Truncate</p>
+<p style="position:absolute;top:917px;left:93px;white-space:nowrap" class="ft06">imm8</p>
+<p style="position:absolute;top:919px;left:446px;white-space:nowrap" class="ft06">SPE</p>
+<p style="position:absolute;top:970px;left:512px;white-space:nowrap" class="ft010">Round&#160;Select:&#160;Imm8[2]&#160;<br/>Imm8[2]&#160;= 0b&#160;:&#160;Use&#160;Imm8[1:0]<br/>Imm8[2]&#160;= 1b&#160;:&#160;Use&#160;MXCSR</p>
+<p style="position:absolute;top:957px;left:335px;white-space:nowrap" class="ft010">Suppress&#160;Precision Exception:&#160;Imm8[3]&#160;<br/>Imm8[3]&#160;= 0b : Use MXCSR&#160;exception mask<br/>Imm8[3] =&#160;1b&#160;: Suppress</p>
+</div>
+</body>
+</html>

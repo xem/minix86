@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 258</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page258-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481258.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:729px;white-space:nowrap" class="ft00">CALL—Call Procedure</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-130&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:115px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:118px;left:88px;white-space:nowrap" class="ft02">tempEIP&#160;←&#160;DEST(Offset);</p>
+<p style="position:absolute;top:136px;left:88px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:137px;left:177px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:136px;left:190px;white-space:nowrap" class="ft02">16</p>
+<p style="position:absolute;top:154px;left:115px;white-space:nowrap" class="ft02">THEN tempEIP&#160;←&#160;tempEIP AND 0000FFFFH; FI; (* Clear upper 16&#160;bits *)</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft02">IF&#160;(EFER.LMA = 0&#160;or&#160;target&#160;mode&#160;=&#160;Compatibility mode)&#160;and (tempEIP&#160;outside&#160;new code</p>
+<p style="position:absolute;top:188px;left:88px;white-space:nowrap" class="ft02">segment limit)</p>
+<p style="position:absolute;top:206px;left:115px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:224px;left:88px;white-space:nowrap" class="ft02">IF tempEIP is&#160;non-canonical&#160;</p>
+<p style="position:absolute;top:242px;left:115px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:260px;left:88px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:261px;left:177px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:261px;left:190px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:279px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:296px;left:142px;white-space:nowrap" class="ft04">Push(CS); (* Padded&#160;with&#160;16&#160;high-order bits&#160;*)<br/>Push(EIP);<br/>CS&#160;←&#160;DEST(CodeSegmentSelector);&#160;</p>
+<p style="position:absolute;top:350px;left:142px;white-space:nowrap" class="ft04">(*&#160;Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:386px;left:142px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:404px;left:115px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:422px;left:142px;white-space:nowrap" class="ft02">IF&#160;OperandSize =&#160;16</p>
+<p style="position:absolute;top:440px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:458px;left:196px;white-space:nowrap" class="ft04">Push(CS);<br/>Push(IP);<br/>CS&#160;←&#160;DEST(CodeSegmentSelector);&#160;</p>
+<p style="position:absolute;top:512px;left:196px;white-space:nowrap" class="ft04">(* Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:548px;left:196px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:566px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize = 64&#160;*)</p>
+<p style="position:absolute;top:584px;left:196px;white-space:nowrap" class="ft04">Push(CS); (* Padded&#160;with&#160;48&#160;high-order bits&#160;*)<br/>Push(RIP);<br/>CS&#160;←&#160;DEST(CodeSegmentSelector);&#160;</p>
+<p style="position:absolute;top:638px;left:196px;white-space:nowrap" class="ft04">(* Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:674px;left:196px;white-space:nowrap" class="ft02">RIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:692px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:710px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:728px;left:68px;white-space:nowrap" class="ft02">END;</p>
+<p style="position:absolute;top:764px;left:68px;white-space:nowrap" class="ft02">CALL-GATE:</p>
+<p style="position:absolute;top:782px;left:88px;white-space:nowrap" class="ft02">IF call&#160;gate (DPL&#160;&lt;&#160;CPL)&#160;or (RPL&#160;&gt;&#160;DPL)</p>
+<p style="position:absolute;top:800px;left:115px;white-space:nowrap" class="ft02">THEN #GP(call-gate selector); FI;</p>
+<p style="position:absolute;top:818px;left:88px;white-space:nowrap" class="ft02">IF&#160;call&#160;gate not&#160;present&#160;</p>
+<p style="position:absolute;top:836px;left:115px;white-space:nowrap" class="ft02">THEN #NP(call-gate selector);&#160;FI;</p>
+<p style="position:absolute;top:854px;left:88px;white-space:nowrap" class="ft02">IF call-gate code-segment selector is NULL</p>
+<p style="position:absolute;top:872px;left:115px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:890px;left:88px;white-space:nowrap" class="ft02">IF call-gate&#160;code-segment selector index is&#160;outside&#160;descriptor&#160;table&#160;limits</p>
+<p style="position:absolute;top:908px;left:115px;white-space:nowrap" class="ft02">THEN #GP(call-gate code-segment selector); FI;</p>
+<p style="position:absolute;top:926px;left:88px;white-space:nowrap" class="ft04">Read&#160;call-gate code-segment&#160;descriptor;<br/>IF call-gate&#160;code-segment descriptor&#160;does&#160;not indicate a&#160;code&#160;segment<br/>or call-gate code-segment&#160;descriptor DPL&#160;&gt;&#160;CPL&#160;</p>
+<p style="position:absolute;top:980px;left:115px;white-space:nowrap" class="ft02">THEN #GP(call-gate code-segment selector); FI;</p>
+<p style="position:absolute;top:998px;left:88px;white-space:nowrap" class="ft02">IF IA32_EFER.LMA = 1 AND (call-gate&#160;code-segment descriptor&#160;is&#160;</p>
+<p style="position:absolute;top:1015px;left:88px;white-space:nowrap" class="ft02">not a 64-bit code segment&#160;or call-gate&#160;code-segment&#160;descriptor&#160;has both L-bit and D-bit set)</p>
+<p style="position:absolute;top:1033px;left:115px;white-space:nowrap" class="ft02">THEN #GP(call-gate code-segment selector); FI;</p>
+<p style="position:absolute;top:1051px;left:88px;white-space:nowrap" class="ft02">IF&#160;call-gate code&#160;segment not present&#160;</p>
+</div>
+</body>
+</html>

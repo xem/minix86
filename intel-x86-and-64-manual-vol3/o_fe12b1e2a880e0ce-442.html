@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 442</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page442-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce442.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">11-30&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MEMORY&#160;CACHE CONTROL</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Example 11-4. &#160;MemTypeGet() Pseudocode</p>
+<p style="position:absolute;top:130px;left:68px;white-space:nowrap" class="ft02">#define MIXED_TYPES -1&#160; &#160; &#160;/* 0&#160;&lt;&#160;MIXED_TYPES&#160;||&#160;MIXED_TYPES &gt;&#160;256&#160;*/</p>
+<p style="position:absolute;top:166px;left:68px;white-space:nowrap" class="ft02">IF&#160;CPU_FEATURES.MTRR&#160;/* processor&#160;supports&#160;MTRRs */</p>
+<p style="position:absolute;top:184px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:202px;left:115px;white-space:nowrap" class="ft05">Align&#160;BASE and&#160;SIZE&#160;to&#160;4-KByte boundary;<br/>IF (BASE&#160;+ SIZE) wrap 4-GByte address space&#160;</p>
+<p style="position:absolute;top:238px;left:142px;white-space:nowrap" class="ft02">THEN return&#160;INVALID;</p>
+<p style="position:absolute;top:256px;left:115px;white-space:nowrap" class="ft05">FI;<br/>IF MTRRdefType.E&#160;=&#160;0</p>
+<p style="position:absolute;top:292px;left:142px;white-space:nowrap" class="ft02">THEN&#160;return&#160;UC;</p>
+<p style="position:absolute;top:310px;left:115px;white-space:nowrap" class="ft05">FI;<br/>FirstType&#160;</p>
+<p style="position:absolute;top:327px;left:173px;white-space:nowrap" class="ft03">¨</p>
+<p style="position:absolute;top:328px;left:178px;white-space:nowrap" class="ft02">&#160;Get4KMemType&#160;(BASE);</p>
+<p style="position:absolute;top:346px;left:115px;white-space:nowrap" class="ft05">/* Obtains memory type&#160;for first 4-KByte range.&#160;*/<br/>/* See&#160;Get4KMemType (4KByteRange) in<a href="o_fe12b1e2a880e0ce-442.html">&#160;Example&#160;11-5. */<br/></a>FOR each&#160;additional 4-KByte&#160;range specified&#160;in&#160;SIZE</p>
+<p style="position:absolute;top:400px;left:142px;white-space:nowrap" class="ft02">NextType&#160;</p>
+<p style="position:absolute;top:399px;left:202px;white-space:nowrap" class="ft03">¨</p>
+<p style="position:absolute;top:400px;left:207px;white-space:nowrap" class="ft02">&#160;Get4KMemType&#160;(4KByteRange);</p>
+<p style="position:absolute;top:418px;left:142px;white-space:nowrap" class="ft02">IF NextType&#160;</p>
+<p style="position:absolute;top:415px;left:216px;white-space:nowrap" class="ft04">¼</p>
+<p style="position:absolute;top:418px;left:228px;white-space:nowrap" class="ft02">&#160;FirstType</p>
+<p style="position:absolute;top:436px;left:169px;white-space:nowrap" class="ft02">THEN return MixedTypes;</p>
+<p style="position:absolute;top:454px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:472px;left:115px;white-space:nowrap" class="ft02">ROF;</p>
+<p style="position:absolute;top:489px;left:115px;white-space:nowrap" class="ft02">return&#160;FirstType;</p>
+<p style="position:absolute;top:507px;left:88px;white-space:nowrap" class="ft02">ELSE return&#160;UNSUPPORTED;</p>
+<p style="position:absolute;top:525px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:567px;left:68px;white-space:nowrap" class="ft06">If the processor does not support MTRRs,&#160;the function returns UNSUPPORTED.&#160;If the&#160;MTRRs&#160;are not&#160;enabled,&#160;then&#160;<br/>the&#160;UC&#160;memory&#160;type is&#160;returned. If&#160;more than one&#160;memory&#160;type&#160;corresponds to the&#160;specified&#160;range, a&#160;status of&#160;<br/>MIXED_TYPES&#160;is returned.&#160;Otherwise, the memory&#160;type&#160;defined&#160;for&#160;the range (UC,&#160;WC, WT, WB,&#160;or WP) is&#160;<br/>returned.<br/>The pseudocode&#160;for the Get4KMemTy<a href="o_fe12b1e2a880e0ce-442.html">pe() function in&#160;Example 11-5&#160;</a>obtains&#160;the memory type for&#160;a single&#160;4-KByte&#160;<br/>range at&#160;a given physical address. The sample code determines&#160;whether an&#160;PHY_ADDRESS&#160;falls within a fixed&#160;<br/>range&#160;by comparing&#160;the&#160;address with the&#160;known fixed&#160;ranges: 0&#160;to&#160;7FFFFH (64-KByte&#160;regions),&#160;80000H&#160;to BFFFFH&#160;<br/>(16-KByte regions),&#160;and C0000H to FFFFFH (4-KByte regions).&#160;If an address&#160;falls within&#160;one of these ranges, the&#160;<br/>appropriate bits&#160;within&#160;one of its&#160;MTRRs determine the&#160;memory&#160;type.</p>
+<p style="position:absolute;top:747px;left:68px;white-space:nowrap" class="ft01">Example 11-5. &#160;Get4KMemType() Pseudocode</p>
+<p style="position:absolute;top:786px;left:68px;white-space:nowrap" class="ft02">IF&#160;IA32_MTRRCAP.FIX&#160;AND MTRRdefType.FE /* fixed registers enabled */</p>
+<p style="position:absolute;top:804px;left:88px;white-space:nowrap" class="ft02">THEN IF&#160;PHY_ADDRESS is within a fixed range</p>
+<p style="position:absolute;top:816px;left:115px;white-space:nowrap" class="ft02">return&#160;IA32_MTRR_FIX.Type;</p>
+<p style="position:absolute;top:834px;left:68px;white-space:nowrap" class="ft05">FI;<br/>FOR each&#160;variable-range&#160;MTRR in&#160;IA32_MTRRCAP.VCNT</p>
+<p style="position:absolute;top:870px;left:88px;white-space:nowrap" class="ft02">IF IA32_MTRR_PHYSMASK.V = 0</p>
+<p style="position:absolute;top:888px;left:115px;white-space:nowrap" class="ft02">THEN&#160;continue;</p>
+<p style="position:absolute;top:906px;left:88px;white-space:nowrap" class="ft05">FI;<br/>IF (PHY_ADDRESS AND IA32_MTRR_PHYSMASK.Mask) =</p>
+<p style="position:absolute;top:942px;left:142px;white-space:nowrap" class="ft05">(IA32_MTRR_PHYSBASE.Base&#160;<br/>AND&#160;IA32_MTRR_PHYSMASK.Mask)</p>
+<p style="position:absolute;top:978px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:996px;left:142px;white-space:nowrap" class="ft02">return&#160;IA32_MTRR_PHYSBASE.Type;</p>
+<p style="position:absolute;top:1014px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1032px;left:68px;white-space:nowrap" class="ft05">ROF;<br/>return&#160;MTRRdefType.Type;</p>
+</div>
+</body>
+</html>

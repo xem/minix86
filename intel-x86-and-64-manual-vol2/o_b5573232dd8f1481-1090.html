@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1090</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1090-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811090.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:589px;white-space:nowrap" class="ft00">PSADBW—Compute&#160;Sum of Absolute&#160;Differences</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-410&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">DEST[79:64]&#160;&#160;SUM(TEMP8:TEMP15)<br/>DEST[127:80]&#160;&#160;00000000000H</p>
+<p style="position:absolute;top:154px;left:68px;white-space:nowrap" class="ft02">IF VL &gt;= 256</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft03">(* Repeat operation for&#160;bytes 16&#160;through 31*)<br/>TEMP31&#160;&#160;ABS(SRC1[255:248] - SRC2[255:248])<br/>DEST[143:128]&#160;SUM(TEMP16:TEMP23)<br/>DEST[191:144]&#160;&#160;000000000000H<br/>DEST[207:192]&#160;&#160;SUM(TEMP24:TEMP31)<br/>DEST[223:208]&#160;&#160;00000000000H</p>
+<p style="position:absolute;top:280px;left:68px;white-space:nowrap" class="ft03">FI;<br/>IF VL &gt;= 512<br/>(* Repeat&#160;operation for bytes&#160;32 through&#160;63*)</p>
+<p style="position:absolute;top:334px;left:88px;white-space:nowrap" class="ft03">TEMP63&#160;&#160;ABS(SRC1[511:504] - SRC2[511:504])<br/>DEST[271:256]&#160;SUM(TEMP0:TEMP7)<br/>DEST[319:272]&#160;&#160;000000000000H<br/>DEST[335:320]&#160;&#160;SUM(TEMP8:TEMP15)<br/>DEST[383:336]&#160;&#160;00000000000H<br/>DEST[399:384]&#160;SUM(TEMP16:TEMP23)<br/>DEST[447:400]&#160;&#160;000000000000H<br/>DEST[463:448]&#160;&#160;SUM(TEMP24:TEMP31)<br/>DEST[511:464]&#160;&#160;00000000000H</p>
+<p style="position:absolute;top:496px;left:68px;white-space:nowrap" class="ft03">FI;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft03">VPSADBW (VEX.256 encoded version)<br/>TEMP0&#160;&#160;ABS(SRC1[7:0] - SRC2[7:0])<br/>(* Repeat&#160;operation for bytes&#160;2 through&#160;30*)<br/>TEMP31&#160;&#160;ABS(SRC1[255:248] - SRC2[255:248])<br/>DEST[15:0]&#160;SUM(TEMP0:TEMP7)<br/>DEST[63:16]&#160;&#160;000000000000H<br/>DEST[79:64]&#160;&#160;SUM(TEMP8:TEMP15)<br/>DEST[127:80]&#160;&#160;00000000000H<br/>DEST[143:128]&#160;SUM(TEMP16:TEMP23)<br/>DEST[191:144]&#160;&#160;000000000000H<br/>DEST[207:192]&#160;&#160;SUM(TEMP24:TEMP31)<br/>DEST[223:208]&#160;&#160;00000000000H<br/>DEST[MAX_VL-1:256]&#160;&#160;0</p>
+</div>
+</body>
+</html>

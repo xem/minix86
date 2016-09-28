@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 165</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:7px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page165-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce165.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;5-13</p>
+<p style="position:absolute;top:47px;left:763px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">prevents an application program from accessing nonconforming code segments while at the privilege&#160;level (DPL) of&#160;<br/>a conforming code&#160;segment and&#160;thus&#160;prevents&#160;it from accessing more&#160;privileged&#160;data.<br/>Most&#160;code&#160;segments&#160;are nonconforming. For these&#160;segments,&#160;program&#160;control&#160;can be&#160;transferred only to&#160;code&#160;<br/>segments&#160;at the&#160;same level&#160;of privilege,&#160;unless the&#160;transfer&#160;is carried out through&#160;a call&#160;gate, as&#160;described in the&#160;<br/>following sections.</p>
+<p style="position:absolute;top:224px;left:69px;white-space:nowrap" class="ft03">5.8.2 Gate&#160;</p>
+<p style="position:absolute;top:224px;left:192px;white-space:nowrap" class="ft03">Descriptors</p>
+<p style="position:absolute;top:255px;left:69px;white-space:nowrap" class="ft08">To&#160;provide controlled&#160;access to code segments&#160;with different&#160;privilege levels, the processor&#160;provides special set of&#160;<br/>descriptors called gate&#160;descriptors. There are&#160;four&#160;kinds of&#160;gate descriptors:</p>
+<p style="position:absolute;top:293px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:294px;left:95px;white-space:nowrap" class="ft02">Call gates</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:316px;left:95px;white-space:nowrap" class="ft02">Trap&#160;gates</p>
+<p style="position:absolute;top:338px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:339px;left:95px;white-space:nowrap" class="ft02">Interrupt gates</p>
+<p style="position:absolute;top:361px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:361px;left:95px;white-space:nowrap" class="ft02">Task&#160;gates</p>
+<p style="position:absolute;top:385px;left:69px;white-space:nowrap" class="ft08">Task gates are used&#160;for task switching&#160;and are&#160;discussed&#160;<a href="o_fe12b1e2a880e0ce-239.html">in Chapter&#160;7,&#160;“Task Management”</a>.&#160;Trap and&#160;interrupt&#160;<br/>gates are&#160;special kinds of call gates&#160;used&#160;for calling exception&#160;and interrupt handlers.&#160;The are described<a href="o_fe12b1e2a880e0ce-187.html">&#160;in Chapter&#160;<br/>6, “Interrupt&#160;and Exception&#160;Handling.” This&#160;</a>chapter&#160;is concerned only with call&#160;gates.&#160;</p>
+<p style="position:absolute;top:469px;left:69px;white-space:nowrap" class="ft03">5.8.3 Call&#160;</p>
+<p style="position:absolute;top:469px;left:182px;white-space:nowrap" class="ft03">Gates</p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft08">Call&#160;gates facilitate&#160;controlled&#160;transfers of program control between different&#160;privilege levels. They&#160;are typically&#160;<br/>used only in operating&#160;systems or executives&#160;that&#160;use&#160;the privilege-level protection&#160;mechanism. Call gates are also&#160;<br/>useful&#160;for transferring&#160;program&#160;control between 16-bit and 32-bit code segments, as&#160;described&#160;in&#160;<a href="o_fe12b1e2a880e0ce-999.html">Section 21.4,&#160;<br/>“Transferring Control Among&#160;Mixed-Size Code&#160;Segments.”<br/></a><a href="o_fe12b1e2a880e0ce-165.html">Figure&#160;5-8</a>&#160;shows&#160;the&#160;format&#160;of&#160;a call-gate&#160;descriptor.&#160;A call-gate&#160;descriptor may&#160;reside in&#160;the GDT or in&#160;an LDT,&#160;but&#160;<br/>not in the&#160;interrupt&#160;descriptor table (IDT). It&#160;performs six&#160;functions:</p>
+<p style="position:absolute;top:611px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:612px;left:95px;white-space:nowrap" class="ft02">It specifies the code segment to&#160;be&#160;accessed.</p>
+<p style="position:absolute;top:634px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:634px;left:95px;white-space:nowrap" class="ft02">It defines an entry&#160;point for a&#160;procedure in&#160;the specified&#160;code&#160;segment.</p>
+<p style="position:absolute;top:656px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:657px;left:95px;white-space:nowrap" class="ft02">It specifies the privilege&#160;level&#160;required for a&#160;caller&#160;trying to&#160;access the&#160;procedure.</p>
+<p style="position:absolute;top:942px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:942px;left:95px;white-space:nowrap" class="ft02">If a&#160;stack switch occurs,&#160;it specifies&#160;the number&#160;of&#160;optional parameters&#160;to be copied&#160;between&#160;stacks.</p>
+<p style="position:absolute;top:964px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:965px;left:95px;white-space:nowrap" class="ft08">It defines the&#160;size of values&#160;to be pushed onto&#160;the&#160;target&#160;stack:&#160;16-bit gates force&#160;16-bit pushes&#160;and&#160;32-bit&#160;<br/>gates force&#160;32-bit pushes.</p>
+<p style="position:absolute;top:1003px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1004px;left:95px;white-space:nowrap" class="ft02">It specifies whether&#160;the call-gate&#160;descriptor&#160;is valid.&#160;</p>
+<p style="position:absolute;top:1028px;left:69px;white-space:nowrap" class="ft08">The segment selector field in&#160;a&#160;call gate&#160;specifies&#160;the code&#160;segment&#160;to be accessed. The offset field specifies&#160;the&#160;<br/>entry&#160;point in&#160;the&#160;code segment.&#160;This&#160;entry&#160;point is&#160;generally to&#160;the first instruction of&#160;a specific procedure. The&#160;<br/>DPL field indicates the&#160;privilege level&#160;of the&#160;call gate,&#160;which in turn&#160;is the&#160;privilege&#160;level required&#160;to access the&#160;</p>
+<p style="position:absolute;top:896px;left:346px;white-space:nowrap" class="ft05">Figure&#160;5-8. &#160;Call-Gate Descriptor</p>
+<p style="position:absolute;top:721px;left:246px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:721px;left:436px;white-space:nowrap" class="ft06">16&#160;15</p>
+<p style="position:absolute;top:721px;left:474px;white-space:nowrap" class="ft06">13</p>
+<p style="position:absolute;top:721px;left:462px;white-space:nowrap" class="ft06">14</p>
+<p style="position:absolute;top:721px;left:487px;white-space:nowrap" class="ft06">12&#160;11</p>
+<p style="position:absolute;top:721px;left:542px;white-space:nowrap" class="ft06">8&#160;7</p>
+<p style="position:absolute;top:721px;left:645px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:751px;left:451px;white-space:nowrap" class="ft06">P</p>
+<p style="position:absolute;top:751px;left:289px;white-space:nowrap" class="ft07">Offset&#160;in&#160;Segment&#160;31:16</p>
+<p style="position:absolute;top:742px;left:469px;white-space:nowrap" class="ft010">D<br/>P</p>
+<p style="position:absolute;top:762px;left:470px;white-space:nowrap" class="ft06">L</p>
+<p style="position:absolute;top:742px;left:513px;white-space:nowrap" class="ft07">Type</p>
+<p style="position:absolute;top:763px;left:490px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:750px;left:655px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:787px;left:245px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:787px;left:436px;white-space:nowrap" class="ft06">16&#160;15</p>
+<p style="position:absolute;top:787px;left:645px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:816px;left:306px;white-space:nowrap" class="ft07">Segment Selector</p>
+<p style="position:absolute;top:817px;left:494px;white-space:nowrap" class="ft07">Offset&#160;in&#160;Segment&#160;15:00</p>
+<p style="position:absolute;top:817px;left:655px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:745px;left:608px;white-space:nowrap" class="ft07">Param.</p>
+<p style="position:absolute;top:763px;left:540px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:763px;left:527px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:763px;left:514px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:763px;left:502px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:870px;left:262px;white-space:nowrap" class="ft00">P</p>
+<p style="position:absolute;top:856px;left:262px;white-space:nowrap" class="ft00">DPL</p>
+<p style="position:absolute;top:870px;left:294px;white-space:nowrap" class="ft00">Gate&#160;Valid</p>
+<p style="position:absolute;top:856px;left:294px;white-space:nowrap" class="ft00">Descriptor&#160;Privilege Level</p>
+<p style="position:absolute;top:755px;left:610px;white-space:nowrap" class="ft07">Count</p>
+<p style="position:absolute;top:721px;left:603px;white-space:nowrap" class="ft06">4</p>
+<p style="position:absolute;top:721px;left:592px;white-space:nowrap" class="ft06">5</p>
+<p style="position:absolute;top:721px;left:573px;white-space:nowrap" class="ft06">6</p>
+<p style="position:absolute;top:751px;left:560px;white-space:nowrap" class="ft06">0&#160; &#160;0&#160; &#160;0</p>
+</div>
+</body>
+</html>

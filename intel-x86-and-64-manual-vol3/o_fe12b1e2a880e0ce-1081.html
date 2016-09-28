@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1081</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1081-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1081.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:769px;white-space:nowrap" class="ft00">Vol. 3C&#160;25-7</p>
+<p style="position:absolute;top:47px;left:673px;white-space:nowrap" class="ft01">VMX&#160;NON-ROOT&#160;OPERATION</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft02">—&#160;If the&#160;“enable&#160;INVPCID” VM-execution control&#160;is 1,&#160;treatment is&#160;based on&#160;the setting&#160;of the&#160;“INVLPG&#160;</p>
+<p style="position:absolute;top:117px;left:120px;white-space:nowrap" class="ft02">exiting” VM-execution&#160;control:</p>
+<p style="position:absolute;top:142px;left:120px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:141px;left:146px;white-space:nowrap" class="ft02">If the&#160;“INVLPG exiting”&#160;VM-execution control is&#160;0, INVPCID operates&#160;normally.</p>
+<p style="position:absolute;top:166px;left:120px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:165px;left:146px;white-space:nowrap" class="ft02">If the&#160;“INVLPG exiting”&#160;VM-execution control is&#160;1, INVPCID causes&#160;a&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:187px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:187px;left:95px;white-space:nowrap" class="ft08"><b>IRET.</b>&#160;Behavior&#160;of&#160;IRET&#160;with&#160;regard&#160;to&#160;NMI&#160;blocking&#160;(see<a href="o_fe12b1e2a880e0ce-1052.html">&#160;Table&#160;24-3) is determined&#160;</a>by the&#160;settings&#160;of the&#160;“NMI&#160;<br/>exiting”&#160;and “virtual&#160;NMIs” VM-execution&#160;controls:<br/>—&#160;If the&#160;“NMI exiting”&#160;VM-execution control is&#160;0,&#160;IRET&#160;operates&#160;normally&#160;and unblocks NMIs.&#160;(If the&#160;“NMI&#160;</p>
+<p style="position:absolute;top:244px;left:120px;white-space:nowrap" class="ft02">exiting”&#160;VM-execution control is&#160;0, the&#160;“virtual&#160;NMIs” control must&#160;be&#160;0; se<a href="o_fe12b1e2a880e0ce-1094.html">e&#160;Section 26.2.1.1.)</a></p>
+<p style="position:absolute;top:268px;left:95px;white-space:nowrap" class="ft02">—&#160;If the&#160;“NMI exiting”&#160;VM-execution control is&#160;1,&#160;IRET&#160;does not affect&#160;blocking of&#160;NMIs.&#160;If, in&#160;addition, the&#160;</p>
+<p style="position:absolute;top:285px;left:120px;white-space:nowrap" class="ft07">“virtual NMIs”&#160;VM-execution control&#160;is&#160;1,&#160;the logical processor tracks&#160;virtual-NMI blocking. In&#160;this case,&#160;<br/>IRET&#160;removes any&#160;virtual-NMI&#160;blocking.</p>
+<p style="position:absolute;top:324px;left:95px;white-space:nowrap" class="ft02">The&#160;unblocking of NMIs or&#160;virtual&#160;NMIs&#160;specified&#160;above occurs&#160;even&#160;if IRET&#160;causes a&#160;fault.</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:346px;left:95px;white-space:nowrap" class="ft07"><b>LMSW.</b>&#160;Outside of&#160;VMX non-root operation,&#160;LMSW&#160;loads&#160;its source operand&#160;into CR0[3:0],&#160;but&#160;it does not&#160;clear&#160;<br/>CR0.PE&#160;if&#160;that&#160;bit&#160;is&#160;set.&#160;In&#160;VMX&#160;non-root&#160;operation,&#160;an&#160;execution of&#160;LMSW&#160;that does not cause a&#160;VM&#160;exit (see&#160;<br/><a href="o_fe12b1e2a880e0ce-1076.html">Section 25.1.3)&#160;</a>leaves&#160;unmodified&#160;any bit&#160;in CR0[3:0]&#160;corresponding to&#160;a bit set&#160;in the&#160;CR0 guest/host&#160;mask.&#160;<br/>An&#160;attempt&#160;to set&#160;any other&#160;bit&#160;in CR0[3:0] to a&#160;value&#160;not supported&#160;in VMX operation (see<a href="o_fe12b1e2a880e0ce-1045.html">&#160;Section 23.8</a>)&#160;<br/>causes&#160;a general-protection exception.&#160;Attempts&#160;to clear CR0.PE are&#160;ignored without&#160;fault.</p>
+<p style="position:absolute;top:434px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:435px;left:95px;white-space:nowrap" class="ft07"><b>MOV from&#160;CR0.&#160;</b>The behavior of MOV from&#160;CR0 is&#160;determined&#160;by&#160;the&#160;CR0 guest/host mask and the&#160;CR0 read&#160;<br/>shadow. For each&#160;position&#160;corresponding to&#160;a bit clear&#160;in&#160;the CR0 guest/host mask,&#160;the&#160;destination&#160;operand is&#160;<br/>loaded&#160;with the value of the&#160;corresponding&#160;bit in CR0.&#160;For each&#160;position corresponding&#160;to a&#160;bit set in&#160;the CR0&#160;<br/>guest/host mask,&#160;the destination operand&#160;is loaded&#160;with&#160;the value of&#160;the corresponding bit in&#160;the CR0 read&#160;<br/>shadow. Thus, if every bit is&#160;cleared in&#160;the CR0 guest/host&#160;mask, MOV from CR0 reads&#160;normally from CR0;&#160;if&#160;<br/>every bit&#160;is&#160;set in&#160;the&#160;CR0&#160;guest/host mask,&#160;MOV&#160;from&#160;CR0 returns&#160;the value&#160;of the CR0&#160;read&#160;shadow.<br/>Depending on the&#160;contents of&#160;the&#160;CR0&#160;guest/host mask&#160;and&#160;the CR0&#160;read&#160;shadow,&#160;bits may be set&#160;in the&#160;<br/>destination&#160;that would never&#160;be&#160;set when reading&#160;directly from CR0.</p>
+<p style="position:absolute;top:578px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:579px;left:95px;white-space:nowrap" class="ft07"><b>MOV from&#160;CR3.&#160;</b>If&#160;the “enable EPT”&#160;VM-execution control is&#160;1&#160;and&#160;an execution of MOV&#160;from CR3 does not&#160;<br/>cause&#160;a VM&#160;exit (see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3</a>), the&#160;value loaded&#160;from CR3 is&#160;a&#160;guest-physical&#160;address; see&#160;<a href="o_fe12b1e2a880e0ce-1149.html">Section&#160;<br/>28.2.1.</a></p>
+<p style="position:absolute;top:634px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:634px;left:95px;white-space:nowrap" class="ft07"><b>MOV from&#160;CR4.</b>&#160;The&#160;behavior of MOV from&#160;CR4&#160;is&#160;determined&#160;by the CR4&#160;guest/host&#160;mask&#160;and the CR4&#160;read&#160;<br/>shadow. For each&#160;position&#160;corresponding to&#160;a bit clear&#160;in&#160;the CR4 guest/host mask,&#160;the&#160;destination&#160;operand is&#160;<br/>loaded&#160;with the value of the&#160;corresponding&#160;bit in CR4.&#160;For each&#160;position corresponding&#160;to a&#160;bit set in&#160;the CR4&#160;<br/>guest/host mask,&#160;the destination operand&#160;is loaded&#160;with&#160;the value of&#160;the corresponding bit in&#160;the CR4 read&#160;<br/>shadow. Thus, if every bit is&#160;cleared in&#160;the CR4 guest/host&#160;mask, MOV from CR4 reads&#160;normally from CR4;&#160;if&#160;<br/>every bit&#160;is&#160;set in&#160;the&#160;CR4&#160;guest/host mask,&#160;MOV&#160;from&#160;CR4 returns&#160;the value&#160;of the CR4&#160;read&#160;shadow.<br/>Depending on the&#160;contents of&#160;the&#160;CR4&#160;guest/host mask&#160;and&#160;the CR4&#160;read&#160;shadow,&#160;bits may be set&#160;in the&#160;<br/>destination&#160;that would never&#160;be&#160;set when reading&#160;directly from CR4.</p>
+<p style="position:absolute;top:778px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:778px;left:95px;white-space:nowrap" class="ft07"><b>MOV from&#160;CR8.</b>&#160;If&#160;the MOV from CR8 instruction&#160;does&#160;not&#160;cause&#160;a VM&#160;exit (see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3</a>),&#160;its behavior&#160;<br/>is modified&#160;if the&#160;“use TPR shadow” VM-execution&#160;control&#160;<a href="o_fe12b1e2a880e0ce-1171.html">is 1; see Section 29.3.</a></p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:817px;left:95px;white-space:nowrap" class="ft010"><b>MOV to&#160;CR0.</b>&#160;An&#160;execution of MOV to&#160;CR0 that&#160;does&#160;not&#160;cause&#160;a VM&#160;exit&#160;(see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3)&#160;</a>leaves&#160;<br/>unmodified any&#160;bit&#160;in&#160;CR0 corresponding to&#160;a bit set&#160;in&#160;the CR0&#160;guest/host&#160;mask. Treatment of attempts to&#160;<br/>modify other&#160;bits&#160;in CR0 depends on the setting&#160;of&#160;the “unrestricted guest”&#160;VM-execution&#160;control:<br/>—&#160;If the control is 0,&#160;MOV to CR0 causes&#160;a general-protection exception if it attempts to set any bit in&#160;CR0 to&#160;</p>
+<p style="position:absolute;top:891px;left:120px;white-space:nowrap" class="ft02">a&#160;value not supported in VMX operation (see&#160;<a href="o_fe12b1e2a880e0ce-1045.html">Section 23.8).</a></p>
+<p style="position:absolute;top:915px;left:94px;white-space:nowrap" class="ft02">—&#160;If&#160;the control is&#160;1,&#160;MOV&#160;to&#160;CR0&#160;causes&#160;a general-protection exception&#160;if&#160;it attempts to&#160;set any bit&#160;in CR0&#160;</p>
+<p style="position:absolute;top:931px;left:120px;white-space:nowrap" class="ft07">other than&#160;bit&#160;0&#160;(PE)&#160;or bit&#160;31 (PG) to&#160;a value not&#160;supported in&#160;VMX operation.&#160;It remains&#160;the case,&#160;<br/>however,&#160;that MOV to&#160;CR0 causes&#160;a general-protection exception&#160;if&#160;it would result&#160;in CR0.PE&#160;= 0 and&#160;<br/>CR0.PG&#160;=&#160;1 or&#160;if&#160;it would&#160;result in CR0.PG&#160;= 1, CR4.PAE&#160;=&#160;0,&#160;and IA32_EFER.LME&#160;=&#160;1.</p>
+<p style="position:absolute;top:986px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:987px;left:95px;white-space:nowrap" class="ft08"><b>MOV to CR3.</b>&#160;If&#160;the&#160;“enable&#160;EPT”&#160;VM-execution&#160;control&#160;is&#160;1&#160;and an execution of MOV&#160;to CR3 does&#160;not cause a&#160;<br/>VM&#160;exit (see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3),</a>&#160;the&#160;value&#160;loaded&#160;into&#160;CR3 is&#160;treated as&#160;a guest-physical&#160;<a href="o_fe12b1e2a880e0ce-1149.html">address; see Section&#160;<br/>28.2.1.<br/></a>—&#160;If&#160;PAE paging is&#160;not&#160;being used,&#160;the&#160;instruction does&#160;not use&#160;the guest-physical&#160;address to&#160;access memory&#160;</p>
+<p style="position:absolute;top:1060px;left:120px;white-space:nowrap" class="ft02">and&#160;it does not cause it&#160;to&#160;be translated through&#160;EPT.</p>
+<p style="position:absolute;top:1058px;left:477px;white-space:nowrap" class="ft06">1</p>
+</div>
+</body>
+</html>

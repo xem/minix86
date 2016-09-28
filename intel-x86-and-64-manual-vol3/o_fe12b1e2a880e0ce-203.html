@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 203</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:5px;font-family:Times;color:#000000;}
+	.ft08{font-size:6px;font-family:Times;color:#000000;}
+	.ft09{font-size:9px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft013{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft014{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page203-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce203.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;6-17</p>
+<p style="position:absolute;top:47px;left:609px;white-space:nowrap" class="ft01">INTERRUPT&#160;AND&#160;EXCEPTION HANDLING</p>
+<p style="position:absolute;top:490px;left:69px;white-space:nowrap" class="ft010">In 64-bit&#160;mode, the IDT&#160;index is formed&#160;by scaling the interrupt&#160;vector by 16.&#160;The first eight bytes (bytes 7:0)&#160;of a&#160;<br/>64-bit mode&#160;interrupt&#160;gate&#160;are similar&#160;but not identical to&#160;legacy&#160;32-bit interrupt&#160;gates.&#160;The&#160;type&#160;field&#160;(bits&#160;11:8&#160;in&#160;<br/>bytes 7:4) is&#160;described&#160;<a href="o_fe12b1e2a880e0ce-102.html">in Table&#160;3-2.</a>&#160;The&#160;Interrupt&#160;Stack&#160;Table&#160;(IST) field&#160;(bits&#160;4:0&#160;in bytes&#160;7:4)&#160;is used&#160;by the&#160;stack&#160;<br/>switching&#160;mechanisms de<a href="o_fe12b1e2a880e0ce-205.html">scribed in Section 6.14.5,&#160;“Interrupt Stack&#160;Table.” Byte</a>s&#160;11:8 hold&#160;the upper 32&#160;bits&#160;of&#160;<br/>the target RIP (interrupt&#160;segment offset) in&#160;canonical&#160;form. A general-protection exception (#GP)&#160;is generated if&#160;<br/>software attempts to&#160;reference&#160;an interrupt&#160;gate&#160;with&#160;a target RIP that&#160;is not in&#160;canonical&#160;form.<br/>The target&#160;code segment referenced by&#160;the&#160;interrupt&#160;gate&#160;must&#160;be&#160;a 64-bit&#160;code&#160;segment (CS.L&#160;=&#160;1, CS.D&#160;= 0).&#160;If&#160;<br/>the target is&#160;not a&#160;64-bit code segment,&#160;a general-protection exception (#GP)&#160;is generated with the&#160;IDT&#160;vector&#160;<br/>number reported&#160;as the&#160;error code.<br/>Only&#160;64-bit interrupt&#160;and trap gates&#160;can be&#160;referenced&#160;in&#160;IA-32e&#160;mode&#160;(64-bit mode&#160;and compatibility mode).&#160;<br/>Legacy&#160;32-bit&#160;interrupt&#160;or&#160;trap&#160;gate&#160;types&#160;(0EH&#160;or&#160;0FH)&#160;are&#160;redefined&#160;in&#160;IA-32e&#160;mode&#160;as&#160;64-bit&#160;interrupt&#160;and&#160;trap&#160;<br/>gate types. No 32-bit interrupt or trap gate type exists in&#160;IA-32e mode. If a reference is made to a 16-bit interrupt&#160;<br/>or trap gate (06H&#160;or 07H), a&#160;general-protection exception&#160;(#GP(0)) is&#160;generated.</p>
+<p style="position:absolute;top:753px;left:69px;white-space:nowrap" class="ft03">6.14.2&#160;</p>
+<p style="position:absolute;top:753px;left:149px;white-space:nowrap" class="ft03">64-Bit Mode Stack Frame</p>
+<p style="position:absolute;top:784px;left:69px;white-space:nowrap" class="ft010">In legacy mode,&#160;the&#160;size of an&#160;IDT entry&#160;(16&#160;bits&#160;or&#160;32&#160;bits) determines&#160;the size&#160;of&#160;interrupt-stack-frame pushes.&#160;<br/>SS:ESP is&#160;pushed&#160;only&#160;on&#160;a CPL change. In&#160;64-bit mode, the&#160;size of&#160;interrupt stack-frame&#160;pushes&#160;is&#160;fixed at&#160;eight&#160;<br/>bytes. This is&#160;because&#160;only&#160;64-bit mode gates can&#160;be&#160;referenced.&#160;64-bit mode also&#160;pushes&#160;SS:RSP&#160;unconditionally,&#160;<br/>rather than only on&#160;a&#160;CPL&#160;change.<br/>Aside from error&#160;codes, pushing SS:RSP&#160;unconditionally&#160;presents operating&#160;systems with&#160;a consistent&#160;interrupt-<br/>stackframe&#160;size&#160;across all interrupts. Interrupt service-routine&#160;entry points&#160;that handle&#160;interrupts generated by&#160;the&#160;<br/>INTn instruction or&#160;external INTR#&#160;signal&#160;can push an&#160;additional&#160;error code place-holder&#160;to maintain consistency.<br/>In legacy mode, the&#160;stack pointer&#160;may&#160;be&#160;at any&#160;alignment when an interrupt or&#160;exception&#160;causes&#160;a stack frame&#160;to&#160;<br/>be&#160;pushed. This causes&#160;the stack&#160;frame&#160;and&#160;succeeding pushes&#160;done&#160;by an interrupt&#160;handler&#160;to be&#160;at&#160;arbitrary&#160;<br/>alignments.&#160;In IA-32e&#160;mode,&#160;the&#160;RSP&#160;is aligned to a&#160;16-byte&#160;boundary before&#160;pushing&#160;the stack&#160;frame.&#160;The stack&#160;<br/>frame itself&#160;is aligned&#160;on a 16-byte boundary&#160;when&#160;the&#160;interrupt handler&#160;is called. The&#160;processor&#160;can arbitrarily&#160;<br/>realign&#160;the new RSP&#160;on interrupts&#160;because&#160;the&#160;previous (possibly unaligned)&#160;RSP is&#160;unconditionally&#160;saved on the&#160;<br/>newly aligned stack. The previous&#160;RSP&#160;will be&#160;automatically restored by a&#160;subsequent IRET.<br/>Aligning the&#160;stack permits&#160;exception and interrupt frames&#160;to be aligned on&#160;a 16-byte boundary before interrupts&#160;<br/>are re-enabled.&#160;This allows&#160;the stack&#160;to be&#160;formatted for&#160;optimal storage&#160;of 16-byte XMM registers, which enables&#160;</p>
+<p style="position:absolute;top:444px;left:322px;white-space:nowrap" class="ft04">Figure&#160;6-7.&#160; 64-Bit IDT&#160;Gate&#160;Descriptors</p>
+<p style="position:absolute;top:248px;left:255px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:248px;left:446px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:249px;left:484px;white-space:nowrap" class="ft05">13</p>
+<p style="position:absolute;top:249px;left:471px;white-space:nowrap" class="ft05">14</p>
+<p style="position:absolute;top:249px;left:496px;white-space:nowrap" class="ft05">12</p>
+<p style="position:absolute;top:249px;left:551px;white-space:nowrap" class="ft05">8&#160;7</p>
+<p style="position:absolute;top:249px;left:654px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:275px;left:460px;white-space:nowrap" class="ft05">P</p>
+<p style="position:absolute;top:272px;left:328px;white-space:nowrap" class="ft06">Offset&#160;31..16</p>
+<p style="position:absolute;top:267px;left:479px;white-space:nowrap" class="ft07">D</p>
+<p style="position:absolute;top:275px;left:479px;white-space:nowrap" class="ft07">P</p>
+<p style="position:absolute;top:283px;left:480px;white-space:nowrap" class="ft08">L</p>
+<p style="position:absolute;top:274px;left:500px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:272px;left:664px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:302px;left:253px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:302px;left:444px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:302px;left:653px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:327px;left:310px;white-space:nowrap" class="ft06">Segment&#160;Selector</p>
+<p style="position:absolute;top:327px;left:533px;white-space:nowrap" class="ft06">Offset&#160;15..0</p>
+<p style="position:absolute;top:327px;left:663px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:273px;left:518px;white-space:nowrap" class="ft05">TYPE</p>
+<p style="position:absolute;top:129px;left:414px;white-space:nowrap" class="ft09"><b>Interrupt/Trap&#160;Gate</b></p>
+<p style="position:absolute;top:357px;left:312px;white-space:nowrap" class="ft014">DPL<br/>Offset<br/>P<br/>Selector</p>
+<p style="position:absolute;top:357px;left:381px;white-space:nowrap" class="ft014">Descriptor Privilege Level<br/>Offset to procedure entry point<br/>Segment Present&#160;flag<br/>Segment Selector for&#160;destination code segment</p>
+<p style="position:absolute;top:249px;left:609px;white-space:nowrap" class="ft05">4</p>
+<p style="position:absolute;top:249px;left:596px;white-space:nowrap" class="ft05">5</p>
+<p style="position:absolute;top:273px;left:565px;white-space:nowrap" class="ft06">0 &#160;&#160;0 &#160;&#160;0</p>
+<p style="position:absolute;top:195px;left:256px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:196px;left:655px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:219px;left:431px;white-space:nowrap" class="ft06">Offset&#160;63..32</p>
+<p style="position:absolute;top:222px;left:665px;white-space:nowrap" class="ft00">8</p>
+<p style="position:absolute;top:143px;left:257px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:143px;left:656px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:168px;left:663px;white-space:nowrap" class="ft00">12</p>
+<p style="position:absolute;top:249px;left:509px;white-space:nowrap" class="ft05">11</p>
+<p style="position:absolute;top:273px;left:638px;white-space:nowrap" class="ft05">IST</p>
+<p style="position:absolute;top:274px;left:608px;white-space:nowrap" class="ft05">0&#160;0</p>
+<p style="position:absolute;top:249px;left:633px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:166px;left:424px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:412px;left:313px;white-space:nowrap" class="ft00">IST</p>
+<p style="position:absolute;top:415px;left:381px;white-space:nowrap" class="ft00">Interrupt&#160;Stack Table</p>
+</div>
+</body>
+</html>

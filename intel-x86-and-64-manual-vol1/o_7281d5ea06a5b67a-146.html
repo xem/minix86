@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 146</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page146-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a146.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">6-2&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCEDURE CALLS, INTERRUPTS, AND EXCEPTIONS</p>
+<p style="position:absolute;top:582px;left:68px;white-space:nowrap" class="ft06">The processor references&#160;the SS&#160;register automatically for&#160;all stack operations. For example,&#160;when the ESP&#160;register&#160;<br/>is used as a memory address, it automatically points to&#160;an address in&#160;the current stack. Also, the CALL, RET,&#160;PUSH,&#160;<br/>POP,&#160;ENTER,&#160;and LEAVE instructions all&#160;perform operations&#160;on&#160;the current&#160;stack.</p>
+<p style="position:absolute;top:665px;left:68px;white-space:nowrap" class="ft03">6.2.1&#160;</p>
+<p style="position:absolute;top:665px;left:148px;white-space:nowrap" class="ft03">Setting Up a Stack</p>
+<p style="position:absolute;top:696px;left:68px;white-space:nowrap" class="ft08">To&#160;set a&#160;stack and&#160;establish&#160;it as&#160;the current&#160;stack,&#160;the&#160;program or operating system/executive must do the&#160;<br/>following:<br/>1.&#160;Establish&#160;a stack segment.<br/>2.&#160;Load&#160;the segment selector&#160;for&#160;the stack segment into&#160;the SS&#160;register using&#160;a MOV,&#160;POP,&#160;or&#160;LSS&#160;instruction.<br/>3.&#160;Load the&#160;stack pointer for the&#160;stack&#160;into the&#160;ESP&#160;register&#160;using&#160;a MOV,&#160;POP,&#160;or LSS&#160;instruction. The&#160;LSS&#160;</p>
+<p style="position:absolute;top:801px;left:93px;white-space:nowrap" class="ft02">instruction&#160;can be used&#160;to&#160;load the&#160;SS&#160;and&#160;ESP&#160;registers&#160;in one&#160;operation.</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft06">See “Segment Descriptors”&#160;<a href="��">in Chapter&#160;3,&#160;“Protected-Mode&#160;Memory Management,”</a>&#160;of the&#160;<i>Intel® 64&#160;and IA-32&#160;<br/>Architectures Software Developer’s Manual,&#160;Volume&#160;3A,</i>&#160;for information on how to set up a segment descriptor and&#160;<br/>segment&#160;limits for a&#160;stack segment.</p>
+<p style="position:absolute;top:908px;left:68px;white-space:nowrap" class="ft03">6.2.2 Stack&#160;</p>
+<p style="position:absolute;top:908px;left:197px;white-space:nowrap" class="ft03">Alignment</p>
+<p style="position:absolute;top:939px;left:68px;white-space:nowrap" class="ft06">The stack pointer for a&#160;stack segment should&#160;be&#160;aligned on&#160;16-bit (word)&#160;or&#160;32-bit&#160;(double-word) boundaries,&#160;<br/>depending on&#160;the width of the&#160;stack segment.&#160;The&#160;D&#160;flag&#160;in&#160;the segment&#160;descriptor for&#160;the current&#160;code segment&#160;<br/>sets&#160;the&#160;stack-segment width (see&#160;“Segment Descriptors”&#160;<a href="��">in Chapter&#160;3,&#160;“Protected-Mode&#160;Memory Management,”</a>&#160;of&#160;<br/>the&#160;<i>Intel® 64&#160;and IA-32 Architectures Software&#160;Developer’s Manual, Volume&#160;3A)</i>.&#160;The PUSH&#160;and POP instructions&#160;<br/>use the D flag&#160;to&#160;determine how&#160;much&#160;to decrement or&#160;increment the&#160;stack pointer on&#160;a push&#160;or pop operation,&#160;<br/>respectively.&#160;When the&#160;stack width is&#160;16 bits,&#160;the stack&#160;pointer is&#160;incremented or decremented&#160;in&#160;16-bit increments;&#160;<br/>when the width&#160;is 32&#160;bits, the stack&#160;pointer is incremented&#160;or decremented&#160;in 32-bit increments.&#160;Pushing a&#160;16-bit&#160;<br/>value&#160;onto a&#160;32-bit wide&#160;stack can result in stack&#160;misaligned&#160;(that is, the&#160;stack pointer&#160;is not&#160;aligned on a&#160;double-</p>
+<p style="position:absolute;top:536px;left:360px;white-space:nowrap" class="ft05">Figure&#160;6-1. &#160;Stack&#160;Structure</p>
+<p style="position:absolute;top:152px;left:542px;white-space:nowrap" class="ft010">Bottom of Stack<br/>(Initial&#160;ESP Value)</p>
+<p style="position:absolute;top:225px;left:228px;white-space:nowrap" class="ft00">Local Variables</p>
+<p style="position:absolute;top:238px;left:255px;white-space:nowrap" class="ft00">for&#160;Calling</p>
+<p style="position:absolute;top:251px;left:254px;white-space:nowrap" class="ft00">Procedure</p>
+<p style="position:absolute;top:315px;left:246px;white-space:nowrap" class="ft00">Parameters</p>
+<p style="position:absolute;top:328px;left:255px;white-space:nowrap" class="ft00">Passed to</p>
+<p style="position:absolute;top:341px;left:274px;white-space:nowrap" class="ft00">Called</p>
+<p style="position:absolute;top:355px;left:253px;white-space:nowrap" class="ft00">Procedure</p>
+<p style="position:absolute;top:386px;left:209px;white-space:nowrap" class="ft00">Frame Boundary</p>
+<p style="position:absolute;top:403px;left:583px;white-space:nowrap" class="ft00">EBP Register</p>
+<p style="position:absolute;top:431px;left:583px;white-space:nowrap" class="ft00">ESP Register</p>
+<p style="position:absolute;top:397px;left:376px;white-space:nowrap" class="ft00">Return Instruction</p>
+<p style="position:absolute;top:453px;left:390px;white-space:nowrap" class="ft00">Top of Stack</p>
+<p style="position:absolute;top:132px;left:385px;white-space:nowrap" class="ft00">Stack Segment</p>
+<p style="position:absolute;top:485px;left:303px;white-space:nowrap" class="ft011">Pushes Move the<br/>Top Of Stack to<br/>Lower Addresses</p>
+<p style="position:absolute;top:485px;left:469px;white-space:nowrap" class="ft010">Pops&#160;Move the&#160;<br/>Top Of Stack to<br/>Higher&#160;Addresses</p>
+<p style="position:absolute;top:331px;left:545px;white-space:nowrap" class="ft00">The EBP register is</p>
+<p style="position:absolute;top:246px;left:541px;white-space:nowrap" class="ft010">The Stack Can&#160;Be<br/>16&#160;or 32 Bits&#160;Wide</p>
+<p style="position:absolute;top:345px;left:545px;white-space:nowrap" class="ft010">typically set to point<br/>to the return<br/>instruction pointer.</p>
+<p style="position:absolute;top:408px;left:404px;white-space:nowrap" class="ft00">Pointer</p>
+</div>
+</body>
+</html>

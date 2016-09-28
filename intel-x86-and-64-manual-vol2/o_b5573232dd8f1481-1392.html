@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1392</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1392-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811392.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:542px;white-space:nowrap" class="ft00">VALIGND/VALIGNQ—Align Doubleword/Quadword Vectors</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-6&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:142px;white-space:nowrap" class="ft02">src[i+31:i]&#160;&#160;SRC2[31:0]</p>
+<p style="position:absolute;top:118px;left:115px;white-space:nowrap" class="ft02">ENDFOR;</p>
+<p style="position:absolute;top:136px;left:88px;white-space:nowrap" class="ft02">ELSE src&#160;&#160;SRC2</p>
+<p style="position:absolute;top:154px;left:68px;white-space:nowrap" class="ft03">FI<br/>; Concatenate sources<br/>tmp[VL-1:0]&#160;&#160;src[VL-1:0]<br/>tmp[2VL-1:VL]&#160;&#160;SRC1[VL-1:0]<br/>; Shift right doubleword&#160;elements<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:262px;left:88px;white-space:nowrap" class="ft03">THEN&#160;SHIFT&#160;=&#160;imm8[1:0]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:298px;left:115px;white-space:nowrap" class="ft02">IF VL = 256</p>
+<p style="position:absolute;top:316px;left:142px;white-space:nowrap" class="ft03">THEN&#160;SHIFT&#160;=&#160;imm8[2:0]<br/>ELSE SHIFT = imm8[3:0]</p>
+<p style="position:absolute;top:352px;left:115px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft03">FI;<br/>tmp[2VL-1:0]&#160;&#160;tmp[2VL-1:0]&#160;&gt;&gt; (32*SHIFT)<br/>; Apply&#160;writemask<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:442px;left:88px;white-space:nowrap" class="ft03">i&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:478px;left:115px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;tmp[i+31:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:514px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:514px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:532px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:550px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:568px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:586px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:604px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:622px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:676px;left:68px;white-space:nowrap" class="ft03">VALIGNQ (EVEX&#160;encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (2,&#160;128), (4, 256),(8,&#160;512)<br/>IF&#160;(SRC2 *is memory*) (AND EVEX.b = 1)</p>
+<p style="position:absolute;top:730px;left:88px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:748px;left:115px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO&#160;KL-1</p>
+<p style="position:absolute;top:766px;left:142px;white-space:nowrap" class="ft03">i&#160;j * 64<br/>src[i+63:i]&#160;&#160;SRC2[63:0]</p>
+<p style="position:absolute;top:802px;left:115px;white-space:nowrap" class="ft02">ENDFOR;</p>
+<p style="position:absolute;top:820px;left:88px;white-space:nowrap" class="ft02">ELSE src&#160;&#160;SRC2</p>
+<p style="position:absolute;top:838px;left:68px;white-space:nowrap" class="ft03">FI<br/>; Concatenate sources<br/>tmp[VL-1:0]&#160;&#160;src[VL-1:0]<br/>tmp[2VL-1:VL]&#160;&#160;SRC1[VL-1:0]<br/>; Shift right&#160;quadword&#160;elements<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:946px;left:88px;white-space:nowrap" class="ft03">THEN&#160;SHIFT&#160;=&#160;imm8[0]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:982px;left:115px;white-space:nowrap" class="ft02">IF VL = 256</p>
+<p style="position:absolute;top:1000px;left:142px;white-space:nowrap" class="ft03">THEN&#160;SHIFT&#160;=&#160;imm8[1:0]<br/>ELSE SHIFT = imm8[2:0]</p>
+<p style="position:absolute;top:1036px;left:115px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft02">FI;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 297</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page297-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce297.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-41</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:104px;left:69px;white-space:nowrap" class="ft02"><b>b.</b></p>
+<p style="position:absolute;top:104px;left:101px;white-space:nowrap" class="ft02"><b>Find&#160;the size of address space for&#160;processor&#160;cores&#160;in&#160;a&#160;physical processor&#160;package.</b></p>
+<p style="position:absolute;top:133px;left:69px;white-space:nowrap" class="ft04">// Returns the max number&#160;of addressable IDs for processor cores in&#160;a&#160;physical&#160;processor package;<br/>// Software should&#160;not assume cpuid reports this value&#160;to be&#160;a power of 2.</p>
+<p style="position:absolute;top:187px;left:69px;white-space:nowrap" class="ft04">unsigned&#160;MaxCoreIDsPerPackage(void)<br/>{</p>
+<p style="position:absolute;top:223px;left:89px;white-space:nowrap" class="ft04">if (!HWMTSupported()) return (unsigned char) 1;<br/>if&#160;cpuid supports leaf&#160;number 4&#160;<br/>{&#160;// we&#160;can&#160;retrieve&#160;multi-core&#160;topology info&#160;using leaf&#160;4</p>
+<p style="position:absolute;top:277px;left:116px;white-space:nowrap" class="ft04">execute&#160;cpuid with&#160;eax = 4,&#160;ecx = 0<br/>store returned&#160;value&#160;of eax<br/>return (unsigned) ((reg_eax&#160;&gt;&gt;&#160;26) +1);</p>
+<p style="position:absolute;top:331px;left:89px;white-space:nowrap" class="ft04">}<br/>else // must&#160;be&#160;a single-core processor<br/>return&#160;1;</p>
+<p style="position:absolute;top:385px;left:69px;white-space:nowrap" class="ft03">}</p>
+<p style="position:absolute;top:412px;left:69px;white-space:nowrap" class="ft02"><b>c.</b></p>
+<p style="position:absolute;top:412px;left:101px;white-space:nowrap" class="ft02"><b>Query&#160;the initial APIC ID of a logical processor.</b></p>
+<p style="position:absolute;top:440px;left:69px;white-space:nowrap" class="ft03">#define INITIAL_APIC_ID_BITS FF000000H&#160;// CPUID.1.EBX[31:24] initial APIC ID</p>
+<p style="position:absolute;top:476px;left:69px;white-space:nowrap" class="ft04">// Returns the&#160;8-bit&#160;unique&#160;initial APIC&#160;ID for the processor running&#160;the code.&#160;<br/>// Software&#160;can use OS&#160;services to&#160;affinitize&#160;the current thread to&#160;each logical processor&#160;<br/>// available under the OS to gather&#160;the initial&#160;APIC_IDs for each logical processor.</p>
+<p style="position:absolute;top:548px;left:69px;white-space:nowrap" class="ft04">unsigned&#160;GetInitAPIC_ID (void)<br/>{</p>
+<p style="position:absolute;top:584px;left:89px;white-space:nowrap" class="ft04">unsigned&#160;int reg_ebx =&#160;0;<br/>execute cpuid&#160;with eax = 1<br/>store returned&#160;value&#160;of ebx<br/>return&#160;(unsigned)&#160;((reg_ebx&#160;&amp; INITIAL_APIC_ID_BITS) &gt;&gt; 24;</p>
+<p style="position:absolute;top:656px;left:69px;white-space:nowrap" class="ft03">}</p>
+</div>
+</body>
+</html>

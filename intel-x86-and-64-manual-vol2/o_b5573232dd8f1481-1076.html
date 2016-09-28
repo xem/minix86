@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1076</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1076-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811076.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:560px;white-space:nowrap" class="ft00">POPF/POPFD/POPFQ—Pop Stack into EFLAGS&#160;Register</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-396&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:196px;white-space:nowrap" class="ft02">EFLAGS[15:0]&#160;←&#160;Pop();&#160;(* 16-bit pop *)</p>
+<p style="position:absolute;top:118px;left:196px;white-space:nowrap" class="ft02">(* All non-reserved&#160;flags&#160;can&#160;be&#160;modified.&#160;*)</p>
+<p style="position:absolute;top:136px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:154px;left:115px;white-space:nowrap" class="ft02">ELSE (* CPL&#160;&gt;&#160;0 *)</p>
+<p style="position:absolute;top:172px;left:142px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:172px;left:231px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:172px;left:243px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:190px;left:169px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:208px;left:196px;white-space:nowrap" class="ft02">IF&#160;CPL &gt;&#160;IOPL</p>
+<p style="position:absolute;top:226px;left:223px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:244px;left:250px;white-space:nowrap" class="ft02">EFLAGS&#160;←&#160;Pop();&#160;(* 32-bit pop *)</p>
+<p style="position:absolute;top:262px;left:250px;white-space:nowrap" class="ft04">(* All non-reserved&#160;bits except&#160;IF,&#160;IOPL,&#160;VIP,&#160;VIF,&#160;VM&#160;and&#160;RF can&#160;be&#160;modified;&#160;<br/>IF, IOPL,&#160;VIP,&#160;VIF, VM and all reserved&#160;bits&#160;are unaffected; RF&#160;is cleared.&#160;*)</p>
+<p style="position:absolute;top:298px;left:223px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:316px;left:250px;white-space:nowrap" class="ft02">EFLAGS&#160;←&#160;Pop();&#160;(* 32-bit pop *)</p>
+<p style="position:absolute;top:334px;left:250px;white-space:nowrap" class="ft04">(* All non-reserved&#160;bits except&#160;IOPL,&#160;VIP,&#160;VIF,&#160;VM&#160;and&#160;RF&#160;can be modified;&#160;<br/>IOPL,&#160;VIP,&#160;VIF, VM&#160;and all&#160;reserved bits are&#160;unaffected; RF&#160;is&#160;cleared.&#160;*)</p>
+<p style="position:absolute;top:370px;left:196px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:388px;left:169px;white-space:nowrap" class="ft02">ELSE IF (Operandsize = 64)</p>
+<p style="position:absolute;top:406px;left:196px;white-space:nowrap" class="ft02">IF&#160;CPL &gt;&#160;IOPL</p>
+<p style="position:absolute;top:424px;left:223px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:442px;left:250px;white-space:nowrap" class="ft02">RFLAGS&#160;←&#160;Pop(); (* 64-bit pop *)</p>
+<p style="position:absolute;top:460px;left:250px;white-space:nowrap" class="ft04">(* All non-reserved&#160;bits except&#160;IF,&#160;IOPL,&#160;VIP,&#160;VIF,&#160;VM&#160;and&#160;RF can&#160;be&#160;modified;&#160;<br/>IF, IOPL,&#160;VIP,&#160;VIF, VM and all reserved&#160;bits&#160;are unaffected; RF&#160;is cleared.&#160;*)</p>
+<p style="position:absolute;top:496px;left:223px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:514px;left:250px;white-space:nowrap" class="ft02">RFLAGS&#160;←&#160;Pop(); (* 64-bit pop *)</p>
+<p style="position:absolute;top:532px;left:250px;white-space:nowrap" class="ft04">(* All non-reserved&#160;bits except&#160;IOPL,&#160;VIP,&#160;VIF,&#160;VM&#160;and&#160;RF&#160;can be modified;&#160;<br/>IOPL,&#160;VIP,&#160;VIF, VM&#160;and all&#160;reserved bits are&#160;unaffected; RF&#160;is&#160;cleared.&#160;*)</p>
+<p style="position:absolute;top:568px;left:196px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:586px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:586px;left:289px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:586px;left:301px;white-space:nowrap" class="ft02">16&#160;*)</p>
+<p style="position:absolute;top:604px;left:196px;white-space:nowrap" class="ft02">EFLAGS[15:0]&#160;←&#160;Pop();&#160;(* 16-bit pop *)</p>
+<p style="position:absolute;top:622px;left:196px;white-space:nowrap" class="ft02">(* All non-reserved&#160;bits except&#160;IOPL can&#160;be&#160;modified; IOPL and all</p>
+<p style="position:absolute;top:638px;left:196px;white-space:nowrap" class="ft02">reserved bits are&#160;unaffected.&#160;*)</p>
+<p style="position:absolute;top:656px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:674px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:692px;left:88px;white-space:nowrap" class="ft02">ELSE IF&#160;CR4.VME = 1 (* In&#160;Virtual-8086 Mode&#160;with VME&#160;Enabled *)</p>
+<p style="position:absolute;top:710px;left:115px;white-space:nowrap" class="ft02">IF IOPL&#160;</p>
+<p style="position:absolute;top:710px;left:158px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:711px;left:170px;white-space:nowrap" class="ft02">3&#160;</p>
+<p style="position:absolute;top:729px;left:142px;white-space:nowrap" class="ft02">THEN&#160;IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:728px;left:266px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:729px;left:278px;white-space:nowrap" class="ft02">32&#160;</p>
+<p style="position:absolute;top:746px;left:169px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:764px;left:196px;white-space:nowrap" class="ft02">EFLAGS&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:782px;left:196px;white-space:nowrap" class="ft04">(* All non-reserved&#160;bits except&#160;IOPL,&#160;VIP,&#160;VIF,&#160;VM,&#160;and RF&#160;can be&#160;modified;&#160;<br/>VIP,&#160;VIF,&#160;VM, IOPL and&#160;all reserved bits&#160;are unaffected. RF&#160;is&#160;cleared.&#160;*)</p>
+<p style="position:absolute;top:818px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:836px;left:196px;white-space:nowrap" class="ft02">EFLAGS[15:0]&#160;←&#160;Pop();&#160;FI;</p>
+<p style="position:absolute;top:854px;left:196px;white-space:nowrap" class="ft04">(* All non-reserved&#160;bits except IOPL can&#160;be&#160;modified;&#160;<br/>IOPL and all&#160;reserved bits are&#160;unaffected.&#160;*)</p>
+<p style="position:absolute;top:890px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:908px;left:115px;white-space:nowrap" class="ft02">ELSE (* IOPL&#160;&lt;&#160;3 *)</p>
+<p style="position:absolute;top:926px;left:142px;white-space:nowrap" class="ft02">IF (Operandsize = 32)</p>
+<p style="position:absolute;top:944px;left:169px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:962px;left:196px;white-space:nowrap" class="ft02">#GP(0);&#160; (* Trap to&#160;virtual-8086 monitor.&#160;*)</p>
+<p style="position:absolute;top:980px;left:169px;white-space:nowrap" class="ft02">ELSE&#160;(* Operandsize =&#160;16&#160;*)</p>
+<p style="position:absolute;top:998px;left:196px;white-space:nowrap" class="ft02">tempFLAGS&#160;←&#160;Pop();</p>
+<p style="position:absolute;top:1016px;left:196px;white-space:nowrap" class="ft02">IF&#160;EFLAGS.VIP = 1&#160;AND tempFLAGS[9]&#160;= 1</p>
+<p style="position:absolute;top:1034px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; &#160;&#160;</p>
+<p style="position:absolute;top:1034px;left:223px;white-space:nowrap" class="ft02">THEN #GP(0);</p>
+<p style="position:absolute;top:1052px;left:68px;white-space:nowrap" class="ft02">&#160; &#160; &#160;&#160;</p>
+<p style="position:absolute;top:1052px;left:223px;white-space:nowrap" class="ft02">ELSE</p>
+</div>
+</body>
+</html>

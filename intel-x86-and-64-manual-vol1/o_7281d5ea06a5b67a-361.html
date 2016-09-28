@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 361</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page361-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a361.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;14-33</p>
+<p style="position:absolute;top:47px;left:591px;white-space:nowrap" class="ft01">PROGRAMMING WITH&#160;AVX,&#160;FMA AND AVX2</p>
+<p style="position:absolute;top:100px;left:107px;white-space:nowrap" class="ft05">mov ecx,&#160;0<br/>cpuid<br/>and ebx, 20H</p>
+<p style="position:absolute;top:168px;left:109px;white-space:nowrap" class="ft02">cmp ebx,&#160;20H;&#160;check AVX2 feature&#160;flags</p>
+<p style="position:absolute;top:190px;left:107px;white-space:nowrap" class="ft05">&#160;jne&#160;not_supported<br/>mov&#160;ecx,&#160;0; specify 0 for&#160;XCR0 register<br/>XGETBV; result&#160;in EDX:EAX<br/>and&#160;eax,&#160;06H<br/>cmp&#160;eax,&#160;06H;&#160;check&#160;OS&#160;has&#160;enabled&#160;both XMM&#160;and YMM state support<br/>jne not_supported<br/>mov eax,&#160;1<br/>jmp done<br/>NOT_SUPPORTED:<br/>mov eax,&#160;0</p>
+<p style="position:absolute;top:415px;left:108px;white-space:nowrap" class="ft02">done:</p>
+<p style="position:absolute;top:438px;left:69px;white-space:nowrap" class="ft05">}<br/>-------------------------------------------------------------------------------</p>
+<p style="position:absolute;top:516px;left:69px;white-space:nowrap" class="ft03">14.8&#160;</p>
+<p style="position:absolute;top:516px;left:148px;white-space:nowrap" class="ft03">ACCESSING&#160;YMM&#160;REGISTERS</p>
+<p style="position:absolute;top:552px;left:69px;white-space:nowrap" class="ft07">The lower 128&#160;bits&#160;of&#160;a YMM register&#160;is aliased to&#160;the&#160;corresponding XMM&#160;register. Legacy&#160;SSE instructions (i.e.&#160;<br/>SIMD instructions operating&#160;on&#160;XMM state but&#160;not using&#160;the VEX prefix, also&#160;referred&#160;to non-VEX encoded&#160;SIMD&#160;<br/>instructions) will&#160;not&#160;access&#160;the upper bits (255:128) of&#160;the YMM registers. AVX&#160;and FMA&#160;instructions&#160;with&#160;a VEX&#160;<br/>prefix&#160;and vector&#160;length of 128-bits&#160;zeroes&#160;the&#160;upper&#160;128&#160;bits of the&#160;YMM&#160;register.<br/>Upper bits of YMM registers&#160;(255:128)&#160;can be read and&#160;written&#160;by&#160;many&#160;instructions with a VEX.256&#160;prefix.&#160;<br/>XSAVE and&#160;XRSTOR&#160;may&#160;be&#160;used&#160;to save&#160;and&#160;restore&#160;the upper bits of the&#160;YMM registers.</p>
+<p style="position:absolute;top:703px;left:69px;white-space:nowrap" class="ft03">14.9 MEMORY&#160;</p>
+<p style="position:absolute;top:703px;left:238px;white-space:nowrap" class="ft03">ALIGNMENT&#160;</p>
+<p style="position:absolute;top:738px;left:69px;white-space:nowrap" class="ft06">Memory&#160;alignment requirements on VEX-encoded instruction differs from non-VEX-encoded instructions. Memory&#160;<br/>alignment applies&#160;to non-VEX-encoded&#160;SIMD instructions in&#160;three&#160;categories:</p>
+<p style="position:absolute;top:776px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:777px;left:95px;white-space:nowrap" class="ft06">Explicitly-aligned SIMD&#160;load&#160;and&#160;store instructions accessing&#160;16&#160;bytes of memory (e.g. MOVAPD, MOVAPS,&#160;<br/>MOVDQA, etc.).&#160;These instructions always require&#160;memory address&#160;to be aligned on&#160;16-byte&#160;boundary.</p>
+<p style="position:absolute;top:815px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:816px;left:95px;white-space:nowrap" class="ft06">Explicitly-unaligned SIMD&#160;load&#160;and store instructions accessing 16 bytes&#160;or less&#160;of data&#160;from&#160;memory&#160;(e.g.&#160;<br/>MOVUPD,&#160;MOVUPS,&#160;MOVDQU,&#160;MOVQ,&#160;MOVD,&#160;etc.).&#160;These&#160;instructions do&#160;not require&#160;memory address to&#160;be&#160;<br/>aligned&#160;on 16-byte boundary.</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:871px;left:95px;white-space:nowrap" class="ft06">The&#160;vast&#160;majority&#160;of arithmetic and data processing instructions in legacy SSE instructions (non-VEX-encoded&#160;<br/>SIMD instructions)&#160;support memory access semantics. When these&#160;instructions access 16&#160;bytes&#160;of&#160;data&#160;from&#160;<br/>memory, the&#160;memory&#160;address&#160;must&#160;be aligned on&#160;16-byte&#160;boundary.</p>
+<p style="position:absolute;top:927px;left:69px;white-space:nowrap" class="ft06">Most arithmetic&#160;and data&#160;processing instructions encoded&#160;using&#160;the VEX&#160;prefix and&#160;performing&#160;memory accesses&#160;<br/>have more flexible memory alignment&#160;requirements&#160;than&#160;instructions that&#160;are encoded&#160;without&#160;the VEX prefix.&#160;<br/>Specifically,&#160;</p>
+<p style="position:absolute;top:982px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:982px;left:95px;white-space:nowrap" class="ft06">With the&#160;exception of&#160;explicitly&#160;aligned 16 or&#160;32&#160;byte SIMD load/store&#160;instructions,&#160;most&#160;VEX-encoded,&#160;<br/>arithmetic&#160;and data processing instructions operate&#160;in&#160;a flexible environment&#160;regarding memory&#160;address&#160;<br/>alignment, i.e. VEX-encoded instruction with 32-byte or&#160;16-byte&#160;load semantics&#160;will support unaligned&#160;load&#160;<br/>operation&#160;by&#160;default. Memory&#160;arguments&#160;for most instructions with VEX&#160;prefix&#160;operate normally without&#160;</p>
+</div>
+</body>
+</html>

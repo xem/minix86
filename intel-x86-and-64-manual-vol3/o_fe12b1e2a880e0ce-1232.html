@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1232</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1232-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1232.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">32-4&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VIRTUALIZATION&#160;OF&#160;SYSTEM&#160;RESOURCES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft05">Suppose&#160;the guest page-table hierarchy allows more&#160;access&#160;than&#160;active&#160;hierarchy (for example:&#160;there&#160;is a&#160;<br/>translation for a&#160;linear address&#160;in the&#160;guest&#160;hierarchy&#160;but not in&#160;the active&#160;hierarchy); this&#160;is analogous&#160;to a&#160;<br/>situation in&#160;which the&#160;TLB&#160;allows less&#160;access&#160;than the&#160;page-table hierarchy.&#160;If&#160;an access occurs that&#160;would&#160;be&#160;<br/>allowed&#160;by the guest&#160;hierarchy but&#160;not&#160;the active&#160;one,&#160;a&#160;page&#160;fault occurs; this is analogous&#160;to&#160;a TLB&#160;miss. The&#160;<br/>VMM gains control (as it handles all page faults) and can update the active page-table hierarchy appropriately;&#160;<br/>this corresponds to&#160;a TLB&#160;fill.</p>
+<p style="position:absolute;top:205px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:205px;left:93px;white-space:nowrap" class="ft05">Suppose&#160;the guest page-table hierarchy allows less access&#160;than the&#160;active&#160;hierarchy; this is&#160;analogous to&#160;a&#160;<br/>situation&#160;in which the&#160;TLB allows&#160;more&#160;access than&#160;the&#160;page-table hierarchy.&#160;This situation&#160;can occur&#160;only&#160;if&#160;the&#160;<br/>guest&#160;operating system&#160;has&#160;modified&#160;a page-table entry&#160;to reduce access (for&#160;example: by&#160;marking&#160;it not-<br/>present). Because the&#160;older,&#160;more permissive&#160;translation&#160;may&#160;have been cached&#160;in&#160;the TLB,&#160;the&#160;processor&#160;is&#160;<br/>architecturally&#160;permitted to use the&#160;older translation&#160;and allow&#160;more&#160;access. Thus,&#160;the&#160;VMM may&#160;(through the&#160;<br/>active page-table hierarchy) also&#160;allow&#160;greater access.&#160;For&#160;the&#160;new,&#160;less&#160;permissive&#160;translation&#160;to take&#160;effect,&#160;<br/>guest software&#160;should flush any older translations from&#160;the TLB either by&#160;executing INVLPG or by loading CR3.&#160;<br/>Because&#160;both these&#160;operations&#160;will&#160;cause&#160;a trap to the&#160;VMM,&#160;the&#160;VMM will gain&#160;control&#160;and can remove&#160;from&#160;the&#160;<br/>active page-table hierarchy the translations&#160;indicated&#160;by&#160;guest software (the&#160;translation&#160;of&#160;a specific linear&#160;<br/>address for INVLPG or&#160;all translations&#160;for&#160;a load&#160;of CR3).</p>
+<p style="position:absolute;top:378px;left:68px;white-space:nowrap" class="ft05">As noted&#160;previously, the processor reads the page-table hierarchy to cache&#160;translations in&#160;the&#160;TLB.&#160;It also writes to&#160;<br/>the hierarchy to&#160;main&#160;the accessed&#160;(A)&#160;and dirty (D) bits&#160;in&#160;the&#160;PDEs&#160;and PTEs. The virtual TLB emulates&#160;this&#160;<br/>behavior as&#160;follows:</p>
+<p style="position:absolute;top:433px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:433px;left:93px;white-space:nowrap" class="ft05">When a page&#160;is accessed&#160;by guest&#160;software,&#160;the A bit&#160;in the corresponding&#160;PTE (or&#160;PDE for a 4-MByte page) in&#160;<br/>the active&#160;page-table&#160;hierarchy&#160;will be set by the processor (the&#160;same&#160;is true&#160;for PDEs when active&#160;page tables&#160;<br/>are accessed by the processor). For guest software to operate properly, the&#160;VMM&#160;should update the A bit in the&#160;<br/>guest entry&#160;at this&#160;time. It can do this&#160;reliably if it keeps the active PTE (or PDE) marked not-present until it has&#160;<br/>set the&#160;A bit in&#160;the guest entry.</p>
+<p style="position:absolute;top:521px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:522px;left:93px;white-space:nowrap" class="ft05">When&#160;a page&#160;is written by guest software, the D&#160;bit&#160;in&#160;the&#160;corresponding&#160;PTE&#160;(or PDE&#160;for a 4-MByte page)&#160;in&#160;<br/>the&#160;active&#160;page-table&#160;hierarchy will be&#160;set&#160;by the&#160;processor.&#160;For guest software&#160;to operate&#160;properly, the&#160;VMM&#160;<br/>should update&#160;the&#160;D&#160;bit in&#160;the guest entry at&#160;this time.&#160;It&#160;can do this&#160;reliably if it keeps the active&#160;PTE (or PDE)&#160;<br/>marked read-only until&#160;it has set&#160;the D bit&#160;in the guest entry.&#160;This solution is&#160;valid for guest software running at&#160;<br/>privilege level&#160;3; support for more&#160;privileged guest software&#160;is described in&#160;<a href="o_fe12b1e2a880e0ce-1232.html">Section&#160;32.3.5.</a></p>
+<p style="position:absolute;top:638px;left:68px;white-space:nowrap" class="ft04">32.3.5&#160;</p>
+<p style="position:absolute;top:638px;left:148px;white-space:nowrap" class="ft04">Details of&#160;Virtual TLB Operation</p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft05">This section describes&#160;in more&#160;detail&#160;how&#160;a VMM could support a virtual&#160;TLB.&#160;It&#160;explains&#160;how an&#160;active&#160;page-table&#160;<br/>hierarchy is&#160;initialized&#160;and how it&#160;is&#160;maintained in&#160;response&#160;to page faults, uses&#160;of&#160;INVLPG, and&#160;accesses to&#160;CR3.&#160;<br/>The mechanisms described here are&#160;the minimum&#160;necessary. They&#160;may not&#160;result in&#160;the best performance.</p>
+</div>
+</body>
+</html>

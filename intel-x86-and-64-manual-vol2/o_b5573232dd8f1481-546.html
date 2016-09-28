@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 546</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page546-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481546.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:545px;white-space:nowrap" class="ft00">FXSAVE—Save x87 FPU, MMX&#160;Technology, and SSE State</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-418&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:130px;left:68px;white-space:nowrap" class="ft03">IF&#160;64-Bit Mode</p>
+<p style="position:absolute;top:148px;left:88px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:166px;left:115px;white-space:nowrap" class="ft03">IF REX.W&#160;= 1</p>
+<p style="position:absolute;top:184px;left:142px;white-space:nowrap" class="ft03">THEN</p>
+<p style="position:absolute;top:202px;left:169px;white-space:nowrap" class="ft03">DEST&#160;←&#160;Save64BitPromotedFxsave(x87 FPU, MMX,&#160;XMM15-XMM0,</p>
+<p style="position:absolute;top:218px;left:169px;white-space:nowrap" class="ft03">MXCSR);</p>
+<p style="position:absolute;top:236px;left:142px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:254px;left:169px;white-space:nowrap" class="ft03">DEST&#160;←&#160;Save64BitDefaultFxsave(x87&#160;FPU,&#160;MMX,&#160;XMM15-XMM0,&#160;MXCSR);</p>
+<p style="position:absolute;top:272px;left:115px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:290px;left:88px;white-space:nowrap" class="ft03">ELSE</p>
+<p style="position:absolute;top:308px;left:115px;white-space:nowrap" class="ft03">DEST&#160;←&#160;SaveLegacyFxsave(x87 FPU,&#160;MMX, XMM7-XMM0,&#160;MXCSR);</p>
+<p style="position:absolute;top:326px;left:68px;white-space:nowrap" class="ft03">FI;</p>
+<p style="position:absolute;top:361px;left:68px;white-space:nowrap" class="ft02">Protected Mode Exceptions</p>
+<p style="position:absolute;top:384px;left:68px;white-space:nowrap" class="ft03">#GP(0)</p>
+<p style="position:absolute;top:384px;left:206px;white-space:nowrap" class="ft04">For&#160;an illegal memory operand&#160;effective&#160;address in&#160;the&#160;CS,&#160;DS, ES,&#160;FS&#160;or GS segments.<br/>If&#160;a memory operand is&#160;not aligned&#160;on&#160;a 16-byte boundary,&#160;regardless&#160;of segment.&#160;(See&#160;the&#160;</p>
+<p style="position:absolute;top:421px;left:205px;white-space:nowrap" class="ft03">description of&#160;the alignment&#160;check&#160;exception [#AC] below.)</p>
+<p style="position:absolute;top:442px;left:68px;white-space:nowrap" class="ft03">#SS(0)&#160;</p>
+<p style="position:absolute;top:442px;left:206px;white-space:nowrap" class="ft03">For an&#160;illegal&#160;address in&#160;the SS&#160;segment.&#160;</p>
+<p style="position:absolute;top:463px;left:68px;white-space:nowrap" class="ft03">#PF(fault-code)&#160;</p>
+<p style="position:absolute;top:463px;left:206px;white-space:nowrap" class="ft03">For a&#160;page&#160;fault.</p>
+<p style="position:absolute;top:484px;left:68px;white-space:nowrap" class="ft03">#NM</p>
+<p style="position:absolute;top:484px;left:206px;white-space:nowrap" class="ft04">If CR0.TS[bit 3] = 1.&#160;<br/>If CR0.EM[bit&#160;2] = 1.</p>
+<p style="position:absolute;top:526px;left:68px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:526px;left:206px;white-space:nowrap" class="ft03">If CPUID.01H:EDX.FXSR[bit 24] = 0.</p>
+<p style="position:absolute;top:547px;left:68px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:547px;left:206px;white-space:nowrap" class="ft03">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:568px;left:68px;white-space:nowrap" class="ft03">#AC&#160;</p>
+<p style="position:absolute;top:568px;left:206px;white-space:nowrap" class="ft03">If this&#160;exception is&#160;disabled&#160;a&#160;general protection exception&#160;(#GP) is&#160;signaled if&#160;the memory&#160;</p>
+<p style="position:absolute;top:585px;left:205px;white-space:nowrap" class="ft05">operand is&#160;not&#160;aligned on a&#160;16-byte&#160;boundary,&#160;as described above. If the&#160;alignment&#160;check&#160;<br/>exception&#160;(#AC) is&#160;enabled (and&#160;the CPL is&#160;3), signaling of #AC is&#160;not guaranteed&#160;and may&#160;<br/>vary with implementation, as&#160;follows. In all implementations&#160;where&#160;#AC is&#160;not&#160;signaled,&#160;a&#160;<br/>general protection&#160;exception is&#160;signaled&#160;in its place.&#160;In addition,&#160;the&#160;width of the&#160;alignment&#160;<br/>check may also&#160;vary with&#160;implementation. For instance, for&#160;a&#160;given implementation, an&#160;align-<br/>ment&#160;check&#160;exception might be&#160;signaled&#160;for a&#160;2-byte misalignment,&#160;whereas&#160;a general protec-<br/>tion exception&#160;might be signaled&#160;for&#160;all other&#160;misalignments (4-, 8-,&#160;or&#160;16-byte&#160;<br/>misalignments).</p>
+<p style="position:absolute;top:734px;left:68px;white-space:nowrap" class="ft02">Real-Address&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:757px;left:68px;white-space:nowrap" class="ft03">#GP</p>
+<p style="position:absolute;top:757px;left:206px;white-space:nowrap" class="ft04">If&#160;a memory operand is&#160;not aligned&#160;on&#160;a 16-byte boundary,&#160;regardless&#160;of segment.<br/>If&#160;any part of&#160;the&#160;operand lies&#160;outside&#160;the&#160;effective&#160;address space from 0&#160;to FFFFH.</p>
+<p style="position:absolute;top:799px;left:68px;white-space:nowrap" class="ft03">#NM&#160;</p>
+<p style="position:absolute;top:799px;left:206px;white-space:nowrap" class="ft04">If CR0.TS[bit 3]&#160;= 1.&#160;<br/>If CR0.EM[bit&#160;2] = 1.</p>
+<p style="position:absolute;top:841px;left:68px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:841px;left:206px;white-space:nowrap" class="ft06">If CPUID.01H:EDX.FXSR[bit 24] = 0.<br/>If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:896px;left:68px;white-space:nowrap" class="ft02">Virtual-8086&#160;Mode&#160;Exceptions</p>
+<p style="position:absolute;top:921px;left:68px;white-space:nowrap" class="ft04">Same exceptions&#160;as in&#160;real address&#160;mode.<br/>#PF(fault-code)&#160;</p>
+<p style="position:absolute;top:942px;left:206px;white-space:nowrap" class="ft03">For a&#160;page&#160;fault.</p>
+<p style="position:absolute;top:963px;left:68px;white-space:nowrap" class="ft03">#AC&#160;</p>
+<p style="position:absolute;top:963px;left:206px;white-space:nowrap" class="ft03">For unaligned memory reference.</p>
+<p style="position:absolute;top:984px;left:68px;white-space:nowrap" class="ft03">#UD&#160;</p>
+<p style="position:absolute;top:984px;left:206px;white-space:nowrap" class="ft03">If the&#160;LOCK prefix&#160;is used.</p>
+<p style="position:absolute;top:1018px;left:68px;white-space:nowrap" class="ft02">Compatibility Mode Exceptions</p>
+<p style="position:absolute;top:1041px;left:68px;white-space:nowrap" class="ft03">Same exceptions&#160;as in&#160;protected mode.</p>
+</div>
+</body>
+</html>

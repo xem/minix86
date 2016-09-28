@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 673</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page673-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce673.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;18-37</p>
+<p style="position:absolute;top:47px;left:672px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:423px;left:69px;white-space:nowrap" class="ft07">In IA-32e&#160;mode,&#160;the full&#160;64-bit value&#160;is written to&#160;the register. If the&#160;processor is&#160;not operating&#160;in IA-32e&#160;mode,&#160;32-<br/>bit&#160;value&#160;is written&#160;to registers with bits 63:32&#160;zeroed.&#160;Registers not defined&#160;when&#160;the&#160;processor is&#160;not&#160;in IA-32e&#160;<br/>mode&#160;are written to&#160;zero.&#160;<br/>Bytes&#160;AFH:90H are&#160;enhancement to the PEBS record format.&#160;Support&#160;for this&#160;enhanced PEBS&#160;record format is indi-<br/>cated&#160;by IA32_PERF_CAPABILITIES[11:8] encoding&#160;of 0001B.<br/>The value written to bytes 97H:90H is the state of&#160;the IA32_PERF_GLOBAL_STATUS&#160;register&#160;before the PEBS&#160;assist&#160;<br/>occurred.&#160;This value&#160;is written so&#160;software can&#160;determine&#160;which&#160;counters overflowed when&#160;this PEBS record was&#160;<br/>written.&#160;Note&#160;that this field indicates the&#160;overflow status for all&#160;counters,&#160;regardless of whether&#160;they&#160;were&#160;<br/>programmed for PEBS&#160;or not.<br/><b>Programming PEBS&#160;Facility<br/></b>Only&#160;a subset&#160;of non-architectural performance events in&#160;the processor support&#160;PEBS.&#160;The subset of precise&#160;events&#160;<br/><a href="o_fe12b1e2a880e0ce-656.html">are listed in&#160;Table&#160;18-10.</a>&#160;In addition to&#160;using&#160;IA32_PERFEVTSELx to&#160;specify&#160;event&#160;unit/mask settings and setting&#160;<br/>the EN_PMCx bit in the&#160;IA32_PEBS_ENABLE register for the&#160;respective&#160;counter,&#160;the&#160;software&#160;must also initialize&#160;the&#160;<br/>DS_BUFFER_MANAGEMENT_AREA data structure in memory to support capturing PEBS records&#160;for precise&#160;events.&#160;</p>
+<p style="position:absolute;top:702px;left:433px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:727px;left:122px;white-space:nowrap" class="ft07">PEBS events&#160;are&#160;only&#160;valid when the following&#160;fields of IA32_PERFEVTSELx are&#160;all&#160;zero: AnyThread,&#160;<br/>Edge, Invert, CMask.</p>
+<p style="position:absolute;top:789px;left:69px;white-space:nowrap" class="ft07">The beginning linear address&#160;of&#160;the&#160;DS_BUFFER_MANAGEMENT_AREA&#160;data structure must be programmed&#160;into&#160;<br/>the IA32_DS_AREA&#160;register.&#160;The&#160;layout&#160;of the&#160;DS_BUFFER_MANAGEMENT_AREA&#160;is&#160;shown in&#160;<a href="o_fe12b1e2a880e0ce-674.html">Figure&#160;18-22.</a></p>
+<p style="position:absolute;top:827px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:828px;left:95px;white-space:nowrap" class="ft07"><b>PEBS Buffer Base</b>: This&#160;field&#160;is programmed&#160;with the&#160;linear&#160;address of the&#160;first byte of&#160;the PEBS&#160;buffer&#160;<br/>allocated by software. The processor reads this&#160;field&#160;to determine the&#160;base&#160;address of&#160;the PEBS&#160;buffer.&#160;<br/>Software&#160;should allocate this&#160;memory&#160;from the&#160;non-paged pool.</p>
+<p style="position:absolute;top:883px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:883px;left:95px;white-space:nowrap" class="ft07"><b>PEBS Index</b>:&#160;This field is&#160;initially&#160;programmed with the&#160;same&#160;value&#160;as the&#160;PEBS&#160;Buffer Base&#160;field,&#160;or&#160;the&#160;<br/>beginning linear address of the PEBS buffer.&#160;The&#160;processor&#160;reads this field to determine the location of the next&#160;<br/>PEBS record to&#160;write&#160;to. After a&#160;PEBS record has&#160;been&#160;written,&#160;the processor also&#160;updates&#160;this field with the&#160;<br/>address of the&#160;next PEBS&#160;record&#160;to be written.&#160;The&#160;figure above&#160;illustrates&#160;the state of&#160;PEBS&#160;Index after&#160;the&#160;<br/>first PEBS record is&#160;written.</p>
+<p style="position:absolute;top:971px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:972px;left:95px;white-space:nowrap" class="ft07"><b>PEBS Absolute Maximum</b>: This&#160;field&#160;represents&#160;the&#160;absolute&#160;address&#160;of the maximum&#160;length&#160;of the allocated&#160;<br/>PEBS&#160;buffer&#160;plus the&#160;starting address&#160;of&#160;the&#160;PEBS buffer.&#160;The processor will not write any&#160;PEBS record beyond&#160;<br/>the end&#160;of PEBS buffer,&#160;when&#160;<b>PEBS Index</b>&#160;equals&#160;<b>PEBS Absolute Maximum</b>.&#160;No signaling is&#160;generated&#160;when&#160;<br/>PEBS&#160;buffer&#160;is&#160;full. Software&#160;must reset the&#160;<b>PEBS Index</b>&#160;field to&#160;the beginning&#160;of&#160;the PEBS&#160;buffer address&#160;to&#160;<br/>continue capturing PEBS&#160;records.</p>
+<p style="position:absolute;top:100px;left:225px;white-space:nowrap" class="ft06">Table 18-23. &#160;PEBS&#160;Record&#160;Format for&#160;Intel Core&#160;i7 Processor&#160;Family</p>
+<p style="position:absolute;top:124px;left:77px;white-space:nowrap" class="ft02">Byte Offset</p>
+<p style="position:absolute;top:124px;left:201px;white-space:nowrap" class="ft02">Field</p>
+<p style="position:absolute;top:124px;left:458px;white-space:nowrap" class="ft02">Byte Offset</p>
+<p style="position:absolute;top:124px;left:581px;white-space:nowrap" class="ft02">Field</p>
+<p style="position:absolute;top:148px;left:77px;white-space:nowrap" class="ft02">00H</p>
+<p style="position:absolute;top:148px;left:201px;white-space:nowrap" class="ft02">R/EFLAGS</p>
+<p style="position:absolute;top:148px;left:457px;white-space:nowrap" class="ft02">58H</p>
+<p style="position:absolute;top:148px;left:581px;white-space:nowrap" class="ft02">R9</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft02">08H</p>
+<p style="position:absolute;top:172px;left:201px;white-space:nowrap" class="ft02">R/EIP</p>
+<p style="position:absolute;top:172px;left:457px;white-space:nowrap" class="ft02">60H</p>
+<p style="position:absolute;top:172px;left:581px;white-space:nowrap" class="ft02">R10</p>
+<p style="position:absolute;top:196px;left:77px;white-space:nowrap" class="ft02">10H</p>
+<p style="position:absolute;top:196px;left:201px;white-space:nowrap" class="ft02">R/EAX</p>
+<p style="position:absolute;top:196px;left:457px;white-space:nowrap" class="ft02">68H</p>
+<p style="position:absolute;top:196px;left:581px;white-space:nowrap" class="ft02">R11</p>
+<p style="position:absolute;top:220px;left:77px;white-space:nowrap" class="ft02">18H</p>
+<p style="position:absolute;top:220px;left:201px;white-space:nowrap" class="ft02">R/EBX</p>
+<p style="position:absolute;top:220px;left:457px;white-space:nowrap" class="ft02">70H</p>
+<p style="position:absolute;top:220px;left:581px;white-space:nowrap" class="ft02">R12</p>
+<p style="position:absolute;top:244px;left:77px;white-space:nowrap" class="ft02">20H</p>
+<p style="position:absolute;top:244px;left:201px;white-space:nowrap" class="ft02">R/ECX</p>
+<p style="position:absolute;top:244px;left:457px;white-space:nowrap" class="ft02">78H</p>
+<p style="position:absolute;top:244px;left:581px;white-space:nowrap" class="ft02">R13</p>
+<p style="position:absolute;top:268px;left:77px;white-space:nowrap" class="ft02">28H</p>
+<p style="position:absolute;top:268px;left:201px;white-space:nowrap" class="ft02">R/EDX</p>
+<p style="position:absolute;top:268px;left:457px;white-space:nowrap" class="ft02">80H</p>
+<p style="position:absolute;top:268px;left:581px;white-space:nowrap" class="ft02">R14</p>
+<p style="position:absolute;top:292px;left:77px;white-space:nowrap" class="ft02">30H</p>
+<p style="position:absolute;top:292px;left:201px;white-space:nowrap" class="ft02">R/ESI</p>
+<p style="position:absolute;top:292px;left:457px;white-space:nowrap" class="ft02">88H</p>
+<p style="position:absolute;top:292px;left:581px;white-space:nowrap" class="ft02">R15</p>
+<p style="position:absolute;top:316px;left:77px;white-space:nowrap" class="ft02">38H</p>
+<p style="position:absolute;top:316px;left:201px;white-space:nowrap" class="ft02">R/EDI</p>
+<p style="position:absolute;top:316px;left:457px;white-space:nowrap" class="ft02">90H</p>
+<p style="position:absolute;top:316px;left:581px;white-space:nowrap" class="ft02">IA32_PERF_GLOBAL_STATUS</p>
+<p style="position:absolute;top:340px;left:77px;white-space:nowrap" class="ft02">40H</p>
+<p style="position:absolute;top:340px;left:201px;white-space:nowrap" class="ft02">R/EBP</p>
+<p style="position:absolute;top:340px;left:457px;white-space:nowrap" class="ft02">98H</p>
+<p style="position:absolute;top:340px;left:581px;white-space:nowrap" class="ft02">Data Linear Address</p>
+<p style="position:absolute;top:364px;left:77px;white-space:nowrap" class="ft02">48H</p>
+<p style="position:absolute;top:364px;left:201px;white-space:nowrap" class="ft02">R/ESP</p>
+<p style="position:absolute;top:364px;left:457px;white-space:nowrap" class="ft02">A0H</p>
+<p style="position:absolute;top:364px;left:581px;white-space:nowrap" class="ft02">Data&#160;Source Encoding</p>
+<p style="position:absolute;top:388px;left:77px;white-space:nowrap" class="ft02">50H</p>
+<p style="position:absolute;top:388px;left:201px;white-space:nowrap" class="ft02">R8</p>
+<p style="position:absolute;top:388px;left:457px;white-space:nowrap" class="ft02">A8H</p>
+<p style="position:absolute;top:388px;left:581px;white-space:nowrap" class="ft02">Latency value (core cycles)</p>
+</div>
+</body>
+</html>

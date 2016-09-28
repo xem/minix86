@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1797</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1797-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1797.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;39-9</p>
+<p style="position:absolute;top:47px;left:713px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:97px;left:69px;white-space:nowrap" class="ft02">39.5&#160;</p>
+<p style="position:absolute;top:97px;left:148px;white-space:nowrap" class="ft02">EPC AND MANAGEMENT OF&#160;EPC PAGES</p>
+<p style="position:absolute;top:132px;left:69px;white-space:nowrap" class="ft07">EPC layout&#160;is implementation&#160;specific, and is&#160;enumerated&#160;through CPUID&#160;(see<a href="o_fe12b1e2a880e0ce-1770.html">&#160;Table 37-6 for EPC la</a>yout). EPC is&#160;<br/>typically configured by BIOS&#160;at system&#160;boot time.<br/>The exact&#160;amount,&#160;size, and&#160;layout of EPC are&#160;model-specific,&#160;and depend on&#160;BIOS settings.</p>
+<p style="position:absolute;top:221px;left:69px;white-space:nowrap" class="ft04">39.5.1 EPC&#160;</p>
+<p style="position:absolute;top:221px;left:185px;white-space:nowrap" class="ft04">Implementation</p>
+<p style="position:absolute;top:250px;left:69px;white-space:nowrap" class="ft06">EPC&#160;must be&#160;properly&#160;protected&#160;against attacks.&#160;One&#160;example of&#160;EPC&#160;implementation could use a&#160;Memory Encryp-<br/>tion Engine (MEE). An&#160;MEE&#160;provides&#160;a cost-effective&#160;mechanism of creating cryptographically protected&#160;volatile&#160;<br/>storage&#160;using platform DRAM.&#160;These&#160;units provide integrity,&#160;replay, and&#160;confidentiality protection.&#160;Details are&#160;<br/>implementation specific.</p>
+<p style="position:absolute;top:350px;left:69px;white-space:nowrap" class="ft04">39.5.2&#160;</p>
+<p style="position:absolute;top:350px;left:150px;white-space:nowrap" class="ft04">OS Management of&#160;EPC Pages</p>
+<p style="position:absolute;top:379px;left:69px;white-space:nowrap" class="ft06">The&#160;EPC&#160;is a&#160;finite resource. SGX1&#160;(i.e. CPUID.(EAX=12H, ECX=0):EAX.SGX1&#160;=&#160;1 but CPUID.(EAX=12H,&#160;<br/>ECX=0):EAX.SGX2 = 0) provides&#160;the&#160;EPC&#160;manager with leaf functions to manage this resource and properly swap&#160;<br/>pages out of&#160;and into the EPC.&#160;For that, the&#160;EPC&#160;manager&#160;would need to&#160;keep track&#160;of&#160;all EPC entries,&#160;type&#160;and&#160;<br/>state, context affiliation,&#160;and SECS affiliation.<br/>Enclave pages&#160;that are&#160;candidates&#160;for eviction&#160;should be&#160;moved to BLOCKED state&#160;using EBLOCK instruction&#160;that&#160;<br/>ensures no new cached virtual to physical address mappings can be created by attempts to reference a BLOCKED&#160;<br/>page.<br/>Before&#160;evicting&#160;blocked pages,&#160;EPC manager&#160;should&#160;execute&#160;ETRACK&#160;leaf function&#160;on that enclave and&#160;ensure&#160;that&#160;<br/>there&#160;are no stale cached&#160;virtual to&#160;physical&#160;address mappings for the&#160;blocked pages&#160;remain on any&#160;thread&#160;on&#160;the&#160;<br/>platform.<br/>After removing all&#160;stale&#160;translations&#160;from&#160;blocked&#160;pages,&#160;system&#160;software&#160;should use&#160;the&#160;EWB&#160;leaf function&#160;for&#160;<br/>securely evicting&#160;pages&#160;out&#160;of&#160;the EPC. EWB encrypts&#160;a&#160;page in&#160;the&#160;EPC,&#160;writes&#160;it to&#160;unprotected memory, and&#160;<br/>invalidates&#160;the&#160;copy in EPC. In&#160;addition, EWB also&#160;creates&#160;a cryptographic MAC (PCMD.MAC)&#160;of the&#160;page and&#160;stores&#160;<br/>it&#160;in&#160;unprotected&#160;memory.&#160;A&#160;page&#160;can&#160;be&#160;reloaded&#160;back&#160;to&#160;the processor&#160;only&#160;if the data and MAC match. To&#160;ensure&#160;<br/>that the&#160;only&#160;latest&#160;version of the&#160;evicted page&#160;can&#160;be&#160;loaded&#160;back, the&#160;version&#160;of the&#160;evicted&#160;page&#160;is&#160;stored&#160;<br/>securely&#160;in a&#160;Version Array (VA) in EPC.<br/>SGX1 includes two&#160;instructions for reloading pages&#160;that&#160;have&#160;been evicted by system&#160;software:&#160;ELDU&#160;and&#160;ELDB.&#160;<br/>The difference between the&#160;two&#160;instructions&#160;is the&#160;value of the&#160;paging state&#160;at&#160;the end of the instruction.&#160;ELDU&#160;<br/>results in&#160;a page&#160;being&#160;reloaded&#160;and set&#160;to an&#160;UNBLOCKED&#160;state, while ELDB results&#160;in a&#160;page&#160;loaded&#160;to a&#160;<br/>BLOCKED state.<br/>ELDB is&#160;intended&#160;for use&#160;by&#160;a Virtual Machine&#160;Monitor (VMM). When&#160;a VMM&#160;reloads&#160;an evicted page, it&#160;needs to&#160;<br/>restore it&#160;to the&#160;correct state of the&#160;page (BLOCKED&#160;vs. UNBLOCKED) as&#160;it existed&#160;at the&#160;time&#160;the&#160;page was&#160;<br/>evicted.&#160;Based on&#160;the&#160;state&#160;of the&#160;page&#160;at&#160;eviction, the VMM chooses&#160;either&#160;ELDB&#160;or ELDU.</p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft05">39.5.2.1 &#160;&#160;Enhancement&#160;to&#160;Managing&#160;EPC Pages</p>
+<p style="position:absolute;top:844px;left:69px;white-space:nowrap" class="ft06">On&#160;processors&#160;supporting&#160;SGX2&#160;(i.e.&#160;CPUID.(EAX=12H,&#160;ECX=0):EAX.SGX2&#160;=&#160;1),&#160;the&#160;EPC&#160;manager&#160;can manage&#160;<br/>EPC resources (while enclave is&#160;running) with&#160;more flexibility provided&#160;by&#160;the SGX2 leaf&#160;functions.&#160;The additional&#160;<br/>flexibility is&#160;de<a href="o_fe12b1e2a880e0ce-1799.html">scribed in Section 39.5.7</a><a href="o_fe12b1e2a880e0ce-1801.html">&#160;through Section 39.5.11.</a></p>
+<p style="position:absolute;top:927px;left:69px;white-space:nowrap" class="ft04">39.5.3&#160;</p>
+<p style="position:absolute;top:927px;left:149px;white-space:nowrap" class="ft04">Eviction of&#160;Enclave Pages</p>
+<p style="position:absolute;top:956px;left:69px;white-space:nowrap" class="ft08">Intel SGX paging is&#160;optimized&#160;to allow the&#160;Operating System&#160;(OS) to&#160;evict multiple&#160;pages out&#160;of&#160;the EPC under&#160;a&#160;<br/>single synchronization.<br/>The&#160;suggested&#160;flow for evicting a&#160;list of pages&#160;from the&#160;EPC is:&#160;<br/>1.&#160;For each&#160;page&#160;to be&#160;evicted&#160;from the&#160;EPC:</p>
+<p style="position:absolute;top:1043px;left:95px;white-space:nowrap" class="ft03">a.&#160;Select an&#160;empty slot&#160;in&#160;a Version Array&#160;(VA)&#160;page.</p>
+</div>
+</body>
+</html>

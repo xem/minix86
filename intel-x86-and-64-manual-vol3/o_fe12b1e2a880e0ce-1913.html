@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1913</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1913-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1913.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:753px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-103</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">IF (EPCM(DS:TMP_GPR).BLOCKED =&#160;1)&#160;</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:141px;left:69px;white-space:nowrap" class="ft02">IF ((EPCM(DS:TMP_GPR).PENDING = 1)&#160;or&#160;(EPCM(DS:TMP_GPR).MODIFIED = 1))</p>
+<p style="position:absolute;top:157px;left:89px;white-space:nowrap" class="ft02">THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:175px;left:69px;white-space:nowrap" class="ft02">IF ( (&#160;EPCM(DS:TMP_GPR).ENCLAVEADDRESS&#160;≠&#160;DS:TMP_GPR) or (EPCM(DS:TMP_GPR).PT&#160;≠&#160;PT_REG) or</p>
+<p style="position:absolute;top:193px;left:89px;white-space:nowrap" class="ft03">(EPCM(DS:TMP_GPR).ENCLAVESECS&#160;≠&#160;EPCM(DS:RBX).ENCLAVESECS) or&#160;<br/>(EPCM(DS:TMP_GPR).R&#160;= 0) or&#160;(EPCM(DS:TMP_GPR).W = 0) )<br/>THEN #PF(DS:TMP_GPR); FI;</p>
+<p style="position:absolute;top:265px;left:69px;white-space:nowrap" class="ft02">IF&#160;(TMP_MODE64&#160;= 0)</p>
+<p style="position:absolute;top:283px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:301px;left:116px;white-space:nowrap" class="ft02">IF (TMP_GPR + (GPR_SIZE -1) is not&#160;in DS segment) THEN #GP(0); FI;</p>
+<p style="position:absolute;top:319px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft02">CR_GPR_PA&#160;&#160;Physical_Address (DS: TMP_GPR);</p>
+<p style="position:absolute;top:391px;left:69px;white-space:nowrap" class="ft03">TMP_TARGET&#160;&#160;(DS:TMP_GPR).RIP;<br/>IF&#160;(TMP_MODE64&#160;= 1)</p>
+<p style="position:absolute;top:427px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:445px;left:116px;white-space:nowrap" class="ft02">IF&#160;(TMP_TARGET&#160;is not canonical)&#160;THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:463px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:481px;left:116px;white-space:nowrap" class="ft02">IF (TMP_TARGET &gt;&#160;CS limit)&#160;THEN #GP(0); FI;</p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:535px;left:69px;white-space:nowrap" class="ft03">(* Check proposed&#160;FS/GS&#160;segments fall within DS *)<br/>IF&#160;(TMP_MODE64&#160;= 0)</p>
+<p style="position:absolute;top:571px;left:89px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:589px;left:116px;white-space:nowrap" class="ft03">TMP_FSBASE&#160;&#160;(DS:RBX).OFSBASE&#160;+ TMP_SECS.BASEADDR;<br/>TMP_FSLIMIT&#160;&#160;(DS:RBX).OFSBASE&#160;+ TMP_SECS.BASEADDR&#160;+ (DS:RBX).FSLIMIT;<br/>TMP_GSBASE&#160;&#160;(DS:RBX).OGSBASE&#160;+ TMP_SECS.BASEADDR;<br/>TMP_GSLIMIT&#160;&#160;(DS:RBX).OGSBASE + TMP_SECS.BASEADDR + (DS:RBX).GSLIMIT;<br/>(* if&#160;FS&#160;wrap-around, make&#160;sure&#160;DS&#160;has no&#160;holes*)<br/>IF (TMP_FSLIMIT &lt; TMP_FSBASE)</p>
+<p style="position:absolute;top:697px;left:143px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:715px;left:170px;white-space:nowrap" class="ft02">IF&#160;(DS.limit &lt;&#160;4GB)&#160;THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:733px;left:143px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:751px;left:170px;white-space:nowrap" class="ft02">IF (TMP_FSLIMIT &gt; DS.limit) THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:769px;left:116px;white-space:nowrap" class="ft03">FI;<br/>(*&#160;if GS&#160;wrap-around,&#160;make&#160;sure&#160;DS&#160;has no&#160;holes*)<br/>IF (TMP_GSLIMIT &lt; TMP_GSBASE)</p>
+<p style="position:absolute;top:823px;left:143px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:841px;left:170px;white-space:nowrap" class="ft02">IF&#160;(DS.limit &lt;&#160;4GB)&#160;THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:859px;left:143px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:877px;left:170px;white-space:nowrap" class="ft02">IF (TMP_GSLIMIT &gt; DS.limit) THEN&#160;#GP(0); FI;</p>
+<p style="position:absolute;top:895px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:913px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:931px;left:116px;white-space:nowrap" class="ft03">TMP_FSBASE&#160;&#160;(DS:RBX).OFSBASE&#160;+ TMP_SECS.BASEADDR;<br/>TMP_GSBASE&#160;&#160;(DS:RBX).OGSBASE&#160;+ TMP_SECS.BASEADDR;<br/>IF&#160;( (TMP_FSBASE is&#160;not canonical) or&#160;(TMP_GSBASE&#160;is not canonical))</p>
+<p style="position:absolute;top:985px;left:143px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1003px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1039px;left:69px;white-space:nowrap" class="ft03">(* Ensure&#160;the&#160;enclave&#160;is not&#160;already active&#160;and this&#160;thread&#160;is&#160;the&#160;only one using the&#160;TCS*)<br/>IF (DS:RBX.STATE&#160;= ACTIVE))</p>
+</div>
+</body>
+</html>

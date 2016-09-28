@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 616</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page616-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce616.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-42&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">logical processor,&#160;software&#160;seeking to synchronize&#160;the TSC&#160;values&#160;of multiple&#160;logical&#160;processors must perform these&#160;<br/>writes&#160;on each logical&#160;processor.&#160;It&#160;may be difficult&#160;for&#160;software to&#160;do this&#160;in a&#160;way&#160;than&#160;ensures that&#160;all logical&#160;<br/>processors will&#160;have&#160;the&#160;same value&#160;for&#160;the TSC at&#160;a given&#160;point&#160;in&#160;time.<br/>The synchronization&#160;of TSC adjustment&#160;can&#160;be&#160;simplified by using&#160;the&#160;64-bit&#160;IA32_TSC_ADJUST&#160;MSR (address&#160;<br/>3BH).&#160;Like&#160;the IA32_TIME_STAMP_COUNTER MSR, the&#160;IA32_TSC_ADJUST MSR is maintained separately for each&#160;<br/>logical processor.&#160;A logical processor maintains and&#160;uses&#160;the IA32_TSC_ADJUST MSR as&#160;follows:</p>
+<p style="position:absolute;top:212px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:213px;left:93px;white-space:nowrap" class="ft02">On RESET,&#160;the&#160;value&#160;of the&#160;IA32_TSC_ADJUST&#160;MSR is&#160;0.</p>
+<p style="position:absolute;top:235px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:235px;left:93px;white-space:nowrap" class="ft07">If an execution of WRMSR&#160;to&#160;the&#160;IA32_TIME_STAMP_COUNTER MSR adds (or subtracts) value X from the&#160;TSC,&#160;<br/>the logical processor also&#160;adds&#160;(or subtracts) value&#160;X&#160;from the IA32_TSC_ADJUST&#160;MSR.</p>
+<p style="position:absolute;top:274px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:274px;left:93px;white-space:nowrap" class="ft07">If an execution of WRMSR to&#160;the&#160;IA32_TSC_ADJUST MSR adds (or subtracts) value X from&#160;that MSR, the logical&#160;<br/>processor also&#160;adds&#160;(or subtracts) value&#160;X&#160;from the&#160;TSC.</p>
+<p style="position:absolute;top:315px;left:68px;white-space:nowrap" class="ft07">Unlike the&#160;TSC,&#160;the&#160;value&#160;of the&#160;IA32_TSC_ADJUST&#160;MSR changes&#160;only&#160;in response to&#160;WRMSR (either to&#160;the&#160;MSR&#160;<br/>itself, or to the IA32_TIME_STAMP_COUNTER MSR).&#160;Its value&#160;does not otherwise change&#160;as time&#160;elapses. Software&#160;<br/>seeking&#160;to adjust the&#160;TSC&#160;can do&#160;so by using WRMSR&#160;to&#160;write&#160;the same&#160;value to&#160;the IA32_TSC_ADJUST MSR on&#160;<br/>each logical processor.<br/>Processor support for the&#160;IA32_TSC_ADJUST&#160;MSR&#160;is&#160;indicated&#160;by&#160;CPUID.(EAX=07H, ECX=0H):EBX.TSC_ADJUST&#160;<br/>(bit 1).</p>
+<p style="position:absolute;top:455px;left:68px;white-space:nowrap" class="ft04">17.15.4 Invariant&#160;</p>
+<p style="position:absolute;top:455px;left:224px;white-space:nowrap" class="ft04">Time-Keeping</p>
+<p style="position:absolute;top:486px;left:68px;white-space:nowrap" class="ft07">The invariant TSC is based on the invariant timekeeping hardware (called Always Running Timer or&#160;ART), that runs&#160;<br/>at&#160;the core crystal clock&#160;frequency.&#160;The ratio defined&#160;by CPUID&#160;leaf 15H&#160;expresses&#160;the&#160;frequency relationship&#160;<br/>between&#160;the ART hardware and&#160;TSC.<br/>If CPUID.15H:EBX[31:0] !=&#160;0 and&#160;CPUID.80000007H:EDX[InvariantTSC] = 1,&#160;the&#160;following linearity&#160;relationship&#160;<br/>holds between TSC and&#160;the ART hardware:</p>
+<p style="position:absolute;top:583px;left:95px;white-space:nowrap" class="ft02">TSC_Value = (ART_Value&#160;* CPUID.15H:EBX[31:0]&#160;)/ CPUID.15H:EAX[31:0] + K</p>
+<p style="position:absolute;top:607px;left:68px;white-space:nowrap" class="ft02">Where 'K' is&#160;an&#160;offset that&#160;can&#160;be&#160;adjusted&#160;by a&#160;privileged&#160;agent</p>
+<p style="position:absolute;top:605px;left:499px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:607px;left:506px;white-space:nowrap" class="ft02">.</p>
+<p style="position:absolute;top:631px;left:68px;white-space:nowrap" class="ft02">When ART hardware&#160;is&#160;reset, both&#160;invariant TSC and&#160;K are&#160;also reset.</p>
+<p style="position:absolute;top:687px;left:68px;white-space:nowrap" class="ft06">17.16&#160;&#160;INTEL® RESOURCE&#160;DIRECTOR TECHNOLOGY (INTEL® RDT) MONITORING&#160;</p>
+<p style="position:absolute;top:712px;left:146px;white-space:nowrap" class="ft06">FEATURES</p>
+<p style="position:absolute;top:748px;left:68px;white-space:nowrap" class="ft07">The Intel&#160;Resource Director&#160;Technology&#160;(Intel&#160;RDT) feature&#160;set&#160;provides&#160;a set of&#160;monitoring capabilities&#160;including&#160;<br/>Cache&#160;Monitoring Technology (CMT) and Memory Bandwidth Monitoring (MBM).&#160;The Intel</p>
+<p style="position:absolute;top:762px;left:663px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:765px;left:674px;white-space:nowrap" class="ft02">&#160;Xeon</p>
+<p style="position:absolute;top:762px;left:712px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:765px;left:722px;white-space:nowrap" class="ft02">&#160;processor&#160;E5 v3&#160;</p>
+<p style="position:absolute;top:781px;left:68px;white-space:nowrap" class="ft08">family introduced resource&#160;monitoring&#160;capability in&#160;each&#160;logical processor to&#160;measure specific platform shared&#160;<br/>resource metrics, for example,&#160;L3&#160;cache&#160;occupancy.&#160;The&#160;programming&#160;interface for these monitoring features&#160;is&#160;<br/>described&#160;in&#160;this section.&#160;Two features&#160;within the&#160;monitoring&#160;feature set provided&#160;are described - Cache Monitoring&#160;<br/>Technology (CMT) and&#160;Memory&#160;Bandwidth Monitoring.<br/>Cache Monitoring&#160;Technology (CMT) allows an&#160;Operating&#160;System, Hypervisor&#160;or similar&#160;system management&#160;agent&#160;<br/>to determine the&#160;usage&#160;of cache&#160;by&#160;applications running on&#160;the platform. The initial&#160;implementation is&#160;directed at&#160;<br/>L3&#160;cache&#160;monitoring&#160;(currently&#160;the last level cache&#160;in most&#160;server&#160;platforms).&#160;&#160;&#160;<br/>Memory Bandwidth Monitoring&#160;(MBM), introduced in&#160;the Intel</p>
+<p style="position:absolute;top:909px;left:481px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:912px;left:492px;white-space:nowrap" class="ft02">&#160;Xeon</p>
+<p style="position:absolute;top:909px;left:530px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:912px;left:541px;white-space:nowrap" class="ft02">&#160;processor E5&#160;v4&#160;family, builds on&#160;the&#160;CMT&#160;</p>
+<p style="position:absolute;top:928px;left:68px;white-space:nowrap" class="ft09">infrastructure&#160;to allow&#160;monitoring of&#160;bandwidth&#160;from&#160;one&#160;level&#160;of&#160;the cache hierarchy&#160;to&#160;the&#160;next -&#160;in this case&#160;<br/>focusing on the&#160;L3&#160;cache, which&#160;is typically backed&#160;directly by&#160;system&#160;memory. As a&#160;result of this&#160;implementation,&#160;<br/>memory&#160;bandwidth&#160;can be monitored.<br/>The monitoring mechanisms&#160;described provide the&#160;following&#160;key&#160;shared infrastructure&#160;features:</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">2.&#160;IA32_TSC_ADJUST MSR&#160;and the&#160;TSC-offset&#160;field in&#160;the VM&#160;execution controls of&#160;VMCS&#160;are some&#160;of&#160;the common&#160;interfaces that&#160;priv-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">ileged&#160;software&#160;can&#160;use&#160;to&#160;manage&#160;the time&#160;stamp&#160;counter for keeping time</p>
+</div>
+</body>
+</html>

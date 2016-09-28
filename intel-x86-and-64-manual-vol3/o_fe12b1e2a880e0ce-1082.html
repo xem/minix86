@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1082</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1082-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1082.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">25-8&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX NON-ROOT&#160;OPERATION</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft02">—&#160;If PAE paging&#160;is being used, the&#160;instruction translates&#160;the guest-physical address through EPT and uses the&#160;</p>
+<p style="position:absolute;top:117px;left:119px;white-space:nowrap" class="ft07">result&#160;to load&#160;the four&#160;(4) page-directory-pointer-table entries (PDPTEs). The instruction does not use the&#160;<br/>guest-physical&#160;addresses&#160;the PDPTEs&#160;to access memory and&#160;it does not&#160;cause&#160;them&#160;to&#160;be&#160;translated&#160;<br/>through EPT.</p>
+<p style="position:absolute;top:172px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:172px;left:93px;white-space:nowrap" class="ft07"><b>MOV to CR4.</b>&#160;An&#160;execution of MOV&#160;to&#160;CR4 that&#160;does&#160;not&#160;cause&#160;a VM&#160;exit&#160;(see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3)&#160;</a>leaves&#160;<br/>unmodified any&#160;bit&#160;in&#160;CR4 corresponding&#160;to&#160;a bit set in&#160;the&#160;CR4 guest/host mask.&#160;Such an&#160;execution causes&#160;a&#160;<br/>general-protection exception if&#160;it attempts to&#160;set any&#160;bit&#160;in CR4 (not&#160;corresponding&#160;to a&#160;bit&#160;set in&#160;the CR4&#160;<br/>guest/host&#160;mask)&#160;to a&#160;value not supported&#160;in VMX&#160;oper<a href="o_fe12b1e2a880e0ce-1045.html">ation (see Section 23.8).</a></p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:244px;left:93px;white-space:nowrap" class="ft07"><b>MOV to CR8.</b>&#160;If the&#160;MOV&#160;<b>to</b>&#160;CR8&#160;instruction does&#160;not cause&#160;a VM&#160;exit (see<a href="o_fe12b1e2a880e0ce-1076.html">&#160;Section 25.1.3</a>),&#160;its behavior is&#160;<br/>modified if the&#160;“use&#160;TPR shadow” VM-execution&#160;control&#160;is 1;&#160;see<a href="o_fe12b1e2a880e0ce-1171.html">&#160;Section 29.3.</a></p>
+<p style="position:absolute;top:283px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:283px;left:93px;white-space:nowrap" class="ft08"><b>MWAIT.&#160;</b>&#160;Behavior of the&#160;MWAIT instruction (which&#160;always causes&#160;an invalid-opcode&#160;exception—#UD—if&#160;<br/>CPL&#160;&gt;&#160;0)&#160;is&#160;determined by the&#160;setting&#160;of&#160;the “MWAIT exiting”&#160;VM-execution control:<br/>—&#160;If the&#160;“MWAIT&#160;exiting” VM-execution control&#160;is 1, MWAIT&#160;causes a&#160;VM&#160;exit.<br/>—&#160;If the&#160;“MWAIT exiting” VM-execution&#160;control is&#160;0, MWAIT operates&#160;normally if one&#160;of the&#160;following are&#160;true:&#160;</p>
+<p style="position:absolute;top:364px;left:119px;white-space:nowrap" class="ft07">(1) ECX[0]&#160;is&#160;0;&#160;(2)&#160;RFLAGS.IF&#160;= 1;&#160;or&#160;both of&#160;the&#160;following&#160;are&#160;true:&#160;(a) the&#160;“interrupt-window exiting”&#160;VM-<br/>execution control is&#160;0;&#160;and (b) the&#160;logical processor has&#160;not recognized a&#160;pending virtual interrupt&#160;(see&#160;<br/>Section 29.2.1).</p>
+<p style="position:absolute;top:421px;left:93px;white-space:nowrap" class="ft02">—&#160;If the&#160;“MWAIT&#160;exiting” VM-execution control&#160;is 0,&#160;ECX[0] = 1, and&#160;RFLAGS.IF = 0,&#160;MWAIT&#160;does&#160;not&#160;cause&#160;</p>
+<p style="position:absolute;top:438px;left:119px;white-space:nowrap" class="ft07">the processor to enter an&#160;implementation-dependent&#160;optimized state&#160;if either the&#160;“interrupt-window&#160;<br/>exiting”&#160;VM-execution control is&#160;1&#160;or the&#160;logical&#160;processor has recognized&#160;a pending&#160;virtual&#160;interrupt;&#160;<br/>instead, control passes to&#160;the instruction following the&#160;MWAIT instruction.</p>
+<p style="position:absolute;top:493px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:493px;left:93px;white-space:nowrap" class="ft08"><b>RDMSR.</b>&#160;<a href="o_fe12b1e2a880e0ce-1076.html">Section&#160;25.1.3 id</a>entifies when executions&#160;of the RDMSR instruction cause&#160;VM&#160;exits. If&#160;such&#160;an&#160;<br/>execution causes&#160;neither&#160;a fault due to&#160;CPL&#160;&gt;&#160;0 nor&#160;a&#160;VM&#160;exit, the&#160;instruction’s behavior&#160;may&#160;be modified for&#160;<br/>certain&#160;values&#160;of ECX:<br/>—&#160;If ECX&#160;contains&#160;10H (indicating the&#160;IA32_TIME_STAMP_COUNTER&#160;MSR), the value returned by the&#160;</p>
+<p style="position:absolute;top:567px;left:119px;white-space:nowrap" class="ft02">instruction is&#160;determined by the&#160;setting&#160;of&#160;the&#160;“use TSC offsetting” VM-execution&#160;control:</p>
+<p style="position:absolute;top:592px;left:119px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:591px;left:144px;white-space:nowrap" class="ft02">If&#160;the control is&#160;0,&#160;RDMSR operates&#160;normally, loading&#160;EAX:EDX with the&#160;value&#160;of the&#160;</p>
+<p style="position:absolute;top:607px;left:143px;white-space:nowrap" class="ft02">IA32_TIME_STAMP_COUNTER MSR.</p>
+<p style="position:absolute;top:633px;left:119px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:631px;left:144px;white-space:nowrap" class="ft02">If the&#160;control&#160;is 1,&#160;the&#160;value returned is&#160;determined&#160;by the setting&#160;of&#160;the&#160;“use TSC scaling” VM-execution&#160;</p>
+<p style="position:absolute;top:648px;left:143px;white-space:nowrap" class="ft02">control:</p>
+<p style="position:absolute;top:672px;left:145px;white-space:nowrap" class="ft02">—</p>
+<p style="position:absolute;top:672px;left:175px;white-space:nowrap" class="ft02">If the&#160;control&#160;is 0,&#160;RDMSR&#160;loads EAX:EDX&#160;with&#160;the sum of the&#160;value of the&#160;</p>
+<p style="position:absolute;top:688px;left:174px;white-space:nowrap" class="ft02">IA32_TIME_STAMP_COUNTER&#160;MSR and&#160;the value&#160;of&#160;the TSC offset.</p>
+<p style="position:absolute;top:712px;left:145px;white-space:nowrap" class="ft02">—</p>
+<p style="position:absolute;top:712px;left:175px;white-space:nowrap" class="ft02">If&#160;the control is&#160;1, RDMSR first computes the&#160;product of&#160;the value of&#160;the&#160;</p>
+<p style="position:absolute;top:729px;left:174px;white-space:nowrap" class="ft07">IA32_TIME_STAMP_COUNTER MSR&#160;and&#160;the&#160;value&#160;of the&#160;TSC multiplier.&#160;It&#160;then&#160;shifts the&#160;value of&#160;<br/>the product right 48 bits and loads EAX:EDX with the sum of that shifted value and the value of the&#160;<br/>TSC offset.</p>
+<p style="position:absolute;top:786px;left:119px;white-space:nowrap" class="ft07">The&#160;1-setting of&#160;the&#160;“use TSC-offsetting” VM-execution&#160;control does not affect&#160;executions&#160;of RDMSR&#160;if ECX&#160;<br/>contains 6E0H (indicating the&#160;IA32_TSC_DEADLINE&#160;MSR).&#160;Such executions return the&#160;APIC-timer deadline&#160;<br/>relative&#160;to the&#160;actual timestamp counter without regard to&#160;the TSC offset.</p>
+<p style="position:absolute;top:843px;left:93px;white-space:nowrap" class="ft02">—&#160;If ECX&#160;is in the range 800H–8FFH (indicating an&#160;APIC&#160;MSR), instruction behavior&#160;may be modified if&#160;the&#160;</p>
+<p style="position:absolute;top:859px;left:119px;white-space:nowrap" class="ft02">“virtualize x2APIC mode”&#160;VM-execution&#160;control&#160;<a href="o_fe12b1e2a880e0ce-1178.html">is 1; see Section 29.5.</a></p>
+<p style="position:absolute;top:881px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:882px;left:93px;white-space:nowrap" class="ft08"><b>RDPID.</b>&#160;Behavior&#160;of the&#160;RDPID instruction&#160;is determined first by&#160;the setting of the&#160;“enable&#160;RDTSCP”&#160;<br/>VM-execution control:<br/>—&#160;If&#160;the “enable RDTSCP” VM-execution&#160;control&#160;is 0,&#160;RDPID causes&#160;an invalid-opcode&#160;exception (#UD).<br/>—&#160;If the&#160;“enable&#160;RDTSCP”&#160;VM-execution control is&#160;1,&#160;RDPID operates&#160;normally.</p>
+<p style="position:absolute;top:968px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:969px;left:93px;white-space:nowrap" class="ft07"><b>RDTSC.</b>&#160;Behavior of the RDTSC&#160;instruction is determined by&#160;the settings of&#160;the “RDTSC exiting” and “use TSC&#160;<br/>offsetting” VM-execution&#160;controls:</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">1.&#160;A logical processor uses&#160;PAE paging&#160;if&#160;CR0.PG&#160;= 1, CR4.PAE&#160;=&#160;1 and IA32_EFER.LMA&#160;= 0. Se<a href="o_fe12b1e2a880e0ce-117.html">e Section&#160;4.4</a>&#160;in&#160;the&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32&#160;</i></a></p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft06"><a href="��"><i>Architectures&#160;Software&#160;Developer’s&#160;Manual,&#160;Volume&#160;3A</i>.</a></p>
+</div>
+</body>
+</html>

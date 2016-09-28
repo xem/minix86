@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1150</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1150-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1150.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">28-2&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">VMX SUPPORT&#160;FOR&#160;ADDRESS TRANSLATION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">The&#160;translation from guest-physical&#160;addresses to&#160;physical&#160;addresses is&#160;determined&#160;by&#160;a set&#160;of&#160;<b>EPT paging struc-<br/>tures</b>.&#160;The EPT&#160;paging structures&#160;are&#160;similar to those&#160;used&#160;to translate linear&#160;addresses&#160;while&#160;the processor is&#160;in&#160;<br/>IA-32e&#160;mode.<a href="o_fe12b1e2a880e0ce-1151.html">&#160;Section 28.2.2</a>&#160;gives the&#160;details of the&#160;EPT&#160;paging&#160;structures.<br/>If CR0.PG&#160;= 1, linear addresses are translated through paging structures referenced through control register CR3.&#160;<br/>While the&#160;“enable&#160;EPT” VM-execution control is 1,&#160;these are&#160;called&#160;<b>guest paging&#160;structures</b>.&#160;There are&#160;no guest&#160;<br/>paging&#160;structures if CR0.PG&#160;=&#160;0.</p>
+<p style="position:absolute;top:188px;left:287px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft08">When the “enable&#160;EPT” VM-execution&#160;control&#160;is 1,&#160;the&#160;identity&#160;of&#160;<b>guest-physical addresses</b>&#160;depends on the&#160;value&#160;<br/>of CR0.PG:</p>
+<p style="position:absolute;top:253px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:253px;left:93px;white-space:nowrap" class="ft02">If CR0.PG&#160;= 0,&#160;each&#160;linear&#160;address is&#160;treated&#160;as a&#160;guest-physical address.</p>
+<p style="position:absolute;top:275px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:276px;left:93px;white-space:nowrap" class="ft08">If CR0.PG&#160;= 1,&#160;guest-physical&#160;addresses&#160;are those&#160;derived from the&#160;contents of control&#160;register&#160;CR3 and&#160;the&#160;<br/>guest paging structures. (This includes&#160;the&#160;values&#160;of the&#160;PDPTEs,&#160;which logical processors store&#160;in internal,&#160;<br/>non-architectural registers.)&#160;The latter&#160;includes (in page-table entries and in other paging-structure entries for&#160;<br/>which bit&#160;7—PS—is&#160;1) the addresses&#160;to which&#160;linear&#160;addresses are translated by&#160;the guest paging structures.</p>
+<p style="position:absolute;top:349px;left:68px;white-space:nowrap" class="ft08">If CR0.PG&#160;= 1, the translation of a linear address to&#160;a physical&#160;address requires&#160;multiple&#160;translations of guest-phys-<br/>ical addresses using&#160;EPT.&#160;Assume, for example,&#160;that&#160;CR4.PAE&#160;=&#160;CR4.PSE&#160;=&#160;0. The translation&#160;of&#160;a 32-bit&#160;linear&#160;<br/>address then&#160;operates as&#160;follows:</p>
+<p style="position:absolute;top:404px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:405px;left:93px;white-space:nowrap" class="ft08">Bits&#160;31:22 of the linear&#160;address select an&#160;entry&#160;in the guest page&#160;directory located at&#160;the guest-physical&#160;<br/>address in&#160;CR3.&#160;The&#160;guest-physical address&#160;of the&#160;guest&#160;page-directory entry (PDE) is translated through EPT&#160;<br/>to determine the&#160;guest&#160;PDE’s physical&#160;address.</p>
+<p style="position:absolute;top:460px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:460px;left:93px;white-space:nowrap" class="ft08">Bits&#160;21:12&#160;of the linear address select an entry in the guest page&#160;table located at the&#160;guest-physical address in&#160;<br/>the&#160;guest&#160;PDE.&#160;The&#160;guest-physical address&#160;of the&#160;guest&#160;page-table entry (PTE) is&#160;translated through EPT&#160;to&#160;<br/>determine&#160;the&#160;guest PTE’s physical address.</p>
+<p style="position:absolute;top:515px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:516px;left:93px;white-space:nowrap" class="ft08">Bits&#160;11:0&#160;of the linear address is&#160;the&#160;offset in the&#160;page&#160;frame located at&#160;the&#160;guest-physical address in the guest&#160;<br/>PTE.&#160;The&#160;guest-physical address&#160;determined&#160;by this&#160;offset&#160;is translated through EPT to determine the physical&#160;<br/>address&#160;to which&#160;the original&#160;linear&#160;address translates.</p>
+<p style="position:absolute;top:573px;left:68px;white-space:nowrap" class="ft08">In&#160;addition to&#160;translating&#160;a guest-physical address to&#160;a physical&#160;address, EPT specifies&#160;the&#160;privileges that&#160;software&#160;<br/>is allowed when&#160;accessing the&#160;address.&#160;Attempts at&#160;disallowed accesses are&#160;called&#160;<b>EPT violations</b>&#160;and&#160;cause&#160;<br/>VM&#160;exits.&#160;S<a href="o_fe12b1e2a880e0ce-1155.html">ee Section 28.2.3.<br/></a>A logical processor uses&#160;EPT&#160;to&#160;translate&#160;guest-physical addresses only when those&#160;addresses are used&#160;to&#160;access&#160;<br/>memory. This&#160;principle&#160;implies the&#160;following:</p>
+<p style="position:absolute;top:668px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:669px;left:93px;white-space:nowrap" class="ft08">The&#160;MOV to&#160;CR3&#160;instruction&#160;loads&#160;CR3&#160;with a guest-physical&#160;address. Whether&#160;that address&#160;is translated&#160;<br/>through EPT depends&#160;on whether&#160;PAE paging is&#160;being used.</p>
+<p style="position:absolute;top:683px;left:494px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:709px;left:93px;white-space:nowrap" class="ft02">—&#160;If PAE&#160;paging&#160;is not being&#160;used,&#160;the instruction does&#160;not use that&#160;address to access memory and&#160;does&#160;<b>not</b>&#160;</p>
+<p style="position:absolute;top:726px;left:119px;white-space:nowrap" class="ft08">cause&#160;it to&#160;be&#160;translated&#160;through EPT.&#160;(If CR0.PG&#160;=&#160;1,&#160;the address&#160;will&#160;be&#160;translated&#160;through EPT on the&#160;<br/>next memory accessing using&#160;a linear&#160;address.)</p>
+<p style="position:absolute;top:766px;left:93px;white-space:nowrap" class="ft02">—&#160;If PAE paging is&#160;being used,&#160;the&#160;instruction loads the&#160;four (4) page-directory-pointer-table entries&#160;(PDPTEs)&#160;</p>
+<p style="position:absolute;top:783px;left:119px;white-space:nowrap" class="ft02">from that&#160;address and&#160;it&#160;<b>does&#160;</b>cause&#160;the address&#160;to be translated through&#160;EPT.</p>
+<p style="position:absolute;top:805px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:805px;left:93px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-117.html">Section 4.4.1&#160;</a>identifies&#160;executions of MOV to&#160;CR0 and MOV to&#160;CR4 that&#160;load the&#160;PDPTEs&#160;from&#160;the&#160;guest-<br/>physical address&#160;in&#160;CR3.&#160;Such executions cause&#160;that address&#160;to be&#160;translated&#160;through EPT.</p>
+<p style="position:absolute;top:844px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:844px;left:93px;white-space:nowrap" class="ft08">The&#160;PDPTEs contain guest-physical&#160;addresses. The&#160;instructions&#160;that load the&#160;PDPTEs&#160;(see above)&#160;do not&#160;use&#160;<br/>those addresses to&#160;access memory and&#160;do&#160;<b>not</b>&#160;cause them to&#160;be&#160;translated through EPT.&#160;The address&#160;in&#160;a&#160;<br/>PDPTE&#160;will&#160;be&#160;translated through EPT on the&#160;next memory accessing using&#160;a linear&#160;address that&#160;uses&#160;that&#160;<br/>PDPTE.</p>
+<p style="position:absolute;top:946px;left:68px;white-space:nowrap" class="ft02">1.&#160;“Enable EPT” is&#160;a secondary processor-based&#160;VM-execution&#160;control. If&#160;bit&#160;31 of&#160;the primary processor-based VM-execution&#160;controls&#160;</p>
+<p style="position:absolute;top:963px;left:89px;white-space:nowrap" class="ft02">is 0,&#160;the logical processor operates as&#160;if&#160;the&#160;“enable&#160;EPT”&#160;VM-execution&#160;control were&#160;0.&#160;Se<a href="o_fe12b1e2a880e0ce-1055.html">e Section 24.6.2</a>.</p>
+<p style="position:absolute;top:984px;left:68px;white-space:nowrap" class="ft02">1.&#160;If&#160;the capability MSR IA32_VMX_CR0_FIXED0 reports that&#160;CR0.PG&#160;must&#160;be 1 in VMX operation, CR0.PG can&#160;be&#160;0 in&#160;VMX non-root&#160;</p>
+<p style="position:absolute;top:1000px;left:89px;white-space:nowrap" class="ft02">operation&#160;only if&#160;the&#160;“unrestricted&#160;guest”&#160;VM-execution&#160;control&#160;and&#160;bit&#160;31&#160;of&#160;the&#160;primary&#160;processor-based&#160;VM-execution&#160;controls&#160;are&#160;</p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft02">both&#160;1.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft02">2.&#160;A logical processor uses&#160;PAE paging&#160;if&#160;CR0.PG&#160;= 1, CR4.PAE&#160;=&#160;1 and IA32_EFER.LMA&#160;= 0. Se<a href="o_fe12b1e2a880e0ce-117.html">e Section&#160;4.4</a>&#160;in&#160;the&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32&#160;</i></a></p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft06"><a href="��"><i>Architectures&#160;Software&#160;Developer’s&#160;Manual,&#160;Volume&#160;3A</i>.</a></p>
+</div>
+</body>
+</html>

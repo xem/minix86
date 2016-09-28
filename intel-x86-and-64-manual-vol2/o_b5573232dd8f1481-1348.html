@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1348</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1348-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811348.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:699px;white-space:nowrap" class="ft00">SYSCALL—Fast System Call</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-668&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">SYSCALL—Fast&#160;System&#160;Call</p>
+<p style="position:absolute;top:233px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:320px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:346px;left:68px;white-space:nowrap" class="ft08">SYSCALL invokes&#160;an OS&#160;system-call handler at&#160;privilege&#160;level&#160;0.&#160;It&#160;does&#160;so by loading RIP from the&#160;IA32_LSTAR&#160;<br/>MSR&#160;(after saving the&#160;address of&#160;the instruction following SYSCALL&#160;into RCX). (The&#160;WRMSR&#160;instruction&#160;ensures&#160;<br/>that&#160;the IA32_LSTAR&#160;MSR always contain&#160;a canonical address.)<br/>SYSCALL&#160;also saves RFLAGS into&#160;R11&#160;and then&#160;masks RFLAGS&#160;using&#160;the IA32_FMASK&#160;MSR&#160;(MSR&#160;address&#160;<br/>C0000084H); specifically,&#160;the processor clears in RFLAGS&#160;every&#160;bit corresponding&#160;to a bit that&#160;is set in the&#160;<br/>IA32_FMASK&#160;MSR.<br/>SYSCALL loads&#160;the CS and SS&#160;selectors with values derived&#160;from&#160;bits&#160;47:32&#160;of the IA32_STAR MSR.&#160;However,&#160;the&#160;<br/>CS&#160;and SS&#160;descriptor&#160;caches are&#160;<b>not</b>&#160;loaded&#160;from the&#160;descriptors (in GDT&#160;or&#160;LDT) referenced&#160;by those&#160;selectors.&#160;<br/>Instead, the&#160;descriptor caches&#160;are&#160;loaded with fixed&#160;values.&#160;See&#160;the&#160;Operation&#160;section for details. It&#160;is the&#160;respon-<br/>sibility of OS software&#160;to ensure&#160;that the&#160;descriptors (in&#160;GDT&#160;or LDT) referenced&#160;by&#160;those&#160;selector values&#160;corre-<br/>spond&#160;to the&#160;fixed values&#160;loaded into the descriptor&#160;caches; the&#160;SYSCALL instruction does&#160;not ensure&#160;this&#160;<br/>correspondence.<br/>The SYSCALL instruction does not save&#160;the&#160;stack pointer (RSP). If the OS system-call handler will&#160;change the stack&#160;<br/>pointer,&#160;it is the responsibility of software&#160;to save&#160;the&#160;previous value&#160;of the&#160;stack pointer.&#160;This might be done&#160;prior&#160;<br/>to executing SYSCALL, with software&#160;restoring&#160;the stack&#160;pointer with the&#160;instruction&#160;following&#160;SYSCALL (which will&#160;<br/>be executed&#160;after SYSRET). Alternatively,&#160;the&#160;OS&#160;system-call&#160;handler may save&#160;the&#160;stack pointer&#160;and restore it&#160;<br/>before executing SYSRET.</p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:696px;left:68px;white-space:nowrap" class="ft04">IF&#160;(CS.L&#160;</p>
+<p style="position:absolute;top:694px;left:112px;white-space:nowrap" class="ft06">≠</p>
+<p style="position:absolute;top:695px;left:121px;white-space:nowrap" class="ft07">&#160;</p>
+<p style="position:absolute;top:696px;left:125px;white-space:nowrap" class="ft04">1&#160;) or (IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:694px;left:257px;white-space:nowrap" class="ft06">≠</p>
+<p style="position:absolute;top:696px;left:266px;white-space:nowrap" class="ft04">&#160;1) or (IA32_EFER.SCE&#160;</p>
+<p style="position:absolute;top:694px;left:394px;white-space:nowrap" class="ft06">≠</p>
+<p style="position:absolute;top:696px;left:403px;white-space:nowrap" class="ft04">&#160;1)</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft04">(* Not in&#160;64-Bit Mode&#160;or&#160;SYSCALL/SYSRET&#160;not enabled in&#160;IA32_EFER&#160;*)</p>
+<p style="position:absolute;top:730px;left:88px;white-space:nowrap" class="ft04">THEN&#160;#UD;</p>
+<p style="position:absolute;top:748px;left:68px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:778px;left:68px;white-space:nowrap" class="ft04">RCX&#160;←&#160;RIP;</p>
+<p style="position:absolute;top:778px;left:304px;white-space:nowrap" class="ft04">(* Will contain address of&#160;next instruction *)</p>
+<p style="position:absolute;top:796px;left:68px;white-space:nowrap" class="ft04">RIP&#160;←&#160;IA32_LSTAR;</p>
+<p style="position:absolute;top:814px;left:68px;white-space:nowrap" class="ft04">R11&#160;←&#160;RFLAGS;</p>
+<p style="position:absolute;top:832px;left:68px;white-space:nowrap" class="ft04">RFLAGS&#160;←&#160;RFLAGS&#160;AND NOT(IA32_FMASK);</p>
+<p style="position:absolute;top:862px;left:68px;white-space:nowrap" class="ft04">CS.Selector&#160;←&#160;IA32_STAR[47:32]&#160;AND FFFCH&#160;(* Operating&#160;system&#160;provides CS; RPL forced&#160;to&#160;0 *)</p>
+<p style="position:absolute;top:880px;left:68px;white-space:nowrap" class="ft011">(* Set rest of CS to&#160;a fixed value *)<br/>CS.Base&#160;←&#160;0;</p>
+<p style="position:absolute;top:898px;left:331px;white-space:nowrap" class="ft04">(* Flat segment *)</p>
+<p style="position:absolute;top:916px;left:68px;white-space:nowrap" class="ft04">CS.Limit&#160;←&#160;FFFFFH;</p>
+<p style="position:absolute;top:916px;left:331px;white-space:nowrap" class="ft04">(* With 4-KByte granularity,&#160;implies a&#160;4-GByte&#160;limit *)</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft04">CS.Type&#160;←&#160;11;</p>
+<p style="position:absolute;top:934px;left:331px;white-space:nowrap" class="ft04">(* Execute/read&#160;code,&#160;accessed&#160;*)</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft04">CS.S&#160;←&#160;1;</p>
+<p style="position:absolute;top:970px;left:68px;white-space:nowrap" class="ft04">CS.DPL&#160;←&#160;0;</p>
+<p style="position:absolute;top:988px;left:68px;white-space:nowrap" class="ft04">CS.P&#160;←&#160;1;</p>
+<p style="position:absolute;top:1006px;left:68px;white-space:nowrap" class="ft04">CS.L&#160;←&#160;1;</p>
+<p style="position:absolute;top:1006px;left:331px;white-space:nowrap" class="ft04">(* Entry is to 64-bit mode *)</p>
+<p style="position:absolute;top:1024px;left:68px;white-space:nowrap" class="ft04">CS.D&#160;←&#160;0;</p>
+<p style="position:absolute;top:1024px;left:331px;white-space:nowrap" class="ft04">(* Required&#160;if&#160;CS.L&#160;= 1 *)</p>
+<p style="position:absolute;top:1042px;left:68px;white-space:nowrap" class="ft04">CS.G&#160;←&#160;1;</p>
+<p style="position:absolute;top:1042px;left:331px;white-space:nowrap" class="ft04">(* 4-KByte granularity *)</p>
+<p style="position:absolute;top:1060px;left:68px;white-space:nowrap" class="ft04">CPL&#160;←&#160;0;</p>
+<p style="position:absolute;top:123px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:425px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:497px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:497px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:567px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft04">0F 05</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">SYSCALL</p>
+<p style="position:absolute;top:160px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:497px;white-space:nowrap" class="ft04">Invalid</p>
+<p style="position:absolute;top:160px;left:567px;white-space:nowrap" class="ft04">Fast&#160;call to&#160;privilege level 0 system&#160;</p>
+<p style="position:absolute;top:177px;left:567px;white-space:nowrap" class="ft04">procedures.</p>
+<p style="position:absolute;top:256px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:256px;left:193px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:256px;left:368px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:256px;left:541px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:256px;left:716px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:280px;left:94px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:280px;left:214px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:280px;left:389px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:280px;left:562px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:280px;left:737px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

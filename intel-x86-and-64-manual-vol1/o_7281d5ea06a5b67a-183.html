@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 183</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page183-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a183.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:775px;white-space:nowrap" class="ft00">Vol. 1&#160;7-19</p>
+<p style="position:absolute;top:47px;left:510px;white-space:nowrap" class="ft01">PROGRAMMING WITH GENERAL-PURPOSE INSTRUCTIONS</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft08">this instruction are LODSB (load byte string), LODSW&#160;(load&#160;word string), and&#160;LODSD (load doubleword&#160;string).&#160;This&#160;<br/>instruction&#160;is usually used in&#160;a loop, where other&#160;instructions process each element&#160;of the&#160;string after&#160;they are&#160;<br/>loaded into the target register.<br/>The STOS instruction stores&#160;the source&#160;string&#160;element&#160;from&#160;the&#160;EAX (doubleword string),&#160;AX (word string),&#160;or AL&#160;<br/>(byte string)&#160;register into&#160;the memory&#160;location identified&#160;with the EDI&#160;register. The “short forms”&#160;for&#160;this instruc-<br/>tion are&#160;STOSB (store&#160;byte&#160;string), STOSW (store&#160;word string), and&#160;STOSD (store&#160;doubleword string). This instruc-<br/>tion&#160;is&#160;also&#160;normally used in a&#160;loop.&#160;Here a string is commonly loaded&#160;into&#160;the&#160;register with a&#160;LODS&#160;instruction,&#160;<br/>operated&#160;on&#160;by other&#160;instructions, and&#160;then stored again&#160;in memory with&#160;a STOS instruction.<br/>The&#160;I/O instructions (see<a href="o_7281d5ea06a5b67a-184.html">&#160;Section 7.3.10,&#160;“I/O&#160;Instructions”) also&#160;</a>perform operations on&#160;strings in&#160;memory.</p>
+<p style="position:absolute;top:292px;left:69px;white-space:nowrap" class="ft03">7.3.9.2&#160;&#160;</p>
+<p style="position:absolute;top:292px;left:153px;white-space:nowrap" class="ft03">Repeated&#160;String Operations</p>
+<p style="position:absolute;top:320px;left:69px;white-space:nowrap" class="ft07">Each&#160;of&#160;the string instructions described<a href="o_7281d5ea06a5b67a-182.html">&#160;in&#160;Section&#160;7.3.9.1 perform&#160;</a>one iteration of a&#160;string operation.&#160;To&#160;operate&#160;<br/>on&#160;strings longer&#160;than a&#160;doubleword, the string instructions&#160;can&#160;be combined with a repeat&#160;prefix&#160;(REP) to&#160;create a&#160;<br/>repeating instruction or&#160;be&#160;placed in&#160;a loop.<br/>When used in&#160;string&#160;instructions,&#160;the ESI and&#160;EDI registers&#160;are automatically&#160;incremented&#160;or&#160;decremented&#160;after&#160;<br/>each iteration of an instruction to&#160;point&#160;to the next element (byte,&#160;word,&#160;or doubleword) in&#160;the string. String oper-<br/>ations can thus&#160;begin&#160;at higher&#160;addresses&#160;and work toward&#160;lower ones, or they&#160;can begin at&#160;lower&#160;addresses&#160;and&#160;<br/>work toward&#160;higher ones.&#160;The DF&#160;flag in the&#160;EFLAGS&#160;register controls whether the registers are&#160;incremented&#160;(DF&#160;=&#160;<br/>0) or decremented (DF = 1).&#160;The STD and&#160;CLD&#160;instructions set&#160;and&#160;clear this&#160;flag,&#160;respectively.<br/>The following&#160;repeat prefixes can be&#160;used in conjunction&#160;with a count in the ECX register to cause&#160;a string instruc-<br/>tion to repeat:</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:506px;left:95px;white-space:nowrap" class="ft05"><b>REP&#160;</b>— Repeat while the&#160;ECX register&#160;not&#160;zero.</p>
+<p style="position:absolute;top:528px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:529px;left:95px;white-space:nowrap" class="ft05"><b>REPE/REPZ&#160;</b>— Repeat while the&#160;ECX register not&#160;zero and&#160;the ZF flag&#160;is&#160;set.</p>
+<p style="position:absolute;top:550px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:551px;left:95px;white-space:nowrap" class="ft05"><b>REPNE/REPNZ</b>&#160;— Repeat while the&#160;ECX register&#160;not&#160;zero and&#160;the ZF&#160;flag&#160;is&#160;clear.</p>
+<p style="position:absolute;top:575px;left:69px;white-space:nowrap" class="ft07">When a&#160;string instruction has&#160;a repeat&#160;prefix,&#160;the operation executes until&#160;one&#160;of the&#160;termination conditions spec-<br/>ified by the&#160;prefix is&#160;satisfied. The&#160;REPE/REPZ&#160;and REPNE/REPNZ prefixes are used only with&#160;the CMPS&#160;and SCAS&#160;<br/>instructions. Also,&#160;note&#160;that a&#160;REP STOS instruction is&#160;the&#160;fastest way to&#160;initialize&#160;a&#160;large&#160;block of memory.</p>
+<p style="position:absolute;top:652px;left:69px;white-space:nowrap" class="ft03">7.3.9.3 &#160;</p>
+<p style="position:absolute;top:652px;left:153px;white-space:nowrap" class="ft03">Fast-String&#160;Operation</p>
+<p style="position:absolute;top:681px;left:69px;white-space:nowrap" class="ft07">To&#160;improve&#160;performance,&#160;more recent processors support modifications to&#160;the processor’s&#160;operation&#160;during&#160;the&#160;<br/>string store&#160;operations initiated with the&#160;MOVS,&#160;MOVSB,&#160;STOS, and&#160;STOSB&#160;instructions. This optimized operation,&#160;<br/>called&#160;<b>fast-string&#160;operation</b>,&#160;is used when the&#160;execution of one&#160;of those&#160;instructions&#160;meets certain initial&#160;condi-<br/>tions (see&#160;below). Instructions using&#160;fast-string operation&#160;effectively&#160;operate on&#160;the string&#160;in groups that may&#160;<br/>include&#160;multiple elements of the&#160;native&#160;data&#160;size (byte,&#160;word, doubleword,&#160;or quadword). With&#160;fast-string opera-<br/>tion,&#160;the processor recognizes interrupts&#160;and data breakpoints only on boundaries&#160;between these groups.&#160;Fast-<br/>string&#160;operation&#160;is used only if the&#160;source&#160;and destination&#160;addresses&#160;both use&#160;either the&#160;WB or WC memory types.<br/>The initial&#160;conditions for fast-string&#160;operation are&#160;implementation-specific and&#160;may vary with the&#160;native&#160;string&#160;size.&#160;<br/>Examples&#160;of&#160;parameters that may impact&#160;the use of&#160;fast-string&#160;operation&#160;include&#160;the following:</p>
+<p style="position:absolute;top:842px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:843px;left:95px;white-space:nowrap" class="ft02">the alignment&#160;indicated in&#160;the&#160;EDI&#160;and ESI alignment&#160;registers;</p>
+<p style="position:absolute;top:865px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:865px;left:95px;white-space:nowrap" class="ft02">the&#160;address order of the&#160;string operation;</p>
+<p style="position:absolute;top:887px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:888px;left:95px;white-space:nowrap" class="ft02">the&#160;value&#160;of the&#160;initial operation counter&#160;(ECX);&#160;and</p>
+<p style="position:absolute;top:910px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:910px;left:95px;white-space:nowrap" class="ft02">the difference between the&#160;source and&#160;destination&#160;addresses.</p>
+<p style="position:absolute;top:945px;left:433px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:970px;left:122px;white-space:nowrap" class="ft07">Initial conditions&#160;for&#160;fast-string operation in&#160;future&#160;Intel&#160;64&#160;or IA-32&#160;processor families&#160;may differ&#160;<br/>from above.&#160;<a href="��">The&#160;<i>Intel® 64&#160;and&#160;IA-32&#160;Architectures Optimization Reference Manual</i></a><i>&#160;</i>may contain&#160;<br/>model-specific information.</p>
+<p style="position:absolute;top:1027px;left:69px;white-space:nowrap" class="ft07">Software&#160;can disable&#160;fast-string operation by clearing the fast-string-enable&#160;bit&#160;(bit 0) of IA32_MISC_ENABLE&#160;<br/>MSR. However,&#160;Intel recommends&#160;that system&#160;software always enable fast-string&#160;operation.&#160;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1617</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1617-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811617.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VGATHERDPS/VGATHERQPS — Gather Packed SP FP&#160;values&#160;Using Signed&#160;Dword/Qword Indices</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-231</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VGATHERDPS/VGATHERQPS — Gather Packed SP FP&#160;values Using Signed Dword/Qword Indices&#160;</p>
+<p style="position:absolute;top:534px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:637px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:661px;left:69px;white-space:nowrap" class="ft06">The instruction conditionally&#160;loads up to&#160;4 or&#160;8 single-precision floating-point values from memory addresses&#160;spec-<br/>ified&#160;by&#160;the memory operand&#160;(the&#160;second&#160;operand)&#160;and&#160;using dword&#160;indices. The memory operand&#160;uses the&#160;VSIB&#160;<br/>form of the&#160;SIB&#160;byte&#160;to&#160;specify a&#160;general purpose register&#160;operand as&#160;the common&#160;base,&#160;a vector register&#160;for&#160;an&#160;<br/>array of indices relative&#160;to the&#160;base&#160;and a&#160;constant scale&#160;factor.<br/>The mask operand (the&#160;third operand) specifies the conditional&#160;load operation from each memory address&#160;and the&#160;<br/>corresponding update of each data&#160;element&#160;of&#160;the destination&#160;operand (the&#160;first operand). Conditionality is&#160;speci-<br/>fied by the&#160;most significant&#160;bit of each data&#160;element&#160;of&#160;the&#160;mask&#160;register. If an&#160;element’s mask bit is&#160;not&#160;set, the&#160;<br/>corresponding element&#160;of the&#160;destination register&#160;is left&#160;unchanged. The width of data element in the destination&#160;<br/>register&#160;and&#160;mask&#160;register&#160;are&#160;identical. The entire&#160;mask&#160;register&#160;will be set&#160;to zero&#160;by&#160;this instruction unless&#160;the&#160;<br/>instruction&#160;causes an&#160;exception.&#160;<br/>Using&#160;qword indices, the instruction conditionally&#160;loads&#160;up&#160;to&#160;2 or&#160;4&#160;single-precision&#160;floating-point&#160;values from the&#160;<br/>VSIB addressing&#160;memory operand, and&#160;updates the&#160;lower half of the&#160;destination&#160;register.&#160;The&#160;upper 128&#160;or&#160;256&#160;<br/>bits of the&#160;destination&#160;register are&#160;zero’ed with&#160;qword indices.<br/>This instruction can be suspended by an exception&#160;if&#160;at least&#160;one element is already gathered&#160;(i.e.,&#160;if the&#160;exception&#160;<br/>is triggered by an element other than the rightmost one&#160;with&#160;its&#160;mask&#160;bit set).&#160;&#160;When this&#160;happens, the&#160;destination&#160;<br/>register and the mask operand are partially updated; those&#160;elements that have been&#160;gathered are&#160;placed&#160;into the&#160;<br/>destination register&#160;and have&#160;their mask bits set to&#160;zero.&#160;&#160;If&#160;any traps or&#160;interrupts&#160;are&#160;pending from already&#160;gath-<br/>ered&#160;elements, they&#160;will be delivered&#160;in lieu of the exception;&#160;in this&#160;case, EFLAG.RF is set to&#160;one so an instruction&#160;<br/>breakpoint&#160;is not re-triggered&#160;when&#160;the instruction is&#160;continued.<br/>If&#160;the data&#160;size&#160;and index&#160;size are different, part of the&#160;destination register and part&#160;of&#160;the mask register&#160;do&#160;not&#160;<br/>correspond&#160;to&#160;any elements being gathered.&#160; This instruction sets those parts to&#160;zero.&#160;&#160;It may do this to one or both&#160;<br/>of those&#160;registers even&#160;if&#160;the instruction triggers&#160;an exception, and even if the&#160;instruction triggers the&#160;exception&#160;<br/>before gathering any&#160;elements.</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:315px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:139px;left:315px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:361px;white-space:nowrap" class="ft04">64/32</p>
+<p style="position:absolute;top:139px;left:361px;white-space:nowrap" class="ft04">-bit&#160;</p>
+<p style="position:absolute;top:155px;left:361px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:419px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:419px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:419px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:485px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">VEX.DDS.128.66.0F38.W0&#160;92&#160;/r</p>
+<p style="position:absolute;top:175px;left:315px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:175px;left:361px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:419px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:175px;left:485px;white-space:nowrap" class="ft04">Using dword&#160;indices specified&#160;in&#160;<i>vm32x</i>, gather&#160;single-preci-</p>
+<p style="position:absolute;top:191px;left:485px;white-space:nowrap" class="ft04">sion&#160;FP&#160;values&#160;from&#160;memory&#160;conditioned&#160;on&#160;mask&#160;specified&#160;</p>
+<p style="position:absolute;top:208px;left:485px;white-space:nowrap" class="ft04">by&#160;<i>xmm2</i>.&#160;Conditionally&#160;gathered&#160;elements&#160;are merged&#160;into&#160;</p>
+<p style="position:absolute;top:225px;left:485px;white-space:nowrap" class="ft05"><i>xmm1</i>.</p>
+<p style="position:absolute;top:195px;left:78px;white-space:nowrap" class="ft04">VGATHERDPS&#160;<i>xmm1, vm32x, xmm2</i></p>
+<p style="position:absolute;top:261px;left:78px;white-space:nowrap" class="ft04">VEX.DDS.128.66.0F38.W0&#160;93&#160;/r</p>
+<p style="position:absolute;top:261px;left:315px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:261px;left:361px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:261px;left:419px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:261px;left:485px;white-space:nowrap" class="ft04">Using qword&#160;indices specified&#160;in&#160;<i>vm64x</i>, gather&#160;single-preci-</p>
+<p style="position:absolute;top:277px;left:485px;white-space:nowrap" class="ft04">sion&#160;FP&#160;values&#160;from&#160;memory&#160;conditioned&#160;on&#160;mask&#160;specified&#160;</p>
+<p style="position:absolute;top:294px;left:485px;white-space:nowrap" class="ft04">by&#160;<i>xmm2</i>.&#160;Conditionally&#160;gathered&#160;elements&#160;are merged&#160;into&#160;</p>
+<p style="position:absolute;top:310px;left:485px;white-space:nowrap" class="ft05"><i>xmm1</i>.</p>
+<p style="position:absolute;top:280px;left:78px;white-space:nowrap" class="ft04">VGATHERQPS&#160;<i>xmm1, vm64x, xmm2</i></p>
+<p style="position:absolute;top:346px;left:78px;white-space:nowrap" class="ft04">VEX.DDS.256.66.0F38.W0&#160;92&#160;/r</p>
+<p style="position:absolute;top:346px;left:315px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:346px;left:361px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:346px;left:419px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:346px;left:485px;white-space:nowrap" class="ft04">Using dword&#160;indices specified&#160;in&#160;<i>vm32y</i>, gather&#160;single-preci-</p>
+<p style="position:absolute;top:362px;left:485px;white-space:nowrap" class="ft04">sion&#160;FP&#160;values&#160;from&#160;memory&#160;conditioned&#160;on&#160;mask&#160;specified&#160;</p>
+<p style="position:absolute;top:379px;left:485px;white-space:nowrap" class="ft04">by&#160;<i>ymm2</i>.&#160;Conditionally gathered&#160;elements are merged&#160;into&#160;</p>
+<p style="position:absolute;top:396px;left:485px;white-space:nowrap" class="ft05"><i>ymm1</i>.</p>
+<p style="position:absolute;top:366px;left:78px;white-space:nowrap" class="ft04">VGATHERDPS&#160;<i>ymm1, vm32y, ymm2</i></p>
+<p style="position:absolute;top:432px;left:78px;white-space:nowrap" class="ft04">VEX.DDS.256.66.0F38.W0&#160;93&#160;/r</p>
+<p style="position:absolute;top:432px;left:315px;white-space:nowrap" class="ft04">RMV</p>
+<p style="position:absolute;top:432px;left:361px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:432px;left:419px;white-space:nowrap" class="ft04">AVX2</p>
+<p style="position:absolute;top:432px;left:485px;white-space:nowrap" class="ft04">Using qword&#160;indices specified&#160;in&#160;<i>vm64y</i>, gather&#160;single-preci-</p>
+<p style="position:absolute;top:448px;left:485px;white-space:nowrap" class="ft04">sion&#160;FP&#160;values&#160;from&#160;memory&#160;conditioned&#160;on&#160;mask&#160;specified&#160;</p>
+<p style="position:absolute;top:465px;left:485px;white-space:nowrap" class="ft04">by&#160;<i>xmm2</i>.&#160;Conditionally&#160;gathered&#160;elements&#160;are merged&#160;into&#160;</p>
+<p style="position:absolute;top:481px;left:485px;white-space:nowrap" class="ft05"><i>xmm1</i>.</p>
+<p style="position:absolute;top:451px;left:78px;white-space:nowrap" class="ft04">VGATHERQPS<i>&#160;xmm1,&#160;vm64y, xmm2</i></p>
+<p style="position:absolute;top:558px;left:86px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:558px;left:194px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:558px;left:368px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:558px;left:542px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:558px;left:718px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:582px;left:99px;white-space:nowrap" class="ft04">A</p>
+<p style="position:absolute;top:582px;left:177px;white-space:nowrap" class="ft04">ModRM:reg&#160;(r,w)</p>
+<p style="position:absolute;top:582px;left:331px;white-space:nowrap" class="ft04">BaseReg (R): VSIB:base,</p>
+<p style="position:absolute;top:598px;left:327px;white-space:nowrap" class="ft04">VectorReg(R):&#160;VSIB:index</p>
+<p style="position:absolute;top:582px;left:529px;white-space:nowrap" class="ft04">VEX.vvvv&#160;(r, w)</p>
+<p style="position:absolute;top:582px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

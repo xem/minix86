@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 537</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page537-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481537.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">FXRSTOR—Restore x87 FPU, MMX, XMM, and MXCSR State</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-409</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">FXRSTOR—Restore x87 FPU, MMX, XMM, and MXCSR State</p>
+<p style="position:absolute;top:281px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:365px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:390px;left:69px;white-space:nowrap" class="ft06">Reloads&#160;the&#160;x87 FPU,&#160;MMX technology, XMM, and MXCSR&#160;registers&#160;from&#160;the&#160;512-byte memory image&#160;specified&#160;in&#160;<br/>the source&#160;operand.&#160;This data should&#160;have been&#160;written&#160;to memory previously using&#160;the FXSAVE&#160;instruction, and&#160;<br/>in the&#160;same format as&#160;required&#160;by the&#160;operating modes.&#160;The first&#160;byte of the&#160;data&#160;should be&#160;located on&#160;a 16-byte&#160;<br/>boundary.&#160;There are three&#160;distinct&#160;layouts of the&#160;FXSAVE state map:&#160;one for legacy and&#160;compatibility&#160;mode,&#160;a&#160;<br/>second format for 64-bit&#160;mode FXSAVE/FXRSTOR&#160;with&#160;REX.W=0, and the&#160;third format is&#160;for&#160;64-bit mode&#160;with&#160;<br/>FXSAVE64/FXRSTOR6<a href="o_b5573232dd8f1481-540.html">4. Table 3-43</a>&#160;shows the&#160;layout of the&#160;legacy/compatibility mode state&#160;information&#160;in&#160;<br/>memory and&#160;describes&#160;the fields in&#160;the&#160;memory&#160;image&#160;for&#160;the FXRSTOR&#160;and FXSAVE&#160;<a href="o_b5573232dd8f1481-544.html">instructions. Table 3-46</a>&#160;<br/>shows the&#160;layout of the&#160;64-bit mode&#160;state&#160;information when REX.W&#160;is set (FXSAVE64/FXRSTOR64)<a href="o_b5573232dd8f1481-545.html">. Table&#160;3-47&#160;<br/></a>shows the&#160;layout of the&#160;64-bit mode&#160;state&#160;information when REX.W&#160;is clear (FXSAVE/FXRSTOR).<br/>The state image referenced&#160;with&#160;an FXRSTOR instruction must have&#160;been&#160;saved using&#160;an FXSAVE&#160;instruction or&#160;be&#160;<br/>in the same&#160;format&#160;as required<a href="o_b5573232dd8f1481-540.html">&#160;by Table 3-43,&#160;</a><a href="o_b5573232dd8f1481-544.html">Table&#160;3-46,</a><a href="o_b5573232dd8f1481-545.html">&#160;or&#160;Table 3-47</a>.&#160;Referencing a&#160;state image saved with an&#160;<br/>FSAVE, FNSAVE instruction or incompatible field layout&#160;will&#160;result in&#160;an incorrect&#160;state&#160;restoration.<br/>The FXRSTOR instruction does&#160;not flush&#160;pending x87 FPU exceptions. To&#160;check and raise exceptions when loading&#160;<br/>x87 FPU state&#160;information with the&#160;FXRSTOR instruction,&#160;use&#160;an FWAIT instruction after&#160;the FXRSTOR&#160;instruction.<br/>If&#160;the OSFXSR bit in control register CR4 is not set, the FXRSTOR&#160;instruction may not&#160;restore the states of&#160;the XMM&#160;<br/>and MXCSR registers.&#160;This&#160;behavior is&#160;implementation dependent.<br/>If the MXCSR&#160;state contains an unmasked exception&#160;with a corresponding status&#160;flag also set, loading the register&#160;<br/>with the&#160;FXRSTOR instruction&#160;will&#160;not&#160;result&#160;in a&#160;SIMD&#160;floating-point error&#160;condition being&#160;generated. Only the&#160;next&#160;<br/>occurrence&#160;of this unmasked exception&#160;will&#160;result&#160;in the&#160;exception being generated.<br/>Bits 16 through 32 of the&#160;MXCSR&#160;register are&#160;defined as&#160;reserved and should&#160;be&#160;set to&#160;0. Attempting to write&#160;a 1&#160;<br/>in any of these bits from the saved state&#160;image will result&#160;in a general&#160;protection exception (#GP) being generated.<br/>Bytes&#160;464:511 of&#160;an FXSAVE image are&#160;available&#160;for software use.&#160;FXRSTOR ignores the&#160;content of bytes 464:511&#160;<br/>in an FXSAVE&#160;state&#160;image.</p>
+<p style="position:absolute;top:831px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft09">IF&#160;64-Bit Mode<br/>&#160; &#160; &#160; THEN &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;(x87 FPU, MMX,&#160;XMM15-XMM0,&#160;MXCSR)&#160; &#160; &#160;Load(SRC);<br/>&#160; &#160; &#160; ELSE</p>
+<p style="position:absolute;top:926px;left:116px;white-space:nowrap" class="ft04">(x87 FPU,&#160;MMX,&#160;XMM7-XMM0,&#160;MXCSR)&#160;←&#160;Load(SRC);</p>
+<p style="position:absolute;top:944px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:979px;left:69px;white-space:nowrap" class="ft03">x87&#160;FPU and&#160;SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:1003px;left:69px;white-space:nowrap" class="ft04">None.</p>
+<p style="position:absolute;top:123px;left:74px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:74px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:389px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:426px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:426px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft010">0F AE /1<br/>FXRSTOR&#160;<i>m512byte</i></p>
+<p style="position:absolute;top:160px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:160px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Restore the&#160;x87&#160;FPU,&#160;MMX,&#160;XMM,&#160;and MXCSR&#160;</p>
+<p style="position:absolute;top:177px;left:568px;white-space:nowrap" class="ft04">register state from&#160;<i>m512byte</i>.</p>
+<p style="position:absolute;top:204px;left:74px;white-space:nowrap" class="ft011">REX.W+ 0F AE /1<br/>FXRSTOR64&#160;<i>m512byte</i></p>
+<p style="position:absolute;top:204px;left:389px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:204px;left:426px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:204px;left:498px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:204px;left:568px;white-space:nowrap" class="ft04">Restore&#160;the x87&#160;FPU,&#160;MMX, XMM,&#160;and MXCSR&#160;</p>
+<p style="position:absolute;top:220px;left:568px;white-space:nowrap" class="ft04">register state from&#160;<i>m512byte</i>.</p>
+<p style="position:absolute;top:304px;left:87px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:304px;left:192px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:304px;left:365px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:304px;left:543px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:304px;left:720px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:328px;left:99px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:328px;left:182px;white-space:nowrap" class="ft04">ModRM:r/m&#160;&#160;(r)</p>
+<p style="position:absolute;top:328px;left:386px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:328px;left:564px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:328px;left:741px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

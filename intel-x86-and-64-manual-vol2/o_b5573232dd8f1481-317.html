@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 317</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft012{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page317-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481317.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CPUID‚ÄîCPU&#160;Identification</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-189</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">CPUID‚ÄîCPU Identification</p>
+<p style="position:absolute;top:266px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:350px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:375px;left:69px;white-space:nowrap" class="ft09">The ID&#160;flag&#160;(bit 21) in the&#160;EFLAGS&#160;register indicates support for the CPUID instruction.&#160;If a&#160;software&#160;procedure can&#160;<br/>set&#160;and clear this flag,&#160;the&#160;processor executing the&#160;procedure&#160;supports&#160;the CPUID instruction.&#160;This instruction&#160;<br/>operates&#160;the&#160;same&#160;in&#160;non-64-bit&#160;modes&#160;and&#160;64-bit&#160;mode.<br/>CPUID&#160;returns processor identification&#160;and feature information&#160;in&#160;the EAX,&#160;EBX,&#160;ECX,&#160;and&#160;EDX&#160;registers.</p>
+<p style="position:absolute;top:429px;left:772px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:432px;left:779px;white-space:nowrap" class="ft04">&#160;The&#160;</p>
+<p style="position:absolute;top:448px;left:69px;white-space:nowrap" class="ft08">instruction‚Äôs output is dependent on the contents&#160;of&#160;the&#160;EAX&#160;register&#160;upon execution&#160;(in&#160;some&#160;cases, ECX&#160;as well).&#160;<br/>For&#160;example,&#160;the&#160;following pseudocode&#160;loads EAX with 00H&#160;and causes&#160;CPUID to&#160;return a&#160;Maximum Return Value&#160;<br/>and&#160;the&#160;Vendor&#160;Identification String in&#160;the appropriate&#160;registers:</p>
+<p style="position:absolute;top:511px;left:89px;white-space:nowrap" class="ft010">MOV EAX, 00H<br/>CPUID</p>
+<p style="position:absolute;top:553px;left:69px;white-space:nowrap" class="ft08"><a href="o_b5573232dd8f1481-318.html">Table&#160;3-8&#160;</a>shows information returned, depending on&#160;the initial&#160;value&#160;loaded&#160;into&#160;the EAX register.&#160;<br/>Two types of&#160;information are returned:&#160;basic&#160;and&#160;extended&#160;function&#160;information.&#160;If&#160;a value&#160;entered for CPUID.EAX&#160;<br/>is&#160;higher&#160;than&#160;the maximum&#160;input value for basic or&#160;extended function&#160;for&#160;that processor then&#160;the data for the&#160;<br/>highest basic information&#160;leaf is&#160;returned. For&#160;example, using&#160;the Intel Core i7 processor,&#160;the&#160;following&#160;is true:</p>
+<p style="position:absolute;top:631px;left:89px;white-space:nowrap" class="ft010">CPUID.EAX&#160;= 05H (*&#160;Returns MONITOR/MWAIT leaf.&#160;*)&#160;<br/>CPUID.EAX = 0AH (* Returns Architectural Performance&#160;Monitoring&#160;leaf.&#160;*)&#160;<br/>CPUID.EAX = 0BH (*&#160;Returns Extended&#160;Topology&#160;Enumeration leaf. *)&#160;<br/>CPUID.EAX = 0CH (* INVALID: Returns the same&#160;information as&#160;CPUID.EAX = 0BH.&#160;*)&#160;<br/>CPUID.EAX = 80000008H (* Returns linear/physical address size data. *)<br/>CPUID.EAX = 8000000AH (* INVALID: Returns same information as&#160;CPUID.EAX = 0BH. *)</p>
+<p style="position:absolute;top:745px;left:69px;white-space:nowrap" class="ft012">If a value&#160;entered for CPUID.EAX&#160;is less than or equal to&#160;the maximum input value and&#160;the leaf is not supported on&#160;<br/>that processor then 0 is&#160;returned&#160;in all&#160;the registers.<br/>When&#160;CPUID returns&#160;the highest basic leaf&#160;information as&#160;a result&#160;of&#160;an invalid input EAX value,&#160;any&#160;dependence&#160;<br/>on input ECX&#160;value&#160;in the&#160;basic&#160;leaf is&#160;honored.<br/>CPUID can&#160;be&#160;executed at&#160;any privilege&#160;level&#160;to serialize instruction execution. Serializing&#160;instruction&#160;execution&#160;<br/>guarantees&#160;that any modifications to&#160;flags,&#160;registers,&#160;and&#160;memory&#160;for&#160;previous instructions are completed before&#160;<br/>the next&#160;instruction&#160;is fetched and&#160;executed.<br/><b>See also:</b>&#160;<br/>‚ÄúSerializing Instructions‚Äù in&#160;<a href="˛ˇ">Chapter 8,&#160;‚ÄúMultiple-Processor&#160;Management,‚Äù</a>&#160;in&#160;the&#160;<a href="˛ˇ"><i>Intel¬Æ 64&#160;and&#160;IA-32&#160;Architectures&#160;<br/>Software Developer‚Äôs Manual, Volume&#160;3A</i></a>.<br/><a href="˛ˇ">‚ÄúCaching Translation Information‚Äù&#160;in Chapter 4, ‚ÄúPaging,‚Äù in&#160;</a>th<a href="˛ˇ">e&#160;<i>Intel¬Æ 64&#160;and IA-32 Architectures&#160;Software Devel-<br/>oper‚Äôs&#160;Manual, Volume&#160;3A</i>.</a></p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:222px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:390px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:390px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:427px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:427px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:499px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:499px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:570px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F&#160;A2</p>
+<p style="position:absolute;top:160px;left:222px;white-space:nowrap" class="ft04">CPUID</p>
+<p style="position:absolute;top:160px;left:390px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:427px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:499px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:569px;white-space:nowrap" class="ft04">Returns&#160;processor&#160;identification&#160;and feature&#160;</p>
+<p style="position:absolute;top:177px;left:570px;white-space:nowrap" class="ft04">information to the EAX,&#160;EBX,&#160;ECX,&#160;and EDX&#160;</p>
+<p style="position:absolute;top:193px;left:570px;white-space:nowrap" class="ft04">registers,&#160;as determined&#160;by input&#160;entered&#160;in&#160;</p>
+<p style="position:absolute;top:209px;left:570px;white-space:nowrap" class="ft04">EAX (in some cases, ECX as well).</p>
+<p style="position:absolute;top:289px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:289px;left:197px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:289px;left:374px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:289px;left:549px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:289px;left:723px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:313px;left:94px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:313px;left:219px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:313px;left:395px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:313px;left:570px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:313px;left:744px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft04">1.&#160;On&#160;Intel 64&#160;processors, CPUID clears the high&#160;32&#160;bits of&#160;the RAX/RBX/RCX/RDX registers in&#160;all modes.</p>
+</div>
+</body>
+</html>

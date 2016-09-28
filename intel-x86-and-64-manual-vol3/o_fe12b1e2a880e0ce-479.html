@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 479</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page479-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce479.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;14-13</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">POWER AND THERMAL MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">Additional Guidelines</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft07">Set IA32_HWP_REQUEST.Energy_Performance_Preference&#160;as&#160;appropriate for the platform's current mode of&#160;oper-<br/>ation. For&#160;example, a&#160;mobile&#160;platforms' setting may&#160;be&#160;towards performance&#160;preference when on AC&#160;power and&#160;<br/>more&#160;towards&#160;energy&#160;efficiency when&#160;on&#160;DC&#160;power.<br/>The&#160;use&#160;of the&#160;Running&#160;Average Power Limit (RAPL)&#160;processor&#160;capability (see&#160;section&#160;14.7.1) is&#160;highly recom-<br/>mended&#160;when&#160;HWP&#160;is enabled.&#160;Use of IA32_HWP_Request.Maximum_Performance for thermal control is&#160;subject to&#160;<br/>limitations and&#160;can adversely impact the&#160;performance of other&#160;processor&#160;components e.g. Graphics<br/>If&#160;default values&#160;deliver undesirable performance&#160;latency in&#160;response&#160;to events, the&#160;OS should&#160;set&#160;<br/>IA32_HWP_REQUEST.&#160;Activity_Window&#160;to a low (non zero)&#160;value&#160;and&#160;<br/>IA32_HWP_REQUEST.Energy_Performance_Preference towards&#160;performance (0) for the&#160;event&#160;duration.<br/>Similarly,&#160;for “real-time”&#160;threads,&#160;set IA32_HWP_REQUEST.Energy_Performance_Preference towards performance&#160;<br/>(0) and&#160;IA32_HWP_REQUEST.&#160;Activity_Window to&#160;a low value,&#160;e.g.&#160;01H, for the&#160;duration&#160;of&#160;their execution.<br/>When executing low priority&#160;work that&#160;may&#160;otherwise&#160;cause&#160;the hardware to deliver high&#160;performance,&#160;set&#160;<br/>IA32_HWP_REQUEST.&#160;Activity_Window&#160;to a longer value&#160;and&#160;reduce the&#160;<br/>IA32_HWP_Request.Maximum_Performance value&#160;as appropriate&#160;to control energy&#160;efficiency.&#160;Adjustments&#160;to&#160;<br/>IA32_HWP_REQUEST.Energy_Performance_Preference may&#160;also be necessary.</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft04">14.5&#160;</p>
+<p style="position:absolute;top:442px;left:148px;white-space:nowrap" class="ft04">HARDWARE&#160;DUTY&#160;CYCLING&#160;(HDC)</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft07">Intel processors may contain support for Hardware&#160;Duty&#160;Cycling (HDC),&#160;which enables&#160;the processor to&#160;autono-<br/>mously force&#160;its components inside&#160;the physical package into idle state.&#160;For example, the&#160;processor may selectively&#160;<br/>force&#160;only&#160;the processor cores&#160;into an&#160;idle&#160;state.&#160;<br/>HDC&#160;is disabled&#160;by&#160;default on processors that&#160;support it.&#160;System&#160;software can&#160;dynamically&#160;enable&#160;or disable&#160;HDC&#160;<br/>to force&#160;one or more&#160;components into an&#160;idle&#160;state&#160;or wake&#160;up those&#160;components previously forced into&#160;an&#160;idle&#160;<br/>state. Forced&#160;Idling&#160;(and waking&#160;up) of multiple components&#160;in a physical package&#160;can be done&#160;with&#160;one WRMSR&#160;<br/>to&#160;a packaged-scope MSR&#160;from any&#160;logical processor within the&#160;same&#160;package.&#160;<br/>HDC does not delay events such as timer expiration, but it&#160;may affect the latency of short (less than 1 msec)&#160;soft-<br/>ware&#160;threads, e.g. if a&#160;thread&#160;is forced to idle&#160;state just before&#160;completion&#160;and entering a&#160;“natural idle”.<br/>HDC&#160;forced&#160;idle&#160;operation&#160;can be thought of as&#160;operating&#160;at&#160;a&#160;lower effective frequency.&#160;The effective average&#160;<br/>frequency computed by software&#160;will&#160;include&#160;the impact&#160;of HDC forced&#160;idle.&#160;<br/>The primary use&#160;of HDC is&#160;enable&#160;system&#160;software&#160;to manage&#160;low active workloads to&#160;increase&#160;the&#160;package level&#160;<br/>C6&#160;residency.&#160;Additionally, HDC can&#160;lower the&#160;effective&#160;average frequency in&#160;case&#160;or&#160;power or&#160;thermal limitation.&#160;<br/>When HDC forces&#160;a logical processor,&#160;a&#160;processor&#160;core&#160;or&#160;a physical&#160;package to&#160;enter an&#160;idle&#160;state, its&#160;C-State is&#160;set&#160;<br/>to C3 or&#160;deeper. The&#160;deep&#160;“C-states”&#160;referred to in&#160;this section&#160;are&#160;processor-specific&#160;C-states.</p>
+<p style="position:absolute;top:797px;left:69px;white-space:nowrap" class="ft05">14.5.1&#160;</p>
+<p style="position:absolute;top:797px;left:149px;white-space:nowrap" class="ft05">Hardware&#160;Duty Cycling Programming Interfaces&#160;</p>
+<p style="position:absolute;top:828px;left:69px;white-space:nowrap" class="ft03">The programming interfaces&#160;provided by HDC include the&#160;following:</p>
+<p style="position:absolute;top:850px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:850px;left:95px;white-space:nowrap" class="ft09">The&#160;CPUID&#160;instruction&#160;allows&#160;software&#160;to discover&#160;the presence&#160;of HDC support&#160;in an&#160;Intel processor.&#160;Specifi-<br/>cally,&#160;execute&#160;CPUID&#160;instruction&#160;with&#160;EAX=06H as&#160;input,&#160;bit&#160;13&#160;of EAX indicates the&#160;processor’s&#160;support of&#160;the&#160;<br/>following aspects of HDC.<br/>—&#160;Availability of&#160;HDC baseline&#160;resource, CPUID.06H:EAX[bit&#160;13]: If this bit is set, HDC provides the following&#160;</p>
+<p style="position:absolute;top:924px;left:120px;white-space:nowrap" class="ft03">architectural MSRs:&#160;IA32_PKG_HDC_CTL,&#160;IA32_PM_CTL1,&#160;and&#160;the&#160;IA32_THREAD_STALL&#160;MSRs.</p>
+<p style="position:absolute;top:970px;left:69px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:970px;left:95px;white-space:nowrap" class="ft03">Additionally, HDC may provide several non-architectural MSR.&#160;</p>
+<p style="position:absolute;top:1001px;left:222px;white-space:nowrap" class="ft02">Table&#160;14-2. &#160;Architectural and&#160;non-Architecture&#160;MSRs Related to&#160;HDC</p>
+<p style="position:absolute;top:1026px;left:79px;white-space:nowrap" class="ft03">Address&#160;Architec</p>
+<p style="position:absolute;top:1042px;left:156px;white-space:nowrap" class="ft03">tural</p>
+<p style="position:absolute;top:1026px;left:250px;white-space:nowrap" class="ft03">Register&#160;Name</p>
+<p style="position:absolute;top:1026px;left:578px;white-space:nowrap" class="ft03">Description</p>
+</div>
+</body>
+</html>

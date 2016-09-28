@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1176</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1176-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1176.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">29-10&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND&#160;VIRTUAL INTERRUPTS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07"><b>PREFETCH.</b>&#160;An&#160;execution of the&#160;PREFETCH instruction that would result&#160;in an&#160;access to&#160;the&#160;APIC-access&#160;page&#160;<br/>does&#160;not cause&#160;an APIC-access&#160;VM&#160;exit. Such&#160;an access&#160;may&#160;prefetch&#160;data; if&#160;so, it&#160;is from the&#160;corresponding&#160;<br/>address on the&#160;virtual-APIC&#160;page.</p>
+<p style="position:absolute;top:157px;left:68px;white-space:nowrap" class="ft07">Virtualization of accesses to the&#160;APIC-access&#160;page is&#160;principally intended&#160;for basic instructions such as AND,&#160;MOV,&#160;<br/>OR, TEST,&#160;XCHG,&#160;and XOR. Use&#160;of&#160;an instruction that normally&#160;operates on floating-point, SSE,&#160;AVX,&#160;or&#160;AVX-512&#160;<br/>registers may cause&#160;an&#160;APIC-access VM exit&#160;unconditionally&#160;regardless&#160;of the&#160;page offset it&#160;accesses on&#160;the&#160;APIC-<br/>access page.</p>
+<p style="position:absolute;top:257px;left:68px;white-space:nowrap" class="ft05">29.4.5&#160;</p>
+<p style="position:absolute;top:257px;left:148px;white-space:nowrap" class="ft05">Issues Pertaining to&#160;Page Size&#160;and TLB Management</p>
+<p style="position:absolute;top:288px;left:68px;white-space:nowrap" class="ft07">The&#160;1-setting&#160;of the “virtualize APIC accesses” VM-execution&#160;is&#160;guaranteed to&#160;apply&#160;only if&#160;translations to the APIC-<br/>access address&#160;use a&#160;4-KByte page. The&#160;following&#160;items provide details:</p>
+<p style="position:absolute;top:326px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:327px;left:93px;white-space:nowrap" class="ft07">If EPT is&#160;not&#160;in use, any&#160;linear address&#160;that translates to&#160;an address&#160;on&#160;the APIC-access&#160;page&#160;should use&#160;a 4-<br/>KByte&#160;page. Any access&#160;to a&#160;linear address&#160;that translates to&#160;the APIC-access&#160;page&#160;using&#160;a larger&#160;page may&#160;<br/>operate&#160;as if&#160;the&#160;“virtualize&#160;APIC&#160;accesses”&#160;VM-execution control were&#160;0.</p>
+<p style="position:absolute;top:382px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:382px;left:93px;white-space:nowrap" class="ft07">If EPT is in use, any guest-physical address that&#160;translates to an&#160;address on the APIC-access page should use a&#160;<br/>4-KByte page. Any access to a&#160;linear&#160;address that&#160;translates&#160;to&#160;a guest-physical address&#160;that in&#160;turn translates&#160;<br/>to&#160;the&#160;APIC-access page&#160;using a&#160;larger&#160;page may operate as&#160;if&#160;the “virtualize APIC accesses” VM-execution&#160;<br/>control were&#160;0. (This&#160;is true&#160;also for guest-physical&#160;accesses&#160;to the&#160;APIC-access&#160;<a href="o_fe12b1e2a880e0ce-1177.html">page; see Section&#160;29.4.6.1.)</a></p>
+<p style="position:absolute;top:456px;left:68px;white-space:nowrap" class="ft07">In&#160;addition, software&#160;should perform&#160;appropriate TLB invalidation when making changes that&#160;may affect&#160;APIC-<br/>virtualization. The specifics depend on&#160;whether&#160;VPIDs or&#160;EPT is&#160;being used:</p>
+<p style="position:absolute;top:494px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:495px;left:93px;white-space:nowrap" class="ft07"><b>VPIDs&#160;being used but EPT not being used.&#160;</b>Suppose that there is&#160;a VPID that&#160;has been used&#160;before and&#160;that&#160;<br/>software has&#160;since made either&#160;of the&#160;following changes: (1)&#160;set the&#160;“virtualize&#160;APIC accesses” VM-execution&#160;<br/>control&#160;when&#160;it had&#160;previously been&#160;0; or&#160;(2)&#160;changed&#160;the paging structures&#160;so that&#160;some linear&#160;address&#160;<br/>translates&#160;to the&#160;APIC-access&#160;address when&#160;it&#160;previously did not. In&#160;that&#160;case, software&#160;should&#160;execute&#160;<br/><a href="o_fe12b1e2a880e0ce-1186.html">INVVPID (see “INVVPID— Invalidate Translations&#160;Based on&#160;VPID” in Se</a><a href="o_fe12b1e2a880e0ce-1182.html">ction&#160;30.3) be</a>fore performing&#160;on the&#160;<br/>same logical processor and&#160;with&#160;the same&#160;VPID.</p>
+<p style="position:absolute;top:575px;left:417px;white-space:nowrap" class="ft06">9</p>
+<p style="position:absolute;top:599px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:600px;left:93px;white-space:nowrap" class="ft07"><b>EPT being&#160;used.&#160;</b>Suppose&#160;that there is&#160;an&#160;EPTP value that&#160;has&#160;been used&#160;before&#160;and&#160;that&#160;software has&#160;since&#160;<br/>made&#160;either&#160;of the following changes: (1)&#160;set the “virtualize APIC&#160;accesses” VM-execution&#160;control when it had&#160;<br/>previously&#160;been&#160;0;&#160;or (2)&#160;changed&#160;the&#160;EPT&#160;paging structures so that&#160;some guest-physical address translates to&#160;<br/>the&#160;APIC-access&#160;address when it&#160;previously did not.&#160;In that&#160;case, software&#160;should execute&#160;INVEPT (see&#160;<br/><a href="o_fe12b1e2a880e0ce-1183.html">“INVEPT—&#160;Invalidate Translations&#160;Derived&#160;from&#160;EPT” in Section 3</a><a href="o_fe12b1e2a880e0ce-1182.html">0.3) befo</a>re performing&#160;on&#160;the same&#160;logical&#160;<br/>processor&#160;and with the&#160;same EPTP value.</p>
+<p style="position:absolute;top:680px;left:370px;white-space:nowrap" class="ft06">10</p>
+<p style="position:absolute;top:704px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:705px;left:93px;white-space:nowrap" class="ft03"><b>Neither VPIDs nor EPT&#160;being&#160;used.</b>&#160;No&#160;invalidation is&#160;required.</p>
+<p style="position:absolute;top:729px;left:68px;white-space:nowrap" class="ft07">Failure to perform the&#160;appropriate&#160;TLB&#160;invalidation may&#160;result&#160;in the logical processor&#160;operating as if the “virtualize&#160;<br/>APIC accesses”&#160;VM-execution&#160;control&#160;were 0&#160;in&#160;responses&#160;to&#160;accesses to&#160;the affected&#160;address.&#160;(No&#160;invalidation is&#160;<br/>necessary if&#160;neither VPIDs nor EPT is&#160;being&#160;used.)</p>
+<p style="position:absolute;top:812px;left:68px;white-space:nowrap" class="ft05">29.4.6&#160;</p>
+<p style="position:absolute;top:812px;left:148px;white-space:nowrap" class="ft05">APIC Accesses Not Directly&#160;Resulting From Linear Addresses</p>
+<p style="position:absolute;top:843px;left:68px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-1171.html">Section&#160;29.4 h</a>as described the&#160;treatment of accesses&#160;that&#160;use&#160;linear addresses that translate to addresses on the&#160;<br/>APIC-access page. This&#160;section considers memory accesses that&#160;do not&#160;result directly from&#160;linear&#160;addresses.</p>
+<p style="position:absolute;top:881px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:882px;left:93px;white-space:nowrap" class="ft04">An&#160;access is&#160;called a&#160;<b>guest-physical access</b>&#160;if (1)&#160;CR0.PG&#160;=&#160;1;</p>
+<p style="position:absolute;top:879px;left:526px;white-space:nowrap" class="ft06">11</p>
+<p style="position:absolute;top:882px;left:540px;white-space:nowrap" class="ft04">&#160;(2)&#160;the “enable EPT”&#160;VM-execution control&#160;</p>
+<p style="position:absolute;top:898px;left:93px;white-space:nowrap" class="ft04">is 1;</p>
+<p style="position:absolute;top:896px;left:123px;white-space:nowrap" class="ft06">12</p>
+<p style="position:absolute;top:898px;left:137px;white-space:nowrap" class="ft04">&#160;(3)&#160;the access’s&#160;physical&#160;address is&#160;the&#160;result&#160;of&#160;an EPT&#160;translation; and (4)&#160;either (a)&#160;the access was&#160;</p>
+<p style="position:absolute;top:915px;left:93px;white-space:nowrap" class="ft04">not generated by&#160;a linear&#160;address; or&#160;(b)&#160;the&#160;access’s guest-physical&#160;address is&#160;not the&#160;translation of the&#160;</p>
+<p style="position:absolute;top:963px;left:68px;white-space:nowrap" class="ft04">9.&#160;INVVPID&#160;should use either (1)&#160;the all-contexts INVVPID type;&#160;(2)&#160;the single-context&#160;INVVPID&#160;type&#160;with&#160;the VPID&#160;in&#160;the INVVPID&#160;</p>
+<p style="position:absolute;top:979px;left:89px;white-space:nowrap" class="ft04">descriptor; or (3)&#160;&#160;the&#160;individual-address&#160;INVVPID type&#160;with&#160;the linear&#160;address and the&#160;VPID in&#160;the&#160;INVVPID descriptor.</p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft04">10.&#160;INVEPT should use either&#160;(1)&#160;the&#160;global INVEPT type; or (2) the single-context INVEPT type with&#160;the EPTP&#160;value in&#160;the INVEPT&#160;</p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft04">descriptor.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft04">11.&#160;If&#160;the capability MSR IA32_VMX_CR0_FIXED0 reports that&#160;CR0.PG&#160;must&#160;be 1 in VMX operation, CR0.PG must&#160;be&#160;1&#160;unless the “unre-</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft04">stricted&#160;guest” VM-execution&#160;control and&#160;bit 31&#160;of&#160;the primary processor-based VM-execution&#160;controls are both&#160;1.</p>
+</div>
+</body>
+</html>

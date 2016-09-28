@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 263</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:9px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page263-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce263.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:774px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-7</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">In&#160;a multiple-processor&#160;system, the&#160;following ordering principles&#160;apply:</p>
+<p style="position:absolute;top:122px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:123px;left:95px;white-space:nowrap" class="ft02">Individual processors use&#160;the&#160;same ordering principles&#160;as in&#160;a&#160;single-processor&#160;system.</p>
+<p style="position:absolute;top:145px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:145px;left:95px;white-space:nowrap" class="ft02">Writes&#160;by&#160;a single processor are&#160;observed in the&#160;same order by&#160;all processors.</p>
+<p style="position:absolute;top:167px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:168px;left:95px;white-space:nowrap" class="ft02">Writes from an individual processor&#160;are&#160;NOT&#160;ordered&#160;with&#160;respect to&#160;the writes from other&#160;processors.</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:190px;left:95px;white-space:nowrap" class="ft02">Memory&#160;ordering obeys&#160;causality (memory ordering respects&#160;transitive&#160;visibility).</p>
+<p style="position:absolute;top:212px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:213px;left:95px;white-space:nowrap" class="ft02">Any two stores&#160;are seen in&#160;a consistent&#160;order&#160;by&#160;processors&#160;other than those&#160;performing the stores</p>
+<p style="position:absolute;top:235px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:235px;left:95px;white-space:nowrap" class="ft02">Locked instructions have a&#160;total order.</p>
+<p style="position:absolute;top:259px;left:69px;white-space:nowrap" class="ft08">See the&#160;example&#160;<a href="o_fe12b1e2a880e0ce-263.html">in Figure&#160;8-1.&#160;</a>Consider three&#160;processors&#160;in a&#160;system and&#160;each processor performs&#160;three&#160;writes,&#160;<br/>one to&#160;each of three defined locations&#160;(A, B,&#160;and C).&#160;Individually,&#160;the processors perform&#160;the writes&#160;in&#160;the same&#160;<br/>program order,&#160;but because of&#160;bus arbitration and&#160;other memory&#160;access&#160;mechanisms,&#160;the order that the&#160;three&#160;<br/>processors write the individual memory&#160;locations can differ each time the respective code sequences are executed&#160;<br/>on the&#160;processors. The&#160;final values in&#160;location A, B,&#160;and C would possibly vary on each execution&#160;of&#160;the write&#160;<br/>sequence.<br/>The processor-ordering model described in this&#160;section is&#160;virtually identical to&#160;that used by the&#160;Pentium&#160;and&#160;<br/>Intel486&#160;processors. The only enhancements in the&#160;Pentium&#160;4, Intel&#160;Xeon, and&#160;P6&#160;family processors are:</p>
+<p style="position:absolute;top:404px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:405px;left:95px;white-space:nowrap" class="ft02">Added support for speculative&#160;reads, while still&#160;adhering&#160;to the&#160;ordering principles above.</p>
+<p style="position:absolute;top:427px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:427px;left:95px;white-space:nowrap" class="ft02">Store-buffer&#160;forwarding, when a&#160;read&#160;passes&#160;a write&#160;to the&#160;same&#160;memory location.</p>
+<p style="position:absolute;top:449px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:450px;left:95px;white-space:nowrap" class="ft08">Out of&#160;order store from long string store and string move&#160;operations&#160;(see<a href="o_fe12b1e2a880e0ce-268.html">&#160;Section&#160;8.2.4,&#160;“Fast-String&#160;Operation&#160;<br/>and&#160;Out-of-Order Stores,”&#160;below).</a></p>
+<p style="position:absolute;top:890px;left:433px;white-space:nowrap" class="ft04">NOTE</p>
+<p style="position:absolute;top:919px;left:69px;white-space:nowrap" class="ft08">In P6 processor&#160;family, store-buffer forwarding to reads of&#160;WC memory&#160;from&#160;streaming stores&#160;to the same&#160;address&#160;<br/>does&#160;not occur due to&#160;errata.</p>
+<p style="position:absolute;top:986px;left:69px;white-space:nowrap" class="ft05">8.2.3&#160;</p>
+<p style="position:absolute;top:986px;left:150px;white-space:nowrap" class="ft05">Examples Illustrating the Memory-Ordering Principles</p>
+<p style="position:absolute;top:1016px;left:69px;white-space:nowrap" class="ft08">This section provides a set of examples&#160;that illustrate&#160;the&#160;behavior of the memory-ordering principles&#160;introduced&#160;in&#160;<br/><a href="o_fe12b1e2a880e0ce-262.html">Section 8.2.2.</a>&#160;They&#160;are designed to&#160;give&#160;software&#160;writers&#160;an understanding of&#160;how&#160;memory&#160;ordering may&#160;affect&#160;<br/>the results of different&#160;sequences of instructions.</p>
+<p style="position:absolute;top:846px;left:221px;white-space:nowrap" class="ft06">Figure&#160;8-1. &#160;Example of&#160;Write Ordering in&#160;Multiple-Processor&#160;Systems</p>
+<p style="position:absolute;top:546px;left:371px;white-space:nowrap" class="ft00">Processor #1</p>
+<p style="position:absolute;top:546px;left:479px;white-space:nowrap" class="ft00">Processor&#160;#2</p>
+<p style="position:absolute;top:546px;left:587px;white-space:nowrap" class="ft00">Processor #3</p>
+<p style="position:absolute;top:565px;left:599px;white-space:nowrap" class="ft010">Write A.3<br/>Write B.3<br/>Write C.3</p>
+<p style="position:absolute;top:708px;left:489px;white-space:nowrap" class="ft010">Write&#160;A.1<br/>Write&#160;B.1<br/>Write&#160;A.2<br/>Write&#160;A.3<br/>Write&#160;C.1<br/>Write&#160;B.2<br/>Write&#160;C.2<br/>Write&#160;B.3<br/>Write&#160;C.3</p>
+<p style="position:absolute;top:523px;left:390px;white-space:nowrap" class="ft07"><b>Order of&#160;Writes&#160;From&#160;Individual Processors</b></p>
+<p style="position:absolute;top:564px;left:491px;white-space:nowrap" class="ft010">Write A.2<br/>Write B.2<br/>Write C.2</p>
+<p style="position:absolute;top:565px;left:383px;white-space:nowrap" class="ft010">Write A.1<br/>Write B.1<br/>Write C.1</p>
+<p style="position:absolute;top:737px;left:587px;white-space:nowrap" class="ft011">Writes from all<br/>processors are<br/>not guaranteed<br/>to&#160;occur in a<br/>particular&#160;order.</p>
+<p style="position:absolute;top:559px;left:238px;white-space:nowrap" class="ft010">Each processor<br/>is guaranteed to<br/>perform writes in<br/>program order.</p>
+<p style="position:absolute;top:708px;left:321px;white-space:nowrap" class="ft012">Writes are&#160;in order<br/>with respect to&#160;<br/>individual processes.</p>
+<p style="position:absolute;top:670px;left:435px;white-space:nowrap" class="ft010">Example of order of&#160;actual writes<br/>from all processors&#160;to&#160;memory</p>
+</div>
+</body>
+</html>

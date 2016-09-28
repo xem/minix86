@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 538</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:9px;line-height:15px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page538-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce538.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-32&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Example 15-4. &#160;Machine-Check Error&#160;Handler&#160;Pseudocode Supporting UCR</p>
+<p style="position:absolute;top:125px;left:68px;white-space:nowrap" class="ft02">MACHINE&#160;CHECK HANDLER: &#160;(* Called from INT 18 handler *)<br/>NOERROR = TRUE;<br/>ProcessorCount&#160;= 0;</p>
+<p style="position:absolute;top:170px;left:68px;white-space:nowrap" class="ft00">IF CPU supports MCA</p>
+<p style="position:absolute;top:185px;left:87px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:200px;left:105px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;TRUE;</p>
+<p style="position:absolute;top:215px;left:105px;white-space:nowrap" class="ft00">IF (Processor Family = 6&#160;AND DisplayModel&#160;≥&#160;0EH) OR (Processor Family &gt; 6)&#160;</p>
+<p style="position:absolute;top:230px;left:124px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:245px;left:143px;white-space:nowrap" class="ft00">IF ( MCG_LMCE&#160;= 1)</p>
+<p style="position:absolute;top:260px;left:162px;white-space:nowrap" class="ft00">MCA_BROADCAST = FALSE;</p>
+<p style="position:absolute;top:275px;left:143px;white-space:nowrap" class="ft00">ELSE</p>
+<p style="position:absolute;top:290px;left:162px;white-space:nowrap" class="ft00">MCA_BROADCAST = TRUE;</p>
+<p style="position:absolute;top:305px;left:143px;white-space:nowrap" class="ft02">FI;<br/>Acquire SpinLock;&#160;<br/>ProcessorCount++;&#160; (* Allowing one logical&#160;processor at a&#160;time to examine machine check registers *)</p>
+<p style="position:absolute;top:350px;left:143px;white-space:nowrap" class="ft00">CALL MCA ERROR PROCESSING; (* returns RESTARTABILITY and NOERROR *)</p>
+<p style="position:absolute;top:365px;left:124px;white-space:nowrap" class="ft00">ELSE&#160;</p>
+<p style="position:absolute;top:380px;left:143px;white-space:nowrap" class="ft00">MCA_BROADCAST = FALSE;</p>
+<p style="position:absolute;top:395px;left:143px;white-space:nowrap" class="ft02">(* Implement&#160;a rendezvous mechanism&#160;with&#160;the&#160;other processors if necessary *)<br/>CALL MCA ERROR PROCESSING;</p>
+<p style="position:absolute;top:425px;left:105px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:440px;left:87px;white-space:nowrap" class="ft00">ELSE (*&#160;Pentium(R)&#160;processor compatible *)</p>
+<p style="position:absolute;top:455px;left:105px;white-space:nowrap" class="ft02">READ P5_MC_ADDR<br/>READ P5_MC_TYPE;</p>
+<p style="position:absolute;top:485px;left:105px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE;</p>
+<p style="position:absolute;top:500px;left:68px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:530px;left:68px;white-space:nowrap" class="ft02">IF NOERROR = TRUE<br/>&#160; &#160;&#160;&#160;THEN</p>
+<p style="position:absolute;top:560px;left:105px;white-space:nowrap" class="ft00">IF NOT (MCG_RIPV =&#160;1 AND MCG_EIPV&#160;= 0)&#160;</p>
+<p style="position:absolute;top:575px;left:124px;white-space:nowrap" class="ft00">THEN&#160;</p>
+<p style="position:absolute;top:590px;left:143px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE;</p>
+<p style="position:absolute;top:605px;left:105px;white-space:nowrap" class="ft00">FI</p>
+<p style="position:absolute;top:620px;left:68px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:650px;left:68px;white-space:nowrap" class="ft00">IF RESTARTABILITY&#160;= FALSE</p>
+<p style="position:absolute;top:665px;left:87px;white-space:nowrap" class="ft00">THEN&#160;</p>
+<p style="position:absolute;top:680px;left:105px;white-space:nowrap" class="ft02">Report RESTARTABILITY to console;<br/>Reset system;&#160;</p>
+<p style="position:absolute;top:710px;left:68px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:740px;left:68px;white-space:nowrap" class="ft00">IF MCA_BROADCAST = TRUE</p>
+<p style="position:absolute;top:755px;left:87px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:770px;left:105px;white-space:nowrap" class="ft02">IF ProcessorCount&#160;= MAX_PROCESSORS<br/>&#160; &#160; AND NOERROR = TRUE</p>
+<p style="position:absolute;top:800px;left:124px;white-space:nowrap" class="ft00">THEN</p>
+<p style="position:absolute;top:815px;left:143px;white-space:nowrap" class="ft02">Report&#160;RESTARTABILITY&#160;to&#160;console;<br/>Reset system;</p>
+<p style="position:absolute;top:845px;left:105px;white-space:nowrap" class="ft00">FI;</p>
+<p style="position:absolute;top:860px;left:105px;white-space:nowrap" class="ft02">Release SpinLock;&#160;<br/>Wait till ProcessorCount&#160;= MAX_PROCESSRS&#160;on system;&#160;<br/>(* implement a&#160;timeout and abort function&#160;if necessary&#160;*)</p>
+<p style="position:absolute;top:905px;left:68px;white-space:nowrap" class="ft02">FI;<br/>CLEAR IA32_MCG_STATUS;<br/>RESUME Execution;</p>
+<p style="position:absolute;top:950px;left:68px;white-space:nowrap" class="ft00">(* End of MACHINE CHECK HANDLER*)</p>
+<p style="position:absolute;top:995px;left:68px;white-space:nowrap" class="ft02">MCA ERROR PROCESSING: &#160; &#160;(* MCA Error Processing&#160;Routine called from&#160;MCA Handler *)<br/>IF MCIP flag in IA32_MCG_STATUS&#160;= 0</p>
+<p style="position:absolute;top:1025px;left:87px;white-space:nowrap" class="ft00">THEN (* MCIP=0 upon MCA is unexpected&#160;*)</p>
+<p style="position:absolute;top:1040px;left:105px;white-space:nowrap" class="ft00">RESTARTABILITY =&#160;FALSE;</p>
+<p style="position:absolute;top:1055px;left:68px;white-space:nowrap" class="ft00">FI;</p>
+</div>
+</body>
+</html>

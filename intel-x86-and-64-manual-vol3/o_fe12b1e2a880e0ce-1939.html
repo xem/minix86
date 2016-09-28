@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1939</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1939-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1939.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;43-7</p>
+<p style="position:absolute;top:47px;left:614px;white-space:nowrap" class="ft01">ENCLAVE CODE&#160;DEBUG AND PROFILING</p>
+<p style="position:absolute;top:577px;left:69px;white-space:nowrap" class="ft02">43.5.2.3 &#160;&#160;Mispredict&#160;Bit, Record&#160;Type, and Filtering</p>
+<p style="position:absolute;top:604px;left:69px;white-space:nowrap" class="ft07">All branch records resulting&#160;from&#160;Intel SGX&#160;instructions/AEXs are reported&#160;as predicted branches,&#160;and conse-<br/>quently,&#160;bit 63 of MSR_LASTBRANCH_n_FROM_IP&#160;for&#160;such&#160;records is&#160;set. Branch records due to&#160;these&#160;Intel SGX&#160;<br/>operations&#160;are always non-HLE/non-RTM&#160;records.&#160;<br/>EENTER,&#160;ERESUME, EEXIT,&#160;and&#160;AEX are&#160;considered to&#160;be&#160;far branches. Consequently,&#160;bit&#160;8 in&#160;MSR_LBR_SELECT&#160;<br/>controls&#160;filtering of the&#160;new records introduced&#160;by Intel&#160;SGX.</p>
+<p style="position:absolute;top:731px;left:69px;white-space:nowrap" class="ft04">43.6&#160;</p>
+<p style="position:absolute;top:731px;left:148px;white-space:nowrap" class="ft04">INTERACTION WITH PERFORMANCE MONITORING&#160;</p>
+<p style="position:absolute;top:793px;left:69px;white-space:nowrap" class="ft05">43.6.1 IA32_PERF_GLOBAL_STATUS&#160;</p>
+<p style="position:absolute;top:793px;left:388px;white-space:nowrap" class="ft05">Enhancement</p>
+<p style="position:absolute;top:823px;left:69px;white-space:nowrap" class="ft07">On processors supporting Intel&#160;SGX, the IA32_PERF_GLOBAL_STATUS&#160;MSR provides&#160;a&#160;bit indicator,&#160;known as “Anti&#160;<br/>Side-channel Interference” (ASCI) at&#160;bit&#160;position 60.&#160;If&#160;this bit is&#160;0, the&#160;performance monitoring&#160;data in various&#160;<br/>performance&#160;monitoring&#160;counters are accumulated&#160;normally&#160;as&#160;defined by&#160;relevant&#160;architectural/microarchitec-<br/>tural conditions. If&#160;the ASCI bit is&#160;set, the contents&#160;in&#160;various&#160;performance monitoring&#160;counters can&#160;be affected by&#160;<br/>the direct or&#160;indirect&#160;consequence&#160;of Intel&#160;SGX protection of enclave code&#160;executing in&#160;the processor.&#160;</p>
+<p style="position:absolute;top:939px;left:69px;white-space:nowrap" class="ft05">43.6.2&#160;</p>
+<p style="position:absolute;top:939px;left:149px;white-space:nowrap" class="ft05">Performance Monitoring with Opt-in Entry</p>
+<p style="position:absolute;top:968px;left:69px;white-space:nowrap" class="ft07">An opt-in enclave entry&#160;allow performance monitoring&#160;logic to observe the contribution of enclave code&#160;executing&#160;<br/>in&#160;the&#160;processor.&#160;Thus the&#160;contents of performance&#160;monitoring&#160;counters does&#160;not distinguish between&#160;contribution&#160;<br/>originating from&#160;enclave code or&#160;otherwise. All counters,&#160;events,&#160;precise events, etc. continue&#160;to work&#160;as defined&#160;<br/>in the&#160;IA32/Intel 64&#160;Software Developer&#160;Manual.&#160;Consequently,&#160;bit 60&#160;of IA32_PERF_GLOBAL_STATUS&#160;MSR&#160;is not&#160;<br/>set.</p>
+<p style="position:absolute;top:525px;left:271px;white-space:nowrap" class="ft06">Figure&#160;43-4. &#160;LBR Stack Interaction&#160;with&#160;Opt-out Entry</p>
+<p style="position:absolute;top:155px;left:547px;white-space:nowrap" class="ft03">Inst1</p>
+<p style="position:absolute;top:196px;left:251px;white-space:nowrap" class="ft03">BR2</p>
+<p style="position:absolute;top:196px;left:547px;white-space:nowrap" class="ft03">Inst3</p>
+<p style="position:absolute;top:482px;left:251px;white-space:nowrap" class="ft03">EEXIT</p>
+<p style="position:absolute;top:237px;left:251px;white-space:nowrap" class="ft03">Inst4</p>
+<p style="position:absolute;top:279px;left:545px;white-space:nowrap" class="ft03">AEP</p>
+<p style="position:absolute;top:158px;left:240px;white-space:nowrap" class="ft03">EENTER</p>
+<p style="position:absolute;top:359px;left:251px;white-space:nowrap" class="ft03">IRET</p>
+<p style="position:absolute;top:319px;left:545px;white-space:nowrap" class="ft03">OS</p>
+<p style="position:absolute;top:400px;left:545px;white-space:nowrap" class="ft03">Inst4</p>
+<p style="position:absolute;top:360px;left:545px;white-space:nowrap" class="ft03">AEP</p>
+<p style="position:absolute;top:319px;left:251px;white-space:nowrap" class="ft03">AEP</p>
+<p style="position:absolute;top:403px;left:240px;white-space:nowrap" class="ft03">ERESUME</p>
+<p style="position:absolute;top:441px;left:251px;white-space:nowrap" class="ft03">BR5</p>
+<p style="position:absolute;top:441px;left:545px;white-space:nowrap" class="ft03">Inst6</p>
+<p style="position:absolute;top:481px;left:545px;white-space:nowrap" class="ft03">Inst7</p>
+<p style="position:absolute;top:237px;left:364px;white-space:nowrap" class="ft03">Fault</p>
+</div>
+</body>
+</html>

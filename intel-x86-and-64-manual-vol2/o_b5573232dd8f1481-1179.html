@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1179</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1179-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811179.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PUNPCKHBW/PUNPCKHWD/PUNPCKHDQ/PUNPCKHQDQ— Unpack&#160;High&#160;Data</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-499</p>
+<p style="position:absolute;top:118px;left:69px;white-space:nowrap" class="ft04">PUNPCKHQDQ&#160;(128-bit Legacy&#160;SSE&#160;Version)<br/>DEST[127:0]&#160;INTERLEAVE_HIGH_QWORDS(DEST,&#160;SRC)<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft04">VPUNPCKHQDQ (VEX.128&#160;encoded version)<br/>DEST[127:0]&#160;INTERLEAVE_HIGH_QWORDS(SRC1, SRC2)<br/>DEST[MAX_VL-1:128]&#160;0</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft04">VPUNPCKHQDQ (VEX.256&#160;encoded version)<br/>DEST[255:0]&#160;INTERLEAVE_HIGH_QWORDS_256b(SRC1, SRC2)<br/>DEST[MAX_VL-1:256]&#160;0</p>
+<p style="position:absolute;top:334px;left:69px;white-space:nowrap" class="ft04">VPUNPCKHQDQ (EVEX encoded versions)<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 64<br/>IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:424px;left:116px;white-space:nowrap" class="ft04">THEN&#160;TMP_SRC2[i+63:i]&#160;&#160;SRC2[63:0]<br/>ELSE TMP_SRC2[i+63:i]&#160;&#160;SRC2[i+63:i]</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft04">ENDFOR;<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:514px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_HIGH_QWORDS(SRC1[VL-1:0],&#160;TMP_SRC2[VL-1:0])</p>
+<p style="position:absolute;top:532px;left:69px;white-space:nowrap" class="ft04">FI;<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:568px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_HIGH_QWORDS_256b(SRC1[VL-1:0], TMP_SRC2[VL-1:0])</p>
+<p style="position:absolute;top:586px;left:69px;white-space:nowrap" class="ft04">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:622px;left:89px;white-space:nowrap" class="ft02">TMP_DEST[VL-1:0]&#160;&#160;INTERLEAVE_HIGH_QWORDS_512b(SRC1[VL-1:0], TMP_SRC2[VL-1:0])</p>
+<p style="position:absolute;top:640px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:676px;left:69px;white-space:nowrap" class="ft02">FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:694px;left:89px;white-space:nowrap" class="ft04">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:730px;left:116px;white-space:nowrap" class="ft04">THEN DEST[i+63:i]&#160;&#160;TMP_DEST[i+63:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:766px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:766px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:784px;left:170px;white-space:nowrap" class="ft04">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;*zeroing-masking*</p>
+<p style="position:absolute;top:802px;left:386px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:820px;left:197px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:838px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:856px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:929px;left:69px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalents</p>
+<p style="position:absolute;top:949px;left:69px;white-space:nowrap" class="ft04">VPUNPCKHBW&#160;__m512i _mm512_unpackhi_epi8(__m512i&#160;a, __m512i b);<br/>VPUNPCKHBW&#160;__m512i _mm512_mask_unpackhi_epi8(__m512i s, __mmask64&#160;k, __m512i a, __m512i&#160;b);<br/>VPUNPCKHBW&#160;__m512i _mm512_maskz_unpackhi_epi8( __mmask64 k, __m512i&#160;a, __m512i b);<br/>VPUNPCKHBW&#160;__m256i _mm256_mask_unpackhi_epi8(__m256i s, __mmask32&#160;k, __m256i a, __m256i&#160;b);<br/>VPUNPCKHBW&#160;__m256i _mm256_maskz_unpackhi_epi8( __mmask32 k, __m256i&#160;a, __m256i b);<br/>VPUNPCKHBW&#160;__m128i _mm_mask_unpackhi_epi8(v&#160;s, __mmask16&#160;k, __m128i&#160;a, __m128i b);<br/>VPUNPCKHBW&#160;__m128i _mm_maskz_unpackhi_epi8(&#160;__mmask16 k, __m128i a, __m128i b);</p>
+</div>
+</body>
+</html>

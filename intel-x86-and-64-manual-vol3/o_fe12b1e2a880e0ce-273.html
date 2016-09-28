@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 273</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page273-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce273.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;8-17</p>
+<p style="position:absolute;top:47px;left:619px;white-space:nowrap" class="ft01">MULTIPLE-PROCESSOR&#160;MANAGEMENT</p>
+<p style="position:absolute;top:97px;left:69px;white-space:nowrap" class="ft02">8.3 SERIALIZING&#160;</p>
+<p style="position:absolute;top:97px;left:271px;white-space:nowrap" class="ft02">INSTRUCTIONS</p>
+<p style="position:absolute;top:133px;left:69px;white-space:nowrap" class="ft07">The Intel&#160;64&#160;and IA-32 architectures define several&#160;<b>serializing instructions</b>.&#160;These instructions force&#160;the&#160;<br/>processor&#160;to complete all&#160;modifications to flags,&#160;registers,&#160;and memory by previous&#160;instructions&#160;and to&#160;drain&#160;all&#160;<br/>buffered&#160;writes to memory before the&#160;next instruction is&#160;fetched&#160;and&#160;executed.&#160;For&#160;example,&#160;when a&#160;MOV&#160;to&#160;<br/>control&#160;register instruction is&#160;used&#160;to load a&#160;new&#160;value&#160;into control register&#160;CR0 to&#160;enable&#160;protected mode,&#160;the&#160;<br/>processor must perform a serializing operation&#160;before it&#160;enters protected mode. This serializing&#160;operation ensures&#160;<br/>that&#160;all operations that&#160;were&#160;started while the&#160;processor&#160;was in real-address&#160;mode are&#160;completed before the&#160;switch&#160;<br/>to&#160;protected mode is&#160;made.<br/>The&#160;concept&#160;of&#160;serializing instructions was introduced into&#160;the IA-32 architecture with&#160;the&#160;Pentium&#160;processor&#160;to&#160;<br/>support parallel&#160;instruction execution.&#160;Serializing&#160;instructions have no meaning for the Intel486&#160;and&#160;earlier&#160;proces-<br/>sors that&#160;do not implement parallel&#160;instruction&#160;execution.<br/>It is&#160;important to note&#160;that executing of serializing&#160;instructions on P6 and&#160;more recent processor&#160;families constrain&#160;<br/>speculative execution because the&#160;results&#160;of&#160;speculatively&#160;executed&#160;instructions are&#160;discarded. The&#160;following&#160;<br/>instructions are serializing&#160;instructions:</p>
+<p style="position:absolute;top:368px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:369px;left:95px;white-space:nowrap" class="ft07"><b>Privileged serializing&#160;instructions</b>&#160;— INVD,&#160;INVEPT, INVLPG,&#160;INVVPID,&#160;LGDT, LIDT, LLDT, LTR,&#160;MOV&#160;(to&#160;<br/>control&#160;register, with&#160;the&#160;exception of MOV&#160;CR8</p>
+<p style="position:absolute;top:383px;left:413px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:385px;left:420px;white-space:nowrap" class="ft03">), MOV (to&#160;debug register), WBINVD, and WRMSR</p>
+<p style="position:absolute;top:383px;left:757px;white-space:nowrap" class="ft06">4</p>
+<p style="position:absolute;top:385px;left:764px;white-space:nowrap" class="ft03">.</p>
+<p style="position:absolute;top:407px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:408px;left:95px;white-space:nowrap" class="ft04"><b>Non-privileged serializing instructions</b>&#160;— CPUID,&#160;IRET, and RSM.</p>
+<p style="position:absolute;top:432px;left:69px;white-space:nowrap" class="ft07">When&#160;the processor serializes instruction execution,&#160;it ensures that&#160;all pending memory transactions&#160;are&#160;<br/>completed&#160;(including&#160;writes stored&#160;in&#160;its store&#160;buffer) before&#160;it&#160;executes&#160;the next&#160;&#160;instruction.&#160;Nothing can pass a&#160;<br/>serializing instruction and a serializing&#160;instruction cannot pass&#160;any other instruction (read, write,&#160;instruction&#160;fetch,&#160;<br/>or I/O).&#160;For example,&#160;CPUID&#160;can be&#160;executed&#160;at any privilege&#160;level to serialize instruction execution with no effect&#160;<br/>on program flow,&#160;except&#160;that the&#160;EAX,&#160;EBX,&#160;ECX,&#160;and&#160;EDX registers&#160;are modified.<br/>The following&#160;instructions are&#160;memory-ordering instructions,&#160;not serializing&#160;instructions. These&#160;drain the data&#160;<br/>memory subsystem. They&#160;do not&#160;serialize the instruction execution&#160;stream:</p>
+<p style="position:absolute;top:536px;left:580px;white-space:nowrap" class="ft06">5</p>
+<p style="position:absolute;top:560px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:561px;left:95px;white-space:nowrap" class="ft04"><b>Non-privileged memory-ordering instructions</b>&#160;—&#160;SFENCE,&#160;LFENCE, and MFENCE.</p>
+<p style="position:absolute;top:585px;left:69px;white-space:nowrap" class="ft09">The SFENCE,&#160;LFENCE,&#160;and MFENCE instructions provide&#160;more&#160;granularity&#160;in&#160;controlling the&#160;serialization of&#160;memory&#160;<br/>loads&#160;and&#160;stores&#160;(see<a href="o_fe12b1e2a880e0ce-271.html">&#160;Section 8.2.5,&#160;“Strengthening or Weakening&#160;the&#160;Memory-Ordering Model”).<br/></a>The following&#160;additional information&#160;is worth noting&#160;regarding serializing instructions:</p>
+<p style="position:absolute;top:647px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:648px;left:95px;white-space:nowrap" class="ft07">The&#160;processor&#160;does not write back&#160;the contents of modified&#160;data&#160;in&#160;its data&#160;cache to external&#160;memory when it&#160;<br/>serializes&#160;instruction&#160;execution. Software can force modified data to be written back by executing the WBINVD&#160;<br/>instruction, which&#160;is a&#160;serializing&#160;instruction. The amount&#160;of time&#160;or cycles&#160;for&#160;WBINVD to&#160;complete&#160;will&#160;vary&#160;<br/>due&#160;to the&#160;size&#160;of&#160;different cache&#160;hierarchies and&#160;other factors.&#160;As&#160;a consequence,&#160;the&#160;use&#160;of the&#160;WBINVD&#160;<br/>instruction can&#160;have&#160;an&#160;impact on interrupt/event&#160;response&#160;time.</p>
+<p style="position:absolute;top:736px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:736px;left:95px;white-space:nowrap" class="ft07">When an instruction&#160;is executed that enables or&#160;disables paging (that is,&#160;changes the PG flag in control&#160;register&#160;<br/>CR0),&#160;the instruction should&#160;be followed by&#160;a jump instruction.&#160;The&#160;target instruction of the jump&#160;instruction is&#160;<br/>fetched&#160;with&#160;the new setting of the&#160;PG&#160;flag (that&#160;is,&#160;paging&#160;is&#160;enabled or disabled),&#160;but the jump&#160;instruction&#160;<br/>itself&#160;is fetched with the&#160;previous setting.&#160;The&#160;Pentium&#160;4,&#160;Intel Xeon,&#160;and P6 family processors do&#160;not require&#160;<br/>the jump operation following the&#160;move to register CR0 (because any&#160;use&#160;of&#160;the&#160;MOV instruction in a&#160;Pentium 4,&#160;<br/>Intel&#160;Xeon, or P6 family processor to&#160;write&#160;to CR0&#160;is completely serializing). However,&#160;to maintain backwards&#160;<br/>and forward&#160;compatibility with&#160;code&#160;written&#160;to run on&#160;other IA-32&#160;processors, it is&#160;recommended that the&#160;jump&#160;<br/>operation be&#160;performed.</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:874px;left:95px;white-space:nowrap" class="ft07">Whenever an instruction is&#160;executed to&#160;change the&#160;contents of&#160;CR3&#160;while paging is&#160;enabled, the&#160;next&#160;<br/>instruction&#160;is fetched using the&#160;translation tables&#160;that&#160;correspond&#160;to the&#160;new value&#160;of&#160;CR3.&#160;Therefore&#160;the&#160;next&#160;<br/>instruction and&#160;the sequentially following instructions&#160;should&#160;have a&#160;mapping&#160;based upon&#160;the&#160;new value&#160;of&#160;<br/>CR3. (Global&#160;entries&#160;in the&#160;TLBs&#160;are not&#160;invalidated,&#160;<a href="o_fe12b1e2a880e0ce-145.html">see Section 4.10.4,&#160;“Invalidation of TLBs and&#160;Paging-<br/>Structure&#160;Caches.”</a>)</p>
+<p style="position:absolute;top:996px;left:69px;white-space:nowrap" class="ft011">3.&#160;MOV CR8&#160;is not defined architecturally as&#160;a serializing instruction.<br/>4.&#160;WRMSR to the IA32_TSC_DEADLINE MSR&#160;(MSR&#160;index&#160;6E0H) and&#160;the&#160;X2APIC MSRs (MSR&#160;indices 802H to&#160;83FH) are&#160;not serializing.<br/>5.&#160;LFENCE&#160;does&#160;provide&#160;some&#160;guarantees&#160;on&#160;instruction&#160;ordering. It&#160;does&#160;not execute&#160;until&#160;all prior instructions&#160;have&#160;completed&#160;locally,&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">and no&#160;later instruction begins&#160;execution until LFENCE&#160;completes.</p>
+</div>
+</body>
+</html>

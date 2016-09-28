@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 98</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:7px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:7px;line-height:10px;font-family:Times;color:#000000;}
+	.ft010{font-size:7px;line-height:9px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page98-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce098.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-10&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTED-MODE&#160;MEMORY&#160;MANAGEMENT</p>
+<p style="position:absolute;top:484px;left:68px;white-space:nowrap" class="ft07">The flags&#160;and fields in&#160;a segment descriptor&#160;are as&#160;follows:<br/><b>Segment limit field</b></p>
+<p style="position:absolute;top:525px;left:169px;white-space:nowrap" class="ft07">Specifies&#160;the size of the segment.&#160;The&#160;processor&#160;puts together&#160;the two segment limit&#160;fields&#160;to form&#160;<br/>a&#160;20-bit value. The&#160;processor interprets the&#160;segment limit&#160;in&#160;one of&#160;two&#160;ways, depending on&#160;the&#160;<br/>setting&#160;of the&#160;G (granularity)&#160;flag:<br/>•</p>
+<p style="position:absolute;top:582px;left:194px;white-space:nowrap" class="ft08">If the&#160;granularity flag is&#160;clear,&#160;the segment size&#160;can range from 1&#160;byte to&#160;1&#160;MByte,&#160;in byte&#160;incre-<br/>ments.</p>
+<p style="position:absolute;top:623px;left:169px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:623px;left:194px;white-space:nowrap" class="ft08">If&#160;the granularity flag is set,&#160;the segment size can&#160;range from&#160;4&#160;KBytes to 4 GBytes, in&#160;4-KByte&#160;<br/>increments.</p>
+<p style="position:absolute;top:663px;left:169px;white-space:nowrap" class="ft08">The processor uses&#160;the&#160;segment limit&#160;in two different&#160;ways,&#160;depending on whether&#160;the segment is&#160;<br/>an&#160;expand-up or&#160;an expand-down&#160;segment. See<a href="o_fe12b1e2a880e0ce-100.html">&#160;Section 3.4.5.1,&#160;“Code-&#160;and&#160;Data-Segment&#160;<br/>Descriptor Types”</a>,&#160;for more&#160;information about&#160;segment types.&#160;For expand-up segments,&#160;the offset&#160;<br/>in&#160;a logical address&#160;can range&#160;from 0&#160;to the&#160;segment limit. Offsets greater&#160;than&#160;the segment limit&#160;<br/>generate&#160;general-protection exceptions (#GP, for all segments other than SS) or stack-fault&#160;excep-<br/>tions (#SS&#160;for&#160;the SS&#160;segment). For expand-down segments,&#160;the segment limit&#160;has the&#160;reverse&#160;<br/>function; the&#160;offset&#160;can range from the&#160;segment&#160;limit&#160;plus&#160;1&#160;to FFFFFFFFH or FFFFH, depending on&#160;<br/>the&#160;setting&#160;of&#160;the&#160;B&#160;flag. Offsets less than&#160;or equal to&#160;the&#160;segment limit&#160;generate&#160;general-protection&#160;<br/>exceptions&#160;or stack-fault exceptions. Decreasing the value in&#160;the segment&#160;limit field&#160;for an&#160;expand-<br/>down&#160;segment allocates new memory at&#160;the bottom of&#160;the&#160;segment's address&#160;space,&#160;rather than at&#160;<br/>the&#160;top.&#160;IA-32 architecture stacks always&#160;grow downwards, making this mechanism convenient&#160;for&#160;<br/>expandable stacks.</p>
+<p style="position:absolute;top:869px;left:68px;white-space:nowrap" class="ft03"><b>Base address fields</b></p>
+<p style="position:absolute;top:885px;left:169px;white-space:nowrap" class="ft08">Defines the&#160;location of&#160;byte&#160;0 of the&#160;segment within the&#160;4-GByte linear address space.&#160;The&#160;<br/>processor puts together the&#160;three&#160;base&#160;address fields&#160;to&#160;form a&#160;single&#160;32-bit value.&#160;Segment base&#160;<br/>addresses should&#160;be&#160;aligned to 16-byte boundaries.&#160;Although 16-byte alignment&#160;is not&#160;required,&#160;<br/>this alignment&#160;allows programs to&#160;maximize performance by&#160;aligning code and data&#160;on 16-byte&#160;<br/>boundaries.</p>
+<p style="position:absolute;top:975px;left:68px;white-space:nowrap" class="ft03"><b>Type field</b></p>
+<p style="position:absolute;top:975px;left:169px;white-space:nowrap" class="ft08">Indicates the&#160;segment&#160;or gate type and&#160;specifies the&#160;kinds&#160;of access that can&#160;be&#160;made&#160;to the&#160;<br/>segment and the&#160;direction&#160;of&#160;growth. The interpretation of this&#160;field depends on&#160;whether&#160;the&#160;<br/>descriptor type flag&#160;specifies an&#160;application&#160;(code&#160;or data)&#160;descriptor or&#160;a system&#160;descriptor. The&#160;<br/>encoding&#160;of&#160;the&#160;type&#160;field&#160;is&#160;different for code, data,&#160;and system&#160;<a href="o_fe12b1e2a880e0ce-155.html">descriptors (see&#160;Figure&#160;5-1</a>). See&#160;<br/><a href="o_fe12b1e2a880e0ce-100.html">Section&#160;3.4.5.1,&#160;“Code- and&#160;Data-Segment&#160;Descriptor&#160;Types”, fo</a>r a&#160;description of how&#160;this field is&#160;<br/>used&#160;to specify code and&#160;data-segment types.&#160;</p>
+<p style="position:absolute;top:439px;left:345px;white-space:nowrap" class="ft04">Figure&#160;3-8.&#160;&#160;Segment&#160;Descriptor</p>
+<p style="position:absolute;top:137px;left:233px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:137px;left:323px;white-space:nowrap" class="ft05">24&#160;23&#160;22&#160;21&#160;20&#160;19</p>
+<p style="position:absolute;top:137px;left:424px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:137px;left:462px;white-space:nowrap" class="ft05">13</p>
+<p style="position:absolute;top:137px;left:449px;white-space:nowrap" class="ft05">14</p>
+<p style="position:absolute;top:137px;left:474px;white-space:nowrap" class="ft05">12&#160;11</p>
+<p style="position:absolute;top:138px;left:529px;white-space:nowrap" class="ft05">8&#160;7</p>
+<p style="position:absolute;top:137px;left:633px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:168px;left:438px;white-space:nowrap" class="ft05">P</p>
+<p style="position:absolute;top:167px;left:257px;white-space:nowrap" class="ft06">Base 31:24</p>
+<p style="position:absolute;top:167px;left:338px;white-space:nowrap" class="ft05">G</p>
+<p style="position:absolute;top:158px;left:457px;white-space:nowrap" class="ft09">D<br/>P</p>
+<p style="position:absolute;top:178px;left:457px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:167px;left:501px;white-space:nowrap" class="ft06">Type</p>
+<p style="position:absolute;top:168px;left:477px;white-space:nowrap" class="ft05">S</p>
+<p style="position:absolute;top:168px;left:363px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:167px;left:644px;white-space:nowrap" class="ft00">4</p>
+<p style="position:absolute;top:204px;left:232px;white-space:nowrap" class="ft05">31</p>
+<p style="position:absolute;top:204px;left:422px;white-space:nowrap" class="ft05">16&#160;15</p>
+<p style="position:absolute;top:204px;left:631px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:233px;left:286px;white-space:nowrap" class="ft06">Base Address&#160;15:00</p>
+<p style="position:absolute;top:234px;left:490px;white-space:nowrap" class="ft06">Segment&#160;Limit&#160;15:00</p>
+<p style="position:absolute;top:234px;left:643px;white-space:nowrap" class="ft00">0</p>
+<p style="position:absolute;top:167px;left:561px;white-space:nowrap" class="ft06">Base 23:16</p>
+<p style="position:absolute;top:158px;left:350px;white-space:nowrap" class="ft05">D</p>
+<p style="position:absolute;top:168px;left:352px;white-space:nowrap" class="ft05">/</p>
+<p style="position:absolute;top:178px;left:350px;white-space:nowrap" class="ft05">B</p>
+<p style="position:absolute;top:158px;left:375px;white-space:nowrap" class="ft010">A<br/>V</p>
+<p style="position:absolute;top:178px;left:376px;white-space:nowrap" class="ft05">L</p>
+<p style="position:absolute;top:157px;left:399px;white-space:nowrap" class="ft06">Seg.</p>
+<p style="position:absolute;top:167px;left:399px;white-space:nowrap" class="ft06">Limit</p>
+<p style="position:absolute;top:177px;left:397px;white-space:nowrap" class="ft06">19:16</p>
+<p style="position:absolute;top:353px;left:253px;white-space:nowrap" class="ft00">G</p>
+<p style="position:absolute;top:353px;left:285px;white-space:nowrap" class="ft00">—&#160;Granularity</p>
+<p style="position:absolute;top:367px;left:253px;white-space:nowrap" class="ft011">LIMIT&#160;—&#160;Segment Limit<br/>P</p>
+<p style="position:absolute;top:381px;left:288px;white-space:nowrap" class="ft00">—&#160;Segment present</p>
+<p style="position:absolute;top:395px;left:253px;white-space:nowrap" class="ft00">S</p>
+<p style="position:absolute;top:395px;left:288px;white-space:nowrap" class="ft00">—&#160;Descriptor type (0&#160;= system; 1 = code or data)</p>
+<p style="position:absolute;top:410px;left:252px;white-space:nowrap" class="ft00">TYPE&#160;—&#160;Segment type</p>
+<p style="position:absolute;top:339px;left:251px;white-space:nowrap" class="ft00">DPL</p>
+<p style="position:absolute;top:339px;left:288px;white-space:nowrap" class="ft00">—&#160;Descriptor&#160;privilege level</p>
+<p style="position:absolute;top:296px;left:253px;white-space:nowrap" class="ft00">AVL</p>
+<p style="position:absolute;top:296px;left:288px;white-space:nowrap" class="ft00">—&#160;Available for use by system software</p>
+<p style="position:absolute;top:310px;left:253px;white-space:nowrap" class="ft00">BASE&#160;—&#160;Segment base address</p>
+<p style="position:absolute;top:324px;left:252px;white-space:nowrap" class="ft00">D/B</p>
+<p style="position:absolute;top:324px;left:288px;white-space:nowrap" class="ft00">—&#160;Default operation size (0&#160;=&#160;16-bit segment; 1 = 32-bit segment)</p>
+<p style="position:absolute;top:281px;left:253px;white-space:nowrap" class="ft00">L</p>
+<p style="position:absolute;top:281px;left:287px;white-space:nowrap" class="ft00">—&#160;64-bit code&#160;segment (IA-32e mode only)</p>
+</div>
+</body>
+</html>

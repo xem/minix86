@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 476</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:7px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:11px;font-family:Times;color:#000000;}
+	.ft012{font-size:8px;line-height:11px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page476-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce476.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">14-10&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">POWER AND THERMAL&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">The IA32_MPERF MSR and IA32_APERF MSR mechanism (see<a href="o_fe12b1e2a880e0ce-467.html">&#160;Section 14.2) allows the OS to</a>&#160;calculate the resultant&#160;<br/>effective&#160;frequency&#160;delivered over a&#160;time period. Energy&#160;efficiency&#160;and performance&#160;optimizations directly impact&#160;<br/>the resultant&#160;effective&#160;frequency delivered.<br/>The layout&#160;of&#160;the IA32_HWP_STATUS MSR&#160;is shown&#160;<a href="o_fe12b1e2a880e0ce-476.html">in Figure&#160;14-8.&#160;</a>It provides&#160;feedback&#160;regarding changes to&#160;<br/>IA32_HWP_CAPABILITIES.Guaranteed_Performance and&#160;excursions&#160;to&#160;<br/>IA32_HWP_CAPABILITIES.Minimum_Performance.&#160;The&#160;bit fields are&#160;described&#160;below:&#160;</p>
+<p style="position:absolute;top:212px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:213px;left:93px;white-space:nowrap" class="ft08"><b>Guaranteed_Performance_Change&#160;(bit 0,&#160;RWC0)</b>&#160;—&#160;If set&#160;(1), a change&#160;to Guaranteed_Performance&#160;has&#160;<br/>occurred. Software&#160;should query&#160;IA32_HWP_CAPABILITIES.Guaranteed_Performance&#160;value to&#160;ascertain the&#160;<br/>new&#160;Guaranteed Performance value&#160;and to&#160;assess whether to&#160;re-adjust HWP&#160;hints via IA32_HWP_REQUEST.&#160;<br/>Software&#160;must clear this bit by writing&#160;a zero (0).</p>
+<p style="position:absolute;top:284px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:285px;left:93px;white-space:nowrap" class="ft08"><b>Excursion_To_Minimum (bit 2, RWC0)</b>&#160;—&#160;If set (1), an&#160;excursion to&#160;Minimum_Performance of&#160;<br/>IA32_HWP_REQUEST has&#160;occurred. Software must clear&#160;this bit by writing&#160;a zero&#160;(0).</p>
+<p style="position:absolute;top:323px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:324px;left:93px;white-space:nowrap" class="ft02">Bits 63:3,&#160;and bit 1 are&#160;reserved&#160;and must be zero.</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft08">The&#160;status bits&#160;of IA32_HWP_STATUS&#160;must be&#160;cleared&#160;(0) by&#160;software&#160;so that&#160;a new status&#160;condition change&#160;will&#160;<br/>cause&#160;the hardware to set the&#160;bit&#160;again and&#160;issue&#160;the notification.&#160;Status bits are not set for “normal”&#160;excursions&#160;<br/>e.g. running&#160;below&#160;Minimum Performance for short durations during&#160;C-state&#160;exit.&#160;Changes&#160;to&#160;<br/>Guaranteed_Performance&#160;and&#160;excursions to&#160;Minimum_Performance will&#160;occur&#160;no more than&#160;once&#160;per second.<br/>The OS&#160;can determine&#160;the specific reasons&#160;for&#160;a Guaranteed_Performance change or&#160;an&#160;excursion&#160;to&#160;<br/>Minimum_Performance in IA32_HWP_REQUEST by examining&#160;the associated status&#160;and&#160;log bits reported&#160;in&#160;the&#160;<br/>IA32_THERM_STATUS MSR. The&#160;layout of the IA32_HWP_STATUS MSR that HWP&#160;uses&#160;to support software&#160;query of&#160;<br/>HWP&#160;feedback&#160;<a href="o_fe12b1e2a880e0ce-476.html">is shown in Figure&#160;14-9.</a>&#160;The bit fields of&#160;IA32_THERM_STATUS&#160;associated with HWP&#160;feedback&#160;are&#160;<br/>described below&#160;(Bit fields of IA32_THERM_STATUS unrelated to&#160;HWP&#160;can be found in&#160;<a href="o_fe12b1e2a880e0ce-491.html">Section&#160;14.7.5.2).</a></p>
+<p style="position:absolute;top:483px;left:325px;white-space:nowrap" class="ft05">Figure&#160;14-8.&#160;&#160;IA32_HWP_STATUS MSR</p>
+<p style="position:absolute;top:1029px;left:234px;white-space:nowrap" class="ft05">Figure&#160;14-9. &#160;IA32_THERM_STATUS&#160;Register&#160;With&#160;HWP Feedback</p>
+<p style="position:absolute;top:369px;left:267px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:369px;left:667px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:392px;left:437px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:369px;left:651px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:422px;left:269px;white-space:nowrap" class="ft00">Excursion_To_Minimum</p>
+<p style="position:absolute;top:369px;left:638px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:369px;left:628px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:434px;left:269px;white-space:nowrap" class="ft011">Reserved<br/>Guaranteed_Performance_Change</p>
+<p style="position:absolute;top:747px;left:265px;white-space:nowrap" class="ft07">63</p>
+<p style="position:absolute;top:746px;left:688px;white-space:nowrap" class="ft07">0</p>
+<p style="position:absolute;top:768px;left:285px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:747px;left:506px;white-space:nowrap" class="ft07">15</p>
+<p style="position:absolute;top:800px;left:223px;white-space:nowrap" class="ft06">Reading Valid</p>
+<p style="position:absolute;top:746px;left:678px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:746px;left:665px;white-space:nowrap" class="ft07">2</p>
+<p style="position:absolute;top:746px;left:652px;white-space:nowrap" class="ft07">3</p>
+<p style="position:absolute;top:746px;left:638px;white-space:nowrap" class="ft07">4</p>
+<p style="position:absolute;top:746px;left:626px;white-space:nowrap" class="ft07">5</p>
+<p style="position:absolute;top:746px;left:590px;white-space:nowrap" class="ft07">8</p>
+<p style="position:absolute;top:746px;left:567px;white-space:nowrap" class="ft07">10</p>
+<p style="position:absolute;top:747px;left:493px;white-space:nowrap" class="ft07">16</p>
+<p style="position:absolute;top:747px;left:470px;white-space:nowrap" class="ft07">22</p>
+<p style="position:absolute;top:747px;left:455px;white-space:nowrap" class="ft07">23</p>
+<p style="position:absolute;top:747px;left:429px;white-space:nowrap" class="ft07">27</p>
+<p style="position:absolute;top:811px;left:223px;white-space:nowrap" class="ft012">Resolution&#160;in&#160;Deg.&#160;Celsius<br/>Digital Readout</p>
+<p style="position:absolute;top:900px;left:223px;white-space:nowrap" class="ft012">Thermal Threshold&#160;#2&#160;Log<br/>Thermal Threshold&#160;#2&#160;Status&#160;<br/>Thermal Threshold&#160;#1&#160;Log<br/>Thermal Threshold&#160;#1&#160;Status<br/>Critical Temperature Log</p>
+<p style="position:absolute;top:746px;left:615px;white-space:nowrap" class="ft07">6</p>
+<p style="position:absolute;top:746px;left:602px;white-space:nowrap" class="ft07">7</p>
+<p style="position:absolute;top:746px;left:579px;white-space:nowrap" class="ft07">9</p>
+<p style="position:absolute;top:747px;left:401px;white-space:nowrap" class="ft07">31</p>
+<p style="position:absolute;top:747px;left:387px;white-space:nowrap" class="ft07">32</p>
+<p style="position:absolute;top:955px;left:223px;white-space:nowrap" class="ft012">Critical Temperature Status<br/>PROCHOT# or FORCEPR# Log<br/>PROCHOT# or FORCEPR# Event<br/>Thermal Status&#160;Log<br/>Thermal Status</p>
+<p style="position:absolute;top:746px;left:555px;white-space:nowrap" class="ft07">11</p>
+<p style="position:absolute;top:877px;left:223px;white-space:nowrap" class="ft012">Power&#160;Limit&#160;Notification&#160;Log<br/>Power Limit&#160;Notification Status</p>
+<p style="position:absolute;top:747px;left:519px;white-space:nowrap" class="ft07">14&#160;13&#160;12</p>
+<p style="position:absolute;top:833px;left:223px;white-space:nowrap" class="ft012">Cross-domain Limit&#160;Log<br/>Cross-domain Limit&#160;Status<br/>Current&#160;Limit&#160;Log<br/>Current&#160;Limit&#160;Status</p>
+</div>
+</body>
+</html>

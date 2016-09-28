@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1746</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1746-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1746.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">36-62&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INTEL® PROCESSOR TRACE</p>
+<p style="position:absolute;top:370px;left:68px;white-space:nowrap" class="ft02">36.5.1&#160;</p>
+<p style="position:absolute;top:370px;left:148px;white-space:nowrap" class="ft02">VMX-Specific Packets and VMCS Controls</p>
+<p style="position:absolute;top:399px;left:68px;white-space:nowrap" class="ft06">In all of the usages of VMX and Intel PT,&#160;the decoder in the&#160;host or&#160;VMM context can identify the&#160;occurrences&#160;of VMX&#160;<br/>transitions with the&#160;aid&#160;of&#160;VMX-specific packets. Packets&#160;relevant to&#160;VMX fall&#160;into&#160;the follow two kinds:</p>
+<p style="position:absolute;top:437px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:438px;left:93px;white-space:nowrap" class="ft06">VMCS Packet: The&#160;VMX&#160;transitions of individual VM can&#160;be&#160;distinguished&#160;by a&#160;decoder using&#160;the base&#160;address&#160;<br/>field&#160;in a&#160;VMCS&#160;packet.&#160;The&#160;base&#160;address field&#160;stores&#160;the VMCS pointer address&#160;of&#160;a&#160;successful&#160;VMPTRLD.&#160;A&#160;<br/>VMCS&#160;packet is&#160;sent&#160;on&#160;a successful&#160;execution of VMPTRLD.&#160;S<a href="o_fe12b1e2a880e0ce-1737.html">ee Section 36.4.2.15 for details.</a></p>
+<p style="position:absolute;top:493px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:493px;left:93px;white-space:nowrap" class="ft06">NonRoot&#160;(NR)&#160;bit field in PIP&#160;packet: PIP packets&#160;are&#160;generated with each&#160;VM&#160;entry/exit.&#160;The&#160;NR bit in a&#160;PIP&#160;<br/>packet&#160;is set&#160;when&#160;in VMX&#160;non-Root operation.&#160;Thus a&#160;transition of the NR&#160;bit from 0 to 1 indicates the&#160;<br/>occurrence of a&#160;VM entry,&#160;and&#160;a transition&#160;of&#160;1&#160;to 0&#160;indicates the&#160;occurrence of a&#160;VM exit.</p>
+<p style="position:absolute;top:549px;left:68px;white-space:nowrap" class="ft06">Processors with IA32_VMX_MISC[bit 14]=&#160;1&#160;also provides&#160;VMCS controls&#160;that&#160;a VMM&#160;can configure&#160;to prevent&#160;<br/>VMX-specific&#160;information from leaking across&#160;virtualization boundaries.</p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft06">The&#160;default setting for the VMCS controls that&#160;interacts&#160;with&#160;Intel PT is&#160;to enable&#160;all VMX-specific&#160;packet&#160;informa-<br/>tion.&#160;The scenarios that would use&#160;the default setting also&#160;do not require the VMM to&#160;use MSR&#160;load&#160;list&#160;to manage&#160;<br/>the configuration&#160;of&#160;turning-on/off of trace packet&#160;generation across&#160;VM&#160;exits.<br/>If IA32_VMX_MISC[bit 14] reports&#160;0, any attempt to&#160;set the&#160;VMCS control bits&#160;<a href="o_fe12b1e2a880e0ce-1746.html">in Table&#160;36-46</a>&#160;will result&#160;in a&#160;failure&#160;<br/>on guest entry.</p>
+<p style="position:absolute;top:100px;left:284px;white-space:nowrap" class="ft05">Table 36-45.&#160;Common Usages&#160;of&#160;Intel&#160;PT&#160;and&#160;VMX</p>
+<p style="position:absolute;top:124px;left:74px;white-space:nowrap" class="ft03">Target&#160;Domain</p>
+<p style="position:absolute;top:124px;left:198px;white-space:nowrap" class="ft03">Output&#160;</p>
+<p style="position:absolute;top:141px;left:189px;white-space:nowrap" class="ft03">Consumer</p>
+<p style="position:absolute;top:124px;left:285px;white-space:nowrap" class="ft03">Virtualize&#160;</p>
+<p style="position:absolute;top:141px;left:293px;white-space:nowrap" class="ft03">Output</p>
+<p style="position:absolute;top:124px;left:367px;white-space:nowrap" class="ft03">Configure VMCS&#160;</p>
+<p style="position:absolute;top:141px;left:390px;white-space:nowrap" class="ft03">Controls</p>
+<p style="position:absolute;top:124px;left:503px;white-space:nowrap" class="ft03">TraceEN Configuration</p>
+<p style="position:absolute;top:124px;left:677px;white-space:nowrap" class="ft03">Save/Restore&#160;MSR&#160;states&#160;</p>
+<p style="position:absolute;top:141px;left:687px;white-space:nowrap" class="ft03">of&#160;Trace Configuration</p>
+<p style="position:absolute;top:164px;left:74px;white-space:nowrap" class="ft03">System-Wide&#160;</p>
+<p style="position:absolute;top:181px;left:74px;white-space:nowrap" class="ft03">(VMM + VMs)</p>
+<p style="position:absolute;top:164px;left:175px;white-space:nowrap" class="ft03">Host</p>
+<p style="position:absolute;top:164px;left:275px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:164px;left:365px;white-space:nowrap" class="ft03">Default&#160;Setting&#160;</p>
+<p style="position:absolute;top:181px;left:365px;white-space:nowrap" class="ft03">(no suppression)</p>
+<p style="position:absolute;top:164px;left:477px;white-space:nowrap" class="ft03">WRMSR&#160;or&#160;XRSTORS by&#160;Host&#160;</p>
+<p style="position:absolute;top:164px;left:676px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:205px;left:74px;white-space:nowrap" class="ft03">VMM Only</p>
+<p style="position:absolute;top:205px;left:175px;white-space:nowrap" class="ft03">Intel PT Aware&#160;</p>
+<p style="position:absolute;top:222px;left:175px;white-space:nowrap" class="ft03">VMM</p>
+<p style="position:absolute;top:205px;left:275px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:205px;left:365px;white-space:nowrap" class="ft03">Enable&#160;</p>
+<p style="position:absolute;top:222px;left:365px;white-space:nowrap" class="ft03">suppression</p>
+<p style="position:absolute;top:205px;left:477px;white-space:nowrap" class="ft03">MSR load&#160;list&#160;to&#160;disable tracing in&#160;</p>
+<p style="position:absolute;top:222px;left:477px;white-space:nowrap" class="ft03">VM,&#160;enable tracing&#160;on&#160;VM&#160;exits</p>
+<p style="position:absolute;top:205px;left:676px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:245px;left:74px;white-space:nowrap" class="ft03">VM&#160;Only</p>
+<p style="position:absolute;top:245px;left:175px;white-space:nowrap" class="ft03">Intel PT Aware&#160;</p>
+<p style="position:absolute;top:262px;left:175px;white-space:nowrap" class="ft03">VMM</p>
+<p style="position:absolute;top:245px;left:275px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:245px;left:365px;white-space:nowrap" class="ft03">Enable&#160;</p>
+<p style="position:absolute;top:262px;left:365px;white-space:nowrap" class="ft03">suppression</p>
+<p style="position:absolute;top:245px;left:477px;white-space:nowrap" class="ft03">MSR&#160;load list&#160;to&#160;enable&#160;tracing in&#160;</p>
+<p style="position:absolute;top:262px;left:477px;white-space:nowrap" class="ft03">VM,&#160;disable tracing on&#160;VM&#160;exits</p>
+<p style="position:absolute;top:245px;left:676px;white-space:nowrap" class="ft03">NA</p>
+<p style="position:absolute;top:286px;left:74px;white-space:nowrap" class="ft03">Intel&#160;PT&#160;Aware&#160;</p>
+<p style="position:absolute;top:303px;left:74px;white-space:nowrap" class="ft03">Guest(s)</p>
+<p style="position:absolute;top:286px;left:175px;white-space:nowrap" class="ft03">Per&#160;Guest</p>
+<p style="position:absolute;top:286px;left:275px;white-space:nowrap" class="ft03">VMM&#160;adds&#160;</p>
+<p style="position:absolute;top:303px;left:275px;white-space:nowrap" class="ft03">trace output&#160;</p>
+<p style="position:absolute;top:319px;left:275px;white-space:nowrap" class="ft03">virtualization</p>
+<p style="position:absolute;top:286px;left:365px;white-space:nowrap" class="ft03">Enable&#160;</p>
+<p style="position:absolute;top:303px;left:365px;white-space:nowrap" class="ft03">suppression</p>
+<p style="position:absolute;top:286px;left:477px;white-space:nowrap" class="ft03">MSR&#160;load list&#160;to&#160;enable&#160;tracing in&#160;</p>
+<p style="position:absolute;top:303px;left:477px;white-space:nowrap" class="ft03">VM,&#160;disable tracing on&#160;VM&#160;exits</p>
+<p style="position:absolute;top:286px;left:676px;white-space:nowrap" class="ft03">VMM Update guest state&#160;</p>
+<p style="position:absolute;top:303px;left:676px;white-space:nowrap" class="ft03">on&#160;XRSTORS-exiting&#160;VM&#160;</p>
+<p style="position:absolute;top:319px;left:676px;white-space:nowrap" class="ft03">exits</p>
+<p style="position:absolute;top:596px;left:275px;white-space:nowrap" class="ft05">Table 36-46. VMCS&#160;Controls&#160;For&#160;Intel Processor Trace</p>
+<p style="position:absolute;top:621px;left:101px;white-space:nowrap" class="ft03">Name</p>
+<p style="position:absolute;top:621px;left:211px;white-space:nowrap" class="ft03">Type Bit&#160;</p>
+<p style="position:absolute;top:637px;left:298px;white-space:nowrap" class="ft03">Position</p>
+<p style="position:absolute;top:621px;left:370px;white-space:nowrap" class="ft03">Value</p>
+<p style="position:absolute;top:621px;left:597px;white-space:nowrap" class="ft03">Behavior</p>
+<p style="position:absolute;top:661px;left:74px;white-space:nowrap" class="ft03">Conceal&#160;VMX&#160;</p>
+<p style="position:absolute;top:678px;left:74px;white-space:nowrap" class="ft03">non-root&#160;</p>
+<p style="position:absolute;top:694px;left:74px;white-space:nowrap" class="ft03">operation&#160;from&#160;</p>
+<p style="position:absolute;top:711px;left:74px;white-space:nowrap" class="ft03">Intel&#160;PT</p>
+<p style="position:absolute;top:661px;left:175px;white-space:nowrap" class="ft03">VM-execution&#160;</p>
+<p style="position:absolute;top:678px;left:175px;white-space:nowrap" class="ft03">control</p>
+<p style="position:absolute;top:661px;left:288px;white-space:nowrap" class="ft03">19</p>
+<p style="position:absolute;top:661px;left:370px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:661px;left:417px;white-space:nowrap" class="ft08">PIPs generated in&#160;VM&#160;non-root&#160;operation&#160;will set the PIP.NR&#160;bit.<br/>PSB+&#160;in&#160;VMX non-root&#160;operation will include the&#160;VMCS&#160;packet,&#160;to&#160;ensure&#160;</p>
+<p style="position:absolute;top:699px;left:417px;white-space:nowrap" class="ft03">that&#160;the decoder knows which&#160;guest is&#160;currently in&#160;use.</p>
+<p style="position:absolute;top:723px;left:370px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:723px;left:417px;white-space:nowrap" class="ft09">PIPs generated in&#160;VMX non-root&#160;operation will not set the PIP.NR&#160;bit.<br/>PSB+&#160;in&#160;VMX non-root&#160;operation will not include the VMCS&#160;packet.</p>
+<p style="position:absolute;top:768px;left:74px;white-space:nowrap" class="ft03">Conceal&#160;VM&#160;</p>
+<p style="position:absolute;top:784px;left:74px;white-space:nowrap" class="ft03">exits&#160;from&#160;Intel&#160;</p>
+<p style="position:absolute;top:801px;left:74px;white-space:nowrap" class="ft03">PT</p>
+<p style="position:absolute;top:768px;left:175px;white-space:nowrap" class="ft03">VM-exit control</p>
+<p style="position:absolute;top:768px;left:288px;white-space:nowrap" class="ft03">24</p>
+<p style="position:absolute;top:768px;left:370px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:768px;left:417px;white-space:nowrap" class="ft09">PIPs are generated on VM exit, with NonRoot=0.<br/>On VM exit to&#160;SMM, VMCS packets are&#160;additionally&#160;generated.</p>
+<p style="position:absolute;top:813px;left:370px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:813px;left:417px;white-space:nowrap" class="ft03">No&#160;PIP is&#160;generated on&#160;VM&#160;exit,&#160;and no&#160;VMCS&#160;packet&#160;is&#160;generated on&#160;</p>
+<p style="position:absolute;top:829px;left:417px;white-space:nowrap" class="ft03">VM&#160;exit to SMM.</p>
+<p style="position:absolute;top:853px;left:74px;white-space:nowrap" class="ft03">Conceal&#160;VM&#160;</p>
+<p style="position:absolute;top:870px;left:74px;white-space:nowrap" class="ft03">entries from&#160;</p>
+<p style="position:absolute;top:886px;left:74px;white-space:nowrap" class="ft03">Intel&#160;PT</p>
+<p style="position:absolute;top:853px;left:175px;white-space:nowrap" class="ft03">VM-entry&#160;control</p>
+<p style="position:absolute;top:853px;left:288px;white-space:nowrap" class="ft03">17</p>
+<p style="position:absolute;top:853px;left:370px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:853px;left:417px;white-space:nowrap" class="ft03">PIPs&#160;are&#160;generated&#160;on&#160;VM&#160;entry,&#160;with NonRoot=1 if the destination of&#160;</p>
+<p style="position:absolute;top:870px;left:417px;white-space:nowrap" class="ft09">the VM&#160;entry is VMX non-root&#160;operation.<br/>On&#160;VM&#160;entry to&#160;SMM,&#160;VMCS&#160;packets are additionally generated.</p>
+<p style="position:absolute;top:915px;left:370px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:915px;left:417px;white-space:nowrap" class="ft03">No&#160;PIP is&#160;generated on&#160;VM&#160;entry,&#160;and no&#160;VMCS&#160;packet&#160;is&#160;generated on&#160;</p>
+<p style="position:absolute;top:931px;left:417px;white-space:nowrap" class="ft03">VM&#160;entry to&#160;SMM.</p>
+</div>
+</body>
+</html>

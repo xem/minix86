@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1060</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1060-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811060.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:509px;white-space:nowrap" class="ft00">PMULLW—Multiply Packed Signed&#160;Integers and Store&#160;Low Result</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-380&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft04">VPMULLW (VEX.128 encoded version)<br/>Temp0[31:0]&#160;&#160;SRC1[15:0]&#160;* SRC2[15:0]<br/>Temp1[31:0]&#160;&#160;SRC1[31:16] * SRC2[31:16]<br/>Temp2[31:0]&#160;&#160;SRC1[47:32] * SRC2[47:32]<br/>Temp3[31:0]&#160;&#160;SRC1[63:48] * SRC2[63:48]<br/>Temp4[31:0]&#160;&#160;SRC1[79:64] * SRC2[79:64]<br/>Temp5[31:0]&#160;&#160;SRC1[95:80] * SRC2[95:80]<br/>Temp6[31:0]&#160;&#160;SRC1[111:96] * SRC2[111:96]<br/>Temp7[31:0]&#160;&#160;SRC1[127:112] * SRC2[127:112]<br/>DEST[15:0]&#160;&#160;Temp0[15:0]<br/>DEST[31:16]&#160;&#160;Temp1[15:0]<br/>DEST[47:32]&#160;&#160;Temp2[15:0]<br/>DEST[63:48]&#160;&#160;Temp3[15:0]<br/>DEST[79:64]&#160;&#160;Temp4[15:0]<br/>DEST[95:80]&#160;&#160;Temp5[15:0]<br/>DEST[111:96]&#160;&#160;Temp6[15:0]<br/>DEST[127:112]&#160;&#160;Temp7[15:0]<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:442px;left:68px;white-space:nowrap" class="ft04">PMULLW&#160;(EVEX encoded versions)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:496px;left:88px;white-space:nowrap" class="ft04">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:532px;left:115px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:550px;left:142px;white-space:nowrap" class="ft04">temp[31:0]&#160;&#160;SRC1[i+15:i] * SRC2[i+15:i]<br/>DEST[i+15:i]&#160;&#160;temp[15:0]</p>
+<p style="position:absolute;top:586px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:604px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:604px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:622px;left:169px;white-space:nowrap" class="ft04">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:640px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:658px;left:196px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;&#160;0</p>
+<p style="position:absolute;top:676px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft04">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:767px;left:68px;white-space:nowrap" class="ft03">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:787px;left:68px;white-space:nowrap" class="ft04">VPMULLW __m512i _mm512_mullo_epi16(__m512i a,&#160;__m512i&#160;b);<br/>VPMULLW __m512i _mm512_mask_mullo_epi16(__m512i s, __mmask32 k, __m512i&#160;a, __m512i b);<br/>VPMULLW __m512i _mm512_maskz_mullo_epi16( __mmask32&#160;k, __m512i a,&#160;__m512i&#160;b);<br/>VPMULLW __m256i _mm256_mask_mullo_epi16(__m256i s, __mmask16 k, __m256i&#160;a, __m256i b);<br/>VPMULLW __m256i _mm256_maskz_mullo_epi16( __mmask16&#160;k, __m256i a,&#160;__m256i&#160;b);<br/>VPMULLW __m128i _mm_mask_mullo_epi16(__m128i s, __mmask8&#160;k, __m128i a, __m128i b);<br/>VPMULLW __m128i _mm_maskz_mullo_epi16( __mmask8 k, __m128i a, __m128i b);<br/>PMULLW: __m64&#160;_mm_mullo_pi16(__m64&#160;m1, __m64&#160;m2)<br/>(V)PMULLW:&#160;__m128i _mm_mullo_epi16 ( __m128i a, __m128i b)<br/>VPMULLW:__m256i _mm256_mullo_epi16&#160;( __m256i&#160;a, __m256i b);</p>
+<p style="position:absolute;top:986px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:1012px;left:68px;white-space:nowrap" class="ft02">None.</p>
+</div>
+</body>
+</html>

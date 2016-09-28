@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1888</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1888-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811888.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:516px;white-space:nowrap" class="ft00">VSCALEFPD—Scale Packed Float64 Values With Float64 Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-502&#160;Vol. 2C</p>
+<p style="position:absolute;top:226px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:249px;left:68px;white-space:nowrap" class="ft05">SCALE(SRC1,&#160;SRC2)<br/>{<br/>TMP_SRC2&#160;&#160;SRC2<br/>TMP_SRC1&#160;&#160;SRC1<br/>IF (SRC2 is denormal&#160;AND&#160;MXCSR.DAZ) THEN&#160;TMP_SRC2=0<br/>IF (SRC1 is denormal&#160;AND&#160;MXCSR.DAZ) THEN&#160;TMP_SRC1=0</p>
+<p style="position:absolute;top:357px;left:88px;white-space:nowrap" class="ft05">/* SRC2 is&#160;a&#160;64 bits floating-point value */<br/>&#160;DEST[63:0]&#160;&#160;TMP_SRC1[63:0] * POW(2, Floor(TMP_SRC2[63:0]))</p>
+<p style="position:absolute;top:393px;left:68px;white-space:nowrap" class="ft05">}<br/>VSCALEFPD (EVEX encoded&#160;versions)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>IF&#160;(VL&#160;= 512)&#160;AND&#160;(EVEX.b =&#160;1)&#160;AND&#160;(SRC2 *is register*)</p>
+<p style="position:absolute;top:465px;left:88px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:483px;left:115px;white-space:nowrap" class="ft02">SET_RM(EVEX.RC);</p>
+<p style="position:absolute;top:501px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:519px;left:115px;white-space:nowrap" class="ft02">SET_RM(MXCSR.RM);</p>
+<p style="position:absolute;top:537px;left:68px;white-space:nowrap" class="ft05">FI;<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:573px;left:88px;white-space:nowrap" class="ft05">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:609px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:627px;left:169px;white-space:nowrap" class="ft05">THEN DEST[i+63:i]&#160;&#160;SCALE(SRC1[i+63:i], SRC2[63:0]);<br/>ELSE DEST[i+63:i]&#160;&#160;SCALE(SRC1[i+63:i],&#160;SRC2[i+63:i]);</p>
+<p style="position:absolute;top:663px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:681px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:699px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:699px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:717px;left:169px;white-space:nowrap" class="ft05">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:735px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:753px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:771px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:789px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:807px;left:68px;white-space:nowrap" class="ft05">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:116px;left:278px;white-space:nowrap" class="ft03">Table&#160;5-32.&#160;Additional VSCALEFPD/SD Special&#160;Cases</p>
+<p style="position:absolute;top:141px;left:74px;white-space:nowrap" class="ft02">Special Case</p>
+<p style="position:absolute;top:141px;left:275px;white-space:nowrap" class="ft02">&#160;Returned value&#160;</p>
+<p style="position:absolute;top:141px;left:676px;white-space:nowrap" class="ft02">Faults</p>
+<p style="position:absolute;top:164px;left:74px;white-space:nowrap" class="ft02">|result| &lt;&#160;2</p>
+<p style="position:absolute;top:162px;left:135px;white-space:nowrap" class="ft04">-1074</p>
+<p style="position:absolute;top:164px;left:275px;white-space:nowrap" class="ft02">±0 or ±Min-Denormal (Src1 sign)</p>
+<p style="position:absolute;top:164px;left:676px;white-space:nowrap" class="ft02">Underflow</p>
+<p style="position:absolute;top:189px;left:74px;white-space:nowrap" class="ft02">|result|&#160;≥&#160;2</p>
+<p style="position:absolute;top:186px;left:135px;white-space:nowrap" class="ft04">1024</p>
+<p style="position:absolute;top:189px;left:275px;white-space:nowrap" class="ft02">±INF (Src1 sign) or&#160;±Max-normal (Src1 sign)</p>
+<p style="position:absolute;top:189px;left:676px;white-space:nowrap" class="ft02">Overflow</p>
+</div>
+</body>
+</html>

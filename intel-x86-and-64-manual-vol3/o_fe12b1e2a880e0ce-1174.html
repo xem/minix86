@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1174</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1174-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1174.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">29-8&#160;Vol. 3C</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">APIC VIRTUALIZATION&#160;AND&#160;VIRTUAL INTERRUPTS</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07">If the&#160;“APIC-register&#160;virtualization” and&#160;“virtual-interrupt delivery” VM-execution&#160;controls&#160;are&#160;both 0, a&#160;write&#160;<br/>access is&#160;virtualized if its&#160;page offset is&#160;080H;&#160;otherwise,&#160;the access causes&#160;an APIC-access VM&#160;exit.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft07">If the&#160;“APIC-register virtualization” VM-execution control&#160;is 0&#160;and the&#160;“virtual-interrupt delivery” VM-execution&#160;<br/>control is&#160;1, a&#160;write&#160;access&#160;is virtualized&#160;if its&#160;page&#160;offset&#160;is 080H (task priority),&#160;0B0H (end&#160;of interrupt),&#160;and&#160;<br/>300H (interrupt command —&#160;low);&#160;otherwise,&#160;the access causes&#160;an APIC-access&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:194px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:195px;left:93px;white-space:nowrap" class="ft010">If “APIC-register&#160;virtualization is 1,&#160;a write&#160;access&#160;is virtualized&#160;if it is&#160;entirely within one&#160;the&#160;following&#160;ranges of&#160;<br/>offsets:<br/>—&#160;020H–023H&#160;(local APIC ID);<br/>—&#160;080H–083H (task&#160;priority);<br/>—&#160;0B0H–0B3H (end of interrupt);<br/>—&#160;0D0H–0D3H (logical destination);<br/>—&#160;0E0H–0E3H&#160;(destination format);<br/>—&#160;0F0H–0F3H (spurious-interrupt&#160;vector);<br/>—&#160;280H–283H (error&#160;status);<br/>—&#160;300H–303H or&#160;310H–313H (interrupt&#160;command);<br/>—&#160;320H–323H,&#160;330H–333H,&#160;340H–343H,&#160;350H–353H,&#160;360H–363H,&#160;or 370H–373H&#160;(LVT&#160;entries);<br/>—&#160;380H–383H&#160;(initial count); or<br/>—&#160;3E0H–3E3H&#160;(divide configuration).<br/>In all other&#160;cases, the access causes an APIC-access&#160;VM&#160;exit.</p>
+<p style="position:absolute;top:522px;left:68px;white-space:nowrap" class="ft07">The processor virtualizes a&#160;write access to&#160;the&#160;APIC-access page&#160;by writing&#160;data to&#160;the corresponding&#160;page&#160;offset&#160;<br/>on the&#160;virtual-APIC&#160;page.</p>
+<p style="position:absolute;top:536px;left:238px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:538px;left:244px;white-space:nowrap" class="ft03">&#160;Following this, the processor performs certain actions after completion of the operation&#160;</p>
+<p style="position:absolute;top:555px;left:68px;white-space:nowrap" class="ft03">of which the&#160;access&#160;was a&#160;part.</p>
+<p style="position:absolute;top:552px;left:278px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:555px;left:285px;white-space:nowrap" class="ft03">&#160;APIC-write&#160;emulation is&#160;described&#160;<a href="o_fe12b1e2a880e0ce-1174.html">in Section 29.4.3.2.</a></p>
+<p style="position:absolute;top:599px;left:68px;white-space:nowrap" class="ft05">29.4.3.2 &#160;&#160;APIC-Write Emulation</p>
+<p style="position:absolute;top:628px;left:68px;white-space:nowrap" class="ft09">If the processor virtualizes a write access&#160;to the APIC-access page, it performs additional actions after completion&#160;<br/>of&#160;an operation of which the&#160;access&#160;was a&#160;part. These&#160;actions&#160;are called&#160;<b>APIC-write emulation</b>.<br/>The details&#160;of&#160;APIC-write&#160;emulation depend&#160;upon&#160;the&#160;page&#160;offset&#160;of the&#160;virtualized&#160;write&#160;access:</p>
+<p style="position:absolute;top:665px;left:714px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:690px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:691px;left:93px;white-space:nowrap" class="ft07">080H&#160;(task priority).&#160;The&#160;processor clears bytes&#160;3:1&#160;of&#160;VTPR and&#160;then causes TPR virtualization&#160;<a href="o_fe12b1e2a880e0ce-1168.html">(Section&#160;<br/>29.1.2).</a></p>
+<p style="position:absolute;top:729px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:730px;left:93px;white-space:nowrap" class="ft07">0B0H (end&#160;of interrupt).&#160;If the “virtual-interrupt delivery” VM-execution control is&#160;1,&#160;the&#160;processor clears VEOI&#160;<br/>and then&#160;causes EOI&#160;<a href="o_fe12b1e2a880e0ce-1169.html">virtualization (Section 29.1.4);&#160;</a>otherwise,&#160;the processor causes&#160;an APIC-write&#160;VM&#160;exit&#160;<br/><a href="o_fe12b1e2a880e0ce-1175.html">(Section 29.4.3.3</a>).</p>
+<p style="position:absolute;top:784px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:785px;left:93px;white-space:nowrap" class="ft08">300H (interrupt command —&#160;low). If the&#160;“virtual-interrupt&#160;delivery” VM-execution control&#160;is 1, the&#160;processor&#160;<br/>checks the&#160;value&#160;of VICR_LO&#160;to determine whether&#160;the following are&#160;all true:<br/>—&#160;Reserved&#160;bits&#160;(31:20,&#160;17:16,&#160;13) and&#160;bit&#160;12&#160;(delivery&#160;status) are&#160;all&#160;0.<br/>—&#160;Bits&#160;19:18 (destination shorthand) are&#160;01B&#160;(self).<br/>—&#160;Bit 15 (trigger&#160;mode) is&#160;0&#160;(edge).<br/>—&#160;Bits&#160;10:8&#160;(delivery&#160;mode) are&#160;000B (fixed).<br/>—&#160;Bits 7:4 (the&#160;upper half of the&#160;vector)&#160;are&#160;<b>not</b>&#160;0000B.</p>
+<p style="position:absolute;top:963px;left:68px;white-space:nowrap" class="ft03">5.&#160;The memory&#160;type used&#160;for&#160;accesses that&#160;write&#160;to&#160;the&#160;virtual-APIC&#160;page&#160;is&#160;reported&#160;in&#160;bits&#160;53:50&#160;of&#160;the&#160;IA32_VMX_BASIC&#160;MSR&#160;(see&#160;</p>
+<p style="position:absolute;top:979px;left:89px;white-space:nowrap" class="ft03"><a href="o_fe12b1e2a880e0ce-1943.html">Appendix&#160;A.1).</a></p>
+<p style="position:absolute;top:1000px;left:68px;white-space:nowrap" class="ft03">6.&#160;Recall that, for the&#160;purposes&#160;of&#160;this discussion, an&#160;operation&#160;is an&#160;iteration of&#160;a&#160;REP-prefixed&#160;string&#160;instruction, an&#160;execution of&#160;any&#160;</p>
+<p style="position:absolute;top:1017px;left:89px;white-space:nowrap" class="ft03">other instruction, or delivery&#160;of&#160;an event through the IDT.</p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">7.&#160;For&#160;any&#160;operation,&#160;there&#160;can be&#160;only one page&#160;offset&#160;for&#160;which a&#160;write&#160;access was virtualized.&#160;This&#160;is because&#160;a write access&#160;is not&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">virtualized if&#160;the&#160;processor has already virtualized a&#160;write access&#160;for the&#160;same&#160;operation with a&#160;different page&#160;offset.</p>
+</div>
+</body>
+</html>

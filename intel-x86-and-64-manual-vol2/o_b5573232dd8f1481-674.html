@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 674</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page674-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481674.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:710px;white-space:nowrap" class="ft00">LTR—Load&#160;Task Register</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-546&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">LTR—Load&#160;Task&#160;Register</p>
+<p style="position:absolute;top:217px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:300px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft07">Loads the&#160;source&#160;operand&#160;into&#160;the segment selector field of the&#160;task register.&#160;The&#160;source&#160;operand&#160;(a general-<br/>purpose&#160;register or&#160;a memory location) contains&#160;a segment&#160;selector that points&#160;to a&#160;task state&#160;segment&#160;(TSS).&#160;<br/>After&#160;the segment selector is&#160;loaded in&#160;the&#160;task&#160;register,&#160;the processor uses&#160;the segment selector to&#160;locate&#160;the&#160;<br/>segment descriptor&#160;for&#160;the TSS in&#160;the global&#160;descriptor&#160;table&#160;(GDT).&#160;It then&#160;loads&#160;the segment limit and base&#160;<br/>address for the&#160;TSS from&#160;the segment descriptor&#160;into the&#160;task&#160;register. The&#160;task pointed to&#160;by&#160;the task&#160;register&#160;is&#160;<br/>marked busy, but&#160;a switch&#160;to&#160;the task&#160;does&#160;not&#160;occur.<br/>The LTR instruction is provided&#160;for use in operating-system&#160;software; it should not be used in application programs.&#160;<br/>It&#160;can&#160;only&#160;be&#160;executed&#160;in&#160;protected&#160;mode&#160;when&#160;the&#160;CPL&#160;is&#160;0. It is&#160;commonly used&#160;in initialization&#160;code to&#160;establish&#160;<br/>the first&#160;task&#160;to be executed.<br/>The&#160;operand-size&#160;attribute&#160;has&#160;no&#160;effect on this&#160;instruction.&#160;<br/>In&#160;64-bit mode, the&#160;operand size&#160;is still fixed&#160;at 16 bits.&#160;The&#160;instruction references&#160;a&#160;16-byte&#160;descriptor to load the&#160;<br/>64-bit base.</p>
+<p style="position:absolute;top:563px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:594px;left:68px;white-space:nowrap" class="ft04">IF&#160;SRC is&#160;a NULL selector</p>
+<p style="position:absolute;top:610px;left:88px;white-space:nowrap" class="ft04">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:640px;left:68px;white-space:nowrap" class="ft04">IF&#160;SRC(Offset)&#160;&gt;&#160;descriptor table limit OR IF SRC(type)&#160;</p>
+<p style="position:absolute;top:638px;left:376px;white-space:nowrap" class="ft05">≠</p>
+<p style="position:absolute;top:641px;left:385px;white-space:nowrap" class="ft04">&#160;global</p>
+<p style="position:absolute;top:658px;left:88px;white-space:nowrap" class="ft04">THEN #GP(segment selector); FI;</p>
+<p style="position:absolute;top:688px;left:68px;white-space:nowrap" class="ft04">Read&#160;segment descriptor;</p>
+<p style="position:absolute;top:718px;left:68px;white-space:nowrap" class="ft04">IF segment descriptor&#160;is not for an&#160;available TSS&#160;</p>
+<p style="position:absolute;top:736px;left:88px;white-space:nowrap" class="ft04">THEN #GP(segment selector); FI;</p>
+<p style="position:absolute;top:754px;left:68px;white-space:nowrap" class="ft04">IF&#160;segment descriptor&#160;is&#160;not present&#160;</p>
+<p style="position:absolute;top:772px;left:88px;white-space:nowrap" class="ft04">THEN #NP(segment selector); FI;</p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft04">TSSsegmentDescriptor(busy)&#160;←&#160;1;&#160;</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft04">(* Locked&#160;read-modify-write operation&#160;on&#160;the&#160;entire&#160;descriptor&#160;when&#160;setting&#160;busy flag *)</p>
+<p style="position:absolute;top:850px;left:68px;white-space:nowrap" class="ft04">TaskRegister(SegmentSelector)&#160;←&#160;SRC;</p>
+<p style="position:absolute;top:868px;left:68px;white-space:nowrap" class="ft04">TaskRegister(SegmentDescriptor)&#160;←&#160;TSSSegmentDescriptor;</p>
+<p style="position:absolute;top:902px;left:68px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:927px;left:68px;white-space:nowrap" class="ft04">None</p>
+<p style="position:absolute;top:123px;left:75px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:221px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:387px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:387px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:424px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:424px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:496px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:496px;white-space:nowrap" class="ft04">Leg&#160;Mode</p>
+<p style="position:absolute;top:123px;left:566px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:75px;white-space:nowrap" class="ft04">0F 00&#160;/3</p>
+<p style="position:absolute;top:160px;left:221px;white-space:nowrap" class="ft04">LTR&#160;<i>r/m</i>16</p>
+<p style="position:absolute;top:160px;left:387px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:160px;left:424px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:496px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:566px;white-space:nowrap" class="ft04">Load&#160;<i>r/m</i>16 into task register.</p>
+<p style="position:absolute;top:240px;left:84px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:240px;left:188px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:240px;left:359px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:240px;left:535px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:240px;left:714px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:263px;left:97px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:263px;left:177px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:263px;left:380px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:556px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:263px;left:735px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

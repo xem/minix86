@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1654</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1654-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811654.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:475px;white-space:nowrap" class="ft00">VGETEXPSS—Convert Exponents&#160;of Scalar SP&#160;FP Values to&#160;SP FP Value</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-268&#160;Vol. 2C</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">VGETEXPSS—Convert Exponents of&#160;Scalar SP FP Values to&#160;SP FP Value</p>
+<p style="position:absolute;top:291px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:376px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:399px;left:68px;white-space:nowrap" class="ft08">Extracts the biased exponent from the normalized SP FP&#160;representation of the low doubleword data element of the&#160;<br/>source operand&#160;(the third operand) as&#160;unbiased signed&#160;integer value,&#160;or convert&#160;the denormal&#160;representation of&#160;<br/>input data to&#160;unbiased&#160;negative integer values. The integer&#160;value of&#160;the&#160;unbiased exponent&#160;is converted to&#160;single-<br/>precision&#160;FP value and written to the destination operand (the&#160;first&#160;operand)&#160;as SP&#160;FP&#160;numbers.&#160;Bits (127:32)&#160;of the&#160;<br/>XMM&#160;register destination are&#160;copied from corresponding bits in&#160;the first source&#160;operand.<br/>The destination must&#160;be a&#160;XMM register, the&#160;source operand can be&#160;a XMM register or a float32&#160;memory location.&#160;<br/>The&#160;the low doubleword&#160;element of the&#160;destination&#160;operand is&#160;conditionally&#160;updated with writemask k1.&#160;<br/>Each&#160;GETEXP&#160;operation converts the&#160;exponent&#160;value&#160;into&#160;a FP number&#160;(permitting&#160;input value in&#160;denormal repre-<br/>sentation).&#160;Special&#160;cases of&#160;input values are&#160;listed in&#160;<a href="o_b5573232dd8f1481-1648.html">Table 5-8.<br/></a>The formula&#160;is:<br/>GETEXP(x) = floor(log</p>
+<p style="position:absolute;top:594px;left:218px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:588px;left:224px;white-space:nowrap" class="ft04">(|x|))&#160;</p>
+<p style="position:absolute;top:610px;left:68px;white-space:nowrap" class="ft07">Notation&#160;<b>floor(x)</b>&#160;stands&#160;for maximal&#160;integer not exceeding real&#160;number x.&#160;<br/>Software usage of&#160;VGETEXPxx&#160;and VGETMANTxx&#160;instructions&#160;generally involve a combination of GETEXP operation&#160;<br/>and GETMANT operation&#160;(see&#160;VGETMANTPD).&#160;Thus&#160;VGETEXPxx&#160;instruction do not require&#160;software&#160;to handle SIMD&#160;<br/>FP exceptions.</p>
+<p style="position:absolute;top:700px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:723px;left:68px;white-space:nowrap" class="ft04">// NormalizeExpTinySPFP(SRC[31:0]) is defined in the Operation&#160;section of VGETEXPPS</p>
+<p style="position:absolute;top:759px;left:68px;white-space:nowrap" class="ft04">// ConvertExpSPFP(SRC[31:0]) is defined in the Operation section of VGETEXPPS</p>
+<p style="position:absolute;top:795px;left:68px;white-space:nowrap" class="ft09">VGETEXPSS (EVEX encoded&#160;version)&#160;<br/>IF k1[0] OR *no writemask*</p>
+<p style="position:absolute;top:831px;left:88px;white-space:nowrap" class="ft04">THEN DEST[31:0]&#160;</p>
+<p style="position:absolute;top:849px;left:142px;white-space:nowrap" class="ft04">ConvertExpDPFP(SRC2[31:0])</p>
+<p style="position:absolute;top:867px;left:88px;white-space:nowrap" class="ft04">ELSE&#160;</p>
+<p style="position:absolute;top:885px;left:115px;white-space:nowrap" class="ft04">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:885px;left:331px;white-space:nowrap" class="ft04">;&#160;merging-masking</p>
+<p style="position:absolute;top:903px;left:142px;white-space:nowrap" class="ft09">THEN *DEST[31:0] remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:921px;left:337px;white-space:nowrap" class="ft04">zeroing-masking</p>
+<p style="position:absolute;top:939px;left:169px;white-space:nowrap" class="ft04">DEST[31:0]&#160;0</p>
+<p style="position:absolute;top:957px;left:142px;white-space:nowrap" class="ft04">FI</p>
+<p style="position:absolute;top:975px;left:88px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:993px;left:68px;white-space:nowrap" class="ft09">ENDFOR<br/>DEST[127:32]&#160;&#160;SRC1[127:32]<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:291px;white-space:nowrap" class="ft04">Op/</p>
+<p style="position:absolute;top:137px;left:291px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:333px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:333px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:152px;left:333px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:407px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:407px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:152px;left:407px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:487px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft04">EVEX.NDS.LIG.66.0F38.W0 43&#160;/r</p>
+<p style="position:absolute;top:172px;left:291px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:172px;left:333px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:172px;left:407px;white-space:nowrap" class="ft04">AVX512F</p>
+<p style="position:absolute;top:172px;left:487px;white-space:nowrap" class="ft04">Convert the&#160;biased exponent&#160;(bits 30:23) of&#160;the&#160;low&#160;single-</p>
+<p style="position:absolute;top:188px;left:487px;white-space:nowrap" class="ft04">precision floating-point&#160;value&#160;in&#160;xmm3/m32&#160;to a&#160;SP FP&#160;</p>
+<p style="position:absolute;top:205px;left:487px;white-space:nowrap" class="ft04">value&#160;representing&#160;unbiased&#160;integer&#160;exponent.&#160;Stores the&#160;</p>
+<p style="position:absolute;top:222px;left:487px;white-space:nowrap" class="ft04">result&#160;to&#160;xmm1&#160;under&#160;the writemask k1&#160;and merge with&#160;the&#160;</p>
+<p style="position:absolute;top:238px;left:487px;white-space:nowrap" class="ft04">other elements of&#160;xmm2.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft04">VGETEXPSS xmm1 {k1}{z},&#160;xmm2,&#160;</p>
+<p style="position:absolute;top:208px;left:77px;white-space:nowrap" class="ft04">xmm3/m32{sae}</p>
+<p style="position:absolute;top:314px;left:109px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:314px;left:236px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:314px;left:401px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:314px;left:564px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:314px;left:725px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:339px;left:115px;white-space:nowrap" class="ft04">T1S</p>
+<p style="position:absolute;top:339px;left:223px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:339px;left:392px;white-space:nowrap" class="ft04">EVEX.vvvv&#160;(r)</p>
+<p style="position:absolute;top:339px;left:554px;white-space:nowrap" class="ft04">ModRM:r/m (r)</p>
+<p style="position:absolute;top:339px;left:746px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 324</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page324-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce324.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-12&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:99px;left:68px;white-space:nowrap" class="ft02">9.8.5.2&#160;&#160;</p>
+<p style="position:absolute;top:99px;left:152px;white-space:nowrap" class="ft02">IA-32e&#160;Mode&#160;Interrupts&#160;and Exceptions</p>
+<p style="position:absolute;top:127px;left:68px;white-space:nowrap" class="ft07">Software must not&#160;allow&#160;exceptions or&#160;interrupts to&#160;occur between the&#160;time IA-32e&#160;mode is&#160;activated&#160;and the&#160;<br/>update of&#160;the interrupt-descriptor-table&#160;register&#160;(IDTR) that establishes references to a 64-bit interrupt-descriptor&#160;<br/>table&#160;(IDT). This&#160;is because&#160;the IDT&#160;remains in&#160;legacy&#160;form immediately after&#160;IA-32e&#160;mode is&#160;activated.<br/>If an interrupt or exception&#160;occurs&#160;prior to&#160;updating&#160;the&#160;IDTR, a&#160;legacy 32-bit&#160;interrupt gate will be referenced&#160;and&#160;<br/>interpreted as&#160;a 64-bit&#160;interrupt gate with unpredictable&#160;results. External interrupts&#160;can be disabled by using&#160;the&#160;<br/>CLI instruction.<br/>Non-maskable interrupts (NMI)&#160;must&#160;be disabled&#160;using external&#160;hardware.</p>
+<p style="position:absolute;top:286px;left:68px;white-space:nowrap" class="ft02">9.8.5.3&#160;&#160;</p>
+<p style="position:absolute;top:286px;left:152px;white-space:nowrap" class="ft02">64-bit Mode&#160;and Compatibility Mode&#160;Operation</p>
+<p style="position:absolute;top:314px;left:68px;white-space:nowrap" class="ft05">IA-32e&#160;mode uses&#160;two code segment-descriptor bits&#160;(CS.L and CS.D<a href="o_fe12b1e2a880e0ce-98.html">, see Figure 3-8</a>)&#160;to control the operating&#160;modes&#160;<br/>after IA-32e&#160;mode&#160;is initialized. If CS.L&#160;= 1&#160;and CS.D&#160;=&#160;0, the processor is running&#160;in&#160;64-bit mode. With this&#160;<br/>encoding, the default operand&#160;size&#160;is 32&#160;bits and&#160;default address&#160;size&#160;is 64&#160;bits.&#160;Using&#160;instruction prefixes,&#160;operand&#160;<br/>size can be changed to&#160;64 bits&#160;or&#160;16&#160;bits;&#160;address size can be changed to&#160;32 bits.&#160;<br/>When&#160;IA-32e mode&#160;is active&#160;and CS.L = 0, the&#160;processor operates&#160;in compatibility mode.&#160;In&#160;this mode,&#160;CS.D&#160;<br/>controls default&#160;operand and&#160;address sizes&#160;exactly as&#160;it does&#160;in&#160;the&#160;IA-32&#160;architecture. Setting&#160;CS.D&#160;=&#160;1 specifies&#160;<br/>default&#160;operand&#160;and&#160;address size&#160;as 32&#160;bits.&#160;Clearing&#160;CS.D to 0&#160;specifies default operand&#160;and address&#160;size as&#160;16&#160;<br/>bits&#160;(the CS.L&#160;= 1,&#160;CS.D&#160;=&#160;1&#160;bit combination is&#160;reserved).<br/>Compatibility mode&#160;execution is&#160;selected&#160;on&#160;a code-segment&#160;basis. This&#160;mode allows legacy applications to coexist&#160;<br/>with&#160;64-bit&#160;applications&#160;running&#160;in 64-bit mode. An operating system running in IA-32e&#160;mode can execute existing&#160;<br/>16-bit and&#160;32-bit applications by&#160;clearing&#160;their&#160;code-segment descriptor’s CS.L bit&#160;to 0.<br/>In compatibility mode, the&#160;following&#160;system-level&#160;mechanisms continue to&#160;operate using&#160;the&#160;IA-32e-mode&#160;archi-<br/>tectural semantics:</p>
+<p style="position:absolute;top:556px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:557px;left:93px;white-space:nowrap" class="ft03">Linear-to-physical address&#160;translation uses&#160;the 64-bit mode extended&#160;page-translation&#160;mechanism.</p>
+<p style="position:absolute;top:579px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:580px;left:93px;white-space:nowrap" class="ft03">Interrupts&#160;and&#160;exceptions are&#160;handled&#160;using the&#160;64-bit mode&#160;mechanisms.</p>
+<p style="position:absolute;top:601px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:602px;left:93px;white-space:nowrap" class="ft05">System&#160;calls (calls&#160;through call&#160;gates&#160;and SYSENTER/SYSEXIT) are handled using&#160;the IA-32e&#160;mode&#160;<br/>mechanisms.</p>
+<p style="position:absolute;top:663px;left:68px;white-space:nowrap" class="ft02">9.8.5.4&#160;&#160;</p>
+<p style="position:absolute;top:663px;left:152px;white-space:nowrap" class="ft02">Switching Out of&#160;IA-32e Mode Operation</p>
+<p style="position:absolute;top:691px;left:68px;white-space:nowrap" class="ft07">To&#160;return from IA-32e mode to&#160;paged-protected mode&#160;operation.&#160;Operating&#160;systems must use&#160;the following&#160;<br/>sequence:<br/>1.&#160;Switch to&#160;compatibility mode.<br/>2.&#160;Deactivate IA-32e mode&#160;by clearing CR0.PG&#160;=&#160;0.&#160;This causes the&#160;processor&#160;to set&#160;IA32_EFER.LMA&#160;=&#160;0.&#160;The&#160;</p>
+<p style="position:absolute;top:772px;left:93px;white-space:nowrap" class="ft05">MOV CR0 instruction&#160;used&#160;to&#160;disable paging and subsequent instructions&#160;must be located&#160;in an identity-mapped&#160;<br/>page.</p>
+<p style="position:absolute;top:813px;left:68px;white-space:nowrap" class="ft06">3.&#160;Load CR3&#160;with&#160;the physical base address&#160;of&#160;the legacy page-table-directory&#160;base&#160;address.<br/>4.&#160;Disable&#160;IA-32e&#160;mode&#160;by setting&#160;IA32_EFER.LME = 0.<br/>5.&#160;Enable legacy&#160;paged-protected mode&#160;by&#160;setting&#160;CR0.PG = 1<br/>6.&#160;A branch&#160;instruction&#160;must&#160;follow&#160;the MOV CR0&#160;that enables paging. Both the&#160;MOV&#160;CR0 and&#160;the branch&#160;</p>
+<p style="position:absolute;top:901px;left:93px;white-space:nowrap" class="ft03">instruction must be located in&#160;an identity-mapped page.</p>
+<p style="position:absolute;top:925px;left:68px;white-space:nowrap" class="ft05">Registers only available&#160;in&#160;64-bit&#160;mode (R8-R15&#160;and&#160;XMM8-XMM15) are preserved across&#160;transitions from 64-bit&#160;<br/>mode&#160;into compatibility mode&#160;then&#160;back into&#160;64-bit mode. However,&#160;values of&#160;R8-R15 and XMM8-XMM15 are unde-<br/>fined&#160;after transitions from 64-bit&#160;mode&#160;through compatibility mode to&#160;legacy&#160;or real mode and then back&#160;through&#160;<br/>compatibility mode to&#160;64-bit&#160;mode.</p>
+</div>
+</body>
+</html>

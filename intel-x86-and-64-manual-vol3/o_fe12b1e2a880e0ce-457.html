@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 457</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:9px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:8px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page457-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce457.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;13-3</p>
+<p style="position:absolute;top:47px;left:273px;white-space:nowrap" class="ft01">SYSTEM&#160;PROGRAMMING FOR INSTRUCTION SET EXTENSIONS&#160;AND PROCESSOR EXTENDED&#160;STATES</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">2.&#160;Set CR4.OSXMMEXCPT[bit&#160;10] = 1.&#160;Setting&#160;this flag&#160;implies&#160;that the&#160;operating system provides a&#160;SIMD&#160;</p>
+<p style="position:absolute;top:117px;left:95px;white-space:nowrap" class="ft09">floating-point exception&#160;(#XM<a href="o_fe12b1e2a880e0ce-459.html">) handler (see Section&#160;13.1.5,&#160;“Providing&#160;a Handler for the SIMD&#160;Floating-Point&#160;<br/>Exception&#160;(#XM)”).&#160;</a></p>
+<p style="position:absolute;top:168px;left:433px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:193px;left:122px;white-space:nowrap" class="ft09">The OSFXSR and&#160;OSXMMEXCPT bits in&#160;control&#160;register&#160;CR4 must be set&#160;by the&#160;operating system.&#160;<br/>The&#160;processor&#160;has&#160;no&#160;other&#160;way of&#160;detecting operating-system&#160;support for&#160;the FXSAVE and&#160;<br/>FXRSTOR instructions or&#160;for&#160;handling SIMD floating-point&#160;exceptions.</p>
+<p style="position:absolute;top:250px;left:69px;white-space:nowrap" class="ft02">3.&#160;Clear CR0.EM[bit&#160;2] = 0.&#160;This action disables emulation of the&#160;x87 FPU, which is required when executing SSE&#160;</p>
+<p style="position:absolute;top:267px;left:95px;white-space:nowrap" class="ft02">instructions (see<a href="o_fe12b1e2a880e0ce-75.html">&#160;Section 2.5, “Control&#160;Registers”).</a></p>
+<p style="position:absolute;top:291px;left:69px;white-space:nowrap" class="ft02">4.&#160;Set CR0.MP[bit&#160;1] = 1.&#160;This setting&#160;is&#160;required&#160;for Intel&#160;64&#160;and&#160;IA-32 processors that&#160;support&#160;the SSE&#160;</p>
+<p style="position:absolute;top:307px;left:95px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-318.html">extensions (see Section 9.2.1,&#160;“Configuring&#160;the x87&#160;FPU Environment”</a>).</p>
+<p style="position:absolute;top:331px;left:69px;white-space:nowrap" class="ft09"><a href="o_fe12b1e2a880e0ce-457.html">Table&#160;13-1&#160;</a>and<a href="o_fe12b1e2a880e0ce-458.html">&#160;Table&#160;13-2&#160;</a>show&#160;the actions&#160;of&#160;the processor when an SSE&#160;instruction&#160;is&#160;executed, depending on&#160;<br/>the following:&#160;</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:370px;left:95px;white-space:nowrap" class="ft02">OSFXSR and&#160;OSXMMEXCPT&#160;flags in control&#160;register CR4</p>
+<p style="position:absolute;top:392px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:393px;left:95px;white-space:nowrap" class="ft02">SSE/SSE2/SSE3/SSSE3/SSE4 feature&#160;flags returned by&#160;CPUID</p>
+<p style="position:absolute;top:415px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:415px;left:95px;white-space:nowrap" class="ft02">EM,&#160;MP, and&#160;TS flags&#160;in control register&#160;CR0</p>
+<p style="position:absolute;top:446px;left:103px;white-space:nowrap" class="ft05">Table&#160;13-1.&#160; Action&#160;Taken&#160;for&#160;Combinations of&#160;OSFXSR, OSXMMEXCPT, SSE, SSE2, SSE3, EM,&#160;MP, and&#160;TS</p>
+<p style="position:absolute;top:443px;left:792px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:755px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:774px;left:69px;white-space:nowrap" class="ft02">1.&#160;For execution of&#160;any SSE&#160;instruction&#160;except&#160;the PAUSE, PREFETCH<i>h</i>, SFENCE, LFENCE, MFENCE, MOVNTI, and&#160;CLFLUSH instructions.</p>
+<p style="position:absolute;top:471px;left:170px;white-space:nowrap" class="ft02">CR4</p>
+<p style="position:absolute;top:471px;left:325px;white-space:nowrap" class="ft02">CPUID</p>
+<p style="position:absolute;top:471px;left:434px;white-space:nowrap" class="ft02">CR0 Flags</p>
+<p style="position:absolute;top:494px;left:90px;white-space:nowrap" class="ft02">OSFXSR</p>
+<p style="position:absolute;top:494px;left:185px;white-space:nowrap" class="ft02">OSXMMEXCPT</p>
+<p style="position:absolute;top:494px;left:312px;white-space:nowrap" class="ft02">SSE,&#160;SSE2,&#160;</p>
+<p style="position:absolute;top:511px;left:322px;white-space:nowrap" class="ft02">SSE3</p>
+<p style="position:absolute;top:508px;left:352px;white-space:nowrap" class="ft08">2</p>
+<p style="position:absolute;top:511px;left:359px;white-space:nowrap" class="ft02">,</p>
+<p style="position:absolute;top:528px;left:317px;white-space:nowrap" class="ft02">SSE4_1</p>
+<p style="position:absolute;top:525px;left:364px;white-space:nowrap" class="ft08">3</p>
+<p style="position:absolute;top:794px;left:69px;white-space:nowrap" class="ft010">2.&#160;Exception conditions due&#160;to&#160;CR4.OSFXSR&#160;or&#160;CR4.OSXMMEXCPT do&#160;not apply to&#160;FISTTP.<br/>3.&#160;Only applies to&#160;DPPS,&#160;DPPD, ROUNDPS,&#160;ROUNDPD,&#160;ROUNDSS, ROUNDSD.</p>
+<p style="position:absolute;top:495px;left:404px;white-space:nowrap" class="ft02">EM</p>
+<p style="position:absolute;top:495px;left:452px;white-space:nowrap" class="ft02">MP</p>
+<p style="position:absolute;top:492px;left:471px;white-space:nowrap" class="ft08">4</p>
+<p style="position:absolute;top:833px;left:69px;white-space:nowrap" class="ft02">4.&#160;For processors that&#160;support the MMX instructions,&#160;the&#160;MP&#160;flag should be set.</p>
+<p style="position:absolute;top:495px;left:509px;white-space:nowrap" class="ft02">TS</p>
+<p style="position:absolute;top:495px;left:666px;white-space:nowrap" class="ft02">Action</p>
+<p style="position:absolute;top:552px;left:110px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:552px;left:220px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:549px;left:229px;white-space:nowrap" class="ft08">5</p>
+<p style="position:absolute;top:852px;left:69px;white-space:nowrap" class="ft02">5.&#160;X = Don’t care.</p>
+<p style="position:absolute;top:552px;left:339px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:552px;left:408px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:552px;left:461px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:552px;left:512px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:552px;left:542px;white-space:nowrap" class="ft02">#UD&#160;&#160;exception.</p>
+<p style="position:absolute;top:575px;left:110px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:575px;left:223px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:575px;left:340px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:575px;left:408px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:575px;left:461px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:575px;left:512px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:575px;left:542px;white-space:nowrap" class="ft02">#UD&#160;&#160;exception.</p>
+<p style="position:absolute;top:600px;left:110px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:600px;left:223px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:600px;left:340px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:600px;left:409px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:600px;left:461px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:600px;left:512px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:600px;left:542px;white-space:nowrap" class="ft02">#UD&#160;&#160;exception.</p>
+<p style="position:absolute;top:624px;left:110px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:624px;left:223px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:624px;left:340px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:624px;left:409px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:624px;left:461px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:624px;left:512px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:624px;left:542px;white-space:nowrap" class="ft02">Execute&#160;instruction; #UD exception if&#160;unmasked&#160;</p>
+<p style="position:absolute;top:640px;left:542px;white-space:nowrap" class="ft02">SIMD floating-point&#160;exception is&#160;detected.</p>
+<p style="position:absolute;top:664px;left:110px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:664px;left:223px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:664px;left:340px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:664px;left:409px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:664px;left:461px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:664px;left:512px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:664px;left:542px;white-space:nowrap" class="ft02">Execute instruction;&#160;#XM exception if&#160;unmasked&#160;</p>
+<p style="position:absolute;top:681px;left:542px;white-space:nowrap" class="ft02">SIMD floating-point&#160;exception is&#160;detected.</p>
+<p style="position:absolute;top:705px;left:110px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:705px;left:223px;white-space:nowrap" class="ft02">X</p>
+<p style="position:absolute;top:705px;left:340px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:705px;left:409px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:705px;left:461px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:705px;left:512px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:705px;left:542px;white-space:nowrap" class="ft02">#NM&#160;&#160;exception.</p>
+</div>
+</body>
+</html>

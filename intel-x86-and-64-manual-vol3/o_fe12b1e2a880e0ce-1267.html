@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1267</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:8px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1267-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1267.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;34-17</p>
+<p style="position:absolute;top:47px;left:666px;white-space:nowrap" class="ft01">SYSTEM&#160;MANAGEMENT&#160;MODE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">FI;<br/>IF the logical processor&#160;supports SMX operation</p>
+<p style="position:absolute;top:136px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:154px;left:116px;white-space:nowrap" class="ft06">save internal to the logical processor&#160;an&#160;indication&#160;of&#160;whether&#160;the&#160;Intel® TXT private&#160;space is&#160;locked;<br/>IF&#160;the TXT private&#160;space is&#160;unlocked</p>
+<p style="position:absolute;top:190px;left:143px;white-space:nowrap" class="ft02">THEN&#160;lock&#160;the&#160;TXT&#160;private space;</p>
+<p style="position:absolute;top:208px;left:116px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:226px;left:69px;white-space:nowrap" class="ft06">FI;<br/>CR4.VMXE&#160;←&#160;0;</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft02">perform ordinary SMI&#160;delivery:</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft06">save processor state in SMRAM;<br/>set processor state to standard SMM&#160;values;</p>
+<p style="position:absolute;top:295px;left:342px;white-space:nowrap" class="ft03">1</p>
+<p style="position:absolute;top:316px;left:89px;white-space:nowrap" class="ft02">invalidate&#160;linear&#160;mappings&#160;and&#160;combined&#160;mappings&#160;associated&#160;with&#160;VPID 0000H&#160;(for&#160;all&#160;PCIDs); combined&#160;mappings for VPID 0000H&#160;</p>
+<p style="position:absolute;top:333px;left:69px;white-space:nowrap" class="ft08">are invalidated for all EP4TA values&#160;(EP4TA&#160;is&#160;the value of&#160;bits&#160;51:12 of&#160;EPTP; see<a href="o_fe12b1e2a880e0ce-1161.html">&#160;Section&#160;28.3</a>);<br/>The pseudocode above makes reference&#160;to the saving of&#160;<b>VMX-critical&#160;state</b>.&#160;This state consists of&#160;the following:&#160;<br/>(1)&#160;SS.DPL (the&#160;current privilege&#160;level); (2)&#160;RFLAGS.VM</p>
+<p style="position:absolute;top:371px;left:448px;white-space:nowrap" class="ft03">2</p>
+<p style="position:absolute;top:373px;left:455px;white-space:nowrap" class="ft02">;&#160;(3)&#160;the state&#160;of blocking by STI and by MOV&#160;SS (see&#160;</p>
+<p style="position:absolute;top:390px;left:69px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-1052.html">Table&#160;24-3&#160;</a><a href="o_fe12b1e2a880e0ce-1051.html">in Section 24.4.2);&#160;</a>(4)&#160;the state of virtual-NMI&#160;blocking&#160;(only&#160;if the&#160;processor&#160;is in VMX non-root oper-<br/>ation&#160;and the “virtual NMIs” VM-execution&#160;control is&#160;1);&#160;and (5)&#160;an indication&#160;of whether an&#160;MTF VM&#160;exit is pending&#160;<br/><a href="o_fe12b1e2a880e0ce-1086.html">(see Section 25.5.2).</a>&#160;These&#160;data&#160;may be saved&#160;internal to&#160;the processor&#160;or in&#160;the VMCS region of the&#160;current&#160;<br/>VMCS. Processors that do not support SMI recognition while&#160;there&#160;is blocking&#160;by STI or&#160;by&#160;MOV&#160;SS&#160;need&#160;not save&#160;<br/>the state&#160;of such&#160;blocking.<br/>If the&#160;logical&#160;processor supports the 1-setting&#160;of the&#160;“enable EPT”&#160;VM-execution control and the&#160;logical&#160;processor&#160;<br/>was in&#160;VMX&#160;non-root&#160;operation&#160;at the time of&#160;an SMI,&#160;it&#160;saves&#160;the&#160;value of that control into&#160;bit&#160;0&#160;of the 32-bit&#160;field&#160;<br/>at&#160;offset SMBASE&#160;+ 8000H&#160;+&#160;7EE0H (SMBASE&#160;+&#160;<a href="o_fe12b1e2a880e0ce-1257.html">FEE0H; see Table&#160;34-3).</a></p>
+<p style="position:absolute;top:510px;left:563px;white-space:nowrap" class="ft03">3</p>
+<p style="position:absolute;top:513px;left:570px;white-space:nowrap" class="ft02">&#160;If the&#160;logical processor was&#160;not&#160;in VMX&#160;</p>
+<p style="position:absolute;top:529px;left:69px;white-space:nowrap" class="ft08">non-root&#160;operation&#160;at the&#160;time of the SMI,&#160;it saves 0 into&#160;that bit.&#160;If&#160;the logical processor saves 1&#160;into that&#160;bit (it&#160;<br/>was in&#160;VMX non-root operation and the&#160;“enable&#160;EPT” VM-execution&#160;control was&#160;1),&#160;it&#160;saves the value of the EPT&#160;<br/>pointer (EPTP) into the 64-bit field at&#160;offset&#160;SMBASE&#160;+ 8000H&#160;+&#160;7ED8H&#160;(SMBASE&#160;+ FED8H).<br/>Because SMI delivery causes&#160;a logical&#160;processor to leave VMX operation, all the&#160;controls&#160;associated&#160;with VMX&#160;non-<br/>root operation are&#160;disabled&#160;in SMM&#160;and thus cannot cause&#160;VM&#160;exits while the&#160;logical&#160;processor&#160;in SMM.</p>
+<p style="position:absolute;top:653px;left:69px;white-space:nowrap" class="ft05">34.14.2&#160;&#160;Default Treatment of&#160;RSM</p>
+<p style="position:absolute;top:684px;left:69px;white-space:nowrap" class="ft08">Ordinary execution of RSM restores processor state from&#160;SMRAM. Under&#160;the default&#160;treatment, processors that&#160;<br/>support VMX&#160;operation perform RSM&#160;as follows:</p>
+<p style="position:absolute;top:730px;left:69px;white-space:nowrap" class="ft02">IF&#160;VMXE&#160;=&#160;1&#160;in&#160;CR4 image&#160;in&#160;SMRAM</p>
+<p style="position:absolute;top:748px;left:89px;white-space:nowrap" class="ft06">THEN fail and&#160;enter shutdown&#160;state;<br/>ELSE</p>
+<p style="position:absolute;top:784px;left:116px;white-space:nowrap" class="ft06">restore state normally from SMRAM;<br/>invalidate&#160;linear&#160;mappings and&#160;combined&#160;mappings associated&#160;with all VPIDs and all PCIDs; combined&#160;mappings are&#160;invalidated&#160;</p>
+<p style="position:absolute;top:818px;left:69px;white-space:nowrap" class="ft02">for all EP4TA values&#160;(EP4TA&#160;is&#160;the value of&#160;bits&#160;51:12 of&#160;EPTP; see<a href="o_fe12b1e2a880e0ce-1161.html">&#160;Section&#160;28.3);</a></p>
+<p style="position:absolute;top:836px;left:116px;white-space:nowrap" class="ft02">IF the logical processor supports SMX&#160;operation&#160;andthe&#160;Intel® TXT&#160;private&#160;space&#160;was unlocked&#160;at the&#160;time of the last SMI (as&#160;</p>
+<p style="position:absolute;top:853px;left:69px;white-space:nowrap" class="ft02">saved)</p>
+<p style="position:absolute;top:871px;left:143px;white-space:nowrap" class="ft02">THEN&#160;unlock the TXT private space;</p>
+<p style="position:absolute;top:889px;left:116px;white-space:nowrap" class="ft06">FI;<br/>CR4.VMXE&#160;←&#160;value stored internally;</p>
+<p style="position:absolute;top:946px;left:69px;white-space:nowrap" class="ft09">1.&#160;This causes the logical processor to&#160;block INIT signals, NMIs, and&#160;SMIs.<br/>2.&#160;<a href="o_fe12b1e2a880e0ce-1266.html">Section&#160;34.14</a>&#160;and<a href="o_fe12b1e2a880e0ce-1269.html">&#160;Section&#160;34.15&#160;us</a>e&#160;the&#160;notation&#160;RAX,&#160;RIP,&#160;RSP,&#160;RFLAGS, etc. for processor registers because most&#160;processors&#160;that&#160;</p>
+<p style="position:absolute;top:984px;left:91px;white-space:nowrap" class="ft02">support VMX operation also support&#160;Intel 64 architecture. For&#160;processors that&#160;do not&#160;support Intel 64 architecture,&#160;this notation&#160;</p>
+<p style="position:absolute;top:1000px;left:91px;white-space:nowrap" class="ft02">refers&#160;to the 32-bit&#160;forms of&#160;these&#160;registers&#160;(EAX, EIP,&#160;ESP,&#160;EFLAGS, etc.).&#160;In&#160;a few places,&#160;notation&#160;such as EAX is used&#160;to&#160;refer spe-</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft02">cifically to&#160;the lower 32 bits of&#160;the register.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft02">3.&#160;“Enable&#160;EPT” is&#160;a&#160;secondary processor-based VM-execution&#160;control.&#160;If&#160;bit&#160;31&#160;of&#160;the&#160;primary processor-based&#160;VM-execution&#160;controls&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">is&#160;0,&#160;SMI functions&#160;as the “enable EPT”&#160;VM-execution&#160;control were&#160;0.&#160;See<a href="o_fe12b1e2a880e0ce-1055.html">&#160;Section 24.6.2.</a></p>
+</div>
+</body>
+</html>

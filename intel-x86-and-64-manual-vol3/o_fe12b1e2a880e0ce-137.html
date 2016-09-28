@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 137</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:8px;font-family:Times;color:#000000;}
+	.ft08{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page137-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce137.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;4-33</p>
+<p style="position:absolute;top:47px;left:793px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft09">Bits reserved in the paging-structure entries are reserved&#160;for&#160;future functionality.&#160;Software developers should&#160;<br/>be aware that&#160;such&#160;bits&#160;may be used in&#160;the future and&#160;that a&#160;paging-structure entry that&#160;causes a&#160;page-fault&#160;<br/>exception on&#160;one&#160;processor&#160;might not do&#160;so&#160;in&#160;the future.</p>
+<p style="position:absolute;top:155px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:156px;left:95px;white-space:nowrap" class="ft09">I/D flag&#160;(bit&#160;4).<br/>This flag&#160;is 1 if (1)&#160;the&#160;access&#160;causing the page-fault exception was an instruction fetch;&#160;and (2)&#160;either&#160;<br/>(a)&#160;CR4.SMEP&#160;=&#160;1; or (b)&#160;both (i)&#160;CR4.PAE&#160;=&#160;1 (either PAE&#160;paging&#160;or IA-32e paging&#160;is in&#160;use); and&#160;<br/>(ii)&#160;IA32_EFER.NXE&#160;=&#160;1.&#160;Otherwise,&#160;the&#160;flag&#160;is&#160;0.&#160;This flag&#160;describes&#160;the&#160;access&#160;causing&#160;the&#160;page-fault&#160;<br/>exception, not the&#160;access&#160;rights specified by paging.</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:244px;left:95px;white-space:nowrap" class="ft09">PK flag&#160;(bit&#160;5).<br/>This flag is 1 if (1)&#160;IA32_EFER.LMA&#160;=&#160;CR4.PKE&#160;=&#160;1; (2)&#160;the access causing the page-fault&#160;exception&#160;was a data&#160;<br/>access; (3)&#160;the&#160;linear address&#160;was a&#160;user-mode&#160;address with protection key&#160;<i>i</i>; and (5)&#160;the&#160;PKRU&#160;register (see&#160;<br/><a href="o_fe12b1e2a880e0ce-135.html">Section 4.6.2) is such that either (a)&#160;</a>AD<i>i&#160;</i>= 1; or (b)&#160;the following all hold: (i)&#160;WD<i>i&#160;</i>=&#160;1;&#160;(ii)&#160;the&#160;access is a write&#160;<br/>access; and&#160;(iii) either&#160;CR0.WP&#160;=&#160;1&#160;or&#160;the access causing the&#160;page-fault&#160;exception was&#160;a user-mode access.</p>
+<p style="position:absolute;top:332px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:333px;left:95px;white-space:nowrap" class="ft09">SGX&#160;flag (bit 15).<br/>This flag&#160;is 1 if the&#160;exception is&#160;unrelated&#160;to paging&#160;and resulted from violation of SGX-specific&#160;access-control&#160;<br/>requirements. Because&#160;such a&#160;violation&#160;can&#160;occur only if there is&#160;no&#160;ordinary page&#160;fault, this&#160;flag is&#160;set only if&#160;<br/>the&#160;P flag (bit&#160;0)&#160;is 1&#160;and&#160;the RSVD flag&#160;(bit&#160;3) and&#160;the PK flag&#160;(bit 5) are&#160;both 0.</p>
+<p style="position:absolute;top:406px;left:69px;white-space:nowrap" class="ft09">Page-fault&#160;exceptions occur&#160;only due to&#160;an&#160;attempt&#160;to&#160;use a&#160;linear address.&#160;Failures&#160;to load&#160;the&#160;PDPTE registers&#160;<br/>with&#160;PA<a href="o_fe12b1e2a880e0ce-117.html">E paging (see Section 4.4.1)&#160;</a>cause general-protection exceptions&#160;(#GP(0)) and not page-fault exceptions.</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft05">4.8&#160;</p>
+<p style="position:absolute;top:478px;left:148px;white-space:nowrap" class="ft05">ACCESSED AND DIRTY FLAGS</p>
+<p style="position:absolute;top:514px;left:69px;white-space:nowrap" class="ft02">For any&#160;paging-structure&#160;entry that&#160;is used&#160;during&#160;linear-address translation, bit&#160;5&#160;is&#160;the&#160;<b>accessed</b>&#160;flag.</p>
+<p style="position:absolute;top:512px;left:771px;white-space:nowrap" class="ft07">1</p>
+<p style="position:absolute;top:514px;left:778px;white-space:nowrap" class="ft02">&#160;For&#160;</p>
+<p style="position:absolute;top:531px;left:69px;white-space:nowrap" class="ft011">paging-structure&#160;entries&#160;that map&#160;a page&#160;(as opposed&#160;to&#160;referencing&#160;another paging structure), bit&#160;6&#160;is&#160;the&#160;<b>dirty</b>&#160;<br/>flag. These&#160;flags are&#160;provided for use&#160;by&#160;memory-management software&#160;to manage the&#160;transfer of pages&#160;and&#160;<br/>paging&#160;structures into and&#160;out of physical memory.<br/>Whenever&#160;the&#160;processor&#160;uses a&#160;paging-structure&#160;entry as&#160;part&#160;of&#160;linear-address translation,&#160;it&#160;sets&#160;the accessed&#160;<br/>flag in&#160;that entry (if it&#160;is&#160;not&#160;already&#160;set).<br/>Whenever&#160;there is&#160;a write to a linear address,&#160;the&#160;processor&#160;sets the&#160;dirty flag (if it&#160;is not already set) in the paging-<br/>structure&#160;entry&#160;that identifies the&#160;final physical address&#160;for&#160;the linear&#160;address (either a&#160;PTE or&#160;a paging-structure&#160;<br/>entry in which the&#160;PS&#160;flag is&#160;1).<br/>Memory-management software&#160;may clear these&#160;flags&#160;when&#160;a&#160;page or&#160;a&#160;paging structure&#160;is initially loaded&#160;into&#160;<br/>physical&#160;memory. These flags&#160;are&#160;“sticky,” meaning&#160;that,&#160;once&#160;set,&#160;the&#160;processor does&#160;not clear them; only soft-<br/>ware can&#160;clear them.<br/>A&#160;processor&#160;may cache information&#160;from the paging-structure entries in&#160;TLBs and paging-structure caches (see&#160;</p>
+<p style="position:absolute;top:759px;left:69px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-139.html">Section 4.10</a>). This&#160;fact implies that, if software&#160;changes&#160;an&#160;accessed flag or a&#160;dirty&#160;flag from 1&#160;to 0,&#160;the&#160;processor&#160;</p>
+<p style="position:absolute;top:775px;left:69px;white-space:nowrap" class="ft09">might not set the&#160;corresponding bit&#160;in memory on a&#160;subsequent&#160;access using&#160;an affected linear&#160;address (see&#160;<br/><a href="o_fe12b1e2a880e0ce-148.html">Section&#160;4.10.4.3</a>).&#160;See<a href="o_fe12b1e2a880e0ce-147.html">&#160;Section 4.10.4.2&#160;</a>for&#160;how software&#160;can ensure&#160;that these&#160;bits are&#160;updated as&#160;desired.</p>
+<p style="position:absolute;top:826px;left:433px;white-space:nowrap" class="ft08">NOTE</p>
+<p style="position:absolute;top:852px;left:122px;white-space:nowrap" class="ft09">The&#160;accesses used by the&#160;processor&#160;to set these flags may&#160;or may&#160;not be exposed to&#160;the&#160;<br/>processor’s&#160;self-modifying code detection&#160;logic. If the&#160;processor&#160;is executing code from the&#160;same&#160;<br/>memory area&#160;that is being used&#160;for the&#160;paging structures,&#160;the setting&#160;of these flags may or&#160;may&#160;not&#160;<br/>result&#160;in an immediate change&#160;to&#160;the&#160;executing code&#160;stream.</p>
+<p style="position:absolute;top:984px;left:69px;white-space:nowrap" class="ft02">1.&#160;Some&#160;past&#160;processors had errata for some&#160;page&#160;faults that&#160;occur&#160;when&#160;there is&#160;no&#160;translation for the linear&#160;address because the&#160;P&#160;</p>
+<p style="position:absolute;top:1000px;left:91px;white-space:nowrap" class="ft02">flag&#160;was&#160;0 in&#160;one of&#160;the paging-structure&#160;entries used to&#160;translate that&#160;address. Due to&#160;these&#160;errata, some&#160;such&#160;page&#160;faults pro-</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft02">duced&#160;error codes&#160;that&#160;cleared bit&#160;0 (P&#160;flag) and&#160;set bit 3&#160;(RSVD flag).</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft02">1.&#160;With&#160;PAE paging, the PDPTEs are&#160;not used&#160;during&#160;linear-address translation but only to&#160;load&#160;the&#160;PDPTE&#160;registers for&#160;some&#160;execu-</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">tions&#160;of&#160;the&#160;MOV&#160;CR instruction&#160;(see<a href="o_fe12b1e2a880e0ce-117.html">&#160;Section&#160;4.4.1). F</a>or this&#160;reason,&#160;the&#160;PDPTEs&#160;do&#160;not contain&#160;accessed&#160;flags with&#160;PAE&#160;paging.&#160;</p>
+</div>
+</body>
+</html>

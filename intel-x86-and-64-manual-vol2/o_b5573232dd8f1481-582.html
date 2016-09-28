@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 582</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page582-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481582.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:525px;white-space:nowrap" class="ft00">INSERTPS—Insert Scalar Single-Precision Floating-Point Value</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-454&#160;Vol. 2A</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Operation</p>
+<p style="position:absolute;top:123px;left:68px;white-space:nowrap" class="ft04">VINSERTPS&#160;(VEX.128&#160;and EVEX encoded&#160;version)<br/>IF (SRC = REG) THEN COUNT_S&#160;&#160;imm8[7:6]</p>
+<p style="position:absolute;top:159px;left:88px;white-space:nowrap" class="ft03">ELSE COUNT_S&#160;&#160;0</p>
+<p style="position:absolute;top:177px;left:68px;white-space:nowrap" class="ft04">COUNT_D&#160;&#160;imm8[5:4]<br/>ZMASK&#160;&#160;imm8[3:0]<br/>CASE (COUNT_S) OF</p>
+<p style="position:absolute;top:231px;left:88px;white-space:nowrap" class="ft04">0: TMP&#160;&#160;SRC2[31:0]<br/>1: TMP&#160;&#160;SRC2[63:32]<br/>2: TMP&#160;&#160;SRC2[95:64]<br/>3: TMP&#160;&#160;SRC2[127:96]</p>
+<p style="position:absolute;top:303px;left:68px;white-space:nowrap" class="ft04">ESAC;<br/>CASE&#160;(COUNT_D)&#160;OF</p>
+<p style="position:absolute;top:339px;left:88px;white-space:nowrap" class="ft03">0: TMP2[31:0]&#160;&#160;TMP</p>
+<p style="position:absolute;top:357px;left:115px;white-space:nowrap" class="ft03">TMP2[127:32]&#160;&#160;SRC1[127:32]</p>
+<p style="position:absolute;top:375px;left:88px;white-space:nowrap" class="ft03">1: TMP2[63:32]&#160;&#160;TMP</p>
+<p style="position:absolute;top:393px;left:115px;white-space:nowrap" class="ft04">TMP2[31:0]&#160;&#160;SRC1[31:0]<br/>TMP2[127:64]&#160;&#160;SRC1[127:64]</p>
+<p style="position:absolute;top:429px;left:88px;white-space:nowrap" class="ft03">2: TMP2[95:64]&#160;&#160;TMP</p>
+<p style="position:absolute;top:447px;left:115px;white-space:nowrap" class="ft04">TMP2[63:0]&#160;&#160;SRC1[63:0]<br/>TMP2[127:96]&#160;&#160;SRC1[127:96]</p>
+<p style="position:absolute;top:483px;left:88px;white-space:nowrap" class="ft03">3:&#160;TMP2[127:96]&#160;&#160;TMP</p>
+<p style="position:absolute;top:501px;left:115px;white-space:nowrap" class="ft03">TMP2[95:0]&#160;&#160;SRC1[95:0]</p>
+<p style="position:absolute;top:519px;left:68px;white-space:nowrap" class="ft03">ESAC;</p>
+<p style="position:absolute;top:555px;left:68px;white-space:nowrap" class="ft03">IF (ZMASK[0] = 1)&#160;THEN DEST[31:0]&#160;&#160;00000000H</p>
+<p style="position:absolute;top:573px;left:88px;white-space:nowrap" class="ft03">ELSE DEST[31:0]&#160;&#160;TMP2[31:0]</p>
+<p style="position:absolute;top:591px;left:68px;white-space:nowrap" class="ft03">IF (ZMASK[1] = 1)&#160;THEN DEST[63:32]&#160;&#160;00000000H</p>
+<p style="position:absolute;top:609px;left:88px;white-space:nowrap" class="ft03">ELSE DEST[63:32]&#160;&#160;TMP2[63:32]</p>
+<p style="position:absolute;top:627px;left:68px;white-space:nowrap" class="ft03">IF (ZMASK[2] = 1)&#160;THEN DEST[95:64]&#160;&#160;00000000H</p>
+<p style="position:absolute;top:645px;left:88px;white-space:nowrap" class="ft03">ELSE DEST[95:64]&#160;&#160;TMP2[95:64]</p>
+<p style="position:absolute;top:663px;left:68px;white-space:nowrap" class="ft03">IF (ZMASK[3] = 1)&#160;THEN DEST[127:96]&#160;&#160;00000000H</p>
+<p style="position:absolute;top:681px;left:88px;white-space:nowrap" class="ft03">ELSE DEST[127:96]&#160;&#160;TMP2[127:96]</p>
+<p style="position:absolute;top:699px;left:68px;white-space:nowrap" class="ft03">DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:735px;left:68px;white-space:nowrap" class="ft04">INSERTPS&#160;(128-bit Legacy&#160;SSE&#160;version)<br/>IF (SRC = REG) THEN COUNT_S&#160;imm8[7:6]</p>
+<p style="position:absolute;top:771px;left:88px;white-space:nowrap" class="ft03">ELSE COUNT_S&#160;0</p>
+<p style="position:absolute;top:789px;left:68px;white-space:nowrap" class="ft05">COUNT_D&#160;imm8[5:4]<br/>ZMASK&#160;imm8[3:0]<br/>CASE (COUNT_S) OF</p>
+<p style="position:absolute;top:843px;left:88px;white-space:nowrap" class="ft04">0: TMP&#160;SRC[31:0]<br/>1: TMP&#160;SRC[63:32]<br/>2: TMP&#160;SRC[95:64]<br/>3: TMP&#160;SRC[127:96]</p>
+<p style="position:absolute;top:915px;left:68px;white-space:nowrap" class="ft03">ESAC;</p>
+<p style="position:absolute;top:951px;left:68px;white-space:nowrap" class="ft03">CASE&#160;(COUNT_D)&#160;OF</p>
+<p style="position:absolute;top:969px;left:88px;white-space:nowrap" class="ft03">0: TMP2[31:0]&#160;TMP</p>
+<p style="position:absolute;top:987px;left:115px;white-space:nowrap" class="ft03">TMP2[127:32]&#160;DEST[127:32]</p>
+<p style="position:absolute;top:1005px;left:88px;white-space:nowrap" class="ft03">1: TMP2[63:32]&#160;TMP</p>
+<p style="position:absolute;top:1023px;left:115px;white-space:nowrap" class="ft04">TMP2[31:0]&#160;DEST[31:0]<br/>TMP2[127:64]&#160;DEST[127:64]</p>
+<p style="position:absolute;top:1059px;left:88px;white-space:nowrap" class="ft03">2: TMP2[95:64]&#160;TMP</p>
+</div>
+</body>
+</html>

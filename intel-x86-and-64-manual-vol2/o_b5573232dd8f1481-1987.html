@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1987</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:9px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1987-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811987.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">GETSEC[ENTERACCS] - Execute Authenticated Chipset Code</p>
+<p style="position:absolute;top:47px;left:615px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2D&#160;6-13</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">entry&#160;into authenticated&#160;code execution mode. Also, any pending single-step trap&#160;condition will have been&#160;cleared&#160;<br/>upon entry into&#160;this&#160;mode.<br/>The IA32_MISC_ENABLE&#160;MSR is&#160;initialized&#160;upon&#160;entry&#160;into authenticated execution&#160;mode. Certain bits of this&#160;MSR&#160;<br/>are preserved&#160;because&#160;preserving these&#160;bits may be&#160;important to&#160;maintain previously established platform settings&#160;<br/>(See&#160;the&#160;footnote&#160;<a href="o_b5573232dd8f1481-1987.html">for Table&#160;6-5.). The remaining bits are cl</a>eared&#160;for the&#160;purpose of establishing&#160;a more consistent&#160;<br/>environment for the&#160;execution of authenticated code&#160;modules. One&#160;of&#160;the impacts of&#160;initializing this MSR&#160;is any&#160;<br/>previous&#160;condition established&#160;by the&#160;MONITOR instruction will be cleared.&#160;<br/>To&#160;support the&#160;possible return&#160;to the&#160;processor&#160;architectural state prior to execution of GETSEC[ENTERACCS],&#160;<br/>certain critical processor state&#160;is captured&#160;and stored&#160;in&#160;the general-&#160;purpose&#160;registers at&#160;instruction&#160;completion.&#160;<br/>[E|R]BX holds effective&#160;address&#160;([E|R]IP) of the instruction that would execute&#160;next&#160;after GETSEC[ENTERACCS],&#160;<br/>ECX[15:0] holds the&#160;CS selector value,&#160;ECX[31:16] holds&#160;the&#160;GDTR&#160;limit field,&#160;and [E|R]DX&#160;holds the&#160;GDTR&#160;base&#160;<br/>field. The&#160;subsequent authenticated code can&#160;preserve&#160;the&#160;contents&#160;of&#160;these&#160;registers&#160;so that&#160;this state&#160;can be&#160;<br/>manually restored&#160;if&#160;needed, prior&#160;to exiting authenticated code execution&#160;mode with GETSEC[EXITAC].&#160;For&#160;the&#160;<br/>processor state after&#160;exiting authenticated code execution&#160;mode, see the&#160;description of GETSEC[SEXIT].</p>
+<p style="position:absolute;top:833px;left:69px;white-space:nowrap" class="ft06">The&#160;IDTR will&#160;also require&#160;reloading with a&#160;new&#160;IDT&#160;context&#160;after entering authenticated code execution&#160;mode,&#160;<br/>before&#160;any exceptions&#160;or the&#160;external interrupts&#160;INTR&#160;and NMI can&#160;be&#160;handled.&#160;Since external&#160;interrupts&#160;are re-<br/>enabled at&#160;the completion of authenticated&#160;code&#160;execution&#160;mode&#160;(as&#160;terminated&#160;with&#160;EXITAC),&#160;it&#160;is&#160;recommended&#160;<br/>that&#160;a new IDT&#160;context be established&#160;before&#160;this point. Until such&#160;a new IDT&#160;context is&#160;established,&#160;the&#160;<br/>programmer&#160;must&#160;take&#160;care&#160;in not executing an INT n&#160;instruction&#160;or&#160;any other&#160;operation that would result in an&#160;<br/>exception&#160;or trap signaling.<br/>Prior to&#160;completion of the GETSEC[ENTERACCS] instruction and&#160;after&#160;successful&#160;authentication of the AC&#160;module,&#160;<br/>the private configuration space of the Intel TXT chipset&#160;is&#160;unlocked. The&#160;authenticated code module&#160;alone can gain&#160;<br/>access to&#160;this normally&#160;restricted chipset state for the&#160;purpose&#160;of&#160;securing&#160;the platform.&#160;<br/>Once&#160;the authenticated code module&#160;is&#160;launched at&#160;the completion of&#160;GETSEC[ENTERACCS], it&#160;is free&#160;to enable&#160;<br/>interrupts by setting EFLAGS.IF and&#160;enable&#160;NMI&#160;by&#160;execution of IRET. This&#160;presumes&#160;that&#160;it has&#160;re-established&#160;<br/>interrupt handling support through initialization of the&#160;IDT,&#160;GDT,&#160;and&#160;corresponding interrupt&#160;handling&#160;code.</p>
+<p style="position:absolute;top:370px;left:191px;white-space:nowrap" class="ft03">Table 6-5. &#160;IA32_MISC_ENABLE&#160;MSR&#160;Initialization</p>
+<p style="position:absolute;top:367px;left:519px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:370px;left:527px;white-space:nowrap" class="ft03">&#160;by&#160;ENTERACCS and&#160;SENTER</p>
+<p style="position:absolute;top:722px;left:70px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:741px;left:69px;white-space:nowrap" class="ft02">1.&#160;The number&#160;of&#160;IA32_MISC_ENABLE&#160;fields&#160;that&#160;are initialized&#160;may vary due&#160;to&#160;processor&#160;implementations.</p>
+<p style="position:absolute;top:403px;left:78px;white-space:nowrap" class="ft02">Field</p>
+<p style="position:absolute;top:403px;left:279px;white-space:nowrap" class="ft02">Bit position</p>
+<p style="position:absolute;top:403px;left:407px;white-space:nowrap" class="ft02">Description</p>
+<p style="position:absolute;top:432px;left:78px;white-space:nowrap" class="ft02">Fast&#160;strings&#160;enable</p>
+<p style="position:absolute;top:432px;left:279px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:432px;left:407px;white-space:nowrap" class="ft02">Clear&#160;to&#160;0.</p>
+<p style="position:absolute;top:460px;left:78px;white-space:nowrap" class="ft02">FOPCODE&#160;compatibility mode&#160;</p>
+<p style="position:absolute;top:477px;left:78px;white-space:nowrap" class="ft02">enable</p>
+<p style="position:absolute;top:460px;left:279px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:460px;left:407px;white-space:nowrap" class="ft02">Clear&#160;&#160;to&#160;&#160;0.</p>
+<p style="position:absolute;top:505px;left:78px;white-space:nowrap" class="ft02">Thermal monitor&#160;enable</p>
+<p style="position:absolute;top:505px;left:279px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:505px;left:407px;white-space:nowrap" class="ft02">Set&#160;to&#160;1&#160;if&#160;other&#160;thermal monitor capability is not enabled.</p>
+<p style="position:absolute;top:502px;left:736px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:761px;left:69px;white-space:nowrap" class="ft02">2.&#160;ENTERACCS&#160;(and&#160;SENTER) initialize&#160;the state&#160;of&#160;processor thermal throttling such that&#160;at&#160;least a minimum level is enabled. If thermal&#160;</p>
+<p style="position:absolute;top:777px;left:83px;white-space:nowrap" class="ft02">throttling&#160;is&#160;already enabled when&#160;executing&#160;one of&#160;these&#160;GETSEC&#160;leaves, then no change in the thermal throttling control settings&#160;</p>
+<p style="position:absolute;top:794px;left:83px;white-space:nowrap" class="ft02">will occur.&#160;If thermal throttling is disabled, then&#160;it will be enabled via setting of&#160;the thermal throttle control bit 3 as a result of&#160;execut-</p>
+<p style="position:absolute;top:810px;left:83px;white-space:nowrap" class="ft02">ing these&#160;GETSEC leaves.</p>
+<p style="position:absolute;top:534px;left:78px;white-space:nowrap" class="ft02">Split-lock disable</p>
+<p style="position:absolute;top:534px;left:279px;white-space:nowrap" class="ft02">4</p>
+<p style="position:absolute;top:534px;left:407px;white-space:nowrap" class="ft02">Clear to&#160;0.</p>
+<p style="position:absolute;top:562px;left:78px;white-space:nowrap" class="ft02">Bus lock on cache line splits&#160;</p>
+<p style="position:absolute;top:579px;left:78px;white-space:nowrap" class="ft02">disable</p>
+<p style="position:absolute;top:562px;left:279px;white-space:nowrap" class="ft02">8</p>
+<p style="position:absolute;top:562px;left:407px;white-space:nowrap" class="ft02">Clear&#160;&#160;to&#160;&#160;0.</p>
+<p style="position:absolute;top:607px;left:78px;white-space:nowrap" class="ft02">Hardware&#160;prefetch&#160;disable</p>
+<p style="position:absolute;top:607px;left:279px;white-space:nowrap" class="ft02">9</p>
+<p style="position:absolute;top:607px;left:407px;white-space:nowrap" class="ft02">Clear to&#160;0.</p>
+<p style="position:absolute;top:636px;left:78px;white-space:nowrap" class="ft02">GV1/2 legacy&#160;enable</p>
+<p style="position:absolute;top:636px;left:279px;white-space:nowrap" class="ft02">15</p>
+<p style="position:absolute;top:636px;left:407px;white-space:nowrap" class="ft02">Clear to&#160;0.</p>
+<p style="position:absolute;top:664px;left:78px;white-space:nowrap" class="ft02">MONITOR/MWAIT&#160;s/m enable</p>
+<p style="position:absolute;top:664px;left:279px;white-space:nowrap" class="ft02">18</p>
+<p style="position:absolute;top:664px;left:407px;white-space:nowrap" class="ft02">Clear&#160;to&#160;0.</p>
+<p style="position:absolute;top:693px;left:78px;white-space:nowrap" class="ft02">Adjacent&#160;sector prefetch disable</p>
+<p style="position:absolute;top:693px;left:279px;white-space:nowrap" class="ft02">19</p>
+<p style="position:absolute;top:693px;left:407px;white-space:nowrap" class="ft02">Clear to&#160;0.</p>
+</div>
+</body>
+</html>

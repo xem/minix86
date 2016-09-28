@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 952</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page952-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481952.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:694px;white-space:nowrap" class="ft00">PEXT&#160;— Parallel&#160;Bits Extract</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-272&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">PEXT — Parallel Bits Extract</p>
+<p style="position:absolute;top:304px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:390px;left:68px;white-space:nowrap" class="ft03">Description&#160;</p>
+<p style="position:absolute;top:417px;left:68px;white-space:nowrap" class="ft07">PEXT&#160;uses&#160;a mask in&#160;the second source&#160;operand (the&#160;third operand)&#160;to transfer&#160;either&#160;contiguous&#160;or non-contig-<br/>uous&#160;bits in&#160;the first source&#160;operand (the&#160;second&#160;operand)&#160;to contiguous low order bit positions&#160;in the&#160;destination&#160;<br/>(the first operand). For each bit set in the MASK, PEXT extracts&#160;the corresponding&#160;bits&#160;from the first source&#160;operand&#160;<br/>and&#160;writes them&#160;into&#160;contiguous lower bits of destination&#160;operand.&#160;The remaining upper bits of destination are&#160;<br/>zeroed.</p>
+<p style="position:absolute;top:780px;left:363px;white-space:nowrap" class="ft03">Figure&#160;4-9. &#160;PEXT&#160;Example</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft07">This instruction&#160;is not supported&#160;in real&#160;mode&#160;and virtual-8086 mode.&#160;The operand&#160;size is&#160;always 32&#160;bits&#160;if not in&#160;<br/>64-bit&#160;mode.&#160;In&#160;64-bit&#160;mode&#160;operand&#160;size 64 requires&#160;VEX.W1. VEX.W1 is&#160;ignored in non-64-bit modes.&#160;An&#160;<br/>attempt to&#160;execute&#160;this instruction with&#160;VEX.L not equal to&#160;0 will&#160;cause #UD.</p>
+<p style="position:absolute;top:890px;left:68px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:916px;left:68px;white-space:nowrap" class="ft04">TEMP&#160;←&#160;SRC1;</p>
+<p style="position:absolute;top:934px;left:68px;white-space:nowrap" class="ft04">MASK&#160;←&#160;SRC2;</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft04">DEST&#160;←&#160;0 ;</p>
+<p style="position:absolute;top:970px;left:68px;white-space:nowrap" class="ft04">m←&#160;0, k←&#160;0;</p>
+<p style="position:absolute;top:988px;left:68px;white-space:nowrap" class="ft04">DO&#160;WHILE m&lt;&#160;OperandSize</p>
+<p style="position:absolute;top:1024px;left:115px;white-space:nowrap" class="ft04">IF MASK[ m]&#160;= 1&#160;THEN</p>
+<p style="position:absolute;top:1042px;left:142px;white-space:nowrap" class="ft04">DEST[&#160;k]&#160;←&#160;TEMP[ m];</p>
+<p style="position:absolute;top:1060px;left:115px;white-space:nowrap" class="ft04">&#160; &#160;&#160;&#160;k&#160;←&#160;k+ 1;</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:272px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:139px;left:272px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:319px;white-space:nowrap" class="ft04">64/32</p>
+<p style="position:absolute;top:139px;left:319px;white-space:nowrap" class="ft04">-bit&#160;</p>
+<p style="position:absolute;top:155px;left:319px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:376px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:376px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:376px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:443px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:77px;white-space:nowrap" class="ft04">VEX.NDS.LZ.F3.0F38.W0&#160;F5&#160;/r</p>
+<p style="position:absolute;top:175px;left:272px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:175px;left:319px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:376px;white-space:nowrap" class="ft04">BMI2</p>
+<p style="position:absolute;top:175px;left:443px;white-space:nowrap" class="ft04">Parallel&#160;extract of&#160;bits&#160;from&#160;<i>r32b</i>&#160;using&#160;mask in&#160;<i>r/m32</i>, result is&#160;writ-</p>
+<p style="position:absolute;top:191px;left:443px;white-space:nowrap" class="ft04">ten to&#160;<i>r32a</i>.</p>
+<p style="position:absolute;top:195px;left:77px;white-space:nowrap" class="ft04">PEXT&#160;<i>r32a, r32b, r/m32</i></p>
+<p style="position:absolute;top:231px;left:77px;white-space:nowrap" class="ft04">VEX.NDS.LZ.F3.0F38.W1&#160;F5&#160;/r</p>
+<p style="position:absolute;top:231px;left:272px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:231px;left:319px;white-space:nowrap" class="ft04">V/N.E.</p>
+<p style="position:absolute;top:231px;left:376px;white-space:nowrap" class="ft04">BMI2</p>
+<p style="position:absolute;top:231px;left:443px;white-space:nowrap" class="ft04">Parallel&#160;extract of&#160;bits&#160;from&#160;<i>r64b</i>&#160;using&#160;mask in&#160;<i>r/m64</i>, result is&#160;writ-</p>
+<p style="position:absolute;top:247px;left:443px;white-space:nowrap" class="ft04">ten to&#160;<i>r64a</i>.</p>
+<p style="position:absolute;top:250px;left:77px;white-space:nowrap" class="ft04">PEXT<i>&#160;r64a, r64b, r/m64</i></p>
+<p style="position:absolute;top:326px;left:84px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:326px;left:188px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:326px;left:359px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:326px;left:534px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:326px;left:714px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:350px;left:88px;white-space:nowrap" class="ft04">RVM</p>
+<p style="position:absolute;top:350px;left:175px;white-space:nowrap" class="ft04">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:350px;left:354px;white-space:nowrap" class="ft04">VEX.vvvv (r)</p>
+<p style="position:absolute;top:350px;left:524px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:350px;left:735px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:701px;left:188px;white-space:nowrap" class="ft04">DEST</p>
+<p style="position:absolute;top:541px;left:188px;white-space:nowrap" class="ft04">SRC1</p>
+<p style="position:absolute;top:609px;left:185px;white-space:nowrap" class="ft04">SRC2</p>
+<p style="position:absolute;top:625px;left:185px;white-space:nowrap" class="ft04">(mask)</p>
+<p style="position:absolute;top:548px;left:237px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:246px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:548px;left:265px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:274px;white-space:nowrap" class="ft06">30</p>
+<p style="position:absolute;top:548px;left:297px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:306px;white-space:nowrap" class="ft06">29</p>
+<p style="position:absolute;top:548px;left:323px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:332px;white-space:nowrap" class="ft06">28</p>
+<p style="position:absolute;top:548px;left:350px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:359px;white-space:nowrap" class="ft06">27</p>
+<p style="position:absolute;top:548px;left:473px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:482px;white-space:nowrap" class="ft06">7</p>
+<p style="position:absolute;top:548px;left:500px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:510px;white-space:nowrap" class="ft06">6</p>
+<p style="position:absolute;top:548px;left:528px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:537px;white-space:nowrap" class="ft06">5</p>
+<p style="position:absolute;top:548px;left:590px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:599px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:548px;left:558px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:567px;white-space:nowrap" class="ft06">4</p>
+<p style="position:absolute;top:548px;left:621px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:630px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:548px;left:649px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:658px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:548px;left:679px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:554px;left:688px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:616px;left:682px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:655px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:625px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:616px;left:562px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:538px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:616px;left:501px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:481px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:616px;left:359px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:326px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:616px;left:303px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:278px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:240px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:698px;left:681px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:705px;left:690px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:700px;left:651px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:706px;left:660px;white-space:nowrap" class="ft06">5</p>
+<p style="position:absolute;top:700px;left:620px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:706px;left:629px;white-space:nowrap" class="ft06">7</p>
+<p style="position:absolute;top:700px;left:567px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:543px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:506px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:486px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:364px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:330px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:308px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:283px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:700px;left:245px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:615px;left:591px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:701px;left:592px;white-space:nowrap" class="ft04">S</p>
+<p style="position:absolute;top:707px;left:601px;white-space:nowrap" class="ft06">28</p>
+<p style="position:absolute;top:735px;left:674px;white-space:nowrap" class="ft04">bit 0</p>
+<p style="position:absolute;top:739px;left:228px;white-space:nowrap" class="ft04">bit 31</p>
+</div>
+</body>
+</html>

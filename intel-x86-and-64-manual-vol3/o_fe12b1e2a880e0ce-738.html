@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 738</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page738-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce738.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-102&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft07"><b>Cascade flag, bit&#160;30 —&#160;</b>When set,&#160;enables&#160;counting&#160;on one&#160;counter of a&#160;counter pair&#160;when&#160;its alternate&#160;<br/>counter in&#160;the other&#160;the counter&#160;pair in&#160;the same&#160;counter group ov<a href="o_fe12b1e2a880e0ce-722.html">erflows (see Section 18.15.2,&#160;“Performance&#160;<br/>Counters,”&#160;</a>for further details); when clear,&#160;disables&#160;cascading of counters.</p>
+<p style="position:absolute;top:155px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:156px;left:93px;white-space:nowrap" class="ft07"><b>OVF flag, bit 31&#160;—&#160;</b>Indicates that the&#160;counter has overflowed when set. This flag is a sticky flag that must be&#160;<br/>explicitly&#160;cleared by software.</p>
+<p style="position:absolute;top:223px;left:68px;white-space:nowrap" class="ft05">18.16.3 IA32_PEBS_ENABLE&#160;</p>
+<p style="position:absolute;top:223px;left:317px;white-space:nowrap" class="ft05">MSR</p>
+<p style="position:absolute;top:253px;left:68px;white-space:nowrap" class="ft07">In&#160;a processor supporting Intel&#160;Hyper-Threading&#160;Technology&#160;and&#160;based on&#160;the&#160;Intel&#160;NetBurst microarchitecture,&#160;<br/>PEBS&#160;is enabled&#160;and&#160;qualified with two bits in the&#160;MSR_PEBS_ENABLE MSR: bit 25&#160;(ENABLE_PEBS_MY_THR)&#160;and&#160;<br/>26 (ENABLE_PEBS_OTH_THR)&#160;respectively. These bits do&#160;not&#160;explicitly identify&#160;a specific logical&#160;processor&#160;by logic&#160;<br/>processor ID(T0&#160;or T1); instead,&#160;they allow a&#160;software agent to&#160;enable&#160;PEBS&#160;for&#160;subsequent threads&#160;of execution&#160;<br/>on the&#160;same logical&#160;processor on which the agent is running (“my&#160;thread”) or for the&#160;other logical processor in the&#160;<br/>physical&#160;package on which&#160;the agent is&#160;not running&#160;(“other thread”).<br/>PEBS is&#160;supported for only a&#160;subset&#160;of&#160;the at-retirement events: Execution_event,&#160;Front_end_event, and&#160;<br/>Replay_event.&#160;Also, PEBS&#160;can be carried out&#160;only&#160;with&#160;two performance&#160;counters: MSR_IQ_CCCR4 (MSR address&#160;<br/>370H) for logical processor 0&#160;and MSR_IQ_CCCR5&#160;(MSR&#160;address&#160;371H) for logical processor 1.<br/>Performance monitoring tools&#160;should use a processor affinity&#160;mask to bind the kernel mode components that need&#160;<br/>to modify&#160;the ENABLE_PEBS_MY_THR&#160;and ENABLE_PEBS_OTH_THR bits in&#160;the MSR_PEBS_ENABLE&#160;MSR&#160;to a&#160;<br/>specific logical processor.&#160;This is&#160;to prevent&#160;these kernel&#160;mode&#160;components from&#160;migrating&#160;between different&#160;<br/>logical processors due to&#160;OS scheduling.&#160;&#160;&#160;</p>
+<p style="position:absolute;top:517px;left:68px;white-space:nowrap" class="ft05">18.16.4&#160;&#160;Performance Monitoring Events</p>
+<p style="position:absolute;top:547px;left:68px;white-space:nowrap" class="ft09">All of&#160;the events listed&#160;in&#160;Table<a href="o_fe12b1e2a880e0ce-929.html">&#160;19-28 and&#160;</a><a href="o_fe12b1e2a880e0ce-947.html">19-29 are a</a>vailable in&#160;an Intel&#160;Xeon processor MP. When&#160;Intel Hyper-<br/>Threading Technology&#160;is active, many&#160;performance&#160;monitoring events&#160;can&#160;be can be qualified&#160;by&#160;the logical&#160;<br/>processor ID, which corresponds to&#160;bit&#160;0&#160;of&#160;the&#160;initial APIC&#160;ID. This&#160;allows for counting&#160;an&#160;event in&#160;any or&#160;all of&#160;the&#160;<br/>logical&#160;processors. However,&#160;not all&#160;the&#160;events have&#160;this&#160;logic processor specificity,&#160;or thread specificity.&#160;<br/>Here, each&#160;event falls&#160;into&#160;one of two categories:&#160;</p>
+<p style="position:absolute;top:643px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:643px;left:93px;white-space:nowrap" class="ft03"><b>Thread specific&#160;(TS)</b>&#160;<b>—&#160;</b>The&#160;event&#160;can be qualified as&#160;occurring&#160;on&#160;a specific logical processor.</p>
+<p style="position:absolute;top:665px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:666px;left:93px;white-space:nowrap" class="ft07"><b>Thread independent (TI)</b>&#160;<b>—&#160;</b>The&#160;event&#160;cannot be&#160;qualified as&#160;being associated with a&#160;specific&#160;logical&#160;<br/>processor.&#160;</p>
+<p style="position:absolute;top:706px;left:68px;white-space:nowrap" class="ft07"><a href="o_fe12b1e2a880e0ce-954.html">Table 19-34</a>&#160;gives logical processor specific information&#160;(TS&#160;or&#160;TI) for&#160;each of the&#160;events&#160;described&#160;in Tabl<a href="o_fe12b1e2a880e0ce-929.html">es 19-28&#160;<br/></a><a href="o_fe12b1e2a880e0ce-947.html">and 19-29. If for example,</a>&#160;a&#160;TS event&#160;occurred&#160;in&#160;logical&#160;processor&#160;T0,&#160;the counting of the event&#160;<a href="o_fe12b1e2a880e0ce-738.html">(as shown in Table&#160;<br/>18-66</a>) depends only on the&#160;setting&#160;of the&#160;T0_USR&#160;and&#160;T0_OS flags in the&#160;ESCR being used to&#160;set&#160;up&#160;the&#160;event&#160;<br/>counter.&#160;The T1_USR&#160;and T1_OS&#160;flags&#160;have no&#160;effect on the&#160;count.</p>
+<p style="position:absolute;top:786px;left:242px;white-space:nowrap" class="ft06">Table 18-66. &#160;Effect of&#160;Logical&#160;Processor&#160;and CPL&#160;Qualification&#160;</p>
+<p style="position:absolute;top:804px;left:313px;white-space:nowrap" class="ft06">for Logical-Processor-Specific (TS)&#160;Events</p>
+<p style="position:absolute;top:829px;left:221px;white-space:nowrap" class="ft04">T1_OS/T1_USR&#160;= 00</p>
+<p style="position:absolute;top:829px;left:376px;white-space:nowrap" class="ft04">T1_OS/T1_USR&#160;= 01</p>
+<p style="position:absolute;top:829px;left:531px;white-space:nowrap" class="ft04">T1_OS/T1_USR = 11</p>
+<p style="position:absolute;top:829px;left:686px;white-space:nowrap" class="ft04">T1_OS/T1_USR = 10</p>
+<p style="position:absolute;top:853px;left:74px;white-space:nowrap" class="ft04">T0_OS/T0_USR&#160;= 00</p>
+<p style="position:absolute;top:853px;left:221px;white-space:nowrap" class="ft04">Zero&#160;count</p>
+<p style="position:absolute;top:853px;left:376px;white-space:nowrap" class="ft04">Counts while&#160;T1 in&#160;USR</p>
+<p style="position:absolute;top:853px;left:531px;white-space:nowrap" class="ft04">Counts while T1 in&#160;OS&#160;or&#160;</p>
+<p style="position:absolute;top:870px;left:531px;white-space:nowrap" class="ft04">USR</p>
+<p style="position:absolute;top:853px;left:686px;white-space:nowrap" class="ft04">Counts while&#160;T1&#160;in&#160;OS</p>
+<p style="position:absolute;top:894px;left:74px;white-space:nowrap" class="ft04">T0_OS/T0_USR = 01</p>
+<p style="position:absolute;top:894px;left:221px;white-space:nowrap" class="ft04">Counts while T0&#160;in&#160;USR</p>
+<p style="position:absolute;top:894px;left:376px;white-space:nowrap" class="ft04">Counts while&#160;T0&#160;in&#160;USR&#160;</p>
+<p style="position:absolute;top:910px;left:376px;white-space:nowrap" class="ft04">or T1 in USR</p>
+<p style="position:absolute;top:894px;left:531px;white-space:nowrap" class="ft04">Counts while (a) T0&#160;in&#160;</p>
+<p style="position:absolute;top:910px;left:531px;white-space:nowrap" class="ft04">USR or&#160;(b)&#160;T1&#160;in OS or (c)&#160;</p>
+<p style="position:absolute;top:927px;left:531px;white-space:nowrap" class="ft04">T1 in&#160;USR</p>
+<p style="position:absolute;top:894px;left:686px;white-space:nowrap" class="ft04">Counts while&#160;(a) T0&#160;in&#160;OS&#160;</p>
+<p style="position:absolute;top:910px;left:686px;white-space:nowrap" class="ft04">or (b) T1 in OS</p>
+<p style="position:absolute;top:951px;left:74px;white-space:nowrap" class="ft04">T0_OS/T0_USR&#160;= 11</p>
+<p style="position:absolute;top:951px;left:221px;white-space:nowrap" class="ft04">Counts&#160;while&#160;T0&#160;in&#160;OS&#160;or&#160;</p>
+<p style="position:absolute;top:967px;left:221px;white-space:nowrap" class="ft04">USR</p>
+<p style="position:absolute;top:951px;left:376px;white-space:nowrap" class="ft04">Counts while (a) T0 in OS&#160;</p>
+<p style="position:absolute;top:967px;left:376px;white-space:nowrap" class="ft04">or (b) T0&#160;in USR or (c)&#160;T1&#160;</p>
+<p style="position:absolute;top:984px;left:376px;white-space:nowrap" class="ft04">in&#160;USR</p>
+<p style="position:absolute;top:951px;left:531px;white-space:nowrap" class="ft04">Counts irrespective&#160;of&#160;</p>
+<p style="position:absolute;top:967px;left:531px;white-space:nowrap" class="ft04">CPL,&#160;T0, T1</p>
+<p style="position:absolute;top:951px;left:686px;white-space:nowrap" class="ft04">Counts while&#160;(a) T0&#160;in&#160;OS&#160;</p>
+<p style="position:absolute;top:967px;left:686px;white-space:nowrap" class="ft04">or (b) or T0 in USR or&#160;(c)&#160;</p>
+<p style="position:absolute;top:984px;left:686px;white-space:nowrap" class="ft04">T1 in&#160;OS</p>
+<p style="position:absolute;top:1008px;left:74px;white-space:nowrap" class="ft04">T0_OS/T0_USR = 10</p>
+<p style="position:absolute;top:1008px;left:221px;white-space:nowrap" class="ft04">Counts T0 in OS</p>
+<p style="position:absolute;top:1008px;left:376px;white-space:nowrap" class="ft04">Counts T0 in OS or T1 in&#160;</p>
+<p style="position:absolute;top:1024px;left:376px;white-space:nowrap" class="ft04">USR</p>
+<p style="position:absolute;top:1008px;left:531px;white-space:nowrap" class="ft04">Counts while (a)T0 in Os&#160;</p>
+<p style="position:absolute;top:1024px;left:531px;white-space:nowrap" class="ft04">or&#160;(b) T1&#160;in OS or (c) T1&#160;</p>
+<p style="position:absolute;top:1041px;left:531px;white-space:nowrap" class="ft04">in&#160;USR</p>
+<p style="position:absolute;top:1008px;left:686px;white-space:nowrap" class="ft04">Counts while&#160;(a) T0&#160;in&#160;OS&#160;</p>
+<p style="position:absolute;top:1024px;left:686px;white-space:nowrap" class="ft04">or (b) T1 in OS</p>
+</div>
+</body>
+</html>

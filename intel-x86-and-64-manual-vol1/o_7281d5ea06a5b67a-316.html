@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 316</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page316-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a316.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">13-10&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MANAGING STATE&#160;USING THE XSAVE FEATURE SET</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft03">Bytes&#160;31:28&#160;are&#160;used&#160;for&#160;the&#160;MXCSR_MASK&#160;value.&#160;XRSTOR&#160;and&#160;XRSTORS&#160;ignore&#160;this field.</p>
+<p style="position:absolute;top:122px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:123px;left:93px;white-space:nowrap" class="ft03">Bytes&#160;159:32&#160;are used&#160;for x87&#160;state.</p>
+<p style="position:absolute;top:145px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:145px;left:93px;white-space:nowrap" class="ft03">Bytes&#160;287:160 are used&#160;for the&#160;registers&#160;XMM0–XMM7.&#160;</p>
+<p style="position:absolute;top:167px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:168px;left:93px;white-space:nowrap" class="ft08">Bytes&#160;415:288 are used for the&#160;registers XMM8–XMM15.&#160;These&#160;fields&#160;are&#160;used&#160;only&#160;in 64-bit&#160;mode.&#160;Executions&#160;<br/>of XSAVE,&#160;XSAVEOPT,&#160;XSAVEC, and&#160;XSAVES&#160;outside&#160;64-bit mode&#160;do&#160;not&#160;modify these&#160;bytes; executions of&#160;<br/>XRSTOR and&#160;XRSTORS outside 64-bit&#160;mode do not update&#160;XMM8–XMM15.&#160;See<a href="o_7281d5ea06a5b67a-327.html">&#160;Section&#160;13.13.</a></p>
+<p style="position:absolute;top:225px;left:68px;white-space:nowrap" class="ft08">SSE state&#160;is XSAVE-managed but&#160;the SSE feature is&#160;not&#160;XSAVE-enabled. The&#160;XSAVE&#160;feature set can&#160;operate on SSE&#160;<br/>state only if the&#160;feature&#160;set is&#160;enabled (CR4.OSXSAVE&#160;=&#160;1)&#160;and has been&#160;configured to&#160;manage SSE&#160;state&#160;<br/>(XCR0[1]&#160;= 1). Software&#160;can&#160;otherwise use&#160;SSE state even if&#160;the XSAVE feature set is not enabled or has not been&#160;<br/>configured to&#160;manage SSE&#160;state.</p>
+<p style="position:absolute;top:325px;left:68px;white-space:nowrap" class="ft04">13.5.3 AVX&#160;</p>
+<p style="position:absolute;top:325px;left:186px;white-space:nowrap" class="ft04">State</p>
+<p style="position:absolute;top:355px;left:68px;white-space:nowrap" class="ft03">The register state used&#160;by the Intel</p>
+<p style="position:absolute;top:353px;left:301px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:355px;left:312px;white-space:nowrap" class="ft03">&#160;Advanced&#160;Vector Extensions (AVX) comprises the&#160;MXCSR&#160;register&#160;and&#160;16&#160;256-</p>
+<p style="position:absolute;top:372px;left:68px;white-space:nowrap" class="ft08">bit vector registers&#160;called&#160;YMM0–YMM15. The&#160;low&#160;128 bits of&#160;each&#160;register YMM<i>i</i>&#160;is identical to&#160;the SSE&#160;register&#160;<br/>XMM<i>i</i>.&#160;Thus,&#160;the new state&#160;register state added&#160;by AVX&#160;comprises the&#160;upper&#160;128&#160;bits&#160;of the&#160;registers YMM0–<br/>YMM15.&#160;These&#160;16&#160;128-bit&#160;values&#160;are&#160;denoted YMM0_H–YMM15_H&#160;and&#160;are&#160;collectively called&#160;<b>AVX state</b>.<br/><a href="o_7281d5ea06a5b67a-307.html">As noted in&#160;Section&#160;13.1, the X</a>SAVE&#160;feature set manages&#160;AVX state as&#160;user&#160;state component&#160;2. Thus, AVX state is&#160;<br/>located&#160;in the&#160;extended&#160;region of the&#160;XSAVE area&#160;<a href="o_7281d5ea06a5b67a-314.html">(see&#160;Section 13.4.3).<br/></a><a href="o_7281d5ea06a5b67a-308.html">As noted in Section&#160;13.2,</a>&#160;CPUID.(EAX=0DH,ECX=2):EBX enumerates&#160;the offset (in&#160;bytes,&#160;from&#160;the base&#160;of the&#160;<br/>XSAVE area) of the section&#160;of the&#160;extended&#160;region of&#160;the&#160;XSAVE area used for AVX state (when the standard format&#160;<br/>of the extended&#160;region is&#160;used). CPUID.(EAX=0DH,ECX=2):EAX&#160;enumerates the&#160;size (in&#160;bytes) required&#160;for&#160;AVX&#160;<br/>state.<br/>The XSAVE feature set&#160;partitions&#160;YMM0_H–YMM15_H&#160;in a&#160;manner&#160;similar&#160;to that used&#160;for the&#160;XMM registers&#160;(see&#160;<br/><a href="o_7281d5ea06a5b67a-315.html">Section&#160;13.5.2). Bytes&#160;</a>127:0 of the AVX-state&#160;section&#160;are&#160;used&#160;for&#160;YMM0_H–YMM7_H.&#160;Bytes&#160;255:128&#160;are&#160;used&#160;for&#160;<br/>YMM8_H–YMM15_H,&#160;but they are&#160;used&#160;only in 64-bit&#160;mode.&#160;Executions of XSAVE,&#160;XSAVEOPT,&#160;XSAVEC,&#160;and&#160;<br/>XSAVES outside&#160;64-bit mode do&#160;not modify bytes&#160;255:128;&#160;executions of XRSTOR&#160;and&#160;XRSTORS&#160;outside&#160;64-bit&#160;<br/>mode do&#160;not update YMM8_H–YMM15_H. See<a href="o_7281d5ea06a5b67a-327.html">&#160;Section 13.13.</a>&#160;In general, bytes&#160;16<i>i</i>+15:16<i>i</i>&#160;are used&#160;for&#160;YMM<i>i</i>_H&#160;<br/>(for&#160;0&#160;≤&#160;<i>i&#160;</i>≤&#160;15).<br/>AVX&#160;state&#160;is XSAVE-managed and&#160;the AVX feature&#160;is XSAVE-enabled.&#160;The XSAVE&#160;feature set can operate&#160;on AVX&#160;<br/>state only if the&#160;feature&#160;set is&#160;enabled (CR4.OSXSAVE&#160;=&#160;1)&#160;and has been&#160;configured to&#160;manage AVX state&#160;<br/>(XCR0[2]&#160;=&#160;1). AVX&#160;instructions cannot be used&#160;unless the&#160;XSAVE feature set is enabled and&#160;has&#160;been configured&#160;<br/>to&#160;manage AVX state.</p>
+<p style="position:absolute;top:749px;left:68px;white-space:nowrap" class="ft04">13.5.4 MPX&#160;</p>
+<p style="position:absolute;top:749px;left:189px;white-space:nowrap" class="ft04">State</p>
+<p style="position:absolute;top:780px;left:68px;white-space:nowrap" class="ft03">The register&#160;state used by&#160;the Intel</p>
+<p style="position:absolute;top:777px;left:305px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:780px;left:316px;white-space:nowrap" class="ft03">&#160;Memory Protection Extensions&#160;(MPX)&#160;comprises&#160;the 4&#160;128-bit&#160;bounds regis-</p>
+<p style="position:absolute;top:796px;left:68px;white-space:nowrap" class="ft08">ters BND0–BND3 (<b>BNDREG state</b>); and the&#160;64-bit user-mode&#160;configuration register BNDCFGU and&#160;the 64-bit MPX&#160;<br/>status register&#160;BNDSTATUS (collectively,&#160;<b>BNDCSR state</b>).&#160;Together,&#160;these&#160;two&#160;user state components&#160;compose&#160;<br/><b>MPX state</b>.<br/><a href="o_7281d5ea06a5b67a-307.html">As noted in Section 13.1, the XS</a>AVE feature set manages&#160;MPX state&#160;as state components 3–4.&#160;Thus,&#160;MPX state&#160;is&#160;<br/>located in the extended region&#160;of the&#160;XSAVE ar<a href="o_7281d5ea06a5b67a-314.html">ea (see&#160;Section 13.4.3). The</a>&#160;following items detail how these state&#160;<br/>components are&#160;organized&#160;in this&#160;region:</p>
+<p style="position:absolute;top:908px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:909px;left:93px;white-space:nowrap" class="ft08"><b>BNDREG state.<br/></b>As&#160;noted in<a href="o_7281d5ea06a5b67a-308.html">&#160;Section&#160;13.2, CPUID</a>.(EAX=0DH,ECX=3):EBX&#160;enumerates the offset&#160;(in bytes, from&#160;the base&#160;of&#160;the&#160;<br/>XSAVE area)&#160;of the&#160;section&#160;of&#160;the extended&#160;region of&#160;the XSAVE area used&#160;for BNDREG&#160;state&#160;(when&#160;the&#160;<br/>standard&#160;format of the&#160;extended&#160;region is&#160;used).&#160;CPUID.(EAX=0DH,ECX=5):EAX&#160;enumerates&#160;the&#160;size&#160;(in&#160;<br/>bytes) required for BNDREG state.&#160;The BNDREG section is used for the 4 128-bit bound registers BND0–BND3,&#160;<br/>with bytes&#160;16<i>i</i>+15:16<i>i</i>&#160;being used for BND<i>i.</i></p>
+<p style="position:absolute;top:1038px;left:68px;white-space:nowrap" class="ft03">2.&#160;While&#160;MXCSR and&#160;MXCSR_MASK are part of&#160;SSE state,&#160;their&#160;treatment by the XSAVE feature set is not the&#160;same as&#160;that&#160;of&#160;the XMM&#160;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft03">registers. See<a href="o_7281d5ea06a5b67a-320.html">&#160;Section&#160;13.7</a>&#160;through<a href="o_7281d5ea06a5b67a-325.html">&#160;Section 13.11&#160;f</a>or details.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1815</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1815-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1815.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-5</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">ENCLS—Execute an Enclave System Function of&#160;Specified Leaf Number&#160;</p>
+<p style="position:absolute;top:248px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:333px;left:69px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:355px;left:69px;white-space:nowrap" class="ft06">The&#160;ENCLS instruction invokes&#160;the specified privileged&#160;Intel SGX leaf&#160;function for managing&#160;and&#160;debugging&#160;<br/>enclaves. Software specifies&#160;the&#160;leaf&#160;function by&#160;setting&#160;the appropriate&#160;value in&#160;the register&#160;EAX&#160;as&#160;input. The&#160;<br/>registers&#160;RBX, RCX, and RDX have leaf-specific&#160;purpose,&#160;and may act as input, as output, or may&#160;be unused. In 64-<br/>bit mode, the&#160;instruction&#160;ignores&#160;upper 32 bits&#160;of the&#160;RAX register.<br/>The&#160;ENCLS instruction produces an&#160;invalid-opcode&#160;exception&#160;(#UD) if CR0.PE&#160;= 0 or&#160;RFLAGS.VM&#160;=&#160;1, or&#160;if it&#160;is&#160;<br/>executed&#160;in system-management mode (SMM).&#160;Additionally,&#160;any attempt to execute the instruction&#160;when CPL&#160;&gt;&#160;0&#160;<br/>results&#160;in #UD.&#160;The instruction produces a&#160;general-protection exception&#160;(#GP) if CR0.PG&#160;=&#160;0&#160;or&#160;if an attempt&#160;is&#160;<br/>made to&#160;invoke&#160;an undefined leaf&#160;function.<br/>In VMX&#160;non-root&#160;operation,&#160;execution of ENCLS&#160;may cause&#160;a&#160;VM&#160;exit&#160;if&#160;the “enable ENCLS&#160;exiting” VM-execution&#160;<br/>control&#160;is 1.&#160;In&#160;this&#160;case, execution of individual leaf&#160;functions of ENCLS is&#160;governed&#160;by the&#160;ENCLS-exiting bitmap&#160;<br/>field in&#160;the VMCS. Each&#160;bit in&#160;that&#160;field&#160;corresponds&#160;to the index&#160;of an ENCLS&#160;leaf function (as&#160;provided&#160;in EAX).<br/>Software in&#160;VMX root operation can thus intercept the invocation of various&#160;ENCLS leaf&#160;functions in VMX&#160;non-root&#160;<br/>operation by&#160;setting&#160;the “enable ENCLS&#160;exiting” VM-execution&#160;control&#160;and setting the&#160;corresponding bits in&#160;the&#160;<br/>ENCLS-exiting bitmap.<br/>Addresses&#160;and operands&#160;are 32 bits outside 64-bit&#160;mode (IA32_EFER.LMA = 0 ||&#160;CS.L = 0) and&#160;are&#160;64&#160;bits in&#160;64-<br/>bit&#160;mode&#160;(IA32_EFER.LMA&#160;= 1 ||&#160;CS.L&#160;= 1).&#160;CS.D&#160;value&#160;has&#160;no impact on address&#160;calculation.&#160;The DS&#160;segment&#160;is&#160;<br/>used&#160;to create&#160;linear&#160;addresses.<br/>Segment&#160;override prefixes and&#160;address-size&#160;override&#160;prefixes are&#160;ignored,&#160;and is&#160;the&#160;REX prefix&#160;in 64-bit&#160;mode.</p>
+<p style="position:absolute;top:700px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:723px;left:69px;white-space:nowrap" class="ft04">IF&#160;TSX_ACTIVE</p>
+<p style="position:absolute;top:741px;left:89px;white-space:nowrap" class="ft04">THEN GOTO&#160;TSX_ABORT_PROCESSING; FI;</p>
+<p style="position:absolute;top:777px;left:69px;white-space:nowrap" class="ft04">IF&#160;CR0.PE&#160;= 0&#160;or RFLAGS.VM = 1&#160;or in&#160;SMM&#160;or CPUID.SGX_LEAF.0:EAX.SE1&#160;= 0</p>
+<p style="position:absolute;top:795px;left:89px;white-space:nowrap" class="ft04">THEN #UD; FI;</p>
+<p style="position:absolute;top:831px;left:69px;white-space:nowrap" class="ft04">IF&#160;(CPL &gt;&#160;0)&#160;</p>
+<p style="position:absolute;top:849px;left:89px;white-space:nowrap" class="ft04">THEN #UD; FI;</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft04">IF&#160;in&#160;VMX non-root&#160;operation and&#160;the “enable&#160;ENCLS exiting“&#160;VM-execution&#160;control is 1</p>
+<p style="position:absolute;top:903px;left:89px;white-space:nowrap" class="ft04">THEN&#160;</p>
+<p style="position:absolute;top:921px;left:116px;white-space:nowrap" class="ft04">IF EAX &lt; 63&#160;and ENCLS_exiting_bitmap[EAX] = 1&#160;or EAX&gt;&#160;62 and&#160;ENCLS_exiting_bitmap[63] = 1</p>
+<p style="position:absolute;top:939px;left:143px;white-space:nowrap" class="ft04">THEN&#160;VM&#160;exit;</p>
+<p style="position:absolute;top:957px;left:116px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:975px;left:69px;white-space:nowrap" class="ft07">FI;<br/>IF&#160;IA32_FEATURE_CONTROL.LOCK = 0 or&#160;IA32_FEATURE_CONTROL.SGX_ENABLE = 0</p>
+<p style="position:absolute;top:1011px;left:89px;white-space:nowrap" class="ft04">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:1047px;left:69px;white-space:nowrap" class="ft04">IF EAX&#160;is invalid&#160;leaf&#160;number)</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:260px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:316px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:316px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:316px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:389px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:389px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:389px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:456px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">&#160;0F&#160;01&#160;CF&#160;</p>
+<p style="position:absolute;top:175px;left:260px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:175px;left:316px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:389px;white-space:nowrap" class="ft04">SGX1</p>
+<p style="position:absolute;top:175px;left:456px;white-space:nowrap" class="ft04">This instruction&#160;is&#160;used&#160;to&#160;execute privileged&#160;Intel SGX leaf&#160;func-</p>
+<p style="position:absolute;top:191px;left:456px;white-space:nowrap" class="ft04">tions that&#160;are used&#160;for managing&#160;and debugging the&#160;enclaves.</p>
+<p style="position:absolute;top:195px;left:78px;white-space:nowrap" class="ft04">ENCLS</p>
+<p style="position:absolute;top:271px;left:96px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:271px;left:214px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:271px;left:385px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:271px;left:551px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:271px;left:674px;white-space:nowrap" class="ft04">Implicit Register&#160;Operands</p>
+<p style="position:absolute;top:295px;left:105px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:295px;left:235px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:406px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:572px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:295px;left:700px;white-space:nowrap" class="ft04">Se<a href="o_fe12b1e2a880e0ce-1820.html">e Section&#160;41.3</a></p>
+</div>
+</body>
+</html>

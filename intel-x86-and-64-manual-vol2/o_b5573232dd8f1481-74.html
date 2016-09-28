@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 74</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page74-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481074.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">2-14&#160;Vol. 2A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION FORMAT</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">2.3.5&#160;</p>
+<p style="position:absolute;top:98px;left:148px;white-space:nowrap" class="ft02">The VEX Prefix&#160;</p>
+<p style="position:absolute;top:126px;left:68px;white-space:nowrap" class="ft06">The VEX prefix&#160;is encoded&#160;in either&#160;the two-byte form (the&#160;first byte&#160;must&#160;be C5H) or&#160;in&#160;the three-byte&#160;form&#160;(the&#160;<br/>first byte&#160;must&#160;be C4H). The two-byte VEX&#160;is used mainly&#160;for&#160;128-bit,&#160;scalar,&#160;and&#160;the most&#160;common 256-bit AVX&#160;<br/>instructions; while&#160;the three-byte VEX&#160;provides&#160;a compact replacement of&#160;REX and 3-byte opcode&#160;instructions&#160;<br/>(including&#160;AVX&#160;and FMA&#160;instructions). Beyond the first byte&#160;of&#160;the VEX prefix, it&#160;consists&#160;of a&#160;number of bit fields&#160;<br/>providing specific capability,&#160;they&#160;are shown&#160;<a href="o_b5573232dd8f1481-75.html">in Figure&#160;2-9.&#160;<br/></a>The&#160;bit&#160;fields of&#160;the&#160;VEX prefix&#160;can be&#160;summarized by&#160;its functional purposes:</p>
+<p style="position:absolute;top:235px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:235px;left:93px;white-space:nowrap" class="ft05">Non-destructive&#160;source&#160;register encoding (applicable&#160;to three and&#160;four&#160;operand syntax):&#160;This is&#160;the&#160;first source&#160;<br/>operand in&#160;the instruction syntax.&#160;It&#160;is represented by&#160;the notation,&#160;VEX.vvvv.&#160;This field is&#160;encoded using&#160;1’s&#160;<br/>complement form (inverted form),&#160;i.e. XMM0/YMM0/R0&#160;is&#160;encoded&#160;as&#160;1111B,&#160;XMM15/YMM15/R15&#160;is&#160;encoded&#160;<br/>as 0000B.</p>
+<p style="position:absolute;top:307px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:307px;left:93px;white-space:nowrap" class="ft05">Vector&#160;length encoding: This 1-bit field represented by the notation VEX.L.&#160;L=&#160;0 means&#160;vector&#160;length is 128 bits&#160;<br/>wide,&#160;L=1&#160;means&#160;256 bit vector. The value of&#160;this&#160;field&#160;is&#160;written as&#160;VEX.128&#160;or VEX.256&#160;in this&#160;document to&#160;<br/>distinguish encoded values&#160;of&#160;other VEX&#160;bit fields.&#160;</p>
+<p style="position:absolute;top:362px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:363px;left:93px;white-space:nowrap" class="ft07">REX prefix functionality: Full&#160;REX prefix&#160;functionality is&#160;provided in the three-byte&#160;form&#160;of VEX prefix. However&#160;<br/>the VEX&#160;bit fields providing REX&#160;functionality&#160;are encoded&#160;using 1’s complement form, i.e.&#160;XMM0/YMM0/R0 is&#160;<br/>encoded&#160;as 1111B, XMM15/YMM15/R15&#160;is encoded&#160;as 0000B.&#160;<br/>—&#160;Two-byte form&#160;of&#160;the VEX prefix&#160;only&#160;provides&#160;the equivalent&#160;functionality of REX.R, using 1’s complement&#160;</p>
+<p style="position:absolute;top:436px;left:119px;white-space:nowrap" class="ft03">encoding.&#160;This&#160;is represented as&#160;VEX.R.</p>
+<p style="position:absolute;top:460px;left:93px;white-space:nowrap" class="ft03">—&#160;Three-byte&#160;form of&#160;the&#160;VEX prefix&#160;provides REX.R, REX.X, REX.B functionality using&#160;1’s&#160;complement&#160;</p>
+<p style="position:absolute;top:477px;left:119px;white-space:nowrap" class="ft03">encoding&#160;and&#160;three&#160;dedicated&#160;bit&#160;fields&#160;represented as&#160;VEX.R, VEX.X, VEX.B.</p>
+<p style="position:absolute;top:501px;left:93px;white-space:nowrap" class="ft03">—&#160;Three-byte form of the VEX prefix provides the&#160;functionality of REX.W&#160;only&#160;to&#160;specific instructions that&#160;need&#160;</p>
+<p style="position:absolute;top:517px;left:119px;white-space:nowrap" class="ft05">to&#160;override&#160;default&#160;32-bit operand&#160;size&#160;for a&#160;general&#160;purpose&#160;register&#160;to 64-bit&#160;size in&#160;64-bit mode.&#160;For&#160;<br/>those&#160;applicable&#160;instructions,&#160;VEX.W field provides the&#160;same functionality&#160;as REX.W.&#160;VEX.W field can&#160;<br/>provide completely different&#160;functionality for other&#160;instructions.</p>
+<p style="position:absolute;top:573px;left:93px;white-space:nowrap" class="ft05">Consequently,&#160;the use of REX prefix with VEX&#160;encoded instructions&#160;is not allowed.&#160;However,&#160;the&#160;intent of&#160;the<br/>REX&#160;prefix for expanding register set&#160;is reserved for future instruction set&#160;extensions using VEX prefix<br/>encoding&#160;format.</p>
+<p style="position:absolute;top:628px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:628px;left:93px;white-space:nowrap" class="ft05">Compaction of SIMD&#160;prefix: Legacy&#160;SSE instructions effectively use&#160;SIMD&#160;prefixes (66H,&#160;F2H,&#160;F3H)&#160;as an&#160;<br/>opcode extension&#160;field. VEX prefix&#160;encoding&#160;allows the&#160;functional&#160;capability of such&#160;legacy SSE&#160;instructions&#160;<br/>(operating on XMM registers,&#160;bits&#160;255:128&#160;of corresponding YMM unmodified)&#160;to be encoded&#160;using the&#160;VEX.pp&#160;<br/>field&#160;without the presence&#160;of any SIMD&#160;prefix. The VEX-encoded 128-bit&#160;instruction will zero-out&#160;bits&#160;255:128&#160;<br/>of the&#160;destination&#160;register. VEX-encoded&#160;instruction&#160;may have&#160;128 bit vector length or 256&#160;bits&#160;length.</p>
+<p style="position:absolute;top:716px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:717px;left:93px;white-space:nowrap" class="ft05">Compaction of two-byte&#160;and&#160;three-byte&#160;opcode: More recently&#160;introduced&#160;legacy&#160;SSE instructions employ&#160;two&#160;<br/>and&#160;three-byte&#160;opcode.&#160;The one&#160;or two leading bytes&#160;are:&#160;0FH,&#160;and&#160;0FH 3AH/0FH 38H.&#160;The&#160;one-byte escape&#160;<br/>(0FH)&#160;and&#160;two-byte&#160;escape&#160;(0FH&#160;3AH,&#160;0FH&#160;38H) can also&#160;be interpreted as&#160;an opcode extension&#160;field.&#160;The&#160;<br/>VEX.mmmmm field provides compaction&#160;to&#160;allow&#160;many&#160;legacy&#160;instruction&#160;to be encoded&#160;without&#160;the constant&#160;<br/>byte sequence,&#160;0FH,&#160;0FH 3AH,&#160;0FH 38H.&#160;These&#160;VEX-encoded instruction may have&#160;128 bit vector length or 256&#160;<br/>bits length.</p>
+<p style="position:absolute;top:820px;left:68px;white-space:nowrap" class="ft08">The&#160;VEX&#160;prefix is&#160;required&#160;to&#160;be&#160;the last&#160;prefix and immediately precedes the&#160;opcode bytes. It&#160;must follow&#160;any&#160;<br/>other&#160;prefixes. If VEX&#160;prefix is&#160;present&#160;a REX prefix&#160;is not supported.&#160;<br/>The 3-byte VEX leaves room for future expansion&#160;with&#160;3 reserved&#160;bits. REX&#160;and&#160;the 66h/F2h/F3h&#160;prefixes are&#160;<br/>reclaimed for future&#160;use.<br/>VEX prefix has a&#160;two-byte&#160;form and&#160;a three&#160;byte form. If an instruction syntax can be&#160;encoded using the&#160;two-byte&#160;<br/>form,&#160;it can&#160;also be encoded&#160;using the&#160;three&#160;byte form of&#160;VEX.&#160;The latter increases the&#160;length&#160;of&#160;the instruction by&#160;<br/>one&#160;byte. This&#160;may&#160;be&#160;helpful in&#160;some situations for code alignment.&#160;<br/>The&#160;VEX&#160;prefix supports 256-bit&#160;versions of floating-point&#160;SSE, SSE2, SSE3, and&#160;SSE4&#160;instructions.&#160;Note,&#160;certain&#160;<br/>new&#160;instruction functionality can&#160;only&#160;be encoded&#160;with&#160;the VEX prefix.<br/>The VEX prefix&#160;will&#160;#UD&#160;on any instruction containing MMX&#160;register&#160;sources&#160;or destinations.&#160;</p>
+</div>
+</body>
+</html>

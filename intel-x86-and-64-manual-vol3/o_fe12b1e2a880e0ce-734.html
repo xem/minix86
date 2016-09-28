@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 734</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page734-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce734.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-98&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">18.15.7&#160;&#160;Processor Event-Based Sampling (PEBS)</p>
+<p style="position:absolute;top:129px;left:68px;white-space:nowrap" class="ft06">The&#160;debug store&#160;(DS) mechanism in&#160;processors&#160;based on Intel NetBurst&#160;microarchitecture allow two types of infor-<br/>mation&#160;to&#160;be&#160;collected for use&#160;in&#160;debugging and&#160;tuning&#160;programs: PEBS records and&#160;BTS records.&#160;<a href="o_fe12b1e2a880e0ce-587.html">See Section&#160;<br/>17.4.5,&#160;“Branch&#160;Trace&#160;Store&#160;(BTS),” for a&#160;</a>description of the&#160;BTS mechanism.<br/>PEBS&#160;permits the&#160;saving of precise&#160;architectural&#160;information associated with one&#160;or more performance events in&#160;<br/>the precise event records buffer,&#160;which is part of the&#160;DS&#160;save&#160;area&#160;(see<a href="o_fe12b1e2a880e0ce-591.html">&#160;Section&#160;17.4.9,&#160;“BTS&#160;and&#160;DS&#160;Save&#160;Area”</a>).&#160;<br/>To&#160;use this mechanism, a&#160;counter&#160;is configured to&#160;overflow after&#160;it has&#160;counted a&#160;preset number&#160;of&#160;events. After&#160;<br/>the counter&#160;overflows, the&#160;processor copies&#160;the&#160;current&#160;state of&#160;the general-purpose and&#160;EFLAGS&#160;registers and&#160;<br/>instruction&#160;pointer&#160;into a record in&#160;the precise&#160;event&#160;records&#160;buffer.&#160;The processor then&#160;resets&#160;the count in&#160;the&#160;<br/>performance counter&#160;and restarts the&#160;counter.&#160;When&#160;the&#160;precise event records buffer&#160;is nearly full,&#160;an interrupt&#160;is&#160;<br/>generated,&#160;allowing the&#160;precise event records to&#160;be&#160;saved.&#160;A circular buffer&#160;is not supported for precise&#160;event&#160;<br/>records.<br/>PEBS&#160;is supported&#160;only for&#160;a subset&#160;of the&#160;at-retirement events: Execution_event,&#160;Front_end_event, and&#160;<br/>Replay_event.&#160;Also, PEBS&#160;can only&#160;be carried out&#160;using the&#160;one performance&#160;counter, the&#160;MSR_IQ_COUNTER4&#160;<br/>MSR.<br/>In processors based on Intel Core&#160;microarchitecture, a&#160;similar&#160;PEBS mechanism is&#160;also supported&#160;using&#160;IA32_PMC0&#160;<br/>and&#160;IA32_PERFEVTSEL0 MSRs&#160;(S<a href="o_fe12b1e2a880e0ce-656.html">ee Section 18.4.4).</a></p>
+<p style="position:absolute;top:443px;left:68px;white-space:nowrap" class="ft04">18.15.7.1 &#160;&#160;Detection of&#160;the Availability of&#160;the PEBS Facilities</p>
+<p style="position:absolute;top:472px;left:68px;white-space:nowrap" class="ft06">The&#160;DS feature&#160;flag&#160;(bit&#160;21) returned by&#160;the CPUID instruction&#160;indicates (when set) the&#160;availability of&#160;the&#160;DS&#160;mech-<br/>anism in the&#160;processor,&#160;which&#160;supports&#160;the PEBS (and&#160;BTS) facilities. When&#160;this bit&#160;is set,&#160;the following PEBS&#160;facil-<br/>ities are&#160;available:</p>
+<p style="position:absolute;top:526px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:527px;left:93px;white-space:nowrap" class="ft06">The&#160;PEBS_UNAVAILABLE flag&#160;in the&#160;IA32_MISC_ENABLE MSR indicates&#160;(when clear) the&#160;availability of the&#160;<br/>PEBS facilities,&#160;including&#160;the MSR_PEBS_ENABLE MSR.&#160;</p>
+<p style="position:absolute;top:565px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:566px;left:93px;white-space:nowrap" class="ft06">The&#160;enable&#160;PEBS&#160;flag (bit 24) in&#160;the MSR_PEBS_ENABLE MSR&#160;allows&#160;PEBS&#160;to&#160;be&#160;enabled (set) or&#160;disabled&#160;<br/>(clear).</p>
+<p style="position:absolute;top:604px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:605px;left:93px;white-space:nowrap" class="ft03">The&#160;IA32_DS_AREA&#160;MSR&#160;can be&#160;programmed&#160;to point&#160;to the&#160;DS&#160;save&#160;area.&#160;</p>
+<p style="position:absolute;top:649px;left:68px;white-space:nowrap" class="ft04">18.15.7.2 &#160;&#160;Setting&#160;Up the DS Save&#160;Area</p>
+<p style="position:absolute;top:678px;left:68px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-596.html">Section 17.4.9.2,&#160;“Setting Up&#160;the&#160;DS&#160;Save&#160;Area,”&#160;describ</a>es&#160;how to set up and&#160;enable&#160;the&#160;DS&#160;save&#160;area.&#160;This proce-<br/>dure is&#160;common for&#160;PEBS and&#160;BTS.</p>
+<p style="position:absolute;top:739px;left:68px;white-space:nowrap" class="ft04">18.15.7.3 &#160;&#160;Setting&#160;Up the PEBS Buffer</p>
+<p style="position:absolute;top:767px;left:68px;white-space:nowrap" class="ft08">Only the MSR_IQ_COUNTER4&#160;performance counter can&#160;be&#160;used&#160;for&#160;PEBS. Use the following procedure&#160;to set up the&#160;<br/>processor&#160;and this&#160;counter for PEBS:&#160;<br/>1.&#160;Set up the&#160;precise&#160;event buffering facilities. Place&#160;values&#160;in the&#160;precise&#160;event&#160;buffer&#160;base,&#160;precise event&#160;index,&#160;</p>
+<p style="position:absolute;top:824px;left:93px;white-space:nowrap" class="ft06">precise event&#160;absolute&#160;maximum,&#160;and precise event interrupt threshold,&#160;and precise event counter reset fields&#160;<br/>of&#160;the DS&#160;buffer management&#160;<a href="o_fe12b1e2a880e0ce-593.html">area (see Figure&#160;17-5) to&#160;</a>set up&#160;the precise&#160;event records buffer in&#160;memory.</p>
+<p style="position:absolute;top:865px;left:68px;white-space:nowrap" class="ft08">2.&#160;Enable PEBS. Set the&#160;Enable PEBS flag (bit 24) in MSR_PEBS_ENABLE MSR.<br/>3.&#160;Set up the MSR_IQ_COUNTER4 performance counter and its associated CCCR and one or more ESCRs for PEBS&#160;</p>
+<p style="position:absolute;top:905px;left:93px;white-space:nowrap" class="ft03">as described in&#160;Tables<a href="o_fe12b1e2a880e0ce-947.html">&#160;19-29 through 19-3</a><a href="o_fe12b1e2a880e0ce-952.html">3</a>.</p>
+<p style="position:absolute;top:949px;left:68px;white-space:nowrap" class="ft04">18.15.7.4 &#160;&#160;Writing a&#160;PEBS&#160;Interrupt Service Routine&#160;</p>
+<p style="position:absolute;top:978px;left:68px;white-space:nowrap" class="ft06">The PEBS&#160;facilities&#160;share the&#160;same interrupt vector and&#160;interrupt&#160;service&#160;routine&#160;(called the&#160;DS ISR) with the&#160;non-<br/>precise event-based sampling and&#160;BTS facilities.&#160;To&#160;handle&#160;PEBS interrupts, PEBS handler&#160;code must be included in&#160;<br/>the DS&#160;ISR.&#160;See<a href="o_fe12b1e2a880e0ce-598.html">&#160;Section&#160;17.4.9.5,&#160;“Writing the DS&#160;Interrupt&#160;Service Routine,” for guidelines for writing the&#160;</a>DS&#160;ISR.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 912</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page912-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481912.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:621px;white-space:nowrap" class="ft00">PAVGB/PAVGW—Average Packed Integers</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-232&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">VPAVGB (VEX.128 encoded&#160;version)</p>
+<p style="position:absolute;top:118px;left:88px;white-space:nowrap" class="ft03">DEST[7:0]&#160;&#160;(SRC1[7:0] + SRC2[7:0] + 1)&#160;&gt;&gt;&#160;1;&#160;<br/>(*&#160;Repeat&#160;operation&#160;performed for bytes&#160;2 through&#160;15&#160;*)<br/>DEST[127:120]&#160;&#160;(SRC1[127:120] + SRC2[127:120] + 1) &gt;&gt; 1<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:208px;left:68px;white-space:nowrap" class="ft02">VPAVGW&#160;(VEX.128 encoded&#160;version)</p>
+<p style="position:absolute;top:226px;left:88px;white-space:nowrap" class="ft03">DEST[15:0]&#160;&#160;(SRC1[15:0] + SRC2[15:0]&#160;+ 1)&#160;&gt;&gt; 1;&#160;<br/>(* Repeat operation performed&#160;for 16-bit&#160;words 2 through&#160;7 *)<br/>DEST[127:112]&#160;&#160;(SRC1[127:112] + SRC2[127:112] + 1) &gt;&gt; 1<br/>DEST[VLMAX-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:316px;left:68px;white-space:nowrap" class="ft02">VPAVGB (VEX.256 encoded&#160;instruction)</p>
+<p style="position:absolute;top:334px;left:88px;white-space:nowrap" class="ft03">DEST[7:0]&#160;&#160;(SRC1[7:0] + SRC2[7:0] + 1)&#160;&gt;&gt;&#160;1; (*&#160;Temp&#160;sum before shifting&#160;is 9&#160;bits&#160;*)<br/>(*&#160;Repeat&#160;operation&#160;performed for bytes&#160;2 through&#160;31)<br/>DEST[255:248]&#160;&#160;(SRC1[255:248] + SRC2[255:248] + 1) &gt;&gt; 1;</p>
+<p style="position:absolute;top:406px;left:68px;white-space:nowrap" class="ft02">VPAVGW&#160;(VEX.256 encoded&#160;instruction)</p>
+<p style="position:absolute;top:424px;left:88px;white-space:nowrap" class="ft03">DEST[15:0]&#160;&#160;(SRC1[15:0] + SRC2[15:0]&#160;+ 1)&#160;&gt;&gt; 1;&#160;(*&#160;Temp sum before&#160;shifting is 17 bits *)<br/>(* Repeat operation performed&#160;for&#160;words 2 through 15)<br/>DEST[255:14])&#160;&#160;(SRC1[255:240] + SRC2[255:240] + 1)&#160;&gt;&gt;&#160;1;</p>
+<p style="position:absolute;top:478px;left:68px;white-space:nowrap" class="ft03">VPAVGB&#160;(EVEX encoded versions)<br/>(KL, VL) = (16, 128), (32, 256), (64,&#160;512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:532px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 8<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:568px;left:115px;white-space:nowrap" class="ft03">THEN DEST[i+7:i]&#160;&#160;(SRC1[i+7:i] + SRC2[i+7:i] + 1) &gt;&gt;&#160;1; (*&#160;Temp&#160;sum before shifting&#160;is 9 bits *)<br/>ELSE&#160;</p>
+<p style="position:absolute;top:604px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:604px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:622px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+7:i] remains&#160;unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:640px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:658px;left:196px;white-space:nowrap" class="ft02">DEST[i+7:i] = 0</p>
+<p style="position:absolute;top:676px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:694px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:712px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:766px;left:68px;white-space:nowrap" class="ft03">VPAVGW&#160;(EVEX encoded&#160;versions)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:820px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 16<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:856px;left:115px;white-space:nowrap" class="ft02">THEN DEST[i+15:i]&#160;&#160;(SRC1[i+15:i] + SRC2[i+15:i]&#160;+ 1)&#160;&gt;&gt; 1</p>
+<p style="position:absolute;top:874px;left:304px;white-space:nowrap" class="ft02">; (* Temp sum before&#160;shifting&#160;is 17&#160;bits *)</p>
+<p style="position:absolute;top:892px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:910px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:910px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:928px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:946px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:964px;left:196px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;= 0</p>
+<p style="position:absolute;top:982px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:1000px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:1018px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 300</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page300-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a300.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">12-20&#160;Vol. 1</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROGRAMMING WITH INTEL® SSE3, SSSE3,&#160;INTEL®&#160;SSE4 AND INTEL® AESNI</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft06">The&#160;following&#160;observation is&#160;important for using&#160;the AES instructions offered in&#160;Intel 64&#160;Architecture:&#160;FIPS 197 text&#160;<br/>convention&#160;is to&#160;write hex strings with&#160;the low-memory byte on&#160;the left&#160;and the&#160;high-memory&#160;byte on&#160;the&#160;right.&#160;<br/>Intel’s convention&#160;is&#160;the reverse.&#160;It is&#160;similar&#160;to the&#160;difference between Big&#160;Endian and&#160;Little Endian notations.&#160;<br/>In&#160;other&#160;words,&#160;a&#160;128&#160;bits&#160;vector&#160;in&#160;the&#160;FIPS&#160;document,&#160;when&#160;read&#160;from&#160;left&#160;to&#160;right,&#160;is&#160;encoded&#160;as&#160;[7:0,&#160;15:8,&#160;<br/>23:16,&#160;31:24, …127:120]. Note&#160;that inside&#160;the&#160;byte,&#160;the&#160;encoding&#160;is [7:0], so the&#160;first&#160;bit from the left is&#160;the most&#160;<br/>significant bit.&#160;In practice, the&#160;test vectors are written&#160;in&#160;hexadecimal notation, where pairs of hexadecimal digits&#160;<br/>define the&#160;different&#160;bytes.&#160;To&#160;translate the&#160;FIPS&#160;197 notation to an&#160;Intel 64&#160;architecture&#160;compatible (“Little&#160;<br/>Endian”) format,&#160;each&#160;test vector needs to&#160;be&#160;byte-reflected&#160;to [127:120,… 31:24,&#160;23:16,&#160;15:8,&#160;7:0].&#160;<br/>Example A:&#160;<br/>FIPS&#160;Test vector: 000102030405060708090a0b0c0d0e0fH<br/>Intel AES Hardware:&#160;0f0e0d0c0b0a09080706050403020100H</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft05">It should&#160;be&#160;pointed out that&#160;the only thing&#160;at issue&#160;is a&#160;textual convention,&#160;and programmers do not need to&#160;<br/>perform&#160;byte-reversal in their code, when&#160;using&#160;the&#160;AES instructions.</p>
+<p style="position:absolute;top:395px;left:68px;white-space:nowrap" class="ft03">12.13.1.1&#160;&#160;&#160;AES Data Structure&#160;in&#160;Intel 64&#160;Architecture</p>
+<p style="position:absolute;top:422px;left:68px;white-space:nowrap" class="ft06">The AES instructions that&#160;are defined&#160;in&#160;this document&#160;operate&#160;on one&#160;or&#160;on two 128 bits source&#160;operands: State&#160;<br/>and Round Key.&#160;From the&#160;architectural&#160;point of view,&#160;the&#160;state&#160;is input&#160;in an xmm register&#160;and the&#160;Round&#160;key is&#160;<br/>input either&#160;in&#160;an&#160;xmm register&#160;or a&#160;128-bit memory location.&#160;<br/>In AES&#160;algorithm,&#160;the&#160;state&#160;(128&#160;bits)&#160;can be&#160;viewed&#160;as&#160;4&#160;32-bit doublewords (“Word”s&#160;in&#160;AES&#160;terminology):&#160;X3,&#160;<br/>X2, X1, X0.&#160;<br/>The&#160;state may&#160;also be&#160;viewed as&#160;a set of&#160;16&#160;bytes.&#160;The 16&#160;bytes can&#160;also be&#160;viewed&#160;as&#160;a 4x4&#160;matrix of bytes&#160;where&#160;<br/>S(i,&#160;j) with i,&#160;j = 0,&#160;1,&#160;2,&#160;3&#160;compose the&#160;32-bit “word”s as&#160;follows:<br/>X0&#160;= S (3, 0)&#160;S (2, 0)&#160;S&#160;(1, 0)&#160;S&#160;(0, 0)<br/>X1&#160;= S (3, 1)&#160;S (2, 1)&#160;S&#160;(1, 1)&#160;S&#160;(0, 1)<br/>X2&#160;= S (3, 2)&#160;S (2, 2)&#160;S&#160;(1, 2)&#160;S&#160;(0, 2)<br/>X3&#160;= S (3, 3)&#160;S (2, 3)&#160;S&#160;(1, 3)&#160;S&#160;(0, 3)<br/>The following tables,<a href="o_7281d5ea06a5b67a-300.html">&#160;Table&#160;12-8&#160;</a><a href="o_7281d5ea06a5b67a-301.html">through Table&#160;12-11,</a>&#160;illustrate various representations of a&#160;128-bit&#160;state.</p>
+<p style="position:absolute;top:1009px;left:68px;white-space:nowrap" class="ft06">Example:&#160;<br/>FIPS&#160;vector: d4&#160;bf&#160;5d&#160;30&#160;e0&#160;b4&#160;52&#160;ae&#160;b8&#160;41&#160;11&#160;f1&#160;1e&#160;27&#160;98&#160;e5</p>
+<p style="position:absolute;top:684px;left:223px;white-space:nowrap" class="ft04">Table&#160;12-8.&#160; Byte and&#160;32-bit Word&#160;Representation of&#160;a 128-bit&#160;State</p>
+<p style="position:absolute;top:708px;left:97px;white-space:nowrap" class="ft02">Byte&#160;&#160;#</p>
+<p style="position:absolute;top:708px;left:180px;white-space:nowrap" class="ft02">15</p>
+<p style="position:absolute;top:708px;left:226px;white-space:nowrap" class="ft02">14</p>
+<p style="position:absolute;top:708px;left:271px;white-space:nowrap" class="ft02">13</p>
+<p style="position:absolute;top:708px;left:316px;white-space:nowrap" class="ft02">12</p>
+<p style="position:absolute;top:708px;left:359px;white-space:nowrap" class="ft02">11</p>
+<p style="position:absolute;top:708px;left:400px;white-space:nowrap" class="ft02">10</p>
+<p style="position:absolute;top:708px;left:445px;white-space:nowrap" class="ft02">9</p>
+<p style="position:absolute;top:708px;left:485px;white-space:nowrap" class="ft02">8</p>
+<p style="position:absolute;top:708px;left:526px;white-space:nowrap" class="ft02">7</p>
+<p style="position:absolute;top:708px;left:567px;white-space:nowrap" class="ft02">6</p>
+<p style="position:absolute;top:708px;left:608px;white-space:nowrap" class="ft02">5</p>
+<p style="position:absolute;top:708px;left:648px;white-space:nowrap" class="ft02">4</p>
+<p style="position:absolute;top:708px;left:689px;white-space:nowrap" class="ft02">3</p>
+<p style="position:absolute;top:708px;left:730px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:708px;left:771px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:708px;left:811px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:732px;left:85px;white-space:nowrap" class="ft02">Bit Position</p>
+<p style="position:absolute;top:732px;left:171px;white-space:nowrap" class="ft02">127-</p>
+<p style="position:absolute;top:749px;left:171px;white-space:nowrap" class="ft02">120</p>
+<p style="position:absolute;top:732px;left:217px;white-space:nowrap" class="ft02">119-</p>
+<p style="position:absolute;top:749px;left:217px;white-space:nowrap" class="ft02">112</p>
+<p style="position:absolute;top:732px;left:263px;white-space:nowrap" class="ft02">111-</p>
+<p style="position:absolute;top:749px;left:263px;white-space:nowrap" class="ft02">103</p>
+<p style="position:absolute;top:732px;left:307px;white-space:nowrap" class="ft02">103-</p>
+<p style="position:absolute;top:749px;left:307px;white-space:nowrap" class="ft02">96</p>
+<p style="position:absolute;top:732px;left:353px;white-space:nowrap" class="ft02">95-</p>
+<p style="position:absolute;top:749px;left:353px;white-space:nowrap" class="ft02">88</p>
+<p style="position:absolute;top:732px;left:393px;white-space:nowrap" class="ft02">87-</p>
+<p style="position:absolute;top:749px;left:393px;white-space:nowrap" class="ft02">80</p>
+<p style="position:absolute;top:732px;left:434px;white-space:nowrap" class="ft02">79-</p>
+<p style="position:absolute;top:749px;left:434px;white-space:nowrap" class="ft02">72</p>
+<p style="position:absolute;top:732px;left:475px;white-space:nowrap" class="ft02">71-</p>
+<p style="position:absolute;top:749px;left:475px;white-space:nowrap" class="ft02">64</p>
+<p style="position:absolute;top:732px;left:516px;white-space:nowrap" class="ft02">63-</p>
+<p style="position:absolute;top:749px;left:516px;white-space:nowrap" class="ft02">56</p>
+<p style="position:absolute;top:732px;left:556px;white-space:nowrap" class="ft02">55-</p>
+<p style="position:absolute;top:749px;left:556px;white-space:nowrap" class="ft02">48</p>
+<p style="position:absolute;top:732px;left:597px;white-space:nowrap" class="ft02">47-</p>
+<p style="position:absolute;top:749px;left:597px;white-space:nowrap" class="ft02">40</p>
+<p style="position:absolute;top:732px;left:638px;white-space:nowrap" class="ft02">39-</p>
+<p style="position:absolute;top:749px;left:638px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:732px;left:679px;white-space:nowrap" class="ft02">31-</p>
+<p style="position:absolute;top:749px;left:679px;white-space:nowrap" class="ft02">24</p>
+<p style="position:absolute;top:732px;left:719px;white-space:nowrap" class="ft02">23-</p>
+<p style="position:absolute;top:749px;left:719px;white-space:nowrap" class="ft02">16</p>
+<p style="position:absolute;top:732px;left:760px;white-space:nowrap" class="ft02">15-</p>
+<p style="position:absolute;top:749px;left:760px;white-space:nowrap" class="ft02">8</p>
+<p style="position:absolute;top:732px;left:801px;white-space:nowrap" class="ft02">7-&#160;</p>
+<p style="position:absolute;top:749px;left:801px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:773px;left:231px;white-space:nowrap" class="ft02">127&#160;- 96</p>
+<p style="position:absolute;top:773px;left:407px;white-space:nowrap" class="ft02">95&#160;- 64</p>
+<p style="position:absolute;top:773px;left:570px;white-space:nowrap" class="ft02">64&#160;- 32</p>
+<p style="position:absolute;top:773px;left:737px;white-space:nowrap" class="ft02">31&#160;- 0</p>
+<p style="position:absolute;top:797px;left:86px;white-space:nowrap" class="ft02">State Word</p>
+<p style="position:absolute;top:797px;left:248px;white-space:nowrap" class="ft02">X3</p>
+<p style="position:absolute;top:797px;left:420px;white-space:nowrap" class="ft02">X2</p>
+<p style="position:absolute;top:797px;left:583px;white-space:nowrap" class="ft02">X1</p>
+<p style="position:absolute;top:797px;left:746px;white-space:nowrap" class="ft02">X0</p>
+<p style="position:absolute;top:821px;left:87px;white-space:nowrap" class="ft02">State&#160;Byte</p>
+<p style="position:absolute;top:821px;left:184px;white-space:nowrap" class="ft02">P</p>
+<p style="position:absolute;top:821px;left:229px;white-space:nowrap" class="ft02">O</p>
+<p style="position:absolute;top:821px;left:274px;white-space:nowrap" class="ft02">N</p>
+<p style="position:absolute;top:821px;left:319px;white-space:nowrap" class="ft02">M</p>
+<p style="position:absolute;top:821px;left:364px;white-space:nowrap" class="ft02">L</p>
+<p style="position:absolute;top:821px;left:404px;white-space:nowrap" class="ft02">K</p>
+<p style="position:absolute;top:821px;left:447px;white-space:nowrap" class="ft02">J</p>
+<p style="position:absolute;top:821px;left:488px;white-space:nowrap" class="ft02">I</p>
+<p style="position:absolute;top:821px;left:526px;white-space:nowrap" class="ft02">H</p>
+<p style="position:absolute;top:821px;left:567px;white-space:nowrap" class="ft02">G</p>
+<p style="position:absolute;top:821px;left:608px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:821px;left:649px;white-space:nowrap" class="ft02">E</p>
+<p style="position:absolute;top:821px;left:689px;white-space:nowrap" class="ft02">D</p>
+<p style="position:absolute;top:821px;left:730px;white-space:nowrap" class="ft02">C</p>
+<p style="position:absolute;top:821px;left:771px;white-space:nowrap" class="ft02">B</p>
+<p style="position:absolute;top:821px;left:811px;white-space:nowrap" class="ft02">A</p>
+<p style="position:absolute;top:874px;left:273px;white-space:nowrap" class="ft04">Table&#160;12-9. &#160;Matrix Representation&#160;of&#160;a 128-bit&#160;State</p>
+<p style="position:absolute;top:899px;left:112px;white-space:nowrap" class="ft02">A</p>
+<p style="position:absolute;top:899px;left:209px;white-space:nowrap" class="ft02">E</p>
+<p style="position:absolute;top:899px;left:307px;white-space:nowrap" class="ft02">I</p>
+<p style="position:absolute;top:899px;left:399px;white-space:nowrap" class="ft02">M</p>
+<p style="position:absolute;top:899px;left:482px;white-space:nowrap" class="ft02">S(0, 0)</p>
+<p style="position:absolute;top:899px;left:578px;white-space:nowrap" class="ft02">S(0,&#160;1)</p>
+<p style="position:absolute;top:899px;left:674px;white-space:nowrap" class="ft02">S(0, 2)</p>
+<p style="position:absolute;top:899px;left:769px;white-space:nowrap" class="ft02">S(0,&#160;3)</p>
+<p style="position:absolute;top:923px;left:113px;white-space:nowrap" class="ft02">B</p>
+<p style="position:absolute;top:923px;left:209px;white-space:nowrap" class="ft02">F</p>
+<p style="position:absolute;top:923px;left:307px;white-space:nowrap" class="ft02">J</p>
+<p style="position:absolute;top:923px;left:400px;white-space:nowrap" class="ft02">N</p>
+<p style="position:absolute;top:923px;left:482px;white-space:nowrap" class="ft02">S(1, 0)</p>
+<p style="position:absolute;top:923px;left:578px;white-space:nowrap" class="ft02">S(1,&#160;1)</p>
+<p style="position:absolute;top:923px;left:674px;white-space:nowrap" class="ft02">S(1, 2)</p>
+<p style="position:absolute;top:923px;left:769px;white-space:nowrap" class="ft02">S(1,&#160;3)</p>
+<p style="position:absolute;top:947px;left:113px;white-space:nowrap" class="ft02">C</p>
+<p style="position:absolute;top:947px;left:209px;white-space:nowrap" class="ft02">G</p>
+<p style="position:absolute;top:947px;left:304px;white-space:nowrap" class="ft02">K</p>
+<p style="position:absolute;top:947px;left:400px;white-space:nowrap" class="ft02">O</p>
+<p style="position:absolute;top:947px;left:482px;white-space:nowrap" class="ft02">S(2, 0)</p>
+<p style="position:absolute;top:947px;left:578px;white-space:nowrap" class="ft02">S(2,&#160;1)</p>
+<p style="position:absolute;top:947px;left:674px;white-space:nowrap" class="ft02">S(2, 2)</p>
+<p style="position:absolute;top:947px;left:769px;white-space:nowrap" class="ft02">S(2,&#160;3)</p>
+<p style="position:absolute;top:971px;left:112px;white-space:nowrap" class="ft02">D</p>
+<p style="position:absolute;top:971px;left:208px;white-space:nowrap" class="ft02">H</p>
+<p style="position:absolute;top:971px;left:305px;white-space:nowrap" class="ft02">L</p>
+<p style="position:absolute;top:971px;left:400px;white-space:nowrap" class="ft02">P</p>
+<p style="position:absolute;top:971px;left:482px;white-space:nowrap" class="ft02">S(3, 0)</p>
+<p style="position:absolute;top:971px;left:578px;white-space:nowrap" class="ft02">S(3,&#160;1)</p>
+<p style="position:absolute;top:971px;left:674px;white-space:nowrap" class="ft02">S(3, 2)</p>
+<p style="position:absolute;top:971px;left:769px;white-space:nowrap" class="ft02">S(3,&#160;3)</p>
+</div>
+</body>
+</html>

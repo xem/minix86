@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 443</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page443-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a443.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:783px;white-space:nowrap" class="ft00">Vol. 1&#160;E-1</p>
+<p style="position:absolute;top:96px;left:705px;white-space:nowrap" class="ft01">APPENDIX E</p>
+<p style="position:absolute;top:120px;left:181px;white-space:nowrap" class="ft01">GUIDELINES FOR WRITING SIMD FLOATING-POINT&#160;EXCEPTION</p>
+<p style="position:absolute;top:144px;left:719px;white-space:nowrap" class="ft01">HANDLERS</p>
+<p style="position:absolute;top:214px;left:68px;white-space:nowrap" class="ft07"><a href="o_7281d5ea06a5b67a-267.html">See&#160;Section&#160;11.5, “SSE,&#160;SSE2, and&#160;SSE3 Exceptions,”&#160;for a&#160;</a>detailed discussion&#160;of SIMD&#160;floating-point exceptions.<br/>This appendix considers only SSE/SSE2/SSE3 instructions that can generate numeric (SIMD floating-point) excep-<br/>tions,&#160;and&#160;gives an&#160;overview of the&#160;necessary support for handling&#160;such&#160;exceptions.&#160;This&#160;appendix does&#160;not&#160;<br/>address instructions that&#160;do not&#160;generate floating-point&#160;exceptions (such&#160;as RSQRTSS,&#160;RSQRTPS,&#160;RCPSS,&#160;or&#160;<br/>RCPPS), any&#160;x87&#160;instructions,&#160;or any&#160;unlisted instruction.&#160;<br/>For detailed information on which instructions generate&#160;numeric exceptions, and a listing of those&#160;exceptions, refer&#160;<br/><a href="o_7281d5ea06a5b67a-415.html">to Appendix&#160;C, “Floating-Point Exceptions&#160;Summary.”&#160;</a>Non-numeric exceptions are&#160;handled in a&#160;way similar&#160;to that&#160;<br/>for&#160;the standard IA-32 instructions.</p>
+<p style="position:absolute;top:400px;left:68px;white-space:nowrap" class="ft03">E.1&#160;</p>
+<p style="position:absolute;top:400px;left:147px;white-space:nowrap" class="ft03">TWO OPTIONS FOR HANDLING FLOATING-POINT&#160;EXCEPTIONS</p>
+<p style="position:absolute;top:436px;left:68px;white-space:nowrap" class="ft07">Just&#160;as for x87&#160;FPU&#160;floating-point exceptions, the&#160;processor&#160;takes&#160;one&#160;of two possible&#160;courses of action&#160;when&#160;an&#160;<br/>SSE/SSE2/SSE3&#160;instruction raises a&#160;floating-point exception:&#160;</p>
+<p style="position:absolute;top:475px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:475px;left:93px;white-space:nowrap" class="ft07">If&#160;the exception&#160;being raised&#160;is masked (by setting the corresponding&#160;mask&#160;bit in&#160;the MXCSR to&#160;1),&#160;then a&#160;<br/>default result&#160;is produced&#160;which&#160;is acceptable&#160;in most&#160;situations. No&#160;external indication of the&#160;exception is&#160;<br/>given,&#160;but the&#160;corresponding&#160;exception flags&#160;in the&#160;MXCSR are set and&#160;may be examined later.&#160;Note&#160;though&#160;<br/>that&#160;for packed&#160;operations, an&#160;exception flag&#160;that&#160;is&#160;set in&#160;the MXCSR&#160;will&#160;not tell which&#160;of&#160;the sub-operands&#160;<br/>caused&#160;the&#160;event to&#160;occur.</p>
+<p style="position:absolute;top:563px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:564px;left:93px;white-space:nowrap" class="ft07">If&#160;the exception&#160;being raised&#160;is not masked&#160;(by&#160;setting&#160;the&#160;corresponding mask&#160;bit in the MXCSR&#160;to 0), a&#160;<br/>software&#160;exception handler previously registered&#160;by&#160;the&#160;user&#160;with&#160;operating system support will be invoked&#160;<br/>through&#160;the SIMD floating-point&#160;exception (#XM, exception&#160;19).&#160;This&#160;case is&#160;discussed below&#160;<a href="o_7281d5ea06a5b67a-443.html">in Section E.2,&#160;<br/>“Software Exception Handling.”</a></p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft03">E.2 SOFTWARE&#160;</p>
+<p style="position:absolute;top:669px;left:257px;white-space:nowrap" class="ft03">EXCEPTION&#160;</p>
+<p style="position:absolute;top:669px;left:369px;white-space:nowrap" class="ft03">HANDLING</p>
+<p style="position:absolute;top:705px;left:68px;white-space:nowrap" class="ft06">The #XM handler&#160;is usually part of the&#160;system&#160;software&#160;(the operating&#160;system&#160;kernel). Note that an&#160;interrupt&#160;<br/>descriptor&#160;table&#160;(IDT) entry must have&#160;been previously set&#160;up for exception&#160;19 (refer&#160;<a href="��">to Chapter&#160;6,&#160;“Interrupt and&#160;<br/>Exception Handling,” in&#160;</a>the&#160;<i>Intel® 64 and&#160;IA-32 Architectures Software&#160;Developer’s&#160;Manual,&#160;Volume 3A)</i>. Some&#160;<br/>compilers&#160;use specific&#160;run-time libraries&#160;to assist in&#160;floating-point exception&#160;handling. If&#160;any&#160;x87 FPU floating-point&#160;<br/>operations are going to be&#160;performed&#160;that&#160;might raise&#160;floating-point&#160;exceptions,&#160;then the&#160;exception handling&#160;<br/>routine must either disable&#160;all floating-point&#160;exceptions (for&#160;example, loading&#160;a local&#160;control word with FLDCW),&#160;or&#160;<br/>it must be implemented&#160;as re-entrant (for the&#160;case&#160;of&#160;x87&#160;FPU&#160;exceptions,&#160;refer to&#160;<a href="o_7281d5ea06a5b67a-433.html">Example&#160;D-1&#160;in Appendix D</a><a href="o_7281d5ea06a5b67a-423.html">,&#160;<br/>“Guidelines for&#160;Writing x87&#160;FPU&#160;Exception Handlers”). If&#160;</a>this is&#160;not the&#160;case, the&#160;routine has&#160;to clear the&#160;status&#160;flags&#160;<br/>for x87&#160;FPU&#160;exceptions or to&#160;mask&#160;all x87&#160;FPU&#160;floating-point exceptions. For&#160;SIMD&#160;floating-point exceptions&#160;<br/>though, the exception flags in MXCSR&#160;do not have&#160;to be&#160;cleared,&#160;even&#160;if they remain unmasked&#160;(but they may&#160;still&#160;<br/>be cleared). Exceptions are&#160;in this case&#160;precise&#160;and occur immediately,&#160;and a SIMD&#160;floating-point exception status&#160;<br/>flag&#160;that is&#160;set&#160;when the&#160;corresponding exception&#160;is unmasked&#160;will&#160;not generate an exception.<br/>Typical actions&#160;performed&#160;by this low-level&#160;exception handling&#160;routine are:</p>
+<p style="position:absolute;top:932px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:933px;left:93px;white-space:nowrap" class="ft02">Incrementing an&#160;exception counter for later display&#160;or printing</p>
+<p style="position:absolute;top:955px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:955px;left:93px;white-space:nowrap" class="ft02">Printing&#160;or displaying diagnostic information (e.g. the MXCSR&#160;and XMM registers)</p>
+<p style="position:absolute;top:977px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:978px;left:93px;white-space:nowrap" class="ft07">Aborting further execution, or using the&#160;exception&#160;pointers&#160;to build an&#160;instruction that will&#160;run&#160;without&#160;<br/>exception&#160;and executing it</p>
+<p style="position:absolute;top:1016px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:1017px;left:93px;white-space:nowrap" class="ft07">Storing information about the&#160;exception in a data structure&#160;that will&#160;be passed to&#160;a higher level user exception&#160;<br/>handler</p>
+</div>
+</body>
+</html>

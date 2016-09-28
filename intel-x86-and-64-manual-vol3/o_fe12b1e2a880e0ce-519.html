@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 519</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page519-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce519.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-13</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:97px;left:69px;white-space:nowrap" class="ft02">15.4&#160;</p>
+<p style="position:absolute;top:97px;left:148px;white-space:nowrap" class="ft02">ENHANCED CACHE ERROR REPORTING</p>
+<p style="position:absolute;top:132px;left:69px;white-space:nowrap" class="ft05">Starting with&#160;Intel&#160;Core Duo&#160;processors, cache error&#160;reporting&#160;was enhanced.&#160;In earlier Intel&#160;processors, cache&#160;<br/>status was&#160;based on the&#160;number of&#160;correction events that&#160;occurred in&#160;a cache. In&#160;the new paradigm, called&#160;<br/>“threshold-based error&#160;status”,&#160;cache&#160;status is&#160;based on&#160;the&#160;number of lines (ECC blocks)&#160;in a&#160;cache that&#160;incur&#160;<br/>repeated corrections. The&#160;threshold is chosen by Intel, based on various factors. If a processor supports threshold-<br/>based&#160;error&#160;status,&#160;it sets IA32_MCG_CAP[11]&#160;(MCG_TES_P)&#160;to 1;&#160;if not,&#160;to 0.&#160;<br/>A processor that&#160;supports enhanced cache&#160;error&#160;reporting&#160;contains hardware that&#160;tracks the&#160;operating status&#160;of&#160;<br/>certain caches and provides an indicator of&#160;their&#160;“health”. The hardware reports a&#160;“green”&#160;status&#160;when the&#160;number&#160;<br/>of lines that incur&#160;repeated&#160;corrections is&#160;at or&#160;below&#160;a pre-defined&#160;threshold,&#160;and&#160;a “yellow” status&#160;when&#160;the&#160;<br/>number of affected&#160;lines&#160;exceeds&#160;the threshold.&#160;Yellow&#160;status&#160;means that&#160;the cache&#160;reporting&#160;the&#160;event&#160;is oper-<br/>ating correctly, but you&#160;should schedule&#160;the&#160;system for servicing&#160;within&#160;a few weeks.<br/>Intel recommends that you rely on&#160;this&#160;mechanism for structures&#160;supported by threshold-base&#160;error reporting.&#160;<br/>The&#160;CPU/system/platform response to&#160;a&#160;yellow&#160;event should be&#160;less severe&#160;than its&#160;response&#160;to an&#160;uncorrected&#160;<br/>error.&#160;An uncorrected error&#160;means that&#160;a serious&#160;error has actually&#160;occurred, whereas the yellow&#160;condition is&#160;a&#160;<br/>warning&#160;that the number of&#160;affected&#160;lines&#160;has exceeded the threshold but is not, in&#160;itself,&#160;a serious event:&#160;the&#160;error&#160;<br/>was corrected&#160;and system&#160;state was&#160;not compromised.&#160;<br/>The green/yellow&#160;status indicator is not a foolproof early&#160;warning&#160;for&#160;an uncorrected error resulting from&#160;the failure&#160;<br/>of&#160;two&#160;bits&#160;in the&#160;same&#160;ECC block. Such a failure&#160;can occur and cause&#160;an uncorrected error&#160;before&#160;the yellow&#160;<br/>threshold is&#160;reached.&#160;However,&#160;the&#160;chance of an&#160;uncorrected error&#160;increases&#160;as the&#160;number of affected lines&#160;<br/>increases.&#160;</p>
+<p style="position:absolute;top:508px;left:69px;white-space:nowrap" class="ft02">15.5&#160;</p>
+<p style="position:absolute;top:508px;left:148px;white-space:nowrap" class="ft02">CORRECTED MACHINE CHECK ERROR INTERRUPT</p>
+<p style="position:absolute;top:543px;left:69px;white-space:nowrap" class="ft05">Corrected machine-check error&#160;interrupt&#160;(CMCI) is&#160;an architectural&#160;enhancement to the&#160;machine-check architec-<br/>ture. It provides capabilities beyond those of threshold-based error reportin<a href="o_fe12b1e2a880e0ce-519.html">g (Section&#160;15.4</a>). With threshold-based&#160;<br/>error reporting, software is&#160;limited to use&#160;periodic polling to&#160;query the&#160;status of hardware corrected&#160;MC&#160;errors.&#160;<br/>CMCI&#160;provides&#160;a signaling mechanism to&#160;deliver a&#160;local&#160;interrupt based on&#160;threshold values&#160;that software&#160;can&#160;<br/>program using&#160;the IA32_MCi_CTL2&#160;MSRs.&#160;<br/>CMCI is disabled by&#160;default. System software is&#160;required&#160;to enable&#160;CMCI for each IA32_MCi bank that support&#160;the&#160;<br/>reporting of&#160;hardware corrected&#160;errors if&#160;IA32_MCG_CAP[10] = 1.<br/>System software&#160;use IA32_MCi_CTL2&#160;MSR to enable/disable&#160;the CMCI capability&#160;for&#160;each bank&#160;and program&#160;<br/>threshold values&#160;into IA32_MCi_CTL2&#160;MSR.&#160;CMCI is&#160;not affected&#160;by the&#160;CR4.MCE bit,&#160;and&#160;it&#160;is not affected&#160;by the&#160;<br/>IA32_MCi_CTL&#160;MSRs.<br/>To&#160;detect&#160;the existence of thresholding&#160;for&#160;a given bank, software writes&#160;only&#160;bits 14:0 with the&#160;threshold value. If&#160;<br/>the&#160;bits&#160;persist, then&#160;thresholding&#160;is available (and&#160;CMCI&#160;is available). If&#160;the bits are&#160;all 0's,&#160;then&#160;no&#160;thresholding&#160;<br/>exists.&#160;To&#160;detect&#160;that CMCI signaling exists, software&#160;writes&#160;a&#160;1&#160;to&#160;bit 30&#160;of&#160;the MCi_CTL2&#160;register.&#160;Upon subse-<br/>quent read,&#160;if bit 30 =&#160;0, no CMCI is available for this&#160;bank&#160;and no corrected&#160;or&#160;UCNA&#160;errors will&#160;be reported&#160;on this&#160;<br/>bank. If bit 30 = 1, then&#160;CMCI&#160;is available and&#160;enabled.</p>
+<p style="position:absolute;top:842px;left:69px;white-space:nowrap" class="ft04">15.5.1&#160;</p>
+<p style="position:absolute;top:842px;left:149px;white-space:nowrap" class="ft04">CMCI Local APIC Interface</p>
+<p style="position:absolute;top:871px;left:69px;white-space:nowrap" class="ft03">The operation of CMCI is&#160;depicted&#160;<a href="o_fe12b1e2a880e0ce-520.html">in Figure 15-10.&#160;</a></p>
+</div>
+</body>
+</html>

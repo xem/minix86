@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1107</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1107-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1107.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;26-15</p>
+<p style="position:absolute;top:47px;left:766px;white-space:nowrap" class="ft01">VM&#160;ENTRIES</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">26.3.2.1 &#160;&#160;Loading&#160;Guest&#160;Control&#160;Registers, Debug Registers, and MSRs</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft03">The following&#160;items&#160;describe how guest&#160;control registers,&#160;debug&#160;registers,&#160;and&#160;MSRs&#160;are&#160;loaded&#160;on VM&#160;entry:</p>
+<p style="position:absolute;top:149px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:150px;left:95px;white-space:nowrap" class="ft07">CR0 is&#160;loaded&#160;from the&#160;CR0&#160;field&#160;with&#160;the&#160;exception of&#160;the&#160;following bits,&#160;which&#160;are never modified&#160;on VM&#160;entry:&#160;<br/>ET (bit&#160;4); reserved&#160;bits&#160;15:6,&#160;17,&#160;and&#160;28:19; NW&#160;(bit&#160;29) and&#160;CD&#160;(bit&#160;30).</p>
+<p style="position:absolute;top:164px;left:594px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:166px;left:601px;white-space:nowrap" class="ft03">&#160;The values&#160;of these bits in the CR0&#160;</p>
+<p style="position:absolute;top:183px;left:94px;white-space:nowrap" class="ft03">field&#160;are&#160;ignored.</p>
+<p style="position:absolute;top:205px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:205px;left:95px;white-space:nowrap" class="ft03">CR3&#160;and&#160;CR4&#160;are loaded&#160;from the&#160;CR3 field and&#160;the&#160;CR4&#160;field,&#160;respectively.</p>
+<p style="position:absolute;top:227px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:228px;left:95px;white-space:nowrap" class="ft07">If the&#160;“load debug controls” VM-entry control is&#160;1, DR7&#160;is loaded&#160;from&#160;the DR7 field with the&#160;exception that&#160;<br/>bit&#160;12 and bits&#160;15:14 are&#160;always 0&#160;and bit&#160;10&#160;is always 1.&#160;The&#160;values&#160;of these&#160;bits in the DR7 field&#160;are ignored.<br/>The&#160;first processors to support the virtual-machine&#160;extensions supported only the 1-setting of the “load<br/>debug controls” VM-entry&#160;control and thus&#160;always loaded&#160;DR7 from the DR7&#160;field.</p>
+<p style="position:absolute;top:305px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:306px;left:95px;white-space:nowrap" class="ft09">The following&#160;describes&#160;how certain MSRs are loaded using&#160;fields&#160;in the&#160;guest-state area:<br/>—&#160;If&#160;the “load&#160;debug controls” VM-entry control&#160;is&#160;1,&#160;the IA32_DEBUGCTL MSR is&#160;loaded from the&#160;</p>
+<p style="position:absolute;top:346px;left:120px;white-space:nowrap" class="ft07">IA32_DEBUGCTL&#160;field. The first processors to support&#160;the virtual-machine&#160;extensions supported only the 1-<br/>setting of&#160;this&#160;control and&#160;thus&#160;always loaded&#160;the&#160;IA32_DEBUGCTL&#160;MSR&#160;from&#160;the IA32_DEBUGCTL&#160;field.</p>
+<p style="position:absolute;top:387px;left:94px;white-space:nowrap" class="ft03">—&#160;The IA32_SYSENTER_CS&#160;MSR&#160;is loaded&#160;from the&#160;IA32_SYSENTER_CS&#160;field.&#160;Since this&#160;field has&#160;only&#160;32&#160;</p>
+<p style="position:absolute;top:403px;left:120px;white-space:nowrap" class="ft03">bits, bits&#160;63:32 of the&#160;MSR are&#160;cleared to&#160;0.</p>
+<p style="position:absolute;top:427px;left:94px;white-space:nowrap" class="ft03">—&#160;The IA32_SYSENTER_ESP and&#160;IA32_SYSENTER_EIP MSRs&#160;are loaded&#160;from the IA32_SYSENTER_ESP&#160;field&#160;</p>
+<p style="position:absolute;top:444px;left:120px;white-space:nowrap" class="ft07">and&#160;the&#160;IA32_SYSENTER_EIP&#160;field,&#160;respectively.&#160;On&#160;processors that do not support Intel&#160;64&#160;architecture,&#160;<br/>these&#160;fields&#160;have&#160;only 32 bits; bits&#160;63:32 of the&#160;MSRs are&#160;cleared to&#160;0.</p>
+<p style="position:absolute;top:484px;left:94px;white-space:nowrap" class="ft03">—&#160;The following&#160;are&#160;performed&#160;on processors that support Intel&#160;64 architecture:</p>
+<p style="position:absolute;top:510px;left:120px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:508px;left:146px;white-space:nowrap" class="ft03">The&#160;MSRs&#160;FS.base&#160;and GS.base are&#160;loaded from the&#160;base-address fields&#160;for FS&#160;and&#160;GS,&#160;respectively&#160;</p>
+<p style="position:absolute;top:525px;left:145px;white-space:nowrap" class="ft03">(see<a href="o_fe12b1e2a880e0ce-1108.html">&#160;Section 26.3.2.2</a>).</p>
+<p style="position:absolute;top:550px;left:120px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:549px;left:146px;white-space:nowrap" class="ft09">If the&#160;“load&#160;IA32_EFER” VM-entry control is&#160;0,&#160;bits in the&#160;IA32_EFER MSR&#160;are modified&#160;as&#160;follows:<br/>—&#160;IA32_EFER.LMA is loaded&#160;with the&#160;setting&#160;of the “IA-32e mode guest”&#160;VM-entry control.<br/>—&#160;If CR0 is&#160;being loaded so that CR0.PG&#160;= 1,&#160;IA32_EFER.LME is also loaded with the setting of the</p>
+<p style="position:absolute;top:613px;left:171px;white-space:nowrap" class="ft03">“IA-32e mode guest”&#160;VM-entry control.</p>
+<p style="position:absolute;top:611px;left:437px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:613px;left:444px;white-space:nowrap" class="ft03">&#160;Otherwise,&#160;IA32_EFER.LME&#160;is&#160;unmodified.</p>
+<p style="position:absolute;top:637px;left:146px;white-space:nowrap" class="ft03">See below&#160;for&#160;the case in&#160;which the&#160;“load IA32_EFER”&#160;VM-entry control&#160;is 1</p>
+<p style="position:absolute;top:661px;left:95px;white-space:nowrap" class="ft03">—&#160;If the “load IA32_PERF_GLOBAL_CTRL” VM-entry control is 1, the&#160;IA32_PERF_GLOBAL_CTRL&#160;MSR is loaded&#160;</p>
+<p style="position:absolute;top:678px;left:120px;white-space:nowrap" class="ft03">from the&#160;IA32_PERF_GLOBAL_CTRL field.</p>
+<p style="position:absolute;top:702px;left:95px;white-space:nowrap" class="ft09">—&#160;If&#160;the “load&#160;IA32_PAT” VM-entry control is&#160;1,&#160;the&#160;IA32_PAT&#160;MSR is&#160;loaded&#160;from the&#160;IA32_PAT&#160;field.<br/>—&#160;If the&#160;“load IA32_EFER”&#160;VM-entry control&#160;is 1, the IA32_EFER&#160;MSR is&#160;loaded&#160;from&#160;the IA32_EFER&#160;field.<br/>—&#160;If the&#160;“load IA32_BNDCFGS” VM-entry control&#160;is&#160;1, the&#160;IA32_BNDCFGS MSR&#160;is loaded&#160;from the&#160;</p>
+<p style="position:absolute;top:766px;left:120px;white-space:nowrap" class="ft03">IA32_BNDCFGS field.</p>
+<p style="position:absolute;top:789px;left:95px;white-space:nowrap" class="ft07">With the&#160;exception of&#160;FS.base and&#160;GS.base,&#160;any of&#160;these&#160;MSRs is&#160;subsequently overwritten&#160;if&#160;it appears in the<br/>VM-entry MSR-load&#160;area.&#160;See<a href="o_fe12b1e2a880e0ce-1109.html">&#160;Section&#160;26.4.</a></p>
+<p style="position:absolute;top:827px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:828px;left:95px;white-space:nowrap" class="ft03">The SMBASE&#160;register is&#160;unmodified&#160;by&#160;all&#160;VM&#160;entries&#160;except&#160;those&#160;that&#160;return from&#160;SMM.</p>
+<p style="position:absolute;top:984px;left:69px;white-space:nowrap" class="ft03">1.&#160;Bits&#160;15:6, bit&#160;17,&#160;and&#160;bit&#160;28:19&#160;of&#160;CR0 and&#160;CR0.ET&#160;are unchanged by&#160;executions&#160;of&#160;MOV&#160;to&#160;CR0.&#160;Bits&#160;15:6, bit&#160;17,&#160;and&#160;bit&#160;28:19&#160;of&#160;</p>
+<p style="position:absolute;top:1000px;left:91px;white-space:nowrap" class="ft03">CR0 are&#160;always 0&#160;and&#160;CR0.ET&#160;is&#160;always 1.</p>
+<p style="position:absolute;top:1021px;left:69px;white-space:nowrap" class="ft03">2.&#160;If&#160;the&#160;capability MSR IA32_VMX_CR0_FIXED0 reports&#160;that&#160;CR0.PG&#160;must&#160;be 1 in VMX operation, VM&#160;entry must&#160;be loading CR0 so&#160;</p>
+<p style="position:absolute;top:1038px;left:91px;white-space:nowrap" class="ft03">that&#160;CR0.PG&#160;= 1&#160;unless the “unrestricted&#160;guest” VM-execution&#160;control and bit&#160;31&#160;of&#160;the&#160;primary&#160;processor-based&#160;VM-execution&#160;con-</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft03">trols are both 1.</p>
+</div>
+</body>
+</html>

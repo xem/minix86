@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 876</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page876-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481876.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:613px;white-space:nowrap" class="ft00">PACKUSDW—Pack with&#160;Unsigned Saturation</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-196&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">TMP[127:112]&#160;&#160;(SRC2[127:96] &lt;&#160;0)&#160;? 0&#160;: SRC2[111:96];<br/>DEST[127:112]&#160;&#160;(SRC2[127:96] &gt;&#160;FFFFH) ? FFFFH : TMP[127:112] ;<br/>TMP[143:128]&#160;&#160;(SRC1[159:128] &lt;&#160;0) ? 0&#160;: SRC1[143:128];<br/>DEST[143:128]&#160;&#160;(SRC1[159:128] &gt; FFFFH) ? FFFFH : TMP[143:128] ;<br/>TMP[159:144]&#160;&#160;(SRC1[191:160] &lt;&#160;0) ? 0&#160;: SRC1[175:160];<br/>DEST[159:144]&#160;&#160;(SRC1[191:160] &gt; FFFFH) ? FFFFH : TMP[159:144] ;<br/>TMP[175:160]&#160;&#160;(SRC1[223:192] &lt;&#160;0) ? 0&#160;: SRC1[207:192];<br/>DEST[175:160]&#160;&#160;(SRC1[223:192] &gt; FFFFH) ? FFFFH : TMP[175:160] ;<br/>TMP[191:176]&#160;&#160;(SRC1[255:224] &lt;&#160;0) ? 0&#160;: SRC1[239:224];<br/>DEST[191:176]&#160;&#160;(SRC1[255:224] &gt; FFFFH) ? FFFFH : TMP[191:176] ;<br/>TMP[207:192]&#160;&#160;(SRC2[159:128] &lt;&#160;0) ? 0&#160;: SRC2[143:128];<br/>DEST[207:192]&#160;&#160;(SRC2[159:128] &gt; FFFFH) ? FFFFH : TMP[207:192] ;<br/>TMP[223:208]&#160;&#160;(SRC2[191:160] &lt;&#160;0) ? 0&#160;: SRC2[175:160];<br/>DEST[223:208]&#160;&#160;(SRC2[191:160] &gt; FFFFH) ? FFFFH : TMP[223:208] ;<br/>TMP[239:224]&#160;&#160;(SRC2[223:192] &lt;&#160;0) ? 0&#160;: SRC2[207:192];<br/>DEST[239:224]&#160;&#160;(SRC2[223:192] &gt; FFFFH) ? FFFFH : TMP[239:224] ;<br/>TMP[255:240]&#160;&#160;(SRC2[255:224] &lt;&#160;0) ? 0&#160;: SRC2[239:224];<br/>DEST[255:240]&#160;&#160;(SRC2[255:224] &gt; FFFFH) ? FFFFH : TMP[255:240] ;<br/>DEST[MAX_VL-1:256]&#160;&#160;0;</p>
+<p style="position:absolute;top:460px;left:68px;white-space:nowrap" class="ft03">VPACKUSDW (EVEX encoded&#160;versions)<br/>(KL, VL) = (8, 128), (16,&#160;256), (32, 512)<br/>FOR j&#160;&#160;0 TO ((KL/2) - 1)</p>
+<p style="position:absolute;top:514px;left:88px;white-space:nowrap" class="ft02">i&#160;&#160;j * 32</p>
+<p style="position:absolute;top:550px;left:88px;white-space:nowrap" class="ft02">IF (EVEX.b ==&#160;1) AND (SRC2 *is memory*)</p>
+<p style="position:absolute;top:568px;left:115px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:586px;left:142px;white-space:nowrap" class="ft02">TMP_SRC2[i+31:i]&#160;&#160;SRC2[31:0]</p>
+<p style="position:absolute;top:604px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:622px;left:142px;white-space:nowrap" class="ft02">TMP_SRC2[i+31:i]&#160;&#160;SRC2[i+31:i]</p>
+<p style="position:absolute;top:640px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:658px;left:68px;white-space:nowrap" class="ft02">ENDFOR;</p>
+<p style="position:absolute;top:694px;left:68px;white-space:nowrap" class="ft03">TMP[15:0]&#160;&#160;(SRC1[31:0] &lt;&#160;0) ?&#160;0 :&#160;SRC1[15:0];<br/>DEST[15:0]&#160;&#160;(SRC1[31:0] &gt;&#160;FFFFH) ? FFFFH : TMP[15:0] ;<br/>TMP[31:16]&#160;&#160;(SRC1[63:32] &lt; 0) ? 0 : SRC1[47:32];<br/>DEST[31:16]&#160;&#160;(SRC1[63:32] &gt; FFFFH) ? FFFFH : TMP[31:16] ;<br/>TMP[47:32]&#160;&#160;(SRC1[95:64] &lt; 0) ? 0 : SRC1[79:64];<br/>DEST[47:32]&#160;&#160;(SRC1[95:64] &gt; FFFFH) ? FFFFH : TMP[47:32] ;<br/>TMP[63:48]&#160;&#160;(SRC1[127:96] &lt; 0)&#160;? 0&#160;: SRC1[111:96];<br/>DEST[63:48]&#160;&#160;(SRC1[127:96] &gt; FFFFH) ? FFFFH : TMP[63:48]&#160;;<br/>TMP[79:64]&#160;&#160;(TMP_SRC2[31:0]&#160;&lt; 0) ? 0 : TMP_SRC2[15:0];<br/>DEST[79:64]&#160;&#160;(TMP_SRC2[31:0] &gt; FFFFH) ? FFFFH : TMP[79:64] ;<br/>TMP[95:80]&#160;&#160;(TMP_SRC2[63:32] &lt;&#160;0)&#160;? 0 :&#160;TMP_SRC2[47:32];<br/>DEST[95:80]&#160;&#160;(TMP_SRC2[63:32] &gt;&#160;FFFFH) ? FFFFH : TMP[95:80] ;<br/>TMP[111:96]&#160;&#160;(TMP_SRC2[95:64] &lt;&#160;0) ? 0 : TMP_SRC2[79:64];<br/>DEST[111:96]&#160;&#160;(TMP_SRC2[95:64]&#160;&gt; FFFFH) ? FFFFH : TMP[111:96] ;<br/>TMP[127:112]&#160;&#160;(TMP_SRC2[127:96] &lt;&#160;0) ?&#160;0 :&#160;TMP_SRC2[111:96];<br/>DEST[127:112]&#160;&#160;(TMP_SRC2[127:96]&#160;&gt; FFFFH) ? FFFFH : TMP[127:112] ;<br/>IF VL &gt;= 256</p>
+<p style="position:absolute;top:1000px;left:88px;white-space:nowrap" class="ft03">TMP[143:128]&#160;&#160;(SRC1[159:128] &lt; 0) ? 0 : SRC1[143:128];<br/>DEST[143:128]&#160;&#160;(SRC1[159:128] &gt; FFFFH) ? FFFFH : TMP[143:128] ;<br/>TMP[159:144]&#160;&#160;(SRC1[191:160] &lt; 0) ? 0 : SRC1[175:160];<br/>DEST[159:144]&#160;&#160;(SRC1[191:160] &gt; FFFFH) ? FFFFH : TMP[159:144] ;</p>
+</div>
+</body>
+</html>

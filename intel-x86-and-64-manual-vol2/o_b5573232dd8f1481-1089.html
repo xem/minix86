@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1089</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:7px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1089-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811089.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">PSADBW—Compute&#160;Sum of Absolute Differences</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-409</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft05">operand) and&#160;from&#160;the destination operand (first&#160;operand). These 8 differences are&#160;then summed&#160;to produce an&#160;<br/>unsigned word integer&#160;result that&#160;is stored in the destination operand.<a href="o_b5573232dd8f1481-1089.html">&#160;Figure&#160;4-14&#160;</a>shows&#160;the operation of the&#160;<br/>PSADBW instruction when using&#160;64-bit operands.<br/>When operating&#160;on 64-bit operands,&#160;the&#160;word&#160;integer result&#160;is stored&#160;in the&#160;low&#160;word of the&#160;destination&#160;operand,&#160;<br/>and the&#160;remaining&#160;bytes in the&#160;destination&#160;operand are&#160;cleared to&#160;all 0s.<br/>When operating&#160;on&#160;128-bit operands,&#160;two&#160;packed&#160;results are&#160;computed. Here, the 8 low-order bytes&#160;of the source&#160;<br/>and destination operands are operated on&#160;to produce a&#160;word&#160;result that&#160;is stored in the low&#160;word of the destination&#160;<br/>operand,&#160;and&#160;the&#160;8&#160;high-order&#160;bytes&#160;are&#160;operated&#160;on&#160;to&#160;produce&#160;a&#160;word&#160;result&#160;that&#160;is&#160;stored&#160;in&#160;bits&#160;64&#160;through&#160;79&#160;<br/>of&#160;the destination operand. The&#160;remaining&#160;bytes of the&#160;destination&#160;operand&#160;are&#160;cleared.<br/>For 256-bit version,&#160;the&#160;third group of 8 differences are&#160;summed&#160;to produce&#160;an unsigned word in bits[143:128] of&#160;<br/>the&#160;destination register&#160;and the&#160;fourth group&#160;of 8 differences are&#160;summed&#160;to&#160;produce&#160;an unsigned&#160;word&#160;in&#160;<br/>bits[207:192] of the&#160;destination&#160;register. The remaining&#160;words of the&#160;destination&#160;are set to 0.&#160;<br/>For&#160;512-bit version,&#160;the fifth group&#160;result&#160;is stored&#160;in bits&#160;[271:256] of&#160;the&#160;destination.&#160;The result&#160;from&#160;the sixth&#160;<br/>group&#160;is stored&#160;in bits [335:320].&#160;The&#160;results for&#160;the&#160;seventh and&#160;eighth&#160;group are&#160;stored&#160;respectively&#160;in bits&#160;<br/>[399:384]&#160;and&#160;bits [463:447],&#160;respectively.&#160;The remaining&#160;bits&#160;in the&#160;destination are&#160;set&#160;to 0.<br/>In 64-bit mode&#160;and not encoded&#160;by&#160;VEX/EVEX prefix, using a&#160;REX prefix&#160;in&#160;the&#160;form of REX.R&#160;permits this&#160;instruc-<br/>tion to access additional registers&#160;(XMM8-XMM15).<br/>Legacy SSE version: The&#160;source&#160;operand can be an&#160;MMX technology&#160;register&#160;or a&#160;64-bit memory location. The&#160;<br/>destination operand&#160;is an MMX technology register.<br/>128-bit Legacy&#160;SSE version: The&#160;first source&#160;operand&#160;and destination&#160;register are XMM&#160;registers.&#160;The second&#160;<br/>source operand&#160;is an XMM&#160;register&#160;or a&#160;128-bit memory&#160;location. Bits (MAX_VL-1:128)&#160;of&#160;the corresponding ZMM&#160;<br/>destination&#160;register remain unchanged.<br/>VEX.128 and EVEX.128&#160;encoded&#160;versions: The first source&#160;operand and destination register are XMM&#160;registers.&#160;The&#160;<br/>second&#160;source&#160;operand&#160;is an XMM register or&#160;a 128-bit&#160;memory&#160;location.&#160;Bits&#160;(MAX_VL-1:128) of the&#160;corre-<br/>sponding ZMM&#160;register are zeroed.<br/>VEX.256 and&#160;EVEX.256&#160;encoded&#160;versions: The&#160;first&#160;source&#160;operand and destination register are YMM&#160;registers.&#160;The&#160;<br/>second&#160;source&#160;operand&#160;is an YMM&#160;register&#160;or a&#160;256-bit memory location.&#160;Bits (MAX_VL-1:256)&#160;of&#160;the&#160;corre-<br/>sponding ZMM&#160;register are zeroed.<br/>EVEX.512&#160;encoded version: The&#160;first source&#160;operand and destination&#160;register&#160;are&#160;ZMM&#160;registers. The second&#160;<br/>source operand&#160;is a&#160;ZMM register&#160;or a&#160;512-bit memory location.</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:945px;left:69px;white-space:nowrap" class="ft08">VPSADBW&#160;(EVEX encoded versions)<br/>VL&#160;= 128, 256, 512<br/>TEMP0&#160;&#160;ABS(SRC1[7:0] - SRC2[7:0])<br/>(* Repeat&#160;operation for bytes&#160;1 through&#160;15 *)<br/>TEMP15&#160;&#160;ABS(SRC1[127:120] - SRC2[127:120])<br/>DEST[15:0]&#160;SUM(TEMP0:TEMP7)<br/>DEST[63:16]&#160;&#160;000000000000H</p>
+<p style="position:absolute;top:880px;left:228px;white-space:nowrap" class="ft03">Figure&#160;4-14. &#160;PSADBW&#160;Instruction&#160;Operation&#160;Using&#160;64-bit&#160;Operands</p>
+<p style="position:absolute;top:705px;left:489px;white-space:nowrap" class="ft00">X3</p>
+<p style="position:absolute;top:705px;left:546px;white-space:nowrap" class="ft00">X2</p>
+<p style="position:absolute;top:705px;left:601px;white-space:nowrap" class="ft00">X1</p>
+<p style="position:absolute;top:705px;left:655px;white-space:nowrap" class="ft00">X0</p>
+<p style="position:absolute;top:705px;left:223px;white-space:nowrap" class="ft00">SRC</p>
+<p style="position:absolute;top:748px;left:216px;white-space:nowrap" class="ft00">DEST</p>
+<p style="position:absolute;top:794px;left:215px;white-space:nowrap" class="ft00">TEMP</p>
+<p style="position:absolute;top:705px;left:439px;white-space:nowrap" class="ft00">X4</p>
+<p style="position:absolute;top:705px;left:381px;white-space:nowrap" class="ft00">X5</p>
+<p style="position:absolute;top:705px;left:326px;white-space:nowrap" class="ft00">X6</p>
+<p style="position:absolute;top:705px;left:274px;white-space:nowrap" class="ft00">X7</p>
+<p style="position:absolute;top:750px;left:489px;white-space:nowrap" class="ft00">Y3</p>
+<p style="position:absolute;top:750px;left:545px;white-space:nowrap" class="ft00">Y2</p>
+<p style="position:absolute;top:750px;left:600px;white-space:nowrap" class="ft00">Y1</p>
+<p style="position:absolute;top:750px;left:654px;white-space:nowrap" class="ft00">Y0</p>
+<p style="position:absolute;top:750px;left:438px;white-space:nowrap" class="ft00">Y4</p>
+<p style="position:absolute;top:750px;left:380px;white-space:nowrap" class="ft00">Y5</p>
+<p style="position:absolute;top:750px;left:325px;white-space:nowrap" class="ft00">Y6</p>
+<p style="position:absolute;top:750px;left:273px;white-space:nowrap" class="ft00">Y7</p>
+<p style="position:absolute;top:796px;left:637px;white-space:nowrap" class="ft04">ABS(X0:Y0)</p>
+<p style="position:absolute;top:796px;left:256px;white-space:nowrap" class="ft04">ABS(X7:Y7)&#160;ABS(X6:Y6)&#160;ABS(X5:Y5)&#160;ABS(X4:Y4)&#160;ABS(X3:Y3)&#160;ABS(X2:Y2)&#160;ABS(X1:Y1)</p>
+<p style="position:absolute;top:842px;left:216px;white-space:nowrap" class="ft00">DEST</p>
+<p style="position:absolute;top:844px;left:488px;white-space:nowrap" class="ft00">00H</p>
+<p style="position:absolute;top:844px;left:544px;white-space:nowrap" class="ft00">00H</p>
+<p style="position:absolute;top:844px;left:437px;white-space:nowrap" class="ft00">00H</p>
+<p style="position:absolute;top:844px;left:379px;white-space:nowrap" class="ft00">00H</p>
+<p style="position:absolute;top:844px;left:324px;white-space:nowrap" class="ft00">00H</p>
+<p style="position:absolute;top:844px;left:272px;white-space:nowrap" class="ft00">00H</p>
+<p style="position:absolute;top:845px;left:587px;white-space:nowrap" class="ft04">SUM(TEMP7...TEMP0)</p>
+</div>
+</body>
+</html>

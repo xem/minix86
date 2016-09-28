@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 418</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page418-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce418.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">11-6&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MEMORY&#160;CACHE CONTROL</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft08">When operating&#160;in an MP&#160;system,&#160;IA-32 processors (beginning&#160;with the Intel486&#160;processor) and Intel&#160;64&#160;processors&#160;<br/>have&#160;the&#160;ability to&#160;<b>snoop</b>&#160;other processor’s&#160;accesses to&#160;system&#160;memory&#160;and to&#160;their internal&#160;caches. They&#160;use this&#160;<br/>snooping&#160;ability to&#160;keep&#160;their&#160;internal caches&#160;consistent&#160;both with system memory and&#160;with&#160;the&#160;caches&#160;in other&#160;<br/>processors on&#160;the bus. For example,&#160;in&#160;the Pentium and&#160;P6&#160;family processors,&#160;if through snooping&#160;one processor&#160;<br/>detects that&#160;another processor intends to&#160;write&#160;to&#160;a memory location&#160;that it&#160;currently has&#160;cached&#160;in&#160;<b>shared&#160;state</b>,&#160;<br/>the snooping processor will invalidate its cache&#160;line forcing&#160;it&#160;to&#160;perform a cache&#160;line&#160;fill the&#160;next&#160;time it&#160;accesses&#160;<br/>the same memory&#160;location.&#160;<br/>Beginning with the P6&#160;family processors,&#160;if a&#160;processor detects (through&#160;snooping)&#160;that&#160;another processor&#160;is trying&#160;<br/>to&#160;access&#160;a memory location&#160;that it&#160;has modified in&#160;its&#160;cache,&#160;but has&#160;not yet written&#160;back to&#160;system memory,&#160;the&#160;<br/>snooping&#160;processor will&#160;signal the&#160;other processor (by&#160;means of&#160;the HITM# signal)&#160;that&#160;the cache&#160;line&#160;is held in&#160;<br/>modified state and&#160;will&#160;preform an&#160;implicit write-back&#160;of&#160;the modified data.&#160;The implicit write-back&#160;is transferred&#160;<br/>directly to&#160;the initial&#160;requesting processor and&#160;snooped&#160;by&#160;the&#160;memory&#160;controller to&#160;assure that&#160;system&#160;memory&#160;<br/>has been updated. Here, the processor with&#160;the valid data&#160;may pass&#160;the data to the other processors&#160;without actu-<br/>ally writing it to system memory; however,&#160;it is the responsibility of the memory controller to snoop this operation&#160;<br/>and update&#160;memory.</p>
+<p style="position:absolute;top:394px;left:68px;white-space:nowrap" class="ft04">11.3&#160;</p>
+<p style="position:absolute;top:394px;left:147px;white-space:nowrap" class="ft04">METHODS OF&#160;CACHING AVAILABLE</p>
+<p style="position:absolute;top:430px;left:68px;white-space:nowrap" class="ft08">The processor allows&#160;any area of system&#160;memory to be&#160;cached in the L1,&#160;L2,&#160;and L3&#160;caches.&#160;In individual pages or&#160;<br/>regions of system&#160;memory,&#160;it&#160;allows&#160;the type of caching&#160;(also called&#160;<b>memory&#160;type</b>)&#160;to be specified (see&#160;<a href="o_fe12b1e2a880e0ce-422.html">Section&#160;<br/>11.5).&#160;</a>Memory types currently&#160;defined for&#160;the Intel&#160;64&#160;and&#160;IA-32&#160;architectures&#160;are (see<a href="o_fe12b1e2a880e0ce-418.html">&#160;Table 11-2):</a></p>
+<p style="position:absolute;top:485px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:486px;left:93px;white-space:nowrap" class="ft08"><b>Strong Uncacheable (UC)&#160;</b>—System memory&#160;locations are&#160;not cached. All reads and&#160;writes appear&#160;on&#160;the&#160;<br/>system bus and&#160;are executed&#160;in program order without reordering. No&#160;speculative memory accesses,&#160;page-<br/>table walks,&#160;or prefetches&#160;of&#160;speculated&#160;branch targets are&#160;made. This type&#160;of cache-control&#160;is useful for&#160;<br/>memory-mapped I/O devices. When&#160;used&#160;with normal&#160;RAM,&#160;it greatly reduces processor performance.</p>
+<p style="position:absolute;top:570px;left:432px;white-space:nowrap" class="ft06">NOTE</p>
+<p style="position:absolute;top:595px;left:120px;white-space:nowrap" class="ft08">The behavior of FP&#160;and SSE/SSE2&#160;operations&#160;on operands in&#160;UC memory is&#160;implementation&#160;<br/>dependent.&#160;In some implementations,&#160;accesses&#160;to UC&#160;memory&#160;may occur&#160;more than once. To&#160;<br/>ensure&#160;predictable&#160;behavior,&#160;use&#160;loads&#160;and&#160;stores of general&#160;purpose&#160;registers to&#160;access&#160;UC&#160;<br/>memory that may have&#160;read&#160;or write side&#160;effects.</p>
+<p style="position:absolute;top:991px;left:68px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:991px;left:93px;white-space:nowrap" class="ft08"><b>Uncacheable&#160;(UC-)&#160;</b>— Has same&#160;characteristics as&#160;the strong&#160;uncacheable&#160;(UC)&#160;memory type,&#160;except that&#160;<br/>this memory&#160;type&#160;can be overridden&#160;by programming&#160;the MTRRs for&#160;the WC memory type.&#160;This memory type&#160;<br/>is&#160;available in processor families starting from&#160;the&#160;Pentium&#160;III&#160;processors&#160;and can only be&#160;selected through the&#160;<br/>PAT.</p>
+<p style="position:absolute;top:676px;left:290px;white-space:nowrap" class="ft07">Table&#160;11-2.&#160;&#160;Memory&#160;Types&#160;and Their&#160;Properties</p>
+<p style="position:absolute;top:700px;left:74px;white-space:nowrap" class="ft02">Memory Type&#160;and&#160;</p>
+<p style="position:absolute;top:715px;left:74px;white-space:nowrap" class="ft02">Mnemonic</p>
+<p style="position:absolute;top:700px;left:207px;white-space:nowrap" class="ft02">Cacheable</p>
+<p style="position:absolute;top:700px;left:291px;white-space:nowrap" class="ft02">Writeback&#160;</p>
+<p style="position:absolute;top:715px;left:291px;white-space:nowrap" class="ft02">Cacheable</p>
+<p style="position:absolute;top:700px;left:365px;white-space:nowrap" class="ft02">Allows</p>
+<p style="position:absolute;top:715px;left:365px;white-space:nowrap" class="ft02">Speculative&#160;</p>
+<p style="position:absolute;top:730px;left:365px;white-space:nowrap" class="ft02">Reads</p>
+<p style="position:absolute;top:700px;left:450px;white-space:nowrap" class="ft02">Memory&#160;Ordering Model</p>
+<p style="position:absolute;top:754px;left:74px;white-space:nowrap" class="ft02">Strong Uncacheable&#160;</p>
+<p style="position:absolute;top:771px;left:74px;white-space:nowrap" class="ft02">(UC)</p>
+<p style="position:absolute;top:754px;left:207px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:754px;left:291px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:754px;left:365px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:754px;left:450px;white-space:nowrap" class="ft02">Strong&#160;Ordering</p>
+<p style="position:absolute;top:795px;left:74px;white-space:nowrap" class="ft02">Uncacheable (UC-)</p>
+<p style="position:absolute;top:795px;left:208px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:795px;left:291px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:795px;left:365px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:795px;left:450px;white-space:nowrap" class="ft02">Strong Ordering. Can&#160;only be&#160;selected through the&#160;PAT.&#160;Can be&#160;</p>
+<p style="position:absolute;top:811px;left:450px;white-space:nowrap" class="ft02">overridden by WC&#160;in MTRRs.</p>
+<p style="position:absolute;top:835px;left:74px;white-space:nowrap" class="ft02">Write&#160;Combining (WC)&#160;No</p>
+<p style="position:absolute;top:835px;left:291px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:835px;left:365px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:835px;left:450px;white-space:nowrap" class="ft02">Weak Ordering. Available by&#160;programming MTRRs or by selecting&#160;it&#160;</p>
+<p style="position:absolute;top:852px;left:450px;white-space:nowrap" class="ft02">through the PAT.</p>
+<p style="position:absolute;top:876px;left:74px;white-space:nowrap" class="ft02">Write&#160;Through (WT)</p>
+<p style="position:absolute;top:876px;left:207px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:876px;left:291px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:876px;left:365px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:876px;left:450px;white-space:nowrap" class="ft02">Speculative Processor&#160;Ordering.</p>
+<p style="position:absolute;top:900px;left:74px;white-space:nowrap" class="ft02">Write&#160;Back (WB)</p>
+<p style="position:absolute;top:900px;left:207px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:900px;left:291px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:900px;left:365px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:900px;left:450px;white-space:nowrap" class="ft02">Speculative&#160;Processor&#160;Ordering.</p>
+<p style="position:absolute;top:924px;left:74px;white-space:nowrap" class="ft02">Write Protected (WP)&#160;Yes for&#160;</p>
+<p style="position:absolute;top:940px;left:207px;white-space:nowrap" class="ft02">reads;&#160;no&#160;for&#160;</p>
+<p style="position:absolute;top:957px;left:207px;white-space:nowrap" class="ft02">writes</p>
+<p style="position:absolute;top:924px;left:291px;white-space:nowrap" class="ft02">No</p>
+<p style="position:absolute;top:924px;left:365px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:924px;left:450px;white-space:nowrap" class="ft02">Speculative&#160;Processor Ordering. Available by&#160;programming MTRRs.</p>
+</div>
+</body>
+</html>

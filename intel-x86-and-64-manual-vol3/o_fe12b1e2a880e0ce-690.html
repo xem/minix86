@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 690</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:8px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page690-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce690.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">18-54&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PERFORMANCE MONITORING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">Only&#160;IA32_PMC0&#160;through IA32_PMC3 support PEBS.&#160;</p>
+<p style="position:absolute;top:135px;left:432px;white-space:nowrap" class="ft03">NOTE</p>
+<p style="position:absolute;top:160px;left:120px;white-space:nowrap" class="ft07">PEBS&#160;events are&#160;only&#160;valid&#160;when&#160;the following&#160;fields&#160;of IA32_PERFEVTSELx&#160;are&#160;all zero: AnyThread,&#160;<br/>Edge, Invert, CMask.</p>
+<p style="position:absolute;top:219px;left:120px;white-space:nowrap" class="ft07">In a&#160;PMU&#160;with&#160;PDIR capability,&#160;PEBS behavior&#160;is&#160;unpredictable if&#160;IA32_PERFEVTSELx&#160;or IA32_PMCx&#160;<br/>is changed for a&#160;PEBS-enabled&#160;counter while an&#160;event&#160;is being&#160;counted.&#160;To&#160;avoid this, changes&#160;to&#160;<br/>the programming or&#160;value&#160;of a&#160;PEBS-enabled counter&#160;should be performed when the&#160;counter&#160;is&#160;<br/>disabled.</p>
+<p style="position:absolute;top:316px;left:68px;white-space:nowrap" class="ft07">In IA32_PEBS_ENABLE&#160;MSR,&#160;bit 63&#160;is&#160;defined&#160;as&#160;PS_ENABLE: When&#160;set,&#160;this enables&#160;IA32_PMC3&#160;to capture&#160;<br/>precise store&#160;information. Only&#160;IA32_PMC3&#160;supports the&#160;precise&#160;store&#160;facility.&#160;In&#160;typical usage of&#160;PEBS, the&#160;bit&#160;<br/>fields&#160;in IA32_PEBS_ENABLE are&#160;written to&#160;when&#160;the&#160;agent&#160;software starts&#160;PEBS operation; the&#160;enabled&#160;bit fields&#160;<br/>should&#160;be&#160;modified&#160;only&#160;when&#160;re-programming&#160;another&#160;PEBS&#160;event or&#160;cleared&#160;when the&#160;agent&#160;uses&#160;the&#160;perfor-<br/>mance&#160;counters for non-PEBS operations.&#160;</p>
+<p style="position:absolute;top:746px;left:68px;white-space:nowrap" class="ft03">18.9.4.1 &#160;&#160;PEBS Record&#160;Format</p>
+<p style="position:absolute;top:774px;left:68px;white-space:nowrap" class="ft07">The&#160;layout of PEBS records physically identical to those&#160;<a href="o_fe12b1e2a880e0ce-673.html">shown in Table&#160;18-23</a>,&#160;but the fields at&#160;offset&#160;98H,&#160;A0H and&#160;<br/>A8H&#160;have been enhanced&#160;to support additional PEBS&#160;capabilities.</p>
+<p style="position:absolute;top:813px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:813px;left:93px;white-space:nowrap" class="ft07">Load/Store&#160;Data Linear Address (Offset&#160;98H): This field will contain&#160;the linear&#160;address of the source&#160;of the&#160;load,&#160;<br/>or&#160;linear address&#160;of&#160;the destination of the&#160;store.</p>
+<p style="position:absolute;top:852px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:852px;left:93px;white-space:nowrap" class="ft07">Data Source&#160;/Store Status (Offset A0H):When load&#160;latency is&#160;enabled,&#160;this field will contain three&#160;piece&#160;of&#160;<br/>information (including&#160;an encoded&#160;value indicating the&#160;source which&#160;satisfied&#160;the load operation).&#160;The&#160;source&#160;<br/>field encodings are&#160;detailed&#160;<a href="o_fe12b1e2a880e0ce-676.html">in Table&#160;18-24. When&#160;</a>precise&#160;store is&#160;enabled,&#160;this field will contain&#160;information&#160;<br/>indicating&#160;the&#160;status of the&#160;store,&#160;as&#160;detailed in&#160;Table&#160;19.</p>
+<p style="position:absolute;top:924px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:924px;left:93px;white-space:nowrap" class="ft07">Latency&#160;Value/0&#160;(Offset&#160;A8H): When&#160;load&#160;latency is&#160;enabled,&#160;this field contains the latency&#160;in cycles to service&#160;<br/>the load.&#160;This&#160;field&#160;is not meaningful when precise store&#160;is&#160;enabled and will be&#160;written to&#160;zero in&#160;that case.&#160;Upon&#160;<br/>writing the&#160;PEBS&#160;record,&#160;microcode&#160;clears&#160;the overflow&#160;status bits in&#160;the IA32_PERF_GLOBAL_STATUS corre-<br/>sponding&#160;to&#160;those counters&#160;that&#160;both overflowed and&#160;were enabled&#160;in the&#160;IA32_PEBS_ENABLE register.&#160;The&#160;<br/>status bits of&#160;other&#160;counters&#160;remain&#160;unaffected.</p>
+<p style="position:absolute;top:1014px;left:68px;white-space:nowrap" class="ft07">The&#160;number PEBS&#160;events has&#160;expanded. The list&#160;of&#160;PEBS&#160;events supported&#160;in Intel&#160;microarchitecture code name&#160;<br/>Sandy Bridge is&#160;<a href="o_fe12b1e2a880e0ce-691.html">shown in&#160;Table&#160;18-32</a>.</p>
+<p style="position:absolute;top:692px;left:284px;white-space:nowrap" class="ft05">Figure&#160;18-35. &#160;Layout&#160;of&#160;IA32_PEBS_ENABLE&#160;MSR&#160;</p>
+<p style="position:absolute;top:549px;left:223px;white-space:nowrap" class="ft08">LL_EN_PMC3 (R/W)<br/>LL_EN_PMC2&#160;(R/W)</p>
+<p style="position:absolute;top:450px;left:573px;white-space:nowrap" class="ft06">8&#160;7</p>
+<p style="position:absolute;top:450px;left:676px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:576px;left:223px;white-space:nowrap" class="ft06">LL_EN_PMC1&#160;(R/W)</p>
+<p style="position:absolute;top:449px;left:440px;white-space:nowrap" class="ft06">32</p>
+<p style="position:absolute;top:450px;left:633px;white-space:nowrap" class="ft06">3</p>
+<p style="position:absolute;top:449px;left:424px;white-space:nowrap" class="ft06">33</p>
+<p style="position:absolute;top:450px;left:660px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:662px;left:258px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:449px;left:242px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:450px;left:647px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:450px;left:624px;white-space:nowrap" class="ft06">4</p>
+<p style="position:absolute;top:449px;left:455px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:450px;left:613px;white-space:nowrap" class="ft06">5</p>
+<p style="position:absolute;top:450px;left:598px;white-space:nowrap" class="ft06">6</p>
+<p style="position:absolute;top:449px;left:410px;white-space:nowrap" class="ft06">34</p>
+<p style="position:absolute;top:449px;left:398px;white-space:nowrap" class="ft06">35</p>
+<p style="position:absolute;top:449px;left:385px;white-space:nowrap" class="ft06">36</p>
+<p style="position:absolute;top:603px;left:222px;white-space:nowrap" class="ft08">PEBS_EN_PMC3 (R/W)<br/>PEBS_EN_PMC2 (R/W)<br/>PEBS_EN_PMC1 (R/W)<br/>PEBS_EN_PMC0 (R/W)</p>
+<p style="position:absolute;top:590px;left:223px;white-space:nowrap" class="ft06">LL_EN_PMC0 (R/W)</p>
+<p style="position:absolute;top:662px;left:361px;white-space:nowrap" class="ft06">RESET&#160;Value — 00000000_00000000H</p>
+<p style="position:absolute;top:450px;left:259px;white-space:nowrap" class="ft06">62</p>
+<p style="position:absolute;top:535px;left:222px;white-space:nowrap" class="ft06">PS_EN (R/W)</p>
+</div>
+</body>
+</html>

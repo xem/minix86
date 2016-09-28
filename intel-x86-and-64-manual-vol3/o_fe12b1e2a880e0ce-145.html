@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 145</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page145-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce145.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;4-41</p>
+<p style="position:absolute;top:47px;left:793px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft02">—&#160;Any&#160;PDE-cache entry associated&#160;with&#160;linear addresses&#160;with&#160;0 in&#160;bits&#160;47:21 contains&#160;address X for similar&#160;</p>
+<p style="position:absolute;top:117px;left:120px;white-space:nowrap" class="ft02">reasons.</p>
+<p style="position:absolute;top:141px;left:95px;white-space:nowrap" class="ft02">—&#160;Any&#160;TLB entry for page&#160;number&#160;0&#160;(associated&#160;with&#160;linear&#160;addresses&#160;with&#160;0 in bits&#160;47:12) translates to page&#160;</p>
+<p style="position:absolute;top:157px;left:120px;white-space:nowrap" class="ft02">frame X » 12 for similar&#160;reasons.</p>
+<p style="position:absolute;top:180px;left:95px;white-space:nowrap" class="ft08">The&#160;same&#160;PML4E contributes its&#160;address X to&#160;all these&#160;cache entries because the&#160;self-referencing&#160;nature&#160;of&#160;the&#160;<br/>entry&#160;causes&#160;it&#160;to&#160;be&#160;used&#160;as&#160;a&#160;PML4E,&#160;a PDPTE,&#160;a PDE,&#160;and a&#160;PTE.</p>
+<p style="position:absolute;top:247px;left:69px;white-space:nowrap" class="ft03">4.10.4&#160;</p>
+<p style="position:absolute;top:247px;left:149px;white-space:nowrap" class="ft03">Invalidation of&#160;TLBs and Paging-Structure&#160;Caches</p>
+<p style="position:absolute;top:277px;left:69px;white-space:nowrap" class="ft08">As&#160;note<a href="o_fe12b1e2a880e0ce-140.html">d in Section 4.10.2</a>&#160;and&#160;<a href="o_fe12b1e2a880e0ce-142.html">Section 4.10.3,</a>&#160;the&#160;processor may create entries&#160;in the TLBs and&#160;the paging-struc-<br/>ture caches&#160;when&#160;linear addresses are&#160;translated,&#160;and it&#160;may&#160;retain these entries even after&#160;the paging structures&#160;<br/>used&#160;to create&#160;them have&#160;been modified.&#160;To&#160;ensure&#160;that&#160;linear-address translation uses&#160;the&#160;modified&#160;paging&#160;struc-<br/>tures,&#160;software should&#160;take&#160;action to&#160;invalidate&#160;any cached entries that&#160;may contain information&#160;that has&#160;since&#160;<br/>been&#160;modified.</p>
+<p style="position:absolute;top:388px;left:69px;white-space:nowrap" class="ft04">4.10.4.1 &#160;&#160;Operations that&#160;Invalidate TLBs and Paging-Structure&#160;Caches</p>
+<p style="position:absolute;top:416px;left:69px;white-space:nowrap" class="ft02">The following&#160;instructions invalidate entries in&#160;the TLBs and&#160;the paging-structure&#160;caches:</p>
+<p style="position:absolute;top:438px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:439px;left:95px;white-space:nowrap" class="ft08">INVLPG. This&#160;instruction takes a single&#160;operand, which&#160;is a linear&#160;address. The&#160;instruction invalidates any&#160;TLB&#160;<br/>entries that&#160;are for a page number corresponding to the&#160;linear address&#160;and that are associated with the current&#160;<br/>PCID. It also invalidates any&#160;global&#160;TLB&#160;entries&#160;with&#160;that&#160;page&#160;number,&#160;rega<a href="o_fe12b1e2a880e0ce-141.html">rdless of PCID (see Section&#160;<br/>4.10.2.4).</a></p>
+<p style="position:absolute;top:485px;left:163px;white-space:nowrap" class="ft06">1</p>
+<p style="position:absolute;top:488px;left:170px;white-space:nowrap" class="ft02">&#160;INVLPG also invalidates&#160;all entries in all&#160;paging-structure&#160;caches associated with the&#160;current&#160;PCID,&#160;</p>
+<p style="position:absolute;top:505px;left:95px;white-space:nowrap" class="ft02">regardless&#160;of the&#160;linear addresses&#160;to which they correspond.</p>
+<p style="position:absolute;top:526px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:527px;left:95px;white-space:nowrap" class="ft09">INVPCID.&#160;The&#160;operation&#160;of this instruction&#160;is based&#160;on&#160;instruction operands, called the&#160;INVPCID type and the&#160;<br/>INVPCID&#160;descriptor.&#160;Four&#160;INVPCID types are&#160;currently defined:<br/>—&#160;Individual-address. If the&#160;INVPCID type is&#160;0, the&#160;logical&#160;processor&#160;invalidates&#160;mappings—except global&#160;</p>
+<p style="position:absolute;top:584px;left:120px;white-space:nowrap" class="ft08">translations—associated with the&#160;PCID&#160;specified in&#160;the INVPCID&#160;descriptor and&#160;that would be used to&#160;<br/>translate the linear address&#160;specified in the&#160;INVPCID descriptor.</p>
+<p style="position:absolute;top:598px;left:542px;white-space:nowrap" class="ft06">2</p>
+<p style="position:absolute;top:601px;left:549px;white-space:nowrap" class="ft02">&#160;(The&#160;instruction may also invalidate&#160;global&#160;</p>
+<p style="position:absolute;top:617px;left:120px;white-space:nowrap" class="ft02">translations,&#160;as well as&#160;mappings associated&#160;with other&#160;PCIDs&#160;and for other&#160;linear addresses.)</p>
+<p style="position:absolute;top:641px;left:95px;white-space:nowrap" class="ft02">—&#160;Single-context. If the INVPCID&#160;type&#160;is 1, the&#160;logical processor invalidates&#160;all mappings—except global&#160;</p>
+<p style="position:absolute;top:658px;left:120px;white-space:nowrap" class="ft08">translations—associated with the&#160;PCID&#160;specified in&#160;the INVPCID&#160;descriptor.&#160;(The instruction&#160;may also&#160;<br/>invalidate global translations,&#160;as well as&#160;mappings&#160;associated with other&#160;PCIDs.)</p>
+<p style="position:absolute;top:698px;left:95px;white-space:nowrap" class="ft02">—&#160;All-context, including globals.&#160;If the&#160;INVPCID&#160;type is&#160;2,&#160;the logical processor invalidates&#160;</p>
+<p style="position:absolute;top:715px;left:120px;white-space:nowrap" class="ft02">mappings—including global translations—associated&#160;with&#160;all PCIDs.</p>
+<p style="position:absolute;top:739px;left:95px;white-space:nowrap" class="ft02">—&#160;All-context. If&#160;the INVPCID&#160;type&#160;is 3, the&#160;logical&#160;processor&#160;invalidates mappings—except global transla-</p>
+<p style="position:absolute;top:755px;left:120px;white-space:nowrap" class="ft02">tions—associated with all&#160;PCIDs. (The instruction may&#160;also invalidate&#160;global&#160;translations.)</p>
+<p style="position:absolute;top:778px;left:95px;white-space:nowrap" class="ft08">S<a href="��">ee&#160;Chapter 3&#160;of&#160;</a>the&#160;<i>Intel&#160;64&#160;and&#160;IA-32&#160;Architecture&#160;Software&#160;Developer’s Manual,&#160;Volume&#160;2A</i>&#160;for&#160;details&#160;of the&#160;<br/>INVPCID instruction.</p>
+<p style="position:absolute;top:816px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:817px;left:95px;white-space:nowrap" class="ft08">MOV to&#160;CR0.&#160;The instruction invalidates&#160;all TLB entries (including&#160;global&#160;entries)&#160;and&#160;all entries in all&#160;paging-<br/>structure caches&#160;(for&#160;all PCIDs) if&#160;it&#160;changes the&#160;value of CR0.PG&#160;from&#160;1 to&#160;0.</p>
+<p style="position:absolute;top:855px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:856px;left:95px;white-space:nowrap" class="ft010">MOV to&#160;CR3.&#160;The behavior&#160;of&#160;the instruction depends on the value of CR4.PCIDE:<br/>—&#160;If CR4.PCIDE&#160;=&#160;0,&#160;the instruction invalidates&#160;all TLB&#160;entries associated with PCID 000H&#160;except those&#160;for&#160;</p>
+<p style="position:absolute;top:896px;left:120px;white-space:nowrap" class="ft02">global pages. It&#160;also invalidates all entries&#160;in all&#160;paging-structure&#160;caches associated&#160;with PCID 000H.</p>
+<p style="position:absolute;top:920px;left:95px;white-space:nowrap" class="ft02">—&#160;If&#160;CR4.PCIDE&#160;=&#160;1&#160;and bit&#160;63 of&#160;the&#160;instruction’s source&#160;operand is&#160;0, the&#160;instruction&#160;invalidates&#160;all&#160;TLB&#160;</p>
+<p style="position:absolute;top:937px;left:120px;white-space:nowrap" class="ft08">entries associated&#160;with the PCID&#160;specified in bits&#160;11:0 of the instruction’s source&#160;operand except those for&#160;<br/>global pages. It also invalidates all entries in all&#160;paging-structure caches associated with that PCID. It is not&#160;<br/>required to&#160;invalidate entries in the TLBs and paging-structure caches&#160;that are associated with other PCIDs.</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft02">1.&#160;If the paging&#160;structures&#160;map the linear&#160;address using&#160;a page&#160;larger&#160;than&#160;4 KBytes&#160;and there are&#160;multiple&#160;TLB&#160;entries for&#160;that&#160;page&#160;</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft02">(see<a href="o_fe12b1e2a880e0ce-141.html">&#160;Section&#160;4.10.2.3),</a>&#160;the&#160;instruction invalidates all of&#160;them.</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft02">2.&#160;If the paging&#160;structures&#160;map the linear&#160;address using&#160;a page&#160;larger&#160;than&#160;4 KBytes&#160;and there are&#160;multiple&#160;TLB&#160;entries for&#160;that&#160;page&#160;</p>
+<p style="position:absolute;top:1054px;left:91px;white-space:nowrap" class="ft02">(see<a href="o_fe12b1e2a880e0ce-141.html">&#160;Section&#160;4.10.2.3),</a>&#160;the&#160;instruction invalidates all of&#160;them.</p>
+</div>
+</body>
+</html>

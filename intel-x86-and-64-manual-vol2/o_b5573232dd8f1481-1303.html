@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1303</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1303-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811303.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">SHUFPS—Packed Interleave Shuffle&#160;of Quadruplets of Single-Precision Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-623</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft04">of the&#160;corresponding ZMM&#160;register&#160;destination are zeroed.&#160;Imm8[7:0] provides 4 select controls for each element&#160;<br/>of the&#160;destination.<br/>128-bit Legacy SSE version:&#160;The source can be&#160;an XMM register or an 128-bit memory location. The&#160;destination is&#160;<br/>not distinct&#160;from&#160;the&#160;first source&#160;XMM&#160;register&#160;and&#160;the&#160;upper bits (MAX_VL-1:128)&#160;of&#160;the corresponding&#160;ZMM&#160;<br/>register&#160;destination&#160;are unmodified. Imm8[7:0] provides&#160;4 select controls&#160;for&#160;each element of the&#160;destination.</p>
+<p style="position:absolute;top:467px;left:69px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:489px;left:69px;white-space:nowrap" class="ft06">Select4(SRC, control) {<br/>CASE&#160;(control[1:0]) OF</p>
+<p style="position:absolute;top:525px;left:89px;white-space:nowrap" class="ft02">0: TMP&#160;</p>
+<p style="position:absolute;top:527px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:525px;left:158px;white-space:nowrap" class="ft02">SRC[31:0];</p>
+<p style="position:absolute;top:543px;left:89px;white-space:nowrap" class="ft02">1: TMP&#160;</p>
+<p style="position:absolute;top:545px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:543px;left:158px;white-space:nowrap" class="ft02">SRC[63:32];</p>
+<p style="position:absolute;top:561px;left:89px;white-space:nowrap" class="ft02">2: TMP&#160;</p>
+<p style="position:absolute;top:563px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:561px;left:158px;white-space:nowrap" class="ft02">SRC[95:64];</p>
+<p style="position:absolute;top:579px;left:89px;white-space:nowrap" class="ft02">3: TMP&#160;</p>
+<p style="position:absolute;top:581px;left:145px;white-space:nowrap" class="ft02"></p>
+<p style="position:absolute;top:579px;left:158px;white-space:nowrap" class="ft02">SRC[127:96];</p>
+<p style="position:absolute;top:597px;left:69px;white-space:nowrap" class="ft06">ESAC;<br/>RETURN TMP<br/>}</p>
+<p style="position:absolute;top:669px;left:69px;white-space:nowrap" class="ft06">VPSHUFPS&#160;(EVEX encoded versions&#160;when&#160;SRC2&#160;is&#160;a vector&#160;register)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)</p>
+<p style="position:absolute;top:723px;left:69px;white-space:nowrap" class="ft06">TMP_DEST[31:0]&#160;&#160;Select4(SRC1[127:0], imm8[1:0]);<br/>TMP_DEST[63:32]&#160;&#160;Select4(SRC1[127:0], imm8[3:2]);<br/>TMP_DEST[95:64]&#160;&#160;Select4(SRC2[127:0], imm8[5:4]);<br/>TMP_DEST[127:96]&#160;&#160;Select4(SRC2[127:0], imm8[7:6]);<br/>IF VL &gt;= 256</p>
+<p style="position:absolute;top:813px;left:89px;white-space:nowrap" class="ft06">TMP_DEST[159:128]&#160;&#160;Select4(SRC1[255:128], imm8[1:0]);<br/>TMP_DEST[191:160]&#160;&#160;Select4(SRC1[255:128], imm8[3:2]);<br/>TMP_DEST[223:192]&#160;&#160;Select4(SRC2[255:128], imm8[5:4]);<br/>TMP_DEST[255:224]&#160;&#160;Select4(SRC2[255:128], imm8[7:6]);</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft06">FI;<br/>IF VL &gt;= 512</p>
+<p style="position:absolute;top:921px;left:89px;white-space:nowrap" class="ft06">TMP_DEST[287:256]&#160;&#160;Select4(SRC1[383:256], imm8[1:0]);<br/>TMP_DEST[319:288]&#160;&#160;Select4(SRC1[383:256], imm8[3:2]);<br/>TMP_DEST[351:320]&#160;&#160;Select4(SRC2[383:256], imm8[5:4]);<br/>TMP_DEST[383:352]&#160;&#160;Select4(SRC2[383:256], imm8[7:6]);<br/>TMP_DEST[415:384]&#160;&#160;Select4(SRC1[511:384], imm8[1:0]);<br/>TMP_DEST[447:416]&#160;&#160;Select4(SRC1[511:384], imm8[3:2]);<br/>TMP_DEST[479:448]&#160;Select4(SRC2[511:384], imm8[5:4]);<br/>TMP_DEST[511:480]&#160;&#160;Select4(SRC2[511:384], imm8[7:6]);</p>
+<p style="position:absolute;top:412px;left:83px;white-space:nowrap" class="ft03">Figure&#160;4-26.&#160; 256-bit&#160;VSHUFPS&#160;Operation of&#160;Selection from Input Quadruplet&#160;and Pair-wise Interleaved&#160;Result</p>
+<p style="position:absolute;top:359px;left:232px;white-space:nowrap" class="ft00">Y7&#160;..&#160;Y4</p>
+<p style="position:absolute;top:359px;left:349px;white-space:nowrap" class="ft00">X7&#160;..&#160;X4</p>
+<p style="position:absolute;top:359px;left:455px;white-space:nowrap" class="ft00">Y3 ..Y0</p>
+<p style="position:absolute;top:361px;left:566px;white-space:nowrap" class="ft00">X3&#160;..&#160;X0</p>
+<p style="position:absolute;top:359px;left:197px;white-space:nowrap" class="ft00">DEST</p>
+<p style="position:absolute;top:260px;left:197px;white-space:nowrap" class="ft00">SRC1</p>
+<p style="position:absolute;top:258px;left:634px;white-space:nowrap" class="ft00">X0</p>
+<p style="position:absolute;top:306px;left:197px;white-space:nowrap" class="ft00">SRC2</p>
+<p style="position:absolute;top:258px;left:578px;white-space:nowrap" class="ft00">X1</p>
+<p style="position:absolute;top:258px;left:522px;white-space:nowrap" class="ft00">X2</p>
+<p style="position:absolute;top:258px;left:467px;white-space:nowrap" class="ft00">X3</p>
+<p style="position:absolute;top:258px;left:411px;white-space:nowrap" class="ft00">X4</p>
+<p style="position:absolute;top:258px;left:355px;white-space:nowrap" class="ft00">X5</p>
+<p style="position:absolute;top:258px;left:299px;white-space:nowrap" class="ft00">X6</p>
+<p style="position:absolute;top:258px;left:244px;white-space:nowrap" class="ft00">X7</p>
+<p style="position:absolute;top:303px;left:634px;white-space:nowrap" class="ft00">Y0</p>
+<p style="position:absolute;top:303px;left:578px;white-space:nowrap" class="ft00">Y1</p>
+<p style="position:absolute;top:303px;left:522px;white-space:nowrap" class="ft00">Y2</p>
+<p style="position:absolute;top:303px;left:467px;white-space:nowrap" class="ft00">Y3</p>
+<p style="position:absolute;top:303px;left:411px;white-space:nowrap" class="ft00">Y4</p>
+<p style="position:absolute;top:303px;left:355px;white-space:nowrap" class="ft00">Y5</p>
+<p style="position:absolute;top:303px;left:299px;white-space:nowrap" class="ft00">Y6</p>
+<p style="position:absolute;top:303px;left:244px;white-space:nowrap" class="ft00">Y7</p>
+<p style="position:absolute;top:361px;left:622px;white-space:nowrap" class="ft00">X3&#160;..&#160;X0</p>
+<p style="position:absolute;top:359px;left:288px;white-space:nowrap" class="ft00">Y7&#160;..&#160;Y4</p>
+<p style="position:absolute;top:359px;left:404px;white-space:nowrap" class="ft00">X7&#160;..&#160;X4</p>
+<p style="position:absolute;top:359px;left:511px;white-space:nowrap" class="ft00">Y3 ..Y0</p>
+</div>
+</body>
+</html>

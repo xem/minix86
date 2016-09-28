@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1844</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:10px;font-family:Times;color:#000000;}
+	.ft07{font-size:9px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft011{font-size:10px;line-height:15px;font-family:Times;color:#000000;}
+	.ft012{font-size:10px;line-height:13px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1844-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1844.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">41-34&#160;Vol. 3D</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">EINIT—Initialize&#160;an Enclave for Execution&#160;</p>
+<p style="position:absolute;top:248px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:333px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:355px;left:68px;white-space:nowrap" class="ft010">This leaf function&#160;is the&#160;final&#160;instruction executed&#160;in&#160;the&#160;enclave&#160;build&#160;process. After EINIT,&#160;the&#160;MRENCLAVE&#160;<br/>measurement&#160;is complete, and&#160;the enclave is&#160;ready&#160;to&#160;start user&#160;code&#160;execution using&#160;the EENTER instruction.<br/>EINIT takes the&#160;effective&#160;address&#160;of&#160;a SIGSTRUCT&#160;and EINITTOKEN. The SIGSTRUCT&#160;describes&#160;the enclave&#160;<br/>including&#160;MRENCLAVE,&#160;ATTRIBUTES,&#160;ISVSVN,&#160;a&#160;3072 bit RSA&#160;key,&#160;and&#160;a&#160;signature using&#160;the included&#160;key.&#160;<br/>SIGSTRUCT must be&#160;populated&#160;with two values, q1&#160;and q2.&#160;These are&#160;calculated&#160;using the formulas shown below:&#160;<br/>q1 = floor(Signature</p>
+<p style="position:absolute;top:447px;left:206px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:450px;left:213px;white-space:nowrap" class="ft04">&#160;/&#160;Modulus);</p>
+<p style="position:absolute;top:472px;left:68px;white-space:nowrap" class="ft04">q2 = floor((Signature</p>
+<p style="position:absolute;top:470px;left:213px;white-space:nowrap" class="ft05">3</p>
+<p style="position:absolute;top:472px;left:219px;white-space:nowrap" class="ft04">&#160;- q1&#160;* Signature&#160;* Modulus)&#160;/ Modulus);</p>
+<p style="position:absolute;top:495px;left:68px;white-space:nowrap" class="ft09">The&#160;EINITTOKEN contains the MRENCLAVE,&#160;MRSIGNER,&#160;and ATTRIBUTES.&#160;These values must&#160;match&#160;the corre-<br/>sponding values&#160;in the&#160;SECS. If&#160;the EINITTOKEN&#160;was created with a&#160;debug launch key,&#160;the&#160;enclave&#160;must be in&#160;<br/>debug mode&#160;as&#160;well.&#160;</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:77px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:259px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:315px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:315px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:315px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:388px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:388px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:454px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:77px;white-space:nowrap" class="ft04">&#160;EAX = 02H</p>
+<p style="position:absolute;top:175px;left:259px;white-space:nowrap" class="ft04">IR</p>
+<p style="position:absolute;top:175px;left:315px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:388px;white-space:nowrap" class="ft04">SGX1</p>
+<p style="position:absolute;top:175px;left:454px;white-space:nowrap" class="ft04">This leaf&#160;function initializes the&#160;enclave and&#160;makes it&#160;ready to&#160;</p>
+<p style="position:absolute;top:191px;left:454px;white-space:nowrap" class="ft04">execute enclave&#160;code.</p>
+<p style="position:absolute;top:195px;left:77px;white-space:nowrap" class="ft04">ENCLS[EINIT]</p>
+<p style="position:absolute;top:271px;left:91px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:271px;left:232px;white-space:nowrap" class="ft04">EAX</p>
+<p style="position:absolute;top:271px;left:416px;white-space:nowrap" class="ft04">RBX</p>
+<p style="position:absolute;top:271px;left:576px;white-space:nowrap" class="ft04">RCX</p>
+<p style="position:absolute;top:271px;left:735px;white-space:nowrap" class="ft04">RDX</p>
+<p style="position:absolute;top:295px;left:102px;white-space:nowrap" class="ft04">IR</p>
+<p style="position:absolute;top:295px;left:165px;white-space:nowrap" class="ft04">EINIT (In)</p>
+<p style="position:absolute;top:295px;left:242px;white-space:nowrap" class="ft04">Error&#160;code&#160;(Out)</p>
+<p style="position:absolute;top:295px;left:353px;white-space:nowrap" class="ft04">Address of&#160;SIGSTRUCT&#160;(In)</p>
+<p style="position:absolute;top:295px;left:530px;white-space:nowrap" class="ft04">Address of&#160;SECS&#160;(In)</p>
+<p style="position:absolute;top:295px;left:670px;white-space:nowrap" class="ft04">Address of&#160;EINITTOKEN&#160;(In)</p>
+<p style="position:absolute;top:997px;left:213px;white-space:nowrap" class="ft03">Figure&#160;41-1. &#160;Relationships Between&#160;SECS, SIGSTRUCT and&#160;EINITTOKEN</p>
+<p style="position:absolute;top:726px;left:410px;white-space:nowrap" class="ft06">MRSIGNER</p>
+<p style="position:absolute;top:764px;left:409px;white-space:nowrap" class="ft06">ATTRIBUTES</p>
+<p style="position:absolute;top:781px;left:410px;white-space:nowrap" class="ft06">MRENCLAVE</p>
+<p style="position:absolute;top:631px;left:471px;white-space:nowrap" class="ft06">Hashed</p>
+<p style="position:absolute;top:673px;left:486px;white-space:nowrap" class="ft06">Check</p>
+<p style="position:absolute;top:722px;left:552px;white-space:nowrap" class="ft06">If VALID=1, Check</p>
+<p style="position:absolute;top:607px;left:169px;white-space:nowrap" class="ft06">Signature</p>
+<p style="position:absolute;top:658px;left:168px;white-space:nowrap" class="ft06">ATTRIBUTES</p>
+<p style="position:absolute;top:634px;left:173px;white-space:nowrap" class="ft06">PubKey</p>
+<p style="position:absolute;top:672px;left:168px;white-space:nowrap" class="ft011">ATTRIBUTEMASK<br/>MRENCLAVE</p>
+<p style="position:absolute;top:726px;left:170px;white-space:nowrap" class="ft07"><b>SIGSTRUCT</b></p>
+<p style="position:absolute;top:620px;left:90px;white-space:nowrap" class="ft05">Verify</p>
+<p style="position:absolute;top:762px;left:207px;white-space:nowrap" class="ft05">DS:RBX</p>
+<p style="position:absolute;top:808px;left:198px;white-space:nowrap" class="ft08"><b>EINIT</b></p>
+<p style="position:absolute;top:876px;left:268px;white-space:nowrap" class="ft06">SECS</p>
+<p style="position:absolute;top:915px;left:267px;white-space:nowrap" class="ft07"><b>ENCLAVE</b></p>
+<p style="position:absolute;top:956px;left:267px;white-space:nowrap" class="ft07"><b>EPC</b></p>
+<p style="position:absolute;top:870px;left:583px;white-space:nowrap" class="ft06">ATTRIBUTES</p>
+<p style="position:absolute;top:887px;left:584px;white-space:nowrap" class="ft06">MRENCLAVE</p>
+<p style="position:absolute;top:737px;left:730px;white-space:nowrap" class="ft06">MRSIGNER</p>
+<p style="position:absolute;top:776px;left:548px;white-space:nowrap" class="ft012">If VALID=1,&#160;<br/>Check</p>
+<p style="position:absolute;top:825px;left:645px;white-space:nowrap" class="ft06">Copy</p>
+<p style="position:absolute;top:886px;left:189px;white-space:nowrap" class="ft05">DS:RCX</p>
+<p style="position:absolute;top:895px;left:433px;white-space:nowrap" class="ft06">Check</p>
+<p style="position:absolute;top:793px;left:279px;white-space:nowrap" class="ft05">DS:RDX</p>
+<p style="position:absolute;top:807px;left:410px;white-space:nowrap" class="ft06">EINITTOKEN</p>
+</div>
+</body>
+</html>

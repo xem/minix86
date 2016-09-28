@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1915</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1915-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1915.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:753px;white-space:nowrap" class="ft00">Vol. 3D&#160;41-105</p>
+<p style="position:absolute;top:47px;left:654px;white-space:nowrap" class="ft01">SGX INSTRUCTION REFERENCES</p>
+<p style="position:absolute;top:100px;left:89px;white-space:nowrap" class="ft02">THEN RFLAGS.TF&#160;= 0;&#160;FI;</p>
+<p style="position:absolute;top:136px;left:69px;white-space:nowrap" class="ft03">(* If XSAVE is enabled, save XCR0 and replace it&#160;with&#160;SECS.ATTRIBUTES.XFRM*)<br/>IF (CR4.OSXSAVE&#160;= 1)&#160;</p>
+<p style="position:absolute;top:172px;left:89px;white-space:nowrap" class="ft03">CR_SAVE_XCR0&#160;&#160;XCR0;<br/>XCR0&#160;&#160;TMP_SECS.ATTRIBUTES.XFRM;</p>
+<p style="position:absolute;top:208px;left:69px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft03">(* Pop the SSA stack*)<br/>(DS:RBX).CSSA&#160;&#160;(DS:RBX).CSSA -1;</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft03">(* Do the FS/GS swap *)<br/>FS.base&#160;&#160;TMP_FSBASE;<br/>FS.limit&#160;&#160;DS:RBX.FSLIMIT;<br/>FS.type&#160;&#160;0001b;<br/>FS.W&#160;&#160;DS.W;<br/>FS.S&#160;&#160;1;<br/>FS.DPL&#160;&#160;DS.DPL;<br/>FS.G&#160;&#160;1;<br/>FS.B&#160;&#160;1;<br/>FS.P&#160;&#160;1;<br/>FS.AVL&#160;&#160;DS.AVL;<br/>FS.L&#160;&#160;DS.L;<br/>FS.unusable&#160;&#160;0;<br/>FS.selector&#160;&#160;0BH;</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft03">GS.base&#160;&#160;TMP_GSBASE;<br/>GS.limit&#160;&#160;DS:RBX.GSLIMIT;<br/>GS.type&#160;&#160;0001b;<br/>GS.W&#160;&#160;DS.W;<br/>GS.S&#160;&#160;1;<br/>GS.DPL&#160;&#160;DS.DPL;<br/>GS.G&#160;&#160;1;<br/>GS.B&#160;&#160;1;<br/>GS.P&#160;&#160;1;<br/>GS.AVL&#160;&#160;DS.AVL;<br/>GS.L&#160;&#160;DS.L;<br/>GS.unusable&#160;&#160;0;<br/>GS.selector&#160;&#160;0BH;</p>
+<p style="position:absolute;top:820px;left:69px;white-space:nowrap" class="ft03">CR_DBGOPTIN&#160;&#160;TSC.FLAGS.DBGOPTIN;<br/>Suppress&#160;all code&#160;breakpoints that&#160;are&#160;outside&#160;ELRANGE;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft02">IF&#160;(CR_DBGOPTIN = 0)&#160;</p>
+<p style="position:absolute;top:892px;left:89px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:910px;left:116px;white-space:nowrap" class="ft03">Suppress all code breakpoints that&#160;overlap&#160;with&#160;ELRANGE;<br/>CR_SAVE_TF&#160;&#160;RFLAGS.TF;<br/>RFLAGS.TF&#160;&#160;0;<br/>Suppress any MTF VM&#160;exits during&#160;execution of&#160;the&#160;enclave;<br/>Clear all pending debug exceptions;<br/>Clear any pending&#160;MTF VM&#160;exit;</p>
+<p style="position:absolute;top:1018px;left:89px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:1036px;left:116px;white-space:nowrap" class="ft03">Clear all pending debug exceptions;<br/>Clear pending&#160;MTF VM&#160;exits;</p>
+</div>
+</body>
+</html>

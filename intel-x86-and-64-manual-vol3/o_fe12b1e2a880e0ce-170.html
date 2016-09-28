@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 170</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page170-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce170.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-18&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROTECTION</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft05">privilege levels). These stacks are disposed&#160;of when&#160;a return&#160;is made&#160;from&#160;the called procedure.&#160;The next&#160;time the&#160;<br/>procedure&#160;is&#160;called, a&#160;new stack&#160;is&#160;created using the&#160;initial&#160;stack&#160;pointer.&#160;(The TSS&#160;does&#160;not specify a stack&#160;for priv-<br/>ilege level 3&#160;because&#160;the processor does&#160;not&#160;allow&#160;a transfer of program control from&#160;a&#160;procedure running&#160;at a CPL&#160;<br/>of 0,&#160;1,&#160;or 2 to a&#160;procedure running at&#160;a CPL of 3,&#160;except on a&#160;return.)<br/>The operating&#160;system&#160;is responsible&#160;for creating stacks and&#160;stack-segment descriptors&#160;for&#160;all the privilege levels&#160;to&#160;<br/>be&#160;used&#160;and for loading initial pointers for these&#160;stacks into the&#160;TSS.&#160;Each stack must be&#160;read/write&#160;accessible (as&#160;<br/>specified in the&#160;type field of its segment descriptor) and must contain enough space (as specified in the limit field)&#160;<br/>to hold&#160;the following items:</p>
+<p style="position:absolute;top:245px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:246px;left:93px;white-space:nowrap" class="ft02">The&#160;contents of&#160;the&#160;SS,&#160;ESP,&#160;CS, and&#160;EIP registers&#160;for&#160;the&#160;calling procedure.</p>
+<p style="position:absolute;top:268px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:268px;left:93px;white-space:nowrap" class="ft02">The&#160;parameters and&#160;temporary&#160;variables&#160;required&#160;by the&#160;called&#160;procedure.</p>
+<p style="position:absolute;top:290px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:291px;left:93px;white-space:nowrap" class="ft02">The&#160;EFLAGS register&#160;and error&#160;code, when implicit calls are&#160;made&#160;to an exception&#160;or interrupt&#160;handler.</p>
+<p style="position:absolute;top:315px;left:68px;white-space:nowrap" class="ft07">The stack will need&#160;to require&#160;enough space to&#160;contain many&#160;frames of these items, because procedures&#160;often call&#160;<br/>other procedures,&#160;and an operating system may support nesting of multiple&#160;interrupts.&#160;Each stack should be large&#160;<br/>enough to&#160;allow&#160;for&#160;the worst case&#160;nesting scenario&#160;at its&#160;privilege&#160;level.<br/>(If the operating system does&#160;not use the processor’s multitasking mechanism, it still must create at least one TSS&#160;<br/>for&#160;this stack-related purpose.)&#160;<br/>When a&#160;procedure&#160;call&#160;through a call gate&#160;results&#160;in a&#160;change in&#160;privilege&#160;level, the&#160;processor&#160;performs the&#160;<br/>following&#160;steps&#160;to switch stacks&#160;and begin execution of the&#160;called&#160;procedure at&#160;a new privilege&#160;level:<br/>1.&#160;Uses the DPL of the destination code&#160;segment (the&#160;new CPL) to select a pointer to the&#160;new stack&#160;(segment</p>
+<p style="position:absolute;top:469px;left:93px;white-space:nowrap" class="ft02">selector and&#160;stack pointer) from the TSS.&#160;</p>
+<p style="position:absolute;top:493px;left:68px;white-space:nowrap" class="ft02">2.&#160;Reads&#160;the segment selector and stack pointer for the&#160;stack to be&#160;switched to&#160;from the&#160;current TSS.&#160;Any limit&#160;</p>
+<p style="position:absolute;top:510px;left:93px;white-space:nowrap" class="ft05">violations detected while reading the stack-segment selector, stack pointer,&#160;or stack-segment descriptor cause&#160;<br/>an invalid TSS&#160;(#TS) exception&#160;to be&#160;generated.</p>
+<p style="position:absolute;top:550px;left:68px;white-space:nowrap" class="ft02">3.&#160;Checks the&#160;stack-segment descriptor for&#160;the&#160;proper privileges&#160;and type and generates&#160;an invalid TSS (#TS)&#160;</p>
+<p style="position:absolute;top:567px;left:93px;white-space:nowrap" class="ft02">exception if violations are detected.</p>
+<p style="position:absolute;top:591px;left:68px;white-space:nowrap" class="ft06">4.&#160;Temporarily saves the&#160;current values&#160;of the&#160;SS&#160;and ESP&#160;registers.<br/>5.&#160;Loads the&#160;segment&#160;selector and&#160;stack&#160;pointer&#160;for&#160;the new stack&#160;in the&#160;SS&#160;and ESP&#160;registers.<br/>6.&#160;Pushes&#160;the temporarily saved values for&#160;the&#160;SS&#160;and ESP&#160;registers (for&#160;the calling procedure) onto&#160;the new&#160;stack&#160;</p>
+<p style="position:absolute;top:655px;left:93px;white-space:nowrap" class="ft02">(see<a href="o_fe12b1e2a880e0ce-171.html">&#160;Figure&#160;5-13).</a></p>
+<p style="position:absolute;top:679px;left:68px;white-space:nowrap" class="ft02">7.&#160;Copies the&#160;number of parameter&#160;specified in&#160;the parameter count field of the&#160;call gate&#160;from the&#160;calling&#160;</p>
+<p style="position:absolute;top:696px;left:93px;white-space:nowrap" class="ft02">procedure’s&#160;stack to the&#160;new stack.&#160;If the&#160;count&#160;is 0,&#160;no&#160;parameters are&#160;copied.</p>
+<p style="position:absolute;top:720px;left:68px;white-space:nowrap" class="ft07">8.&#160;Pushes&#160;the return&#160;instruction&#160;pointer (the&#160;current contents of the&#160;CS&#160;and&#160;EIP registers) onto&#160;the new stack.<br/>9.&#160;Loads&#160;the&#160;segment selector&#160;for&#160;the new code segment and the&#160;new instruction pointer&#160;from&#160;the call&#160;gate&#160;into&#160;</p>
+<p style="position:absolute;top:760px;left:93px;white-space:nowrap" class="ft02">the&#160;CS&#160;and&#160;EIP registers,&#160;respectively,&#160;and begins&#160;execution of the&#160;called procedure.</p>
+<p style="position:absolute;top:784px;left:68px;white-space:nowrap" class="ft05">See the description&#160;of the&#160;CALL&#160;instruction&#160;in Chapter 3,&#160;<i>Instruction Set Reference</i>, in the&#160;<i>IA-32&#160;Intel Architecture&#160;<br/>Software Developer’s Manual, Volume&#160;2</i>,&#160;for&#160;a detailed description of&#160;the privilege&#160;level&#160;checks and other&#160;protection&#160;<br/>checks that&#160;the&#160;processor performs&#160;on&#160;a far call&#160;through a&#160;call gate.</p>
+</div>
+</body>
+</html>

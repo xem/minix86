@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1089</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1089-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1089.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;25-15</p>
+<p style="position:absolute;top:47px;left:673px;white-space:nowrap" class="ft01">VMX&#160;NON-ROOT&#160;OPERATION</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft07">paging structures. As a&#160;result, this access may cause&#160;a VM&#160;exit due&#160;to an&#160;EPT violation or&#160;an EPT&#160;misconfigu-<br/>ration encountered during&#160;that translation.</p>
+<p style="position:absolute;top:139px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:139px;left:95px;white-space:nowrap" class="ft07">If PAE paging&#160;is in use&#160;(CR4.PAE&#160;= 1&#160;and&#160;IA32_EFER.LMA =&#160;0), an EPTP-switching VMFUNC&#160;<b>does not</b>&#160;load&#160;the&#160;<br/>four page-directory-pointer-table&#160;entries&#160;(PDPTEs)&#160;from&#160;the guest-physical&#160;address&#160;in&#160;CR3.&#160;The logical&#160;<br/>processor continues to&#160;use the&#160;four&#160;guest-physical&#160;addresses already&#160;present in the&#160;PDPTEs.&#160;The&#160;guest-<br/>physical address&#160;in&#160;CR3 is&#160;not translated through&#160;the new EPT&#160;paging&#160;structures&#160;(until&#160;some operation that&#160;<br/>would load the&#160;PDPTEs).<br/>The EPTP-switching VMFUNC cannot itself cause a VM&#160;exit&#160;due&#160;to an EPT&#160;violation&#160;or an EPT&#160;misconfiguration<br/>encountered&#160;during the&#160;translation&#160;of a guest-physical&#160;address in any of the&#160;PDPTEs. A subsequent memory<br/>access with&#160;a linear address&#160;uses the&#160;translation of&#160;the guest-physical&#160;address in the&#160;appropriate PDPTE<br/>through the new EPT paging structures. As a result, such an access may cause a VM&#160;exit&#160;due to an EPT<br/>violation&#160;or an EPT misconfiguration encountered&#160;during&#160;that translation.</p>
+<p style="position:absolute;top:318px;left:69px;white-space:nowrap" class="ft07">If&#160;an&#160;EPTP-switching&#160;VMFUNC&#160;establishes&#160;an&#160;EPTP&#160;value&#160;that&#160;enables&#160;accessed and dirty&#160;flags for&#160;EPT (by setting&#160;<br/>bit 6), subsequent memory accesses may fail&#160;to set those&#160;flags as specified&#160;if there&#160;has&#160;been no appropriate execu-<br/>tion&#160;of&#160;INVEPT&#160;since&#160;the&#160;last&#160;use&#160;of&#160;an&#160;EPTP&#160;value&#160;that&#160;does&#160;not enable&#160;accessed and&#160;dirty flags for EPT&#160;(because&#160;<br/>bit 6&#160;is clear) and&#160;that is&#160;identical&#160;to the&#160;new&#160;value on bits&#160;51:12.<br/>IF the processor supports the&#160;1-setting of the “EPT-violation #VE”&#160;VM-execution&#160;control, an EPTP-switching&#160;<br/>VMFUNC loads the&#160;value&#160;in ECX[15:0]&#160;into&#160;to EPTP-index field in&#160;current&#160;VMCS. Subsequent&#160;EPT-violation virtual-<br/>ization&#160;exceptions will save this&#160;value&#160;into the&#160;virtualization-exception&#160;<a href="o_fe12b1e2a880e0ce-1090.html">information area (see Section 25.5.6.2</a>);</p>
+<p style="position:absolute;top:475px;left:69px;white-space:nowrap" class="ft05">25.5.6 Virtualization&#160;</p>
+<p style="position:absolute;top:475px;left:263px;white-space:nowrap" class="ft05">Exceptions</p>
+<p style="position:absolute;top:505px;left:69px;white-space:nowrap" class="ft07">A&#160;<b>virtualization exception</b>&#160;is&#160;a&#160;new processor exception.&#160;It uses vector 20 and&#160;is abbreviated #VE.<br/>A&#160;virtualization exception&#160;can occur only in&#160;VMX non-root&#160;operation. Virtualization&#160;exceptions occur only with&#160;<br/>certain settings of certain&#160;VM-execution&#160;controls. Generally,&#160;these settings imply that certain conditions that would&#160;<br/>normally cause&#160;VM&#160;exits instead cause&#160;virtualization exceptions<br/>In particular, the&#160;1-setting of the&#160;“EPT-violation&#160;#VE”&#160;VM-execution&#160;control causes&#160;some EPT violations to generate&#160;<br/>virtualization&#160;exceptions instead of VM&#160;ex<a href="o_fe12b1e2a880e0ce-1089.html">its.&#160;Section&#160;25.5.6.1 pro</a>vides the&#160;details of how the&#160;processor&#160;deter-<br/>mines whether an&#160;EPT violation causes a&#160;virtualization exception&#160;or&#160;a VM&#160;exit.<br/>When&#160;the processor encounters&#160;a virtualization&#160;exception,&#160;it saves information&#160;about the&#160;exception to&#160;the virtual-<br/>ization-exception&#160;information area; see<a href="o_fe12b1e2a880e0ce-1090.html">&#160;Section 25.5.6.2.<br/></a>After&#160;saving&#160;virtualization-exception information,&#160;the processor delivers&#160;a virtualization&#160;exception as&#160;it would any&#160;<br/>other&#160;ex<a href="o_fe12b1e2a880e0ce-1090.html">ception; see Section 25.5.6.3&#160;</a>for&#160;details.</p>
+<p style="position:absolute;top:745px;left:69px;white-space:nowrap" class="ft06">25.5.6.1 &#160;&#160;Convertible&#160;EPT Violations</p>
+<p style="position:absolute;top:773px;left:69px;white-space:nowrap" class="ft07">If&#160;the “EPT-violation&#160;#VE” VM-execution&#160;control&#160;is 0&#160;(e.g.,&#160;on&#160;processors&#160;that do&#160;not support&#160;this feature), EPT&#160;<br/>violations always&#160;cause&#160;VM exits. If instead the control is 1,&#160;certain&#160;EPT&#160;violations may be converted to cause virtu-<br/>alization&#160;exceptions instead; such EPT violations are&#160;<b>convertible</b>.&#160;<br/>The values&#160;of&#160;certain EPT&#160;paging-structure entries determine&#160;which&#160;EPT violations are&#160;convertible.&#160;Specifically,&#160;<br/>bit&#160;63 of&#160;certain EPT&#160;paging-structure entries may&#160;be&#160;defined to&#160;mean&#160;<b>suppress #VE</b>:</p>
+<p style="position:absolute;top:868px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:869px;left:95px;white-space:nowrap" class="ft07">If&#160;bits&#160;2:0 of&#160;an&#160;EPT paging-structure&#160;entry&#160;are all&#160;0, the&#160;entry is&#160;<b>not present</b>. If&#160;the processor encounters&#160;<br/>such&#160;an entry while&#160;translating a&#160;guest-physical address,&#160;it causes&#160;an EPT violation.&#160;The EPT violation is&#160;<br/>convertible&#160;if and only&#160;if bit&#160;63 of the&#160;entry is&#160;0.</p>
+<p style="position:absolute;top:924px;left:69px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:925px;left:95px;white-space:nowrap" class="ft09">If&#160;bits&#160;2:0 of&#160;an&#160;EPT paging-structure&#160;entry are&#160;not all&#160;0,&#160;the&#160;following cases apply:<br/>—&#160;If&#160;the value&#160;of&#160;the EPT paging-structure entry&#160;is not supported, the&#160;entry is&#160;<b>misconfigured</b>. If the&#160;</p>
+<p style="position:absolute;top:965px;left:120px;white-space:nowrap" class="ft07">processor encounters&#160;such&#160;an entry while translating a guest-physical&#160;address,&#160;it causes&#160;an EPT&#160;misconfig-<br/>uration&#160;(not an EPT violation).&#160;EPT misconfigurations&#160;always&#160;cause VM&#160;exits.</p>
+<p style="position:absolute;top:1006px;left:95px;white-space:nowrap" class="ft02">—&#160;If&#160;the value&#160;of&#160;the EPT paging-structure entry is&#160;supported,&#160;the following cases&#160;apply:</p>
+</div>
+</body>
+</html>

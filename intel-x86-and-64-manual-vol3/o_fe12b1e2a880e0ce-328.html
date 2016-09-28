@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 328</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page328-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce328.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">9-16&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PROCESSOR MANAGEMENT&#160;AND INITIALIZATION</p>
+<p style="position:absolute;top:727px;left:68px;white-space:nowrap" class="ft02">9.10.1 Assembler&#160;</p>
+<p style="position:absolute;top:727px;left:238px;white-space:nowrap" class="ft02">Usage</p>
+<p style="position:absolute;top:757px;left:68px;white-space:nowrap" class="ft06">In this example,&#160;the&#160;Intel assembler&#160;ASM386&#160;and&#160;build tools&#160;BLD386&#160;are used&#160;to assemble&#160;and build the&#160;initializa-<br/>tion code&#160;module.&#160;The&#160;following&#160;assumptions are&#160;used&#160;when&#160;using the&#160;Intel&#160;ASM386&#160;and&#160;BLD386&#160;tools.</p>
+<p style="position:absolute;top:796px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:796px;left:93px;white-space:nowrap" class="ft06">The&#160;ASM386 will generate the&#160;right operand size&#160;opcodes according to the&#160;code-segment&#160;attribute. The&#160;<br/>attribute is&#160;assigned either&#160;by the&#160;ASM386 invocation controls&#160;or&#160;in the&#160;code-segment definition.</p>
+<p style="position:absolute;top:835px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:835px;left:93px;white-space:nowrap" class="ft06">If&#160;a code segment that&#160;is going to&#160;run&#160;in&#160;real-address mode&#160;is&#160;defined,&#160;it must be set to&#160;a USE 16 attribute.&#160;If&#160;<br/>a 32-bit&#160;operand&#160;is&#160;used in&#160;an instruction in this&#160;code&#160;segment&#160;(for&#160;example,&#160;MOV&#160;EAX,&#160;EBX),&#160;the&#160;assembler&#160;<br/>automatically generates&#160;an operand&#160;prefix for the&#160;instruction that&#160;forces the&#160;processor&#160;to execute a&#160;32-bit&#160;<br/>operation,&#160;even&#160;though its&#160;default code-segment&#160;attribute&#160;is 16-bit.</p>
+<p style="position:absolute;top:907px;left:68px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:907px;left:93px;white-space:nowrap" class="ft06">Intel's ASM386&#160;assembler allows specific use&#160;of&#160;the&#160;16-&#160;or 32-bit&#160;instructions, for example,&#160;LGDTW,&#160;LGDTD,&#160;<br/>IRETD.&#160;If the generic instruction LGDT&#160;is&#160;used, the default-&#160;segment attribute will be&#160;used to&#160;generate the right&#160;<br/>opcode.</p>
+<p style="position:absolute;top:991px;left:68px;white-space:nowrap" class="ft02">9.10.2 STARTUP.ASM&#160;</p>
+<p style="position:absolute;top:991px;left:265px;white-space:nowrap" class="ft02">Listing</p>
+<p style="position:absolute;top:1021px;left:68px;white-space:nowrap" class="ft06"><a href="o_fe12b1e2a880e0ce-329.html">Example&#160;9-1</a>&#160;provides&#160;high-level&#160;sample code&#160;designed&#160;to&#160;move the processor into protected&#160;mode. This&#160;listing&#160;<br/>does&#160;not include&#160;any opcode&#160;and offset information.</p>
+<p style="position:absolute;top:105px;left:226px;white-space:nowrap" class="ft05">Table 9-5.&#160;&#160;Main Initialization&#160;Steps in&#160;STARTUP.ASM Source&#160;Listing</p>
+<p style="position:absolute;top:130px;left:74px;white-space:nowrap" class="ft03">STARTUP.ASM&#160;Line&#160;</p>
+<p style="position:absolute;top:145px;left:74px;white-space:nowrap" class="ft03">Numbers</p>
+<p style="position:absolute;top:130px;left:246px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:169px;left:74px;white-space:nowrap" class="ft03">From</p>
+<p style="position:absolute;top:169px;left:160px;white-space:nowrap" class="ft03">To</p>
+<p style="position:absolute;top:193px;left:74px;white-space:nowrap" class="ft03">157</p>
+<p style="position:absolute;top:193px;left:160px;white-space:nowrap" class="ft03">157</p>
+<p style="position:absolute;top:193px;left:246px;white-space:nowrap" class="ft03">Jump (short) to&#160;the entry code in the EPROM</p>
+<p style="position:absolute;top:217px;left:74px;white-space:nowrap" class="ft03">162</p>
+<p style="position:absolute;top:217px;left:160px;white-space:nowrap" class="ft03">169</p>
+<p style="position:absolute;top:217px;left:246px;white-space:nowrap" class="ft03">Construct a temporary GDT in RAM with one entry:</p>
+<p style="position:absolute;top:234px;left:246px;white-space:nowrap" class="ft03">0 - null</p>
+<p style="position:absolute;top:250px;left:246px;white-space:nowrap" class="ft03">1 - R/W data segment, base&#160;= 0, limit = 4 GBytes</p>
+<p style="position:absolute;top:274px;left:74px;white-space:nowrap" class="ft03">171</p>
+<p style="position:absolute;top:274px;left:160px;white-space:nowrap" class="ft03">172</p>
+<p style="position:absolute;top:274px;left:246px;white-space:nowrap" class="ft03">Load the GDTR&#160;to&#160;point&#160;to&#160;the temporary GDT</p>
+<p style="position:absolute;top:298px;left:74px;white-space:nowrap" class="ft03">174</p>
+<p style="position:absolute;top:298px;left:160px;white-space:nowrap" class="ft03">177</p>
+<p style="position:absolute;top:298px;left:246px;white-space:nowrap" class="ft03">Load CR0 with PE flag set to&#160;switch to&#160;protected mode</p>
+<p style="position:absolute;top:322px;left:74px;white-space:nowrap" class="ft03">179</p>
+<p style="position:absolute;top:322px;left:160px;white-space:nowrap" class="ft03">181</p>
+<p style="position:absolute;top:322px;left:246px;white-space:nowrap" class="ft03">Jump&#160;near to&#160;clear real mode&#160;instruction&#160;queue</p>
+<p style="position:absolute;top:346px;left:74px;white-space:nowrap" class="ft03">184</p>
+<p style="position:absolute;top:346px;left:160px;white-space:nowrap" class="ft03">186</p>
+<p style="position:absolute;top:346px;left:246px;white-space:nowrap" class="ft03">Load&#160;DS, ES&#160;registers&#160;with&#160;GDT[1] descriptor,&#160;so&#160;both&#160;point to&#160;the entire&#160;physical&#160;memory space</p>
+<p style="position:absolute;top:370px;left:74px;white-space:nowrap" class="ft03">188</p>
+<p style="position:absolute;top:370px;left:160px;white-space:nowrap" class="ft03">195</p>
+<p style="position:absolute;top:370px;left:246px;white-space:nowrap" class="ft03">Perform specific&#160;board&#160;initialization&#160;that&#160;is imposed by&#160;the new protected mode</p>
+<p style="position:absolute;top:394px;left:74px;white-space:nowrap" class="ft03">196</p>
+<p style="position:absolute;top:394px;left:160px;white-space:nowrap" class="ft03">218</p>
+<p style="position:absolute;top:394px;left:246px;white-space:nowrap" class="ft03">Copy the application's GDT&#160;from&#160;ROM&#160;into&#160;RAM</p>
+<p style="position:absolute;top:418px;left:74px;white-space:nowrap" class="ft03">220</p>
+<p style="position:absolute;top:418px;left:160px;white-space:nowrap" class="ft03">238</p>
+<p style="position:absolute;top:418px;left:246px;white-space:nowrap" class="ft03">Copy the application's IDT&#160;from&#160;ROM&#160;into&#160;RAM</p>
+<p style="position:absolute;top:442px;left:74px;white-space:nowrap" class="ft03">241</p>
+<p style="position:absolute;top:442px;left:160px;white-space:nowrap" class="ft03">243</p>
+<p style="position:absolute;top:442px;left:246px;white-space:nowrap" class="ft03">Load&#160;application's GDTR</p>
+<p style="position:absolute;top:466px;left:74px;white-space:nowrap" class="ft03">244</p>
+<p style="position:absolute;top:466px;left:160px;white-space:nowrap" class="ft03">245</p>
+<p style="position:absolute;top:466px;left:246px;white-space:nowrap" class="ft03">Load&#160;application's IDTR</p>
+<p style="position:absolute;top:490px;left:74px;white-space:nowrap" class="ft03">247</p>
+<p style="position:absolute;top:490px;left:160px;white-space:nowrap" class="ft03">261</p>
+<p style="position:absolute;top:490px;left:246px;white-space:nowrap" class="ft03">Copy the&#160;application's&#160;TSS&#160;from&#160;ROM&#160;into RAM</p>
+<p style="position:absolute;top:514px;left:74px;white-space:nowrap" class="ft03">263</p>
+<p style="position:absolute;top:514px;left:160px;white-space:nowrap" class="ft03">267</p>
+<p style="position:absolute;top:514px;left:246px;white-space:nowrap" class="ft03">Update&#160;TSS descriptor&#160;and other aliases in&#160;GDT (GDT&#160;alias or&#160;IDT&#160;alias)&#160;</p>
+<p style="position:absolute;top:538px;left:74px;white-space:nowrap" class="ft03">277</p>
+<p style="position:absolute;top:538px;left:160px;white-space:nowrap" class="ft03">277</p>
+<p style="position:absolute;top:538px;left:246px;white-space:nowrap" class="ft03">Load&#160;the&#160;task&#160;register&#160;(without&#160;task switch) using LTR instruction</p>
+<p style="position:absolute;top:562px;left:74px;white-space:nowrap" class="ft03">282</p>
+<p style="position:absolute;top:562px;left:160px;white-space:nowrap" class="ft03">286</p>
+<p style="position:absolute;top:562px;left:246px;white-space:nowrap" class="ft03">Load SS,&#160;ESP with the value found&#160;in&#160;the&#160;application's TSS</p>
+<p style="position:absolute;top:586px;left:74px;white-space:nowrap" class="ft03">287</p>
+<p style="position:absolute;top:586px;left:160px;white-space:nowrap" class="ft03">287</p>
+<p style="position:absolute;top:586px;left:246px;white-space:nowrap" class="ft03">Push&#160;EFLAGS value&#160;found&#160;in&#160;the application's TSS</p>
+<p style="position:absolute;top:610px;left:74px;white-space:nowrap" class="ft03">288</p>
+<p style="position:absolute;top:610px;left:160px;white-space:nowrap" class="ft03">288</p>
+<p style="position:absolute;top:610px;left:246px;white-space:nowrap" class="ft03">Push&#160;CS&#160;value found in&#160;the&#160;application's TSS</p>
+<p style="position:absolute;top:634px;left:74px;white-space:nowrap" class="ft03">289</p>
+<p style="position:absolute;top:634px;left:160px;white-space:nowrap" class="ft03">289</p>
+<p style="position:absolute;top:634px;left:246px;white-space:nowrap" class="ft03">Push EIP value found&#160;in&#160;the&#160;application's TSS</p>
+<p style="position:absolute;top:658px;left:74px;white-space:nowrap" class="ft03">290</p>
+<p style="position:absolute;top:658px;left:160px;white-space:nowrap" class="ft03">293</p>
+<p style="position:absolute;top:658px;left:246px;white-space:nowrap" class="ft03">Load DS, ES with the value found in&#160;the&#160;application's TSS</p>
+<p style="position:absolute;top:682px;left:74px;white-space:nowrap" class="ft03">296</p>
+<p style="position:absolute;top:682px;left:160px;white-space:nowrap" class="ft03">296</p>
+<p style="position:absolute;top:682px;left:246px;white-space:nowrap" class="ft03">Perform IRET; pop the above values and enter&#160;the application code</p>
+</div>
+</body>
+</html>

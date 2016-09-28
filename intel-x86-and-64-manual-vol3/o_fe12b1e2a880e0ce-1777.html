@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1777</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1777-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1777.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;38-7</p>
+<p style="position:absolute;top:47px;left:534px;white-space:nowrap" class="ft01">ENCLAVE ACCESS&#160;CONTROL AND DATA STRUCTURES</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">38.8.3&#160;</p>
+<p style="position:absolute;top:98px;left:149px;white-space:nowrap" class="ft02">Current State Save&#160;Area Frame (CSSA)</p>
+<p style="position:absolute;top:127px;left:69px;white-space:nowrap" class="ft07">CSSA&#160;is&#160;the&#160;index&#160;of&#160;the current&#160;SSA&#160;frame&#160;that will be&#160;used&#160;by&#160;the&#160;processor to&#160;determine&#160;where&#160;to save the&#160;<br/>processor state on an interrupt or exception that occurs while&#160;executing in the enclave.&#160;It&#160;is an index into the array&#160;<br/>of frames&#160;addressed by OSSA. CSSA&#160;is incremented&#160;on&#160;an AEX and&#160;decremented&#160;on an ERESUME.</p>
+<p style="position:absolute;top:211px;left:69px;white-space:nowrap" class="ft02">38.8.4&#160;</p>
+<p style="position:absolute;top:211px;left:149px;white-space:nowrap" class="ft02">Number of&#160;State Save&#160;Area Frames (NSSA)</p>
+<p style="position:absolute;top:240px;left:69px;white-space:nowrap" class="ft07">NSSA&#160;specifies the&#160;number of SSA&#160;frames&#160;available for&#160;this&#160;TCS.&#160;There must&#160;be&#160;at&#160;least&#160;one available SSA&#160;frame&#160;<br/>when&#160;EENTER-ing&#160;the enclave or the EENTER&#160;will&#160;fail.</p>
+<p style="position:absolute;top:312px;left:69px;white-space:nowrap" class="ft04">38.9&#160;</p>
+<p style="position:absolute;top:312px;left:148px;white-space:nowrap" class="ft04">STATE SAVE&#160;AREA (SSA) FRAME</p>
+<p style="position:absolute;top:346px;left:69px;white-space:nowrap" class="ft07">When an AEX&#160;occurs&#160;while&#160;running in an&#160;enclave, the architectural state&#160;is saved&#160;in&#160;the thread’s&#160;current&#160;SSA frame,&#160;<br/>which is&#160;pointed&#160;to by TCS.CSSA. An SSA&#160;frame must be&#160;page&#160;aligned,&#160;and contains&#160;the following&#160;regions:</p>
+<p style="position:absolute;top:385px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:385px;left:95px;white-space:nowrap" class="ft07">The&#160;XSAVE region starts&#160;at the&#160;base&#160;of&#160;the&#160;SSA&#160;frame,&#160;this&#160;region contains&#160;extended&#160;feature&#160;register&#160;state&#160;in&#160;<br/>an XSAVE/FXSAVE-compatible non-compacted format.</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:424px;left:95px;white-space:nowrap" class="ft07">A&#160;Pad region: software may choose to&#160;maintain&#160;a pad&#160;region&#160;separating&#160;the&#160;XSAVE&#160;region and the MISC region.&#160;<br/>Software choose&#160;the size&#160;of&#160;the pad region according to&#160;the sizes&#160;of the&#160;MISC and GPRSGX regions.</p>
+<p style="position:absolute;top:463px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:463px;left:95px;white-space:nowrap" class="ft07">The&#160;GPRSGX region.&#160;The GPRSGX region is&#160;the last&#160;region&#160;of&#160;an SSA&#160;frame (see<a href="o_fe12b1e2a880e0ce-1777.html">&#160;Table 38-7). This&#160;</a>is used to&#160;<br/>hold&#160;the&#160;processor general purpose registers (RAX …&#160;R15),&#160;the&#160;RIP,&#160;the&#160;outside RSP&#160;and&#160;RBP,&#160;RFLAGS&#160;and&#160;the&#160;<br/>AEX information.&#160;</p>
+<p style="position:absolute;top:518px;left:69px;white-space:nowrap" class="ft05">•</p>
+<p style="position:absolute;top:519px;left:95px;white-space:nowrap" class="ft07">The MISC&#160;region&#160;(If&#160;CPUIDEAX=12H, ECX=0):EBX[31:0]&#160;!= 0).&#160;The&#160;MISC&#160;region is&#160;adjacent to the GRPSGX&#160;<br/>region, and&#160;may contain zero or&#160;more&#160;components of extended information that&#160;would be saved when an AEX&#160;<br/>occurs. If&#160;the&#160;MISC&#160;region&#160;is absent,&#160;the region&#160;between&#160;the GPRSGX and XSAVE&#160;regions&#160;is the pad region that&#160;<br/>software can&#160;use.&#160;If&#160;the MISC&#160;region is&#160;present, the region between the&#160;MISC&#160;and&#160;XSAVE regions is&#160;the pad&#160;<br/>region&#160;that software&#160;can use. See&#160;additional&#160;detail<a href="o_fe12b1e2a880e0ce-1779.html">s in Section 38.9.2</a>.</p>
+<p style="position:absolute;top:626px;left:281px;white-space:nowrap" class="ft06">Table&#160;38-7. &#160;Top-to-Bottom Layout&#160;of&#160;an&#160;SSA&#160;Frame</p>
+<p style="position:absolute;top:648px;left:83px;white-space:nowrap" class="ft03">Region</p>
+<p style="position:absolute;top:648px;left:147px;white-space:nowrap" class="ft03">Offset&#160;(Byte)</p>
+<p style="position:absolute;top:648px;left:268px;white-space:nowrap" class="ft03">Size&#160;(Bytes)</p>
+<p style="position:absolute;top:648px;left:568px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:670px;left:76px;white-space:nowrap" class="ft03">XSAVE</p>
+<p style="position:absolute;top:670px;left:141px;white-space:nowrap" class="ft03">0</p>
+<p style="position:absolute;top:670px;left:242px;white-space:nowrap" class="ft03">Calculate&#160;using&#160;CPUID&#160;</p>
+<p style="position:absolute;top:687px;left:242px;white-space:nowrap" class="ft03">leaf&#160;0DH&#160;information</p>
+<p style="position:absolute;top:670px;left:375px;white-space:nowrap" class="ft03">The size&#160;of&#160;XSAVE region&#160;in&#160;SSA&#160;is derived from&#160;the enclave’s&#160;support of&#160;the&#160;col-</p>
+<p style="position:absolute;top:687px;left:375px;white-space:nowrap" class="ft03">lection of&#160;processor&#160;extended&#160;states&#160;that&#160;would&#160;be&#160;managed by&#160;XSAVE.&#160;The&#160;</p>
+<p style="position:absolute;top:703px;left:375px;white-space:nowrap" class="ft03">enablement&#160;of&#160;those processor extended&#160;state components in&#160;conjunction with&#160;</p>
+<p style="position:absolute;top:720px;left:375px;white-space:nowrap" class="ft03">CPUID leaf&#160;0DH&#160;information determines the XSAVE&#160;region size&#160;in&#160;SSA.</p>
+<p style="position:absolute;top:742px;left:76px;white-space:nowrap" class="ft03">Pad</p>
+<p style="position:absolute;top:742px;left:141px;white-space:nowrap" class="ft03">End&#160;of&#160;XSAVE&#160;</p>
+<p style="position:absolute;top:759px;left:141px;white-space:nowrap" class="ft03">region</p>
+<p style="position:absolute;top:742px;left:242px;white-space:nowrap" class="ft03">Chosen&#160;by&#160;enclave&#160;</p>
+<p style="position:absolute;top:759px;left:242px;white-space:nowrap" class="ft03">writer</p>
+<p style="position:absolute;top:742px;left:375px;white-space:nowrap" class="ft03">Ensure&#160;the end&#160;of&#160;GPRSGX region&#160;is&#160;aligned to&#160;the end&#160;of&#160;a 4KB&#160;page.</p>
+<p style="position:absolute;top:781px;left:76px;white-space:nowrap" class="ft03">MISC</p>
+<p style="position:absolute;top:781px;left:141px;white-space:nowrap" class="ft03">base of&#160;GPRSGX&#160;</p>
+<p style="position:absolute;top:798px;left:141px;white-space:nowrap" class="ft03">– sizeof(MISC)</p>
+<p style="position:absolute;top:781px;left:242px;white-space:nowrap" class="ft03">Calculate&#160;from&#160;high-</p>
+<p style="position:absolute;top:798px;left:242px;white-space:nowrap" class="ft03">est&#160;set bit of&#160;</p>
+<p style="position:absolute;top:814px;left:242px;white-space:nowrap" class="ft03">SECS.MISCSELECT</p>
+<p style="position:absolute;top:781px;left:375px;white-space:nowrap" class="ft03">See<a href="o_fe12b1e2a880e0ce-1779.html">&#160;Section&#160;38.9.2.</a></p>
+<p style="position:absolute;top:837px;left:76px;white-space:nowrap" class="ft03">GPRSGX</p>
+<p style="position:absolute;top:837px;left:141px;white-space:nowrap" class="ft03">SSAFRAMESIZE&#160;</p>
+<p style="position:absolute;top:853px;left:141px;white-space:nowrap" class="ft03">– 176</p>
+<p style="position:absolute;top:837px;left:242px;white-space:nowrap" class="ft03">176</p>
+<p style="position:absolute;top:837px;left:375px;white-space:nowrap" class="ft03">S<a href="o_fe12b1e2a880e0ce-1778.html">ee Table 38-8&#160;f</a>or layout of&#160;the GPRSGX region.</p>
+</div>
+</body>
+</html>

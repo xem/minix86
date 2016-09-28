@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1686</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1686-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811686.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:374px;white-space:nowrap" class="ft00">VPBROADCASTB/W/D/Q—Load with&#160;Broadcast Integer Data from General Purpose&#160;Register</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-300&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft03">VPBROADCASTQ (EVEX encoded&#160;versions)<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:154px;left:88px;white-space:nowrap" class="ft03">i&#160;j * 64<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:190px;left:115px;white-space:nowrap" class="ft03">THEN DEST[i+63:i]&#160;&#160;SRC[63:0]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:226px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:226px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:244px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:262px;left:364px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:280px;left:196px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:298px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:316px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:334px;left:68px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:386px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:409px;left:68px;white-space:nowrap" class="ft03">VPBROADCASTB __m512i _mm512_mask_set1_epi8(__m512i&#160;s,&#160;__mmask64&#160;k,&#160;int a);<br/>VPBROADCASTB __m512i&#160;_mm512_maskz_set1_epi8( __mmask64&#160;k, int a);<br/>VPBROADCASTB __m256i _mm256_mask_set1_epi8(__m256i&#160;s,&#160;__mmask32&#160;k,&#160;int a);<br/>VPBROADCASTB __m256i&#160;_mm256_maskz_set1_epi8( __mmask32&#160;k, int a);<br/>VPBROADCASTB&#160;__m128i _mm_mask_set1_epi8(__m128i s, __mmask16&#160;k, int a);<br/>VPBROADCASTB __m128i _mm_maskz_set1_epi8( __mmask16&#160;k, int a);<br/>VPBROADCASTD __m512i _mm512_mask_set1_epi32(__m512i&#160;s, __mmask16&#160;k, int a);<br/>VPBROADCASTD __m512i _mm512_maskz_set1_epi32( __mmask16 k, int a);<br/>VPBROADCASTD __m256i _mm256_mask_set1_epi32(__m256i&#160;s, __mmask8&#160;k, int a);<br/>VPBROADCASTD __m256i _mm256_maskz_set1_epi32( __mmask8 k, int a);<br/>VPBROADCASTD __m128i _mm_mask_set1_epi32(__m128i&#160;s, __mmask8 k, int a);<br/>VPBROADCASTD __m128i _mm_maskz_set1_epi32( __mmask8 k, int a);<br/>VPBROADCASTQ __m512i _mm512_mask_set1_epi64(__m512i s, __mmask8 k, __int64 a);<br/>VPBROADCASTQ __m512i _mm512_maskz_set1_epi64(&#160;__mmask8 k, __int64 a);<br/>VPBROADCASTQ __m256i _mm256_mask_set1_epi64(__m256i s, __mmask8 k, __int64 a);<br/>VPBROADCASTQ __m256i _mm256_maskz_set1_epi64(&#160;__mmask8 k, __int64 a);<br/>VPBROADCASTQ&#160;__m128i&#160;_mm_mask_set1_epi64(__m128i&#160;s,&#160;__mmask8 k,&#160;__int64&#160;a);<br/>VPBROADCASTQ __m128i _mm_maskz_set1_epi64( __mmask8 k, __int64 a);<br/>VPBROADCASTW __m512i _mm512_mask_set1_epi16(__m512i s, __mmask32 k, int a);<br/>VPBROADCASTW&#160;__m512i _mm512_maskz_set1_epi16(&#160;__mmask32&#160;k, int a);<br/>VPBROADCASTW __m256i _mm256_mask_set1_epi16(__m256i s, __mmask16 k, int a);<br/>VPBROADCASTW&#160;__m256i _mm256_maskz_set1_epi16(&#160;__mmask16&#160;k, int a);<br/>VPBROADCASTW __m128i _mm_mask_set1_epi16(__m128i s, __mmask8 k, int a);<br/>VPBROADCASTW&#160;__m128i _mm_maskz_set1_epi16(&#160;__mmask8 k, int&#160;a);</p>
+<p style="position:absolute;top:858px;left:68px;white-space:nowrap" class="ft01">Exceptions</p>
+<p style="position:absolute;top:880px;left:68px;white-space:nowrap" class="ft04">EVEX-encoded instructions,&#160;see Exceptions&#160;Type E7NM.<br/>#UD</p>
+<p style="position:absolute;top:901px;left:206px;white-space:nowrap" class="ft02">If EVEX.vvvv != 1111B.</p>
+</div>
+</body>
+</html>

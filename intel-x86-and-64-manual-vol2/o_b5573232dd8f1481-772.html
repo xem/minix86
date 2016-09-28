@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 772</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:9px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page772-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481772.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:508px;white-space:nowrap" class="ft00">MOVNTDQA—Load Double Quadword Non-Temporal Aligned Hint</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-92&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">MOVNTDQA—Load Double Quadword&#160;Non-Temporal Aligned Hint</p>
+<p style="position:absolute;top:440px;left:349px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:437px;left:548px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:549px;left:68px;white-space:nowrap" class="ft01">Description</p>
+<p style="position:absolute;top:571px;left:68px;white-space:nowrap" class="ft06">MOVNTDQA loads a double quadword from&#160;the source operand (second operand) to the destination operand (first&#160;<br/>operand)&#160;using&#160;a&#160;non-temporal&#160;hint&#160;if&#160;the&#160;memory&#160;source&#160;is&#160;WC&#160;(write&#160;combining)&#160;memory&#160;type.&#160;For&#160;WC&#160;memory&#160;<br/>type,&#160;the nontemporal hint may&#160;be&#160;implemented by&#160;loading&#160;a&#160;temporary internal&#160;buffer with&#160;the equivalent of an&#160;<br/>aligned cache&#160;line without filling this data to&#160;the cache.&#160;Any memory-type&#160;aliased lines&#160;in&#160;the cache&#160;will be snooped&#160;<br/>and&#160;flushed. Subsequent&#160;MOVNTDQA&#160;reads to&#160;unread portions of the&#160;WC cache&#160;line will receive&#160;data&#160;from&#160;the&#160;<br/>temporary internal buffer if data is&#160;available. The&#160;temporary internal buffer may be&#160;flushed by the processor at any&#160;<br/>time for any&#160;reason, for example:<br/>• A load operation other&#160;than&#160;a MOVNTDQA&#160;which&#160;references memory already resident in&#160;a temporary&#160;internal&#160;<br/>buffer.<br/>•&#160;A&#160;non-WC reference to memory already&#160;resident in&#160;a temporary&#160;internal buffer.<br/>•&#160;Interleaving of&#160;reads and&#160;writes to&#160;a single temporary&#160;internal buffer.<br/>•&#160;Repeated&#160;(V)MOVNTDQA loads&#160;of a&#160;particular 16-byte item&#160;in a&#160;streaming line.<br/>•&#160;Certain micro-architectural conditions&#160;including resource&#160;shortages,&#160;detection&#160;of<br/>a mis-speculation condition, and&#160;various&#160;fault&#160;conditions<br/>The&#160;non-temporal hint&#160;is implemented by&#160;using a&#160;write&#160;combining (WC)&#160;memory type protocol when&#160;reading the&#160;<br/>data from memory. Using&#160;this protocol, the&#160;processor<br/>does not&#160;read&#160;the data into the&#160;cache&#160;hierarchy,&#160;nor does it&#160;fetch the&#160;corresponding&#160;cache&#160;line from memory&#160;into&#160;<br/>the cache&#160;hierarchy.&#160;The&#160;memory&#160;type&#160;of&#160;the region being&#160;read can override&#160;the non-temporal&#160;hint, if&#160;the memory&#160;<br/>address specified&#160;for&#160;the&#160;non-temporal read is&#160;not a WC&#160;memory region.&#160;Information on&#160;non-temporal reads and&#160;<br/>writes&#160;can be found in&#160;“Caching of&#160;Temporal&#160;vs.&#160;Non-Temporal&#160;Data”&#160;in&#160;Chapter 10 in&#160;the Intel®&#160;64&#160;and IA-32&#160;<br/>Architecture&#160;Software Developer’s Manual, Volume&#160;3A.<br/>Because the WC protocol uses a&#160;weakly-ordered&#160;memory&#160;consistency model,&#160;a fencing operation implemented with&#160;<br/>a MFENCE instruction should&#160;be&#160;used&#160;in conjunction with&#160;MOVNTDQA instructions if multiple processors might&#160;use&#160;<br/>different memory types for the referenced&#160;memory locations&#160;or to synchronize reads of a&#160;processor with&#160;writes by&#160;<br/>other agents&#160;in&#160;the&#160;system. A processor’s&#160;implementation&#160;of&#160;the streaming&#160;load&#160;hint does&#160;not override&#160;the&#160;effective&#160;</p>
+<p style="position:absolute;top:123px;left:77px;white-space:nowrap" class="ft05">Opcode/</p>
+<p style="position:absolute;top:137px;left:77px;white-space:nowrap" class="ft05">Instruction</p>
+<p style="position:absolute;top:123px;left:273px;white-space:nowrap" class="ft05">Op /&#160;</p>
+<p style="position:absolute;top:137px;left:273px;white-space:nowrap" class="ft05">En</p>
+<p style="position:absolute;top:123px;left:321px;white-space:nowrap" class="ft05">64/32&#160;</p>
+<p style="position:absolute;top:137px;left:321px;white-space:nowrap" class="ft05">bit Mode&#160;</p>
+<p style="position:absolute;top:153px;left:321px;white-space:nowrap" class="ft05">Support</p>
+<p style="position:absolute;top:123px;left:394px;white-space:nowrap" class="ft05">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:394px;white-space:nowrap" class="ft05">Feature&#160;Flag</p>
+<p style="position:absolute;top:123px;left:492px;white-space:nowrap" class="ft05">Description</p>
+<p style="position:absolute;top:172px;left:77px;white-space:nowrap" class="ft05">66&#160;0F&#160;38 2A&#160;/r</p>
+<p style="position:absolute;top:172px;left:273px;white-space:nowrap" class="ft05">RM</p>
+<p style="position:absolute;top:172px;left:321px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:172px;left:395px;white-space:nowrap" class="ft05">SSE4_1</p>
+<p style="position:absolute;top:172px;left:492px;white-space:nowrap" class="ft05">Move&#160;double&#160;quadword&#160;from&#160;m128 to&#160;xmm1&#160;using&#160;non-</p>
+<p style="position:absolute;top:189px;left:492px;white-space:nowrap" class="ft05">temporal&#160;hint&#160;if WC&#160;memory type.</p>
+<p style="position:absolute;top:191px;left:77px;white-space:nowrap" class="ft08">MOVNTDQA&#160;xmm1, m128<br/>VEX.128.66.0F38.WIG 2A /r</p>
+<p style="position:absolute;top:211px;left:273px;white-space:nowrap" class="ft05">RM</p>
+<p style="position:absolute;top:211px;left:321px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:211px;left:395px;white-space:nowrap" class="ft05">AVX</p>
+<p style="position:absolute;top:211px;left:492px;white-space:nowrap" class="ft05">Move&#160;double&#160;quadword&#160;from&#160;m128 to&#160;xmm using non-</p>
+<p style="position:absolute;top:227px;left:492px;white-space:nowrap" class="ft05">temporal&#160;hint&#160;if WC&#160;memory type.</p>
+<p style="position:absolute;top:231px;left:77px;white-space:nowrap" class="ft08">VMOVNTDQA xmm1, m128<br/>VEX.256.66.0F38.WIG 2A /r</p>
+<p style="position:absolute;top:250px;left:273px;white-space:nowrap" class="ft05">RM</p>
+<p style="position:absolute;top:250px;left:321px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:250px;left:395px;white-space:nowrap" class="ft05">AVX2</p>
+<p style="position:absolute;top:250px;left:492px;white-space:nowrap" class="ft05">Move&#160;256-bit data&#160;from&#160;m256&#160;to&#160;ymm using non-temporal&#160;</p>
+<p style="position:absolute;top:267px;left:492px;white-space:nowrap" class="ft05">hint&#160;if WC&#160;memory&#160;type.</p>
+<p style="position:absolute;top:270px;left:77px;white-space:nowrap" class="ft08">VMOVNTDQA ymm1, m256<br/>EVEX.128.66.0F38.W0 2A&#160;/r</p>
+<p style="position:absolute;top:289px;left:273px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:289px;left:321px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:289px;left:395px;white-space:nowrap" class="ft05">AVX512VL</p>
+<p style="position:absolute;top:289px;left:492px;white-space:nowrap" class="ft05">Move&#160;128-bit data&#160;from&#160;m128&#160;to&#160;xmm using non-temporal&#160;</p>
+<p style="position:absolute;top:306px;left:492px;white-space:nowrap" class="ft05">hint&#160;if WC&#160;memory&#160;type.</p>
+<p style="position:absolute;top:308px;left:77px;white-space:nowrap" class="ft05">VMOVNTDQA xmm1, m128</p>
+<p style="position:absolute;top:308px;left:394px;white-space:nowrap" class="ft05">AVX512F</p>
+<p style="position:absolute;top:328px;left:77px;white-space:nowrap" class="ft05">EVEX.256.66.0F38.W0 2A&#160;/r</p>
+<p style="position:absolute;top:328px;left:273px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:328px;left:321px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:328px;left:395px;white-space:nowrap" class="ft05">AVX512VL</p>
+<p style="position:absolute;top:328px;left:492px;white-space:nowrap" class="ft05">Move&#160;256-bit data&#160;from&#160;m256&#160;to&#160;ymm using non-temporal&#160;</p>
+<p style="position:absolute;top:344px;left:492px;white-space:nowrap" class="ft05">hint&#160;if WC&#160;memory&#160;type.</p>
+<p style="position:absolute;top:348px;left:77px;white-space:nowrap" class="ft05">VMOVNTDQA ymm1, m256</p>
+<p style="position:absolute;top:348px;left:394px;white-space:nowrap" class="ft05">AVX512F</p>
+<p style="position:absolute;top:367px;left:77px;white-space:nowrap" class="ft05">EVEX.512.66.0F38.W0 2A&#160;/r</p>
+<p style="position:absolute;top:367px;left:273px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:367px;left:321px;white-space:nowrap" class="ft05">V/V</p>
+<p style="position:absolute;top:367px;left:395px;white-space:nowrap" class="ft05">AVX512F</p>
+<p style="position:absolute;top:367px;left:492px;white-space:nowrap" class="ft05">Move&#160;512-bit data&#160;from&#160;m512&#160;to&#160;zmm using non-temporal&#160;</p>
+<p style="position:absolute;top:384px;left:492px;white-space:nowrap" class="ft05">hint&#160;if WC&#160;memory&#160;type.</p>
+<p style="position:absolute;top:387px;left:77px;white-space:nowrap" class="ft05">VMOVNTDQA&#160;zmm1, m512</p>
+<p style="position:absolute;top:463px;left:116px;white-space:nowrap" class="ft05">Op/En</p>
+<p style="position:absolute;top:463px;left:247px;white-space:nowrap" class="ft05">Operand&#160;1</p>
+<p style="position:absolute;top:463px;left:409px;white-space:nowrap" class="ft05">Operand&#160;2</p>
+<p style="position:absolute;top:463px;left:568px;white-space:nowrap" class="ft05">Operand&#160;3</p>
+<p style="position:absolute;top:463px;left:726px;white-space:nowrap" class="ft05">Operand&#160;4</p>
+<p style="position:absolute;top:487px;left:124px;white-space:nowrap" class="ft05">RM</p>
+<p style="position:absolute;top:487px;left:235px;white-space:nowrap" class="ft05">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:487px;left:398px;white-space:nowrap" class="ft05">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:487px;left:590px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:487px;left:747px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:511px;left:121px;white-space:nowrap" class="ft05">FVM</p>
+<p style="position:absolute;top:511px;left:235px;white-space:nowrap" class="ft05">ModRM:reg&#160;(w)</p>
+<p style="position:absolute;top:511px;left:398px;white-space:nowrap" class="ft05">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:511px;left:590px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:511px;left:747px;white-space:nowrap" class="ft05">NA</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft05">1.&#160;ModRM.MOD = 011B&#160;required</p>
+</div>
+</body>
+</html>

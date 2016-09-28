@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1793</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1793-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1793.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3D&#160;39-5</p>
+<p style="position:absolute;top:47px;left:713px;white-space:nowrap" class="ft01">ENCLAVE OPERATION</p>
+<p style="position:absolute;top:99px;left:69px;white-space:nowrap" class="ft02">39.2.3.1 &#160;&#160;ERESUME Interaction</p>
+<p style="position:absolute;top:126px;left:69px;white-space:nowrap" class="ft03">ERESUME restores registers&#160;depending&#160;on&#160;the mode of the&#160;enclave&#160;(32&#160;or 64 bit).</p>
+<p style="position:absolute;top:148px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:148px;left:95px;white-space:nowrap" class="ft07">In 32-bit mode&#160;(IA32_EFER.LMA&#160;=&#160;0 || CS.L&#160;= 0),&#160;the low&#160;32-bits of the&#160;legacy registers (EAX,&#160;EBX,&#160;ECX, EDX,&#160;<br/>ESP,&#160;EBP,&#160;ESI,&#160;EDI, EIP and&#160;EFLAGS)&#160;are&#160;restored from&#160;the thread’s&#160;GPR&#160;area&#160;of the&#160;current SSA&#160;frame. Neither&#160;<br/>the upper 32 bits of the&#160;legacy&#160;registers nor the&#160;64-bit registers&#160;(R8&#160;…&#160;R15)&#160;are loaded.&#160;</p>
+<p style="position:absolute;top:203px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:204px;left:95px;white-space:nowrap" class="ft07">In&#160;64-bit&#160;mode&#160;(IA32_EFER.LMA&#160;=&#160;1&#160;&amp;&amp;&#160;CS.L&#160;=&#160;1),&#160;all&#160;64&#160;bits&#160;of the general&#160;processor registers&#160;(RAX, RBX,&#160;<br/>RCX,&#160;RDX, RSP,&#160;RBP,&#160;RSI, RDI,&#160;R8&#160;… R15,&#160;RIP&#160;and RFLAGS)&#160;are loaded.</p>
+<p style="position:absolute;top:243px;left:69px;white-space:nowrap" class="ft07">Extended features&#160;specified by&#160;SECS.ATTRIBUTES.XFRM&#160;are&#160;restored&#160;from&#160;the&#160;XSAVE area&#160;of the&#160;current SSA&#160;<br/>frame.&#160;The&#160;layout of the&#160;x87 area&#160;depends on&#160;the current&#160;values of IA32_EFER.LMA and&#160;CS.L:</p>
+<p style="position:absolute;top:281px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:282px;left:95px;white-space:nowrap" class="ft08">IA32_EFER.LMA&#160;= 0&#160;|| CS.L&#160;= 0<br/>—&#160;32-bit&#160;load&#160;in the&#160;same&#160;format&#160;that XSAVE/FXSAVE&#160;uses with these values.</p>
+<p style="position:absolute;top:328px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:328px;left:95px;white-space:nowrap" class="ft08">IA32_EFER.LMA&#160;= 1&#160;&amp;&amp; CS.L&#160;= 1<br/>—&#160;64-bit&#160;load&#160;in the&#160;same&#160;format&#160;that XSAVE/FXSAVE&#160;uses with these values&#160;as&#160;if REX.W&#160;=&#160;1.</p>
+<p style="position:absolute;top:408px;left:69px;white-space:nowrap" class="ft05">39.3&#160;</p>
+<p style="position:absolute;top:408px;left:148px;white-space:nowrap" class="ft05">CALLING ENCLAVE PROCEDURES</p>
+<p style="position:absolute;top:470px;left:69px;white-space:nowrap" class="ft06">39.3.1 Calling&#160;</p>
+<p style="position:absolute;top:470px;left:207px;white-space:nowrap" class="ft06">Convention</p>
+<p style="position:absolute;top:499px;left:69px;white-space:nowrap" class="ft07">In standard&#160;call conventions subroutine parameters&#160;are generally pushed onto the stack.&#160;The called routine,&#160;being&#160;<br/>aware of its&#160;own&#160;stack layout,&#160;knows how to&#160;find&#160;parameters&#160;based on&#160;compile-time-computable&#160;offsets from the&#160;<br/>SP&#160;or BP&#160;register (depending on runtime&#160;conventions&#160;used&#160;by&#160;the compiler).<br/>Because of&#160;the&#160;stack switch when calling&#160;an enclave, stack-located&#160;parameters cannot be found in&#160;this&#160;manner.&#160;<br/>Entering&#160;the&#160;enclave&#160;requires a modified parameter&#160;passing&#160;convention.<br/>For example, the caller might push&#160;parameters onto the untrusted&#160;stack and then pass a pointer to those parame-<br/>ters&#160;in&#160;RAX to&#160;the enclave software. The exact&#160;choice of calling conventions is&#160;up to&#160;the writer&#160;of&#160;the edge&#160;routines;&#160;<br/>be&#160;those routines&#160;hand-coded&#160;or compiler generated.&#160;</p>
+<p style="position:absolute;top:677px;left:69px;white-space:nowrap" class="ft06">39.3.2 Register&#160;</p>
+<p style="position:absolute;top:677px;left:222px;white-space:nowrap" class="ft06">Preservation</p>
+<p style="position:absolute;top:706px;left:69px;white-space:nowrap" class="ft07">As with most systems, it is&#160;the responsibility of the callee&#160;to preserve&#160;all registers except that used&#160;for returning&#160;a&#160;<br/>value.&#160;This is&#160;consistent with conventional usage and&#160;tends to&#160;optimize the&#160;number of register&#160;save/restore oper-<br/>ations&#160;that&#160;need be performed.&#160;It has&#160;the additional security&#160;result that&#160;it ensures that data is&#160;scrubbed from&#160;any&#160;<br/>registers that&#160;were&#160;used by enclave&#160;to&#160;temporarily contain&#160;secrets.</p>
+<p style="position:absolute;top:806px;left:69px;white-space:nowrap" class="ft06">39.3.3&#160;</p>
+<p style="position:absolute;top:806px;left:150px;white-space:nowrap" class="ft06">Returning to&#160;Caller</p>
+<p style="position:absolute;top:835px;left:69px;white-space:nowrap" class="ft07">No registers&#160;are modified&#160;during&#160;EEXIT.&#160;It&#160;is the&#160;responsibility&#160;of&#160;software to&#160;remove&#160;secrets&#160;in&#160;registers before&#160;<br/>executing EEXIT.</p>
+<p style="position:absolute;top:907px;left:69px;white-space:nowrap" class="ft05">39.4&#160;</p>
+<p style="position:absolute;top:907px;left:148px;white-space:nowrap" class="ft05">INTEL® SGX KEY AND ATTESTATION</p>
+<p style="position:absolute;top:970px;left:69px;white-space:nowrap" class="ft06">39.4.1 Enclave&#160;</p>
+<p style="position:absolute;top:970px;left:216px;white-space:nowrap" class="ft06">Measurement</p>
+<p style="position:absolute;top:999px;left:69px;white-space:nowrap" class="ft07">During&#160;the enclave build process, two&#160;“measurements” are&#160;taken of&#160;each enclave and&#160;are stored in&#160;two 256-bit&#160;<br/>Measurement Registers (MR): MRENCLAVE&#160;and&#160;MRSIGNER.&#160;MRENCLAVE represents&#160;the enclave's&#160;contents and&#160;<br/>build process.&#160;MRSIGNER represents&#160;the entity&#160;that signed the enclave's SIGSTRUCT.</p>
+</div>
+</body>
+</html>

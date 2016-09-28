@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 73</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page73-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce073.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:767px;white-space:nowrap" class="ft00">Vol. 3A&#160;2-11</p>
+<p style="position:absolute;top:47px;left:634px;white-space:nowrap" class="ft01">SYSTEM ARCHITECTURE OVERVIEW</p>
+<p style="position:absolute;top:100px;left:123px;white-space:nowrap" class="ft02">See&#160;<a href="o_fe12b1e2a880e0ce-982.html">also: Section 20.2.1, “Enabling&#160;Virtual-8086&#160;Mode.”</a></p>
+<p style="position:absolute;top:124px;left:69px;white-space:nowrap" class="ft02">AC</p>
+<p style="position:absolute;top:124px;left:123px;white-space:nowrap" class="ft06"><b>Alignment&#160;check or access control (bit&#160;18)&#160;</b>— If&#160;the AM bit is&#160;set&#160;in&#160;the CR0&#160;register, alignment&#160;<br/>checking of user-mode&#160;data&#160;accesses&#160;is enabled if and&#160;only if this&#160;flag is&#160;1.&#160;An&#160;alignment-check exception&#160;<br/>is&#160;generated&#160;when&#160;reference&#160;is&#160;made&#160;to&#160;an&#160;unaligned&#160;operand,&#160;such&#160;as&#160;a&#160;word&#160;at&#160;an&#160;odd&#160;byte&#160;address&#160;or&#160;a&#160;<br/>doubleword at&#160;an address which is&#160;not&#160;an&#160;integral&#160;multiple of four. Alignment-check&#160;exceptions&#160;are&#160;gener-<br/>ated only in&#160;user mode&#160;(privilege level&#160;3). Memory references&#160;that default to&#160;privilege&#160;level 0,&#160;such&#160;as&#160;<br/>segment&#160;descriptor loads,&#160;do not generate this&#160;exception&#160;even when&#160;caused&#160;by instructions executed&#160;in&#160;<br/>user-mode.<br/>The alignment-check&#160;exception&#160;can be used to&#160;check alignment of data.&#160;This is&#160;useful&#160;when&#160;exchanging&#160;<br/>data with processors&#160;which require all data&#160;to be aligned. The alignment-check&#160;exception can also be&#160;used&#160;<br/>by interpreters to&#160;flag some&#160;pointers&#160;as special&#160;by&#160;misaligning the&#160;pointer.&#160;This&#160;eliminates&#160;overhead&#160;of&#160;<br/>checking each&#160;pointer&#160;and only handles the&#160;special&#160;pointer&#160;when&#160;used.<br/>If the&#160;SMAP&#160;bit is&#160;set&#160;in the&#160;CR4 register,&#160;explicit&#160;supervisor-mode&#160;data&#160;accesses to user-mode&#160;pages are&#160;<br/>allowed if&#160;and only if this&#160;bit&#160;is&#160;1.&#160;See&#160;<a href="o_fe12b1e2a880e0ce-132.html">Section 4.6,&#160;“Access&#160;Rights.”</a></p>
+<p style="position:absolute;top:361px;left:69px;white-space:nowrap" class="ft02">VIF</p>
+<p style="position:absolute;top:361px;left:123px;white-space:nowrap" class="ft06"><b>Virtual Interrupt (bit&#160;19)&#160;</b>— Contains a&#160;virtual&#160;image of the IF&#160;flag.&#160;This flag&#160;is used in conjunction with&#160;<br/>the VIP flag.&#160;The processor only recognizes&#160;the VIF flag when&#160;either the VME flag or the PVI flag in control&#160;<br/>register&#160;CR4 is&#160;set and the&#160;IOPL&#160;is less than&#160;3.&#160;(The&#160;VME&#160;flag enables&#160;the virtual-8086 mode extensions;&#160;<br/>the PVI&#160;flag enables&#160;the protected-mode virtual interrupts.)&#160;<br/>See&#160;<a href="o_fe12b1e2a880e0ce-995.html">also: Section 20.3.3.5,&#160;“Method 6:&#160;Software&#160;Interrupt&#160;Handling,” and&#160;</a><a href="o_fe12b1e2a880e0ce-996.html">Section&#160;20.4,&#160;“Protected-Mode&#160;<br/>Virtual Interrupts.”</a></p>
+<p style="position:absolute;top:475px;left:69px;white-space:nowrap" class="ft02">VIP</p>
+<p style="position:absolute;top:475px;left:123px;white-space:nowrap" class="ft06"><b>Virtual interrupt pending (bit 20)&#160;</b>— Set&#160;by software&#160;to&#160;indicate that&#160;an interrupt&#160;is pending; cleared&#160;to&#160;<br/>indicate&#160;that&#160;no&#160;interrupt&#160;is&#160;pending. This&#160;flag is&#160;used&#160;in&#160;conjunction with&#160;the&#160;VIF&#160;flag. The&#160;processor&#160;reads&#160;<br/>this&#160;flag&#160;but never&#160;modifies it. The&#160;processor only&#160;recognizes the VIP flag&#160;when either the VME flag or the&#160;<br/>PVI flag in control register CR4 is&#160;set and the IOPL&#160;is less than 3. The VME flag enables the virtual-8086&#160;<br/>mode extensions; the PVI flag enables&#160;the protected-mode&#160;virtual&#160;interrupts.&#160;<br/>Se<a href="o_fe12b1e2a880e0ce-995.html">e Section 20.3.3.5,&#160;“Method&#160;6:&#160;Software&#160;Interrupt&#160;Handling,” and Se</a><a href="o_fe12b1e2a880e0ce-996.html">ction 20.4, “Protected-Mode Virtual&#160;<br/>Interrupts.”</a></p>
+<p style="position:absolute;top:606px;left:69px;white-space:nowrap" class="ft02">ID</p>
+<p style="position:absolute;top:606px;left:123px;white-space:nowrap" class="ft06"><b>Identification (bit&#160;21)</b>&#160;—&#160;The ability of a&#160;program or&#160;procedure&#160;to set or&#160;clear&#160;this&#160;flag&#160;indicates&#160;support&#160;<br/>for&#160;the CPUID instruction.</p>
+<p style="position:absolute;top:673px;left:69px;white-space:nowrap" class="ft04">2.3.1&#160;</p>
+<p style="position:absolute;top:673px;left:149px;white-space:nowrap" class="ft04">System Flags and Fields in IA-32e Mode</p>
+<p style="position:absolute;top:703px;left:69px;white-space:nowrap" class="ft06">In&#160;64-bit mode, the&#160;RFLAGS&#160;register expands to&#160;64&#160;bits&#160;with the&#160;upper&#160;32&#160;bits&#160;reserved.&#160;System flags in RFLAGS&#160;<br/>(64-bit&#160;mode) or&#160;&#160;EFLAGS (compatibility mode)&#160;are&#160;<a href="o_fe12b1e2a880e0ce-72.html">shown in&#160;Figure&#160;2-5.<br/></a>In&#160;IA-32e&#160;mode,&#160;the processor does&#160;not allow the VM&#160;bit to be set because&#160;virtual-8086&#160;mode is&#160;not supported&#160;<br/>(attempts to set the&#160;bit&#160;are&#160;ignored).&#160;Also, the processor will not&#160;set the&#160;NT&#160;bit. The processor&#160;does, however,&#160;allow&#160;<br/>software to&#160;set the NT&#160;bit&#160;(note that&#160;an&#160;IRET causes a&#160;general protection&#160;fault in IA-32e&#160;mode if the&#160;NT&#160;bit&#160;is set).<br/>In IA-32e&#160;mode,&#160;the&#160;SYSCALL/SYSRET&#160;instructions&#160;have&#160;a&#160;programmable method of specifying&#160;which&#160;bits&#160;are&#160;<br/>cleared&#160;in&#160;RFLAGS/EFLAGS.&#160;These&#160;instructions save/restore&#160;EFLAGS/RFLAGS.</p>
+<p style="position:absolute;top:873px;left:69px;white-space:nowrap" class="ft05">2.4 MEMORY-MANAGEMENT&#160;</p>
+<p style="position:absolute;top:873px;left:380px;white-space:nowrap" class="ft05">REGISTERS</p>
+<p style="position:absolute;top:909px;left:69px;white-space:nowrap" class="ft06">The&#160;processor provides four memory-management registers (GDTR,&#160;LDTR, IDTR, and&#160;TR)&#160;that&#160;specify&#160;the&#160;locations&#160;<br/>of the&#160;data&#160;structures which control segmented&#160;memory&#160;<a href="o_fe12b1e2a880e0ce-74.html">management (see Figure&#160;2-6</a>). Special&#160;instructions&#160;are&#160;<br/>provided for loading and&#160;storing these&#160;registers.</p>
+</div>
+</body>
+</html>

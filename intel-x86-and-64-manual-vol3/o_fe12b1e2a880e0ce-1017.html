@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1017</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1017-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1017.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;22-13</p>
+<p style="position:absolute;top:47px;left:657px;white-space:nowrap" class="ft01">ARCHITECTURE&#160;COMPATIBILITY</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft06">software, but using&#160;them provides a&#160;performance&#160;upgrade.&#160;See&#160;also&#160;sections 8.3.8&#160;and&#160;section 8.3.10<a href="��">&#160;of the&#160;<i>Intel®&#160;<br/>64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume&#160;1</i>&#160;for mor</a>e&#160;information on&#160;the accuracy of&#160;the&#160;<br/>FSIN, FCOS, and&#160;FSINCOS&#160;instructions.</p>
+<p style="position:absolute;top:178px;left:69px;white-space:nowrap" class="ft04">22.18.7.9&#160;&#160;&#160;FPATAN&#160;Instruction</p>
+<p style="position:absolute;top:206px;left:69px;white-space:nowrap" class="ft06">On the 32-bit x87&#160;FPUs, the range of&#160;operands for&#160;the FPATAN&#160;instruction is&#160;unrestricted.&#160;On the&#160;16-bit&#160;IA-32&#160;math&#160;<br/>coprocessors, the&#160;absolute&#160;value&#160;of the&#160;operand in&#160;register&#160;ST(0) must be&#160;smaller than the&#160;absolute&#160;value of the&#160;<br/>operand&#160;in register ST(1). This difference&#160;has impact&#160;on existing&#160;software.</p>
+<p style="position:absolute;top:283px;left:69px;white-space:nowrap" class="ft04">22.18.7.10&#160;&#160;F2XM1 Instruction</p>
+<p style="position:absolute;top:312px;left:69px;white-space:nowrap" class="ft06">The&#160;32-bit x87&#160;FPUs support a&#160;wider range of&#160;operands&#160;(–1&#160;&lt;&#160;ST&#160;(0)&#160;&lt;&#160;+&#160;1) for the&#160;F2XM1&#160;instruction. The&#160;<br/>supported&#160;operand&#160;range for&#160;the&#160;16-bit IA-32&#160;math coprocessors is (0&#160;≤&#160;ST(0)&#160;≤&#160;0.5).&#160;This difference has no impact&#160;</p>
+<p style="position:absolute;top:345px;left:69px;white-space:nowrap" class="ft02">on existing&#160;software.</p>
+<p style="position:absolute;top:389px;left:69px;white-space:nowrap" class="ft04">22.18.7.11&#160;&#160;FLD Instruction</p>
+<p style="position:absolute;top:418px;left:69px;white-space:nowrap" class="ft06">On the 32-bit x87 FPUs, when using&#160;the FLD&#160;instruction&#160;to load&#160;an extended-real value,&#160;a denormal-operand&#160;<br/>exception is not generated because the instruction is not arithmetic. The 16-bit IA-32 math coprocessors do report&#160;<br/>a&#160;denormal-operand exception&#160;in this situation. This difference&#160;does not affect existing&#160;software.<br/>On the 32-bit x87 FPUs, loading a&#160;denormal value&#160;that&#160;is&#160;in&#160;single- or&#160;double-real format causes&#160;the value&#160;to be&#160;<br/>converted to&#160;extended-real format.&#160;Loading a&#160;denormal value&#160;on the&#160;16-bit IA-32&#160;math coprocessors causes&#160;the&#160;<br/>value to be&#160;converted to&#160;an unnormal. If&#160;the next instruction is&#160;FXTRACT&#160;or FXAM,&#160;the 32-bit&#160;x87 FPUs&#160;will give&#160;a&#160;<br/>different result than the&#160;16-bit IA-32&#160;math coprocessors.&#160;This change&#160;was&#160;made&#160;for&#160;IEEE Standard&#160;754&#160;compati-<br/>bility.<br/>On the 32-bit x87 FPUs, loading an&#160;SNaN&#160;that&#160;is in&#160;single- or&#160;double-real format&#160;causes&#160;the FPU&#160;to generate an&#160;<br/>invalid-operation exception. The&#160;16-bit IA-32 math&#160;coprocessors do not raise&#160;an&#160;exception when loading a&#160;<br/>signaling&#160;NaN. The&#160;invalid-operation exception&#160;handler&#160;for&#160;16-bit math&#160;coprocessor&#160;software needs&#160;to be&#160;updated&#160;<br/>to handle this condition&#160;when&#160;porting&#160;software to 32-bit FPUs.&#160;This change&#160;was made for IEEE&#160;Standard 754&#160;<br/>compatibility.</p>
+<p style="position:absolute;top:675px;left:69px;white-space:nowrap" class="ft04">22.18.7.12&#160;&#160;FXTRACT Instruction</p>
+<p style="position:absolute;top:703px;left:69px;white-space:nowrap" class="ft06">On the 32-bit x87 FPUs, if&#160;the operand&#160;is 0&#160;for the&#160;FXTRACT&#160;instruction, the&#160;divide-by-zero exception&#160;is reported&#160;<br/>and –∞&#160;is&#160;delivered&#160;to register ST(1).&#160;If the operand is&#160;+∞,&#160;no exception is reported.&#160;If the operand&#160;is 0 on the&#160;16-</p>
+<p style="position:absolute;top:736px;left:69px;white-space:nowrap" class="ft02">bit IA-32 math coprocessors,&#160;0&#160;is delivered&#160;to register ST(1) and&#160;no exception is reported.&#160;If the operand&#160;is +∞, the&#160;</p>
+<p style="position:absolute;top:753px;left:69px;white-space:nowrap" class="ft06">invalid-operation exception&#160;is reported. These differences&#160;have&#160;no impact on existing software. Software&#160;usually&#160;<br/>bypasses 0&#160;and&#160;∞. This&#160;change&#160;is due to&#160;the IEEE&#160;Standard 754 recommendation&#160;to fully&#160;support&#160;the “logb” func-</p>
+<p style="position:absolute;top:786px;left:69px;white-space:nowrap" class="ft02">tion.</p>
+<p style="position:absolute;top:830px;left:69px;white-space:nowrap" class="ft04">22.18.7.13 &#160;Load Constant&#160;Instructions</p>
+<p style="position:absolute;top:859px;left:69px;white-space:nowrap" class="ft06">On&#160;32-bit x87&#160;FPUs,&#160;rounding control is in effect&#160;for&#160;the load&#160;constant instructions. Rounding control is&#160;not&#160;in effect&#160;<br/>for the&#160;16-bit IA-32 math&#160;coprocessors.&#160;Results for the&#160;FLDPI,&#160;FLDLN2, FLDLG2,&#160;and FLDL2E instructions are&#160;the&#160;<br/>same&#160;as for&#160;the 16-bit IA-32 math&#160;coprocessors when&#160;rounding&#160;control is&#160;set to&#160;round to&#160;nearest or&#160;round to&#160;+∞.&#160;</p>
+<p style="position:absolute;top:908px;left:69px;white-space:nowrap" class="ft02">They are&#160;the&#160;same&#160;for the&#160;FLDL2T&#160;instruction when rounding&#160;control&#160;is set to&#160;round to nearest,&#160;round to&#160;–∞, or&#160;</p>
+<p style="position:absolute;top:925px;left:69px;white-space:nowrap" class="ft06">round to zero.&#160;Results are&#160;different from the&#160;16-bit IA-32 math coprocessors in&#160;the least significant bit of the&#160;<br/>mantissa&#160;if rounding&#160;control is set to&#160;round to&#160;–∞&#160;or round&#160;to 0&#160;for the&#160;FLDPI,&#160;FLDLN2,&#160;FLDLG2,&#160;and&#160;FLDL2E&#160;instruc-</p>
+<p style="position:absolute;top:958px;left:69px;white-space:nowrap" class="ft02">tions; they are different&#160;for&#160;the FLDL2T&#160;instruction if&#160;round to +∞&#160;is specified.&#160;These changes&#160;were implemented&#160;for&#160;</p>
+<p style="position:absolute;top:974px;left:69px;white-space:nowrap" class="ft02">compatibility with IEEE&#160;Standard 754 for&#160;Floating-Point Arithmetic recommendations.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1203</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:12px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1203-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1203.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3C&#160;30-23</p>
+<p style="position:absolute;top:47px;left:658px;white-space:nowrap" class="ft01">VMX INSTRUCTION REFERENCE</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">VMWRITE—Write Field to&#160;Virtual-Machine Control Structure</p>
+<p style="position:absolute;top:236px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:262px;left:69px;white-space:nowrap" class="ft08">Writes the&#160;contents of&#160;a primary source&#160;operand&#160;(register&#160;or&#160;memory)&#160;to a&#160;specified field in a&#160;VMCS. In VMX root&#160;<br/>operation, the&#160;instruction writes&#160;to the current&#160;VMCS. If&#160;executed in VMX non-root operation, the&#160;instruction writes&#160;<br/>to the&#160;VMCS referenced by&#160;the VMCS&#160;link pointer field in the&#160;current VMCS.<br/>The VMCS field is&#160;specified by&#160;the VMCS-field encoding contained in the&#160;register secondary&#160;source operand.&#160;<br/>Outside IA-32e mode,&#160;the secondary&#160;source operand&#160;is always&#160;32&#160;bits,&#160;regardless&#160;of the&#160;value&#160;of CS.D.&#160;In 64-bit&#160;<br/>mode, the&#160;secondary source&#160;operand has 64&#160;bits.&#160;<br/>The&#160;effective&#160;size of the&#160;primary source&#160;operand,&#160;which may&#160;be&#160;a register&#160;or&#160;in memory,&#160;is always 32 bits outside&#160;<br/>IA-32e&#160;mode&#160;(the&#160;setting&#160;of&#160;CS.D&#160;is&#160;ignored&#160;with&#160;respect to operand size) and 64 bits in 64-bit mode. If&#160;the VMCS&#160;<br/>field&#160;specified by the&#160;secondary&#160;source&#160;operand is&#160;shorter&#160;than this&#160;effective&#160;operand size, the&#160;high bits of the&#160;<br/>primary source&#160;operand&#160;are&#160;ignored. If&#160;the VMCS field is&#160;longer,&#160;then the&#160;high bits of the&#160;field&#160;are cleared&#160;to 0.<br/>Note&#160;that&#160;any faults resulting from accessing&#160;a&#160;memory&#160;source&#160;operand occur&#160;after determining,&#160;in the&#160;operation&#160;<br/>section below,&#160;that&#160;the relevant&#160;VMCS pointer is&#160;valid but&#160;before determining&#160;if&#160;the destination VMCS field is&#160;<br/>supported.</p>
+<p style="position:absolute;top:520px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:552px;left:69px;white-space:nowrap" class="ft04">IF (not in VMX operation) or (CR0.PE = 0) or&#160;(RFLAGS.VM&#160;= 1)&#160;or&#160;(IA32_EFER.LMA&#160;= 1 and&#160;CS.L = 0)</p>
+<p style="position:absolute;top:570px;left:89px;white-space:nowrap" class="ft04">THEN&#160;#UD;</p>
+<p style="position:absolute;top:588px;left:69px;white-space:nowrap" class="ft011">ELSIF in&#160;VMX non-root operation&#160;AND (“VMCS shadowing” is&#160;0 OR&#160;secondary source&#160;operand&#160;sets&#160;bits&#160;in range 63:15 OR<br/>VMWRITE bit corresponding&#160;to&#160;bits&#160;14:0 of&#160;secondary source operand&#160;is 1)</p>
+<p style="position:absolute;top:603px;left:493px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:624px;left:89px;white-space:nowrap" class="ft04">THEN&#160;VMexit;</p>
+<p style="position:absolute;top:642px;left:69px;white-space:nowrap" class="ft04">ELSIF&#160;CPL</p>
+<p style="position:absolute;top:640px;left:129px;white-space:nowrap" class="ft06">&gt;</p>
+<p style="position:absolute;top:642px;left:137px;white-space:nowrap" class="ft04">&#160;0</p>
+<p style="position:absolute;top:660px;left:89px;white-space:nowrap" class="ft04">THEN&#160;#GP(0);</p>
+<p style="position:absolute;top:678px;left:69px;white-space:nowrap" class="ft011">ELSIF (in VMX root operation AND current-VMCS&#160;pointer is&#160;not valid)&#160;OR<br/>(in VMX non-root operation&#160;AND VMCS-link&#160;pointer&#160;is not valid)</p>
+<p style="position:absolute;top:714px;left:89px;white-space:nowrap" class="ft04">THEN&#160;VMfailInvalid;</p>
+<p style="position:absolute;top:732px;left:69px;white-space:nowrap" class="ft04">ELSIF&#160;secondary source&#160;operand does&#160;not correspond&#160;to&#160;any VMCS&#160;field</p>
+<p style="position:absolute;top:750px;left:89px;white-space:nowrap" class="ft04">THEN VMfailValid(VMREAD/VMWRITE&#160;from/to unsupported&#160;VMCS&#160;component);</p>
+<p style="position:absolute;top:768px;left:69px;white-space:nowrap" class="ft011">ELSIF&#160;VMCS&#160;field indexed by&#160;secondary source operand&#160;is&#160;a&#160;VM-exit information field&#160;AND<br/>processor&#160;does&#160;not support writing&#160;to such fields</p>
+<p style="position:absolute;top:783px;left:348px;white-space:nowrap" class="ft05">2</p>
+<p style="position:absolute;top:804px;left:89px;white-space:nowrap" class="ft011">THEN&#160;VMfailValid(VMWRITE&#160;to&#160;read-only VMCS&#160;component);<br/>ELSE</p>
+<p style="position:absolute;top:845px;left:123px;white-space:nowrap" class="ft04">IF&#160;in&#160;VMX root&#160;operation</p>
+<p style="position:absolute;top:865px;left:143px;white-space:nowrap" class="ft04">THEN&#160;field&#160;indexed&#160;by secondary source&#160;operand in&#160;current&#160;VMCS&#160;←&#160;primary source operand;</p>
+<p style="position:absolute;top:883px;left:143px;white-space:nowrap" class="ft04">ELSE&#160;field&#160;indexed by&#160;secondary source&#160;operand in&#160;VMCS&#160;referenced&#160;by VMCS&#160;link pointer&#160;←&#160;primary source&#160;operand;</p>
+<p style="position:absolute;top:901px;left:116px;white-space:nowrap" class="ft011">FI;<br/>VMsucceed;</p>
+<p style="position:absolute;top:937px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:137px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:200px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:378px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">0F 79</p>
+<p style="position:absolute;top:160px;left:200px;white-space:nowrap" class="ft04">VMWRITE r64,&#160;r/m64</p>
+<p style="position:absolute;top:160px;left:378px;white-space:nowrap" class="ft04">Writes a&#160;specified VMCS&#160;field&#160;(in&#160;64-bit&#160;mode)</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft04">0F 79</p>
+<p style="position:absolute;top:182px;left:200px;white-space:nowrap" class="ft04">VMWRITE r32,&#160;r/m32</p>
+<p style="position:absolute;top:182px;left:378px;white-space:nowrap" class="ft04">Writes a&#160;specified VMCS&#160;field&#160;(outside&#160;64-bit mode)</p>
+<p style="position:absolute;top:1000px;left:69px;white-space:nowrap" class="ft04">1.&#160;The&#160;VMWRITE bit for&#160;a secondary&#160;source operand is defined&#160;as follows. Let&#160;<i>x</i>&#160;be&#160;the&#160;value of&#160;bits&#160;14:0&#160;of&#160;the secondary source oper-</p>
+<p style="position:absolute;top:1017px;left:91px;white-space:nowrap" class="ft04">and and&#160;let&#160;<i>addr</i>&#160;be&#160;the VMWRITE-bitmap&#160;address.&#160;The&#160;corresponding VMWRITE bit is in&#160;bit position&#160;<i>x&#160;</i>&amp; 7 of&#160;the byte at&#160;physical&#160;</p>
+<p style="position:absolute;top:1033px;left:91px;white-space:nowrap" class="ft04">address&#160;<i>addr&#160;</i>| (x&#160;» 3).</p>
+<p style="position:absolute;top:1054px;left:69px;white-space:nowrap" class="ft04">2.&#160;Software&#160;can&#160;discover whether&#160;these&#160;fields&#160;can&#160;be&#160;written by reading the&#160;VMX&#160;capability&#160;MSR IA32_VMX_MISC&#160;(see&#160;<a href="o_fe12b1e2a880e0ce-1947.html">Appendix&#160;A.6)</a>.</p>
+</div>
+</body>
+</html>

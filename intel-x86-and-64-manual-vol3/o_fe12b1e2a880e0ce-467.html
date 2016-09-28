@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 467</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:21px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page467-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce467.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 3B&#160;14-1</p>
+<p style="position:absolute;top:96px;left:699px;white-space:nowrap" class="ft01">CHAPTER 14</p>
+<p style="position:absolute;top:120px;left:430px;white-space:nowrap" class="ft01">POWER AND THERMAL MANAGEMENT</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft08">This&#160;chapter describes&#160;facilities of Intel 64&#160;and IA-32&#160;architecture used for&#160;power management and&#160;thermal&#160;moni-<br/>toring.</p>
+<p style="position:absolute;top:262px;left:68px;white-space:nowrap" class="ft03">14.1 ENHANCED&#160;</p>
+<p style="position:absolute;top:262px;left:257px;white-space:nowrap" class="ft03">INTEL&#160;</p>
+<p style="position:absolute;top:262px;left:317px;white-space:nowrap" class="ft03">SPEEDSTEP</p>
+<p style="position:absolute;top:264px;left:426px;white-space:nowrap" class="ft04">®</p>
+<p style="position:absolute;top:262px;left:439px;white-space:nowrap" class="ft03">&#160;TECHNOLOGY</p>
+<p style="position:absolute;top:298px;left:68px;white-space:nowrap" class="ft02">Enhanced Intel&#160;SpeedStep</p>
+<p style="position:absolute;top:296px;left:246px;white-space:nowrap" class="ft05">®</p>
+<p style="position:absolute;top:298px;left:257px;white-space:nowrap" class="ft02">&#160;Technology&#160;was introduced&#160;in&#160;the Pentium M&#160;processor.&#160;The&#160;technology enables&#160;the&#160;</p>
+<p style="position:absolute;top:315px;left:68px;white-space:nowrap" class="ft08">management&#160;of&#160;processor&#160;power consumption via&#160;performance&#160;state&#160;transitions. These&#160;states&#160;are&#160;defined as&#160;<br/>discrete&#160;operating points&#160;associated with different&#160;voltages&#160;and&#160;frequencies.&#160;<br/>Enhanced&#160;Intel SpeedStep Technology differs&#160;from previous&#160;generations&#160;of&#160;Intel SpeedStep&#160;Technology&#160;in&#160;two&#160;<br/>ways:</p>
+<p style="position:absolute;top:394px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:394px;left:93px;white-space:nowrap" class="ft08">Centralization of the&#160;control mechanism&#160;and software&#160;interface in&#160;the&#160;processor by using&#160;model-specific&#160;<br/>registers.</p>
+<p style="position:absolute;top:433px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:433px;left:93px;white-space:nowrap" class="ft02">Reduced hardware overhead; this&#160;permits&#160;more frequent&#160;performance state transitions.</p>
+<p style="position:absolute;top:457px;left:68px;white-space:nowrap" class="ft08">Previous&#160;generations&#160;of the Intel SpeedStep Technology&#160;require&#160;processors to be a deep sleep state,&#160;holding off bus&#160;<br/>master transfers&#160;for the&#160;duration&#160;of a&#160;performance&#160;state transition. Performance state transitions&#160;under the&#160;<br/>Enhanced&#160;Intel SpeedStep Technology are&#160;discrete&#160;transitions to&#160;a new target frequency.<br/>Support is&#160;indicated by CPUID,&#160;using ECX feature bit&#160;07. Enhanced&#160;Intel SpeedStep&#160;Technology is&#160;enabled by&#160;<br/>setting&#160;IA32_MISC_ENABLE MSR, bit 16.&#160;On reset,&#160;bit&#160;16&#160;of&#160;IA32_MISC_ENABLE MSR is&#160;cleared.&#160;</p>
+<p style="position:absolute;top:581px;left:68px;white-space:nowrap" class="ft07">14.1.1&#160;</p>
+<p style="position:absolute;top:581px;left:148px;white-space:nowrap" class="ft07">Software&#160;Interface For Initiating Performance State Transitions</p>
+<p style="position:absolute;top:612px;left:68px;white-space:nowrap" class="ft08">State transitions are initiated by&#160;writing a 16-bit value to&#160;the IA32_PERF_CTL&#160;register,&#160;see&#160;<a href="o_fe12b1e2a880e0ce-470.html">Figure 14-2. If a tr</a>ansi-<br/>tion&#160;is already&#160;in progress, transition&#160;to&#160;a&#160;new value will&#160;subsequently take&#160;effect.&#160;<br/>Reads of&#160;IA32_PERF_CTL determine&#160;the&#160;last targeted&#160;operating&#160;point. The&#160;current&#160;operating point&#160;can be read&#160;from&#160;<br/>IA32_PERF_STATUS.&#160;IA32_PERF_STATUS is&#160;updated dynamically.<br/>The&#160;16-bit encoding that defines valid&#160;operating points&#160;is model-specific. Applications&#160;and performance&#160;tools are&#160;<br/>not expected to use either&#160;IA32_PERF_CTL&#160;or IA32_PERF_STATUS and should treat both&#160;as reserved. Performance&#160;<br/>monitoring tools&#160;can access model-specific events&#160;and report the&#160;occurrences of&#160;state transitions.</p>
+<p style="position:absolute;top:781px;left:68px;white-space:nowrap" class="ft03">14.2 P-STATE&#160;</p>
+<p style="position:absolute;top:781px;left:232px;white-space:nowrap" class="ft03">HARDWARE&#160;</p>
+<p style="position:absolute;top:781px;left:348px;white-space:nowrap" class="ft03">COORDINATION</p>
+<p style="position:absolute;top:817px;left:68px;white-space:nowrap" class="ft08">The&#160;Advanced Configuration&#160;and Power Interface&#160;(ACPI) defines performance&#160;states&#160;(P-states) that are used to&#160;<br/>facilitate&#160;system software’s&#160;ability&#160;to manage&#160;processor power consumption. Different&#160;P-states&#160;correspond to&#160;<br/>different performance&#160;levels&#160;that are&#160;applied while&#160;the&#160;processor is actively executing instructions. Enhanced&#160;Intel&#160;<br/>SpeedStep&#160;Technology supports P-states&#160;by providing&#160;software interfaces that&#160;control the&#160;operating frequency&#160;and&#160;<br/>voltage of a&#160;processor.&#160;<br/>With multiple processor cores&#160;residing in&#160;the&#160;same&#160;physical&#160;package,&#160;hardware dependencies may exist&#160;for&#160;a&#160;<br/>subset of logical processors on&#160;a platform.&#160;These&#160;dependencies&#160;may impose requirements that&#160;impact the&#160;coordi-<br/>nation&#160;of P-state transitions. As a&#160;result,&#160;multi-core processors may&#160;require an&#160;OS to&#160;provide&#160;additional&#160;software&#160;<br/>support for coordinating P-state&#160;transitions&#160;for&#160;those subsets of logical processors.<br/>ACPI firmware&#160;can choose to&#160;expose&#160;P-states&#160;as&#160;dependent&#160;and hardware-coordinated&#160;to OS power management&#160;<br/>(OSPM) policy.&#160;To&#160;support OSPMs, multi-core processors must&#160;have additional built-in support for&#160;P-state&#160;hardware&#160;<br/>coordination and&#160;feedback.<br/>Intel&#160;64&#160;and&#160;IA-32&#160;processors&#160;with dependent P-states&#160;amongst&#160;a subset&#160;of&#160;logical processors permit hardware&#160;<br/>coordination of P-states&#160;and provide a&#160;hardware-coordination feedback mechanism&#160;using IA32_MPERF MSR&#160;and&#160;</p>
+</div>
+</body>
+</html>

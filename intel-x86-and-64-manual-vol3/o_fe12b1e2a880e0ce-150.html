@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 150</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page150-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce150.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-46&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">PAGING</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft08">All logical processors that are using&#160;the&#160;paging structures that are being modified&#160;must participate&#160;and perform&#160;<br/>appropriate invalidations after&#160;the modifications are made.</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft08">If the modifications to&#160;the paging-structure entries are made&#160;before&#160;the barrier&#160;or&#160;if there&#160;is no&#160;barrier,&#160;the&#160;<br/>operating system&#160;must&#160;ensure one&#160;of&#160;the following: (1)&#160;that the&#160;affected&#160;linear-address range is&#160;not used&#160;<br/>between the time of modification&#160;and the&#160;time of invalidation; or (2)&#160;that it is prepared to deal with the&#160;conse-<br/>quences&#160;of&#160;the affected linear-address&#160;range being used&#160;during that period. For example,&#160;if&#160;the operating&#160;<br/>system does not&#160;allow pages&#160;being freed to be reallocated for another&#160;purpose until&#160;after the required&#160;invalida-<br/>tions,&#160;writes&#160;to those&#160;pages by errant software&#160;will&#160;not unexpectedly modify memory that is&#160;in&#160;use.</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:244px;left:93px;white-space:nowrap" class="ft08">Software&#160;must be&#160;prepared&#160;to&#160;deal with&#160;reads, instruction fetches, and prefetch requests to the affected linear-<br/>address&#160;range&#160;that are&#160;a result&#160;of speculative&#160;execution&#160;that&#160;would&#160;never actually occur in&#160;the executed&#160;code&#160;<br/>path.</p>
+<p style="position:absolute;top:301px;left:68px;white-space:nowrap" class="ft08">When multiple&#160;logical processors are&#160;using the&#160;same linear-address space&#160;at the&#160;same time, they must&#160;coordinate&#160;<br/>before any&#160;request&#160;to modify&#160;the paging-structure entries&#160;that control that&#160;linear-address space. In these cases,&#160;<br/>the barrier in&#160;the TLB shootdown routine may not be&#160;required.&#160;For example,&#160;when&#160;freeing a&#160;range&#160;of linear&#160;<br/>addresses, some&#160;other mechanism can assure&#160;no logical processor is&#160;using that range&#160;before the&#160;request to&#160;free&#160;it&#160;<br/>is made.&#160;In this case,&#160;a logical processor freeing&#160;the&#160;range&#160;can clear the&#160;P flags&#160;in the&#160;PTEs&#160;associated&#160;with&#160;the&#160;<br/>range,&#160;free the physical page&#160;frames associated&#160;with the range, and&#160;then&#160;signal the other logical processors using&#160;<br/>that linear-address space to perform the necessary invalidations. All&#160;the&#160;affected&#160;logical processors must complete&#160;<br/>their invalidations before&#160;the&#160;linear-address range&#160;and&#160;the&#160;physical&#160;page frames&#160;previously associated with that&#160;<br/>range can be reallocated.</p>
+<p style="position:absolute;top:489px;left:68px;white-space:nowrap" class="ft04">4.11&#160;</p>
+<p style="position:absolute;top:489px;left:147px;white-space:nowrap" class="ft04">INTERACTIONS WITH VIRTUAL-MACHINE EXTENSIONS (VMX)</p>
+<p style="position:absolute;top:525px;left:68px;white-space:nowrap" class="ft08">The architecture&#160;for virtual-machine&#160;extensions (VMX) includes features that intera<a href="o_fe12b1e2a880e0ce-150.html">ct with paging. Section 4.11.1&#160;<br/></a>discusses&#160;ways in which VMX-specific&#160;control&#160;transfers,&#160;called&#160;VMX&#160;transitions specially affect paging<a href="o_fe12b1e2a880e0ce-150.html">. Section&#160;<br/>4.11.2&#160;</a>gives an&#160;overview&#160;of VMX features&#160;specifically designed&#160;to support address&#160;translation.</p>
+<p style="position:absolute;top:608px;left:68px;white-space:nowrap" class="ft05">4.11.1 VMX&#160;</p>
+<p style="position:absolute;top:608px;left:190px;white-space:nowrap" class="ft05">Transitions</p>
+<p style="position:absolute;top:639px;left:68px;white-space:nowrap" class="ft08">The&#160;VMX architecture&#160;defines two control transfers&#160;called&#160;<b>VM&#160;entries</b>&#160;and&#160;<b>VM&#160;exits</b>; collectively,&#160;these&#160;are&#160;called&#160;<br/><b>VMX transitions</b>. VM&#160;entries&#160;and VM&#160;exits are&#160;described in detail&#160;in&#160;<a href="o_fe12b1e2a880e0ce-1093.html">Chapter 26 and Ch</a><a href="o_fe12b1e2a880e0ce-1119.html">apter 27, respectiv</a>ely, in&#160;<br/><a href="��">the&#160;<i>Intel®&#160;64 and IA-32 Architectures&#160;Software&#160;Developer’s Manual, Volume&#160;3C</i></a>.&#160;The following items&#160;identify&#160;<br/>paging-related&#160;details:</p>
+<p style="position:absolute;top:710px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:711px;left:93px;white-space:nowrap" class="ft010">VMX&#160;transitions modify the CR0&#160;and&#160;CR4 registers and the IA32_EFER&#160;MSR concurrently. For this reason, they&#160;<br/>allow&#160;transitions between paging&#160;modes that&#160;would&#160;not otherwise be possible:<br/>—&#160;VM&#160;entries allow transitions&#160;from&#160;IA-32e paging directly&#160;to&#160;either&#160;32-bit&#160;paging or&#160;PAE&#160;paging.<br/>—&#160;VM&#160;exits allow transitions&#160;from&#160;either 32-bit&#160;paging&#160;or PAE&#160;paging&#160;directly&#160;to IA-32e paging.</p>
+<p style="position:absolute;top:797px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:798px;left:93px;white-space:nowrap" class="ft010">VMX transitions&#160;that&#160;result in&#160;PAE paging load&#160;the PDPTE&#160;re<a href="o_fe12b1e2a880e0ce-117.html">gisters (see Section 4.4.1)</a>&#160;as follows:<br/>—&#160;VM&#160;entries load the&#160;PDPTE registers&#160;either&#160;from the&#160;physical&#160;address being&#160;loaded&#160;into CR3&#160;or from&#160;the&#160;</p>
+<p style="position:absolute;top:838px;left:119px;white-space:nowrap" class="ft03">virtual-machine control&#160;structure&#160;(VMCS); se<a href="o_fe12b1e2a880e0ce-1109.html">e Section 26.3.2.4.</a></p>
+<p style="position:absolute;top:862px;left:93px;white-space:nowrap" class="ft03">—&#160;VM&#160;exits load&#160;the PDPTE&#160;registers from the&#160;physical&#160;address&#160;being&#160;loaded&#160;into&#160;CR3;&#160;see<a href="o_fe12b1e2a880e0ce-1146.html">&#160;Section 27.5.4.</a></p>
+<p style="position:absolute;top:884px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:885px;left:93px;white-space:nowrap" class="ft011">VMX&#160;transitions&#160;invalidate the TLBs and paging-structure&#160;caches based on&#160;certain control setting<a href="o_fe12b1e2a880e0ce-1109.html">s. See Section&#160;<br/>26.3.2.5&#160;</a>and<a href="o_fe12b1e2a880e0ce-1146.html">&#160;Section 27.5.5&#160;</a>in the&#160;<a href="��"><i>Intel® 64&#160;and&#160;IA-32&#160;Architectures Software&#160;Developer’s&#160;Manual,&#160;Volume&#160;<br/>3C</i></a>.</p>
+<p style="position:absolute;top:968px;left:68px;white-space:nowrap" class="ft05">4.11.2&#160;</p>
+<p style="position:absolute;top:968px;left:148px;white-space:nowrap" class="ft05">VMX Support for&#160;Address Translation</p>
+<p style="position:absolute;top:999px;left:68px;white-space:nowrap" class="ft08"><a href="o_fe12b1e2a880e0ce-1149.html">Chapter 28,&#160;“VMX&#160;Support&#160;for Address Translation,” in t</a>he&#160;<a href="��"><i>Intel® 64 and&#160;IA-32 Architectures&#160;Software Developer’s&#160;<br/>Manual, Volume&#160;3C</i></a>&#160;describe two features&#160;of the&#160;virtual-machine&#160;extensions&#160;(VMX)&#160;that interact directly with&#160;<br/>paging. These are&#160;<b>virtual-processor identifiers</b>&#160;(<b>VPIDs</b>) and the&#160;<b>extended page table</b>&#160;mechanism (<b>EPT</b>).</p>
+</div>
+</body>
+</html>

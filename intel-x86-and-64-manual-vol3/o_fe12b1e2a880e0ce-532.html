@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 532</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:16px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:18px;font-family:Times;color:#000000;}
+	.ft07{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page532-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce532.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">15-26&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft08">In&#160;either case,&#160;this indicates that&#160;the error&#160;is detected at&#160;the instruction pointer saved on&#160;the stack&#160;for&#160;this&#160;<br/>machine&#160;check exception&#160;and restarting execution&#160;with&#160;the&#160;interrupted&#160;context is&#160;not possible.&#160;System&#160;<br/>software may&#160;take&#160;the following recovery actions&#160;for&#160;the affected&#160;logical&#160;processor:&#160;</p>
+<p style="position:absolute;top:159px;left:119px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:157px;left:144px;white-space:nowrap" class="ft02">The&#160;current executing thread&#160;cannot be&#160;continued. System&#160;software&#160;must terminate&#160;the interrupted&#160;</p>
+<p style="position:absolute;top:174px;left:143px;white-space:nowrap" class="ft08">stream of execution&#160;and provide&#160;a new stream of execution on return from the machine check handler&#160;<br/>for&#160;the affected logical&#160;processor.</p>
+<p style="position:absolute;top:227px;left:68px;white-space:nowrap" class="ft04">SRAR&#160;Error And Non-Affected Logical&#160;Processors</p>
+<p style="position:absolute;top:252px;left:68px;white-space:nowrap" class="ft08">The logical processors that observed but&#160;not affected by an&#160;SRAR error&#160;should&#160;find that the&#160;RIPV flag&#160;in the&#160;<br/>IA32_MCG_STATUS register is set and&#160;the&#160;EIPV&#160;flag in the&#160;IA32_MCG_STATUS register is cleared,&#160;indicating that it&#160;<br/>is safe&#160;to restart the&#160;execution at&#160;the instruction saved on the&#160;stack for the&#160;machine check exception&#160;on&#160;these&#160;<br/>processors after&#160;the recovery action&#160;is&#160;successfully taken by system&#160;software.&#160;</p>
+<p style="position:absolute;top:352px;left:68px;white-space:nowrap" class="ft05">15.9.4&#160;</p>
+<p style="position:absolute;top:352px;left:148px;white-space:nowrap" class="ft05">Multiple MCA Errors&#160;</p>
+<p style="position:absolute;top:381px;left:68px;white-space:nowrap" class="ft08">When multiple&#160;MCA&#160;errors are&#160;detected within a certain detection window, the&#160;processor&#160;may&#160;aggregate&#160;the&#160;<br/>reporting of these errors&#160;together&#160;as a&#160;single&#160;event, i.e.&#160;a&#160;single&#160;machine&#160;exception condition. &#160;If this occurs,&#160;<br/>system&#160;software may find multiple MCA errors&#160;logged&#160;in different MC&#160;banks on one&#160;logical&#160;processor or find&#160;multiple&#160;<br/>MCA&#160;errors logged&#160;across different processors for a&#160;single&#160;machine&#160;check broadcast event.&#160; In&#160;order&#160;to handle&#160;<br/>multiple UCR errors reported&#160;from a&#160;single machine check event and&#160;possibly recover from&#160;multiple&#160;errors, system&#160;<br/>software may consider&#160;the&#160;following:&#160;</p>
+<p style="position:absolute;top:485px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:486px;left:93px;white-space:nowrap" class="ft08">Whether it can recover&#160;from multiple errors is determined&#160;by the most severe error reported on the system. &#160;If&#160;<br/>the most&#160;severe error&#160;is found to&#160;be&#160;an unrecoverable error&#160;(VAL=1,&#160;UC=1,&#160;PCC=1 and&#160;EN=1) after system&#160;<br/>software examines&#160;the MC banks&#160;of&#160;all processors&#160;to&#160;which the&#160;MCA signal is&#160;broadcast, recovery from the&#160;<br/>multiple&#160;errors&#160;is not possible&#160;and system&#160;software&#160;needs to&#160;reset&#160;the system.&#160;</p>
+<p style="position:absolute;top:557px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:558px;left:93px;white-space:nowrap" class="ft08">When multiple recoverable errors are reported and no other fatal condition (e.g. overflowed&#160;condition for SRAR&#160;<br/>error)&#160;is found for the reported&#160;recoverable&#160;errors,&#160;it&#160;is possible&#160;for&#160;system&#160;software&#160;to recover from the&#160;<br/>multiple&#160;recoverable errors by taking necessary recovery&#160;action&#160;for each individual&#160;recoverable error.&#160;However,&#160;<br/>system software&#160;can no longer expect one&#160;to one&#160;relationship&#160;with the error&#160;information recorded&#160;in the&#160;<br/>IA32_MCi_STATUS&#160;register&#160;and&#160;the&#160;states of the RIPV&#160;and EIPV flags in&#160;the IA32_MCG_STATUS&#160;register&#160;as the&#160;<br/>states&#160;of the&#160;RIPV&#160;and&#160;the EIPV&#160;flags&#160;in the&#160;IA32_MCG_STATUS&#160;register may&#160;indicate&#160;the information for the&#160;<br/>most severe error recorded on&#160;the&#160;processor.&#160;System&#160;software&#160;is&#160;required&#160;to&#160;use&#160;the&#160;RIPV&#160;flag&#160;indication&#160;in&#160;the&#160;<br/>IA32_MCG_STATUS register to&#160;make&#160;a final decision of&#160;recoverability of the&#160;errors and find the&#160;restart-ability&#160;<br/>requirement&#160;after examining each IA32_MCi_STATUS&#160;register error&#160;information&#160;in&#160;the MC&#160;banks.&#160;<br/>In&#160;certain cases where system&#160;software&#160;observes&#160;more&#160;than one&#160;SRAR error logged&#160;for&#160;a single&#160;logical&#160;<br/>processor,&#160;it&#160;can no longer rely&#160;on&#160;affected&#160;threads&#160;as specified&#160;in Table&#160;15-20&#160;above.&#160;System&#160;software is&#160;<br/>recommended&#160;to reset the&#160;system if this&#160;condition is&#160;observed.&#160;</p>
+<p style="position:absolute;top:796px;left:68px;white-space:nowrap" class="ft05">15.9.5&#160;</p>
+<p style="position:absolute;top:796px;left:148px;white-space:nowrap" class="ft05">Machine-Check Error Codes Interpretation</p>
+<p style="position:absolute;top:825px;left:68px;white-space:nowrap" class="ft08"><a href="��">Chapter 16,&#160;“Interpreting&#160;Machine-Check Error Codes,” pro</a>vides information on interpreting&#160;the MCA&#160;error code,&#160;<br/>model-specific error code, and other information error code&#160;fields. For P6 family processors, information has been&#160;<br/>included on decoding&#160;external bus&#160;errors. For&#160;Pentium&#160;4&#160;and&#160;Intel Xeon processors; information&#160;is included on&#160;<br/>external&#160;bus, internal&#160;timer and&#160;cache hierarchy errors.</p>
+<p style="position:absolute;top:930px;left:68px;white-space:nowrap" class="ft07">15.10&#160;&#160;GUIDELINES FOR WRITING MACHINE-CHECK SOFTWARE</p>
+<p style="position:absolute;top:964px;left:68px;white-space:nowrap" class="ft02">The&#160;machine-check&#160;architecture&#160;and&#160;error&#160;logging&#160;can be&#160;used&#160;in&#160;three different ways:</p>
+<p style="position:absolute;top:986px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:987px;left:93px;white-space:nowrap" class="ft02">To&#160;detect machine errors during&#160;normal&#160;instruction&#160;execution,&#160;using the&#160;machine-check exception&#160;(#MC).</p>
+<p style="position:absolute;top:1009px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1009px;left:93px;white-space:nowrap" class="ft02">To&#160;periodically check and log&#160;machine&#160;errors.</p>
+<p style="position:absolute;top:1031px;left:68px;white-space:nowrap" class="ft06">•</p>
+<p style="position:absolute;top:1032px;left:93px;white-space:nowrap" class="ft08">To&#160;examine&#160;recoverable UCR errors, determine software&#160;recoverability and&#160;perform recovery actions&#160;via&#160;a&#160;<br/>machine-check&#160;exception handler&#160;or a&#160;corrected&#160;machine-check interrupt&#160;handler.</p>
+</div>
+</body>
+</html>

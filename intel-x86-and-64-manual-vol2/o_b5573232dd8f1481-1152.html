@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1152</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:18px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1152-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811152.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:583px;white-space:nowrap" class="ft00">PSUBB/PSUBW/PSUBD—Subtract Packed Integers</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-472&#160;Vol. 2B</p>
+<p style="position:absolute;top:100px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+15:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:118px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:136px;left:196px;white-space:nowrap" class="ft02">DEST[i+15:i]&#160;= 0</p>
+<p style="position:absolute;top:154px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:172px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:190px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:244px;left:68px;white-space:nowrap" class="ft03">VPSUBD (EVEX encoded&#160;versions)<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:298px;left:88px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:334px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:352px;left:169px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;SRC1[i+31:i]&#160;- SRC2[31:0]<br/>ELSE DEST[i+31:i]&#160;&#160;SRC1[i+31:i]&#160;- SRC2[i+31:i]</p>
+<p style="position:absolute;top:388px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:406px;left:115px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:424px;left:142px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:424px;left:358px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:442px;left:169px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE *zeroing-masking*</p>
+<p style="position:absolute;top:460px;left:385px;white-space:nowrap" class="ft02">;&#160;zeroing-masking</p>
+<p style="position:absolute;top:478px;left:196px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:496px;left:142px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:514px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:532px;left:68px;white-space:nowrap" class="ft03">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:586px;left:68px;white-space:nowrap" class="ft03">VPSUBB (VEX.256&#160;encoded version)<br/>DEST[7:0]&#160;SRC1[7:0]-SRC2[7:0]<br/>DEST[15:8]&#160;SRC1[15:8]-SRC2[15:8]<br/>DEST[23:16]&#160;SRC1[23:16]-SRC2[23:16]<br/>DEST[31:24]&#160;SRC1[31:24]-SRC2[31:24]<br/>DEST[39:32]&#160;SRC1[39:32]-SRC2[39:32]<br/>DEST[47:40]&#160;SRC1[47:40]-SRC2[47:40]<br/>DEST[55:48]&#160;SRC1[55:48]-SRC2[55:48]<br/>DEST[63:56]&#160;SRC1[63:56]-SRC2[63:56]<br/>DEST[71:64]&#160;SRC1[71:64]-SRC2[71:64]<br/>DEST[79:72]&#160;SRC1[79:72]-SRC2[79:72]<br/>DEST[87:80]&#160;SRC1[87:80]-SRC2[87:80]<br/>DEST[95:88]&#160;SRC1[95:88]-SRC2[95:88]<br/>DEST[103:96]&#160;SRC1[103:96]-SRC2[103:96]<br/>DEST[111:104]&#160;SRC1[111:104]-SRC2[111:104]<br/>DEST[119:112]&#160;SRC1[119:112]-SRC2[119:112]<br/>DEST[127:120]&#160;SRC1[127:120]-SRC2[127:120]<br/>DEST[135:128]&#160;SRC1[135:128]-SRC2[135:128]<br/>DEST[143:136]&#160;SRC1[143:136]-SRC2[143:136]<br/>DEST[151:144]&#160;SRC1[151:144]-SRC2[151:144]<br/>DEST[159:152]&#160;SRC1[159:152]-SRC2[159:152]<br/>DEST[167:160]&#160;SRC1[167:160]-SRC2[167:160]<br/>DEST[175:168]&#160;SRC1[175:168]-SRC2[175:168]<br/>DEST[183:176]&#160;SRC1[183:176]-SRC2[183:176]<br/>DEST[191:184]&#160;SRC1[191:184]-SRC2[191:184]<br/>DEST[199:192]&#160;SRC1[199:192]-SRC2[199:192]<br/>DEST[207:200]&#160;SRC1[207:200]-SRC2[207:200]</p>
+</div>
+</body>
+</html>

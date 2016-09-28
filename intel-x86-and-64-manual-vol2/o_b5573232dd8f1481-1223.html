@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1223</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1223-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811223.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">RDSEED—Read Random SEED</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-543</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">RDSEED—Read Random SEED</p>
+<p style="position:absolute;top:356px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:466px;left:69px;white-space:nowrap" class="ft05">Loads&#160;a hardware generated&#160;random value and&#160;store it in&#160;the&#160;destination register. The&#160;random value&#160;is generated&#160;<br/>from an Enhanced NRBG (Non Deterministic Random&#160;Bit Generator) that is compliant&#160;to NIST SP800-90B and NIST&#160;<br/>SP800-90C&#160;in the XOR&#160;construction mode. The&#160;size of the&#160;random value&#160;is&#160;determined&#160;by&#160;the destination register&#160;<br/>size and operating mode.&#160;The Carry Flag indicates whether&#160;a random value is available at the&#160;time&#160;the&#160;instruction&#160;<br/>is executed. CF=1 indicates that the&#160;data in the&#160;destination is valid. Otherwise CF=0 and the&#160;data in the&#160;destination&#160;<br/>operand will&#160;be returned as zeros for&#160;the&#160;specified width. All other flags are&#160;forced to 0 in either situation. Software&#160;<br/>must check&#160;the state of CF=1 for determining if&#160;a valid&#160;random seed&#160;value&#160;has been&#160;returned,&#160;otherwise it&#160;is&#160;<br/>expected&#160;to loop and&#160;retry execution&#160;of&#160;RDSEED (see Section 1.2).<br/>The RDSEED instruction is available at&#160;all privilege&#160;levels. The RDSEED instruction executes&#160;normally either inside&#160;<br/>or outside a&#160;transaction region.<br/>In&#160;64-bit mode, the&#160;instruction's default&#160;operation size&#160;is&#160;32 bits.&#160;Using&#160;a REX prefix&#160;in&#160;the form&#160;of REX.B permits&#160;<br/>access to&#160;additional registers (R8-R15).&#160;Using a&#160;REX&#160;prefix&#160;in&#160;the form&#160;of REX.W promotes&#160;operation to&#160;64&#160;bit&#160;oper-<br/>ands. See the summary&#160;chart&#160;at the&#160;beginning&#160;of this&#160;section for encoding data and&#160;limits.</p>
+<p style="position:absolute;top:712px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:736px;left:69px;white-space:nowrap" class="ft04">IF&#160;HW_NRND_GEN.ready = 1</p>
+<p style="position:absolute;top:756px;left:89px;white-space:nowrap" class="ft04">THEN&#160;</p>
+<p style="position:absolute;top:773px;left:116px;white-space:nowrap" class="ft04">CASE of</p>
+<p style="position:absolute;top:791px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 64: DEST[63:0]&#160;←&#160;HW_NRND_GEN.data;</p>
+<p style="position:absolute;top:809px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 32: DEST[31:0]&#160;←&#160;HW_NRND_GEN.data;</p>
+<p style="position:absolute;top:827px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 16: DEST[15:0]&#160;←&#160;HW_NRND_GEN.data;</p>
+<p style="position:absolute;top:845px;left:116px;white-space:nowrap" class="ft07">ESAC;<br/>CF&#160;←&#160;1;</p>
+<p style="position:absolute;top:881px;left:89px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:899px;left:116px;white-space:nowrap" class="ft04">CASE of</p>
+<p style="position:absolute;top:917px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 64: DEST[63:0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:935px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 32: DEST[31:0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:953px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 16: DEST[15:0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:971px;left:116px;white-space:nowrap" class="ft07">ESAC;<br/>CF&#160;←&#160;0;</p>
+<p style="position:absolute;top:1007px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:1038px;left:69px;white-space:nowrap" class="ft04">OF, SF,&#160;ZF, AF,&#160;PF&#160;←&#160;0;</p>
+<p style="position:absolute;top:132px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:148px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:132px;left:263px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:148px;left:263px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:132px;left:303px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:148px;left:303px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:164px;left:303px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:132px;left:376px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:148px;left:376px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:164px;left:376px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:132px;left:462px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:184px;left:78px;white-space:nowrap" class="ft04">0F&#160;C7&#160;/7</p>
+<p style="position:absolute;top:200px;left:78px;white-space:nowrap" class="ft04">RDSEED r16</p>
+<p style="position:absolute;top:184px;left:263px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:184px;left:303px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:184px;left:376px;white-space:nowrap" class="ft04">RDSEED</p>
+<p style="position:absolute;top:184px;left:462px;white-space:nowrap" class="ft04">Read&#160;a&#160;16-bit NIST SP800-90B &amp; C&#160;compliant random&#160;value&#160;and&#160;</p>
+<p style="position:absolute;top:200px;left:462px;white-space:nowrap" class="ft04">store in&#160;the destination register.</p>
+<p style="position:absolute;top:236px;left:78px;white-space:nowrap" class="ft04">0F&#160;C7&#160;/7</p>
+<p style="position:absolute;top:253px;left:78px;white-space:nowrap" class="ft04">RDSEED r32</p>
+<p style="position:absolute;top:236px;left:263px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:236px;left:303px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:236px;left:376px;white-space:nowrap" class="ft04">RDSEED</p>
+<p style="position:absolute;top:236px;left:462px;white-space:nowrap" class="ft04">Read&#160;a&#160;32-bit NIST SP800-90B &amp; C&#160;compliant random&#160;value&#160;and&#160;</p>
+<p style="position:absolute;top:253px;left:462px;white-space:nowrap" class="ft04">store in&#160;the destination register.</p>
+<p style="position:absolute;top:289px;left:78px;white-space:nowrap" class="ft04">REX.W + 0F C7 /7</p>
+<p style="position:absolute;top:305px;left:78px;white-space:nowrap" class="ft04">RDSEED r64</p>
+<p style="position:absolute;top:289px;left:263px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:289px;left:303px;white-space:nowrap" class="ft04">V/I</p>
+<p style="position:absolute;top:289px;left:376px;white-space:nowrap" class="ft04">RDSEED</p>
+<p style="position:absolute;top:289px;left:462px;white-space:nowrap" class="ft04">Read&#160;a&#160;64-bit NIST SP800-90B &amp; C&#160;compliant random&#160;value&#160;and&#160;</p>
+<p style="position:absolute;top:305px;left:462px;white-space:nowrap" class="ft04">store in&#160;the destination register.</p>
+<p style="position:absolute;top:379px;left:105px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:379px;left:226px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:379px;left:390px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:379px;left:554px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:379px;left:722px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:403px;left:117px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:403px;left:213px;white-space:nowrap" class="ft04">ModRM:r/m&#160;&#160;(w)</p>
+<p style="position:absolute;top:403px;left:411px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:403px;left:575px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:403px;left:743px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1725</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1725-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811725.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">VPERMI2W/D/Q/PS/PD—Full&#160;Permute&#160;From Two Tables&#160;Overwriting&#160;the Index</p>
+<p style="position:absolute;top:47px;left:637px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:764px;white-space:nowrap" class="ft00">Vol. 2C&#160;5-339</p>
+<p style="position:absolute;top:100px;left:143px;white-space:nowrap" class="ft02">FI&#160;</p>
+<p style="position:absolute;top:118px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:136px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:136px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:154px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:172px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:190px;left:197px;white-space:nowrap" class="ft02">DEST[i+31:i]&#160;&#160;0</p>
+<p style="position:absolute;top:208px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:226px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:244px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:298px;left:69px;white-space:nowrap" class="ft03">VPERMI2Q/VPERMI2PD&#160;(EVEX&#160;encoded&#160;versions)<br/>(KL,&#160;VL) = (2, 128),&#160;(4, 256), (8&#160;512)<br/>IF&#160;VL = 128</p>
+<p style="position:absolute;top:352px;left:89px;white-space:nowrap" class="ft02">id&#160;&#160;0</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 256</p>
+<p style="position:absolute;top:406px;left:89px;white-space:nowrap" class="ft02">id&#160;&#160;1</p>
+<p style="position:absolute;top:424px;left:69px;white-space:nowrap" class="ft03">FI;<br/>IF&#160;VL = 512</p>
+<p style="position:absolute;top:460px;left:89px;white-space:nowrap" class="ft02">id&#160;&#160;2</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft03">FI;<br/>TMP_DEST&#160;DEST<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:532px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 64<br/>off&#160;&#160;64*TMP_DEST[i+id:i]<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:586px;left:116px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:604px;left:143px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC2 *is&#160;memory*)</p>
+<p style="position:absolute;top:622px;left:170px;white-space:nowrap" class="ft02">THEN&#160;</p>
+<p style="position:absolute;top:640px;left:197px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;TMP_DEST[i+id+1] ? SRC2[63:0]&#160;</p>
+<p style="position:absolute;top:658px;left:170px;white-space:nowrap" class="ft02">&#160; &#160; &#160; &#160;:&#160;SRC1[off+63:off]</p>
+<p style="position:absolute;top:676px;left:143px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:694px;left:170px;white-space:nowrap" class="ft03">DEST[i+63:i]&#160;&#160;TMP_DEST[i+id+1] ? SRC2[off+63:off]&#160;<br/>&#160; &#160; &#160; &#160;:&#160;SRC1[off+63:off]</p>
+<p style="position:absolute;top:730px;left:143px;white-space:nowrap" class="ft02">FI&#160;</p>
+<p style="position:absolute;top:748px;left:116px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:766px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:766px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:784px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:802px;left:365px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:820px;left:197px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:838px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:856px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:874px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:926px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:954px;left:69px;white-space:nowrap" class="ft04">VPERMI2D __m512i&#160;_mm512_permutex2var_epi32(__m512i&#160;a, __m512i idx, __m512i b);<br/>VPERMI2D __m512i&#160;_mm512_mask_permutex2var_epi32(__m512i a, __mmask16&#160;k, __m512i idx, __m512i b);<br/>VPERMI2D __m512i&#160;_mm512_mask2_permutex2var_epi32(__m512i&#160;a,&#160;__m512i idx,&#160;__mmask16 k,&#160;__m512i&#160;b);<br/>VPERMI2D __m512i&#160;_mm512_maskz_permutex2var_epi32(__mmask16 k, __m512i a, __m512i idx,&#160;__m512i b);<br/>VPERMI&#160;__m256i _mm256_permutex2var_epi32(__m256i a,&#160;__m256i&#160;idx, __m256i b);<br/>VPERMI2D __m256i&#160;_mm256_mask_permutex2var_epi32(__m256i a, __mmask8&#160;k, __m256i idx,&#160;__m256i b);</p>
+</div>
+</body>
+</html>

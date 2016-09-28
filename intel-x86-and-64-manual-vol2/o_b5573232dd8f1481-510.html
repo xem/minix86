@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 510</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:12px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page510-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481510.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:704px;white-space:nowrap" class="ft00">FSINCOS—Sine&#160;and Cosine</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, A-L</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">3-382&#160;Vol. 2A</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">FSINCOS—Sine and Cosine</p>
+<p style="position:absolute;top:253px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:277px;left:68px;white-space:nowrap" class="ft09">Computes both&#160;the approximate sine&#160;and&#160;the cosine&#160;of the&#160;source&#160;operand&#160;in&#160;register ST(0), stores&#160;the&#160;sine&#160;in&#160;<br/>ST(0),&#160;and pushes the&#160;cosine onto&#160;the top&#160;of the&#160;FPU register&#160;stack. (This&#160;instruction is&#160;faster&#160;than executing the&#160;<br/>FSIN&#160;and&#160;FCOS instructions in&#160;succession.)<br/>The source operand must&#160;be&#160;given in radians and must be&#160;within the range&#160;−2</p>
+<p style="position:absolute;top:332px;left:588px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:334px;left:601px;white-space:nowrap" class="ft04">&#160;to&#160;+2</p>
+<p style="position:absolute;top:332px;left:638px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:334px;left:652px;white-space:nowrap" class="ft04">.&#160;The following table&#160;shows&#160;</p>
+<p style="position:absolute;top:351px;left:68px;white-space:nowrap" class="ft08">the results obtained&#160;when taking the sine and cosine of&#160;various classes of numbers, assuming&#160;that underflow&#160;does&#160;<br/>not occur.</p>
+<p style="position:absolute;top:690px;left:68px;white-space:nowrap" class="ft08">If the&#160;source operand&#160;is outside the&#160;acceptable&#160;range, the&#160;C2&#160;flag in&#160;the FPU&#160;status word is&#160;set, and&#160;the value&#160;in&#160;<br/>register ST(0)&#160;remains unchanged. The instruction does not&#160;raise&#160;an&#160;exception when the&#160;source&#160;operand&#160;is out of&#160;<br/>range. It&#160;is up&#160;to the&#160;program&#160;to check&#160;the C2 flag&#160;for out-of-range conditions. Source values&#160;outside&#160;the range&#160;−</p>
+<p style="position:absolute;top:739px;left:68px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:737px;left:76px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:739px;left:90px;white-space:nowrap" class="ft04">&#160;to&#160;+2</p>
+<p style="position:absolute;top:737px;left:128px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:739px;left:142px;white-space:nowrap" class="ft04">&#160;can&#160;be&#160;reduced to&#160;the range of the&#160;instruction&#160;by&#160;subtracting an&#160;appropriate integer&#160;multiple of 2π.&#160;</p>
+<p style="position:absolute;top:756px;left:68px;white-space:nowrap" class="ft04">However,&#160;even&#160;within the&#160;range -2</p>
+<p style="position:absolute;top:753px;left:299px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:756px;left:313px;white-space:nowrap" class="ft04">&#160;to&#160;+2</p>
+<p style="position:absolute;top:753px;left:355px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:756px;left:369px;white-space:nowrap" class="ft04">, inaccurate results&#160;can occur because&#160;the finite&#160;approximation&#160;of&#160;π&#160;</p>
+<p style="position:absolute;top:772px;left:68px;white-space:nowrap" class="ft08">used internally for argument reduction is not sufficient in all&#160;cases.&#160;Therefore,&#160;for accurate&#160;results it is safe to apply&#160;<br/>FSINCOS only&#160;to arguments&#160;reduced accurately in&#160;software, to&#160;a value&#160;smaller in absolute value&#160;than&#160;3π/8.&#160;See&#160;the&#160;</p>
+<p style="position:absolute;top:805px;left:68px;white-space:nowrap" class="ft010">sections titled “Approximation&#160;of Pi”&#160;and “Transcendental Instruction Accura<a href="��">cy” in Chapter&#160;8 of&#160;</a>the<a href="��">&#160;<i>Intel® 64 and&#160;<br/>IA-32&#160;Architectures&#160;Software Developer’s Manual, Volume&#160;1</i>, for a&#160;</a>discussion&#160;of&#160;the proper value&#160;to use&#160;for&#160;π&#160;in&#160;</p>
+<p style="position:absolute;top:838px;left:68px;white-space:nowrap" class="ft09">performing such&#160;reductions.<br/>This&#160;instruction’s operation is&#160;the&#160;same in non-64-bit modes and&#160;64-bit mode.</p>
+<p style="position:absolute;top:128px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:128px;left:206px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:128px;left:343px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:144px;left:343px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:128px;left:401px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:144px;left:401px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:128px;left:479px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:166px;left:74px;white-space:nowrap" class="ft04">D9&#160;FB</p>
+<p style="position:absolute;top:166px;left:206px;white-space:nowrap" class="ft04">FSINCOS</p>
+<p style="position:absolute;top:166px;left:343px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:401px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:166px;left:479px;white-space:nowrap" class="ft04">Compute&#160;the sine&#160;and&#160;cosine of ST(0); replace ST(0) with the&#160;</p>
+<p style="position:absolute;top:182px;left:479px;white-space:nowrap" class="ft04">approximate&#160;sine,&#160;and push&#160;the&#160;approximate cosine&#160;onto the&#160;</p>
+<p style="position:absolute;top:199px;left:479px;white-space:nowrap" class="ft04">register stack.</p>
+<p style="position:absolute;top:390px;left:355px;white-space:nowrap" class="ft03">Table 3-36.&#160;&#160;FSINCOS&#160;Results</p>
+<p style="position:absolute;top:412px;left:180px;white-space:nowrap" class="ft04">SRC</p>
+<p style="position:absolute;top:412px;left:558px;white-space:nowrap" class="ft04">DEST</p>
+<p style="position:absolute;top:435px;left:176px;white-space:nowrap" class="ft04">ST(0)</p>
+<p style="position:absolute;top:435px;left:406px;white-space:nowrap" class="ft04">ST(1)&#160;Cosine</p>
+<p style="position:absolute;top:435px;left:673px;white-space:nowrap" class="ft04">ST(0)&#160;Sine</p>
+<p style="position:absolute;top:458px;left:181px;white-space:nowrap" class="ft04">−&#160;</p>
+<p style="position:absolute;top:457px;left:192px;white-space:nowrap" class="ft07">∞</p>
+<p style="position:absolute;top:459px;left:441px;white-space:nowrap" class="ft04">*</p>
+<p style="position:absolute;top:459px;left:702px;white-space:nowrap" class="ft04">*</p>
+<p style="position:absolute;top:481px;left:182px;white-space:nowrap" class="ft04">−&#160;F</p>
+<p style="position:absolute;top:481px;left:419px;white-space:nowrap" class="ft04">−&#160;</p>
+<p style="position:absolute;top:483px;left:429px;white-space:nowrap" class="ft00">1 to&#160;</p>
+<p style="position:absolute;top:481px;left:453px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:482px;left:460px;white-space:nowrap" class="ft00">&#160;1</p>
+<p style="position:absolute;top:481px;left:679px;white-space:nowrap" class="ft04">−</p>
+<p style="position:absolute;top:483px;left:686px;white-space:nowrap" class="ft00">&#160;1 to&#160;</p>
+<p style="position:absolute;top:481px;left:713px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:483px;left:720px;white-space:nowrap" class="ft00">&#160;1</p>
+<p style="position:absolute;top:503px;left:183px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:503px;left:435px;white-space:nowrap" class="ft04">+&#160;</p>
+<p style="position:absolute;top:505px;left:446px;white-space:nowrap" class="ft00">1</p>
+<p style="position:absolute;top:503px;left:695px;white-space:nowrap" class="ft04">−&#160;0</p>
+<p style="position:absolute;top:526px;left:183px;white-space:nowrap" class="ft04">+&#160;0</p>
+<p style="position:absolute;top:526px;left:435px;white-space:nowrap" class="ft04">+&#160;1</p>
+<p style="position:absolute;top:526px;left:695px;white-space:nowrap" class="ft04">+&#160;0</p>
+<p style="position:absolute;top:548px;left:182px;white-space:nowrap" class="ft04">+&#160;F</p>
+<p style="position:absolute;top:548px;left:419px;white-space:nowrap" class="ft04">−&#160;</p>
+<p style="position:absolute;top:550px;left:429px;white-space:nowrap" class="ft00">1 to&#160;</p>
+<p style="position:absolute;top:548px;left:453px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:550px;left:460px;white-space:nowrap" class="ft00">&#160;1</p>
+<p style="position:absolute;top:548px;left:679px;white-space:nowrap" class="ft04">−&#160;</p>
+<p style="position:absolute;top:550px;left:689px;white-space:nowrap" class="ft00">1 to&#160;</p>
+<p style="position:absolute;top:548px;left:713px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:550px;left:720px;white-space:nowrap" class="ft00">&#160;1</p>
+<p style="position:absolute;top:571px;left:181px;white-space:nowrap" class="ft04">+</p>
+<p style="position:absolute;top:569px;left:188px;white-space:nowrap" class="ft07">&#160;∞</p>
+<p style="position:absolute;top:571px;left:441px;white-space:nowrap" class="ft04">*</p>
+<p style="position:absolute;top:571px;left:702px;white-space:nowrap" class="ft04">*</p>
+<p style="position:absolute;top:594px;left:178px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:594px;left:432px;white-space:nowrap" class="ft00">NaN&#160;</p>
+<p style="position:absolute;top:594px;left:691px;white-space:nowrap" class="ft04">NaN</p>
+<p style="position:absolute;top:615px;left:74px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:634px;left:74px;white-space:nowrap" class="ft011">F&#160;Means finite floating-point&#160;value.<br/>*&#160;Indicates&#160;floating-point&#160;invalid-arithmetic-operand&#160;(#IA) exception.</p>
+</div>
+</body>
+</html>

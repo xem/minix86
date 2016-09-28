@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 317</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page317-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_7281d5ea06a5b67a317.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:768px;white-space:nowrap" class="ft00">Vol. 1&#160;13-11</p>
+<p style="position:absolute;top:47px;left:544px;white-space:nowrap" class="ft01">MANAGING&#160;STATE&#160;USING&#160;THE XSAVE&#160;FEATURE SET</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:95px;white-space:nowrap" class="ft09"><b>BNDCSR state.<br/></b>As&#160;noted&#160;<a href="o_7281d5ea06a5b67a-308.html">in Section 13.2</a>,&#160;CPUID.(EAX=0DH,ECX=4):EBX&#160;enumerates the&#160;offset of&#160;the&#160;section&#160;of the&#160;extended&#160;<br/>region of&#160;the XSAVE area used for BNDCSR state&#160;(when&#160;the standard format of the&#160;extended region is&#160;used).&#160;<br/>CPUID.(EAX=0DH,ECX=6):EAX enumerates&#160;the&#160;size (in&#160;bytes)&#160;required for BNDCSR state. In&#160;the BNDSCR&#160;<br/>section,&#160;bytes&#160;7:0&#160;are&#160;used&#160;for&#160;BNDCFGU and&#160;bytes&#160;15:8&#160;are used&#160;for BNDSTATUS.</p>
+<p style="position:absolute;top:190px;left:69px;white-space:nowrap" class="ft09">Both&#160;components of&#160;MPX&#160;state&#160;are XSAVE-managed&#160;and&#160;the&#160;MPX&#160;feature is&#160;XSAVE-enabled.&#160;The&#160;XSAVE&#160;feature&#160;set&#160;<br/>can&#160;operate on&#160;MPX state&#160;only&#160;if the&#160;feature set is&#160;enabled (CR4.OSXSAVE&#160;=&#160;1) and&#160;has been&#160;configured to&#160;<br/>manage&#160;MPX state&#160;(XCR0[4:3]&#160;= 11b).&#160;MPX&#160;instructions&#160;cannot be used unless&#160;the XSAVE&#160;feature set&#160;is&#160;enabled&#160;<br/>and&#160;has been&#160;configured to&#160;manage MPX&#160;state.</p>
+<p style="position:absolute;top:290px;left:69px;white-space:nowrap" class="ft05">13.5.5 AVX-512&#160;</p>
+<p style="position:absolute;top:290px;left:226px;white-space:nowrap" class="ft05">State</p>
+<p style="position:absolute;top:321px;left:69px;white-space:nowrap" class="ft04">The register&#160;state used by the&#160;Intel</p>
+<p style="position:absolute;top:318px;left:307px;white-space:nowrap" class="ft06">®</p>
+<p style="position:absolute;top:321px;left:318px;white-space:nowrap" class="ft04">&#160;Advanced&#160;Vector Extensions 512 (AVX-512)&#160;comprises&#160;the MXCSR&#160;register,&#160;</p>
+<p style="position:absolute;top:337px;left:69px;white-space:nowrap" class="ft09">the 8&#160;64-bit opmask registers k0–k7,&#160;and&#160;32&#160;512-bit vector registers called ZMM0–ZMM31.&#160;For&#160;each&#160;<i>i</i>, 0&#160;&lt;=&#160;<i>i</i>&#160;&lt;=&#160;<br/>15,&#160;the low 256 bits of register ZMM<i>i</i>&#160;is identical to the AVX register YMM<i>i</i>. Thus, the new state&#160;register&#160;state added&#160;<br/>by&#160;AVX&#160;comprises the&#160;following&#160;user state components:</p>
+<p style="position:absolute;top:392px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:393px;left:95px;white-space:nowrap" class="ft04">The&#160;opmask registers, collectively called&#160;<b>opmask state</b>.</p>
+<p style="position:absolute;top:415px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:415px;left:95px;white-space:nowrap" class="ft09">The&#160;upper 256 bits of the&#160;registers ZMM0–ZMM15.&#160;These&#160;16&#160;256-bit&#160;values&#160;are&#160;denoted ZMM0_H–ZMM15_H&#160;<br/>and are&#160;collectively called&#160;<b>ZMM_Hi256 state</b>.</p>
+<p style="position:absolute;top:454px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:454px;left:95px;white-space:nowrap" class="ft04">The&#160;16 512-bit registers&#160;ZMM16–ZMM31, collectively&#160;called&#160;<b>Hi16_ZMM state</b>.</p>
+<p style="position:absolute;top:478px;left:69px;white-space:nowrap" class="ft09">Together,&#160;these three&#160;state&#160;components compose&#160;<b>AVX-512 state</b>.<br/>As noted<a href="o_7281d5ea06a5b67a-307.html">&#160;in Section 13.1,</a>&#160;the XSAVE feature set manages AVX-512 state as state&#160;components 5–7. Thus,&#160;AVX-512&#160;<br/>state&#160;is located in&#160;the extended&#160;region of&#160;the XSAVE area&#160;(see<a href="o_7281d5ea06a5b67a-314.html">&#160;Section 13.4.3). The following items&#160;</a>detail&#160;how&#160;<br/>these state components are organized in this&#160;region:</p>
+<p style="position:absolute;top:557px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:558px;left:95px;white-space:nowrap" class="ft09"><b>Opmask state.<br/></b>As&#160;note<a href="o_7281d5ea06a5b67a-308.html">d in Section 13.2, C</a>PUID.(EAX=0DH,ECX=5):EBX&#160;enumerates the&#160;offset (in bytes,&#160;from the base&#160;of the&#160;<br/>XSAVE area) of the section of&#160;the extended region of&#160;the XSAVE area used for&#160;opmask state (when the standard&#160;<br/>format&#160;of the&#160;extended&#160;region is used).&#160;CPUID.(EAX=0DH,ECX=5):EAX&#160;enumerates the size&#160;(in&#160;bytes)&#160;<br/>required for opmask state.&#160;The&#160;opmask&#160;section&#160;is&#160;used&#160;for the&#160;8&#160;64-bit bound&#160;registers k0–k7,&#160;with&#160;<br/>bytes&#160;8<i>i</i>+7:8<i>i</i>&#160;being&#160;used&#160;for k<i>i.</i></p>
+<p style="position:absolute;top:662px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:663px;left:95px;white-space:nowrap" class="ft09"><b>ZMM_Hi256 state.<br/></b>As&#160;noted&#160;<a href="o_7281d5ea06a5b67a-308.html">in Section 13.2</a>,&#160;CPUID.(EAX=0DH,ECX=6):EBX&#160;enumerates the&#160;offset of&#160;the&#160;section&#160;of the&#160;extended&#160;<br/>region of&#160;the XSAVE area used for ZMM_Hi256 state (when&#160;the standard&#160;format of the&#160;extended&#160;region is&#160;<br/>used). CPUID.(EAX=0DH,ECX=6):EAX enumerates the&#160;size&#160;(in bytes)&#160;required&#160;for ZMM_Hi256 state.<br/>The&#160;XSAVE feature&#160;set&#160;partitions ZMM0_H–ZMM15_H&#160;in a&#160;manner similar&#160;to that&#160;used for&#160;the XMM&#160;registers&#160;<br/>(see<a href="o_7281d5ea06a5b67a-315.html">&#160;Section 13.5.2). Bytes&#160;</a>255:0 of&#160;the&#160;ZMM_Hi256-state&#160;section are&#160;used&#160;for ZMM0_H–ZMM7_H.&#160;<br/>Bytes&#160;511:256 are used&#160;for ZMM8_H–ZMM15_H, but they&#160;are used only in&#160;64-bit&#160;mode.&#160;Executions of XSAVE,&#160;<br/>XSAVEOPT,&#160;XSAVEC, and&#160;XSAVES outside 64-bit&#160;mode do&#160;not modify&#160;bytes&#160;511:256; executions&#160;of XRSTOR&#160;<br/>and XRSTORS outside&#160;64-bit mode do&#160;not&#160;update&#160;ZMM8_H–ZMM15_H.&#160;Se<a href="o_7281d5ea06a5b67a-327.html">e Section 13.13.</a>&#160;In general,&#160;<br/>bytes&#160;32<i>i</i>+31:32<i>i</i>&#160;are used&#160;for ZMM<i>i</i>_H (for 0&#160;≤&#160;<i>i&#160;</i>≤&#160;15).</p>
+<p style="position:absolute;top:839px;left:69px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:840px;left:95px;white-space:nowrap" class="ft09"><b>Hi16_ZMM state.<br/></b>As&#160;noted&#160;<a href="o_7281d5ea06a5b67a-308.html">in Section 13.2</a>,&#160;CPUID.(EAX=0DH,ECX=7):EBX&#160;enumerates the&#160;offset of&#160;the&#160;section&#160;of the&#160;extended&#160;<br/>region of the&#160;XSAVE area used for&#160;Hi16_ZMM&#160;state (when the standard format of&#160;the extended&#160;region is used).&#160;<br/>CPUID.(EAX=0DH,ECX=7):EAX enumerates&#160;the&#160;size&#160;(in bytes)&#160;required&#160;for Hi16_ZMM state.<br/>The&#160;XSAVE&#160;feature set accesses Hi16_ZMM state only in&#160;64-bit&#160;mode. Executions of XSAVE, XSAVEOPT,&#160;<br/>XSAVEC,&#160;and&#160;XSAVES outside 64-bit&#160;mode do not modify&#160;the Hi16_ZMM section;&#160;executions of XRSTOR&#160;and&#160;<br/>XRSTORS outside 64-bit&#160;mode do not update&#160;ZMM16–ZMM31.&#160;Se<a href="o_7281d5ea06a5b67a-327.html">e Section 13.13.</a>&#160;In&#160;general,&#160;<br/>bytes&#160;64(<i>i</i>-16)+63:64(<i>i</i>-16)&#160;are used&#160;for ZMM<i>i</i>&#160;(for 16&#160;≤&#160;<i>i&#160;</i>≤&#160;31).</p>
+<p style="position:absolute;top:985px;left:69px;white-space:nowrap" class="ft09">All three components&#160;of&#160;AVX-512 state are&#160;XSAVE-managed&#160;and&#160;the AVX-512&#160;feature&#160;is XSAVE-enabled.&#160;The&#160;<br/>XSAVE feature&#160;set can&#160;operate on&#160;AVX-512&#160;state&#160;only&#160;if&#160;the&#160;feature set is&#160;enabled&#160;(CR4.OSXSAVE&#160;=&#160;1) and&#160;has&#160;<br/>been&#160;configured&#160;to manage&#160;AVX-512 state&#160;(XCR0[7:5]&#160;= 111b).&#160;AVX-512&#160;instructions cannot be&#160;used&#160;unless&#160;the&#160;<br/>XSAVE feature&#160;set is&#160;enabled&#160;and&#160;has&#160;been&#160;configured&#160;to&#160;manage&#160;AVX-512&#160;state.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1981</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1981-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811981.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">GETSEC[CAPABILITIES] - Report the SMX Capabilities</p>
+<p style="position:absolute;top:47px;left:615px;white-space:nowrap" class="ft01">SAFER&#160;MODE&#160;EXTENSIONS&#160;REFERENCE</p>
+<p style="position:absolute;top:1103px;left:777px;white-space:nowrap" class="ft00">Vol. 2D&#160;6-7</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">GETSEC[CAPABILITIES] - Report the SMX Capabilities</p>
+<p style="position:absolute;top:235px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:261px;left:69px;white-space:nowrap" class="ft05">The GETSEC[CAPABILITIES]&#160;function&#160;returns a bit vector&#160;of supported GETSEC leaf functions. The CAPABILITIES&#160;<br/>leaf&#160;of&#160;GETSEC is selected&#160;with EAX set&#160;to&#160;0&#160;at&#160;entry.&#160;EBX is used&#160;as the&#160;selector&#160;for returning the&#160;bit vector&#160;field&#160;in&#160;<br/>EAX.&#160;GETSEC[CAPABILITIES] may be&#160;executed&#160;at all&#160;privilege levels, but&#160;the CR4.SMXE bit&#160;must be&#160;set or an unde-<br/>fined opcode exception (#UD) is returned.<br/>With&#160;EBX&#160;= 0 upon execution of GETSEC[CAPABILITIES], EAX returns the a bit vector&#160;representing&#160;status on the&#160;<br/>presence&#160;of a Intel® TXT-capable&#160;chipset and the first 30&#160;available GETSEC&#160;leaf functions.&#160;The format of the&#160;<br/>returned&#160;bit vector is prov<a href="o_b5573232dd8f1481-1981.html">ided in Table&#160;6-3</a>.&#160;<br/>If bit 0 is&#160;set&#160;to&#160;1, then&#160;an&#160;Intel® TXT-capable&#160;chipset&#160;has been&#160;sampled present&#160;by&#160;the&#160;processor.&#160;If bits&#160;in&#160;the&#160;<br/>range&#160;of&#160;1-30&#160;are&#160;set,&#160;then&#160;the&#160;corresponding&#160;GETSEC&#160;leaf&#160;function&#160;is&#160;available.&#160;If&#160;the&#160;bit&#160;value&#160;at&#160;a&#160;given&#160;bit&#160;index&#160;<br/>is 0,&#160;then the&#160;GETSEC leaf function corresponding&#160;to&#160;that&#160;index is unsupported&#160;and attempted execution results in&#160;<br/>a #UD.&#160;<br/>Bit 31&#160;of EAX&#160;indicates if&#160;further leaf&#160;indexes are&#160;supported.&#160;If&#160;the Extended&#160;Leafs&#160;bit&#160;31&#160;is&#160;set, then additional leaf&#160;<br/>functions are accessed by repeating GETSEC[CAPABILITIES] with EBX&#160;incremented by one. When&#160;the&#160;most signifi-<br/>cant&#160;bit&#160;of&#160;EAX is not&#160;set, then&#160;additional&#160;GETSEC leaf&#160;functions are not supported;&#160;indexing&#160;EBX to a&#160;higher value&#160;<br/>results&#160;in EAX returning zero.</p>
+<p style="position:absolute;top:137px;left:74px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:137px;left:182px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:137px;left:323px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft07">0F&#160;37&#160;<br/>(EAX = 0)</p>
+<p style="position:absolute;top:160px;left:182px;white-space:nowrap" class="ft04">GETSEC[CAPABILITIES]&#160;Report the SMX capabilities.&#160;</p>
+<p style="position:absolute;top:181px;left:323px;white-space:nowrap" class="ft04">The capabilities&#160;index is&#160;input in&#160;EBX with the result returned in EAX.</p>
+<p style="position:absolute;top:554px;left:265px;white-space:nowrap" class="ft03">Table 6-3.&#160;&#160;Getsec Capability Result&#160;Encoding&#160;(EBX&#160;= 0)&#160;</p>
+<p style="position:absolute;top:588px;left:79px;white-space:nowrap" class="ft04">Field</p>
+<p style="position:absolute;top:588px;left:280px;white-space:nowrap" class="ft04">Bit position</p>
+<p style="position:absolute;top:588px;left:407px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:616px;left:79px;white-space:nowrap" class="ft04">Chipset Present</p>
+<p style="position:absolute;top:616px;left:280px;white-space:nowrap" class="ft04">0</p>
+<p style="position:absolute;top:616px;left:407px;white-space:nowrap" class="ft04">Intel® TXT-capable chipset is present.</p>
+<p style="position:absolute;top:645px;left:79px;white-space:nowrap" class="ft04">Undefined</p>
+<p style="position:absolute;top:645px;left:280px;white-space:nowrap" class="ft04">1</p>
+<p style="position:absolute;top:645px;left:407px;white-space:nowrap" class="ft04">Reserved</p>
+<p style="position:absolute;top:673px;left:79px;white-space:nowrap" class="ft04">ENTERACCS</p>
+<p style="position:absolute;top:673px;left:280px;white-space:nowrap" class="ft04">2</p>
+<p style="position:absolute;top:673px;left:407px;white-space:nowrap" class="ft04">GETSEC[ENTERACCS] is available.</p>
+<p style="position:absolute;top:702px;left:79px;white-space:nowrap" class="ft04">EXITAC</p>
+<p style="position:absolute;top:702px;left:280px;white-space:nowrap" class="ft04">3</p>
+<p style="position:absolute;top:702px;left:407px;white-space:nowrap" class="ft04">GETSEC[EXITAC] is&#160;available.</p>
+<p style="position:absolute;top:730px;left:79px;white-space:nowrap" class="ft04">SENTER</p>
+<p style="position:absolute;top:730px;left:280px;white-space:nowrap" class="ft04">4</p>
+<p style="position:absolute;top:730px;left:407px;white-space:nowrap" class="ft04">GETSEC[SENTER] is&#160;available.</p>
+<p style="position:absolute;top:759px;left:79px;white-space:nowrap" class="ft04">SEXIT</p>
+<p style="position:absolute;top:759px;left:280px;white-space:nowrap" class="ft04">5</p>
+<p style="position:absolute;top:759px;left:407px;white-space:nowrap" class="ft04">GETSEC[SEXIT] is&#160;available.</p>
+<p style="position:absolute;top:787px;left:79px;white-space:nowrap" class="ft04">PARAMETERS</p>
+<p style="position:absolute;top:787px;left:280px;white-space:nowrap" class="ft04">6</p>
+<p style="position:absolute;top:787px;left:407px;white-space:nowrap" class="ft04">GETSEC[PARAMETERS] is available.</p>
+<p style="position:absolute;top:816px;left:79px;white-space:nowrap" class="ft04">SMCTRL</p>
+<p style="position:absolute;top:816px;left:280px;white-space:nowrap" class="ft04">7</p>
+<p style="position:absolute;top:816px;left:407px;white-space:nowrap" class="ft04">GETSEC[SMCTRL] is&#160;available.</p>
+<p style="position:absolute;top:844px;left:79px;white-space:nowrap" class="ft04">WAKEUP</p>
+<p style="position:absolute;top:844px;left:280px;white-space:nowrap" class="ft04">8</p>
+<p style="position:absolute;top:844px;left:407px;white-space:nowrap" class="ft04">GETSEC[WAKEUP] is&#160;available.</p>
+<p style="position:absolute;top:872px;left:79px;white-space:nowrap" class="ft04">Undefined</p>
+<p style="position:absolute;top:872px;left:280px;white-space:nowrap" class="ft04">30:9</p>
+<p style="position:absolute;top:872px;left:407px;white-space:nowrap" class="ft04">Reserved</p>
+<p style="position:absolute;top:901px;left:79px;white-space:nowrap" class="ft04">Extended&#160;Leafs</p>
+<p style="position:absolute;top:901px;left:280px;white-space:nowrap" class="ft04">31</p>
+<p style="position:absolute;top:901px;left:407px;white-space:nowrap" class="ft04">Reserved for extended information reporting&#160;of&#160;GETSEC capabilities.</p>
+</div>
+</body>
+</html>

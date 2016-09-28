@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 731</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page731-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481731.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">MOVAPS—Move Aligned Packed&#160;Single-Precision&#160;Floating-Point&#160;Values</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-51</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft03">VMOVAPS (EVEX encoded&#160;versions, load-form)&#160;<br/>(KL, VL) = (4, 128), (8, 256), (16, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft03">i&#160;&#160;j * 32<br/>IF k1[j] OR *no writemask*</p>
+<p style="position:absolute;top:190px;left:116px;white-space:nowrap" class="ft03">THEN DEST[i+31:i]&#160;&#160;SRC[i+31:i]<br/>ELSE&#160;</p>
+<p style="position:absolute;top:226px;left:143px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:226px;left:359px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:244px;left:170px;white-space:nowrap" class="ft03">THEN *DEST[i+31:i]&#160;remains unchanged*<br/>ELSE &#160;DEST[i+31:i]&#160;&#160;0&#160;</p>
+<p style="position:absolute;top:262px;left:359px;white-space:nowrap" class="ft02">; zeroing-masking</p>
+<p style="position:absolute;top:280px;left:143px;white-space:nowrap" class="ft02">FI</p>
+<p style="position:absolute;top:298px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:316px;left:69px;white-space:nowrap" class="ft03">ENDFOR<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:370px;left:69px;white-space:nowrap" class="ft03">VMOVAPS (VEX.256 encoded version,&#160;load -&#160;and register&#160;copy)<br/>DEST[255:0]&#160;&#160;SRC[255:0]<br/>DEST[MAX_VL-1:256]&#160;&#160;0</p>
+<p style="position:absolute;top:442px;left:69px;white-space:nowrap" class="ft03">VMOVAPS (VEX.256 encoded version,&#160;store-form)<br/>DEST[255:0]&#160;&#160;SRC[255:0]</p>
+<p style="position:absolute;top:496px;left:69px;white-space:nowrap" class="ft03">VMOVAPS (VEX.128 encoded version,&#160;load -&#160;and register&#160;copy)<br/>DEST[127:0]&#160;&#160;SRC[127:0]<br/>DEST[MAX_VL-1:128]&#160;&#160;0</p>
+<p style="position:absolute;top:568px;left:69px;white-space:nowrap" class="ft03">MOVAPS&#160;(128-bit load- and&#160;register-copy- form Legacy&#160;SSE&#160;version)<br/>DEST[127:0]&#160;&#160;SRC[127:0]<br/>DEST[MAX_VL-1:128] (Unmodified)</p>
+<p style="position:absolute;top:640px;left:69px;white-space:nowrap" class="ft03">(V)MOVAPS (128-bit store-form version)<br/>DEST[127:0]&#160;&#160;SRC[127:0]</p>
+<p style="position:absolute;top:692px;left:69px;white-space:nowrap" class="ft01">Intel C/C++&#160;Compiler&#160;Intrinsic Equivalent</p>
+<p style="position:absolute;top:715px;left:69px;white-space:nowrap" class="ft03">VMOVAPS __m512&#160;_mm512_load_ps( void * m);<br/>VMOVAPS __m512&#160;_mm512_mask_load_ps(__m512&#160;s, __mmask16&#160;k, void * m);<br/>VMOVAPS __m512&#160;_mm512_maskz_load_ps( __mmask16&#160;k, void * m);<br/>VMOVAPS void _mm512_store_ps(&#160;void *&#160;d, __m512 a);<br/>VMOVAPS void _mm512_mask_store_ps( void *&#160;d,&#160;__mmask16&#160;k, __m512 a);<br/>VMOVAPS __m256&#160;_mm256_mask_load_ps(__m256&#160;a,&#160;__mmask8 k, void * s);<br/>VMOVAPS __m256&#160;_mm256_maskz_load_ps( __mmask8&#160;k, void * s);<br/>VMOVAPS void _mm256_mask_store_ps( void *&#160;d,&#160;__mmask8 k, __m256&#160;a);<br/>VMOVAPS __m128&#160;_mm_mask_load_ps(__m128 a, __mmask8 k, void * s);<br/>VMOVAPS __m128&#160;_mm_maskz_load_ps( __mmask8&#160;k, void&#160;* s);<br/>VMOVAPS void _mm_mask_store_ps(&#160;void * d,&#160;__mmask8 k, __m128 a);<br/>MOVAPS __m256&#160;_mm256_load_ps&#160;(float * p);<br/>MOVAPS void&#160;_mm256_store_ps(float * p,&#160;__m256&#160;a);<br/>MOVAPS __m128&#160;_mm_load_ps (float * p);<br/>MOVAPS void&#160;_mm_store_ps(float * p, __m128 a);</p>
+<p style="position:absolute;top:1002px;left:69px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:1024px;left:69px;white-space:nowrap" class="ft02">None</p>
+</div>
+</body>
+</html>

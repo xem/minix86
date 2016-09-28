@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 257</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page257-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481257.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">CALL—Call Procedure</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-129</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02">CONFORMING-CODE-SEGMENT:</p>
+<p style="position:absolute;top:118px;left:89px;white-space:nowrap" class="ft02">IF L bit&#160;</p>
+<p style="position:absolute;top:119px;left:131px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:118px;left:144px;white-space:nowrap" class="ft02">1 and&#160;D bit&#160;</p>
+<p style="position:absolute;top:119px;left:209px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:118px;left:218px;white-space:nowrap" class="ft02">&#160;1 and&#160;IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:119px;left:351px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:118px;left:360px;white-space:nowrap" class="ft02">&#160;1&#160;</p>
+<p style="position:absolute;top:136px;left:116px;white-space:nowrap" class="ft02">THEN GP(new code segment selector); FI;</p>
+<p style="position:absolute;top:154px;left:89px;white-space:nowrap" class="ft02">IF DPL&#160;&gt;&#160;CPL&#160;</p>
+<p style="position:absolute;top:172px;left:116px;white-space:nowrap" class="ft02">THEN&#160;#GP(new code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:190px;left:89px;white-space:nowrap" class="ft02">IF segment not present&#160;</p>
+<p style="position:absolute;top:208px;left:116px;white-space:nowrap" class="ft02">THEN #NP(new code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:226px;left:89px;white-space:nowrap" class="ft02">IF stack&#160;not large enough for return address</p>
+<p style="position:absolute;top:244px;left:116px;white-space:nowrap" class="ft02">THEN #SS(0); FI;</p>
+<p style="position:absolute;top:262px;left:89px;white-space:nowrap" class="ft02">tempEIP&#160;←&#160;DEST(Offset);</p>
+<p style="position:absolute;top:280px;left:89px;white-space:nowrap" class="ft02">IF&#160;OperandSize</p>
+<p style="position:absolute;top:281px;left:175px;white-space:nowrap" class="ft03">&#160;=</p>
+<p style="position:absolute;top:281px;left:188px;white-space:nowrap" class="ft02">&#160;16</p>
+<p style="position:absolute;top:298px;left:116px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:316px;left:143px;white-space:nowrap" class="ft02">tempEIP&#160;←&#160;tempEIP AND 0000FFFFH; FI; (* Clear upper 16 bits *)</p>
+<p style="position:absolute;top:334px;left:89px;white-space:nowrap" class="ft04">IF&#160;(EFER.LMA = 0&#160;or&#160;target&#160;mode&#160;=&#160;Compatibility mode)&#160;and (tempEIP&#160;outside&#160;new code<br/>segment limit)&#160;</p>
+<p style="position:absolute;top:370px;left:116px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:388px;left:89px;white-space:nowrap" class="ft02">IF tempEIP is&#160;non-canonical&#160;</p>
+<p style="position:absolute;top:406px;left:116px;white-space:nowrap" class="ft02">THEN #GP(0); FI;</p>
+<p style="position:absolute;top:424px;left:89px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:425px;left:178px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:424px;left:191px;white-space:nowrap" class="ft02">32</p>
+<p style="position:absolute;top:442px;left:116px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:460px;left:143px;white-space:nowrap" class="ft04">Push(CS); (* Padded&#160;with&#160;16&#160;high-order bits *)<br/>Push(EIP);<br/>CS&#160;←&#160;DEST(CodeSegmentSelector);&#160;</p>
+<p style="position:absolute;top:514px;left:143px;white-space:nowrap" class="ft04">(*&#160;Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:550px;left:143px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:568px;left:116px;white-space:nowrap" class="ft02">ELSE</p>
+<p style="position:absolute;top:586px;left:143px;white-space:nowrap" class="ft02">IF&#160;OperandSize&#160;</p>
+<p style="position:absolute;top:587px;left:232px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:586px;left:241px;white-space:nowrap" class="ft02">&#160;16</p>
+<p style="position:absolute;top:604px;left:170px;white-space:nowrap" class="ft02">THEN</p>
+<p style="position:absolute;top:622px;left:197px;white-space:nowrap" class="ft04">Push(CS);<br/>Push(IP);<br/>CS&#160;←&#160;DEST(CodeSegmentSelector);&#160;</p>
+<p style="position:absolute;top:676px;left:197px;white-space:nowrap" class="ft04">(*&#160;Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:712px;left:197px;white-space:nowrap" class="ft02">EIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:730px;left:170px;white-space:nowrap" class="ft02">ELSE&#160;(* OperandSize&#160;</p>
+<p style="position:absolute;top:731px;left:290px;white-space:nowrap" class="ft03">=</p>
+<p style="position:absolute;top:730px;left:299px;white-space:nowrap" class="ft02">&#160;64 *)</p>
+<p style="position:absolute;top:748px;left:197px;white-space:nowrap" class="ft04">Push(CS); (* Padded&#160;with&#160;48&#160;high-order bits&#160;*)<br/>Push(RIP);<br/>CS&#160;←&#160;DEST(CodeSegmentSelector);&#160;</p>
+<p style="position:absolute;top:802px;left:197px;white-space:nowrap" class="ft04">(*&#160;Segment descriptor&#160;information also&#160;loaded&#160;*)<br/>CS(RPL)&#160;←&#160;CPL;</p>
+<p style="position:absolute;top:838px;left:197px;white-space:nowrap" class="ft02">RIP&#160;←&#160;tempEIP;</p>
+<p style="position:absolute;top:856px;left:143px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:874px;left:89px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:892px;left:69px;white-space:nowrap" class="ft02">END;</p>
+<p style="position:absolute;top:928px;left:69px;white-space:nowrap" class="ft02">NONCONFORMING-CODE-SEGMENT:</p>
+<p style="position:absolute;top:946px;left:89px;white-space:nowrap" class="ft02">IF L-Bit</p>
+<p style="position:absolute;top:947px;left:130px;white-space:nowrap" class="ft03">&#160;=&#160;</p>
+<p style="position:absolute;top:946px;left:147px;white-space:nowrap" class="ft02">1 and&#160;D-BIT&#160;</p>
+<p style="position:absolute;top:947px;left:217px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:946px;left:230px;white-space:nowrap" class="ft02">1 and IA32_EFER.LMA&#160;</p>
+<p style="position:absolute;top:947px;left:360px;white-space:nowrap" class="ft03">=&#160;</p>
+<p style="position:absolute;top:946px;left:373px;white-space:nowrap" class="ft02">1&#160;</p>
+<p style="position:absolute;top:964px;left:116px;white-space:nowrap" class="ft02">THEN GP(new code segment selector); FI;</p>
+<p style="position:absolute;top:982px;left:89px;white-space:nowrap" class="ft02">IF (RPL&#160;&gt;&#160;CPL) or (DPL</p>
+<p style="position:absolute;top:983px;left:214px;white-space:nowrap" class="ft03">&#160;</p>
+<p style="position:absolute;top:982px;left:218px;white-space:nowrap" class="ft03">≠&#160;</p>
+<p style="position:absolute;top:982px;left:230px;white-space:nowrap" class="ft02">CPL)&#160;</p>
+<p style="position:absolute;top:1000px;left:116px;white-space:nowrap" class="ft02">THEN&#160;#GP(new code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:1018px;left:89px;white-space:nowrap" class="ft02">IF segment not present&#160;</p>
+<p style="position:absolute;top:1036px;left:116px;white-space:nowrap" class="ft02">THEN #NP(new code&#160;segment selector); FI;</p>
+<p style="position:absolute;top:1054px;left:89px;white-space:nowrap" class="ft02">IF stack&#160;not large enough for return address&#160;</p>
+</div>
+</body>
+</html>

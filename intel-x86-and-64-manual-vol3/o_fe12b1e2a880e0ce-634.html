@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 634</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page634-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce634.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">17-60&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">DEBUG,&#160;BRANCH&#160;PROFILE,&#160;TSC,&#160;AND RESOURCE&#160;MONITORING&#160;FEATURES</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft06">Accessing a&#160;QOS mask register&#160;outside&#160;the supported COS&#160;(the&#160;max COS number&#160;is specified in&#160;<br/>CPUID.(EAX=10H,&#160;ECX=ResID):EDX[15:0]), or</p>
+<p style="position:absolute;top:139px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:139px;left:93px;white-space:nowrap" class="ft06">Writing a&#160;COS greater than&#160;the supported&#160;maximum&#160;(specified&#160;as the maximum value&#160;of&#160;CPUID.(EAX=10H,&#160;<br/>ECX=ResID):EDX[15:0] for all&#160;valid&#160;ResID values)&#160;is written to&#160;the IA32_PQR_ASSOC.CLOS&#160;field.</p>
+<p style="position:absolute;top:180px;left:68px;white-space:nowrap" class="ft06">When CDP is enabled,&#160;specifying a COS value in IA32_PQR_ASSOC.COS outside of the lower half of the COS space&#160;<br/>will&#160;cause&#160;undefined&#160;performance&#160;impact&#160;to code&#160;and&#160;data fetches&#160;due&#160;to MSR space&#160;re-indexing into code/data&#160;<br/>masks when CDP is&#160;enabled.<br/>When reading&#160;the&#160;IA32_PQR_ASSOC register the&#160;currently programmed&#160;COS&#160;on the&#160;core will be returned.&#160;<br/>When&#160;reading an&#160;IA32_<i>resourceType</i>_MASK_<i>n</i>&#160;register the&#160;current capacity&#160;bit mask for COS&#160;'n' will&#160;be&#160;returned.<br/>As&#160;noted&#160;previously, software&#160;should minimize migrations of COS&#160;across&#160;logical&#160;processors&#160;(across threads or&#160;<br/>cores), as&#160;a reduction&#160;in the&#160;accuracy of the&#160;Cache&#160;Allocation&#160;feature may result&#160;if&#160;COS are&#160;migrated&#160;frequently.&#160;<br/>This is&#160;aligned with the&#160;industry standard practice of&#160;minimizing unnecessary&#160;thread migrations across&#160;processor&#160;<br/>cores in&#160;order to&#160;avoid&#160;excessive&#160;time&#160;spent warming&#160;up processor caches&#160;after a&#160;migration.&#160;In general, for best&#160;<br/>performance,&#160;minimize&#160;thread&#160;migration and COS migration across&#160;processor&#160;logical threads and processor cores.</p>
+<p style="position:absolute;top:395px;left:68px;white-space:nowrap" class="ft05">17.17.5.2 &#160;&#160;Cache Allocation Technology Operation&#160;With Power Saving&#160;Features</p>
+<p style="position:absolute;top:424px;left:68px;white-space:nowrap" class="ft06">Note that the Cache Allocation&#160;Technology&#160;feature cannot be used to&#160;enforce cache&#160;coherency,&#160;and that&#160;some&#160;<br/>advanced&#160;power management&#160;features such&#160;as C-states which&#160;may shrink or&#160;power off various&#160;caches&#160;within the&#160;<br/>system may&#160;interfere&#160;with&#160;CAT hints&#160;- in such&#160;cases&#160;the&#160;CAT bitmasks are&#160;ignored and&#160;the other&#160;features&#160;take&#160;<br/>precedence.&#160;If&#160;the highest possible&#160;level of CAT&#160;differentiation or&#160;determinism is&#160;required,&#160;disable any&#160;power-<br/>saving features&#160;which&#160;shrink&#160;the caches&#160;or&#160;power off caches. The details of&#160;the power&#160;management&#160;interfaces are&#160;<br/>typically implementation-specific, but&#160;can be&#160;foun<a href="��">d at&#160;<i>Intel® 64&#160;and&#160;IA-32 Architectures Software&#160;Developer’s&#160;<br/>Manual, Volume&#160;3C</i></a>.&#160;<br/>If software&#160;requires differentiation between threads but not absolute determinism&#160;then in many&#160;cases it is possible&#160;<br/>to leave power-saving&#160;cache&#160;shrink&#160;features enabled,&#160;which can provide substantial power&#160;savings&#160;and increase&#160;<br/>battery&#160;life&#160;in&#160;mobile platforms. In such cases when the&#160;caches&#160;are powered&#160;off&#160;(e.g.,&#160;package C-states) the entire&#160;<br/>cache of a portion&#160;thereof may be powered off.&#160;Upon resuming&#160;an&#160;active&#160;state any new incoming data to the cache&#160;<br/>will&#160;be&#160;filled&#160;subject to&#160;the cache&#160;capacity&#160;bitmasks. Any data in&#160;the cache&#160;prior&#160;to&#160;the cache shrink&#160;or power&#160;off&#160;<br/>may have&#160;been&#160;flushed to memory during the process of entering the idle state, however,&#160;and is not guaranteed to&#160;<br/>remain in&#160;the cache. If&#160;differentiation between threads&#160;is&#160;the&#160;goal&#160;of system software&#160;then this&#160;model allows&#160;<br/>substantial&#160;power savings while continuing&#160;to deliver&#160;performance differentiation.&#160;If&#160;system&#160;software needs&#160;<br/>optimal determinism then&#160;power saving modes which&#160;flush&#160;portions of the&#160;caches&#160;and&#160;power&#160;them off&#160;should be&#160;<br/>disabled.</p>
+<p style="position:absolute;top:730px;left:432px;white-space:nowrap" class="ft05">NOTE</p>
+<p style="position:absolute;top:755px;left:120px;white-space:nowrap" class="ft06">IA32_PQR_ASSOC&#160;is saved and restored&#160;across&#160;C6 entry/exit. Similarly,&#160;the&#160;mask register contents&#160;<br/>are saved&#160;across package C-state entry/exit and are&#160;not&#160;lost.</p>
+<p style="position:absolute;top:816px;left:68px;white-space:nowrap" class="ft05">17.17.5.3 &#160;&#160;Cache Allocation Technology&#160;Operation&#160;with Other&#160;Operating Modes</p>
+<p style="position:absolute;top:844px;left:68px;white-space:nowrap" class="ft06">The states in IA32_PQR_ASSOC and mask&#160;registers are unmodified&#160;across an SMI&#160;delivery.&#160;Thus,&#160;the execution&#160;of&#160;<br/>SMM handler code&#160;can interact with the&#160;Cache&#160;Allocation&#160;Technology resource&#160;and&#160;manifest&#160;some degree&#160;of non-<br/>determinism&#160;to the&#160;non-SMM software&#160;stack. An SMM&#160;handler may also&#160;perform certain&#160;system-level&#160;or power&#160;<br/>management practices&#160;that affect&#160;CAT operation.&#160;<br/>It is possible for an SMM handler to minimize&#160;the&#160;impact&#160;on data determinism in the&#160;cache by reserving a COS&#160;with&#160;<br/>a dedicated partition in the&#160;cache. Such&#160;an SMM&#160;handler&#160;can switch to&#160;the dedicated COS&#160;immediately upon&#160;<br/>entering&#160;SMM,&#160;and switching&#160;back to&#160;the previously running COS&#160;upon exit.</p>
+</div>
+</body>
+</html>

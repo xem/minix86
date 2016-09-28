@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 406</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#000000;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:8px;font-family:Times;color:#000000;}
+	.ft07{font-size:9px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+	.ft010{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+	.ft011{font-size:9px;line-height:12px;font-family:Times;color:#000000;}
+	.ft012{font-size:9px;line-height:11px;font-family:Times;color:#000000;}
+	.ft013{font-size:9px;line-height:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page406-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce406.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">10-44&#160;Vol. 3A</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ADVANCED PROGRAMMABLE INTERRUPT CONTROLLER&#160;(APIC)</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft02">•</p>
+<p style="position:absolute;top:100px;left:93px;white-space:nowrap" class="ft08">If a&#160;BIOS&#160;transfers control to&#160;OS&#160;in&#160;xAPIC mode,&#160;then the&#160;BIOS&#160;must ensure&#160;that only logical processors with&#160;<br/>CPUID.0BH.EDX&#160;value&#160;less&#160;than 255 are&#160;enabled.&#160;BIOS&#160;initialization on&#160;all logical&#160;processors&#160;with&#160;<br/>CPUID.0B.EDX values&#160;greater&#160;than or equal to&#160;255 must (a)&#160;disable APIC&#160;and&#160;execute&#160;CLI in&#160;each logical&#160;<br/>processor,&#160;and (b)&#160;leave&#160;these&#160;logical&#160;processor&#160;in the&#160;lowest power&#160;state so&#160;that these&#160;processors do&#160;not&#160;<br/>respond to INIT IPI during OS boot. The BSP and all the enabled logical processor operate&#160;in xAPIC mode&#160;after&#160;<br/>BIOS&#160;passed control&#160;to&#160;OS.&#160;Application requiring processor topology&#160;information can&#160;use OS provided&#160;legacy&#160;<br/>services&#160;based on 8-bit initial&#160;APIC IDs or legacy topology&#160;information from CPUID.01H and&#160;CPUID&#160;04H leaves.&#160;<br/>Even if&#160;the BIOS&#160;passes&#160;control in&#160;xAPIC&#160;mode, an&#160;OS can&#160;switch&#160;the processors to&#160;x2APIC mode later.&#160;BIOS&#160;<br/>SMM handler&#160;should always read&#160;the APIC_BASE_MSR,&#160;determine the&#160;APIC&#160;mode and use&#160;the corresponding&#160;<br/>access method.</p>
+<p style="position:absolute;top:299px;left:68px;white-space:nowrap" class="ft04">10.12.9&#160;&#160;ICR Operation in x2APIC Mode</p>
+<p style="position:absolute;top:328px;left:68px;white-space:nowrap" class="ft08">In x2APIC mode, the layout of the Interrupt&#160;Command&#160;Register is sh<a href="o_fe12b1e2a880e0ce-381.html">own in Figure 10-12.</a>&#160;The lower 32&#160;bits of ICR&#160;<br/>in x2APIC mode&#160;is identical to&#160;the lower&#160;half&#160;of&#160;the ICR in&#160;xAPIC mode,&#160;except&#160;the&#160;Delivery Status bit is&#160;removed&#160;<br/>since it&#160;is not needed in x2APIC mode.&#160;The destination ID field is&#160;expanded to&#160;32&#160;bits in&#160;x2APIC&#160;mode.&#160;</p>
+<p style="position:absolute;top:952px;left:68px;white-space:nowrap" class="ft08">To&#160;send an&#160;IPI&#160;using the&#160;ICR, software&#160;must&#160;set&#160;up the&#160;ICR to&#160;indicate&#160;the type of IPI message to&#160;be&#160;sent and the&#160;<br/>destination processor or&#160;processors. Self IPIs can&#160;also be&#160;sent&#160;using the&#160;SELF IPI register (see<a href="o_fe12b1e2a880e0ce-408.html">&#160;Section&#160;10.12.11).&#160;<br/></a>A single MSR&#160;write&#160;to the&#160;Interrupt&#160;Command Register is&#160;required&#160;for&#160;dispatching an interrupt in x2APIC mode.&#160;<br/>With the&#160;removal&#160;of the&#160;Delivery Status bit, system&#160;software&#160;no longer has&#160;a reason&#160;to read the&#160;ICR. It&#160;remains&#160;<br/>readable only&#160;to&#160;aid in&#160;debugging;&#160;however,&#160;software&#160;should&#160;not assume&#160;the value returned by reading&#160;the ICR is&#160;<br/>the last&#160;written value.</p>
+<p style="position:absolute;top:897px;left:235px;white-space:nowrap" class="ft05">Figure&#160;10-28.&#160;&#160;Interrupt&#160;Command Register&#160;(ICR)&#160;in&#160;x2APIC&#160;Mode</p>
+<p style="position:absolute;top:466px;left:223px;white-space:nowrap" class="ft06">31</p>
+<p style="position:absolute;top:466px;left:648px;white-space:nowrap" class="ft06">0</p>
+<p style="position:absolute;top:485px;left:284px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:466px;left:550px;white-space:nowrap" class="ft06">7</p>
+<p style="position:absolute;top:484px;left:587px;white-space:nowrap" class="ft00">Vector</p>
+<p style="position:absolute;top:529px;left:225px;white-space:nowrap" class="ft07"><b>Destination Shorthand</b></p>
+<p style="position:absolute;top:466px;left:538px;white-space:nowrap" class="ft06">8</p>
+<p style="position:absolute;top:466px;left:505px;white-space:nowrap" class="ft06">10</p>
+<p style="position:absolute;top:530px;left:572px;white-space:nowrap" class="ft011"><b>Delivery Mode<br/></b>000: Fixed<br/>001: Reserved</p>
+<p style="position:absolute;top:542px;left:225px;white-space:nowrap" class="ft00">00: No&#160;Shorthand</p>
+<p style="position:absolute;top:554px;left:224px;white-space:nowrap" class="ft00">01: Self</p>
+<p style="position:absolute;top:466px;left:493px;white-space:nowrap" class="ft06">11</p>
+<p style="position:absolute;top:466px;left:478px;white-space:nowrap" class="ft06">12</p>
+<p style="position:absolute;top:466px;left:465px;white-space:nowrap" class="ft06">13</p>
+<p style="position:absolute;top:466px;left:451px;white-space:nowrap" class="ft06">14</p>
+<p style="position:absolute;top:466px;left:439px;white-space:nowrap" class="ft06">15</p>
+<p style="position:absolute;top:466px;left:423px;white-space:nowrap" class="ft06">16</p>
+<p style="position:absolute;top:466px;left:411px;white-space:nowrap" class="ft06">17</p>
+<p style="position:absolute;top:466px;left:397px;white-space:nowrap" class="ft06">18</p>
+<p style="position:absolute;top:466px;left:384px;white-space:nowrap" class="ft06">19</p>
+<p style="position:absolute;top:566px;left:224px;white-space:nowrap" class="ft00">10: All Including Self</p>
+<p style="position:absolute;top:578px;left:225px;white-space:nowrap" class="ft00">11: All&#160;Excluding Self</p>
+<p style="position:absolute;top:567px;left:571px;white-space:nowrap" class="ft011">010: SMI<br/>011: Reserved<br/>100: NMI<br/>101: INIT<br/>110: Start Up<br/>111:&#160;Reserved</p>
+<p style="position:absolute;top:657px;left:572px;white-space:nowrap" class="ft011"><b>Destination Mode<br/></b>0: Physical<br/>1: Logical</p>
+<p style="position:absolute;top:761px;left:572px;white-space:nowrap" class="ft011"><b>Level<br/></b>0 = De-assert<br/>1 = Assert</p>
+<p style="position:absolute;top:810px;left:572px;white-space:nowrap" class="ft011"><b>Trigger Mode<br/></b>0: Edge<br/>1: Level</p>
+<p style="position:absolute;top:400px;left:223px;white-space:nowrap" class="ft06">63</p>
+<p style="position:absolute;top:401px;left:643px;white-space:nowrap" class="ft06">32</p>
+<p style="position:absolute;top:420px;left:388px;white-space:nowrap" class="ft00">Destination Field</p>
+<p style="position:absolute;top:774px;left:227px;white-space:nowrap" class="ft00">Address: 830H&#160;(63 -&#160;0)</p>
+<p style="position:absolute;top:803px;left:227px;white-space:nowrap" class="ft00">Value after&#160;Reset: 0H</p>
+<p style="position:absolute;top:631px;left:253px;white-space:nowrap" class="ft00">Reserved</p>
+<p style="position:absolute;top:466px;left:370px;white-space:nowrap" class="ft06">20</p>
+<p style="position:absolute;top:857px;left:227px;white-space:nowrap" class="ft00">&#160;</p>
+</div>
+</body>
+</html>

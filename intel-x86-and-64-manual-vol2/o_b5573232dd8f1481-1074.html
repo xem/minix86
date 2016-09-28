@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1074</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1074-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811074.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:560px;white-space:nowrap" class="ft00">POPF/POPFD/POPFQ—Pop Stack into EFLAGS&#160;Register</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, M-U</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">4-394&#160;Vol. 2B</p>
+<p style="position:absolute;top:98px;left:68px;white-space:nowrap" class="ft02">POPF/POPFD/POPFQ—Pop Stack into&#160;EFLAGS Register</p>
+<p style="position:absolute;top:262px;left:353px;white-space:nowrap" class="ft03">Instruction&#160;Operand&#160;Encoding</p>
+<p style="position:absolute;top:349px;left:68px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:375px;left:68px;white-space:nowrap" class="ft07">Pops a&#160;doubleword&#160;(POPFD) from the&#160;top of&#160;the&#160;stack (if&#160;the current&#160;operand-size&#160;attribute&#160;is&#160;32)&#160;and stores&#160;the&#160;<br/>value in&#160;the EFLAGS&#160;register, or&#160;pops&#160;a word&#160;from the&#160;top of the&#160;stack (if the&#160;operand-size attribute is&#160;16)&#160;and&#160;<br/>stores&#160;it in the&#160;lower 16&#160;bits of the&#160;EFLAGS&#160;register&#160;(that&#160;is,&#160;the FLAGS register). These instructions&#160;reverse the&#160;<br/>operation&#160;of&#160;the PUSHF/PUSHFD instructions.&#160;<br/>The&#160;POPF&#160;(pop&#160;flags)&#160;and POPFD&#160;(pop&#160;flags&#160;double)&#160;mnemonics reference the&#160;same&#160;opcode. The POPF instruction&#160;<br/>is intended&#160;for&#160;use when the&#160;operand-size attribute is&#160;16; the&#160;POPFD&#160;instruction is&#160;intended&#160;for use&#160;when&#160;the&#160;<br/>operand-size attribute is&#160;32.&#160;Some assemblers&#160;may force the&#160;operand size&#160;to 16 for POPF and&#160;to 32 for POPFD.&#160;<br/>Others may treat&#160;the mnemonics as&#160;synonyms (POPF/POPFD)&#160;and use&#160;the setting of the operand-size attribute to&#160;<br/>determine the&#160;size&#160;of values&#160;to pop from&#160;the stack.<br/>The&#160;effect of POPF/POPFD&#160;on&#160;the EFLAGS&#160;register changes,&#160;depending&#160;on the&#160;mode&#160;of operation.&#160;See&#160;the<a href="o_b5573232dd8f1481-1075.html">&#160;Table&#160;<br/>4-15&#160;and&#160;</a>key below&#160;for details.<br/>When operating in&#160;protected, compatibility,&#160;or 64-bit mode&#160;at privilege level 0&#160;(or in real-address mode, the&#160;equiv-<br/>alent to privilege level 0), all non-reserved&#160;flags in the EFLAGS register except RF</p>
+<p style="position:absolute;top:593px;left:614px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:595px;left:621px;white-space:nowrap" class="ft04">,&#160;VIP,&#160;VIF,&#160;and&#160;VM&#160;may be&#160;modi-</p>
+<p style="position:absolute;top:612px;left:68px;white-space:nowrap" class="ft07">fied. VIP,&#160;VIF and&#160;VM&#160;remain unaffected.<br/>When operating&#160;in protected, compatibility,&#160;or 64-bit&#160;mode&#160;with a&#160;privilege&#160;level&#160;greater&#160;than 0, but&#160;less&#160;than or&#160;<br/>equal to IOPL, all flags can be&#160;modified&#160;except&#160;the&#160;IOPL field&#160;and&#160;RF</p>
+<p style="position:absolute;top:650px;left:514px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:652px;left:521px;white-space:nowrap" class="ft04">, IF, VIP,&#160;VIF,&#160;and&#160;VM; these&#160;remain unaffected.&#160;</p>
+<p style="position:absolute;top:669px;left:68px;white-space:nowrap" class="ft07">The AC&#160;and ID flags&#160;can only be modified if the&#160;operand-size&#160;attribute&#160;is 32. The&#160;interrupt&#160;flag (IF)&#160;is altered&#160;only&#160;<br/>when executing at&#160;a level&#160;at least as&#160;privileged as&#160;the IOPL. If a&#160;POPF/POPFD instruction is&#160;executed with&#160;insuffi-<br/>cient&#160;privilege,&#160;an&#160;exception does&#160;not occur but&#160;privileged&#160;bits do not change.<br/>When operating in virtual-8086 mode (EFLAGS.VM = 1) without the virtual-8086 mode&#160;extensions (CR4.VME = 0),&#160;<br/>the POPF/POPFD&#160;instructions&#160;can be used&#160;only if&#160;IOPL&#160;=&#160;3;&#160;otherwise,&#160;a general-protection exception (#GP)&#160;occurs.&#160;<br/>If the&#160;virtual-8086 mode extensions are enabled (CR4.VME&#160;=&#160;1), POPF (but not POPFD)&#160;can be executed&#160;in virtual-<br/>8086 mode&#160;with IOPL&#160;&lt; 3.<br/>In&#160;64-bit mode,&#160;the mnemonic assigned&#160;is POPFQ (note&#160;that the 32-bit&#160;operand is not encodable). POPFQ pops&#160;64&#160;<br/>bits&#160;from&#160;the stack.&#160;Reserved bits of RFLAGS&#160;(including the&#160;upper 32&#160;bits&#160;of RFLAGS) are&#160;not affected.<br/>See&#160;<a href="��">Chapter 3 of the&#160;<i>Intel® 64&#160;and IA-32&#160;Architectures&#160;Software Developer’s Manual,&#160;Volume 1</i>, for&#160;</a>more informa-<br/>tion about&#160;the EFLAGS registers.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode</p>
+<p style="position:absolute;top:123px;left:220px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:388px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:388px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:425px;white-space:nowrap" class="ft04">64-Bit&#160;</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft04">Mode</p>
+<p style="position:absolute;top:123px;left:498px;white-space:nowrap" class="ft04">Compat/</p>
+<p style="position:absolute;top:137px;left:498px;white-space:nowrap" class="ft04">Leg Mode</p>
+<p style="position:absolute;top:123px;left:568px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:160px;left:73px;white-space:nowrap" class="ft04">9D</p>
+<p style="position:absolute;top:160px;left:220px;white-space:nowrap" class="ft04">POPF</p>
+<p style="position:absolute;top:160px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:160px;left:425px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:498px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:160px;left:568px;white-space:nowrap" class="ft04">Pop top of&#160;stack into&#160;lower 16 bits&#160;of&#160;EFLAGS.</p>
+<p style="position:absolute;top:182px;left:73px;white-space:nowrap" class="ft04">9D</p>
+<p style="position:absolute;top:182px;left:221px;white-space:nowrap" class="ft04">POPFD</p>
+<p style="position:absolute;top:182px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:182px;left:425px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:182px;left:497px;white-space:nowrap" class="ft04">Valid</p>
+<p style="position:absolute;top:182px;left:567px;white-space:nowrap" class="ft04">Pop top&#160;of&#160;stack&#160;into&#160;EFLAGS.</p>
+<p style="position:absolute;top:205px;left:73px;white-space:nowrap" class="ft04">9D</p>
+<p style="position:absolute;top:205px;left:220px;white-space:nowrap" class="ft04">POPFQ</p>
+<p style="position:absolute;top:205px;left:388px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:205px;left:425px;white-space:nowrap" class="ft04">Valid&#160;</p>
+<p style="position:absolute;top:205px;left:498px;white-space:nowrap" class="ft04">N.E.</p>
+<p style="position:absolute;top:205px;left:568px;white-space:nowrap" class="ft04">Pop&#160;top of&#160;stack&#160;and zero-extend&#160;into&#160;RFLAGS.&#160;</p>
+<p style="position:absolute;top:285px;left:86px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:285px;left:194px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:285px;left:367px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:285px;left:544px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:285px;left:719px;white-space:nowrap" class="ft04">Operand&#160;4</p>
+<p style="position:absolute;top:308px;left:96px;white-space:nowrap" class="ft04">NP</p>
+<p style="position:absolute;top:308px;left:215px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:388px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:565px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:308px;left:740px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:1054px;left:68px;white-space:nowrap" class="ft04">1.&#160;RF is always zero&#160;after the execution of&#160;POPF. This is&#160;because POPF,&#160;like&#160;all instructions, clears RF as&#160;it begins to&#160;execute.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1872</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:8px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:19px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1872-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811872.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:365px;white-space:nowrap" class="ft00">VRSQRT14PD—Compute Approximate Reciprocals&#160;of&#160;Square Roots of Packed Float64 Values</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE, V-Z</p>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">5-486&#160;Vol. 2C</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft01">Operation</p>
+<p style="position:absolute;top:123px;left:68px;white-space:nowrap" class="ft05">VRSQRT14PD (EVEX encoded&#160;versions)&#160;<br/>(KL,&#160;VL) = (2, 128), (4, 256), (8, 512)<br/>FOR j&#160;&#160;0 TO KL-1</p>
+<p style="position:absolute;top:177px;left:88px;white-space:nowrap" class="ft05">i&#160;&#160;j * 64<br/>IF k1[j] OR *no writemask* THEN</p>
+<p style="position:absolute;top:213px;left:142px;white-space:nowrap" class="ft02">IF (EVEX.b = 1) AND (SRC *is memory*)</p>
+<p style="position:absolute;top:231px;left:169px;white-space:nowrap" class="ft05">THEN DEST[i+63:i]&#160;&#160;APPROXIMATE(1.0/ SQRT(SRC[63:0]));<br/>ELSE DEST[i+63:i]&#160;&#160;APPROXIMATE(1.0/&#160;SQRT(SRC[i+63:i]));</p>
+<p style="position:absolute;top:267px;left:142px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:285px;left:88px;white-space:nowrap" class="ft02">ELSE&#160;</p>
+<p style="position:absolute;top:303px;left:115px;white-space:nowrap" class="ft02">IF&#160;*merging-masking*</p>
+<p style="position:absolute;top:303px;left:331px;white-space:nowrap" class="ft02">;&#160;merging-masking</p>
+<p style="position:absolute;top:321px;left:142px;white-space:nowrap" class="ft05">THEN&#160;*DEST[i+63:i]&#160;remains unchanged*<br/>ELSE&#160;;&#160;</p>
+<p style="position:absolute;top:339px;left:337px;white-space:nowrap" class="ft02">zeroing-masking</p>
+<p style="position:absolute;top:357px;left:169px;white-space:nowrap" class="ft02">DEST[i+63:i]&#160;&#160;0</p>
+<p style="position:absolute;top:375px;left:115px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:393px;left:88px;white-space:nowrap" class="ft02">FI;</p>
+<p style="position:absolute;top:412px;left:68px;white-space:nowrap" class="ft06">ENDFOR;<br/>DEST[MAX_VL-1:VL]&#160;&#160;0</p>
+<p style="position:absolute;top:676px;left:68px;white-space:nowrap" class="ft01">Intel&#160;C/C++ Compiler Intrinsic&#160;Equivalent</p>
+<p style="position:absolute;top:699px;left:68px;white-space:nowrap" class="ft05">VRSQRT14PD __m512d _mm512_rsqrt14_pd(&#160;__m512d&#160;a);<br/>VRSQRT14PD __m512d _mm512_mask_rsqrt14_pd(__m512d&#160;s, __mmask8&#160;k, __m512d a);<br/>VRSQRT14PD __m512d _mm512_maskz_rsqrt14_pd( __mmask8 k, __m512d&#160;a);<br/>VRSQRT14PD __m256d _mm256_rsqrt14_pd(&#160;__m256d&#160;a);<br/>VRSQRT14PD __m256d _mm512_mask_rsqrt14_pd(__m256d&#160;s, __mmask8&#160;k, __m256d a);<br/>VRSQRT14PD __m256d _mm512_maskz_rsqrt14_pd( __mmask8 k, __m256d&#160;a);<br/>VRSQRT14PD __m128d _mm_rsqrt14_pd( __m128d&#160;a);<br/>VRSQRT14PD __m128d _mm_mask_rsqrt14_pd(__m128d s, __mmask8 k, __m128d a);<br/>VRSQRT14PD __m128d _mm_maskz_rsqrt14_pd( __mmask8 k, __m128d&#160;a);</p>
+<p style="position:absolute;top:877px;left:68px;white-space:nowrap" class="ft01">SIMD Floating-Point&#160;Exceptions</p>
+<p style="position:absolute;top:905px;left:68px;white-space:nowrap" class="ft02">None</p>
+<p style="position:absolute;top:937px;left:68px;white-space:nowrap" class="ft01">Other Exceptions</p>
+<p style="position:absolute;top:960px;left:68px;white-space:nowrap" class="ft02">See&#160;Exceptions Type&#160;E4.</p>
+<p style="position:absolute;top:470px;left:319px;white-space:nowrap" class="ft03">Table 5-23. VRSQRT14PD&#160;Special Cases</p>
+<p style="position:absolute;top:495px;left:220px;white-space:nowrap" class="ft02">Input&#160;value</p>
+<p style="position:absolute;top:495px;left:329px;white-space:nowrap" class="ft02">Result&#160;value</p>
+<p style="position:absolute;top:495px;left:440px;white-space:nowrap" class="ft02">Comments</p>
+<p style="position:absolute;top:519px;left:220px;white-space:nowrap" class="ft02">Any denormal</p>
+<p style="position:absolute;top:519px;left:329px;white-space:nowrap" class="ft02">Normal</p>
+<p style="position:absolute;top:519px;left:440px;white-space:nowrap" class="ft02">Cannot&#160;generate overflow</p>
+<p style="position:absolute;top:543px;left:220px;white-space:nowrap" class="ft02">X =&#160;2</p>
+<p style="position:absolute;top:540px;left:251px;white-space:nowrap" class="ft04">-2n</p>
+<p style="position:absolute;top:543px;left:329px;white-space:nowrap" class="ft02">2</p>
+<p style="position:absolute;top:540px;left:337px;white-space:nowrap" class="ft04">n</p>
+<p style="position:absolute;top:567px;left:220px;white-space:nowrap" class="ft02">X &lt;&#160;0</p>
+<p style="position:absolute;top:567px;left:329px;white-space:nowrap" class="ft02">QNaN_Indefinite&#160;Including -INF</p>
+<p style="position:absolute;top:591px;left:220px;white-space:nowrap" class="ft02">X =&#160;-0</p>
+<p style="position:absolute;top:591px;left:329px;white-space:nowrap" class="ft02">-INF</p>
+<p style="position:absolute;top:615px;left:220px;white-space:nowrap" class="ft02">X =&#160;+0</p>
+<p style="position:absolute;top:615px;left:329px;white-space:nowrap" class="ft02">+INF</p>
+<p style="position:absolute;top:639px;left:220px;white-space:nowrap" class="ft02">X =&#160;+INF</p>
+<p style="position:absolute;top:639px;left:329px;white-space:nowrap" class="ft02">+0</p>
+</div>
+</body>
+</html>

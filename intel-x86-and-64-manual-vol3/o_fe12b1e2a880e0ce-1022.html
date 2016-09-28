@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1022</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:18px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:11px;font-family:Times;color:#000000;}
+	.ft04{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:14px;font-family:Times;color:#0860a8;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1022-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce1022.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">22-18&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">ARCHITECTURE&#160;COMPATIBILITY</p>
+<p style="position:absolute;top:97px;left:68px;white-space:nowrap" class="ft02">22.22 MEMORY&#160;</p>
+<p style="position:absolute;top:97px;left:236px;white-space:nowrap" class="ft02">MANAGEMENT&#160;</p>
+<p style="position:absolute;top:97px;left:378px;white-space:nowrap" class="ft02">FACILITIES</p>
+<p style="position:absolute;top:133px;left:68px;white-space:nowrap" class="ft06">The following sections&#160;describe the new&#160;memory management facilities&#160;available&#160;in&#160;the various IA-32 processors&#160;<br/>and&#160;some compatibility&#160;differences.</p>
+<p style="position:absolute;top:200px;left:68px;white-space:nowrap" class="ft04">22.22.1&#160;&#160;New Memory Management Control Flags</p>
+<p style="position:absolute;top:231px;left:68px;white-space:nowrap" class="ft06">The&#160;Pentium&#160;Pro processor introduced three new memory&#160;management&#160;features: physical memory&#160;addressing&#160;<br/>extension,&#160;the global bit in&#160;page-table&#160;entries, and&#160;general support for larger page&#160;sizes.&#160;These&#160;features&#160;are only&#160;<br/>available when operating&#160;in&#160;protected mode.</p>
+<p style="position:absolute;top:308px;left:68px;white-space:nowrap" class="ft05">22.22.1.1&#160;&#160;&#160;Physical&#160;Memory&#160;Addressing&#160;Extension</p>
+<p style="position:absolute;top:337px;left:68px;white-space:nowrap" class="ft06">The new PAE (physical address extension) flag in control register CR4, bit 5, may enable additional address&#160;lines on&#160;<br/>the processor,&#160;allowing&#160;extended physical&#160;addresses. This&#160;option can only be used&#160;when&#160;paging&#160;is enabled, using a&#160;<br/>new page-table mechanism provided&#160;to support the larger&#160;physical address&#160;range (see&#160;<a href="o_fe12b1e2a880e0ce-105.html">Section 4.1, “Paging Modes&#160;<br/>and Control Bits”).</a></p>
+<p style="position:absolute;top:430px;left:68px;white-space:nowrap" class="ft05">22.22.1.2&#160;&#160;&#160;Global Pages</p>
+<p style="position:absolute;top:459px;left:68px;white-space:nowrap" class="ft06">The new PGE&#160;(page global enable)&#160;flag in&#160;control&#160;register&#160;CR4,&#160;bit 7,&#160;provides&#160;a mechanism for preventing&#160;<br/>frequently used pages&#160;from being&#160;flushed from the&#160;translation lookaside&#160;buffer&#160;(TLB).&#160;When this&#160;flag is&#160;set,&#160;<br/>frequently used pages&#160;(such as&#160;pages containing&#160;kernel&#160;procedures&#160;or common data tables) can&#160;be&#160;marked global&#160;<br/>by setting the&#160;global&#160;flag&#160;in&#160;a page-directory&#160;or page-table entry.&#160;<br/>On a task&#160;switch&#160;or a&#160;write&#160;to control register&#160;CR3&#160;(which&#160;normally causes&#160;the TLBs to&#160;be&#160;flushed),&#160;the entries in&#160;<br/>the TLB marked global are not&#160;flushed. Marking pages global&#160;in this manner&#160;prevents unnecessary reloading of&#160;the&#160;<br/>TLB due to TLB misses on&#160;frequently&#160;used pages.&#160;S<a href="o_fe12b1e2a880e0ce-139.html">ee Section&#160;4.10, “Caching Translation&#160;Information” for a detail</a>ed&#160;<br/>description of this&#160;mechanism.</p>
+<p style="position:absolute;top:626px;left:68px;white-space:nowrap" class="ft05">22.22.1.3&#160;&#160;&#160;Larger&#160;Page Sizes</p>
+<p style="position:absolute;top:655px;left:68px;white-space:nowrap" class="ft06">The P6 family processors support large&#160;page sizes. For 32-bit paging,&#160;this facility&#160;is&#160;enabled with the PSE (page&#160;size&#160;<br/>extension) flag&#160;in control register&#160;CR4,&#160;bit 4.&#160;When this&#160;flag&#160;is set,&#160;the processor supports either&#160;4-KByte or&#160;4-<br/>MByte page&#160;sizes.&#160;PAE paging and&#160;IA-32e&#160;paging&#160;support&#160;2-MByte pages&#160;regardless of&#160;the&#160;value of&#160;CR4.PSE (see&#160;<br/><a href="o_fe12b1e2a880e0ce-117.html">Section 4.4,&#160;“PAE&#160;Paging” and Section 4.</a><a href="o_fe12b1e2a880e0ce-123.html">5, “IA-32e Paging”).</a>&#160;Se<a href="o_fe12b1e2a880e0ce-105.html">e Chapter 4,&#160;“Paging,”</a>&#160;for more&#160;information about&#160;<br/>large page&#160;sizes.</p>
+<p style="position:absolute;top:771px;left:68px;white-space:nowrap" class="ft04">22.22.2&#160;&#160;CD and NW Cache Control Flags</p>
+<p style="position:absolute;top:802px;left:68px;white-space:nowrap" class="ft06">The&#160;CD and&#160;NW flags in control&#160;register&#160;CR0 were&#160;introduced&#160;in the&#160;Intel486&#160;processor.&#160;In&#160;the P6&#160;family and&#160;<br/>Pentium processors,&#160;these&#160;flags are used&#160;to implement a&#160;writeback strategy&#160;for&#160;the data cache;&#160;in the&#160;Intel486&#160;<br/>processor,&#160;they implement a write-through&#160;strategy<a href="o_fe12b1e2a880e0ce-424.html">. See Table 11-5 for a comparison of these bits on the P6 fam</a>ily,&#160;<br/>Pentium, and Intel486&#160;processors. For complete information on&#160;caching, see<a href="o_fe12b1e2a880e0ce-413.html">&#160;Chapter&#160;11,&#160;“Memory Cache&#160;Control.”</a></p>
+<p style="position:absolute;top:902px;left:68px;white-space:nowrap" class="ft04">22.22.3&#160;&#160;Descriptor Types and Contents</p>
+<p style="position:absolute;top:932px;left:68px;white-space:nowrap" class="ft06">Operating-system code&#160;that&#160;manages space in descriptor tables often contains an invalid&#160;value&#160;in&#160;the&#160;access-rights&#160;<br/>field of&#160;descriptor-table&#160;entries&#160;to identify&#160;unused entries.&#160;Access rights&#160;values of&#160;80H&#160;and 00H&#160;remain&#160;invalid&#160;for&#160;<br/>the P6&#160;family,&#160;Pentium,&#160;Intel486,&#160;Intel386,&#160;and&#160;Intel&#160;286&#160;processors.&#160;Other&#160;values&#160;that&#160;were&#160;invalid&#160;on the&#160;Intel&#160;<br/>286&#160;processor may&#160;be&#160;valid on&#160;the&#160;32-bit&#160;processors&#160;because uses for these&#160;bits&#160;have&#160;been&#160;defined.</p>
+</div>
+</body>
+</html>

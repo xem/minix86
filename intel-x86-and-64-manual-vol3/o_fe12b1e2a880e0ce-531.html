@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 531</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:18px;font-family:Times;color:#000000;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:24px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page531-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce531.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:761px;white-space:nowrap" class="ft00">Vol. 3B&#160;15-25</p>
+<p style="position:absolute;top:47px;left:650px;white-space:nowrap" class="ft01">MACHINE-CHECK&#160;ARCHITECTURE</p>
+<p style="position:absolute;top:100px;left:69px;white-space:nowrap" class="ft02"><a href="o_fe12b1e2a880e0ce-531.html">Table 15-19&#160;</a>lists values&#160;of&#160;relevant bit fields of IA32_MCi_STATUS for architecturally&#160;defined SRAR&#160;errors.&#160;</p>
+<p style="position:absolute;top:222px;left:69px;white-space:nowrap" class="ft06">For both the&#160;data&#160;load&#160;and instruction&#160;fetch errors, the ADDRV&#160;and&#160;MISCV flags&#160;in the IA32_MCi_STATUS register&#160;<br/>are set&#160;to indicate that&#160;the offending&#160;physical&#160;address&#160;information is&#160;available from the&#160;IA32_MCi_MISC and&#160;the&#160;<br/>IA32_MCi_ADDR registers.&#160;For the&#160;memory scrubbing&#160;and&#160;L3&#160;explicit writeback&#160;errors, the&#160;address mode in the&#160;<br/>IA32_MCi_MISC register should&#160;be&#160;set&#160;as physical address mode&#160;(010b)&#160;and the&#160;address LSB information&#160;in the&#160;<br/>IA32_MCi_MISC register should&#160;indicate&#160;the lowest valid&#160;address bit in the&#160;address information&#160;provided from&#160;the&#160;<br/>IA32_MCi_ADDR register.&#160;<br/>MCE signal is broadcast to all logical processors on&#160;the&#160;system on which the UCR errors&#160;are&#160;supported, except&#160;when&#160;<br/>the&#160;processor supports LMCE&#160;and LMCE&#160;is enabled by system&#160;softwa<a href="o_fe12b1e2a880e0ce-511.html">re (see Section 15.3.1.5)</a>. The&#160;<br/>IA32_MCG_STATUS&#160;MSR&#160;allows system software&#160;to distinguish the&#160;affected&#160;logical processor of an&#160;SRAR error&#160;<br/>amongst logical processors that observed SRAR&#160;via MCi_STATUS&#160;bank.<br/><a href="o_fe12b1e2a880e0ce-531.html">Table 15-20&#160;</a>shows&#160;the RIPV&#160;and EIPV&#160;flag&#160;indication in&#160;the IA32_MCG_STATUS register&#160;for&#160;the data&#160;load&#160;and&#160;<br/>instruction&#160;fetch errors&#160;on&#160;both the reporting and&#160;non-reporting&#160;logical processors. The&#160;recoverable SRAR&#160;error&#160;<br/>reported&#160;by a&#160;processor&#160;may&#160;be&#160;continuable, where&#160;the system&#160;software can&#160;interpret&#160;the context of continuable&#160;<br/>as follows: the&#160;error was&#160;isolated, contained.&#160;If&#160;software&#160;can rectify&#160;the error&#160;condition in&#160;the current&#160;instruction&#160;<br/>stream,&#160;the execution context on that&#160;logical&#160;processor can&#160;be&#160;continued without&#160;loss of information.</p>
+<p style="position:absolute;top:699px;left:69px;white-space:nowrap" class="ft03">SRAR&#160;Error And Affected&#160;Logical Processors</p>
+<p style="position:absolute;top:724px;left:69px;white-space:nowrap" class="ft06">The&#160;affected&#160;logical processor is&#160;the one&#160;that has&#160;detected&#160;and&#160;raised an&#160;SRAR error&#160;at the&#160;point of&#160;the consump-<br/>tion in the&#160;execution&#160;flow.&#160;The affected&#160;logical processor&#160;should find&#160;the Data Load or&#160;the Instruction Fetch&#160;error&#160;<br/>information in&#160;the&#160;IA32_MCi_STATUS register that&#160;is reporting the SRAR&#160;error.&#160;<br/><a href="o_fe12b1e2a880e0ce-531.html">Table 15-20 li</a>st the&#160;actionable scenarios that system&#160;software&#160;can&#160;respond to an SRAR error&#160;on&#160;an affected logical&#160;<br/>processor according to&#160;RIPV and&#160;EIPV&#160;values:</p>
+<p style="position:absolute;top:817px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:818px;left:95px;white-space:nowrap" class="ft06">Recoverable-Continuable&#160;SRAR&#160;Error (RIPV=1,&#160;EIPV=1):<br/>For Recoverable-Continuable SRAR errors, the&#160;affected logical processor&#160;should find&#160;that both&#160;the&#160;<br/>IA32_MCG_STATUS.RIPV&#160;and&#160;the IA32_MCG_STATUS.EIPV&#160;flags are&#160;set, indicating that system software may&#160;<br/>be able to&#160;restart execution from&#160;the interrupted&#160;context if&#160;it&#160;is able to&#160;rectify the&#160;error condition. If&#160;system&#160;<br/>software cannot rectify&#160;the&#160;error condition&#160;then it&#160;must&#160;treat the error&#160;as a&#160;recoverable error&#160;where restarting&#160;<br/>execution&#160;with&#160;the interrupted context&#160;is not possible.&#160;Restarting without&#160;rectifying the&#160;error condition&#160;will&#160;<br/>result&#160;in most cases with another SRAR&#160;error on&#160;the same&#160;instruction.</p>
+<p style="position:absolute;top:945px;left:69px;white-space:nowrap" class="ft04">•</p>
+<p style="position:absolute;top:946px;left:95px;white-space:nowrap" class="ft09">Recoverable-not-continuable&#160;SRAR Error (RIPV=0, EIPV=x):<br/>For Recoverable-not-continuable&#160;errors,&#160;the affected logical processor should&#160;find&#160;that either<br/>—&#160;IA32_MCG_STATUS.RIPV=&#160;0,&#160;IA32_MCG_STATUS.EIPV=1, or&#160;<br/>—&#160;IA32_MCG_STATUS.RIPV=&#160;0,&#160;IA32_MCG_STATUS.EIPV=0.</p>
+<p style="position:absolute;top:116px;left:267px;white-space:nowrap" class="ft03">Table&#160;15-19.&#160;&#160;IA32_MCi_STATUS Values&#160;for SRAR&#160;Errors</p>
+<p style="position:absolute;top:137px;left:74px;white-space:nowrap" class="ft02">SRAR Error</p>
+<p style="position:absolute;top:137px;left:253px;white-space:nowrap" class="ft02">Valid</p>
+<p style="position:absolute;top:137px;left:318px;white-space:nowrap" class="ft02">OVER</p>
+<p style="position:absolute;top:137px;left:386px;white-space:nowrap" class="ft02">UC</p>
+<p style="position:absolute;top:137px;left:425px;white-space:nowrap" class="ft02">EN</p>
+<p style="position:absolute;top:137px;left:465px;white-space:nowrap" class="ft02">MISCV</p>
+<p style="position:absolute;top:137px;left:536px;white-space:nowrap" class="ft02">ADDRV</p>
+<p style="position:absolute;top:137px;left:614px;white-space:nowrap" class="ft02">PCC</p>
+<p style="position:absolute;top:137px;left:663px;white-space:nowrap" class="ft02">S</p>
+<p style="position:absolute;top:137px;left:693px;white-space:nowrap" class="ft02">AR</p>
+<p style="position:absolute;top:137px;left:730px;white-space:nowrap" class="ft02">MCACOD</p>
+<p style="position:absolute;top:160px;left:74px;white-space:nowrap" class="ft02">Data&#160;Load</p>
+<p style="position:absolute;top:160px;left:253px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:160px;left:318px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:160px;left:386px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:160px;left:425px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:160px;left:465px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:160px;left:536px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:160px;left:614px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:160px;left:663px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:160px;left:693px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:160px;left:730px;white-space:nowrap" class="ft02">134H</p>
+<p style="position:absolute;top:182px;left:74px;white-space:nowrap" class="ft02">Instruction Fetch</p>
+<p style="position:absolute;top:182px;left:253px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:182px;left:318px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:182px;left:386px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:182px;left:425px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:182px;left:465px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:182px;left:536px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:182px;left:614px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:182px;left:663px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:182px;left:693px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:182px;left:730px;white-space:nowrap" class="ft02">150H</p>
+<p style="position:absolute;top:496px;left:238px;white-space:nowrap" class="ft03">Table 15-20. &#160;IA32_MCG_STATUS Flag&#160;Indication for SRAR Errors</p>
+<p style="position:absolute;top:517px;left:75px;white-space:nowrap" class="ft02">SRAR&#160;Type</p>
+<p style="position:absolute;top:517px;left:205px;white-space:nowrap" class="ft02">Affected Logical Processor</p>
+<p style="position:absolute;top:517px;left:522px;white-space:nowrap" class="ft02">Non-Affected Logical Processors</p>
+<p style="position:absolute;top:540px;left:205px;white-space:nowrap" class="ft02">RIPV</p>
+<p style="position:absolute;top:540px;left:311px;white-space:nowrap" class="ft02">EIPV</p>
+<p style="position:absolute;top:540px;left:416px;white-space:nowrap" class="ft02">Continuable</p>
+<p style="position:absolute;top:540px;left:522px;white-space:nowrap" class="ft02">RIPV</p>
+<p style="position:absolute;top:540px;left:628px;white-space:nowrap" class="ft02">EIPV</p>
+<p style="position:absolute;top:540px;left:734px;white-space:nowrap" class="ft02">Continuable</p>
+<p style="position:absolute;top:562px;left:75px;white-space:nowrap" class="ft02">Recoverable-</p>
+<p style="position:absolute;top:579px;left:75px;white-space:nowrap" class="ft02">continuable</p>
+<p style="position:absolute;top:562px;left:205px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:562px;left:311px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:562px;left:416px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:559px;left:436px;white-space:nowrap" class="ft05">1</p>
+<p style="position:absolute;top:646px;left:72px;white-space:nowrap" class="ft01">NOTES:</p>
+<p style="position:absolute;top:665px;left:71px;white-space:nowrap" class="ft02">1. see the definition of&#160;the context of&#160;“continuable” above and&#160;additional detail&#160;below.</p>
+<p style="position:absolute;top:595px;left:567px;white-space:nowrap" class="ft02">1</p>
+<p style="position:absolute;top:595px;left:673px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:595px;left:772px;white-space:nowrap" class="ft02">Yes</p>
+<p style="position:absolute;top:601px;left:75px;white-space:nowrap" class="ft02">Recoverable-not-</p>
+<p style="position:absolute;top:618px;left:75px;white-space:nowrap" class="ft02">continuable</p>
+<p style="position:absolute;top:601px;left:205px;white-space:nowrap" class="ft02">0</p>
+<p style="position:absolute;top:601px;left:311px;white-space:nowrap" class="ft02">x</p>
+<p style="position:absolute;top:601px;left:416px;white-space:nowrap" class="ft02">No</p>
+</div>
+</body>
+</html>

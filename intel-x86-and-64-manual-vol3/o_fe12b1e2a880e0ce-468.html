@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 468</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:11px;font-family:Times;color:#000000;}
+	.ft03{font-size:18px;font-family:Times;color:#000000;}
+	.ft04{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft05{font-size:8px;font-family:Times;color:#000000;}
+	.ft06{font-size:10px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:23px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page468-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_fe12b1e2a880e0ce468.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">14-2&#160;Vol. 3B</p>
+<p style="position:absolute;top:47px;left:68px;white-space:nowrap" class="ft01">POWER AND THERMAL&#160;MANAGEMENT</p>
+<p style="position:absolute;top:100px;left:68px;white-space:nowrap" class="ft07">IA32_APERF&#160;MSR.&#160;S<a href="o_fe12b1e2a880e0ce-468.html">ee Figure 14-1&#160;for&#160;</a>an&#160;overview&#160;of the two 64-bit&#160;MSRs and&#160;the bullets below&#160;for a detailed&#160;<br/>description:</p>
+<p style="position:absolute;top:335px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:336px;left:93px;white-space:nowrap" class="ft07">Use CPUID&#160;to check the&#160;P-State hardware&#160;coordination feedback capability&#160;bit. CPUID.06H.ECX[Bit&#160;0]&#160;=&#160;1&#160;<br/>indicates IA32_MPERF&#160;MSR&#160;and&#160;IA32_APERF&#160;MSR are&#160;present.</p>
+<p style="position:absolute;top:374px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:375px;left:93px;white-space:nowrap" class="ft07">IA32_MPERF MSR&#160;(E7H)&#160;increments in proportion to&#160;a fixed frequency,&#160;which is configured when the processor&#160;<br/>is booted.</p>
+<p style="position:absolute;top:413px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:414px;left:93px;white-space:nowrap" class="ft07">IA32_APERF MSR (E8H) increments in proportion&#160;to actual performance, while&#160;accounting for&#160;hardware coordi-<br/>nation of P-state&#160;and TM1/TM2; or&#160;software&#160;initiated throttling.</p>
+<p style="position:absolute;top:452px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:453px;left:93px;white-space:nowrap" class="ft07">The&#160;MSRs are&#160;per logical processor; they measure&#160;performance only when the&#160;targeted&#160;processor is&#160;in the&#160;C0&#160;<br/>state.</p>
+<p style="position:absolute;top:491px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:492px;left:93px;white-space:nowrap" class="ft07">Only the&#160;IA32_APERF/IA32_MPERF&#160;ratio&#160;is architecturally&#160;defined; software&#160;should not attach&#160;meaning to&#160;the&#160;<br/>content of the&#160;individual of&#160;IA32_APERF&#160;or IA32_MPERF&#160;MSRs.</p>
+<p style="position:absolute;top:530px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:531px;left:93px;white-space:nowrap" class="ft02">When either MSR overflows, both&#160;MSRs&#160;are&#160;reset&#160;to zero&#160;and continue to&#160;increment.</p>
+<p style="position:absolute;top:553px;left:68px;white-space:nowrap" class="ft03">•</p>
+<p style="position:absolute;top:554px;left:93px;white-space:nowrap" class="ft07">Both MSRs&#160;are full 64-bits&#160;counters.&#160;Each&#160;MSR&#160;can be written&#160;to&#160;independently.&#160;However,&#160;software&#160;should&#160;<br/>follow the&#160;guidelines illustrated&#160;<a href="o_fe12b1e2a880e0ce-468.html">in Example 14-1.</a></p>
+<p style="position:absolute;top:594px;left:68px;white-space:nowrap" class="ft07">If P-states are&#160;exposed by&#160;the&#160;BIOS&#160;as hardware&#160;coordinated, software&#160;is expected&#160;to&#160;confirm processor support&#160;<br/>for&#160;P-state&#160;hardware&#160;coordination feedback and use&#160;the feedback mechanism to&#160;make P-state decisions.&#160;The OSPM&#160;<br/>is expected to either&#160;save away the current MSR values&#160;(for&#160;determination of the&#160;delta of the counter ratio at a later&#160;<br/>time)&#160;or reset both&#160;MSRs (execute WRMSR&#160;with&#160;0 to&#160;these&#160;MSRs individually)&#160;at the&#160;start of the&#160;time window&#160;used&#160;<br/>for&#160;making the P-state&#160;decision. When not resetting the values,&#160;overflow of the MSRs can be&#160;detected&#160;by&#160;checking&#160;<br/>whether the&#160;new&#160;values&#160;read&#160;are&#160;less&#160;than&#160;the&#160;previously&#160;saved values.&#160;<br/><a href="o_fe12b1e2a880e0ce-468.html">Example&#160;14-1</a>&#160;demonstrates&#160;steps&#160;for using&#160;the&#160;hardware&#160;feedback&#160;mechanism provided by IA32_APERF&#160;MSR and&#160;<br/>IA32_MPERF&#160;MSR to&#160;determine&#160;a&#160;target&#160;P-state.</p>
+<p style="position:absolute;top:758px;left:68px;white-space:nowrap" class="ft01">Example&#160;14-1.&#160;&#160;Determine Target&#160;P-state From Hardware&#160;Coordinated Feedback</p>
+<p style="position:absolute;top:782px;left:68px;white-space:nowrap" class="ft02">DWORD PercentBusy; // Percentage&#160;of processor&#160;time not idle.</p>
+<p style="position:absolute;top:800px;left:88px;white-space:nowrap" class="ft09">// Measure&#160;“PercentBusy“ during&#160;previous&#160;sampling&#160;window.<br/>//&#160;Typically,&#160;“PercentBusy“ is measure&#160;over&#160;a time&#160;scale&#160;suitable for<br/>// power management&#160;decisions<br/>//&#160;<br/>// RDMSR of&#160;MCNT&#160;and&#160;ACNT&#160;should be&#160;performed without delay.<br/>//&#160;Software&#160;needs to exercise&#160;care to&#160;avoid delays between&#160;<br/>//&#160;the two RDMSRs (for&#160;example,&#160;interrupts).<br/>MCNT = RDMSR(IA32_MPERF);<br/>ACNT&#160;=&#160;RDMSR(IA32_APERF);</p>
+<p style="position:absolute;top:980px;left:88px;white-space:nowrap" class="ft09">//&#160;PercentPerformance indicates&#160;the percentage of the processor<br/>//&#160;that is&#160;in use. The calculation is&#160;based&#160;on&#160;the PercentBusy,&#160;<br/>//&#160;that is&#160;the percentage of processor&#160;time not idle&#160;and the P-state<br/>//&#160;hardware&#160;coordinated feedback using the ACNT/MCNT ratio.<br/>//&#160;Note that both values&#160;need&#160;to&#160;be&#160;calculated&#160;over&#160;the&#160;same&#160;</p>
+<p style="position:absolute;top:281px;left:189px;white-space:nowrap" class="ft04">Figure&#160;14-1. &#160;IA32_MPERF MSR and&#160;IA32_APERF&#160;MSR for&#160;P-state&#160;Coordination</p>
+<p style="position:absolute;top:187px;left:203px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:188px;left:688px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:248px;left:226px;white-space:nowrap" class="ft06">IA32_MPERF (Addr:&#160;E7H)</p>
+<p style="position:absolute;top:187px;left:481px;white-space:nowrap" class="ft05">63</p>
+<p style="position:absolute;top:187px;left:408px;white-space:nowrap" class="ft05">0</p>
+<p style="position:absolute;top:250px;left:522px;white-space:nowrap" class="ft06">IA32_APERF (Addr:&#160;E8H)</p>
+</div>
+</body>
+</html>

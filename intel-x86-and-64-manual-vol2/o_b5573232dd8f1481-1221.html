@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1221</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft08{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft09{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+	.ft010{font-size:11px;line-height:20px;font-family:Times;color:#000000;}
+	.ft011{font-size:11px;line-height:21px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1221-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f14811221.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">RDRAND—Read Random Number</p>
+<p style="position:absolute;top:47px;left:635px;white-space:nowrap" class="ft01">INSTRUCTION SET REFERENCE,&#160;M-U</p>
+<p style="position:absolute;top:1103px;left:763px;white-space:nowrap" class="ft00">Vol. 2B&#160;4-541</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">RDRAND—Read Random Number</p>
+<p style="position:absolute;top:340px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:426px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:451px;left:69px;white-space:nowrap" class="ft06">Loads&#160;a hardware&#160;generated random&#160;value and store it in the&#160;destination register. The size of the&#160;random value is&#160;<br/>determined&#160;by the destination register size and operating mode.&#160;The Carry Flag indicates whether a random value&#160;<br/>is available&#160;at&#160;the&#160;time&#160;the instruction is&#160;executed.&#160;CF=1&#160;indicates that&#160;the data in the&#160;destination&#160;is valid.&#160;Other-<br/>wise&#160;CF=0 and the data in&#160;the&#160;destination&#160;operand will be&#160;returned&#160;as zeros for&#160;the specified width. All&#160;other&#160;flags&#160;<br/>are&#160;forced&#160;to&#160;0 in&#160;either&#160;situation.&#160;Software&#160;must check&#160;the&#160;state&#160;of CF=1&#160;for determining if&#160;a valid&#160;random value&#160;<br/>has been&#160;returned, otherwise it is expected&#160;to loop&#160;and&#160;retry execution of RDRAND&#160;(see&#160;<a href="��"><i>Intel® 64 and IA-32 Archi-<br/>tectures&#160;Software&#160;Developer’s Manual, Volume&#160;1</i></a>,<a href="��">&#160;Section 7.3.17,&#160;“Random Number&#160;Generator Instructions”).<br/></a>This instruction is&#160;available&#160;at all&#160;privilege levels.<br/>In&#160;64-bit mode, the&#160;instruction's default&#160;operation size&#160;is&#160;32 bits.&#160;Using&#160;a REX prefix&#160;in&#160;the form&#160;of REX.B permits&#160;<br/>access to&#160;additional registers (R8-R15).&#160;Using a&#160;REX&#160;prefix&#160;in&#160;the form&#160;of REX.W promotes&#160;operation to&#160;64&#160;bit&#160;oper-<br/>ands. See the summary&#160;chart&#160;at the&#160;beginning&#160;of this&#160;section for encoding data and&#160;limits.</p>
+<p style="position:absolute;top:665px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:691px;left:69px;white-space:nowrap" class="ft04">IF&#160;HW_RND_GEN.ready =&#160;1</p>
+<p style="position:absolute;top:709px;left:89px;white-space:nowrap" class="ft04">THEN&#160;</p>
+<p style="position:absolute;top:727px;left:116px;white-space:nowrap" class="ft04">CASE of</p>
+<p style="position:absolute;top:745px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 64: DEST[63:0]&#160;←&#160;HW_RND_GEN.data;</p>
+<p style="position:absolute;top:763px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 32: DEST[31:0]&#160;←&#160;HW_RND_GEN.data;</p>
+<p style="position:absolute;top:781px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 16: DEST[15:0]&#160;←&#160;HW_RND_GEN.data;</p>
+<p style="position:absolute;top:799px;left:116px;white-space:nowrap" class="ft09">ESAC<br/>CF&#160;←&#160;1;</p>
+<p style="position:absolute;top:835px;left:89px;white-space:nowrap" class="ft04">ELSE</p>
+<p style="position:absolute;top:853px;left:116px;white-space:nowrap" class="ft04">CASE of</p>
+<p style="position:absolute;top:871px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 64: DEST[63:0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:889px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 32: DEST[31:0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:907px;left:143px;white-space:nowrap" class="ft04">osize&#160;is 16: DEST[15:0]&#160;←&#160;0;</p>
+<p style="position:absolute;top:925px;left:116px;white-space:nowrap" class="ft09">ESAC<br/>CF&#160;←&#160;0;</p>
+<p style="position:absolute;top:961px;left:69px;white-space:nowrap" class="ft09">FI<br/>OF, SF,&#160;ZF, AF,&#160;PF&#160;←&#160;0;</p>
+<p style="position:absolute;top:1016px;left:69px;white-space:nowrap" class="ft03">Flags Affected</p>
+<p style="position:absolute;top:1042px;left:69px;white-space:nowrap" class="ft06">The CF flag&#160;is set according to&#160;the result&#160;(see&#160;the “Operation”&#160;section&#160;above). The OF, SF, ZF,&#160;AF,&#160;and PF flags&#160;are&#160;<br/>set to&#160;0.</p>
+<p style="position:absolute;top:123px;left:73px;white-space:nowrap" class="ft04">Opcode*/</p>
+<p style="position:absolute;top:137px;left:73px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:391px;white-space:nowrap" class="ft04">Op/&#160;</p>
+<p style="position:absolute;top:137px;left:391px;white-space:nowrap" class="ft04">En</p>
+<p style="position:absolute;top:123px;left:428px;white-space:nowrap" class="ft04">64/32 bit&#160;</p>
+<p style="position:absolute;top:137px;left:428px;white-space:nowrap" class="ft04">Mode&#160;</p>
+<p style="position:absolute;top:153px;left:428px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:500px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:137px;left:500px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:153px;left:500px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:570px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:73px;white-space:nowrap" class="ft010">0F&#160;C7&#160;/6<br/>RDRAND r16</p>
+<p style="position:absolute;top:175px;left:391px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:175px;left:428px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:175px;left:500px;white-space:nowrap" class="ft04">RDRAND</p>
+<p style="position:absolute;top:175px;left:570px;white-space:nowrap" class="ft04">Read&#160;a 16-bit&#160;random&#160;number&#160;and store in&#160;the&#160;</p>
+<p style="position:absolute;top:191px;left:570px;white-space:nowrap" class="ft04">destination&#160;register.</p>
+<p style="position:absolute;top:218px;left:73px;white-space:nowrap" class="ft011">0F&#160;C7&#160;/6<br/>RDRAND r32</p>
+<p style="position:absolute;top:218px;left:391px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:218px;left:428px;white-space:nowrap" class="ft04">V/V</p>
+<p style="position:absolute;top:218px;left:500px;white-space:nowrap" class="ft04">RDRAND</p>
+<p style="position:absolute;top:218px;left:570px;white-space:nowrap" class="ft04">Read&#160;a 32-bit&#160;random&#160;number&#160;and store in&#160;the&#160;</p>
+<p style="position:absolute;top:235px;left:570px;white-space:nowrap" class="ft04">destination&#160;register.</p>
+<p style="position:absolute;top:262px;left:73px;white-space:nowrap" class="ft010">REX.W + 0F C7 /6<br/>RDRAND r64</p>
+<p style="position:absolute;top:262px;left:391px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:262px;left:428px;white-space:nowrap" class="ft04">V/I</p>
+<p style="position:absolute;top:262px;left:500px;white-space:nowrap" class="ft04">RDRAND</p>
+<p style="position:absolute;top:262px;left:570px;white-space:nowrap" class="ft04">Read&#160;a 64-bit&#160;random&#160;number&#160;and store in&#160;the&#160;</p>
+<p style="position:absolute;top:279px;left:570px;white-space:nowrap" class="ft04">destination&#160;register.</p>
+<p style="position:absolute;top:362px;left:85px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:362px;left:190px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:362px;left:361px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:362px;left:538px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:362px;left:718px;white-space:nowrap" class="ft04">Operand 4</p>
+<p style="position:absolute;top:387px;left:97px;white-space:nowrap" class="ft04">M</p>
+<p style="position:absolute;top:387px;left:177px;white-space:nowrap" class="ft04">ModRM:r/m (w)</p>
+<p style="position:absolute;top:387px;left:382px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:387px;left:559px;white-space:nowrap" class="ft04">NA</p>
+<p style="position:absolute;top:387px;left:739px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>

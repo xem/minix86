@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 221</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft00{font-size:9px;font-family:Times;color:#000000;}
+	.ft01{font-size:11px;font-family:Times;color:#0860a8;}
+	.ft02{font-size:16px;font-family:Times;color:#0860a8;}
+	.ft03{font-size:12px;font-family:Times;color:#0860a8;}
+	.ft04{font-size:11px;font-family:Times;color:#000000;}
+	.ft05{font-size:11px;line-height:16px;font-family:Times;color:#000000;}
+	.ft06{font-size:11px;line-height:22px;font-family:Times;color:#000000;}
+	.ft07{font-size:11px;line-height:17px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page221-div" style="position:relative;width:918px;height:1188px;">
+<img width="918" height="1188" src="o_b5573232dd8f1481221.png" alt="background image"/>
+<p style="position:absolute;top:1103px;left:68px;white-space:nowrap" class="ft00">BNDCU/BNDCN—Check Upper&#160;Bound</p>
+<p style="position:absolute;top:47px;left:638px;white-space:nowrap" class="ft01">INSTRUCTION&#160;SET&#160;REFERENCE,&#160;A-L</p>
+<p style="position:absolute;top:1103px;left:770px;white-space:nowrap" class="ft00">Vol. 2A&#160;3-93</p>
+<p style="position:absolute;top:98px;left:69px;white-space:nowrap" class="ft02">BNDCU/BNDCN—Check&#160;Upper Bound</p>
+<p style="position:absolute;top:353px;left:354px;white-space:nowrap" class="ft03">Instruction Operand&#160;Encoding</p>
+<p style="position:absolute;top:437px;left:69px;white-space:nowrap" class="ft03">Description</p>
+<p style="position:absolute;top:460px;left:69px;white-space:nowrap" class="ft06">Compare the&#160;address in the second&#160;operand with the&#160;upper bound in bnd.&#160;The&#160;second&#160;operand can be either a&#160;<br/>register&#160;or a&#160;memory&#160;operand.&#160;If the&#160;address is&#160;higher&#160;than the&#160;upper bound&#160;in bnd.UB, it&#160;will&#160;set BNDSTATUS to&#160;<br/>01H and&#160;signal&#160;a #BR&#160;exception.<br/>BNDCU&#160;perform 1’s complement operation&#160;on the upper&#160;bound of bnd first&#160;before proceeding with address compar-<br/>ison. BNDCN perform&#160;address comparison&#160;directly&#160;using&#160;the&#160;upper&#160;bound in&#160;bnd&#160;that&#160;is already reverted&#160;out of 1’s&#160;<br/>complement form.&#160;<br/>This instruction does not&#160;cause any&#160;memory&#160;access, and&#160;does&#160;not read or write&#160;any flags.&#160;<br/>Effective address&#160;computation of m32/64&#160;has&#160;identical&#160;behavior to&#160;LEA</p>
+<p style="position:absolute;top:628px;left:69px;white-space:nowrap" class="ft03">Operation</p>
+<p style="position:absolute;top:651px;left:69px;white-space:nowrap" class="ft07">BNDCU BND,&#160;reg<br/>IF&#160;reg &gt; NOT(BND.UB)&#160;Then</p>
+<p style="position:absolute;top:687px;left:89px;white-space:nowrap" class="ft07">BNDSTATUS&#160;&#160;01H;&#160;<br/>#BR;&#160;</p>
+<p style="position:absolute;top:723px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:759px;left:69px;white-space:nowrap" class="ft07">BNDCU BND,&#160;mem<br/>TEMP&#160;&#160;LEA(mem);&#160;<br/>IF TEMP&#160;&gt; NOT(BND.UB) Then</p>
+<p style="position:absolute;top:813px;left:89px;white-space:nowrap" class="ft07">BNDSTATUS&#160;&#160;01H;&#160;<br/>#BR;&#160;</p>
+<p style="position:absolute;top:849px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:885px;left:69px;white-space:nowrap" class="ft07">BNDCN BND,&#160;reg<br/>IF&#160;reg &gt; BND.UB Then</p>
+<p style="position:absolute;top:921px;left:89px;white-space:nowrap" class="ft07">BNDSTATUS&#160;&#160;01H;&#160;<br/>#BR;&#160;</p>
+<p style="position:absolute;top:957px;left:69px;white-space:nowrap" class="ft04">FI;</p>
+<p style="position:absolute;top:123px;left:78px;white-space:nowrap" class="ft04">Opcode/</p>
+<p style="position:absolute;top:139px;left:78px;white-space:nowrap" class="ft04">Instruction</p>
+<p style="position:absolute;top:123px;left:262px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:123px;left:318px;white-space:nowrap" class="ft04">64/32&#160;</p>
+<p style="position:absolute;top:139px;left:318px;white-space:nowrap" class="ft04">bit Mode&#160;</p>
+<p style="position:absolute;top:155px;left:318px;white-space:nowrap" class="ft04">Support</p>
+<p style="position:absolute;top:123px;left:392px;white-space:nowrap" class="ft04">CPUID&#160;</p>
+<p style="position:absolute;top:139px;left:392px;white-space:nowrap" class="ft04">Feature&#160;</p>
+<p style="position:absolute;top:155px;left:392px;white-space:nowrap" class="ft04">Flag</p>
+<p style="position:absolute;top:123px;left:458px;white-space:nowrap" class="ft04">Description</p>
+<p style="position:absolute;top:175px;left:78px;white-space:nowrap" class="ft04">F2&#160;0F&#160;1A /r</p>
+<p style="position:absolute;top:191px;left:78px;white-space:nowrap" class="ft04">BNDCU bnd, r/m32</p>
+<p style="position:absolute;top:175px;left:262px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:175px;left:318px;white-space:nowrap" class="ft04">NE/V</p>
+<p style="position:absolute;top:175px;left:391px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:175px;left:458px;white-space:nowrap" class="ft04">Generate a&#160;#BR&#160;if&#160;the&#160;address in&#160;r/m32 is&#160;higher&#160;than&#160;the&#160;upper&#160;</p>
+<p style="position:absolute;top:191px;left:458px;white-space:nowrap" class="ft04">bound&#160;in&#160;bnd.UB&#160;(bnb.UB&#160;in&#160;1's&#160;complement&#160;form).</p>
+<p style="position:absolute;top:211px;left:78px;white-space:nowrap" class="ft04">F2&#160;0F&#160;1A /r</p>
+<p style="position:absolute;top:227px;left:78px;white-space:nowrap" class="ft04">BNDCU bnd, r/m64</p>
+<p style="position:absolute;top:211px;left:262px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:211px;left:318px;white-space:nowrap" class="ft04">V/NE</p>
+<p style="position:absolute;top:211px;left:392px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:211px;left:458px;white-space:nowrap" class="ft04">Generate a&#160;#BR&#160;if&#160;the&#160;address in&#160;r/m64 is&#160;higher&#160;than&#160;the&#160;upper&#160;</p>
+<p style="position:absolute;top:227px;left:458px;white-space:nowrap" class="ft04">bound&#160;in&#160;bnd.UB&#160;(bnb.UB&#160;in&#160;1's&#160;complement&#160;form).</p>
+<p style="position:absolute;top:247px;left:78px;white-space:nowrap" class="ft04">F2&#160;0F&#160;1B&#160;/r</p>
+<p style="position:absolute;top:263px;left:78px;white-space:nowrap" class="ft04">BNDCN&#160;bnd,&#160;r/m32</p>
+<p style="position:absolute;top:247px;left:262px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:247px;left:318px;white-space:nowrap" class="ft04">NE/V</p>
+<p style="position:absolute;top:247px;left:391px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:247px;left:458px;white-space:nowrap" class="ft04">Generate a&#160;#BR&#160;if&#160;the&#160;address in&#160;r/m32 is&#160;higher&#160;than&#160;the&#160;upper&#160;</p>
+<p style="position:absolute;top:263px;left:458px;white-space:nowrap" class="ft04">bound&#160;in&#160;bnd.UB&#160;(bnb.UB&#160;not in&#160;1's complement&#160;form).</p>
+<p style="position:absolute;top:283px;left:78px;white-space:nowrap" class="ft04">F2&#160;0F&#160;1B&#160;/r</p>
+<p style="position:absolute;top:299px;left:78px;white-space:nowrap" class="ft04">BNDCN&#160;bnd,&#160;r/m64</p>
+<p style="position:absolute;top:283px;left:262px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:283px;left:318px;white-space:nowrap" class="ft04">V/NE</p>
+<p style="position:absolute;top:283px;left:392px;white-space:nowrap" class="ft04">MPX</p>
+<p style="position:absolute;top:283px;left:458px;white-space:nowrap" class="ft04">Generate a&#160;#BR&#160;if&#160;the&#160;address in&#160;r/m64 is&#160;higher&#160;than&#160;the&#160;upper&#160;</p>
+<p style="position:absolute;top:299px;left:458px;white-space:nowrap" class="ft04">bound&#160;in&#160;bnd.UB&#160;(bnb.UB&#160;not in&#160;1's complement&#160;form).</p>
+<p style="position:absolute;top:376px;left:98px;white-space:nowrap" class="ft04">Op/En</p>
+<p style="position:absolute;top:376px;left:243px;white-space:nowrap" class="ft04">Operand&#160;1</p>
+<p style="position:absolute;top:376px;left:466px;white-space:nowrap" class="ft04">Operand&#160;2</p>
+<p style="position:absolute;top:376px;left:695px;white-space:nowrap" class="ft04">Operand&#160;3</p>
+<p style="position:absolute;top:400px;left:106px;white-space:nowrap" class="ft04">RM</p>
+<p style="position:absolute;top:400px;left:230px;white-space:nowrap" class="ft04">ModRM:reg (w)</p>
+<p style="position:absolute;top:400px;left:456px;white-space:nowrap" class="ft04">ModRM:r/m&#160;(r)</p>
+<p style="position:absolute;top:400px;left:716px;white-space:nowrap" class="ft04">NA</p>
+</div>
+</body>
+</html>
