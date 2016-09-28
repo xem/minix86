@@ -1,0 +1,353 @@
+<meta charset=utf-8>
+x86 decompiler
+<br>
+(sample program used here: QUATRO.COM by HellMood)
+<br>
+<br>
+<!--input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=d"type=file>
+<br-->
+<pre><table id=t border cellspacing=0 cellpadding=4>
+<script>
+
+// Debug (green threshold)
+ok = 16;
+
+// =============================
+// Helpers
+// @param n: number
+// @param l: length (in bytes)
+// @param s: sign
+// @param o: temp operand value
+// =============================
+
+// Convert a number to base 16
+var to16 = (n, l) => {
+  return (1e9 + n.toString(16)).slice(-2 * l);
+}
+
+// Same, with 0x prefix
+var to0x = (n, l) => {
+  return "0x" + to16(n, l);
+}
+
+// Convert a byte into a 8-bit signed offset (using 2-complement) + 2 (to include PC incrementation)
+var toSignedOffset8 = (n) => {
+  n = n & 0xFF;
+  return (n >= 0x80 ? n - 256 : n) + 2;
+}
+
+// Read the next byte
+// Updates the global vars b (instruction binary code in big endian), and l (instruction length)
+var imm8 = (o) => {
+  i++;
+  b = (b * 256) + u[i];
+  o = u[i];
+  l ++;
+  return o;
+}
+
+// Read the next 2 bytes in little endian
+// Updates the global vars b (instruction binary code in big endian), and l (instruction length)
+var imm16 = (o) => {
+  o = imm8();
+  i++;
+  b = (b * 256) + u[i];
+  o = (u[i] * 256) + o;
+  l++;
+  return o;
+}
+
+// Interpret a ModR/M byte in 16-bit mode
+// Ref: http://ref.x86asm.net/coder32.html#modrm_byte_16
+// @param s1 (optional): first operand size/type: 0: r8(/r), 1: r16(/r), 2: r32(/r), 3: mm(/r), 4: xmm(/r), 5: Sreg, 6:eee, 7: eee
+// @param s2 (optional): second operand size/type
+// @param oe (optional): operation encoding: 0: MR (default), 1: RM (also: 2: FD, 3: TD, 4: OI, 5: MI)
+var modRM = (o, s1, s2, oe) => {
+  
+  var ret = "", op1, op2;
+  
+  // Mod (bits 12xxxxxx)
+  var mod = (o >> 6) & 0b11;
+  
+  // Operand 1 (bits xx345xxx)
+  var op1 = (o >> 3) & 0b111;
+  
+  // Operand 2 (bits xxxxx678)
+  var op2 = o & 0b111;
+  
+  // Mod 0b11
+  if(mod == 0b11){
+  
+    // s1
+    // --
+    
+    // r8
+    if(s1 == 0){
+      ret += ["0", "1", "2", "3", "4", "ch", "dh", "7"][op2];
+    }
+    
+    // r16
+    if(s1 == 1){
+      ret += ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di"][op1];
+    }
+    
+    // Sreg
+    if(s1 == 5){
+      ret += ["es", "cs", "ss", "ds", "fs", "gs", "res.", "res."][op1];
+    }
+    
+    // s2
+    // --
+    
+    // r8
+    if(s2 === 0){
+      // "=== 0" to avoid matching undefined
+    }
+    
+    // r16
+    if(s2 == 1){
+      ret += "," + ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di"][op2];
+    }
+  }
+  
+  // RM (reverse operands 1 and 2)
+  if(oe == 1){
+    ret = ret.split(",").reverse().join(",");
+  }
+  
+  // Debug
+  //ret += "<td>mod = " + mod.toString(2) + ", op1 = " + op1.toString(2) + ", op2 = " + op2.toString(2);
+  
+  return ret;
+}
+
+// =======
+// Globals
+// =======
+
+// CPU mode (16b or 32b). TODO: figure out why it is 16 by default and how/if it can be modified. And if it can have a better name
+var cpu_mode = 16;
+
+// 8-bit registers when they're used as operands
+r8 = ["al", "1", "2", "3", "4", "5", "dh", "7"];
+r16 = ["0", "cx", "2", "3", "4", "5", "6", "7", "ax", "cx", "a", "bx", "c", "d", "e", "f"];
+
+
+// ===========
+// Decompiler
+// ===========
+(d = function(){
+
+  // Read binary data
+  // u = new Uint8Array(f.result);
+  
+  // TMP (bytes dump of quatro.com)
+  u = [104,0,160,7,49,237,176,19,182,128,142,218,65,205,16,128,237,2,128,238,4,75,184,16,16,226,242,49,210,185,64,1,137,248,247,241,107,243,3,1,216,131,250,28,116,40,131,250,4,126,35,131,250,25,116,30,129,250,61,1,115,24,131,250,34,124,6,129,250,30,1,126,17,1,240,128,194,8,32,208,208,232,36,8,116,75,176,62,235,71,168,120,117,3,214,235,64,15,172,198,23,48,228,131,232,100,131,234,127,131,230,3,96,219,227,223,70,246,222,118,3,217,254,222,78,3,223,70,252,223,70,248,138,138,203,1,255,209,223,94,252,97,138,138,207,1,255,209,168,16,117,2,52,31,212,16,193,230,4,1,240,136,5,71,15,133,115,255,67,186,218,3,236,36,8,116,251,137,254,165,133,255,117,251,228,96,254,200,15,133,91,255,48,208,1,216,41,248,209,232,195,154,255,211,228,229,240,200,243,200,192,216,194,216,200,217,201,216,200,222,193,217,250,222,126,0,222,193,195,216,193,217,243,222,142,201,1,222,193,195,217,201,195,87,193,231,2,246,37,95,136,224,195,78,79,80];
+  
+  // Table header
+  h = "<tr><th>@<th>hex<th>asm";
+  
+  // Loop on all bytes
+  for(i = 0; i < u.length; i++){
+  
+    // Initialization
+    // ===============
+    
+    // Current instruction's address
+    a = i;
+    
+    // Current instruction's bytes
+    b = u[i];
+    
+    // Second nibble of the instruction (bits 0-4)
+    n = b & 0b1111;
+    
+    // Current instruction's length
+    l = 1;
+    
+    // Current instruction's asm code
+    c = "";
+    
+    // Operands
+    o = 0;
+    p = 0;
+    q = 0;
+    r = 0;
+    
+    // Parse
+    // =====
+    
+    // 0x01 add r/m16/32 r16/32
+    // Ref: http://ref.x86asm.net/coder32.html#x01
+    if(b == 0x01){
+      o = imm8();
+      c = "add ";
+      if(o == 0xD8){
+        c += "bx,ax";
+      }
+    }
+    
+    // 0x07 pop ES
+    // Ref: http://ref.x86asm.net/coder32.html#x07
+    if(b == 0x07){
+      c = "pop es";
+    }
+    
+    // 0x31 xor r/m16/32 r16/32
+    // Ref: http://ref.x86asm.net/coder32.html#x31
+    if(b == 0x31){
+      c = "xor ";
+      o = imm8();
+      c += modRM(o,1,1);
+    }
+    
+    // 0x4...
+    if(b >> 4 == 0x4){
+    
+      // 0x40 - 0x47: inc r16/32
+      // Ref: http://ref.x86asm.net/coder32.html#x40
+      if((b & 0b1111) < 0x8){
+        c = "inc " + r16[n];
+      }
+      
+      // 0x48 - 0x4F dec r16/32
+      // http://ref.x86asm.net/coder32.html#x48
+      else{
+        c = "dec " + r16[n];
+      }
+    }
+    
+    // 0x68 push Imm16/32
+    // Ref: http://ref.x86asm.net/coder32.html#x68
+    
+    if(b == 0x68){
+      o = imm16();
+      c = "push " + to0x(o,2);
+    }
+    
+    // 0x6B imul r16/32 r/m16/32 imm8
+    // Ref: http://ref.x86asm.net/coder32.html#x6B
+    if(b == 0x6B){
+      o = imm8();
+      p = imm8();
+      c = "imul " + to0x(p,1);
+      if(o == 0xF3){
+        c += ",bx,si";
+      }
+    }
+    
+    // 0x74 jz/je rel18
+    // Ref: http://ref.x86asm.net/coder32.html#x74
+    if(b == 0x74){
+      o = imm8();
+      c = "je ???";// + to0x();
+    }
+    
+    // 0x7E jle/jng rel18
+    // Ref: http://ref.x86asm.net/coder32.html#x7E
+    if(b == 0x7E){
+      o = imm8();
+      c = "jle ???";// + to0x();
+    }
+    
+    // 0x80 add r/m8 imm8
+    // Ref: http://ref.x86asm.net/coder32.html#x80
+    if(b == 0x80){
+      o = imm8();
+      p = imm8();
+      c = "sub " + modRM(o,0) + "," + to0x(p,1);
+    }
+    
+    // 0x81 many things
+    // Ref: http://ref.x86asm.net/coder32.html#x81
+    if(b == 0x81){
+      o = imm8();
+      p = imm16();
+      
+      // 7: cmp r/m16/32 imm16/32
+      if(o == 0xFA){
+        c = "cmp " + to0x(p,2) + ",dx";
+      }
+    }
+    
+    // 0x83 many things
+    // Ref: http://ref.x86asm.net/coder32.html#x83
+    if(b == 0x83){
+      o = imm8();
+      p = imm8();
+      
+      // 7: cmp r/m16/32 imm8
+      if(o == 0xFA){
+        c = "cmp " + to0x(p,1) + ",dx" 
+      }
+    }
+    
+    // 0x89 mov r/m16/32 r16/32 (Op/En = MR)
+    // Ref: http://ref.x86asm.net/coder32.html#x89
+    // Intel manual: vol.2B 4-35 (p.715)
+    if(b == 0x89){
+      c = "mov ";
+      o = imm8();
+      c += modRM(o,1,1,1);
+    }
+    
+    // 0x8E mov r/m16/32 r/m16 (Op/En = RM)
+    // Ref: http://ref.x86asm.net/coder32.html#x8E
+    if(b == 0x8E){
+      c = "mov ";
+      o = imm8();
+      c += modRM(o,5,1);
+    }
+
+    // 0xB...
+    if(b >> 4 == 0xB){
+    
+      // 0xB0 - 0xB7 mov r8, Imm8
+      // Ref: http://ref.x86asm.net/coder32.html#xB0
+      if((b & 0b1111) < 0x8){
+        o = imm8();
+        c = "mov " + r8[n] + "," + to0x(o,1);
+      }
+      
+      // 0xB8 - 0xBF mov r16/32, Imm16/32
+      // Ref: http://ref.x86asm.net/coder32.html#xB8
+      else{
+        o = imm16();
+        c = "mov " + r16[n] + "," + to0x(o,2);
+      }
+    }
+    
+    // 0xCD int imm8 eFlags
+    // Ref: http://ref.x86asm.net/coder32.html#xCD
+    if(b == 0xCD){
+      o = imm8();
+      c = "int " + to0x(o,1);
+    }
+    
+    // 0xE2 loop eCX rel18
+    // Ref: http://ref.x86asm.net/coder32.html#xE2
+    if(b == 0xE2){
+      o = imm8();
+      c = "loop " + to0x(a + toSignedOffset8(o),2);
+    }
+
+    // 0xF7: many things
+    // Ref: http://ref.x86asm.net/coder32.html#xF7
+    if(b == 0xf7){
+    
+      o = imm8();
+      
+      // 6: div eDX eAx r/m16/32
+      if(o == 0xf1){
+        c = "div cx";
+      }
+    }
+    
+    h += "<tr" + (ok ? " style=background:lightgreen" : "") + "><td>" + to16(a, u.length > 0xFFFF ? 4: 2) + "<td>" + to16(b,l).replace(/../g,"$& ") + "<td>" + c + "\n";
+    if(ok) ok--;
+  }
+
+  // Write table
+  t.innerHTML = h;
+})()
+</script>
