@@ -9,8 +9,6 @@ var cpu_mode = 32;
 r8 = ["al", "1", "2", "3", "4", "5", "dh", "7"];
 r16 = ["0", "cx", "2", "3", "4", "bp", "6", "7", "ax", "cx", "dx", "bx", "c", "d", "e", "f"];
 
-stop = 0;
-
 // ===========
 // Decompiler
 // ===========
@@ -39,13 +37,15 @@ d = function(){
     l = 1;
     
     // Current instruction's asm code
-    c = "db " + toh(u[i]) + " ; " + "<span style='width:8px;height:16px;display:inline-block;vertical-align:middle;border:1px solid #ccc;background:url(cp437.png) no-repeat -"+ (u[i] * 9) + "px 0 #FFF'>";
+    c = "db " + toh(u[i]) + " ; " + "<span style='width:9px;height:16px;display:inline-block;vertical-align:middle;border:1px solid #ccc;background:url(cp437.png) no-repeat -"+ (u[i] * 9) + "px 0 #FFF'>";
     
     // Operands
     o = 0;
     p = 0;
     q = 0;
     r = 0;
+	
+	stop = 0;
     
     // Parse
     // =====
