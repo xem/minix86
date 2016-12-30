@@ -2,7 +2,12 @@
 <b>x86 decompiler</b>
 <br>
 <br>
-Load a demo: <button id=m8trix>m8trix</button>
+Demos:
+<button id=hello>hello</button>
+<button id=xor>xor</button>
+<button id=xoranim>xoranim</button>
+<button id=tunnel>tunnel</button>
+<button id=m8trix>m8trix</button>
 <button id=point16b>point16b</button>
 <button id=dragonfade>dragonfade</button>
 <button id=dirojed>dirojed</button>
@@ -18,11 +23,38 @@ Load a demo: <button id=m8trix>m8trix</button>
 <input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=function(){u=new Uint8Array(f.result);if(u.length<=64*1024)d()}"type=file>
 <br>
 <br>
-<br-->
 <pre><table id=t border cellspacing=0 cellpadding=4>
 <script>
 
 // DEMOS
+
+// HELLO WORLD
+hello.onclick = e => {
+  u = [149,186,7,1,205,33,195,72,101,108,108,111,32,87,111,114,108,100,33,36];
+  ok = 0;
+  d();
+}
+
+// XOR
+xor.onclick = e => {
+  u = [176,19,205,16,104,0,160,7,153,137,248,187,64,1,247,243,49,208,36,40,170,235,241];
+  ok = 0;
+  d();
+}
+
+// XOR ANIM
+xoranim.onclick = e => {
+  u = [153,176,19,205,16,137,200,1,248,48,224,36,40,180,12,226,242,71,228,96,254,200,117,235,195];
+  ok = 0;
+  d();
+}
+
+// TUNNEL
+tunnel.onclick = e => {
+  u = [104,186,159,12,19,7,205,16,42,52,96,223,71,247,223,71,248,217,243,221,209,217,255,218,12,222,119,248,222,2,219,95,249,222,76,61,223,95,251,97,48,200,36,26,170,184,205,204,247,231,112,212,131,2,23,228,96,72,117,204,195,119,25];
+  ok = 0;
+  d();
+}
 
 // M8TRIX.COM
 m8trix.onclick = e => {
@@ -453,6 +485,6 @@ d = function(){
 
 
 
-m8trix.onclick();
-m8trix.focus();
+hello.onclick();
+hello.focus();
 </script>
