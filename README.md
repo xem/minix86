@@ -9,9 +9,9 @@ A x86 documentation, decompiler and emulator (in pure JS) optimized for running 
 
 - TL;DR (all you need to know in less than 2000 lines, wip): https://github.com/xem/minix86/blob/gh-pages/TLDR.md
 - Intel documentation converted in HTML:
-  - vol 1: http://xem.gitgub.io/minix86/manual/intel-x86-and-64-manual-vol1/o_7281d5ea06a5b67a.html
-  - vol 2: http://xem.gitgub.io/minix86/manual/intel-x86-and-64-manual-vol2/o_b5573232dd8f1481.html
-  - vol 3: http://xem.gitgub.io/minix86/manual/intel-x86-and-64-manual-vol3/o_fe12b1e2a880e0ce.html
+  - vol 1: http://xem.github.io/minix86/manual/intel-x86-and-64-manual-vol1/o_7281d5ea06a5b67a.html
+  - vol 2: http://xem.github.io/minix86/manual/intel-x86-and-64-manual-vol2/o_b5573232dd8f1481.html
+  - vol 3: http://xem.github.io/minix86/manual/intel-x86-and-64-manual-vol3/o_fe12b1e2a880e0ce.html
 
 ---
 
@@ -30,10 +30,10 @@ Bonus:
 
 **Tutos from http://www.sizecoding.org:**
 
-- hello
-- xor
-- xoranim
-- tunnel
+- hello world
+- xor pattern
+- xor animated (and Esc support)
+- tunnel (with FPU instructions)
 
 **sub-256b demos from Pouët:**
 

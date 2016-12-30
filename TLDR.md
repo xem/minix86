@@ -1668,7 +1668,7 @@ movsd refers to:
 **Notes:**
 - When it encounters data bytes in the .COM file, the disassembler can try to interpret them as instructions. To avoid that, the disassembler can try to determine (like an emulator) which addresses the instruction pointer can really reach via normal execution, jumps or interrupts. Else, some sort of manual separation of code and data would be necessary to be totally accurate.
 - The bytes that don't belong to any instruction can be disassembled as ````db```` statements. Their type (number, string, ...) depends on the instructions using them, so it would be wise to provide numeric and string values for each byte of data.
-- In .COM demos, data bytes are generally placed at the end of the program. The beginning is used by instructions stored sequentially.
+- In .COM demos, data bytes are generally placed at the end of the program. The beginning is used by instructions stored sequentially and end with ````ret````. (lazy devs may rely only on that to stop reading instructions)
 
 ---
 
