@@ -9,6 +9,7 @@
 - [Memory and registers](#memory-and-registers)
 - [Binary instructions format](#binary-instructions-format)
 - [Instruction set](#instruction-set)
+- [Compilation & test](#compilation--test)
 - [Disassembly](#disassembly)
 - [Emulation](#emulation)
 - [Sources](#sources)
@@ -1644,13 +1645,15 @@ movsd refers to:
 
 ---
 
-## Easy compilation / disassembly / test
+## Compilation & test
 
 - Install [NASM](http://www.nasm.us/) and [DosBox](http://www.dosbox.com/).
 - Compile .asm file in .COM with ````nasm xxx.asm -fbin -o xxx.com````
 - Disassemble a .COM file with ````ndisasm -o100h xxx.com````
 - View a .COM file size with ````dir xxx.com````
 - Test a .COM file by running it wirh DosBox (drag & drop the file on the DosBox shortcut, adjust speed with ctrl+F11 & ctrl+F12)
+
+---
 
 ## Disassembly
 
@@ -1777,8 +1780,6 @@ jz  mainloop       ; ZF set if no keystroke available
 
 [More info](http://www.sizecoding.org/wiki/Input#Checking_for_any_keypress)
 
-````
-
 ### Mouse input
 
 - Show mouse cursor with: ````INT 33h / AX=0001h````
@@ -1793,7 +1794,6 @@ jz  mainloop       ; ZF set if no keystroke available
 MIDI audio output can be produced by writing on the MIDI control port (0x331) and MIDI data port (0x330).
 
 ([more info](http://www.sizecoding.org/wiki/Output#Producing_sound))
-
 
 ---
 
