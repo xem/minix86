@@ -1,7 +1,7 @@
 mini x86
 ==
 
-A x86 documentation, decompiler and emulator (in pure JS) optimized for running (MS-DOS) .COM files.
+A x86 documentation, disassembler and emulator (in pure JS) optimized for running (MS-DOS) .COM files.
 
 ---
 
