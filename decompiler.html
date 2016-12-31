@@ -23,7 +23,10 @@ Demos:
 <input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=function(){u=new Uint8Array(f.result);if(u.length<=64*1024)d()}"type=file>
 <br>
 <br>
-<pre><table id=t border cellspacing=0 cellpadding=4>
+<pre>
+<table id=t border cellspacing=0 cellpadding=4>
+	<tr><th>@<th>hex<th>asm
+	<tr><td id=address><td id=hex><td id=asm>
 <script src=helpers.js></script>
 <script src=decompiler.js></script>
 <script>
@@ -156,3 +159,7 @@ tube.onclick = e => {
 hello.onclick();
 hello.focus();
 </script>
+
+<style>
+th,td { line-height:20px }
+span { width:9px;height:15px;display:inline-block;vertical-align:middle;border:1px solid #ccc;line-height:0; }

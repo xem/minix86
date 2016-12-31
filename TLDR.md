@@ -1639,7 +1639,7 @@ F2     0F     F0         r     P4++                     LDDQU     xmm     m128  
 
 **Mnemonic collision**
 
-movsd refers to:
+movsd refers to two opcodes:
 - ````A5````: "Move Data from String to String"
 - ````F2````: "Move Scalar Double-precision floating-point" 
 
