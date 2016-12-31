@@ -2,6 +2,8 @@
 // Globals
 // =======
 
+cp437 = " ☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼ !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_\`abcdefghijklmnopqrstuvwxyz{|}~⌂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ ";
+
 // CPU mode (32-bit by default, can switch to 16 during execution).
 var cpu_mode = 32;
 
@@ -13,7 +15,7 @@ r16 = ["0", "cx", "2", "3", "4", "bp", "6", "7", "ax", "cx", "dx", "bx", "c", "d
 // Decompiler
 // ===========
 d = function(){
-  
+
   address.innerHTML = "";
   hex.innerHTML = "";
   asm.innerHTML = "";
@@ -39,7 +41,7 @@ d = function(){
     l = 1;
     
     // Current instruction's asm code
-    c = "db " + toh(u[i]) + " ; " + "<span style='background:url(cp437.png) no-repeat -"+ (u[i] * 9) + "px 0 #FFF'></span>";
+    c = "db " + toh(u[i]) + "          ; " + cp437[u[i]];
     
     // Operands
     o = 0;

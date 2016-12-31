@@ -17,12 +17,12 @@ A x86 documentation, decompiler and emulator (in pure JS) optimized for running 
 
 ### Apps:
 
-- decompiler (WIP): http://xem.github.io/minix86/decompiler.html
+- decompiler (WIP): http://xem.github.io/minix86/src/disassembler.html
 - emulator: coming soon! (emulator.html)
 
 Bonus:
 
-- Tiny tool to convert a file into an array of bytes: http://xem.github.io/minix86/bytes.html
+- Tiny tool to convert a file into an array of bytes: http://xem.github.io/minix86/src/bytes.html
 
 ---
 
@@ -56,10 +56,11 @@ Bonus:
 
 **4kb:**
 
--  Motion sickness by Yobi/wAMMA: http://www.pouet.net/prod.php?which=6404
+- Motion sickness by Yobi/wAMMA: http://www.pouet.net/prod.php?which=6404
+
 ---
 
 ### Assets
 
-- VGA palette: http://xem.github.io/minix86/vga-palette.png
-- CP437 charset: http://xem.github.io/minix86/cp437.png
+- VGA palette: http://xem.github.io/minix86/src/vga-palette.png
+- CP437 charset: http://xem.github.io/minix86/src/cp437.png

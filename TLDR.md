@@ -32,9 +32,10 @@ Anything related to 8-bit and 64-bit architectures, VEX / EVEX instructions and 
 
 - 80x86 and x86 refer to the 16 and 32-bit microprocessors and ISA (instruction set architectures) developed by Intel.
 - IA-32 and i386+ refer only to the 32-bit architecture, introduced with the Intel 80386 processor.
-- IA-64, Intel 64, Itanium and x86-64 refer to the 64-bit architecture.
+- IA-64, Intel 64, Itanium, x86-64, AMD64 IA-32e refer to the 64-bit architecture.
 - 64-bit and 32-bit ISAs are backwards-compatible down to the 16-bit one, introduced with the Intel 8086 processor.
 - The processor (and the instruction prefixes used) define the size of the registers and addresses used (16, 32 or 64 bits).
+- Intel and AMD processors' architectures are compatible with each other. 
 - x86 processors use little-endianness for multi-byte numbers (ex: ````0xA0B70708```` is stored as: ````08 07 B7 A0````).
 - DosBox's default speed is 3000 cycles/frame (~ 0.18Mhz) which is quite slow compared to 8086 (> 4.77Mhz) or 80386 (> 12Mhz).
 - In terms of millions of instructions per second, the 8085 runs at ~0.75 MIPS max while the 80386 runs at ~11 MIPS.
