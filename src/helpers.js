@@ -53,8 +53,6 @@ var modRM = (o, s1, s2, oe) => {
   
   var ret = "", op1, op2;
   
-  /*
-  
   // Mod (bits 12xxxxxx)
   var mod = (o >> 6) & 0b11;
   
@@ -106,7 +104,6 @@ var modRM = (o, s1, s2, oe) => {
   
   // Debug
   //ret += "<td>mod = " + mod.toString(2) + ", op1 = " + op1.toString(2) + ", op2 = " + op2.toString(2);
-  */
   
   return ret;
 }

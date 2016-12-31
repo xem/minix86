@@ -17,7 +17,7 @@ A x86 documentation, decompiler and emulator (in pure JS) optimized for running 
 
 ### Apps:
 
-- decompiler (WIP): http://xem.github.io/minix86/src/disassembler.html
+- disassembler (WIP): http://xem.github.io/minix86/src/disassembler.html
 - emulator: coming soon! (emulator.html)
 
 Bonus:
