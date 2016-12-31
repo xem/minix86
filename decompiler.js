@@ -14,6 +14,9 @@ r16 = ["0", "cx", "2", "3", "4", "bp", "6", "7", "ax", "cx", "dx", "bx", "c", "d
 // ===========
 d = function(){
   
+  address.innerHTML = "";
+  hex.innerHTML = "";
+  asm.innerHTML = "";
   stop = 0;
 
   // Loop on all bytes
@@ -237,7 +240,7 @@ d = function(){
     }
   }
     
-    address.innerHTML += to16(a + 0x100, u.length > 0xFFFF ? 4: 2) + "<br>";
+  address.innerHTML += to16(a + 0x100, u.length > 0xFFFF ? 4: 2) + "<br>";
   hex.innerHTML+=to16(b,l).replace(/../g,"$& ") + "<br>";
   asm.innerHTML += c + "<br>";
   }
