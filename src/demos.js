@@ -50,9 +50,7 @@ ret           ; quit program`;
 // TUNNEL
 tunnel.onclick = e => {
   u = [104,186,159,12,19,7,205,16,42,52,96,223,71,247,223,71,248,217,243,221,209,217,255,218,12,222,119,248,222,2,219,95,249,222,76,61,223,95,251,97,48,200,36,26,170,184,205,204,247,231,112,212,131,2,23,228,96,72,117,204,195,119,25];
-  original.innerHTML = `<pre>
-org 100h                  ; we start at CS:100h
-push 0xa000 - 10 - 3 * 20 ; video base - 3.5 lines
+  original.innerHTML = `<pre>push 0xa000 - 10 - 3 * 20 ; video base - 3.5 lines
 or al, 0x13               ; mode 13h = 320 x 200 in 256 colors
 pop es                    ; get aligned video memory base
 int 0x10                  ; switch videomode

@@ -139,8 +139,8 @@ All registers are initialized to 0 except:
 - SI = 0100
 - DI = FFFE
 - SP = FFFE
-- DX, DS, ES, SS = CS (due to the .COM file) = 0100 (right?)
 
+NB: In a .COM file, DX = DS = ES = SS = CS = 0000. The entry point is at CS:0100.
 
 ### Flags
 
