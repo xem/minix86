@@ -64,3 +64,9 @@ Bonus:
 
 - VGA palette: http://xem.github.io/minix86/src/vga-palette.png
 - CP437 charset: http://xem.github.io/minix86/src/cp437.png
+
+- Logo: http://xem.github.io/minix86/logo.png
+
+---
+
+Unofficial HN thread: https://news.ycombinator.com/item?id=13291052

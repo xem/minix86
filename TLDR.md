@@ -1,4 +1,4 @@
-# x86 demos decompilation & emulation: TL;DR
+# x86 demos disassembly & emulation: TL;DR
 
 ---
 
@@ -18,7 +18,7 @@
 
 ## Introduction
 
-This document explains as briefly as possible how to decompile x86 binary into Assembly language, and emulate it.
+This document explains as briefly as possible how to disassemble x86 binary into Assembly language, and emulate it.
 <br>
 It'll focus on MS-DOS-like 16-bit and 32-bit x86 binary built into .COM files, Intel's Assembly syntax and JavaScript emulation.
 <br>
@@ -1692,7 +1692,8 @@ The most important interrupts are:
 
 - ````INT 10h && AH = 00h````: Set video mode according to the value of ````AL````. (generally ````13h````)
 - ````INT 16h && AH = 1````: Read keystroke (AL is set to the value of the ASCII char)
-- ````INT 21h && AH = 09h````: Display a string ($-terminated string, address stored in DX)
+- ````INT 21h && AH = 09h````: Display a string ($-terminated string, address stored in DX, automatic line break after the 80th column)
+- ...
 
 
 ### Video output
@@ -1820,4 +1821,4 @@ Here are all the sources used to write this guide:
 - [CP437](https://www.ascii-codes.com/)
 - [MS-DOS API](https://en.wikipedia.org/wiki/MS-DOS_API)
 - [Interrupts](http://www.ctyme.com/intr/int.htm)
-- [x86 decompiler & emulator in JS, coming soon in this repo](https://xem.github.io/minix86)
+- [x86 disassembler & emulator in JS, coming soon in this repo](https://xem.github.io/minix86)
