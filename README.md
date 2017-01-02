@@ -41,7 +41,7 @@ Bonus:
 - M8TRIX by HellMood: http://www.pouet.net/prod.php?which=63126
 - POINT16B by Desire: http://www.pouet.net/prod.php?which=63826
 - DIROJED by Řrřola: http://www.pouet.net/prod.php?which=28913
-- FR01 by farbrausch: http://www.pouet.net/prod.php?which=8697
+- FR01 by farbrausch: http://www.pouet.net/prod.php?which=8697 (16-bit mode)
 
 **256b demos from pouet:**
 

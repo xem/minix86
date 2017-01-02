@@ -52,6 +52,7 @@ Anything related to 8-bit and 64-bit architectures, VEX / EVEX instructions and 
 ### Assembly:
 
 - ASM files (before being compiled into .COM files) start with the statement ````org 100h```` (the entry point address). There's no trace of it in the .COM file.
+- A few demos are developed for 16-bit processors and contain the statement ````bits 16````. This information is also lost when building the .COM file. (16-bit mode must be set manually before executing the file)
 - Labels are written as: ````label: instruction```` (ex: ````LOADREG: MOV EAX, SUBTOTAL````).
 - Afer compilation, labels disappear and every jump to a certain label becomes a jump to the memory address of the instruction in front of it.
 - Hex numbers: ````89ABh````.
@@ -1650,7 +1651,7 @@ movsd refers to two opcodes:
 
 - Install [NASM](http://www.nasm.us/) and [DosBox](http://www.dosbox.com/).
 - Compile .asm file in .COM with ````nasm xxx.asm -fbin -o xxx.com````
-- Disassemble a .COM file with ````ndisasm -o100h xxx.com````
+- Disassemble a .COM file and show it in the terminal with ````ndisasm -o100h xxx.com```` (16-bit mode by default. Add ````-b 32```` after ndiasm for 32-bit programs)
 - View a .COM file size with ````dir xxx.com````
 - Test a .COM file by running it wirh DosBox (drag & drop the file on the DosBox shortcut, adjust speed with ctrl+F11 & ctrl+F12)
 
