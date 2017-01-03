@@ -49,6 +49,53 @@ bytes = [];
 // Current cpu mode (16 or 32-bit)
 cpu_mode = 32;
 
+// Registers
+
+r8 = ["al", "cc", "dc", "bc", "ah", "ch", "dh", "bh", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"];
+
+r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w"];
+
+/** Instructions **/
+instructions = {
+
+0: {},
+
+1: {},
+
+2: {},
+
+3: {},
+
+4: {},
+
+5: {},
+
+6: {},
+
+7: {},
+
+8: {},
+
+9: {
+
+  0 : { mnemonic: "nop" },
+  5: { mnemonic: "xchg", op1: r16, op1index: "opcode", op2: "ax" }
+
+},
+
+A: {},
+
+B: {},
+
+C: {},
+
+D: {},
+
+E: {},
+
+F: {}
+
+};
 
 /** Disassembler **/
 
@@ -60,6 +107,9 @@ disassemble = function(){
 
   // current address
   address = 0x100;
+  
+  // Current instruction
+  instruction = {};
 
   // Current instruction's hex code
   hex = 0;
@@ -71,23 +121,41 @@ disassemble = function(){
   stop = 0;
 
   // Disassemble
-  for(current_byte = 0; current_byte < bytes.length; current_byte++){
+  for(address = 0; address < bytes.length; address++){
     
-    if(!stop){
+    current_byte = bytes[address];
+    
+    // Write the address
+    td_address.innerHTML += b16(address + 0x100, 2) + "<br>";
+    
+    // When the code ends, read the data bytes as db instruction
+    if(stop){
+    
+      // Save its hex value
+      td_hex.innerHTML += b16() + "<br>";
+      
+      // Save its asm code
+      td_asm.innerHTML += "db " + b16h(current_byte) + "          ; '"+ cp437[current_byte] + "'<br>";
+    
+    }
+    
+    // Else, decode real instructions
+    else {
     
       // Current instruction's size (in bytes)
       instruction_size = 0;
       
-      // Default: decode a db instruction
-    
-      // Save its address
-      td_address.innerHTML += b16(current_byte + 0x100, 2) + "<br>";
-      
       // Save its hex value
-      td_hex.innerHTML += b16(bytes[current_byte]) + "<br>";
+      td_hex.innerHTML += b16(current_byte) + "<br>";
       
-      // Save its asm code
-      td_asm.innerHTML += "db " + b16h(bytes[current_byte]) + "          ; '"+ cp437[bytes[current_byte]] + "'<br>";
+      if(instructions[current_byte >> 4] && instructions[current_byte >> 4][current_byte & 0xF]){
+        instruction = instructions[current_byte >> 4][current_byte & 0xF];
+        td_asm.innerHTML += instruction.mnemonic + " " + instruction.op1[current_byte & 0xF] + ", " + instruction.op2 + "<br>";
+      }
+      
+      else {
+        td_asm.innerHTML += "db " + b16h(current_byte) + "          ; '"+ cp437[current_byte] + "'<br>";
+      }
     }
   }
 }
