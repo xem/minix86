@@ -163,9 +163,9 @@ disassemble = function(){
         address ++;
         current_byte = bytes[address];
         hex += b16(current_byte) + " ";
-        imm16 = current_byte << 8 + imm16;
+        imm16 = (current_byte << 8) + imm16;
 
-        return b16h(imm16);
+        return b16h(imm16,2);
       });
       
       // Stop disassembling after a ret*
