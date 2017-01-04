@@ -18,9 +18,31 @@ Load a demo: <button id=m8trix>m8trix</button>
 <input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=function(){u=new Uint8Array(f.result);if(u.length<=64*1024)d()}"type=file>
 <br>
 <br>
-<br-->
 <pre><table id=t border cellspacing=0 cellpadding=4>
 <script>
+
+
+// SYNTAX
+// http://www.imada.sdu.dk/Courses/DM18/Litteratur/IntelnATT.htm
+
+// Intel syntax (ok):
+// no prefixes: eax, 1, 80h, ...
+// order: instr dest, source
+// memory operands: [ebx]
+// index/scale/disp/segreg: instr foo,segreg:[base+index*scale+disp] (ex: sub eax,[ebx+ecx*4h-20h])
+// implicit sufixes: mov al,bl, mov ax,bx
+
+// AT&T syntax (ko):
+// prefixes: %eax, $1, $0x80
+// order: instr source, dest
+// memory operands: (%ebx)
+// index/scale/disp/segreg: instr %segreg:disp(base,index,scale),foo (ex: subl -0x20(%ebx,%ecx,0x4),%eax)
+// explicit suffixes: movb %bl,%al, movw %bx,%ax
+
+
+
+
+
 
 // DEMOS
 
@@ -117,7 +139,6 @@ tube.onclick = e => {
   d();
 }
 
-
 // =============================
 // Helpers
 // @param n: number
@@ -131,9 +152,9 @@ var to16 = (n, l) => {
   return (1e9 + n.toString(16)).slice(-2 * l);
 }
 
-// Same, with 0x prefix
-var to0x = (n, l) => {
-  return "0x" + to16(n, l);
+// Same, with h suffix
+var toh = (n, l) => {
+  return to16(n, l) + "h";
 }
 
 // Convert a byte into a 8-bit signed offset (using 2-complement) + 2 (to include PC incrementation)
@@ -236,7 +257,7 @@ var cpu_mode = 16;
 
 // 8-bit registers when they're used as operands
 r8 = ["al", "1", "2", "3", "4", "5", "dh", "7"];
-r16 = ["0", "cx", "2", "3", "4", "5", "6", "7", "ax", "cx", "a", "bx", "c", "d", "e", "f"];
+r16 = ["0", "cx", "2", "3", "4", "5", "6", "di", "ax", "cx", "a?", "bx", "c?", "d?", "e?", "f?"];
 
 
 // ===========
@@ -322,7 +343,7 @@ d = function(){
     
     if(b == 0x68){
       o = imm16();
-      c = "push " + to0x(o,2);
+      c = "push " + toh(o,2);
     }
     
     // 0x6B imul r16/32 r/m16/32 imm8
@@ -330,7 +351,7 @@ d = function(){
     if(b == 0x6B){
       o = imm8();
       p = imm8();
-      c = "imul " + to0x(p,1);
+      c = "imul " + toh(p,1);
       if(o == 0xF3){
         c += ",bx,si";
       }
@@ -340,14 +361,14 @@ d = function(){
     // Ref: http://ref.x86asm.net/coder32.html#x74
     if(b == 0x74){
       o = imm8();
-      c = "je ???";// + to0x();
+      c = "je ???";// + toh();
     }
     
     // 0x7E jle/jng rel18
     // Ref: http://ref.x86asm.net/coder32.html#x7E
     if(b == 0x7E){
       o = imm8();
-      c = "jle ???";// + to0x();
+      c = "jle ???";// + toh();
     }
     
     // 0x80 add r/m8 imm8
@@ -355,7 +376,7 @@ d = function(){
     if(b == 0x80){
       o = imm8();
       p = imm8();
-      c = "sub " + modRM(o,0) + "," + to0x(p,1);
+      c = "sub " + modRM(o,0) + "," + toh(p,1);
     }
     
     // 0x81 many things
@@ -366,7 +387,7 @@ d = function(){
       
       // 7: cmp r/m16/32 imm16/32
       if(o == 0xFA){
-        c = "cmp " + to0x(p,2) + ",dx";
+        c = "cmp " + toh(p,2) + ",dx";
       }
     }
     
@@ -378,7 +399,7 @@ d = function(){
       
       // 7: cmp r/m16/32 imm8
       if(o == 0xFA){
-        c = "cmp " + to0x(p,1) + ",dx" 
+        c = "cmp " + toh(p,1) + ",dx" 
       }
     }
     
@@ -399,6 +420,18 @@ d = function(){
       c += modRM(o,5,1);
     }
 
+    // 0x9F lahf AH
+    // Ref: http://ref.x86asm.net/coder32.html#x9F
+    if(b == 0x9f){
+      c = "lahf";
+    }
+    
+    // 0xAB stos(w) m16 AX
+    // Ref: http://ref.x86asm.net/coder32.html#xAB
+    if(b == 0xAB){
+      c = "stosw";
+    }
+    
     // 0xB...
     if(b >> 4 == 0xB){
     
@@ -406,29 +439,42 @@ d = function(){
       // Ref: http://ref.x86asm.net/coder32.html#xB0
       if((b & 0b1111) < 0x8){
         o = imm8();
-        c = "mov " + r8[n] + "," + to0x(o,1);
+        c = "mov " + r8[n] + "," + toh(o,1);
       }
       
       // 0xB8 - 0xBF mov r16/32, Imm16/32
       // Ref: http://ref.x86asm.net/coder32.html#xB8
       else{
         o = imm16();
-        c = "mov " + r16[n] + "," + to0x(o,2);
+        c = "mov " + r16[n] + "," + toh(o,2);
       }
+    }
+    
+    // 0xC4 les ES r16/32 m16:16/32
+    // Ref: http://ref.x86asm.net/coder32.html#xC4
+    if(b == 0xC4){
+      o = imm8();
+      c = "les ???";
     }
     
     // 0xCD int imm8 eFlags
     // Ref: http://ref.x86asm.net/coder32.html#xCD
     if(b == 0xCD){
       o = imm8();
-      c = "int " + to0x(o,1);
+      c = "int " + toh(o,1);
     }
     
     // 0xE2 loop eCX rel18
     // Ref: http://ref.x86asm.net/coder32.html#xE2
     if(b == 0xE2){
       o = imm8();
-      c = "loop " + to0x(a + toSignedOffset8(o),2);
+      c = "loop " + toh(a + toSignedOffset8(o),2);
+    }
+    // 0xEB jmp rel18
+    // Ref: http://ref.x86asm.net/coder32.html#xEB
+    if(b == 0xEB){
+      o = imm8();
+      c = "jmp " + toh(a + toSignedOffset8(o),2);
     }
 
     // 0xF7: many things
