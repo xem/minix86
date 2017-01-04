@@ -58,42 +58,10 @@ r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r1
 /** Instructions **/
 instructions = {
 
-0: {},
-
-1: {},
-
-2: {},
-
-3: {},
-
-4: {},
-
-5: {},
-
-6: {},
-
-7: {},
-
-8: {},
-
-9: {
-
-  0 : { mnemonic: "nop" },
-  5: { mnemonic: "xchg", op1: r16, op1index: "opcode", op2: "ax" }
-
-},
-
-A: {},
-
-B: {},
-
-C: {},
-
-D: {},
-
-E: {},
-
-F: {}
+"90+r":"xchg r16/32, ax",
+"B8+r":"mov r16/32, imm16/32",
+"C3":"retn",
+"CD":"int imm8",
 
 };
 
@@ -117,46 +85,101 @@ disassemble = function(){
   // Current instruction's asm code
   asm = "";
   
-  // Stop disassembling (after a ret instruction)
+  // Stop disassembling (after a ret* instruction)
   stop = 0;
 
   // Disassemble
   for(address = 0; address < bytes.length; address++){
+  
+    // Instruction fields
+    r = 0;
+    op1 = 0;
+    op2 = 0;
+    op3 = 0;
+    op4 = 0;
+    imm8 = 0;
+    imm16 = 0;
     
     current_byte = bytes[address];
+    console.log(b16(address));
+    console.log(b16(current_byte));
     
     // Write the address
     td_address.innerHTML += b16(address + 0x100, 2) + "<br>";
     
+    hex = b16(current_byte) + " ";
+    
     // When the code ends, read the data bytes as db instruction
     if(stop){
-    
-      // Save its hex value
-      td_hex.innerHTML += b16() + "<br>";
-      
-      // Save its asm code
-      td_asm.innerHTML += "db " + b16h(current_byte) + "          ; '"+ cp437[current_byte] + "'<br>";
-    
+      asm = "db " + b16h(current_byte) + "         ; '" + cp437[current_byte] + "'";
     }
     
-    // Else, decode real instructions
-    else {
-    
-      // Current instruction's size (in bytes)
-      instruction_size = 0;
+    // Else, decode a real instruction
+    else{
       
-      // Save its hex value
-      td_hex.innerHTML += b16(current_byte) + "<br>";
-      
-      if(instructions[current_byte >> 4] && instructions[current_byte >> 4][current_byte & 0xF]){
-        instruction = instructions[current_byte >> 4][current_byte & 0xF];
-        td_asm.innerHTML += instruction.mnemonic + " " + instruction.op1[current_byte & 0xF] + ", " + instruction.op2 + "<br>";
+      // Hex = XX
+      if(instructions[b16(current_byte)]){
+        asm = instructions[b16(current_byte)];
       }
       
+      // Hex = XX+r
       else {
-        td_asm.innerHTML += "db " + b16h(current_byte) + "          ; '"+ cp437[current_byte] + "'<br>";
+        asm = instructions[b16(current_byte & 0b11111000) + "+r"];
+        r = current_byte & 0b00000111;
+        asm = asm.replace("r16/32",r16[r]);
+      }
+      
+      // Read r16/32
+      asm = asm.replace("r16/32", function(a){
+        address ++;
+        current_byte = bytes[address];
+        
+        console.log(b16(address));
+        console.log(b16(current_byte));
+        
+        hex += b16(current_byte) + " ";
+        return r[current_byte];
+      });
+      
+      // Read imm8
+      asm = asm.replace("imm8", function(a){
+        imm8 = 0;
+        address ++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+        imm8 = current_byte;
+        return b16h(imm8);
+      });
+      
+      // Read imm16/32
+      asm = asm.replace("imm16/32", function(a){
+        imm16 = 0;
+        
+        address ++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+        imm16 = current_byte;
+        
+        address ++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+        imm16 = current_byte << 8 + imm16;
+
+        return b16h(imm16);
+      });
+      
+      // Stop disassembling after a ret*
+      if(asm == "retn"){
+        stop = 1;
       }
     }
+    
+    // Write hex
+    td_hex.innerHTML += hex + "<br>";
+    
+    // Write asm
+    td_asm.innerHTML += asm + "<br>";
+    
   }
 }
 
