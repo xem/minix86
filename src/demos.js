@@ -1625,5 +1625,5 @@ ms.onclick = e => {
   disassemble();
 }
 
-hello.onclick();
-hello.focus();
+xor.onclick();
+xor.focus();
