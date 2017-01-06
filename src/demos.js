@@ -134,6 +134,22 @@ ret		; assume [[FFEE]] = [0] = CD20 = int 20`;
   disassemble();
 }
 
+// FIREWAVE
+firewave.onclick = e => {
+  bytes = [196,28,144,170,17,249,24,216,230,66,230,97,36,68,255,230];
+  td_original.innerHTML = `<pre>les bx,[si]		;		les ... miserables ^^
+nop				;		let's take a break and chill
+stosb			;		write something to the screen
+adc cx,di		;		things are adding up
+sbb al,bl		;		let's not get carried away
+out 42h,al		;		because 42 is *the* answer
+out 61h,al		;		always good to have another out
+and al,44h 		;		may the fours be with you
+jmp si			;		the mack daddy makes ya!`;
+  cpu_mode = 32;
+  disassemble();
+}
+
 // DIROJED
 dirojed.onclick = e => {
   bytes = [176,19,205,16,197,31,56,15,16,39,107,219,229,138,15,2,9,2,143,191,254,2,72,63,75,228,96,254,200,117,231,195];

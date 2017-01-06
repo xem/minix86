@@ -3,15 +3,14 @@
 <title>Minix86 disassembler</title>
 
 <h2>Mini x86 MS-DOS .COM disassembler</h2>
-<br>
-<br>
 Demos:
 <button id=hello>hello</button>
 <button id=xor>xor</button>
-<button id=xoranim>xor animated</button>
+<button id=xoranim>xor2</button>
 <button id=tunnel>tunnel</button>
 <button id=m8trix>m8trix</button>
 <button id=point16b>point16b</button>
+<button id=firewave>firewave</button>
 <button id=dragonfade>dragonfade</button>
 <button id=dirojed>dirojed</button>
 <button id=fr01>fr01</button>
@@ -23,8 +22,8 @@ Demos:
 <button id=puls>puls</button>
 <button id=symetrie>symetrie</button>
 <button id=quatro>quatro</button>
-<button id=ms>motion sickness</button> or any file:
-<input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=u=>{u=new Uint8Array(f.result);if(u.length<=64*1024)d()}"type=file>
+<button id=ms>motion sickness</button>
+<!-- or <input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=bytes=>{bytes=new Uint8Array(f.result);if(bytes.length<=64*1024)disassemble()}"type=file-->
 
 <br>
 <br>
@@ -137,9 +136,10 @@ disassemble = function(){
         //asm = asm.replace("r16/32",r16[r]);
       }
       
-      // Else use a db instruction
+      // Else use a db instruction for all the next bytes
       else {
         asm = "db " + b16h(current_byte) + "         ; '" + cp437[current_byte] + "'";
+        stop = 1;
       }
       
       // Separate mnemonic and operands

@@ -32,7 +32,7 @@ Bonus:
 
 - hello world
 - xor pattern
-- xor animated (and Esc support)
+- xor pattern animated (supports Esc key)
 - tunnel (with FPU instructions)
 
 **sub-256b demos from Pouët:**
