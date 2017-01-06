@@ -7,7 +7,10 @@ A x86 documentation, disassembler and emulator (in pure JS) optimized for runnin
 
 ### Documentation:
 
-- TL;DR (all you need to know in less than 2000 lines, wip): https://github.com/xem/minix86/blob/gh-pages/TLDR.md
+- TL;DR: https://github.com/xem/minix86/blob/gh-pages/TLDR.md (wip)
+
+- Instructions table: https://github.com/xem/minix86/blob/gh-pages/instructions.md (wip)
+  
 - Intel documentation converted in HTML:
   - vol 1: http://xem.github.io/minix86/manual/intel-x86-and-64-manual-vol1/o_7281d5ea06a5b67a.html
   - vol 2: http://xem.github.io/minix86/manual/intel-x86-and-64-manual-vol2/o_b5573232dd8f1481.html
