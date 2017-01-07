@@ -63,10 +63,10 @@ instructions = {
 "90+r":"xchg r16/32, ax",
 "99":"cwd",
 "B0+r":"mov r8, imm8",
-"B8+r":"mov r16/32, imm8",
 "B8+r":"mov r16/32, imm16/32",
-"C3":"retn",
+"C3":"ret",
 "CD":"int imm8",
+"F7+6":"div r/m16/32",
 
 };
 
@@ -80,21 +80,6 @@ disassemble = function(){
   td_hex.innerHTML = "";
   td_asm.innerHTML = "";
   
-  // Current byte
-  current_byte = 0;
-
-  // current address
-  address = 0x100;
-  
-  // Current instruction
-  instruction = {};
-
-  // Current instruction's hex code
-  hex = 0;
-
-  // Current instruction's asm code
-  asm = "";
-  
   // Stop disassembling (after a ret* instruction)
   stop = 0;
 
@@ -103,14 +88,21 @@ disassemble = function(){
   
     // Reset instruction fields
     instruction_address = address;
-    instruction = 0;
-    r = -1;
-    op1 = 0;
-    op2 = 0;
-    op3 = 0;
-    op4 = 0;
-    imm8 = 0;
-    imm16 = 0;
+    current_byte = null;
+    modrm_byte = null;
+    instruction = null;
+    r = null;
+    op1 = null;
+    op2 = null;
+    op3 = null;
+    op4 = null;
+    imm8 = null;
+    imm16 = null;
+    modrm_mod = null;
+    modrm_reg = null;
+    modrm_rm = null;
+    hex = null;
+    asm = null;
     
     // Read one byte
     current_byte = bytes[address];
@@ -124,16 +116,15 @@ disassemble = function(){
     // Else, disassemble real instructions
     else{
       
-      // If the byte is present in the instructions table (in the form XX), use it
+      // If the byte is present in the instructions table (in the form XX), use it.
       if(instructions[b16(current_byte)]){
         asm = instructions[b16(current_byte)];
       }
       
-      // Else, if the closest multiple of 8 is present in the table (in the form XX+r), use it and save r
+      // Else, if the previous multiple of 8 is present in the table (in the form XX+r), use it and save r.
       else if(instructions[b16(current_byte & 0b11111000) + "+r"]){
         asm = instructions[b16(current_byte & 0b11111000) + "+r"];
         r = current_byte & 0b00000111;
-        //asm = asm.replace("r16/32",r16[r]);
       }
       
       // Else use a db instruction for all the next bytes
@@ -150,7 +141,7 @@ disassemble = function(){
       
         // Read r8
         asm[operand] = asm[operand].replace("r8", function(a){
-          if(r != -1){
+          if(r !== null){
             current_byte = r;
           }
           else{
@@ -163,8 +154,12 @@ disassemble = function(){
         
         // Read r16/32
         asm[operand] = asm[operand].replace("r16/32", function(a){
-          if(r != -1){
+          if(r !== null){
             current_byte = r;
+          }
+          else if(op2 !== null){
+            current_byte = op2;
+            op2 == null;
           }
           else {
             address++;
@@ -179,7 +174,8 @@ disassemble = function(){
           address++;
           current_byte = bytes[address];
           hex += b16(current_byte) + " ";
-          return r16[current_byte];
+          modrm(current_byte);
+          return r16[op1];
         });
       
         // Read imm8
@@ -209,12 +205,12 @@ disassemble = function(){
       }
         
       // Stop disassembling after a ret*
-      if(asm[0] == "retn"){
+      if(asm[0] == "ret"){
         stop = 1;
       }
     }
     
-        // Write the address
+    // Write the address
     td_address.innerHTML += b16(instruction_address + 0x100, 2) + "<br>";
     
     // Write hex
@@ -224,6 +220,19 @@ disassemble = function(){
     td_asm.innerHTML += (asm.join ? asm.join(' ') : asm) + "<br>";
     
   }
+}
+
+modrm = function(current_byte){
+  modrm_mod = (current_byte >> 6) & 0b11;
+  modrm_reg = (current_byte >> 3) & 0b111;
+  modrm_rm = current_byte & 0b111;
+  
+  // Use only general-purpose registers
+  if(modrm_mod == 0b11){
+    op1 = modrm_rm;
+    op2 = modrm_reg;
+  }
+  
 }
 
 /** Helpers **/
