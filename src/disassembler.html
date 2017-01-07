@@ -3,15 +3,14 @@
 <title>Minix86 disassembler</title>
 
 <h2>Mini x86 MS-DOS .COM disassembler</h2>
-<br>
-<br>
 Demos:
 <button id=hello>hello</button>
 <button id=xor>xor</button>
-<button id=xoranim>xor animated</button>
+<button id=xoranim>xor2</button>
 <button id=tunnel>tunnel</button>
 <button id=m8trix>m8trix</button>
 <button id=point16b>point16b</button>
+<button id=firewave>firewave</button>
 <button id=dragonfade>dragonfade</button>
 <button id=dirojed>dirojed</button>
 <button id=fr01>fr01</button>
@@ -23,8 +22,8 @@ Demos:
 <button id=puls>puls</button>
 <button id=symetrie>symetrie</button>
 <button id=quatro>quatro</button>
-<button id=ms>motion sickness</button> or any file:
-<input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=u=>{u=new Uint8Array(f.result);if(u.length<=64*1024)d()}"type=file>
+<button id=ms>motion sickness</button>
+<!-- or <input onchange="with(f=new FileReader)readAsArrayBuffer(files[0]),onload=bytes=>{bytes=new Uint8Array(f.result);if(bytes.length<=64*1024)disassemble()}"type=file-->
 
 <br>
 <br>
@@ -32,9 +31,219 @@ Demos:
 <pre>
 <table id=t border cellspacing=0 cellpadding=4>
   <tr><th>@<th>hex<th>disassembled asm<th>original asm (for comparison)
-  <tr><td id=address><td id=hex><td id=asm><td id=original>
+  <tr><td id=td_address><td id=td_hex><td id=td_asm><td id=td_original>
 </table>
 
-<script src=helpers.js></script>
-<script src=disassembler.js></script>
+
+<script>
+
+/** Globals **/
+
+// CP437 charset
+cp437 = " ☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼ !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_\`abcdefghijklmnopqrstuvwxyz{|}~⌂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ ";
+
+// All the bytes of the .COM file
+bytes = [];
+
+// Current cpu mode (16 or 32-bit)
+cpu_mode = 32;
+
+// Registers
+
+r8 = ["al", "cc", "dc", "bc", "ah", "ch", "dh", "bh", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"];
+
+r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w"];
+
+/** Instructions **/
+instructions = {
+
+"07":"pop es",
+"68":"push imm16/32",
+"89":"mov r/m16/32, r16/32",
+"90+r":"xchg r16/32, ax",
+"99":"cwd",
+"B0+r":"mov r8, imm8",
+"B8+r":"mov r16/32, imm8",
+"B8+r":"mov r16/32, imm16/32",
+"C3":"retn",
+"CD":"int imm8",
+
+};
+
+/** Disassembler **/
+
+// Disassemble all the file
+disassemble = function(){
+  
+  // Reset HTML
+  td_address.innerHTML = "";
+  td_hex.innerHTML = "";
+  td_asm.innerHTML = "";
+  
+  // Current byte
+  current_byte = 0;
+
+  // current address
+  address = 0x100;
+  
+  // Current instruction
+  instruction = {};
+
+  // Current instruction's hex code
+  hex = 0;
+
+  // Current instruction's asm code
+  asm = "";
+  
+  // Stop disassembling (after a ret* instruction)
+  stop = 0;
+
+  // Disassemble
+  for(address = 0; address < bytes.length; address++){
+  
+    // Reset instruction fields
+    instruction_address = address;
+    instruction = 0;
+    r = -1;
+    op1 = 0;
+    op2 = 0;
+    op3 = 0;
+    op4 = 0;
+    imm8 = 0;
+    imm16 = 0;
+    
+    // Read one byte
+    current_byte = bytes[address];
+    hex = b16(current_byte) + " ";
+    
+    // After a ret*, read db instructions
+    if(stop){
+      asm = "db " + b16h(current_byte) + "         ; '" + cp437[current_byte] + "'";
+    }
+    
+    // Else, disassemble real instructions
+    else{
+      
+      // If the byte is present in the instructions table (in the form XX), use it
+      if(instructions[b16(current_byte)]){
+        asm = instructions[b16(current_byte)];
+      }
+      
+      // Else, if the closest multiple of 8 is present in the table (in the form XX+r), use it and save r
+      else if(instructions[b16(current_byte & 0b11111000) + "+r"]){
+        asm = instructions[b16(current_byte & 0b11111000) + "+r"];
+        r = current_byte & 0b00000111;
+        //asm = asm.replace("r16/32",r16[r]);
+      }
+      
+      // Else use a db instruction for all the next bytes
+      else {
+        asm = "db " + b16h(current_byte) + "         ; '" + cp437[current_byte] + "'";
+        stop = 1;
+      }
+      
+      // Separate mnemonic and operands
+      asm = asm.split(" ");
+      
+      // Interpret all operands in order
+      for(operand = 1; operand < asm.length; operand++){
+      
+        // Read r8
+        asm[operand] = asm[operand].replace("r8", function(a){
+          if(r != -1){
+            current_byte = r;
+          }
+          else{
+            address++;
+            current_byte = bytes[address];
+            hex += b16(current_byte) + " ";
+          }
+          return r8[current_byte];
+        });
+        
+        // Read r16/32
+        asm[operand] = asm[operand].replace("r16/32", function(a){
+          if(r != -1){
+            current_byte = r;
+          }
+          else {
+            address++;
+            current_byte = bytes[address];
+            hex += b16(current_byte) + " ";
+          }
+          return r16[current_byte];
+        });
+        
+        // Read r/m16/32
+        asm[operand] = asm[operand].replace("r/m16/32", function(a){
+          address++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          return r16[current_byte];
+        });
+      
+        // Read imm8
+        asm[operand] = asm[operand].replace("imm8", function(a){
+          imm8 = 0;
+          address ++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          imm8 = current_byte;
+          return b16h(imm8);
+        });
+        
+        // Read imm16
+        asm[operand] = asm[operand].replace("imm16/32", function(a){
+          imm16 = 0;
+          address ++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          imm16 = current_byte;
+          address ++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          imm16 = (current_byte << 8) + imm16;
+          return b16h(imm16,2);
+        });
+        
+      }
+        
+      // Stop disassembling after a ret*
+      if(asm[0] == "retn"){
+        stop = 1;
+      }
+    }
+    
+        // Write the address
+    td_address.innerHTML += b16(instruction_address + 0x100, 2) + "<br>";
+    
+    // Write hex
+    td_hex.innerHTML += hex + "<br>";
+    
+    // Write asm
+    td_asm.innerHTML += (asm.join ? asm.join(' ') : asm) + "<br>";
+    
+  }
+}
+
+/** Helpers **/
+
+// @param s: sign
+// @param o: temp operand value
+
+// Convert a number to base 16
+// @param n: number
+// @param l: length (in bytes), default 1.
+var b16 = (n, l) => {
+  l = l || 1;
+  return (1e9 + n.toString(16)).slice(-2 * l).toUpperCase();
+}
+
+// Same, with h suffix
+var b16h = (n, l) => {
+  return b16(n, l) + "h";
+}
+</script>
+<!--script src=helpers.js></script>
+<script src=disassembler.js></script-->
 <script src=demos.js></script>
