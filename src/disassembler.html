@@ -58,14 +58,18 @@ r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r1
 instructions = {
 
 "07":"pop es",
+"24":"and al, imm8",
+"31":"xor r/m16/32, r16/32",
 "68":"push imm16/32",
 "89":"mov r/m16/32, r16/32",
 "90+r":"xchg r16/32, ax",
 "99":"cwd",
+"AA":"stosb",
 "B0+r":"mov r8, imm8",
 "B8+r":"mov r16/32, imm16/32",
 "C3":"ret",
 "CD":"int imm8",
+"EB":"jmp rel8",
 "F7+6":"div r/m16/32",
 
 };
@@ -103,6 +107,7 @@ disassemble = function(){
     modrm_rm = null;
     hex = null;
     asm = null;
+    comment = null;
     
     // Read one byte
     current_byte = bytes[address];
@@ -125,6 +130,12 @@ disassemble = function(){
       else if(instructions[b16(current_byte & 0b11111000) + "+r"]){
         asm = instructions[b16(current_byte & 0b11111000) + "+r"];
         r = current_byte & 0b00000111;
+      }
+      
+      // Else, if the byte is present in the instructions table (in the form XX+digit) with the digit present in the REG field of the ModR/M byte at the next address, use it and save r.
+      else if(instructions[b16(current_byte) + "+" + ((bytes[address+1] >> 3) & 0b00000111)]){
+        asm = instructions[b16(current_byte) + "+" + ((bytes[address+1] >> 3) & 0b00000111)];
+        r = (bytes[address+1] >> 3) & 0b00000111;
       }
       
       // Else use a db instruction for all the next bytes
@@ -185,6 +196,7 @@ disassemble = function(){
           current_byte = bytes[address];
           hex += b16(current_byte) + " ";
           imm8 = current_byte;
+          comment = "= " + imm8;
           return b16h(imm8);
         });
         
@@ -199,7 +211,19 @@ disassemble = function(){
           current_byte = bytes[address];
           hex += b16(current_byte) + " ";
           imm16 = (current_byte << 8) + imm16;
-          return b16h(imm16,2);
+          comment = "= " + imm16;
+          return b16h(imm16, 2);
+        });
+        
+        // Read rel8
+        asm[operand] = asm[operand].replace("rel8", function(a){
+          rel8 = 0;
+          address ++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          rel8 = address - 1 + 0x100 + toSignedOffset8(current_byte);
+          comment = "= " + toSignedOffset8(current_byte);
+          return b16h(rel8,2);
         });
         
       }
@@ -217,6 +241,12 @@ disassemble = function(){
     td_hex.innerHTML += hex + "<br>";
     
     // Write asm
+    if(asm.join){
+      asm = asm.join(' ');
+    }
+    if(comment){
+      asm = (asm + "         ").substr(0,15) + "; " + comment;
+    }
     td_asm.innerHTML += (asm.join ? asm.join(' ') : asm) + "<br>";
     
   }
@@ -252,7 +282,12 @@ var b16 = (n, l) => {
 var b16h = (n, l) => {
   return b16(n, l) + "h";
 }
+
+// Convert a byte into a 8-bit signed offset (using 2-complement) + 2 (to include PC incrementation)
+var toSignedOffset8 = (n) => {
+  n = n & 0xFF;
+  return (n >= 0x80 ? n - 256 : n) + 2;
+}
 </script>
-<!--script src=helpers.js></script>
-<script src=disassembler.js></script-->
+
 <script src=demos.js></script>
