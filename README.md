@@ -73,4 +73,6 @@ Bonus:
 
 ---
 
-Unofficial HN thread: https://news.ycombinator.com/item?id=13291052
+### News
+
+- 31/12: unofficial HN thread: https://news.ycombinator.com/item?id=13291052 (4.3k visits, 28 forks and 200 stars in 3 days!)
