@@ -6,7 +6,7 @@
 Demos:
 <button id=hello>hello</button>
 <button id=xor>xor</button>
-<button id=xoranim>xor2</button>
+<button id=xor2>xor2</button>
 <button id=tunnel>tunnel</button>
 <button id=m8trix>m8trix</button>
 <button id=point16b>point16b</button>
@@ -57,10 +57,14 @@ r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r1
 /** Instructions **/
 instructions = {
 
+"01":"add r/m16/32, r16/32",
 "07":"pop es",
 "24":"and al, imm8",
+"30":"xor r/m8, r8",
 "31":"xor r/m16/32, r16/32",
+"40+r":"inc r16/32",
 "68":"push imm16/32",
+"75":"jnz rel8",
 "89":"mov r/m16/32, r16/32",
 "90+r":"xchg r16/32, ax",
 "99":"cwd",
@@ -69,8 +73,11 @@ instructions = {
 "B8+r":"mov r16/32, imm16/32",
 "C3":"ret",
 "CD":"int imm8",
+"E2":"loop rel8",
+"E4":"in al, imm8",
 "EB":"jmp rel8",
 "F7+6":"div r/m16/32",
+"FE+1":"dec r/m8",
 
 };
 
@@ -155,6 +162,10 @@ disassemble = function(){
           if(r !== null){
             current_byte = r;
           }
+          else if(op2 !== null){
+            current_byte = op2;
+            op2 == null;
+          }
           else{
             address++;
             current_byte = bytes[address];
@@ -178,6 +189,15 @@ disassemble = function(){
             hex += b16(current_byte) + " ";
           }
           return r16[current_byte];
+        });
+        
+        // Read r/m8
+        asm[operand] = asm[operand].replace("r/m8", function(a){
+          address++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          modrm(current_byte);
+          return r8[op1];
         });
         
         // Read r/m16/32

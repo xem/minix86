@@ -29,8 +29,8 @@ jmp short X  ; rinse and repeat`;
   disassemble();
 }
 
-// XOR ANIM
-xoranim.onclick = e => {
+// XOR 2
+xor2.onclick = e => {
   bytes = [153,176,19,205,16,137,200,1,248,48,224,36,40,180,12,226,242,71,228,96,254,200,117,235,195];
   td_original.innerHTML = `<pre>cwd           ; "clear" DX for perfect alignment
 mov  al,0x13
@@ -1641,5 +1641,5 @@ ms.onclick = e => {
   disassemble();
 }
 
-xor.onclick();
-xor.focus();
+xor2.onclick();
+xor2.focus();
