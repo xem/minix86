@@ -59,9 +59,12 @@ instructions = {
 
 "01":"add r/m16/32, r16/32",
 "07":"pop es",
+"11":"adc r/m16/32, r16/32",
+"18":"sbb r/m8, r8",
 "24":"and al, imm8",
 "30":"xor r/m8, r8",
 "31":"xor r/m16/32, r16/32",
+"34":"xor al, imm8",
 "40+r":"inc r16/32",
 "68":"push imm16/32",
 "75":"jnz rel8",
@@ -78,9 +81,11 @@ instructions = {
 "CD":"int imm8",
 "E2":"loop rel8",
 "E4":"in al, imm8",
+"E6":"out imm8, al",
 "EB":"jmp rel8",
 "F7/6":"div r/m16/32",
 "FE/1":"dec r/m8",
+"FF/4":"jmp r/m16/32"
 
 };
 
@@ -262,7 +267,7 @@ disassemble = function(){
         
         // Read m16:16/32
         asm[operand] = asm[operand].replace("m16:16/32", function(a){
-          console.log(r, op2);
+          //console.log(r, op2);
           if(r !== null){
             current_byte = r;
           }
