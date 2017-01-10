@@ -136,12 +136,7 @@ jmp si			;		the mack daddy makes ya!`;
 // DIROJED
 dirojed.onclick = e => {
   bytes = [176,19,205,16,197,31,56,15,16,39,107,219,229,138,15,2,9,2,143,191,254,2,72,63,75,228,96,254,200,117,231,195];
-  td_original.innerHTML = `<pre>S equ 0E5h        ; like original
-; S equ 0B1h        ; vertical "scouts"
-
-org 100h          ; assumes: ah=0 bx=0 cl>0 di=0FFFEh si=0100h
-
-mov  al,13h       ; (2)
+  td_original.innerHTML = `<pre>mov  al,13h       ; (2)
 int  10h          ; (2)
 lds  bx,[bx]      ; (2) bx=20CDh ds=9FFFh
 M:
@@ -1624,5 +1619,5 @@ ms.onclick = e => {
   disassemble();
 }
 
-firewave.onclick();
-firewave.focus();
+dragonfade.onclick();
+dragonfade.focus();
