@@ -124,7 +124,7 @@ firewave.onclick = e => {
 nop                     ;		let's take a break and chill
 stosb			;		write something to the screen
 adc cx,di		;		things are adding up
-sbb al,bl		;		let's not get carried away (Note: this one seems to be assembled as sbb al, bc)
+sbb al,bl		;		let's not get carried away
 out 42h,al		;		because 42 is *the* answer
 out 61h,al		;		always good to have another out
 and al,44h 		;		may the fours be with you
@@ -139,8 +139,7 @@ dirojed.onclick = e => {
   td_original.innerHTML = `<pre>mov  al,13h       ; (2)
 int  10h          ; (2)
 lds  bx,[bx]      ; (2) bx=20CDh ds=9FFFh
-M:
-cmp  [bx],cl      ; (2)
+M:cmp  [bx],cl    ; (2)
 adc  [bx],ah      ; (2) if ([bx] < cl) [bx]++ (first pass increases)
 imul bx,byte S    ; (3) pseudorandom generator: bx = S*bx-1 (works if S%4==1)
 mov  cl,[bx]      ; (2) we don't decrease bx yet
@@ -148,7 +147,6 @@ add  cl,[bx+di]   ; (2)
 add  cl,[bx-321]  ; (4)
 add  cl,[bx+si+63]; (3) cl = ([bx+1]+[bx-1]+[bx-320]+[bx+320]) & 0FFh
 dec  bx           ; (1)
-
 in   al,60h       ; (2) standard ESC check
 dec  al           ; (2)
 jnz  M            ; (2)
@@ -1619,5 +1617,5 @@ ms.onclick = e => {
   disassemble();
 }
 
-dragonfade.onclick();
-dragonfade.focus();
+dirojed.onclick();
+dirojed.focus();
