@@ -7,7 +7,7 @@ Demos:
 <button id=hello>hello</button>
 <button id=xor>xor</button>
 <button id=xor2>xor2</button>
-<button id=tunnel>tunnel</button>
+<button id=tunnel hidden>tunnel</button>
 <button id=m8trix>m8trix</button>
 <button id=point16b>point16b</button>
 <button id=firewave>firewave</button>
@@ -82,6 +82,8 @@ disassemble = function(){
     op4 = null;
     imm8 = null;
     imm16 = null;
+    disp8 = null;
+    disp16 = null;
     modrm_mod = null;
     modrm_reg = null;
     modrm_rm = null;
@@ -280,6 +282,42 @@ disassemble = function(){
       }
     }
     
+    // Gather asm parts
+    if(asm.join){
+      asm = asm.join(' ');
+    }
+    
+    // Read disp8
+    asm = asm.replace("disp8", function(a){
+      disp8 = 0;
+      address ++;
+      current_byte = bytes[address];
+      hex += b16(current_byte) + " ";
+      disp8 = current_byte;
+      return toSignedOffset8(disp8 - 2);
+    });
+    
+    // Read disp16
+    asm = asm.replace("disp16", function(a){
+      disp16 = 0;
+      address ++;
+      current_byte = bytes[address];
+      hex += b16(current_byte) + " ";
+      disp16 = current_byte;
+      address ++;
+      current_byte = bytes[address];
+      hex += b16(current_byte) + " ";
+      disp16 = (current_byte << 8) + disp16;
+      return toSignedOffset16(disp16 - 2);
+    });
+    
+    
+    // Simplify "+-"
+    asm = asm.replace(/\+-/g,"-");
+    
+    // Simplify imul x, x, y in imul x, y
+    asm = asm.replace(/imul (.*?), \1/,"imul $1");
+    
     // Write the address
     td_address.innerHTML += b16(instruction_address + 0x100, 2) + "<br>";
     
@@ -287,9 +325,6 @@ disassemble = function(){
     td_hex.innerHTML += hex + "<br>";
     
     // Write asm
-    if(asm.join){
-      asm = asm.join(' ');
-    }
     if(comment){
       asm = (asm + "              ").substr(0,20) + "; " + comment;
     }
@@ -311,12 +346,12 @@ modrm = function(current_byte){
   
   // Mod = 01
   else if(modrm_mod == 0b01){
-    modrm_rm = ["[BX+SI]+disp8","[BX+DI]+disp8","[BP+SI]+disp8","[BP+DI]+disp8","[SI]+disp8","[DI]+disp8","[BP]+disp8","[BX]+disp8"][modrm_rm];
+    modrm_rm = ["[bx+si+disp8]","[bx+di+disp8]","[bp+si+disp8]","[bp+di+disp8]","[si+disp8]","[di+disp8]","[bp+disp8]","[bx+disp8]"][modrm_rm];
   }
   
   // Mod = 10
   else if(modrm_mod == 0b10){
-    modrm_rm = ["[BX+SI]+disp16","[BX+DI]+disp16","[BP+SI]+disp16","[BP+DI]+disp16","[SI]+disp16","[DI]+disp16","[BP]+disp16","[BX]+disp16"][modrm_rm];
+    modrm_rm = ["[bx+si+disp16]","[bx+di+disp16]","[bp+si+disp16]","[bp+di+disp16]","[si+disp16]","[di+disp16]","[bp+disp16]","[bx+disp16]"][modrm_rm];
   }
   
   // Mod = 11: use only general-purpose registers
@@ -343,10 +378,16 @@ var b16h = (n, l) => {
   return b16(n, l) + "h";
 }
 
-// Convert a byte into a 8-bit signed offset (using 2-complement) + 2 (to include PC incrementation)
+// Convert a 8-bit number into a 8-bit signed offset (using 2-complement) + 2 (to include PC incrementation)
 var toSignedOffset8 = (n) => {
   n = n & 0xFF;
-  return (n >= 0x80 ? n - 256 : n) + 2;
+  return (n >= 0x80 ? n - 0x100 : n) + 2;
+}
+
+// Convert a 16-bit number into a 16-bit signed offset (using 2-complement) + 2 (to include PC incrementation)
+var toSignedOffset16 = (n) => {
+  n = n & 0xFFFF;
+  return (n >= 0x8000 ? n - 0x10000 : n) + 2;
 }
 </script>
 

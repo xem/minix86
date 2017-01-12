@@ -14,6 +14,7 @@ instructions = {
 "38/r":"cmp r/m8, r8",
 "34":"xor al, imm8",
 "40+r":"inc r16/32",
+"48+r":"dec r16/32",
 "50+r":"push r16/32",
 "58+r":"pop r16/32",
 "68":"push imm16/32",
