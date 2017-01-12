@@ -60,9 +60,9 @@ r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r1
 disassemble = function(){
   
   // Reset HTML
-  td_address.innerHTML = "";
-  td_hex.innerHTML = "";
-  td_asm.innerHTML = "";
+  all_address = "";
+  all_hex = "";
+  all_asm = "";
   
   // Stop disassembling (after a ret* instruction)
   stop = 0;
@@ -319,18 +319,22 @@ disassemble = function(){
     asm = asm.replace(/imul (.*?), \1/,"imul $1");
     
     // Write the address
-    td_address.innerHTML += b16(instruction_address + 0x100, 2) + "<br>";
+    all_address += b16(instruction_address + 0x100, 2) + "<br>";
     
     // Write hex
-    td_hex.innerHTML += hex + "<br>";
+    all_hex += hex + "<br>";
     
     // Write asm
     if(comment){
       asm = (asm + "              ").substr(0,20) + "; " + comment;
     }
-    td_asm.innerHTML += (asm.join ? asm.join(' ') : asm) + "<br>";
+    
+    all_asm += (asm.join ? asm.join(' ') : asm) + "<br>";
     
   }
+  td_address.innerHTML = all_address;
+  td_hex.innerHTML = all_hex;
+  td_asm.innerHTML = all_asm;
 }
 
 modrm = function(current_byte){
