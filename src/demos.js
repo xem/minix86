@@ -150,7 +150,10 @@ dec  bx           ; (1)
 in   al,60h       ; (2) standard ESC check
 dec  al           ; (2)
 jnz  M            ; (2)
-ret               ; (1)`;
+ret               ; (1)
+
+S equ 0E5h        ; like original
+; S equ 0B1h      ; vertical "scouts"`;
   cpu_mode = 32;
   disassemble();
 }

@@ -34,7 +34,7 @@ Demos:
   <tr><td id=td_address><td id=td_hex><td id=td_asm><td id=td_original>
 </table>
 
-
+<script src=instructions.js></script>
 <script>
 
 /** Globals **/
@@ -53,56 +53,6 @@ cpu_mode = 32;
 r8 = ["al", "cl", "dl", "bl", "ah", "ch", "dh", "bh", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"];
 
 r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w"];
-
-/** Instructions **/
-instructions = {
-
-"01":"add r/m16/32, r16/32",
-"07":"pop es",
-"10/r":"adc r/m8, r8",
-"11":"adc r/m16/32, r16/32",
-"18":"sbb r/m8, r8",
-"24":"and al, imm8",
-"29":"sub r/m16/32, r16/32",
-"30":"xor r/m8, r8",
-"31":"xor r/m16/32, r16/32",
-"38/r":"cmp r/m8, r8",
-"34":"xor al, imm8",
-"40+r":"inc r16/32",
-"50+r":"push r16/32",
-"58+r":"pop r16/32",
-"68":"push imm16/32",
-"6B/r":"imul r16/32, r/m16/32, imm8",
-"72":"jc rel8",
-"75":"jnz rel8",
-"81/0":"add r/m16/32, imm16/32",
-"87":"xchg r16/32, r/m16/32",
-"89":"mov r/m16/32, r16/32",
-"90":"nop",
-"90+r":"xchg r16/32, ax",
-"99":"cwd",
-"9F":"lahf",
-"AA":"stosb",
-"AB":"stosw",
-"B0+r":"mov r8, imm8",
-"B8+r":"mov r16/32, imm16/32",
-"C3":"ret",
-"C4/r":"les r16/32, m16:16/32",
-"C5/r":"lds r16/32, m16:16/32",
-"CD":"int imm8",
-"D0/3":"rcr r/m8, 1",
-"D1/7":"sar r/m16/32, 1",
-"E2":"loop rel8",
-"E4":"in al, imm8",
-"E6":"out imm8, al",
-"EB":"jmp rel8",
-"F7/3":"neg r/m16/32",
-"F7/6":"div r/m16/32",
-"FE/0":"inc r/m8",
-"FE/1":"dec r/m8",
-"FF/4":"jmp r/m16/32"
-
-};
 
 /** Disassembler **/
 
@@ -145,7 +95,7 @@ disassemble = function(){
     
     // After a ret*, read db instructions
     if(stop){
-      asm = "db " + b16h(current_byte) + "         ; '" + cp437[current_byte] + "'";
+      asm = "db " + b16h(current_byte) + "              ; '" + cp437[current_byte] + "'";
     }
     
     // Else, disassemble real instructions
@@ -184,7 +134,7 @@ disassemble = function(){
       
       // Else use a db instruction for all the next bytes
       else {
-        asm = "db " + b16h(current_byte) + "         ; '" + cp437[current_byte] + "'";
+        asm = "db " + b16h(current_byte) + "              ; '" + cp437[current_byte] + "'";
         stop = 1;
       }
       
@@ -341,7 +291,7 @@ disassemble = function(){
       asm = asm.join(' ');
     }
     if(comment){
-      asm = (asm + "         ").substr(0,15) + "; " + comment;
+      asm = (asm + "              ").substr(0,20) + "; " + comment;
     }
     td_asm.innerHTML += (asm.join ? asm.join(' ') : asm) + "<br>";
     
@@ -352,13 +302,24 @@ modrm = function(current_byte){
   modrm_mod = (current_byte >> 6) & 0b11;
   modrm_reg = (current_byte >> 3) & 0b111;
   modrm_rm = current_byte & 0b111;
-  console.log("@" + address, modrm_mod, modrm_reg, modrm_rm);
+  console.log("@" + (address+0x100-1).toString(16), modrm_mod.toString(2), modrm_reg.toString(2), modrm_rm.toString(2));
   
+  // Mod == 00
   if(modrm_mod == 0b00){
     modrm_rm = ["[bx+si]","[bx+di]","[bp+si]","[bp+di]","[si]","[di]","disp16","[bx]"][modrm_rm];
   }
   
-  // Use only general-purpose registers
+  // Mod = 01
+  else if(modrm_mod == 0b01){
+    modrm_rm = ["[BX+SI]+disp8","[BX+DI]+disp8","[BP+SI]+disp8","[BP+DI]+disp8","[SI]+disp8","[DI]+disp8","[BP]+disp8","[BX]+disp8"][modrm_rm];
+  }
+  
+  // Mod = 10
+  else if(modrm_mod == 0b10){
+    modrm_rm = ["[BX+SI]+disp16","[BX+DI]+disp16","[BP+SI]+disp16","[BP+DI]+disp16","[SI]+disp16","[DI]+disp16","[BP]+disp16","[BX]+disp16"][modrm_rm];
+  }
+  
+  // Mod = 11: use only general-purpose registers
   else if(modrm_mod == 0b11){
   }
   
