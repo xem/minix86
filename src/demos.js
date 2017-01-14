@@ -53,7 +53,7 @@ ret           ; quit program`;
 // TUNNEL
 tunnel.onclick = e => {
   bytes = [104,186,159,12,19,7,205,16,42,52,96,223,71,247,223,71,248,217,243,221,209,217,255,218,12,222,119,248,222,2,219,95,249,222,76,61,223,95,251,97,48,200,36,26,170,184,205,204,247,231,112,212,131,2,23,228,96,72,117,204,195,119,25];
-  td_original.innerHTML = `<pre>push 0xa000 - 10 - 3 * 20 ; video base - 3.5 lines
+  td_original.innerHTML = `<pre>push 0xa000 - 10 - 3 * 20 ; video base - 3.5 lines (= 40890)
 or al, 0x13               ; mode 13h = 320 x 200 in 256 colors
 pop es                    ; get aligned video memory base
 int 0x10                  ; switch videomode
@@ -68,7 +68,7 @@ fimul dword  [si]         ; fpustack :  l*cos(arc)  arc
 fidiv word  [bx-8]        ; fpustack :  l*cos(arc)/x  arc
 fiadd word  [bp+si]       ; fpustack :  l*cos(arc)/x+offset  arc
 fistp dword  [bx-7]       ; fpustack :  arc
-fimul word  [byte si+val] ; fpustack :  scaled_arc
+fimul word  [byte si+val] ; fpustack :  scaled_arc (for some reason it's assembled as si+61)
 fistp word  [bx-5]        ; fpustack :  -
 popa                      ; pop all registers from stack
 xor al, cl                ; XOR scaled_arc with distance
@@ -184,45 +184,40 @@ jmp short S`;
 // FR01
 fr01.onclick = e => {
   bytes = [176,19,245,66,205,16,104,0,160,7,247,227,64,1,248,17,28,247,116,12,216,12,222,4,223,31,45,130,0,135,7,49,193,223,7,216,200,49,235,146,217,201,117,232,222,193,217,250,216,60,223,7,223,70,0,217,243,214,145,12,135,170,235,202];
-  td_original.innerHTML = `<pre>start		mov			al, 0x13
-				cmc
-				inc			dx
-				int			0x10
-				push		word 0xa000
-				pop			es
-				
-pix			mul			bx
-				inc			ax
-				add			ax, di
-				adc			[si], bx
-				div		  word [si+12]
-
-clp			fmul		dword [si]
-				fiadd		word [si]
-				fistp		word [bx]
-				sub			ax, 130
-				xchg		ax, [bx]
-				xor			cx, ax
-				fild		word [bx]
-				fmul		st0
-				xor			bx, bp
-				xchg		ax, dx
-				fxch		st1
-				jnz			clp
-	
-				faddp		st1, st0
-				fsqrt
-				fdivr		dword [si]
-
-				fild		word [bx]
-				fild		word [bp]
-				fpatan
-
-				salc
-				xchg		ax, cx
-				or			al, 0x87
-				stosb
-				jmp			short pix`;
+  td_original.innerHTML = `<pre>start   mov    al, 0x13
+        cmc
+        inc      dx
+        int      0x10
+        push    word 0xa000
+        pop      es
+pix     mul      bx
+        inc      ax
+        add      ax, di
+        adc      [si], bx
+        div     word [si+12]
+clp     fmul    dword [si]
+        fiadd    word [si]
+        fistp    word [bx]
+        sub      ax, 130
+        xchg    ax, [bx]
+        xor      cx, ax
+        fild    word [bx]
+        fmul    st0
+        xor      bx, bp
+        xchg    ax, dx
+        fxch    st1
+        jnz      clp
+        faddp    st1, st0
+        fsqrt
+        fdivr    dword [si]
+        fild    word [bx]
+        fild    word [bp]
+        fpatan
+        salc
+        xchg    ax, cx
+        or      al, 0x87
+        stosb
+        jmp      short pix`;
   cpu_mode = 16;
   disassemble();
 }
@@ -1620,5 +1615,5 @@ ms.onclick = e => {
   disassemble();
 }
 
-dirojed.onclick();
-dirojed.focus();
+tunnel.onclick();
+tunnel.focus();

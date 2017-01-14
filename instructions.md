@@ -19,8 +19,56 @@
 - ````m````, ````m8````, ````m16````, ````m32````, ````m64````, ````m128```` (an operand in memory, expressed as a variable or array name, but pointed to by the DS:(E)SI or ES:(E)DI registers).
 - ````m16int````, ````m32int````, ````m64int```` (integer operand in memory).
 - ````ST(i)```` (the i'th element from the top of the FPU register stack (0 to 7), 0 by default).
+- ````m32fp, m64fp, m80fp```` or ````m32real, m64real, m80real````) (floating-point operand in memory)
+- ````m16:16, m16:32, m16:64```` (an operand in memory, segment:offset)
 
-
+<!--
+- ptr16:16, ptr16:32 (far pointer, segment:offset)
+- m16&16, m16&32, m16&64, m32&32 (a 2-part memory operand used by some instructions)
+- moffs8, movvs16, moffs32, moffs64 (memory offset used by some MOV instructions without ModR/M byte)
+- mm, mm/m32, mm/m64, xmm, xmm/m32, xmm/m64, xmm/m128 (a MMX or XMM register (0 to 7), or a memory operand)
+- <XMM0> (implicit use of XMM0)
+- ymm/m256 (a 256-bit YMM register: YMM0-7, or a 256-bit memory operand)
+- <YMM0> (implicit use of YMM0)
+- bnd (a 128-bit bounds register. BND0-3)
+- mib (memory operand using the SIB addressing form, using only base and displacement)
+- zmm/m512 (a 512-bit ZMM register or 512-bit memory operand)
+- {k1}{z} — A mask register used as instruction writemask. The 64-bit k registers are: k1 through k7.
+Writemask specification is available exclusively via EVEX prefix. The masking can either be done as a mergingmasking,
+where the old values are preserved for masked out elements or as a zeroing masking. The type of
+masking is determined by using the EVEX.z bit.
+- {k1} — Without {z}: a mask register used as instruction writemask for instructions that do not allow zeroingmasking
+but support merging-masking. This corresponds to instructions that require the value of the aaa field
+to be different than 0 (e.g., gather) and store-type instructions which allow only merging-masking.
+- k1 — A mask register used as a regular operand (either destination or source). The 64-bit k registers are: k0
+through k7.
+- mV — A vector memory operand; the operand size is dependent on the instruction.
+- vm32{x,y, z} — A vector array of memory operands specified using VSIB memory addressing. The array of
+memory addresses are specified using a common base register, a constant scale factor, and a vector index
+register with individual elements of 32-bit index value in an XMM register (vm32x), a YMM register (vm32y) or
+a ZMM register (vm32z).
+- vm64{x,y, z} — A vector array of memory operands specified using VSIB memory addressing. The array of
+memory addresses are specified using a common base register, a constant scale factor, and a vector index
+register with individual elements of 64-bit index value in an XMM register (vm64x), a YMM register (vm64y) or
+a ZMM register (vm64z).
+- zmm/m512/m32bcst — An operand that can be a ZMM register, a 512-bit memory location or a 512-bit
+vector loaded from a 32-bit memory location.
+- zmm/m512/m64bcst — An operand that can be a ZMM register, a 512-bit memory location or a 512-bit
+vector loaded from a 64-bit memory location.
+- <ZMM0> — Indicates use of the ZMM0 register as an implicit argument.
+- {er} — Indicates support for embedded rounding control, which is only applicable to the register-register form
+of the instruction. This also implies support for SAE (Suppress All Exceptions).
+- {sae} — Indicates support for SAE (Suppress All Exceptions). This is used for instructions that support SAE,
+but do not support embedded rounding control.
+- SRC1 — Denotes the first source operand in the instruction syntax of an instruction encoded with the
+VEX/EVEX prefix and having two or more source operands.
+- SRC2 — Denotes the second source operand in the instruction syntax of an instruction encoded with the
+VEX/EVEX prefix and having two or more source operands.
+- SRC3 — Denotes the third source operand in the instruction syntax of an instruction encoded with the
+VEX/EVEX prefix and having three source operands.
+- SRC — The source in a single-source instruction.
+- DST — the destination in an instruction. This field is encoded by reg_field.
+-->
 ### 1-byte instructions
 
 ````

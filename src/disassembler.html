@@ -7,7 +7,7 @@ Demos:
 <button id=hello>hello</button>
 <button id=xor>xor</button>
 <button id=xor2>xor2</button>
-<button id=tunnel hidden>tunnel</button>
+<button id=tunnel>tunnel</button>
 <button id=m8trix>m8trix</button>
 <button id=point16b>point16b</button>
 <button id=firewave>firewave</button>
@@ -103,9 +103,19 @@ disassemble = function(){
     // Else, disassemble real instructions
     else{
       
+      //console.log(b16(current_byte) + b16(bytes[address+1]), b16(current_byte) + b16(bytes[address+1] & 0b11111000) + "+r");
+      
       // If the byte is present in the instructions table (in the form XX), use it.
       if(instructions[b16(current_byte)]){
         asm = instructions[b16(current_byte)];
+      }
+      
+      // Same for 2 bytes (XXXX)
+      else if(instructions[b16(current_byte) + b16(bytes[address+1])]){
+        asm = instructions[b16(current_byte) + b16(bytes[address+1])];
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
       }
       
       // Else, if the previous multiple of 8 is present in the table (in the form XX+r), use it and save r.
@@ -114,9 +124,31 @@ disassemble = function(){
         r = current_byte & 0b00000111;
       }
       
+      // Same for 2 bytes (XXXX+r)
+      else if(instructions[b16(current_byte) + b16(bytes[address+1] & 0b11111000) + "+r"]){
+        asm = instructions[b16(current_byte) + b16(bytes[address+1] & 0b11111000) + "+r"];
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+        r = current_byte & 0b00000111;
+      }
+      
       // Else, if the byte is present in the instructions table (in the form XX/digit) with the digit present in the REG field of the ModR/M byte at the next address, use it and save r.
       else if(instructions[b16(current_byte) + "/" + ((bytes[address+1] >> 3) & 0b00000111)]){
         asm = instructions[b16(current_byte) + "/" + ((bytes[address+1] >> 3) & 0b00000111)];
+        address++;
+        modrm_byte = bytes[address];
+        hex += b16(modrm_byte) + " ";
+        modrm(modrm_byte);
+        r = modrm_reg;
+      }
+      
+      // Same for 2 bytes (XXXX/digit)
+      else if(instructions[b16(current_byte) + b16(bytes[address+1]) + "/" + ((bytes[address+2] >> 3) & 0b00000111)]){
+        asm = instructions[b16(current_byte) + b16(bytes[address+1]) + "/" + ((bytes[address+2] >> 3) & 0b00000111)];
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
         address++;
         modrm_byte = bytes[address];
         hex += b16(modrm_byte) + " ";
@@ -224,6 +256,42 @@ disassemble = function(){
             return current_byte;
           }
         });
+        
+        // Read m32fp
+        asm[operand] = asm[operand].replace("m32fp", function(a){
+          current_byte = modrm_rm;
+          modrm_rm == null;
+          if(Number.isInteger(current_byte)){
+            return ["st0","st1","st2","st3","st4","st5","st6","st7"][current_byte];
+          }
+          else{
+            return current_byte;
+          }
+        });
+        
+        // Read m16int
+        asm[operand] = asm[operand].replace("m16int", function(a){
+          current_byte = modrm_rm;
+          modrm_rm == null;
+          if(Number.isInteger(current_byte)){
+            return r16[current_byte];
+          }
+          else{
+            return current_byte;
+          }
+        });
+        
+        // Read m32int
+        asm[operand] = asm[operand].replace("m32int", function(a){
+          current_byte = modrm_rm;
+          modrm_rm == null;
+          if(Number.isInteger(current_byte)){
+            return r16[current_byte];
+          }
+          else{
+            return current_byte;
+          }
+        });
       
         // Read imm8
         asm[operand] = asm[operand].replace("imm8", function(a){
@@ -274,6 +342,15 @@ disassemble = function(){
           }
         });
         
+        // Read r16/32
+        asm[operand] = asm[operand].replace("sti", function(a){
+          if(r !== null){
+            current_byte = r;
+            r = null;
+          }
+          return "st" + current_byte;
+        });
+        
       }
         
       // Stop disassembling after a ret*
@@ -315,8 +392,14 @@ disassemble = function(){
     // Simplify "+-"
     asm = asm.replace(/\+-/g,"-");
     
+    // Simplify "+0]"
+    asm = asm.replace(/\+0]/g,"]");
+    
     // Simplify imul x, x, y in imul x, y
     asm = asm.replace(/imul (.*?), \1/,"imul $1");
+    
+    // Simplify faddp st1 st0 in faddp
+    asm = asm.replace(/faddp st1, st0/,"faddp               ; = faddp st1, st0");
     
     // Write the address
     all_address += b16(instruction_address + 0x100, 2) + "<br>";
@@ -341,7 +424,7 @@ modrm = function(current_byte){
   modrm_mod = (current_byte >> 6) & 0b11;
   modrm_reg = (current_byte >> 3) & 0b111;
   modrm_rm = current_byte & 0b111;
-  console.log("@" + (address+0x100-1).toString(16), modrm_mod.toString(2), modrm_reg.toString(2), modrm_rm.toString(2));
+  //console.log("@" + (address+0x100-1).toString(16), modrm_mod.toString(2), modrm_reg.toString(2), modrm_rm.toString(2));
   
   // Mod == 00
   if(modrm_mod == 0b00){
