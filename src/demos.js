@@ -68,7 +68,7 @@ fimul dword  [si]         ; fpustack :  l*cos(arc)  arc
 fidiv word  [bx-8]        ; fpustack :  l*cos(arc)/x  arc
 fiadd word  [bp+si]       ; fpustack :  l*cos(arc)/x+offset  arc
 fistp dword  [bx-7]       ; fpustack :  arc
-fimul word  [byte si+val] ; fpustack :  scaled_arc (for some reason it's assembled as si+61)
+fimul word  [byte si+val] ; fpustack :  scaled_arc
 fistp word  [bx-5]        ; fpustack :  -
 popa                      ; pop all registers from stack
 xor al, cl                ; XOR scaled_arc with distance
