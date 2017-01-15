@@ -1,12 +1,13 @@
 ## Instruction set (wip)
 
-**Legend**
+<!-- **Legend**
 
 - In the "Opcode" column: ````/digit```` means that the opcode has 3 extra bits stored in the REG field of the ModR/M byte. ex: ````F6 /3```` means ````NEG r/m8````. ````/r```` means that the instruction's register operand is stored in the REG field of ModR/M.
 - In the "x" column, ````L```` means the instruction can use a ````LOCK```` prefix. ````s```` means that an additional ````push````. ````p```` means an additional ````pop````. P means two ````pop````'s.
 - In the operands columns, operands with ````!```` are implicit, operands with ````*```` are modified.
 - In the "Flags" column, only the flags affected are represented (in the set ````odiszapc````).
 - The column "Ref." points to the corresponding chapter & page in Intel's manual reference vol. 2. (or in the HTML version [here](http://xem.github.io/minix86/manual/intel-x86-and-64-manual-vol2/o_b5573232dd8f1481.html)
+-->
 
 **Operand types**
 
@@ -21,6 +22,11 @@
 - ````ST(i)```` (the i'th element from the top of the FPU register stack (0 to 7), 0 by default).
 - ````m32fp, m64fp, m80fp```` or ````m32real, m64real, m80real````) (floating-point operand in memory)
 - ````m16:16, m16:32, m16:64```` (an operand in memory, segment:offset)
+
+See the summarized table in JSON [here](https://github.com/xem/minix86/blob/gh-pages/src/instructions.js).
+
+
+
 
 <!--
 - ptr16:16, ptr16:32 (far pointer, segment:offset)
@@ -68,7 +74,8 @@ VEX/EVEX prefix and having two or more source operands.
 VEX/EVEX prefix and having three source operands.
 - SRC — The source in a single-source instruction.
 - DST — the destination in an instruction. This field is encoded by reg_field.
--->
+
+
 ### 1-byte instructions
 
 ````
@@ -1435,3 +1442,5 @@ F2  0F  F0  r  P4++  LDDQU  xmm  m128  sse3  Load Unaligned Integer 128 Bits
   0F  FE  r  PX+  PADDD  mm  mm/m64  mmx  Add Packed Integers
 66  0F  FE  r  P4+  PADDD  xmm  xmm/m128  sse2  Add Packed Integers
 ````
+-->
+
