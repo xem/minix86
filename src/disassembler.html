@@ -84,12 +84,14 @@ disassemble = function(){
     imm16 = null;
     disp8 = null;
     disp16 = null;
+    rel8 = null;
+    rel16 = null;
     modrm_mod = null;
     modrm_reg = null;
     modrm_rm = null;
     hex = null;
-    asm = null;
-    comment = null;
+    asm = "";
+    comment = "";
     
     // Read one byte
     current_byte = bytes[address];
@@ -105,14 +107,52 @@ disassemble = function(){
       
       //console.log(b16(current_byte) + b16(bytes[address+1]), b16(current_byte) + b16(bytes[address+1] & 0b11111000) + "+r");
       
+      // If the first byte is a segment override, save it
+      if(b16(current_byte) == "2E"){
+        comment += "(CS override) ";
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+      }
+      
+      if(b16(current_byte) == "64"){
+        comment += "(FS override) ";
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+        
+        if(b16(current_byte) == "F3"){
+          address++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          asm = "fs rep ";
+        }
+        
+      }
+      
+      if(b16(current_byte) == "65"){
+        comment += "(GS override) ";
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+      }
+      
+      // If the first byte is a lock, save it
+      if(b16(current_byte) == "F0"){
+        comment += "(lock) ";
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
+      }
+      
       // If the byte is present in the instructions table (in the form XX), use it.
       if(instructions[b16(current_byte)]){
-        asm = instructions[b16(current_byte)];
+        asm += instructions[b16(current_byte)];
       }
       
       // Same for 2 bytes (XXXX)
       else if(instructions[b16(current_byte) + b16(bytes[address+1])]){
-        asm = instructions[b16(current_byte) + b16(bytes[address+1])];
+        asm += instructions[b16(current_byte) + b16(bytes[address+1])];
         address++;
         current_byte = bytes[address];
         hex += b16(current_byte) + " ";
@@ -120,13 +160,13 @@ disassemble = function(){
       
       // Else, if the previous multiple of 8 is present in the table (in the form XX+r), use it and save r.
       else if(instructions[b16(current_byte & 0b11111000) + "+r"]){
-        asm = instructions[b16(current_byte & 0b11111000) + "+r"];
+        asm += instructions[b16(current_byte & 0b11111000) + "+r"];
         r = current_byte & 0b00000111;
       }
       
       // Same for 2 bytes (XXXX+r)
       else if(instructions[b16(current_byte) + b16(bytes[address+1] & 0b11111000) + "+r"]){
-        asm = instructions[b16(current_byte) + b16(bytes[address+1] & 0b11111000) + "+r"];
+        asm += instructions[b16(current_byte) + b16(bytes[address+1] & 0b11111000) + "+r"];
         address++;
         current_byte = bytes[address];
         hex += b16(current_byte) + " ";
@@ -135,7 +175,7 @@ disassemble = function(){
       
       // Else, if the byte is present in the instructions table (in the form XX/digit) with the digit present in the REG field of the ModR/M byte at the next address, use it and save r.
       else if(instructions[b16(current_byte) + "/" + ((bytes[address+1] >> 3) & 0b00000111)]){
-        asm = instructions[b16(current_byte) + "/" + ((bytes[address+1] >> 3) & 0b00000111)];
+        asm += instructions[b16(current_byte) + "/" + ((bytes[address+1] >> 3) & 0b00000111)];
         address++;
         modrm_byte = bytes[address];
         hex += b16(modrm_byte) + " ";
@@ -145,7 +185,7 @@ disassemble = function(){
       
       // Same for 2 bytes (XXXX/digit)
       else if(instructions[b16(current_byte) + b16(bytes[address+1]) + "/" + ((bytes[address+2] >> 3) & 0b00000111)]){
-        asm = instructions[b16(current_byte) + b16(bytes[address+1]) + "/" + ((bytes[address+2] >> 3) & 0b00000111)];
+        asm += instructions[b16(current_byte) + b16(bytes[address+1]) + "/" + ((bytes[address+2] >> 3) & 0b00000111)];
         address++;
         current_byte = bytes[address];
         hex += b16(current_byte) + " ";
@@ -158,7 +198,20 @@ disassemble = function(){
       
       // Else, if the byte is present in the instructions table (in the form XX/r) use it and save r (from the ModR/M byte at the next address).
       else if(instructions[b16(current_byte) + "/r"]){
-        asm = instructions[b16(current_byte) + "/r"];
+        asm += instructions[b16(current_byte) + "/r"];
+        address++;
+        modrm_byte = bytes[address];
+        hex += b16(modrm_byte) + " ";
+        modrm(modrm_byte);
+        r = modrm_reg;
+      }
+      
+      // Same for 2 bytes (XXXX/r)
+      else if(instructions[b16(current_byte) + b16(bytes[address+1]) + "/r"]){
+        asm += instructions[b16(current_byte) + b16(bytes[address+1]) + "/r"];
+        address++;
+        current_byte = bytes[address];
+        hex += b16(current_byte) + " ";
         address++;
         modrm_byte = bytes[address];
         hex += b16(modrm_byte) + " ";
@@ -168,7 +221,7 @@ disassemble = function(){
       
       // Else use a db instruction for all the next bytes
       else {
-        asm = "db " + b16h(current_byte) + "              ; '" + cp437[current_byte] + "'";
+        asm += "db " + b16h(current_byte) + "              ; '" + cp437[current_byte] + "'";
         stop = 1;
       }
       
@@ -300,7 +353,7 @@ disassemble = function(){
           current_byte = bytes[address];
           hex += b16(current_byte) + " ";
           imm8 = current_byte;
-          comment = "= " + imm8;
+          comment += "= " + imm8;
           return b16h(imm8);
         });
         
@@ -315,8 +368,26 @@ disassemble = function(){
           current_byte = bytes[address];
           hex += b16(current_byte) + " ";
           imm16 = (current_byte << 8) + imm16;
-          comment = "= " + imm16;
+          comment += "= " + imm16;
           return b16h(imm16, 2);
+        });
+        
+        // Read rel16/32
+        asm[operand] = asm[operand].replace("rel16/32", function(a){
+          rel16 = 0;
+          address ++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          
+          rel16 = current_byte;
+          address ++;
+          current_byte = bytes[address];
+          hex += b16(current_byte) + " ";
+          rel16 = (current_byte << 8) + rel16;
+          
+          rel16 = address - 1 + 0x100 + toSignedOffset16(rel16);
+          comment += "= " + toSignedOffset16(current_byte);
+          return b16h(rel16,2);
         });
         
         // Read rel8
@@ -326,7 +397,7 @@ disassemble = function(){
           current_byte = bytes[address];
           hex += b16(current_byte) + " ";
           rel8 = address - 1 + 0x100 + toSignedOffset8(current_byte);
-          comment = "= " + toSignedOffset8(current_byte);
+          comment += "= " + toSignedOffset8(current_byte);
           return b16h(rel8,2);
         });
         
@@ -457,6 +528,7 @@ modrm = function(current_byte){
 // @param l: length (in bytes), default 1.
 var b16 = (n, l) => {
   l = l || 1;
+  n = n || 0;
   return (1e9 + n.toString(16)).slice(-2 * l).toUpperCase();
 }
 

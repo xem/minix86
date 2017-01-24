@@ -68,11 +68,11 @@ fimul dword  [si]         ; fpustack :  l*cos(arc)  arc
 fidiv word  [bx-8]        ; fpustack :  l*cos(arc)/x  arc
 fiadd word  [bp+si]       ; fpustack :  l*cos(arc)/x+offset  arc
 fistp dword  [bx-7]       ; fpustack :  arc
-fimul word  [byte si+val] ; fpustack :  scaled_arc
+fimul word  [byte si+val] ; fpustack :  scaled_arc (si = 0x100, disp8 = 0x3D => si+disp8 = val = 0x13D)
 fistp word  [bx-5]        ; fpustack :  -
 popa                      ; pop all registers from stack
 xor al, cl                ; XOR scaled_arc with distance
-and al, 16 + 8 + 2        ; sub selecting palette part
+and al, 16 + 8 + 2        ; sub selecting palette part (= 26)
 stosb                     ; writing to screen
 mov ax, 0xCCCD            ; Performing the famous
 mul di                    ; Rrrola trick
@@ -226,11 +226,7 @@ clp     fmul    dword [si]
 // FUTURA
 futura.onclick = e => {
   bytes = [176,19,205,16,142,39,186,234,1,184,28,37,205,33,129,229,255,0,117,12,46,128,54,234,1,8,129,54,58,1,145,74,190,64,1,177,255,137,203,246,211,153,141,69,240,247,246,45,200,0,15,175,195,5,3,63,41,234,144,144,15,175,211,129,194,3,143,1,235,136,240,128,252,30,114,2,0,227,32,222,0,198,246,195,240,117,3,128,236,39,8,230,128,230,64,225,196,254,196,48,216,37,3,63,246,228,212,5,116,6,15,164,200,12,4,16,100,136,5,71,117,166,49,201,187,40,0,101,217,7,153,137,200,247,243,82,153,247,243,80,82,137,230,223,4,223,68,2,223,68,4,217,195,217,251,216,202,217,201,216,203,222,193,217,196,217,251,222,204,222,202,217,201,222,234,217,202,245,114,227,223,28,131,4,80,105,60,64,1,223,28,3,60,223,28,172,100,2,1,192,232,4,52,24,100,136,3,71,131,196,6,226,173,222,6,7,0,101,217,31,73,196,54,0,0,191,141,21,100,243,164,233,36,255,77,186,49,3,176,63,238,74,176,153,238,137,232,212,8,117,4,176,36,238,238,207];
-  td_original.innerHTML = `<pre>b equ byte                  ;,: 
-w equ word                ;,?}'
-d equ dword             ;=!J |
-  org 100h            ;,*-. ?&
-  mov al,13h          ;WP) Y9P
+  td_original.innerHTML = `<pre>  mov al,13h          ;WP) Y9P
   int 10h            ;YP   ,W'
   mov fs,w[bx]      ;,W)  ,WW.'
   mov dx,l          ;WW) ,WWW)
@@ -1615,5 +1611,5 @@ ms.onclick = e => {
   disassemble();
 }
 
-tunnel.onclick();
-tunnel.focus();
+futura.onclick();
+futura.focus();
