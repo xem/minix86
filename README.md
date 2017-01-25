@@ -40,12 +40,14 @@ Bonus:
 
 **sub-256b demos from Pouët:**
 
+- 32b FIRE EFFECT by ribbon: http://www.pouet.net/prod.php?which=13729
+- 32b FIRE EFFECT v2 by ribbon: http://www.pouet.net/prod.php?which=29411
 - DRAGON FADE by HellMood: http://www.pouet.net/prod.php?which=63522
 - M8TRIX by HellMood: http://www.pouet.net/prod.php?which=63126
 - POINT16B by Desire: http://www.pouet.net/prod.php?which=63826
 - FIREWAVE byDesire: http://www.pouet.net/prod.php?which=67949
 - DIROJED by Řrřola: http://www.pouet.net/prod.php?which=28913
-- FR01 by farbrausch: http://www.pouet.net/prod.php?which=8697 (16-bit mode)
+- FR01 by farbrausch: http://www.pouet.net/prod.php?which=8697
 
 **256b demos from pouet:**
 

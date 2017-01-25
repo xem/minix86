@@ -12,6 +12,8 @@
 <button id=m8trix>m8trix</button>
 <button id=point16b>point16b</button>
 <button id=firewave>firewave</button>
+<button id=fire>fire</button>
+<button id=fire2>fire2</button>
 <button id=dragonfade>dragonfade</button>
 <button id=dirojed>dirojed</button>
 <button id=fr01>fr01</button>
@@ -31,8 +33,8 @@
 
 <pre>
 <table id=t border cellspacing=0 cellpadding=4>
-  <tr><th>@<th>hex<th>disassembled asm<th>original asm (for comparison)
-  <tr><td id=td_address><td id=td_hex><td id=td_asm><td id=td_original>
+  <tr><th>@<th>hex<th>disassembled asm<th>original asm (for comparison)<th>Screen capture
+  <tr><td id=td_address><td id=td_hex><td id=td_asm><td id=td_original><td id=td_embed>
 </table>
 
 <br>
@@ -57,6 +59,8 @@ cpu_mode = 32;
 r8 = ["al", "cl", "dl", "bl", "ah", "ch", "dh", "bh", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"];
 
 r16 = ["ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w"];
+
+sreg = ["es", "cs", "ss", "ds", "fs", "gs"];
 
 /** Disassembler **/
 
@@ -208,6 +212,7 @@ disassemble = function(){
         hex += b16(modrm_byte) + " ";
         modrm(modrm_byte);
         r = modrm_reg;
+        console.log(r);
       }
       
       // Same for 2 bytes (XXXX/r)
@@ -294,6 +299,7 @@ disassemble = function(){
         asm[operand] = asm[operand].replace("r/m8", function(a){
           current_byte = modrm_rm;
           modrm_rm == null;
+          console.log((address+0x100).toString(16), asm, modrm_rm);
           if(Number.isInteger(current_byte)){
             return r8[current_byte];
           }
@@ -304,6 +310,18 @@ disassemble = function(){
         
         // Read r/m16/32
         asm[operand] = asm[operand].replace("r/m16/32", function(a){
+          current_byte = modrm_rm;
+          modrm_rm == null;
+          if(Number.isInteger(current_byte)){
+            return r16[current_byte];
+          }
+          else{
+            return current_byte;
+          }
+        });
+
+        // Read r/m16
+        asm[operand] = asm[operand].replace("r/m16", function(a){
           current_byte = modrm_rm;
           modrm_rm == null;
           if(Number.isInteger(current_byte)){
@@ -348,32 +366,6 @@ disassemble = function(){
           else{
             return current_byte;
           }
-        });
-      
-        // Read imm8
-        asm[operand] = asm[operand].replace("imm8", function(a){
-          imm8 = 0;
-          address ++;
-          current_byte = bytes[address];
-          hex += b16(current_byte) + " ";
-          imm8 = current_byte;
-          comment += "= " + imm8;
-          return b16h(imm8);
-        });
-        
-        // Read imm16
-        asm[operand] = asm[operand].replace("imm16/32", function(a){
-          imm16 = 0;
-          address ++;
-          current_byte = bytes[address];
-          hex += b16(current_byte) + " ";
-          imm16 = current_byte;
-          address ++;
-          current_byte = bytes[address];
-          hex += b16(current_byte) + " ";
-          imm16 = (current_byte << 8) + imm16;
-          comment += "= " + imm16;
-          return b16h(imm16, 2);
         });
         
         // Read rel16/32
@@ -426,6 +418,15 @@ disassemble = function(){
           return "st" + current_byte;
         });
         
+        // Read Sreg
+        asm[operand] = asm[operand].replace("Sreg", function(a){
+          if(r !== null){
+            current_byte = r;
+            r = null;
+          }
+          return sreg[current_byte];
+        });
+        
       }
         
       // Stop disassembling after a ret*
@@ -461,6 +462,32 @@ disassemble = function(){
       hex += b16(current_byte) + " ";
       disp16 = (current_byte << 8) + disp16;
       return toSignedOffset16(disp16 - 2);
+    });
+    
+    // Read imm8
+    asm = asm.replace("imm8", function(a){
+      imm8 = 0;
+      address ++;
+      current_byte = bytes[address];
+      hex += b16(current_byte) + " ";
+      imm8 = current_byte;
+      comment += "= " + imm8;
+      return b16h(imm8);
+    });
+    
+    // Read imm16
+    asm = asm.replace("imm16/32", function(a){
+      imm16 = 0;
+      address ++;
+      current_byte = bytes[address];
+      hex += b16(current_byte) + " ";
+      imm16 = current_byte;
+      address ++;
+      current_byte = bytes[address];
+      hex += b16(current_byte) + " ";
+      imm16 = (current_byte << 8) + imm16;
+      comment += "= " + imm16;
+      return b16h(imm16, 2);
     });
     
     

@@ -100,6 +100,7 @@ instructions = {
 "F6/0":"test r/m8, imm8",
 "F6/2":"not r/m8",
 "F6/4":"mul r/m8",
+"F7/0":"test r/m16/32, imm16/32",
 "F7/3":"neg r/m16/32",
 "F7/4":"mul r/m16/32",
 "F7/6":"div r/m16/32",

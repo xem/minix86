@@ -7,6 +7,7 @@ int 21h     ; call the DOS function (AH = 09h)
 ret         ; quit
 text: db 'Hello World!$'`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://www.sizecoding.org/images/5/54/Hello_world.png' width=350>";
   disassemble();
 }
 
@@ -17,7 +18,7 @@ xor.onclick = e => {
 int 0x10
 push 0xa000
 pop es
-X: cwd       ; "clear" DX (if AH < 0x7F)
+X: cwd       ; "clear" DX (if AH &lt; 0x7F)
 mov ax,di    ; get screen position into AX
 mov bx,320   ; get screen width into BX
 div bx       ; divide, to get row and column
@@ -26,6 +27,7 @@ and al,32+8  ; a more interesting variation of it
 stosb        ; finally, draw to the screen
 jmp short X  ; rinse and repeat`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://www.sizecoding.org/images/6/6a/Mode13h-example-xor.png' width=350>";
   disassemble();
 }
 
@@ -47,6 +49,55 @@ dec  al       ; ... for ESC
 jnz  X        ; rinse and repeat
 ret           ; quit program`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://www.sizecoding.org/images/d/d5/Xor_anim_example.gif' width=350>";
+  disassemble();
+}
+
+// FIRE
+fire.onclick = e => {
+  bytes = [176,19,205,16,183,165,142,195,142,219,48,7,254,195,172,2,192,2,132,63,1,2,4,192,232,2,12,128,170,235,235,3];
+  td_original.innerHTML = `<pre>start: mov al,13h
+	int 10h
+	mov bh,0a5h
+	mov es,bx
+	mov ds,bx
+mainLoop:	xor byte ptr[bx],al
+		inc bl
+		lodsb
+		add al,al
+		add al,[si+319]
+		add al,[si]
+		shr al,2
+		or  al,128
+		stosb
+	jmp mainLoop
+	db 3	; lovely padding
+end start`;
+  cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00013/00013729.gif' width=350>";
+  disassemble();
+}
+
+// FIRE2
+fire2.onclick = e => {
+  bytes = [176,19,205,16,196,7,197,7,254,207,48,7,254,195,172,2,4,2,68,254,2,132,63,1,192,232,2,12,128,170,235,234];
+  td_original.innerHTML = `<pre>mov al,13h
+int 10h
+les ax,[bx]
+lds ax,[bx]
+dec bh
+main:	xor byte[bx],al
+	inc bl
+	lodsb
+	add al,[si]
+	add al,[si-2]
+	add al,[si+319]
+	shr al,2
+	or  al,128
+	stosb
+jmp main`;
+  cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00029/00029411.gif' width=350>";
   disassemble();
 }
 
@@ -84,6 +135,7 @@ jnz X                     ; otherwise continue
 ret                       ; quit program
 val: dw 6519              ; n = 160 * 256 / pi / 2 ; 0x1977`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://www.sizecoding.org/images/a/a2/Tunnel_effect_neontube.png' width=350>";
   disassemble();
 }
 
@@ -97,6 +149,7 @@ inc di         ; and skip one row
 inc di         ;
 jmp short S+1  ; repeat on 0x101 `;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00063/00063126.gif' width=350>";
   disassemble();
 }
 
@@ -107,13 +160,14 @@ point16b.onclick = e => {
 inc bx		; assume bx = 0 ; set to 1 (show cursor)
 mloop: int 0x10	; first loop, switch to graphic mode ; further loops, set pixel		
 xchg bx,ax	; first loop, set AX to 1 (show cursor) ; further loops, restore old calling mode		
-xor al,0x02	; switch modes : show cursor <-> get mouse state ; updating XY every second loop plus drawing ; one pixel left results in thicker lines		
+xor al,0x02	; switch modes : show cursor &lt;-> get mouse state ; updating XY every second loop plus drawing ; one pixel left results in thicker lines		
 int 0x33	; call the mouse interrupt
 xchg bx,ax	; store the button state in AL for drawing ; remember the current calling mode ; for switching it later (in BX)			
 mov ah,0x0C	; set mode to "set pixel"
 loop mloop	; dec CX -> draw one pixel left from cursor ; basically enables drawing pixels ; while the cursor is active ; allows exit if the mouse is leftmost
 ret		; assume [[FFEE]] = [0] = CD20 = int 20`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00063/00063826.png' width=350>";
   disassemble();
 }
 
@@ -130,6 +184,7 @@ out 61h,al		;		always good to have another out
 and al,44h 		;		may the fours be with you
 jmp si			;		the mack daddy makes ya!`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00067/00067949.gif' width=350>";
   disassemble();
 }
 
@@ -140,7 +195,7 @@ dirojed.onclick = e => {
 int  10h          ; (2)
 lds  bx,[bx]      ; (2) bx=20CDh ds=9FFFh
 M:cmp  [bx],cl    ; (2)
-adc  [bx],ah      ; (2) if ([bx] < cl) [bx]++ (first pass increases)
+adc  [bx],ah      ; (2) if ([bx] &lt; cl) [bx]++ (first pass increases)
 imul bx,byte S    ; (3) pseudorandom generator: bx = S*bx-1 (works if S%4==1)
 mov  cl,[bx]      ; (2) we don't decrease bx yet
 add  cl,[bx+di]   ; (2)
@@ -155,6 +210,7 @@ ret               ; (1)
 S equ 0E5h        ; like original
 ; S equ 0B1h      ; vertical "scouts"`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00028/00028913.png' width=350>";
   disassemble();
 }
   
@@ -178,6 +234,7 @@ add cx,0x26b
 B: mov ah,0x0C
 jmp short S`;
   cpu_mode = 32;
+  td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00063/00063522.gif' width=350>";
   disassemble();
 }
   
@@ -219,6 +276,7 @@ clp     fmul    dword [si]
         stosb
         jmp      short pix`;
   cpu_mode = 16;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/a07Cm0KzyS0" frameborder="0" allowfullscreen></iframe>';
   disassemble();
 }
 
@@ -340,6 +398,7 @@ l:dec bp             ;(PWMH:FXW'',-(, '   ',97WMU(7: )LW W .WW
   out dx,al        ;-=WRHX9C9-W'=,),)'A,A)XW779EXWK+.()3W),(,
   out dx,al      ;,W=-'L,,XX)/)+'I 3)39I(UHE-+LX39TWH/LUP)(H)
 m:iret          ;,P:. ,-90/,(F0'/:,W //'(YOC':--YY3/IRW'9LT')`;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/Y5K8yKbcc0A" frameborder="0" allowfullscreen></iframe>';
   cpu_mode = 32;
   disassemble();
 }
@@ -348,9 +407,7 @@ m:iret          ;,P:. ,-90/,(F0'/:,W //'(YOC':--YY3/IRW'9LT')`;
 // MEGAPOLE
 megapole.onclick = e => {
   bytes = [142,224,93,176,19,205,16,104,0,160,7,247,197,0,1,116,5,128,54,22,1,8,77,185,255,0,153,190,64,1,137,203,137,248,246,211,247,246,232,151,0,232,148,0,190,108,4,100,2,28,18,52,2,100,1,136,240,16,197,32,222,183,48,178,32,232,134,0,116,33,83,178,16,183,20,100,42,28,100,42,28,48,237,232,116,0,91,116,14,178,24,183,28,100,2,28,232,103,0,116,2,226,179,146,128,254,64,116,42,156,88,158,122,33,132,201,116,4,254,198,117,4,176,255,235,29,32,216,48,240,48,218,32,242,192,224,2,128,226,1,15,69,193,180,255,40,196,136,224,235,4,246,212,32,224,252,212,18,176,16,213,1,133,255,122,1,64,170,15,133,107,255,199,4,17,55,100,199,68,228,1,23,180,9,186,247,1,205,33,233,75,255,146,41,232,15,175,195,5,127,6,195,80,246,195,64,117,27,56,252,115,23,56,212,114,19,246,195,120,117,12,132,237,117,5,168,120,117,4,253,128,196,24,48,236,246,198,16,117,2,0,198,8,244,158,88,195,109,101,103,97,112,111,108,101,36];
-  td_original.innerHTML = `<pre>b equ byte                 ; tested on xp, freedos, ms windows dos and its debug
-w equ word                 ; short form pretty-print helpers datatype specifiers
-  org 100h                 ; entering ip=cs:256 just above .com psp 127-byte dta
+  td_original.innerHTML = `<pre>
   mov fs,ax                ; ax=0? was pop bp before rewrite for non-zero fs seg  
   pop bp                   ; bp=0 cs:[0fffeh]=ss:[sp]=0000 if not debug executed
   mov al,13h               ; function switch to video mode 13h 320x200x256 & cls
@@ -362,7 +419,7 @@ a:test bp,100h             ; script idx bounds reached? bp E [0;255] i.e aam 255
   xor b[c],8h              ; xor mutex modify next opcode to keep idx normalized
 c:dec bp                   ; follow through and advance script idx dec bp/inc bp
 e:mov cx,0ffh              ; cl=visibility fostrum, null ch implicit object mask
-g:cwd                      ; shorter xor dx,dx with ah<128 for div moved for agi
+g:cwd                      ; shorter xor dx,dx with ah&lt;128 for div moved for agi
   mov si,140h              ; vga vid mode 19 horizontal scanline width in pixels
   mov bx,cx                ; bl=distance nullify bh raymarch object height limit
   mov ax,di                ; di=beam spot absolute vga coord, no dos para fix-up
@@ -384,8 +441,8 @@ g:cwd                      ; shorter xor dx,dx with ah<128 for div moved for agi
   push bx                  ; preserve prev rtc time to avoid costly seg override
   mov dl,10h               ; dl=y height max of spaceship function generic param
   mov bh,14h               ; bh=y height min of spaceship function generic param
-  sub bl,[fs:si]           ; bl=z+=rtc word in bda advances spaceship1 camera<--
-  sub bl,[fs:si]           ; bl=z+=rtc word in bda advances spaceship1 camera<--
+  sub bl,[fs:si]           ; bl=z+=rtc word in bda advances spaceship1 camera&lt;--
+  sub bl,[fs:si]           ; bl=z+=rtc word in bda advances spaceship1 camera&lt;--
   xor ch,ch                ; flag differenciates between spaceship* and overpass
   call r                   ; function returns if this object or building ray hit
   pop bx                   ; restore prev rtc time also implicit ch val returned
@@ -447,13 +504,13 @@ r:push ax                  ; isosurface discrimination preserve building overlay
   jnz v                    ; if not then process default buildings intersections
   cmp ah,bh                ; is y height>min of spaceship/overpass generic param
   jnc v                    ; if not then process default buildings intersections
-  cmp ah,dl                ; is y height<max of spaceship/overpass generic param
+  cmp ah,dl                ; is y height&lt;max of spaceship/overpass generic param
   jc v                     ; if not then process default buildings intersections
-  test bl,78h              ; is spaceship/overpass 120<z depth<128 static params
+  test bl,78h              ; is spaceship/overpass 120&lt;z depth&lt;128 static params
   jnz u                    ; if not then process modified building intersections
   test ch,ch               ; flag differenciates between spaceship* and overpass
   jnz t                    ; if overpass then proceed to translate it vertically
-  test al,78h              ; is spaceship only objects 120<x width<128 in static
+  test al,78h              ; is spaceship only objects 120&lt;x width&lt;128 in static
   jnz u                    ; if not then process modified building intersections
   std                      ; is spaceship and visible so set df flag accordingly
 t:add ah,18h               ; translate spaceship/overpass objects vertically +24
@@ -465,7 +522,13 @@ x:or ah,dh                 ; induce scene horizontal "y-colinear" irregularities
   sahf                     ; implicit isosurface volume x AND y AND z AND 64=64?
   pop ax                   ; isosurface discrimination preserve building overlay
   ret                      ; --------------------------->return to caller (0c3h)
-p db "megapole$"           ; hardcoded 24h terminated ascii string of demo title`;
+p db "megapole$"           ; hardcoded 24h terminated ascii string of demo title
+
+
+b equ byte
+w equ word
+`;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/Z8Av7Sc7yGY" frameborder="0" allowfullscreen></iframe>';
   cpu_mode = 32;
   disassemble();
 }
@@ -473,14 +536,14 @@ p db "megapole$"           ; hardcoded 24h terminated ascii string of demo title
 // PULS
 puls.onclick = e => {
   bytes = [176,19,83,186,200,3,205,16,136,216,132,203,122,5,246,232,193,232,7,246,235,136,224,238,178,201,226,236,177,3,75,117,233,104,206,159,7,183,86,219,227,131,0,88,223,0,217,251,220,249,223,0,216,12,217,254,222,12,102,90,6,85,96,137,31,139,5,223,5,247,232,41,23,79,123,245,223,7,102,129,5,205,204,0,0,216,204,217,192,216,206,217,202,216,205,220,234,216,206,222,193,217,202,71,123,235,79,107,16,10,223,25,137,23,2,52,0,251,115,246,153,180,230,17,217,232,21,0,40,204,213,4,4,70,137,69,252,97,69,38,136,2,117,174,228,96,72,117,146,179,0,139,41,211,253,49,213,1,47,0,251,115,244,214,223,16,81,211,233,128,197,37,139,16,247,24,105,232,0,128,43,41,121,2,247,221,209,237,1,234,137,47,0,251,115,236,57,202,64,114,37,179,2,122,223,43,16,64,43,16,128,238,96,107,210,13,139,20,112,2,64,153,43,47,121,2,247,221,1,234,139,47,0,251,115,242,57,202,89,25,210,245,24,209,16,209,128,249,6,115,4,0,212,117,150,195];
-  td_original.innerHTML = `<pre>  mov  al,13h   ;<(byte)[100h]>>8 = 0.6875
+  td_original.innerHTML = `<pre>  mov  al,13h   ;&lt;(byte)[100h]>>8 = 0.6875
   push bx       ; (word)[100h]>>16 = 0.0769
   mov  dx,3C8h  ; (float)[100h] = -0.0008052
   int  10h
 
 ;palette - 4 gradients of 32 shades
 
-P mov  al,bl    ;<set al on 1st pass, then each red and green
+P mov  al,bl    ;&lt;set al on 1st pass, then each red and green
 Q test bl,cl    ; parity: eooooeoeoeee eooooeoeoeee ...
   jpe  E        ; index:  #0gb1gb2gb3g b4gb5gb6gb7g ...
   imul al
@@ -494,7 +557,7 @@ E imul bl
   dec  bx
   jnz  Q
 
-  push 09FCEh   ;<aligns with the screen ;-)
+  push 09FCEh   ;&lt;aligns with the screen ;-)
   pop  es
   mov  bh,56h   ; xyz addressing trick from neon_station
                 ; vecNN = (words){[5600h+N] [5656h+N] [56ACh+N]}
@@ -577,7 +640,7 @@ R fmul   st4    ; {sz x y r s t}
   imul dx,[bx+si],byte 10;=0.0134*T
 S
   fistp  word[bx+di]    ; d>>16 = v-2 = {X, Y, Z}
- ;fistp dword[bx+di]    ;<slower, but fixes corners (+3 bytes)
+ ;fistp dword[bx+di]    ;&lt;slower, but fixes corners (+3 bytes)
  ;sar dword[bx+di],1
 
   mov  [bx],dx
@@ -589,7 +652,7 @@ S
 
   cwd                   ; dx = hit(-1|0): grainy rendering
   mov  ah,-MAXITERS     ; ah = iters(-MAXITERS..0), al = hue(0..3)
- ;cwd                   ;<for smooth rendering with bands
+ ;cwd                   ;&lt;for smooth rendering with bands
 
  %ifdef BLOWUP
   mov  cx,BLOWUP*256+MAXSTEPSHIFT; cl = stepshift(0..MAXSTEPSHIFT)
@@ -623,7 +686,7 @@ D
 
   in   al,60h
   dec  ax
-  jnz  M        ;<assume no one presses ESC after 1 frame ;)
+  jnz  M        ;&lt;assume no one presses ESC after 1 frame ;)
 
 
 ;raycasting using unbounded binary search
@@ -654,8 +717,8 @@ A mov  bp,[bx+di]       ; hit ? (o -= d>>stepshift) : (o += d>>stepshift)
 ;inside test
 
 ;hue=[0,1]
-;green octahedra:              (|x|+|y|+|z|)/2 - 0.1445 + r < blowup
-;orange octahedra: (|x+0.5|+|y+0.5|+|z+0.5|)/2 - 0.1445 - r < blowup
+;green octahedra:              (|x|+|y|+|z|)/2 - 0.1445 + r &lt; blowup
+;orange octahedra: (|x+0.5|+|y+0.5|+|z+0.5|)/2 - 0.1445 - r &lt; blowup
 
 O mov  dx,[bx+si]       ; dx = [r,-r]
   neg  word[bx+si]
@@ -669,24 +732,24 @@ T shr  bp,1
   add  bl,bh
   jnc  C        ;bl=4   ; dx = sum(v2) + [r,-r]
 
-  cmp  dx,cx            ; if (dx < hitlimit) hit!
+  cmp  dx,cx            ; if (dx &lt; hitlimit) hit!
   inc  ax       ;al=0,ah++
   jc   H
   mov  bl,2     ;bl=2
   jpe  O        ;al=1   ; repeat if al==0
 
 ;hue=[2,3]
-;bars:  (||x|-|z|| + ||y|-|x|| + ||z|-|y||)/2 - 0.0676 < blowup
-;bolts: (||x|-|z|| + ||y|-|x|| + ||z|-|y||)/2 - 0.1445 < blowup
+;bars:  (||x|-|z|| + ||y|-|x|| + ||z|-|y||)/2 - 0.0676 &lt; blowup
+;bolts: (||x|-|z|| + ||y|-|x|| + ||z|-|y||)/2 - 0.1445 &lt; blowup
 
   sub  dx,[bx+si]
   inc  ax       ;al=2
 
- ;sub  dx,bx            ;<simple bolt movement: sum(v2)-2*r-0.3359
-  sub  dx,[bx+si]       ;<precise bolt movement: sum(v2)-3*r-0.375
+ ;sub  dx,bx            ;&lt;simple bolt movement: sum(v2)-2*r-0.3359
+  sub  dx,[bx+si]       ;&lt;precise bolt movement: sum(v2)-3*r-0.375
   sub  dh,60h           ; (+3 bytes)
 
-  imul dx,byte 13       ; if (|sum(v2)-3*r-0.375| < 0.03846)
+  imul dx,byte 13       ; if (|sum(v2)-3*r-0.375| &lt; 0.03846)
   mov  dx,[si]          ;   dx = extra_width = 0.0769, hue = 2
   jo   B                ; else
   inc  ax       ;al=3   ;   dx = extra_width = 0, hue = 3
@@ -699,7 +762,7 @@ L add  dx,bp
   add  bl,bh
   jnc  B        ;bl=4   ; dx = sum(|signed(bp)|) + extra_width
 
-  cmp  dx,cx            ; if (dx < hitlimit) hit!
+  cmp  dx,cx            ; if (dx &lt; hitlimit) hit!
 
 ;adjust step size according to the hit result
 
@@ -716,6 +779,7 @@ H pop  cx       ;cf=hit
   add  ah,dl            ; iters++, if (hit) iters--
   jne  I                ; if (iters >= maxiters) break
 F ret`;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/R35UuntQQF8" frameborder="0" allowfullscreen></iframe>';
   cpu_mode = 32;
   disassemble();
 }
@@ -919,6 +983,7 @@ ret
     ; .... ##.. ..#. #... .##. .#.. ##..
     ; #### .##. ###. ###. ##.. ###. ##..
 S: db 0F0h, 63h, 74h, 71h, 36h, 72h, 33h`;
+  td_embed.innerHTML = '<img src="http://content.pouet.net/files/screenshots/00029/00029286.png" width=350>';
   cpu_mode = 32;
   disassemble();
 }
@@ -975,7 +1040,7 @@ next:			shrd si,ax,23			; set value for fpu program decision
 			sub ax,byte 100			; center around middle
 			sub dx,byte 127;160 	; or, don't, because symmetry is boring ;)
 			and si,byte 3			; bring down program number to 0-3
-			pusha						; t <- BX, x <- AX , y <- DX
+			pusha						; t &lt;- BX, x &lt;- AX , y &lt;- DX
 			fninit
 			fild word [bp-10] 		; t		make big slow sine of t
 			fidiv word [bp+3]		; t'	use value from PSP (~0x009F)
@@ -1061,6 +1126,7 @@ ae_part2:
 troll_section:
 			db 'NOP'				; that was exhausting, now chill! =)`;
   cpu_mode = 32;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/anK0s9jJ_Lo" frameborder="0" allowfullscreen></iframe>';
   disassemble();
 }
 
@@ -1289,6 +1355,7 @@ H:fld    st1         ; {b c b a}              ; {c sin(p0*b+p1) c b a}
   ;db 0x08, 0x80, 0x5F, 0xC6
 SHAPE: equ $-2`;
   cpu_mode = 32;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/GtMcU0MAmCc" frameborder="0" allowfullscreen></iframe>';
   disassemble();
 }
   
@@ -1303,7 +1370,7 @@ symetrie.onclick = e => {
   add  dh,al        ; ds: blue plane
   mov  fs,dx        ; fs: orange plane
   push 0a000h       ; es: screen
-  pop  es           ; ss: fpu<>cpu
+  pop  es           ; ss: fpu&lt;>cpu
 
 ;Palette: 4 bits black>red>yellow | 4 bits black>blue
 
@@ -1454,6 +1521,7 @@ O pop  ds
   int  10h          ; text mode
   ret`;
   cpu_mode = 32;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/2OhRjQy6f3I" frameborder="0" allowfullscreen></iframe>';
   disassemble();
 }
   
@@ -1600,6 +1668,7 @@ BLUR	dec	si
 	db	41,0,0C3h,3Ch
 TEXUV	db	"baze"`;
   cpu_mode = 32;
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/f1joQfp78Yo" frameborder="0" allowfullscreen></iframe>';
   disassemble();
 }
 
@@ -1607,9 +1676,10 @@ TEXUV	db	"baze"`;
 ms.onclick = e => {
   bytes = [233,194,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,84,72,69,32,69,78,68,13,10,10,10,10,32,32,32,32,32,32,32,45,45,45,45,32,77,111,116,105,111,110,32,83,105,99,107,110,101,115,115,32,45,45,45,45,10,13,10,13,10,10,10,10,32,32,32,32,32,32,32,65,32,52,107,32,105,110,116,114,111,32,98,121,32,121,111,98,105,47,119,65,77,77,65,10,13,10,13,10,10,10,10,32,32,32,32,32,32,32,82,101,108,101,97,115,101,100,32,97,116,32,97,115,115,101,109,98,108,121,32,50,48,48,49,36,128,0,0,0,0,220,0,128,128,0,0,0,0,0,142,6,15,1,176,255,191,255,254,185,0,2,243,170,51,255,185,0,1,38,136,5,38,136,133,255,0,129,199,0,1,226,242,195,142,6,3,1,142,38,15,1,161,39,4,5,160,0,37,255,3,150,199,6,153,1,64,1,139,222,209,227,139,175,0,131,102,193,229,16,139,175,0,129,86,102,139,14,147,1,190,32,0,178,199,139,62,153,1,129,199,191,248,142,46,11,1,138,253,102,193,193,16,138,221,102,193,193,16,100,138,7,60,255,15,132,185,0,50,228,247,216,3,6,151,1,193,224,7,82,153,247,254,5,99,0,163,155,1,153,247,210,35,194,61,199,0,114,4,144,144,176,199,90,58,194,15,131,131,0,100,58,55,117,31,144,144,138,242,42,240,134,208,83,208,235,208,239,101,138,7,91,38,136,5,129,239,64,1,254,206,117,245,235,90,144,83,81,86,85,2,223,193,227,8,51,201,138,202,42,200,134,208,82,139,198,139,232,51,210,131,62,155,1,0,125,11,144,144,139,22,155,1,247,218,247,234,146,81,139,193,193,224,6,193,225,8,3,193,43,248,89,80,30,142,30,9,1,139,242,193,238,8,138,0,38,136,5,3,213,129,199,64,1,226,238,31,88,43,248,90,93,94,89,91,132,210,116,14,144,144,100,138,55,102,3,205,131,198,2,233,50,255,94,78,129,230,255,3,255,14,153,1,15,133,253,254,195,195,0,0,0,0,0,0,96,30,14,31,255,6,224,2,176,32,230,32,31,97,207,8,0,56,0,142,6,3,1,30,142,30,11,1,102,51,255,102,51,246,102,185,128,62,0,0,243,102,165,31,195,80,0,100,0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,142,6,3,1,142,38,15,1,161,19,3,5,32,0,163,25,3,199,6,27,3,32,0,139,30,25,3,184,0,236,153,247,251,3,6,15,3,163,29,3,184,0,20,153,247,251,3,6,15,3,43,6,29,3,163,31,3,184,16,220,153,247,251,3,6,17,3,163,33,3,184,240,35,153,247,251,3,6,17,3,43,6,33,3,163,35,3,184,0,128,51,210,247,54,35,3,163,41,3,199,6,37,3,0,0,184,0,32,51,210,247,54,31,3,163,39,3,161,33,3,139,216,193,224,8,193,227,6,3,195,3,6,29,3,139,248,139,30,27,3,209,227,193,227,6,161,37,3,193,232,8,209,224,3,216,51,192,138,135,0,80,60,31,119,56,144,144,139,240,193,230,7,138,167,0,96,192,236,2,51,210,139,46,41,3,51,219,139,14,35,3,138,222,100,138,0,132,192,116,13,144,144,51,219,138,217,138,135,0,128,38,136,5,3,213,129,199,64,1,226,226,161,39,3,1,6,37,3,255,6,29,3,255,14,31,3,117,135,131,46,25,3,2,255,14,27,3,15,133,28,255,195,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,128,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,83,81,147,185,255,255,65,139,193,247,232,59,195,114,247,145,89,91,195,145,153,0,0,0,0,51,255,100,138,69,1,100,42,69,255,100,138,165,0,1,100,42,165,0,255,2,196,4,92,38,136,5,71,117,228,195,51,255,51,192,38,138,69,255,38,2,69,1,128,212,0,38,2,133,0,255,128,212,0,38,2,133,0,1,128,212,0,193,232,2,38,136,5,71,117,220,195,161,156,4,83,82,187,229,3,247,227,64,163,156,4,193,232,7,90,91,163,158,4,195,161,224,2,61,133,0,114,25,144,144,161,17,1,43,6,224,2,61,133,0,127,64,144,144,61,0,0,125,4,144,144,51,192,139,208,142,6,3,1,51,255,51,192,189,200,0,185,64,1,139,221,128,227,63,193,227,6,138,193,36,63,3,216,56,151,0,64,114,11,144,144,138,135,0,64,51,192,38,136,5,71,226,222,77,117,216,195,186,218,3,236,36,8,117,251,236,36,8,116,251,195,104,0,160,7,30,142,30,3,1,102,51,255,102,51,246,102,185,128,62,0,0,243,102,165,31,195,161,224,2,209,232,163,143,1,5,128,0,163,145,1,129,38,145,1,255,0,129,38,143,1,255,0,161,143,1,193,224,2,163,39,4,139,54,145,1,209,230,187,100,0,139,132,0,32,247,235,5,0,127,163,147,1,139,132,128,32,247,235,5,0,127,163,149,1,195,140,216,5,0,16,163,3,1,5,0,16,163,5,1,5,0,16,163,9,1,5,0,16,163,11,1,5,0,16,163,7,1,5,0,16,163,13,1,5,0,16,163,15,1,5,0,2,184,19,0,205,16,180,53,176,8,205,33,140,6,220,2,137,30,222,2,180,37,176,8,186,226,2,205,33,250,176,54,230,67,96,97,185,149,66,138,193,230,64,96,97,138,197,230,64,96,97,251,30,7,191,0,48,185,0,1,139,193,193,232,3,44,16,246,232,42,196,192,232,4,4,240,170,226,237,190,126,34,191,128,32,30,7,185,128,0,184,192,0,43,193,247,233,247,233,193,232,11,254,204,193,226,5,3,194,137,4,137,132,0,254,171,78,78,226,226,142,6,7,1,51,255,51,192,185,0,128,243,171,51,246,51,210,184,0,128,139,200,50,210,138,253,138,220,38,136,55,3,140,0,32,129,249,0,1,114,32,144,144,129,249,0,255,119,24,144,144,3,132,128,32,61,0,1,114,13,144,144,61,0,255,119,6,144,144,254,194,117,207,131,198,2,254,198,117,193,190,1,0,189,128,0,191,128,0,38,138,5,186,0,1,185,128,0,38,128,61,0,116,5,144,144,38,138,5,38,136,5,3,254,226,238,3,253,74,117,230,78,117,10,144,144,190,255,255,189,128,1,235,208,142,6,9,1,51,255,51,192,185,0,128,243,171,199,6,160,4,100,0,232,227,253,139,62,158,4,193,231,8,232,217,253,3,62,158,4,187,224,255,185,224,255,139,193,247,232,149,139,195,247,232,3,197,193,232,7,247,216,5,8,0,61,0,0,126,5,144,144,38,0,5,71,65,131,249,32,124,220,129,199,192,0,67,131,251,32,124,207,255,14,160,4,117,181,142,6,5,1,142,38,7,1,51,255,178,240,182,240,177,240,138,193,246,232,149,138,198,246,232,3,232,138,194,246,232,3,197,51,219,61,160,0,127,12,144,144,138,218,128,195,16,208,235,192,227,4,128,250,240,117,21,144,144,138,193,246,232,149,138,198,246,232,3,197,193,232,6,42,196,4,4,147,38,136,29,138,193,246,232,149,138,198,246,232,3,232,138,194,246,216,4,16,246,232,193,232,2,51,219,59,197,124,14,144,144,138,218,246,219,128,195,16,208,235,192,227,4,128,250,241,127,19,144,144,138,193,4,16,138,230,128,196,16,50,196,208,232,192,224,4,147,38,136,157,0,128,71,254,193,128,249,16,15,140,110,255,254,198,128,254,16,15,140,99,255,254,194,128,250,16,15,140,88,255,191,0,64,51,201,50,201,138,193,44,32,246,232,149,138,197,44,32,246,232,3,197,193,232,4,147,232,202,252,36,15,2,195,136,5,71,254,193,128,249,64,114,220,254,197,128,253,64,114,211,30,7,191,0,80,187,224,255,185,224,255,139,193,247,232,149,139,195,247,232,3,197,232,59,252,170,65,131,249,32,124,235,67,131,251,32,124,226,30,7,30,142,30,7,1,191,0,96,190,96,96,186,64,0,185,32,0,243,165,129,198,192,0,74,117,244,31,142,6,13,1,142,38,7,1,51,255,190,48,23,187,156,255,185,176,255,139,193,247,232,149,139,195,247,232,3,197,232,240,251,138,224,100,138,4,171,70,65,131,249,80,124,229,131,198,96,67,131,251,100,124,217,30,7,191,0,112,187,1,0,184,0,8,51,210,247,243,170,254,195,117,244,30,7,191,0,128,51,201,139,217,193,227,2,129,227,255,0,209,227,139,135,0,32,5,0,1,193,232,6,131,195,20,129,227,255,1,139,151,0,32,129,194,0,1,193,234,6,193,226,5,3,194,170,254,193,117,207,186,200,3,176,7,238,66,50,192,238,238,238,186,19,1,180,9,205,33,104,0,160,15,161,30,7,186,8,0,51,246,191,0,160,185,64,0,100,138,4,100,198,4,0,170,70,226,245,129,198,0,1,74,117,235,199,6,224,2,0,0,232,29,252,186,200,3,176,7,238,66,161,224,2,193,232,2,238,238,238,129,62,224,2,210,0,114,229,199,6,224,2,0,0,129,62,224,2,210,0,114,248,199,6,224,2,0,0,232,238,251,186,200,3,176,7,238,66,184,210,0,43,6,224,2,193,232,2,238,238,238,129,62,224,2,210,0,114,225,104,0,160,7,51,192,51,255,185,0,125,243,171,186,200,3,50,192,238,66,179,0,177,0,138,193,238,138,193,2,195,208,232,238,138,195,238,128,193,4,128,249,63,118,235,128,195,4,128,251,63,118,225,199,6,17,1,120,5,199,6,224,2,0,0,139,30,224,2,193,235,2,129,227,255,0,137,30,39,4,209,227,139,135,0,32,247,216,193,224,7,5,0,128,163,41,4,139,135,128,32,247,216,193,224,7,5,0,128,163,43,4,139,135,0,32,193,224,5,45,0,16,163,45,4,142,6,3,1,142,38,5,1,139,30,39,4,131,235,32,129,227,255,0,209,227,139,135,0,32,163,49,4,139,135,128,32,163,47,4,139,30,39,4,131,195,32,129,227,255,0,209,227,139,135,0,32,163,53,4,139,135,128,32,163,51,4,161,65,4,163,6,11,199,6,59,4,0,0,131,62,59,4,16,114,7,144,144,51,255,235,4,144,191,192,123,199,6,61,4,100,0,131,62,59,4,16,114,16,144,144,139,30,61,4,247,219,209,227,186,0,193,235,14,144,187,201,0,161,61,4,209,224,43,216,186,0,63,161,59,4,247,216,193,224,9,3,194,43,6,45,4,153,247,251,149,161,47,4,247,237,3,6,41,4,163,55,4,161,51,4,43,6,47,4,187,64,1,247,237,247,251,163,39,3,161,49,4,247,237,3,6,43,4,163,57,4,161,53,4,43,6,49,4,247,237,247,251,163,41,3,161,41,3,163,22,11,163,47,11,163,91,11,161,55,4,139,22,57,4,139,46,39,3,139,54,59,4,193,230,11,131,62,59,4,16,114,67,144,144,142,46,9,1,185,64,1,138,222,138,252,101,138,159,52,18,101,2,31,50,255,138,159,0,48,38,136,29,129,194,255,255,3,197,71,226,226,235,67,144,185,64,1,138,222,138,252,101,138,31,38,136,29,129,194,255,255,3,197,71,226,237,235,42,144,185,64,1,138,222,128,227,31,193,227,5,2,220,128,215,0,129,227,255,3,100,138,24,132,219,116,5,144,144,38,136,29,129,194,52,18,3,197,71,226,218,255,14,61,4,15,133,250,254,255,6,59,4,131,62,59,4,17,15,130,214,254,232,135,249,232,233,249,161,224,2,193,224,8,2,6,224,2,163,65,4,228,96,60,1,15,132,5,5,161,17,1,57,6,224,2,15,130,42,254,142,6,11,1,142,38,9,1,51,255,186,200,0,185,64,1,138,217,138,250,100,138,7,192,232,2,100,138,167,10,10,192,236,2,192,228,4,2,196,38,136,5,71,73,117,226,74,117,220,199,6,17,1,188,2,199,6,224,2,0,0,139,30,224,2,50,255,209,227,139,135,0,32,5,0,1,193,232,3,5,32,0,163,241,2,139,30,224,2,209,227,50,255,209,227,139,135,0,32,5,0,1,193,232,3,5,32,0,163,243,2,232,230,246,142,6,15,1,51,201,139,249,51,219,139,193,43,6,241,2,247,232,149,139,195,247,232,3,232,184,255,127,51,210,69,247,245,139,240,139,193,43,6,243,2,247,232,149,139,195,247,232,3,232,184,255,127,51,210,69,247,245,3,198,149,51,192,129,253,128,0,114,4,144,144,176,3,170,131,199,127,67,131,251,32,114,183,65,129,249,128,0,114,172,232,191,246,232,146,248,232,244,248,228,96,60,1,15,132,29,4,161,17,1,57,6,224,2,15,130,85,255,199,6,17,1,120,5,199,6,224,2,0,0,142,6,15,1,51,255,51,192,185,0,16,243,171,142,38,5,1,51,237,51,255,187,1,0,139,197,193,224,8,247,216,5,192,63,51,210,247,243,139,245,139,208,193,234,7,193,230,10,3,6,69,4,193,232,3,37,15,0,193,224,6,3,240,185,32,0,51,192,100,138,132,0,128,132,192,116,16,144,144,192,232,4,43,194,115,4,144,144,51,192,38,136,5,70,71,226,225,254,195,128,251,140,114,176,69,131,253,32,124,165,142,6,3,1,142,38,13,1,142,46,15,1,51,255,51,246,185,0,125,100,139,28,51,192,138,199,193,224,5,131,227,31,3,216,101,138,7,138,224,171,131,198,2,226,230,232,210,247,232,52,248,161,224,2,209,224,50,228,163,69,4,228,96,60,1,15,132,83,3,161,17,1,57,6,224,2,15,130,66,255,199,6,17,1,120,5,199,6,224,2,0,0,142,6,15,1,142,38,7,1,139,46,71,4,51,255,51,192,139,221,192,235,6,192,239,6,2,223,128,227,1,116,44,144,144,51,219,139,197,139,216,37,63,0,193,235,8,128,227,63,193,227,6,3,216,50,192,128,191,0,80,15,119,13,144,144,139,221,129,227,63,63,100,138,135,96,96,38,136,5,69,71,117,188,142,6,5,1,142,38,15,1,142,46,9,1,51,246,51,201,139,46,71,4,139,249,193,239,8,184,0,128,139,208,177,128,138,254,138,220,100,128,63,0,117,39,144,144,3,221,101,138,31,192,235,2,138,251,192,231,4,2,223,38,136,29,3,148,0,32,3,132,128,32,129,199,0,1,254,201,117,210,235,32,144,100,138,31,51,237,62,138,190,0,112,101,138,7,192,232,2,192,224,4,38,136,5,129,199,0,1,69,254,201,117,230,131,198,2,254,197,117,153,142,6,3,1,142,38,13,1,142,46,5,1,51,255,51,246,185,0,128,100,139,28,132,219,116,8,144,144,101,138,7,138,224,171,131,198,2,226,236,232,179,246,232,21,247,139,30,224,2,50,255,209,227,139,135,0,32,189,10,0,247,237,189,25,0,153,247,253,193,224,8,145,139,135,128,32,189,10,0,247,237,189,25,0,153,247,253,3,193,5,32,32,163,71,4,228,96,60,1,15,132,12,2,161,17,1,57,6,224,2,15,130,197,254,30,7,191,0,129,190,0,32,185,64,1,173,171,139,44,131,249,1,119,5,144,144,189,255,0,43,232,149,187,5,0,153,247,251,149,186,3,0,3,197,171,74,117,250,226,221,142,46,9,1,142,38,11,1,142,6,3,1,51,246,232,21,246,38,136,4,70,117,247,232,227,245,232,224,245,232,221,245,142,6,11,1,142,38,3,1,232,179,245,51,246,38,138,4,192,232,4,138,224,192,228,4,2,196,38,136,4,70,117,237,142,38,9,1,142,6,3,1,51,246,101,138,4,192,232,2,101,138,164,4,4,192,236,2,192,228,4,2,196,38,136,4,70,117,231,142,6,9,1,30,142,30,3,1,51,255,51,246,185,0,128,243,165,31,142,6,15,1,51,255,184,240,240,185,0,128,243,171,51,255,139,199,44,128,246,232,149,139,199,138,196,44,128,246,232,3,197,61,25,59,119,5,144,144,38,136,21,71,117,226,232,50,242,199,6,17,1,120,5,199,6,224,2,0,0,142,6,3,1,184,68,68,51,255,185,0,125,243,171,142,6,15,1,139,46,224,2,209,229,191,64,64,186,128,0,185,128,0,139,217,209,227,3,221,129,227,255,0,209,227,139,135,0,32,139,218,209,227,129,227,255,0,209,227,3,135,0,32,5,0,2,193,232,3,36,240,38,136,5,71,226,212,129,199,128,0,74,117,202,232,178,245,232,238,241,232,45,245,232,143,245,228,96,60,1,15,132,184,0,161,17,1,57,6,224,2,114,143,142,6,15,1,51,255,184,240,240,185,0,128,243,171,51,255,139,199,44,128,246,232,149,139,199,138,196,44,128,246,232,3,197,61,25,59,119,5,144,144,38,136,21,71,117,226,232,132,241,142,6,15,1,190,0,160,191,72,120,186,8,0,185,64,0,172,60,7,117,38,144,144,184,255,255,38,199,5,31,31,38,199,133,0,1,31,31,38,199,133,0,2,31,31,38,199,133,0,3,31,31,38,199,133,0,4,31,31,131,199,2,226,208,129,199,128,2,74,117,198,199,6,17,1,188,2,199,6,224,2,0,0,142,6,3,1,184,68,68,51,255,185,0,125,243,171,232,3,245,232,63,241,232,126,244,232,224,244,228,96,60,1,116,11,144,144,161,17,1,57,6,224,2,114,213,180,37,176,8,30,139,22,222,2,142,30,220,2,205,33,31,250,176,54,230,67,51,192,230,64,138,224,230,64,251,180,2,205,26,179,10,138,197,192,232,4,246,227,128,229,15,2,197,138,232,138,193,192,232,4,246,227,128,225,15,2,193,138,200,138,198,192,232,4,246,227,128,230,15,2,198,138,240,50,210,180,45,205,33,184,3,0,205,16,195];
   td_original.innerHTML = "N/A";
+  td_embed.innerHTML = '<iframe width="350" height="315" src="https://www.youtube.com/embed/Z7uK381rZUM" frameborder="0" allowfullscreen></iframe>';
   cpu_mode = 32;
   disassemble();
 }
 
-futura.onclick();
-futura.focus();
+megapole.onclick();
+megapole.focus();
