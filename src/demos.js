@@ -119,7 +119,7 @@ fimul dword  [si]         ; fpustack :  l*cos(arc)  arc
 fidiv word  [bx-8]        ; fpustack :  l*cos(arc)/x  arc
 fiadd word  [bp+si]       ; fpustack :  l*cos(arc)/x+offset  arc
 fistp dword  [bx-7]       ; fpustack :  arc
-fimul word  [byte si+val] ; fpustack :  scaled_arc (si = 0x100, disp8 = 0x3D => si+disp8 = val = 0x13D)
+fimul word  [byte si+val] ; fpustack :  scaled_arc [si+val] = [0x100 + 61] = [0x13D])
 fistp word  [bx-5]        ; fpustack :  -
 popa                      ; pop all registers from stack
 xor al, cl                ; XOR scaled_arc with distance
@@ -142,8 +142,8 @@ val: dw 6519              ; n = 160 * 256 / pi / 2 ; 0x1977`;
 // M8TRIX.COM
 m8trix.onclick = e => {
   bytes = [196,28,159,171,71,71,235,249];
-  td_original.innerHTML = `<pre>S: les bx,[si] ; sets ES to the screen, assume si = 0x100 ; 0x101 is SBB AL,9F and changes the char ; without CR flag, there would be; no animation ;)
-lahf           ; gets 0x02 (green) in the first run ; afterwards, it is not called again ; because of alignment ;)
+  td_original.innerHTML = `<pre>S: les bx,[si] ; sets ES to the screen, assume si = 0x100
+lahf           ; gets 0x02 (green) in the first run ; afterwards, it is not called again
 stosw          ; print the green char ... ; (is also 0xAB9F and works as segment)
 inc di         ; and skip one row
 inc di         ;
@@ -158,13 +158,13 @@ point16b.onclick = e => {
   bytes = [176,18,67,205,16,147,52,2,205,51,147,180,12,226,244,195];
   td_original.innerHTML = `<pre>mov al,0x12	; assume ah = 0 ; set graphics mode to 640*480
 inc bx		; assume bx = 0 ; set to 1 (show cursor)
-mloop: int 0x10	; first loop, switch to graphic mode ; further loops, set pixel		
-xchg bx,ax	; first loop, set AX to 1 (show cursor) ; further loops, restore old calling mode		
-xor al,0x02	; switch modes : show cursor &lt;-> get mouse state ; updating XY every second loop plus drawing ; one pixel left results in thicker lines		
+mloop: int 0x10	; first loop, switch to graphic mode ; further loops, set pixel
+xchg bx,ax	; first loop, set AX to 1 (show cursor) ; further loops, restore old calling mode
+xor al,0x02	; switch modes, show cursor, get mouse state, update XY every second loop, draw
 int 0x33	; call the mouse interrupt
-xchg bx,ax	; store the button state in AL for drawing ; remember the current calling mode ; for switching it later (in BX)			
+xchg bx,ax	; store the button state in AL, remember current calling mode for switching in BX
 mov ah,0x0C	; set mode to "set pixel"
-loop mloop	; dec CX -> draw one pixel left from cursor ; basically enables drawing pixels ; while the cursor is active ; allows exit if the mouse is leftmost
+loop mloop	; dec CX: draw 1 pixel left of cursor while it is active, exit if leftmost
 ret		; assume [[FFEE]] = [0] = CD20 = int 20`;
   cpu_mode = 32;
   td_embed.innerHTML = "<img src='http://content.pouet.net/files/screenshots/00063/00063826.png' width=350>";
